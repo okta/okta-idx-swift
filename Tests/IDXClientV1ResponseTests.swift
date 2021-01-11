@@ -150,6 +150,30 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertNotNil(form)
             XCTAssertEqual(form?.form.value.count, 2)
         }
+        
+        try decode(type: API.Response.FormValue.self, """
+        {
+            "name": "credentials",
+            "type": "object",
+            "form": {
+                "value": [{
+                    "name": "passcode",
+                    "label": "Password",
+                    "secret": true
+                }]
+            },
+            "required": true
+        }
+        """) { (obj) in
+            XCTAssertNotNil(obj)
+            XCTAssertEqual(obj.name, "credentials")
+            XCTAssertEqual(obj.type, "object")
+            
+            let form = obj.form?.value
+            XCTAssertNotNil(form)
+            XCTAssertEqual(form?.count, 1)
+            XCTAssertEqual(form?.first?.name, "passcode")
+        }
 
         try decode(type: API.Response.FormValue.self, """
           {

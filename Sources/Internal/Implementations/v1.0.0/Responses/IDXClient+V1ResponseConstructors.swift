@@ -56,7 +56,7 @@ extension IDXClient.Remediation.FormValue {
                   mutable: object.mutable ?? true,
                   required: object.required ?? false,
                   secret: object.secret ?? false,
-                  form: nil/*object.form?.map { IDXClient.FormValue(client: client, v1: $0) }*/,
+                  form: object.form?.value.map { IDXClient.Remediation.FormValue(client: client, v1: $0) },
                   options: nil/*object.options?.map { IDXClient.FormValue(client: client, v1: $0) }*/)
     }
 }

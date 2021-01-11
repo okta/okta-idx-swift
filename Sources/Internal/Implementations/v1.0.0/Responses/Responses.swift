@@ -100,11 +100,12 @@ extension IDXClient.APIVersion1 {
             let secret: Bool?
             let visible: Bool?
             let mutable: Bool?
+            let form: CompositeFormValue?
             let options: [FormValue]?
             let relatesTo: String?
             
             private enum CodingKeys: String, CodingKey {
-                case name, required, label, type, value, secret, visible, mutable, options, relatesTo
+                case name, required, label, type, value, secret, visible, mutable, options, form, relatesTo
             }
 
             init(from decoder: Decoder) throws {
@@ -118,7 +119,8 @@ extension IDXClient.APIVersion1 {
                 mutable = try container.decodeIfPresent(Bool.self, forKey: .mutable)
                 relatesTo = try container.decodeIfPresent(String.self, forKey: .relatesTo)
                 options = try container.decodeIfPresent([FormValue].self, forKey: .options)
-                
+                form = try container.decodeIfPresent(CompositeFormValue.self, forKey: .form)
+
                 if let obj = try? container.decodeIfPresent(CompositeForm.self, forKey: .value) {
                     value = .object(obj)
                 } else {
