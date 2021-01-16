@@ -82,15 +82,15 @@ public class Signin {
         
         // Attempt to instantiate a view controller to represent the remediation option.
         guard let option = response.remediation?.remediationOptions.first else { return nil }
-
-        let controller = storyboard.instantiateViewController(identifier: "option-\(option.name)")
-        if var idxController = controller as? UIViewController & IDXRemediationController {
-            idxController.signin = self
-            idxController.response = response
-            idxController.remediationOption = option
-        }
         
-        return controller
+        if let controller = storyboard.instantiateViewController(identifier: "remediation") as? IDXRemediationTableViewController {
+            controller.signin = self
+            controller.response = response
+            controller.remediationOption = option
+            return controller
+        }
+
+        return nil
     }
     
     /// Called by the signin view controllers when the Future should fail.

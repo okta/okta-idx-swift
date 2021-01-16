@@ -24,6 +24,7 @@
 		966A1E76258BDB1B00864DB7 /* URLSessionProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A1E75258BDB1B00864DB7 /* URLSessionProtocolTests.swift */; };
 		966A1E80258BEADB00864DB7 /* IDXClientError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A1E7F258BEADB00864DB7 /* IDXClientError+Extensions.swift */; };
 		967102CA2587F93E00D5D85F /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967102C92587F93D00D5D85F /* URLSessionMock.swift */; };
+		9691E6BB25AE407A000CD02C /* MFA-Email in Resources */ = {isa = PBXBuildFile; fileRef = 9691E6BA25AE407A000CD02C /* MFA-Email */; };
 		9696A40825892C74005D6E9D /* IDXClient+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696A40725892C74005D6E9D /* IDXClient+Response.swift */; };
 		96C584E8258A982400E79975 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C584E7258A982400E79975 /* JSONValue.swift */; };
 		96C584EE258ACEB200E79975 /* JSONValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C584ED258ACEB200E79975 /* JSONValueTests.swift */; };
@@ -88,6 +89,7 @@
 		966A1E75258BDB1B00864DB7 /* URLSessionProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocolTests.swift; sourceTree = "<group>"; };
 		966A1E7F258BEADB00864DB7 /* IDXClientError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDXClientError+Extensions.swift"; sourceTree = "<group>"; };
 		967102C92587F93D00D5D85F /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		9691E6BA25AE407A000CD02C /* MFA-Email */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "MFA-Email"; sourceTree = "<group>"; };
 		9696A40725892C74005D6E9D /* IDXClient+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDXClient+Response.swift"; sourceTree = "<group>"; };
 		96C584E7258A982400E79975 /* JSONValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
 		96C584ED258ACEB200E79975 /* JSONValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONValueTests.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				964A44D3259D017A002CB250 /* Passcode */,
+				9691E6BA25AE407A000CD02C /* MFA-Email */,
 				96F8F23B2582D77700DA2701 /* answer-challenge-response.json */,
 				96F8F2382582D77600DA2701 /* cancel-response.json */,
 				96F8F2372582D77600DA2701 /* challenge-response.json */,
@@ -426,6 +429,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9691E6BB25AE407A000CD02C /* MFA-Email in Resources */,
 				96F8F2432582D77700DA2701 /* challenge-response.json in Resources */,
 				964A44D4259D017A002CB250 /* Passcode in Resources */,
 				96F8F24C2582D77700DA2701 /* success-response.json in Resources */,

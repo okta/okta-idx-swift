@@ -19,13 +19,19 @@
 		964F748825A3E602003EE300 /* OktaIdx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 964F748625A3E602003EE300 /* OktaIdx.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9652D9CA25A9142600927FA5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652D9C925A9142600927FA5 /* UIView+Extensions.swift */; };
 		96576C5025A91EEA00B02E3B /* IDXStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C4F25A91EEA00B02E3B /* IDXStartViewController.swift */; };
-		96576C5625A92D2200B02E3B /* IDXIdentifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C5525A92D2200B02E3B /* IDXIdentifierViewController.swift */; };
-		96576C5A25A92D3100B02E3B /* IDXPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C5925A92D3100B02E3B /* IDXPasscodeViewController.swift */; };
 		96576C6225ACC53200B02E3B /* IDXGetTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C6125ACC53200B02E3B /* IDXGetTokenViewController.swift */; };
 		96576C6F25ACDD8A00B02E3B /* IDXSigninController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C6E25ACDD8A00B02E3B /* IDXSigninController.swift */; };
 		96576C7F25ACF64B00B02E3B /* IDXSignin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96576C7E25ACF64B00B02E3B /* IDXSignin.storyboard */; };
 		96576C8325ACFBEC00B02E3B /* Signin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C8225ACFBEC00B02E3B /* Signin.swift */; };
 		96576C8725ACFC5900B02E3B /* TokenResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C8625ACFC5900B02E3B /* TokenResultViewController.swift */; };
+		9691E6BF25AF727A000CD02C /* IDXRemediationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6BE25AF7279000CD02C /* IDXRemediationTableViewController.swift */; };
+		9691E6C425AF73C4000CD02C /* IDXTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6C325AF73C4000CD02C /* IDXTextTableViewCell.swift */; };
+		9691E6C825AF73D9000CD02C /* IDXToggleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6C725AF73D9000CD02C /* IDXToggleTableViewCell.swift */; };
+		9691E6CE25AF73F0000CD02C /* IDXButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6CD25AF73F0000CD02C /* IDXButtonTableViewCell.swift */; };
+		9691E6D225AF740A000CD02C /* IDXOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6D125AF740A000CD02C /* IDXOptionTableViewCell.swift */; };
+		96ADA06125B0D173008BF50D /* FormRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ADA06025B0D173008BF50D /* FormRows.swift */; };
+		96ADA06725B0F5D5008BF50D /* IDXLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ADA06625B0F5D5008BF50D /* IDXLabelTableViewCell.swift */; };
+		96ADA06D25B111AA008BF50D /* IDXMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ADA06C25B111AA008BF50D /* IDXMessageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,13 +83,19 @@
 		964F748625A3E602003EE300 /* OktaIdx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaIdx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9652D9C925A9142600927FA5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		96576C4F25A91EEA00B02E3B /* IDXStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXStartViewController.swift; sourceTree = "<group>"; };
-		96576C5525A92D2200B02E3B /* IDXIdentifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXIdentifierViewController.swift; sourceTree = "<group>"; };
-		96576C5925A92D3100B02E3B /* IDXPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXPasscodeViewController.swift; sourceTree = "<group>"; };
 		96576C6125ACC53200B02E3B /* IDXGetTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXGetTokenViewController.swift; sourceTree = "<group>"; };
 		96576C6E25ACDD8A00B02E3B /* IDXSigninController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXSigninController.swift; sourceTree = "<group>"; };
 		96576C7E25ACF64B00B02E3B /* IDXSignin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IDXSignin.storyboard; sourceTree = "<group>"; };
 		96576C8225ACFBEC00B02E3B /* Signin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signin.swift; sourceTree = "<group>"; };
 		96576C8625ACFC5900B02E3B /* TokenResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResultViewController.swift; sourceTree = "<group>"; };
+		9691E6BE25AF7279000CD02C /* IDXRemediationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXRemediationTableViewController.swift; sourceTree = "<group>"; };
+		9691E6C325AF73C4000CD02C /* IDXTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXTextTableViewCell.swift; sourceTree = "<group>"; };
+		9691E6C725AF73D9000CD02C /* IDXToggleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXToggleTableViewCell.swift; sourceTree = "<group>"; };
+		9691E6CD25AF73F0000CD02C /* IDXButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXButtonTableViewCell.swift; sourceTree = "<group>"; };
+		9691E6D125AF740A000CD02C /* IDXOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXOptionTableViewCell.swift; sourceTree = "<group>"; };
+		96ADA06025B0D173008BF50D /* FormRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRows.swift; sourceTree = "<group>"; };
+		96ADA06625B0F5D5008BF50D /* IDXLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXLabelTableViewCell.swift; sourceTree = "<group>"; };
+		96ADA06C25B111AA008BF50D /* IDXMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXMessageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +199,8 @@
 		96576C6B25ACDD4F00B02E3B /* Signin */ = {
 			isa = PBXGroup;
 			children = (
+				96ADA05F25B0D15D008BF50D /* View Model */,
+				9691E6C225AF7328000CD02C /* TableView Cells */,
 				96576C6D25ACDD6C00B02E3B /* View Controllers */,
 				96576C6C25ACDD5A00B02E3B /* Protocols */,
 				96576C8225ACFBEC00B02E3B /* Signin.swift */,
@@ -207,11 +221,31 @@
 			children = (
 				96576C7E25ACF64B00B02E3B /* IDXSignin.storyboard */,
 				96576C4F25A91EEA00B02E3B /* IDXStartViewController.swift */,
-				96576C5525A92D2200B02E3B /* IDXIdentifierViewController.swift */,
-				96576C5925A92D3100B02E3B /* IDXPasscodeViewController.swift */,
 				96576C6125ACC53200B02E3B /* IDXGetTokenViewController.swift */,
+				9691E6BE25AF7279000CD02C /* IDXRemediationTableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9691E6C225AF7328000CD02C /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				96ADA06625B0F5D5008BF50D /* IDXLabelTableViewCell.swift */,
+				9691E6C325AF73C4000CD02C /* IDXTextTableViewCell.swift */,
+				9691E6C725AF73D9000CD02C /* IDXToggleTableViewCell.swift */,
+				9691E6CD25AF73F0000CD02C /* IDXButtonTableViewCell.swift */,
+				9691E6D125AF740A000CD02C /* IDXOptionTableViewCell.swift */,
+				96ADA06C25B111AA008BF50D /* IDXMessageTableViewCell.swift */,
+			);
+			path = "TableView Cells";
+			sourceTree = "<group>";
+		};
+		96ADA05F25B0D15D008BF50D /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				96ADA06025B0D173008BF50D /* FormRows.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,16 +384,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96576C5A25A92D3100B02E3B /* IDXPasscodeViewController.swift in Sources */,
 				9652D9CA25A9142600927FA5 /* UIView+Extensions.swift in Sources */,
 				964F745725A3E5F0003EE300 /* ViewController.swift in Sources */,
-				96576C5625A92D2200B02E3B /* IDXIdentifierViewController.swift in Sources */,
+				9691E6C825AF73D9000CD02C /* IDXToggleTableViewCell.swift in Sources */,
+				9691E6CE25AF73F0000CD02C /* IDXButtonTableViewCell.swift in Sources */,
 				96576C5025A91EEA00B02E3B /* IDXStartViewController.swift in Sources */,
 				964F745325A3E5F0003EE300 /* AppDelegate.swift in Sources */,
+				96ADA06725B0F5D5008BF50D /* IDXLabelTableViewCell.swift in Sources */,
+				96ADA06125B0D173008BF50D /* FormRows.swift in Sources */,
+				9691E6D225AF740A000CD02C /* IDXOptionTableViewCell.swift in Sources */,
 				964F745525A3E5F0003EE300 /* SceneDelegate.swift in Sources */,
+				9691E6BF25AF727A000CD02C /* IDXRemediationTableViewController.swift in Sources */,
 				96576C6225ACC53200B02E3B /* IDXGetTokenViewController.swift in Sources */,
+				9691E6C425AF73C4000CD02C /* IDXTextTableViewCell.swift in Sources */,
 				96576C8725ACFC5900B02E3B /* TokenResultViewController.swift in Sources */,
 				96576C6F25ACDD8A00B02E3B /* IDXSigninController.swift in Sources */,
+				96ADA06D25B111AA008BF50D /* IDXMessageTableViewCell.swift in Sources */,
 				96576C8325ACFBEC00B02E3B /* Signin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

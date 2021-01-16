@@ -17,6 +17,29 @@ As a result, a multi-tiered approach will be made to reach the following goals:
 * Overridden `description` and `debugDescription` implementations to aid in debugging.
 * Unified Logging and Activity Tracing support for simpler crash log reporting.
 
+This repository contains the Okta IDX SDK for Swift. This SDK can be used in your native client code (iOS, macOS) to assist in authenticating users against the Okta Identity Engine.
+
+> :grey_exclamation: The use of this SDK requires you to be a part of our limited general availability (LGA) program with access to Okta Identity Engine. If you want to request to be a part of our LGA program for Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to oie@okta.com for more information.
+
+> :warning: Beta alert! This library is in beta. See [release status](#release-status) for more information.
+
+## Release status
+
+This library uses semantic versioning and follows Okta's [Library Version Policy][okta-library-versioning].
+
+| Version | Status                             |
+| ------- | ---------------------------------- |
+| 0.1.0   | :warning: Beta                     |
+
+The latest release can always be found on the [releases page][github-releases].
+
+## Need help?
+ 
+If you run into problems using the SDK, you can
+ 
+* Ask questions on the [Okta Developer Forums][devforum]
+* Post [issues][github-issues] here on GitHub (for code errors)
+
 ## Getting Started
 
 ## Supported Platforms

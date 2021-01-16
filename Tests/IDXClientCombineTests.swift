@@ -44,7 +44,8 @@ class IDXClientCombineTests: XCTestCase {
                                       intent: "Login",
                                       remediation: nil,
                                       cancel: remedationOption,
-                                      success: remedationOption)
+                                      success: remedationOption,
+                                      messages: nil)
         token = IDXClient.Token(accessToken: "accessToken", refreshToken: nil, expiresIn: 800, idToken: nil, scope: "", tokenType: "bear")
     }
 
