@@ -76,9 +76,11 @@ public extension IDXClient {
         ///   - completion: Invoked when the operation is cancelled.
         ///   - response: The response describing the new workflow next steps, or `nil` if an error occurred.
         ///   - error: Describes the error that occurred, or `nil` if successful.
-        @objc public func cancel(completion: @escaping(_ response: Response?, _ error: Error?) -> Void) {
+        @objc public func cancel(completion: ((_ response: Response?, _ error: Error?) -> Void)? = nil) {
             guard let cancelOption = cancelRemediationOption else {
-                completion(nil, IDXClientError.unknownRemediationOption(name: "cancel"))
+                if let completion = completion {
+                    completion(nil, IDXClientError.unknownRemediationOption(name: "cancel"))
+                }
                 return
             }
             
@@ -90,9 +92,11 @@ public extension IDXClient {
         ///   - completion: Completion handler invoked when a token, or error, is received.
         ///   - token: The token that was exchanged, or `nil` if an error occurred.
         ///   - error: Describes the error that occurred, or `nil` if successful.
-        @objc public func exchangeCode(completion: @escaping(_ token: Token?, _ error: Error?) -> Void) {
+        @objc public func exchangeCode(completion: ((_ token: Token?, _ error: Error?) -> Void)? = nil) {
             guard let client = api.client else {
-                completion(nil, IDXClientError.invalidClient)
+                if let completion = completion {
+                    completion(nil, IDXClientError.invalidClient)
+                }
                 return
             }
             
@@ -560,9 +564,11 @@ public extension IDXClient {
             ///   - response: `IDXClient.Response` object describing the next step in the remediation workflow, or `nil` if an error occurred.
             ///   - error: A description of the error that occurred, or `nil` if the request was successful.
             @objc(proceedWithData:completion:)
-            public func proceed(with dataFromUI: [String:Any] = [:], completion: @escaping (_ response: Response?, _ error: Error?) -> Void) {
+            public func proceed(with dataFromUI: [String:Any] = [:], completion: ((_ response: Response?, _ error: Error?) -> Void)? = nil) {
                 guard let client = api?.client else {
-                    completion(nil, IDXClientError.invalidClient)
+                    if let completion = completion {
+                        completion(nil, IDXClientError.invalidClient)
+                    }
                     return
                 }
                 
@@ -571,14 +577,18 @@ public extension IDXClient {
                                    data: try self.formValues(with: dataFromUI),
                                    completion: completion)
                 } catch {
-                    completion(nil, error)
+                    if let completion = completion {
+                        completion(nil, error)
+                    }
                 }
             }
 
             @objc(proceedWithParameters:completion:)
-            public func proceed(with parameters: Parameters, completion: @escaping (_ response: Response?, _ error: Error?) -> Void) {
+            public func proceed(with parameters: Parameters, completion: ((_ response: Response?, _ error: Error?) -> Void)? = nil) {
                 guard let client = api?.client else {
-                    completion(nil, IDXClientError.invalidClient)
+                    if let completion = completion {
+                        completion(nil, IDXClientError.invalidClient)
+                    }
                     return
                 }
                 
@@ -587,7 +597,9 @@ public extension IDXClient {
                                    data: try formValues(using: parameters),
                                    completion: completion)
                 } catch {
-                    completion(nil, error)
+                    if let completion = completion {
+                        completion(nil, error)
+                    }
                 }
             }
 

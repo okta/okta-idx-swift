@@ -40,7 +40,7 @@ public protocol IDXClientAPI {
     ///   - response: The response describing the next steps available in this workflow.
     ///   - error: Describes the error that occurred, or `nil` if successful.
     @objc func introspect(_ interactionHandle: String,
-                          completion: @escaping (_ reponse: IDXClient.Response?, _ error: Error?) -> Void)
+                          completion: ((_ reponse: IDXClient.Response?, _ error: Error?) -> Void)?)
 
     /// Indicates whether or not the current stage in the workflow can be cancelled.
     @objc var canCancel: Bool { get }
@@ -50,7 +50,7 @@ public protocol IDXClientAPI {
     ///   - completion: Invoked when the operation is cancelled.
     ///   - response: The response describing the new workflow next steps, or `nil` if an error occurred.
     ///   - error: Describes the error that occurred, or `nil` if successful.
-    @objc func cancel(completion: @escaping (_ response: IDXClient.Response?, _ error: Error?) -> Void)
+    @objc func cancel(completion: ((_ response: IDXClient.Response?, _ error: Error?) -> Void)?)
     
     /// Proceeds to the given remediation option.
     /// - Parameters:
@@ -61,7 +61,7 @@ public protocol IDXClientAPI {
     ///   - error: Describes the error that occurred, or `nil` if successful.
     @objc func proceed(remediation option: IDXClient.Remediation.Option,
                        data: [String : Any],
-                       completion: @escaping (_ response: IDXClient.Response?, _ error: Swift.Error?) -> Void)
+                       completion: ((_ response: IDXClient.Response?, _ error: Swift.Error?) -> Void)?)
     
     /// Exchanges the successful response with a token.
     /// - Parameters:
@@ -70,5 +70,5 @@ public protocol IDXClientAPI {
     ///   - token: The token that was exchanged, or `nil` if an error occurred.
     ///   - error: Describes the error that occurred, or `nil` if successful.
     @objc func exchangeCode(using response: IDXClient.Response,
-                            completion: @escaping (_ token: IDXClient.Token?, _ error: Swift.Error?) -> Void)
+                            completion: ((_ token: IDXClient.Token?, _ error: Swift.Error?) -> Void)?)
 }

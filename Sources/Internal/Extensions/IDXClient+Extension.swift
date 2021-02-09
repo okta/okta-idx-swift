@@ -48,15 +48,19 @@ extension IDXClient {
         }
     }
 
-    public func start(completion: @escaping (Response?, Error?) -> Void) {
+    public func start(completion: ((Response?, Error?) -> Void)? = nil) {
         interact { (context, error) in
             guard error == nil else {
-                completion(nil, error)
+                if let completion = completion {
+                    completion(nil, error)
+                }
                 return
             }
             
             guard let context = context else {
-                completion(nil, IDXClientError.missingRequiredParameter(name: "context"))
+                if let completion = completion {
+                    completion(nil, IDXClientError.missingRequiredParameter(name: "context"))
+                }
                 return
             }
             
@@ -71,7 +75,7 @@ extension IDXClient {
         }
     }
     
-    public func introspect(_ interactionHandle: String, completion: @escaping (Response?, Error?) -> Void) {
+    public func introspect(_ interactionHandle: String, completion: ((Response?, Error?) -> Void)? = nil) {
         self.api.introspect(interactionHandle) { (response, error) in
             self.handleResponse(response, error: error, completion: completion)
         }
@@ -81,7 +85,7 @@ extension IDXClient {
         return self.api.canCancel
     }
     
-    public func cancel(completion: @escaping (Response?, Error?) -> Void) {
+    public func cancel(completion: ((Response?, Error?) -> Void)? = nil) {
         self.api.cancel { (response, error) in
             self.handleResponse(response, error: error, completion: completion)
         }
@@ -89,14 +93,14 @@ extension IDXClient {
     
     public func proceed(remediation option: Remediation.Option,
                         data: [String : Any] = [:],
-                        completion: @escaping (IDXClient.Response?, Error?) -> Void)
+                        completion: ((IDXClient.Response?, Error?) -> Void)? = nil)
     {
         self.api.proceed(remediation: option, data: data) { (response, error) in
             self.handleResponse(response, error: error, completion: completion)
         }
     }
     
-    public func exchangeCode(using response: Response, completion: @escaping (Token?, Error?) -> Void) {
+    public func exchangeCode(using response: Response, completion: ((Token?, Error?) -> Void)? = nil) {
         self.api.exchangeCode(using: response) { (token, error) in
             self.handleResponse(token, error: error, completion: completion)
         }
