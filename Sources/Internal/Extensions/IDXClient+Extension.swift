@@ -38,7 +38,7 @@ extension IDXClient {
     internal func informDelegate<T>(_ delegate: IDXClientDelegate?, response: T?, error: Error?) {
         guard let delegate = delegate else { return }
         if let error = error {
-            delegate.idx(client: self, receivedError: error)
+            delegate.idx(client: self, didReceive: error)
         }
         
         if let response = response as? Response {

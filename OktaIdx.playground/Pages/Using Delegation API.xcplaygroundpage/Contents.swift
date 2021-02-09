@@ -30,7 +30,7 @@ class LoginSession: IDXClientDelegate {
         self.completion = completion
     }
     
-    func idx(client: IDXClient, receivedError error: Error) {
+    func idx(client: IDXClient, didReceive error: Error) {
         completion(nil, error)
     }
     
