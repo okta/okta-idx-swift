@@ -29,9 +29,7 @@ extension IDXClient {
         self.queue.async {
             self.informDelegate(self.delegate, response: response, error: error)
             
-            if let completion = completion {
-                completion(response, error)
-            }
+            completion?(response, error)
         }
     }
     
@@ -51,16 +49,12 @@ extension IDXClient {
     public func start(completion: ((Response?, Error?) -> Void)?) {
         interact { (context, error) in
             guard error == nil else {
-                if let completion = completion {
-                    completion(nil, error)
-                }
+                completion?(nil, error)
                 return
             }
             
             guard let context = context else {
-                if let completion = completion {
-                    completion(nil, IDXClientError.missingRequiredParameter(name: "context"))
-                }
+                completion?(nil, IDXClientError.missingRequiredParameter(name: "context"))
                 return
             }
             

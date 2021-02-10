@@ -81,9 +81,7 @@ public extension IDXClient {
         ///   - error: Describes the error that occurred, or `nil` if successful.
         @objc public func cancel(completion: ((_ response: Response?, _ error: Error?) -> Void)?) {
             guard let cancelOption = cancelRemediationOption else {
-                if let completion = completion {
-                    completion(nil, IDXClientError.unknownRemediationOption(name: "cancel"))
-                }
+                completion?(nil, IDXClientError.unknownRemediationOption(name: "cancel"))
                 return
             }
             
@@ -102,9 +100,7 @@ public extension IDXClient {
         ///   - error: Describes the error that occurred, or `nil` if successful.
         @objc public func exchangeCode(completion: ((_ token: Token?, _ error: Error?) -> Void)?) {
             guard let client = api.client else {
-                if let completion = completion {
-                    completion(nil, IDXClientError.invalidClient)
-                }
+                completion?(nil, IDXClientError.invalidClient)
                 return
             }
             
@@ -578,9 +574,7 @@ public extension IDXClient {
             @objc(proceedWithData:completion:)
             public func proceed(with dataFromUI: [String:Any] = [:], completion: ((_ response: Response?, _ error: Error?) -> Void)? = nil) {
                 guard let client = api?.client else {
-                    if let completion = completion {
-                        completion(nil, IDXClientError.invalidClient)
-                    }
+                    completion?(nil, IDXClientError.invalidClient)
                     return
                 }
                 
@@ -589,9 +583,7 @@ public extension IDXClient {
                                    data: try self.formValues(with: dataFromUI),
                                    completion: completion)
                 } catch {
-                    if let completion = completion {
-                        completion(nil, error)
-                    }
+                    completion?(nil, error)
                 }
             }
 
@@ -608,9 +600,7 @@ public extension IDXClient {
             @objc(proceedWithParameters:completion:)
             public func proceed(with parameters: Parameters, completion: ((_ response: Response?, _ error: Error?) -> Void)?) {
                 guard let client = api?.client else {
-                    if let completion = completion {
-                        completion(nil, IDXClientError.invalidClient)
-                    }
+                    completion?(nil, IDXClientError.invalidClient)
                     return
                 }
                 
@@ -619,9 +609,7 @@ public extension IDXClient {
                                    data: try formValues(using: parameters),
                                    completion: completion)
                 } catch {
-                    if let completion = completion {
-                        completion(nil, error)
-                    }
+                    completion?(nil, error)
                 }
             }
 
