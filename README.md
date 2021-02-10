@@ -1,3 +1,8 @@
+[<img src="https://aws1.discourse-cdn.com/standard14/uploads/oktadev/original/1X/0c6402653dfb70edc661d4976a43a46f33e5e919.png" align="right" width="256px"/>](https://devforum.okta.com/)
+
+[![Support](https://img.shields.io/badge/support-Developer%20Forum-blue.svg)][devforum]
+[![API Reference](https://img.shields.io/badge/docs-reference-lightgrey.svg)][swiftdocs]
+
 # Okta Swift IDX SDK
 
 This repository contains the Okta IDX SDK for Swift. This SDK can be used in your native client code (iOS, macOS) to assist in authenticating users against the Okta Identity Engine.
@@ -131,7 +136,7 @@ client.start { (context, response, error) in
 
 In this example the sign-on policy has no authenticators required.
 
-> Note: Steps to identify the user might change based on your Org configuration.
+> **Note:** Steps to identify the user might change based on your Org configuration.
 
 ```swift
 // Use the client created above
@@ -305,7 +310,7 @@ authenticatorOption.proceed(using: .init([authenticatorField: questionOption])) 
 
 In this example, the Org is configured to require an email as a second authenticator. After answering the password challenge, users have to select *email* and enter the code to finish the process.
 
-> Note: Steps to identify the user might change based on your Org configuration.
+> **Note:** Steps to identify the user might change based on your Org configuration.
 
 ```swift
 client.start { (_, response, error) in
@@ -396,9 +401,9 @@ client.start { (_, response, error) in
 
 In this example, the Org is configured with phone as a second authenticator. After answering the password challenge, users have to provide a phone number and then enter a code to finish the process.
 
-> Note: Steps to identify the user might change based on your Org configuration.
+> **Note:** Steps to identify the user might change based on your Org configuration.
 
-> Note: This example assumes the identifier has been supplied, and the first authenticator challenge has already been performed.
+> **Note:** This example assumes the identifier has been supplied, and the first authenticator challenge has already been performed.
 
 ```swift
 guard let response = response,
@@ -735,3 +740,15 @@ if response.isLoginSuccessful {
 To perform an end-to-end test, copy the `TestCredentials.xcconfig.example` file to `TestCredentials.xcconfig`, and update its contents to match your configuration as specified in the [prerequisites](#prerequisites). Next, you can run the test targets for both `okta-idx-ios` and `OktaIdxExample`.
 
 ## Known issues
+
+## Contributing
+ 
+We are happy to accept contributions and PRs! Please see the [contribution guide](CONTRIBUTING.md) to understand how to structure a contribution.
+
+[devforum]: https://devforum.okta.com/
+[swiftdocs]: https://developer.okta.com/okta-idx-swift/latest/
+[lang-landing]: https://developer.okta.com/code/swift/
+[github-issues]: https://github.com/okta/okta-idx-swift/issues
+[github-releases]: https://github.com/okta/okta-idx-swift/releases
+[Rate Limiting at Okta]: https://developer.okta.com/docs/api/getting_started/rate-limits
+[okta-library-versioning]: https://developer.okta.com/code/library-versions
