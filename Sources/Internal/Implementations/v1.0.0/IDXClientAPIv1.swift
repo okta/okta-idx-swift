@@ -16,7 +16,6 @@ extension IDXClient {
     internal class APIVersion1 {
         static let version = Version.v1_0_0
         weak var client: IDXClientAPI?
-        var stateHandle: String? = nil
         var cancelRemediationOption: IDXClient.Remediation.Option? = nil
         
         let configuration: IDXClient.Configuration
@@ -212,12 +211,10 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
 
 extension IDXClient.APIVersion1 {
     func consumeResponse(_ response: IntrospectRequest.ResponseType) throws {
-        self.stateHandle = response.stateHandle
         self.cancelRemediationOption = IDXClient.Remediation.Option(api: self, v1: response.cancel)
     }
     
     func consumeResponse(_ response: IDXClient.Response) throws  {
-        self.stateHandle = response.stateHandle
         self.cancelRemediationOption = response.cancelRemediationOption
     }
 
