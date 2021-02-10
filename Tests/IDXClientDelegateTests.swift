@@ -267,7 +267,7 @@ class IDXClientDelegateTests: XCTestCase {
         // exchangeCode()
         api.expect(function: "exchangeCode(using:completion:)", arguments: ["token": token as Any])
         waitFor { expectation in
-            self.client.exchangeCode(using: self.response)
+            self.client.exchangeCode(using: self.response, completion: nil)
             self.client.queue.async {
                 expectation.fulfill()
             }
@@ -281,7 +281,7 @@ class IDXClientDelegateTests: XCTestCase {
     func testExchangeCodeFromClientWithoutCompletionBlock() {
         api.expect(function: "exchangeCode(using:completion:)", arguments: ["token": token as Any])
         waitFor { expectation in
-            self.client.exchangeCode(using: self.response)
+            self.client.exchangeCode(using: self.response, completion: nil)
             self.client.queue.async {
                 expectation.fulfill()
             }
@@ -295,7 +295,7 @@ class IDXClientDelegateTests: XCTestCase {
     func testExchangeCodeFromResponseWithoutCompletionBlock() {
         api.expect(function: "exchangeCode(using:completion:)", arguments: ["token": token as Any])
         waitFor { expectation in
-            self.response.exchangeCode()
+            self.response.exchangeCode(completion: nil)
             self.client.queue.async {
                 expectation.fulfill()
             }
@@ -311,7 +311,7 @@ class IDXClientDelegateTests: XCTestCase {
         // introspect()
         api.expect(function: "introspect(_:completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
-            self.client.introspect("foo")
+            self.client.introspect("foo", completion: nil)
             self.client.queue.async {
                 expectation.fulfill()
             }
@@ -325,7 +325,7 @@ class IDXClientDelegateTests: XCTestCase {
     func testCancelFromClientWithoutCompletionBlock() {
         api.expect(function: "cancel(completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
-            self.client.cancel()
+            self.client.cancel(completion: nil)
             self.client.queue.async {
                 expectation.fulfill()
             }
@@ -339,7 +339,7 @@ class IDXClientDelegateTests: XCTestCase {
     func testCancelFromResponseWithoutCompletionBlock() {
         api.expect(function: "proceed(remediation:data:completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
-            self.response.cancel()
+            self.response.cancel(completion: nil)
             self.client.queue.async {
                 expectation.fulfill()
             }
@@ -353,7 +353,7 @@ class IDXClientDelegateTests: XCTestCase {
     func testProceedFromClientWithoutCompletionBlock() {
         api.expect(function: "proceed(remediation:data:completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
-            self.client.proceed(remediation: self.remediationOption, data: [:])
+            self.client.proceed(remediation: self.remediationOption, data: [:], completion: nil)
             self.client.queue.async {
                 expectation.fulfill()
             }
