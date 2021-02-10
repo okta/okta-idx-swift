@@ -79,7 +79,7 @@ public extension IDXClient {
         ///   - completion: Optional completion handler invoked when the operation is cancelled.
         ///   - response: The response describing the new workflow next steps, or `nil` if an error occurred.
         ///   - error: Describes the error that occurred, or `nil` if successful.
-        @objc public func cancel(completion: ((_ response: Response?, _ error: Error?) -> Void)? = nil) {
+        @objc public func cancel(completion: ((_ response: Response?, _ error: Error?) -> Void)?) {
             guard let cancelOption = cancelRemediationOption else {
                 if let completion = completion {
                     completion(nil, IDXClientError.unknownRemediationOption(name: "cancel"))
@@ -100,7 +100,7 @@ public extension IDXClient {
         ///   - completion: Optional completion handler invoked when a token, or error, is received.
         ///   - token: The token that was exchanged, or `nil` if an error occurred.
         ///   - error: Describes the error that occurred, or `nil` if successful.
-        @objc public func exchangeCode(completion: ((_ token: Token?, _ error: Error?) -> Void)? = nil) {
+        @objc public func exchangeCode(completion: ((_ token: Token?, _ error: Error?) -> Void)?) {
             guard let client = api.client else {
                 if let completion = completion {
                     completion(nil, IDXClientError.invalidClient)

@@ -48,7 +48,7 @@ extension IDXClient {
         }
     }
 
-    public func start(completion: ((Response?, Error?) -> Void)? = nil) {
+    public func start(completion: ((Response?, Error?) -> Void)?) {
         interact { (context, error) in
             guard error == nil else {
                 if let completion = completion {
@@ -75,7 +75,7 @@ extension IDXClient {
         }
     }
     
-    public func introspect(_ interactionHandle: String, completion: ((Response?, Error?) -> Void)? = nil) {
+    public func introspect(_ interactionHandle: String, completion: ((Response?, Error?) -> Void)?) {
         self.api.introspect(interactionHandle) { (response, error) in
             self.handleResponse(response, error: error, completion: completion)
         }
@@ -85,7 +85,7 @@ extension IDXClient {
         return self.api.canCancel
     }
     
-    public func cancel(completion: ((Response?, Error?) -> Void)? = nil) {
+    public func cancel(completion: ((Response?, Error?) -> Void)?) {
         self.api.cancel { (response, error) in
             self.handleResponse(response, error: error, completion: completion)
         }
@@ -93,14 +93,14 @@ extension IDXClient {
     
     public func proceed(remediation option: Remediation.Option,
                         data: [String : Any] = [:],
-                        completion: ((IDXClient.Response?, Error?) -> Void)? = nil)
+                        completion: ((IDXClient.Response?, Error?) -> Void)?)
     {
         self.api.proceed(remediation: option, data: data) { (response, error) in
             self.handleResponse(response, error: error, completion: completion)
         }
     }
     
-    public func exchangeCode(using response: Response, completion: ((Token?, Error?) -> Void)? = nil) {
+    public func exchangeCode(using response: Response, completion: ((Token?, Error?) -> Void)?) {
         self.api.exchangeCode(using: response) { (token, error) in
             self.handleResponse(token, error: error, completion: completion)
         }
