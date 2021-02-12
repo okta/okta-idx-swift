@@ -219,7 +219,7 @@ class ScenarioTests: XCTestCase {
                     XCTAssertEqual(remediation?.name, "challenge-authenticator")
 
                     let currentEnrollment = response?.currentAuthenticatorEnrollment
-                    let related = remediation?.relatesTo?.first as? IDXClient.Authenticator.CurrentEnrollment
+                    let related = remediation?.relatesTo?.first as? IDXClient.Authenticator.Enrollment.Current
                     XCTAssertEqual(related, currentEnrollment)
 
                     remediation?.proceed(with: ["credentials": [ "passcode": "password" ]]) { (response, error) in

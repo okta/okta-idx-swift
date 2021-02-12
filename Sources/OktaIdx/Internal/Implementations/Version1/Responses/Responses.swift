@@ -129,6 +129,7 @@ extension IDXClient.APIVersion1 {
             let displayName: String
             let id: String
             let type: String
+            let key: String?
             let methods: [[String:String]]
         }
         
@@ -136,7 +137,9 @@ extension IDXClient.APIVersion1 {
             let displayName: String
             let id: String
             let type: String
+            let key: String?
             let methods: [[String:String]]
+            let credentialId: String?
             let profile: [String:String]?
         }
         
@@ -144,16 +147,20 @@ extension IDXClient.APIVersion1 {
             let displayName: String
             let id: String
             let type: String
+            let key: String?
             let methods: [[String:String]]
-            let contextualData: [String:JSONValue]?
+            let credentialId: String?
+            let contextualData: JSONValue?
         }
         
         struct CurrentAuthenticatorEnrollment: Decodable {
             let displayName: String
             let id: String
             let type: String
+            let key: String?
             let methods: [[String:String]]
             let profile: [String:String]?
+            let contextualData: JSONValue?
             let send: Form?
             let resend: Form?
             let poll: Form?

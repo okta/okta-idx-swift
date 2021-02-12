@@ -68,8 +68,8 @@ extension IDXClient.Response: IDXContainsRelatableObjects {
                   expiresAt: response.expiresAt,
                   intent: response.intent,
                   authenticators: response.authenticators?.value.compactMap { IDXClient.Authenticator(v1: $0) },
-                  authenticatorEnrollments: response.authenticatorEnrollments?.value.compactMap { IDXClient.Authenticator(v1: $0) },
-                  currentAuthenticatorEnrollment: IDXClient.Authenticator.CurrentEnrollment(api: api, v1: response.currentAuthenticatorEnrollment?.value),
+                  authenticatorEnrollments: response.authenticatorEnrollments?.value.compactMap { IDXClient.Authenticator.Enrollment(v1: $0) },
+                  currentAuthenticatorEnrollment: IDXClient.Authenticator.Enrollment.Current(api: api, v1: response.currentAuthenticatorEnrollment?.value),
                   remediation: IDXClient.Remediation(api: api, v1: response.remediation),
                   cancel: IDXClient.Remediation.Option(api: api, v1: response.cancel),
                   success: IDXClient.Remediation.Option(api: api, v1:  response.successWithInteractionCode),
@@ -119,30 +119,49 @@ extension IDXClient.User {
 extension IDXClient.Authenticator {
     internal convenience init?(v1 object: V1.Response.Authenticator?) {
         guard let object = object else { return nil }
+        
         self.init(id: object.id,
                   displayName: object.displayName,
                   type: object.type,
-                  methods: object.methods,
-                  profile: nil)
+                  key: object.key,
+                  methods: object.methods)
     }
+}
 
+extension IDXClient.Authenticator.Enrollment {
     internal convenience init?(v1 object: V1.Response.AuthenticatorEnrollment?) {
         guard let object = object else { return nil }
         self.init(id: object.id,
                   displayName: object.displayName,
                   type: object.type,
+                  key: object.key,
                   methods: object.methods,
+                  credentialId: object.credentialId,
                   profile: object.profile)
     }
 }
 
-extension IDXClient.Authenticator.CurrentEnrollment {
+extension IDXClient.Authenticator.Current {
+    internal convenience init?(v1 object: V1.Response.CurrentAuthenticator?) {
+        guard let object = object else { return nil }
+        self.init(id: object.id,
+                  displayName: object.displayName,
+                  type: object.type,
+                  key: object.key,
+                  methods: object.methods,
+                  contextualData: object.contextualData?.toAnyObject() as? [String:AnyObject])
+    }
+}
+
+extension IDXClient.Authenticator.Enrollment.Current {
     internal convenience init?(api: IDXClientAPIImpl, v1 object: V1.Response.CurrentAuthenticatorEnrollment?) {
         guard let object = object else { return nil }
         self.init(id: object.id,
                   displayName: object.displayName,
                   type: object.type,
+                  key: object.key,
                   methods: object.methods,
+                  credentialId: nil,
                   profile: object.profile,
                   send: IDXClient.Remediation.Option(api: api, v1: object.send),
                   resend: IDXClient.Remediation.Option(api: api, v1: object.resend),
@@ -173,7 +192,6 @@ extension IDXClient.Remediation.Option: IDXHasRelatedObjects {
     internal convenience init?(api: IDXClientAPIImpl, v1 object: V1.Response.Form?) {
         guard let object = object else { return nil }
         self.init(api: api,
-                  rel: object.rel,
                   name: object.name,
                   method: object.method,
                   href: object.href,

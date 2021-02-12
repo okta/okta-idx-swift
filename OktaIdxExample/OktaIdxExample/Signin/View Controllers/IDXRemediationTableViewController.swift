@@ -275,7 +275,7 @@ extension Signin.Row {
                let fieldName = field.name {
                 let currentValue = self.delegate?.value(for: field) as? IDXClient.Remediation.FormValue
                 
-                if let authenticator = option.relatesTo as? IDXClient.Authenticator,
+                if let authenticator = option.relatesTo as? IDXClient.Authenticator.Enrollment,
                    let profile = authenticator.profile
                 {
                     cell.detailLabel.text = profile[authenticator.typeName]

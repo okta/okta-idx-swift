@@ -58,10 +58,12 @@ public extension IDXClient {
         
         /// Contains information about the available authenticators, if available.
         @objc public let authenticators: [Authenticator]?
-
-        @objc public let authenticatorEnrollments: [Authenticator]?
         
-        @objc public let currentAuthenticatorEnrollment: Authenticator.CurrentEnrollment?
+        /// Contains information about the authenticators that have been enrolled, if applicable.
+        @objc public let authenticatorEnrollments: [Authenticator.Enrollment]?
+        
+        /// Contains informatino about the authenticator enrollment that is currently being enrolled.
+        @objc public let currentAuthenticatorEnrollment: Authenticator.Enrollment.Current?
 
         /// The list of messages sent from the server, or `nil` if no messages are available at the response level.
         ///
@@ -121,8 +123,8 @@ public extension IDXClient {
                       expiresAt: Date,
                       intent: String,
                       authenticators: [Authenticator]?,
-                      authenticatorEnrollments: [Authenticator]?,
-                      currentAuthenticatorEnrollment: Authenticator.CurrentEnrollment?,
+                      authenticatorEnrollments: [Authenticator.Enrollment]?,
+                      currentAuthenticatorEnrollment: Authenticator.Enrollment.Current?,
                       remediation: Remediation?,
                       cancel: Remediation.Option?,
                       success: Remediation.Option?,
@@ -228,6 +230,129 @@ public extension IDXClient {
     /// Represents information describing the available authenticators and enrolled authenticators.
     @objc(IDXAuthenticator)
     class Authenticator: NSObject {
+        /// Unique identifier for this enrollment
+        @objc(identifier)
+        public let id: String
+
+        /// The user-visible name to use for this authenticator enrollment.
+        @objc public let displayName: String
+
+        @objc public let key: String?
+
+        /// The type of this authenticator, or `unknown` if the type isn't represented by this enumeration.
+        @objc public let type: AuthenticatorType
+
+        /// The string representation of this type.
+        @objc public let typeName: String
+        
+        /// Describes the authenticator methods, as enums.
+        @nonobjc public let methods: [AuthenticatorMethodType]?
+        
+        /// Describes the authenticator method names, as strings.
+        @objc public let methodNames: [String]?
+
+        internal init(id: String,
+                      displayName: String,
+                      type: String,
+                      key: String?,
+                      methods: [[String:String]]?)
+        {
+            self.id = id
+            self.displayName = displayName
+            self.type = AuthenticatorType(string: type)
+            self.typeName = type
+            self.key = key
+            self.methods = methods?.compactMap {
+                guard let type = $0["type"] else { return nil }
+                return AuthenticatorMethodType(string: type)
+            }
+            self.methodNames = methods?.compactMap { $0["type"] }
+         
+            super.init()
+        }
+
+        /// Describes details about the current authenticator being enrolled, and any data associated with it.
+        @objc(IDXCurrentAuthenticator)
+        public final class Current: Authenticator {
+            /// Optional contextual data, used for some enrolment types such as biometric.
+            @objc public let contextualData: [String:AnyObject]?
+
+            internal init(id: String,
+                          displayName: String,
+                          type: String,
+                          key: String?,
+                          methods: [[String:String]]?,
+                          contextualData: [String:AnyObject]?)
+            {
+                self.contextualData = contextualData
+             
+                super.init(id: id, displayName: displayName, type: type, key: key, methods: methods)
+            }
+        }
+        
+        /// Describes details about the current authenticator enrollment being verified, and any extra actions that may be taken.
+        @objc(IDXAuthenticatorEnrollment)
+        public class Enrollment: Authenticator {
+            /// Returns the enrollment's credential ID, if applicable.
+            @objc public let credentialId: String?
+
+            /// The profile information for the authenticator enrollment.
+            ///
+            /// This may contain information relevant to the user's enrolment, such as redacted email address, security question, etc.
+            @objc public let profile: [String:String]?
+
+            internal init(id: String,
+                          displayName: String,
+                          type: String,
+                          key: String?,
+                          methods: [[String:String]]?,
+                          credentialId: String?,
+                          profile: [String:String]?)
+            {
+                self.credentialId = credentialId
+                self.profile = profile
+             
+                super.init(id: id, displayName: displayName, type: type, key: key, methods: methods)
+            }
+            
+            /// Describes details about the current authenticator enrollment being verified, and any extra actions that may be taken.
+            @objc(IDXCurrentAuthenticatorEnrollment)
+            public final class Current: Enrollment {
+                /// Action that can be taken by the user to send a verification/confirmation message to the user.
+                @objc public let send: Remediation.Option?
+                
+                /// Action that can be taken by the user to resend a verification message to the user.
+                @objc public let resend: Remediation.Option?
+                
+                /// Action that can be used to poll for authenticator verification that may occur out-of-band, such as email "magic link" verification.
+                @objc public let poll: Remediation.Option?
+                
+                /// Action that can be used to recover the user's account.
+                @objc public let recover: Remediation.Option?
+
+                internal init(id: String,
+                              displayName: String,
+                              type: String,
+                              key: String?,
+                              methods: [[String:String]]?,
+                              credentialId: String?,
+                              profile: [String:String]?,
+                              send: Remediation.Option?,
+                              resend: Remediation.Option?,
+                              poll: Remediation.Option?,
+                              recover: Remediation.Option?)
+                {
+                    self.send = send
+                    self.resend = resend
+                    self.poll = poll
+                    self.recover = recover
+                 
+                    super.init(id: id, displayName: displayName, type: type, key: key, methods: methods, credentialId: credentialId, profile: profile)
+                }
+            }
+        }
+        
+        /// An enumeration describing the various types of authenticators.
         @objc(IDXAuthenticatorType)
         public enum AuthenticatorType: Int {
             case unknown
@@ -241,6 +366,7 @@ public extension IDXClient {
             case federated
         }
 
+        /// An enumeration describing the various authenticator methods that may be chosen by the user, when applicable.
         @objc(IDXAuthenticatorMethodType)
         public enum AuthenticatorMethodType: Int {
             case unknown
@@ -254,71 +380,6 @@ public extension IDXClient {
             case password
             case webauthn
             case security_question
-        }
-        
-        /// Describes details about the current authenticator enrollment being verified, and any extra actions that may be taken.
-        @objc(IDXCurrentAuthenticatorEnrollment)
-        public final class CurrentEnrollment: Authenticator {
-            @objc public let send: Remediation.Option?
-            @objc public let resend: Remediation.Option?
-            @objc public let poll: Remediation.Option?
-            @objc public let recover: Remediation.Option?
-
-            internal init(id: String,
-                          displayName: String,
-                          type: String,
-                          methods: [[String:String]]?,
-                          profile: [String:String]?,
-                          send: Remediation.Option?,
-                          resend: Remediation.Option?,
-                          poll: Remediation.Option?,
-                          recover: Remediation.Option?)
-            {
-                self.send = send
-                self.resend = resend
-                self.poll = poll
-                self.recover = recover
-             
-                super.init(id: id, displayName: displayName, type: type, methods: methods, profile: profile)
-            }
-        }
-        
-        /// Unique identifier for this enrollment
-        @objc(identifier)
-        public let id: String
-
-        /// The user-visible name to use for this authenticator enrollment.
-        @objc public let displayName: String
-
-        /// The type of this authenticator, or `unknown` if the type isn't represented by this enumeration.
-        @objc public let type: AuthenticatorType
-
-        /// The string representation of this type.
-        @objc public let typeName: String
-        @objc public let profile: [String:String]?
-        
-        /// Describes the various
-        @nonobjc public let methods: [AuthenticatorMethodType]?
-        @objc public let methodNames: [String]?
-
-        internal init(id: String,
-                      displayName: String,
-                      type: String,
-                      methods: [[String:String]]?,
-                      profile: [String:String]?)
-        {
-            self.id = id
-            self.displayName = displayName
-            self.type = AuthenticatorType(string: type)
-            self.typeName = type
-            self.methods = methods?.compactMap {
-                guard let type = $0["type"] else { return nil }
-                return AuthenticatorMethodType(string: type)
-            }
-            self.methodNames = methods?.compactMap { $0["type"] }
-            self.profile = profile
-         
-            super.init()
         }
     }
 
@@ -339,10 +400,12 @@ public extension IDXClient {
         /// The array of remediation options available to the developer to proceed through the authentication workflow.
         public let remediationOptions: [Option]
         
+        /// Access individual remediation options based on their given name, as a string.
         @objc public subscript(name: String) -> Option? {
             get { remediationOptions.filter { $0.name == name }.first }
         }
         
+        /// Access individual remediation options based on their given name, as a `RemediationType` enum.
         @nonobjc public subscript(type: RemediationType) -> Option? {
             get { remediationOptions.filter { $0.type == type }.first }
         }
@@ -368,6 +431,8 @@ public extension IDXClient {
         final public class Parameters: NSObject {
             internal var storage: [FormValue:Any] = [:]
             
+            /// Convenience initializer for constructing parameters using the supplied keys/values.
+            /// - Parameter parameters: Collection of `FormValue` objects, and their corresponding user-supplied values.
             convenience public init(_ parameters: [FormValue:Any]) {
                 self.init()
                 
@@ -447,13 +512,16 @@ public extension IDXClient {
             /// Messages reported from the server at the FormValue level should be considered relevant to the individual form field, and as a result should be displayed to the user alongside any UI elements associated with it.
             @objc public let messages: [Message]?
             
+            /// Access form values based on their name.
             @objc public subscript(name: String) -> FormValue? {
                 get { form?.filter { $0.name == name }.first }
             }
             
+            /// Returns the related object within this response.
+            ///
+            /// Many times this is an Authenticator, Enrollment, etc.
             @objc public internal(set) var relatesTo: AnyObject?
-            internal let v1RelatesTo: APIVersion1.Response.RelatesTo?
-
+            
             /// For composite or nested forms, this method composes the list of form values, merging the supplied parameters along with the defaults included in the form.
             ///
             /// Validation checks for required and immutable values are performed, which will throw exceptions if any of those parameters fail validation.
@@ -470,7 +538,7 @@ public extension IDXClient {
                 return try IDXClient.extractFormValues(from: form, with: params)
             }
             
-
+            internal let v1RelatesTo: APIVersion1.Response.RelatesTo?
             internal init(name: String? = nil,
                           label: String? = nil,
                           type: String? = nil,
@@ -517,34 +585,40 @@ public extension IDXClient {
         ///    remediationOption["identifier"]
         @objc(IDXRemediationOption)
         final public class Option: NSObject {
-            @objc public let rel: [String] // TODO: Is this necessary to expose to the developer?
-            
             /// The name of this remediation step, which can be used to control how the form is presented to the user.
             @objc public let name: String
             
             /// The enumeration type of this remediation step, based on the `name` value.
             @objc public let type: RemediationType
             
+            /// The HTTP method to use when fulfiling this remediation.
             @objc public let method: String
+            
+            /// The URL for this remediation request.
             @objc public let href: URL
+            
+            /// The mime type this remediation request can support.
             @objc public let accepts: String
             
             /// A description of the form values that this remediation option supports and expects.
             @objc public let form: [FormValue]
             
+            /// Returns the related object within this response.
+            ///
+            /// Many times this is an Authenticator, Enrollment, etc.
             @objc public internal(set) var relatesTo: [AnyObject]?
-            internal let v1RelatesTo: [APIVersion1.Response.RelatesTo]?
-
+            
+            /// When this remediation option is intended to be called after a fixed time delay, this value will represent the time interval to wait before performing the request.
             public let refresh: TimeInterval?
             
+            /// Access a FormValue based on its name.
             @objc public subscript(name: String) -> FormValue? {
                 get { form.filter { $0.name == name }.first }
             }
 
             private weak var api: IDXClientAPIImpl?
-            
+            internal let v1RelatesTo: [APIVersion1.Response.RelatesTo]?
             internal init(api: IDXClientAPIImpl,
-                          rel: [String],
                           name: String,
                           method: String,
                           href: URL,
@@ -554,7 +628,6 @@ public extension IDXClient {
                           refresh: TimeInterval?)
             {
                 self.api = api
-                self.rel = rel
                 self.name = name
                 self.type = RemediationType(string: name)
                 self.method = method

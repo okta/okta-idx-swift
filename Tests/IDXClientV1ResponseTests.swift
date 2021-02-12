@@ -492,4 +492,68 @@ class IDXClientV1ResponseTests: XCTestCase {
         }
     }
     
+    func testCurrentAuthenticator() throws {
+        try decode(type: API.Response.CurrentAuthenticator.self, """
+        {
+           "contextualData" : {
+              "activationData" : {
+                 "attestation" : "direct",
+                 "authenticatorSelection" : {
+                    "requireResidentKey" : false,
+                    "userVerification" : "discouraged"
+                 },
+                 "challenge" : "aEfC1pQtkQTZVFTGaQBxi7uL5g8",
+                 "excludeCredentials" : [],
+                 "pubKeyCredParams" : [
+                    {
+                       "alg" : -7,
+                       "type" : "public-key"
+                    },
+                    {
+                       "alg" : -257,
+                       "type" : "public-key"
+                    }
+                 ],
+                 "rp" : {
+                    "name" : "Example App"
+                 },
+                 "u2fParams" : {
+                    "appid" : "https://example.com"
+                 },
+                 "user" : {
+                    "displayName" : "Johnny Appleseed",
+                    "id" : "00u3iyi3x06D2aWUR1d6",
+                    "name" : "user@example.com"
+                 }
+              }
+           },
+           "displayName" : "Security Key or Biometric",
+           "id" : "aut3jya5v4VIAYjk30g7",
+           "key" : "webauthn",
+           "methods" : [
+              {
+                 "type" : "webauthn"
+              }
+           ],
+           "type" : "security_key"
+        }
+        """) { (obj) in
+            XCTAssertNotNil(obj)
+            XCTAssertEqual(obj.type, "security_key")
+            XCTAssertEqual(obj.key, "webauthn")
+            XCTAssertNotNil(obj.contextualData)
+            
+            let publicObj = IDXClient.Authenticator.Current(v1: obj)
+            XCTAssertNotNil(publicObj)
+            XCTAssertEqual(publicObj?.id, "aut3jya5v4VIAYjk30g7")
+            
+            let context = publicObj?.contextualData
+            XCTAssertNotNil(context)
+            
+            let activationData = context?["activationData"] as? [String:AnyObject]
+            XCTAssertNotNil(activationData)
+            
+            XCTAssertEqual(activationData?["challenge"] as? String, "aEfC1pQtkQTZVFTGaQBxi7uL5g8")
+        }
+    }
 }
