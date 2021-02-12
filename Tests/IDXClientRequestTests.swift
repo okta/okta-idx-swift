@@ -21,7 +21,7 @@ class IDXClientRequestTests: XCTestCase {
                                                 redirectUri: "redirect:/uri")
 
     func testInteractRequest() throws {
-        let request = IDXClient.APIVersion1.InteractRequest(codeChallenge: "ABCEasyas123")
+        let request = IDXClient.APIVersion1.InteractRequest(state: nil, codeChallenge: "ABCEasyas123")
         let urlRequest = request.urlRequest(using: configuration)
         
         XCTAssertNotNil(urlRequest)
@@ -46,6 +46,13 @@ class IDXClientRequestTests: XCTestCase {
         // Ensure state is a UUID
         let state = data?["state"]
         XCTAssertNotNil(UUID(uuidString: state!!))
+    }
+    
+    func testInteractRequestWithCustomState() throws {
+        let request = IDXClient.APIVersion1.InteractRequest(state: "mystate", codeChallenge: "ABCEasyas123")
+        let urlRequest = try XCTUnwrap(request.urlRequest(using: configuration))
+        let data = try XCTUnwrap(urlRequest.httpBody?.urlFormEncoded())
+        XCTAssertEqual(data["state"], "mystate")
     }
     
     func testTokenRequestWithInteractionCode() throws {
