@@ -57,7 +57,7 @@ extension IDXClient.APIVersion1 {
         let parameters: [String:Any]
     }
 
-    class Response: NSObject, Decodable {
+    final class Response: NSObject, Decodable {
         let stateHandle: String
         let version: String
         let expiresAt: Date
@@ -162,12 +162,12 @@ extension IDXClient.APIVersion1 {
         }
         
         struct Form: Decodable {
-            let rel: [String]
+            let rel: [String]?
             let name: String
             let method: String
             let href: URL
-            let value: [FormValue]
-            let accepts: String
+            let value: [FormValue]?
+            let accepts: String?
             let relatesTo: [RelatesTo]?
             let refresh: Double?
         }
@@ -262,5 +262,37 @@ extension IDXClient.APIVersion1 {
         let scope: String
         let refreshToken: String?
         let idToken: String?
+    }
+
+    struct Redirect {
+        let url: URL
+        let scheme: String
+        let path: String
+        
+        let interactionCode: String?
+        let state: String?
+        
+        init?(url: String) {
+            guard let url = URL(string: url) else {
+                return nil
+            }
+            
+            self.init(url: url)
+        }
+
+        init?(url: URL) {
+            self.url = url
+            
+            guard let urlComponents = URLComponents(string: url.absoluteString), let scheme = urlComponents.scheme else {
+                return nil
+            }
+
+            self.scheme = scheme
+            self.path = urlComponents.path
+            
+            let queryItems = urlComponents.queryItems
+            self.interactionCode = queryItems?.first { $0.name == "interaction_code" }?.value
+            self.state = queryItems?.first { $0.name == "state" }?.value
+        }
     }
 }

@@ -24,6 +24,17 @@ public final class IDXClient: NSObject {
         case v1_0_0
     }
     
+    @objc(OKTRedirectResult)
+    public enum RedirectResult: Int {
+
+        case authenticated
+        case remediationRequired
+        /// Mismatch state or missing context.
+        case invalidContext
+        /// Anything related to invalid path, scheme or url.
+        case invalidRedirectUrl
+    }
+    
     /// Configuration options for an IDXClient.
     ///
     /// This class is used to define the configuration, as defined in your Okta application settings, that will be used to interact with the Okta Identity Engine API.
@@ -215,6 +226,31 @@ public final class IDXClient: NSObject {
     {
         api.proceed(remediation: option, data: data) { (response, error) in
             self.handleResponse(response, error: error, completion: completion)
+        }
+    }
+    
+    @objc
+    public func redirectResult(with context: Context? = nil, redirect url: URL) -> RedirectResult {
+        guard let context = context ?? self.context else {
+            return .invalidContext
+        }
+        
+        return api.redirectResult(with: context, redirect: url)
+    }
+    
+    @objc(exchangeCodeWithContext:redirectUrl:completion:)
+    public func exchangeCode(with context: Context? = nil,
+                             redirect url: URL,
+                             completion: TokenResult?) {
+        guard let context = context ?? self.context else {
+            handleResponse(nil,
+                           error: IDXClientError.missingRequiredParameter(name: "context"),
+                           completion: completion)
+            return
+        }
+        
+        api.exchangeCode(with: context, redirect: url) { (token, error) in
+            self.handleResponse(token, error: error, completion: completion)
         }
     }
     

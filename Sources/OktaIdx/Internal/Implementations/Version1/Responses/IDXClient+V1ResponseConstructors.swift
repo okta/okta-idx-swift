@@ -173,12 +173,12 @@ extension IDXClient.Remediation.Option: IDXHasRelatedObjects {
     internal convenience init?(api: IDXClientAPIImpl, v1 object: V1.Response.Form?) {
         guard let object = object else { return nil }
         self.init(api: api,
-                  rel: object.rel,
+                  rel: object.rel ?? [],
                   name: object.name,
                   method: object.method,
                   href: object.href,
-                  accepts: object.accepts,
-                  form: object.value.map { (value) in
+                  accepts: object.accepts ?? "",
+                  form: (object.value ?? []).map { (value) in
                     IDXClient.Remediation.FormValue(api: api, v1: value)
                   },
                   relatesTo: object.relatesTo,

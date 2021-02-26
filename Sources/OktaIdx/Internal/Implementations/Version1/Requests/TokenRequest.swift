@@ -28,7 +28,10 @@ extension IDXClient.APIVersion1.TokenRequest: IDXClientAPIRequest {
     
     init(issuer url: URL, clientId: String, clientSecret: String?, codeVerifier: String?, grantType: String, code: String) {
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
-        urlComponents?.path = "/oauth2/v1/token"
+
+        let path = urlComponents?.path ?? ""
+        urlComponents?.path = path + "/v1/token"
+        
         let tokenUrl = urlComponents?.url ?? url
         
         var parameters = [
