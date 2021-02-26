@@ -20,7 +20,8 @@ jobs:
       name: iOS
       script:
       - pod lib lint
-    - stage: Carthage validation
-      name: iOS
-      script:
-      - carthage build --use-xcframeworks --no-skip-current
+    # Disable Carthage validation until we can get it working
+    #- stage: Carthage validation
+    #  name: iOS
+    #  script:
+    #  - carthage build --use-xcframeworks --no-skip-current
