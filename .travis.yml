@@ -17,7 +17,7 @@ jobs:
     - stage: Cocoapods validation
       name: iOS
       script:
-      - pod lib lint --allow-warnings
+      - pod lib lint
     - stage: Carthage validation
       name: iOS
       script:
