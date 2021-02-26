@@ -23,4 +23,4 @@ jobs:
     - stage: Carthage validation
       name: iOS
       script:
-      - carthage build --no-skip-current
+      - carthage build --use-xcframeworks --no-skip-current
