@@ -1,5 +1,7 @@
 language: swift
 osx_image: xcode12.2
+before_install:
+  - touch TestCredentials.xcconfig
 jobs:
   include:
     - stage: Unit tests iOS
