@@ -172,6 +172,10 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
             return .authenticated
         }
         
+        if redirect.interactionRequired {
+            return .remediationRequired
+        }
+        
         return .invalidContext
     }
     
@@ -201,27 +205,7 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
                                    grantType: "interaction_code",
                                    code: interactionCode)
 
-        // TODO: extract to method
-        request.send(to: session, using: configuration) { (response, error) in
-            guard error == nil else {
-                completion(nil, error)
-                return
-            }
-            
-            guard let response = response else {
-                completion(nil, IDXClientError.invalidResponseData)
-                return
-            }
-            
-            do {
-                try self.consumeResponse(response)
-            } catch {
-                completion(nil, error)
-                return
-            }
-
-            completion(IDXClient.Token(api: self, v1: response), nil)
-        }
+        send(request, completion)
     }
 
     func exchangeCode(with context: IDXClient.Context,
@@ -256,7 +240,11 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
             completion(nil, error)
             return
         }
-
+        
+        send(request, completion)
+    }
+    
+    private func send(_ request: IDXClient.APIVersion1.TokenRequest, _ completion: @escaping (IDXClient.Token?, Error?) -> Void) {
         request.send(to: session, using: configuration) { (response, error) in
             guard error == nil else {
                 completion(nil, error)
@@ -274,7 +262,7 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
                 completion(nil, error)
                 return
             }
-
+            
             completion(IDXClient.Token(api: self, v1: response), nil)
         }
     }

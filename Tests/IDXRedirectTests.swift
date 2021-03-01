@@ -25,13 +25,33 @@ class IDXRedirectTests: XCTestCase {
         XCTAssertNil(redirectFromUrl)
     }
     
-    func testRedirectParameters() throws {
-        let redirect = try XCTUnwrap(IDXRedirect(url: "com.test:///login?state=1234&interaction_code=qwerty#_=_"))
+    func testRedirectWithInteractionCode() throws {
+        let url = try XCTUnwrap(URL(string: "com.test:///login?state=1234&interaction_code=qwerty#_=_"))
+        let redirect = try XCTUnwrap(IDXRedirect(url: url))
 
+        XCTAssertEqual(redirect.url, url)
         XCTAssertEqual(redirect.scheme, "com.test")
         XCTAssertEqual(redirect.path, "/login")
         XCTAssertEqual(redirect.state, "1234")
         XCTAssertEqual(redirect.interactionCode, "qwerty")
+        XCTAssertNil(redirect.error)
+        XCTAssertNil(redirect.errorDescription)
+    }
+    
+    func testRedirectWithInteractionError() throws {
+        let url = "com.test:///login?error=interaction_required&error_description=Interaction+required#_=_"
+        let redirect = try XCTUnwrap(IDXRedirect(url: url))
+
+        XCTAssertEqual(redirect.url, try XCTUnwrap(URL(string: url)))
+        XCTAssertEqual(redirect.scheme, "com.test")
+        XCTAssertEqual(redirect.path, "/login")
+        XCTAssertEqual(redirect.state, nil)
+        XCTAssertEqual(redirect.interactionCode, nil)
+        // According to docs there's an issue with "+" character.
+        // https://developer.apple.com/documentation/foundation/nsurlcomponents/1407752-queryitems
+        XCTAssertEqual(redirect.error, "interaction_required")
+        XCTAssertEqual(redirect.errorDescription, "Interaction+required")
+        XCTAssertTrue(redirect.interactionRequired)
     }
 }
 

@@ -265,12 +265,29 @@ extension IDXClient.APIVersion1 {
     }
 
     struct Redirect {
+        enum Query {
+            enum Key {
+                static let interactionCode = "interaction_code"
+                static let state = "state"
+                static let error = "error"
+                static let errorDescription = "error_description"
+            }
+            
+            enum Value {
+                static let interactionRequired = "interaction_required"
+            }
+        }
+        
         let url: URL
         let scheme: String
         let path: String
         
         let interactionCode: String?
         let state: String?
+        let error: String?
+        let errorDescription: String?
+        
+        let interactionRequired: Bool
         
         init?(url: String) {
             guard let url = URL(string: url) else {
@@ -291,8 +308,17 @@ extension IDXClient.APIVersion1 {
             self.path = urlComponents.path
             
             let queryItems = urlComponents.queryItems
-            self.interactionCode = queryItems?.first { $0.name == "interaction_code" }?.value
-            self.state = queryItems?.first { $0.name == "state" }?.value
+            
+            let queryValue: (String) -> String? = { name in
+                queryItems?.first { $0.name == name }?.value?.removingPercentEncoding
+            }
+
+            self.interactionCode = queryValue(Query.Key.interactionCode)
+            self.state = queryValue(Query.Key.state)
+            
+            self.error = queryValue(Query.Key.error)
+            self.errorDescription = queryItems?.first { $0.name == Query.Key.errorDescription }?.value?.removingPercentEncoding
+            self.interactionRequired = self.error == "interaction_required"
         }
     }
 }

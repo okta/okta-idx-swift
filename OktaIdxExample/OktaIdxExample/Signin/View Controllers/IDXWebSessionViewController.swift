@@ -47,7 +47,15 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
                     }
                 }
                 
-            case .invalidContext, .invalidRedirectUrl, .remediationRequired, .none:
+            case .remediationRequired:
+                self.signin?.idx.introspect { (response, error) in
+                    if let error = error {
+                        self.signin?.failure(with: error)
+                    } else if let response = response {
+                        self.signin?.proceed(to: response)
+                    }
+                }
+            case .invalidContext, .invalidRedirectUrl, .none:
                 return
             }
         }

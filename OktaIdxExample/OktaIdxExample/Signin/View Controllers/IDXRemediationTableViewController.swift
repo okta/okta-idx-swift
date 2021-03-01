@@ -13,9 +13,10 @@
 import UIKit
 import OktaIdx
 
-class IDXRemediationTableViewController: UITableViewController, IDXResponseController {
+class IDXRemediationTableViewController: UITableViewController, IDXRemediationController {
     var response: IDXClient.Response?
     var signin: Signin?
+    var remediationOption: IDXClient.Remediation.Option?
 
     var formSections: [Signin.Section] = []
     let formValues = IDXClient.Remediation.Parameters()

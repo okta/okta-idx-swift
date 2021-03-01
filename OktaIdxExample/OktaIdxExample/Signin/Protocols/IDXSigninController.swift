@@ -41,5 +41,5 @@ protocol IDXWebSessionController: IDXResponseController {
 }
 
 protocol IDXRemediationController: IDXResponseController {
-    var remediationOption: IDXClient.Remediation.Option? { get set }
+    
 }
