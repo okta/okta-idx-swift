@@ -31,7 +31,7 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
             return
         }
         
-        self.webAuthSession = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme) { [unowned self] (callbackURL, error) in
+        self.webAuthSession = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme) { (callbackURL, error) in
             guard error == nil, let callbackURL = callbackURL else {
                 return
             }
@@ -42,9 +42,9 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
             case .authenticated:
                 signin.idx.exchangeCode(redirect: callbackURL) { (token, error) in
                     if let error = error {
-                        self.signin?.failure(with: error)
+                        signin?.failure(with: error)
                     } else if let token = token {
-                        self.signin?.success(with: token)
+                        signin?.success(with: token)
                     }
                 }
                 
