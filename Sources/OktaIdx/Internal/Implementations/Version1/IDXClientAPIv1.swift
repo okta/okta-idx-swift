@@ -156,11 +156,14 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
     
     func redirectResult(with context: IDXClient.Context, redirect url: URL) -> IDXClient.RedirectResult {
         guard let redirect = Redirect(url: url),
-              let originalRedirect = Redirect(url: configuration.redirectUri) else {
+              let originalRedirect = Redirect(url: configuration.redirectUri) else
+        {
             return .invalidRedirectUrl
         }
         
-        guard originalRedirect.scheme == redirect.scheme && originalRedirect.path == redirect.path else {
+        guard originalRedirect.scheme == redirect.scheme &&
+                originalRedirect.path == redirect.path else
+        {
             return .invalidRedirectUrl
         }
         

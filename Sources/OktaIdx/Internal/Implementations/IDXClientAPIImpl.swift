@@ -25,7 +25,7 @@ protocol IDXClientAPI: class {
                  completion: IDXClient.ResponseResult?)
     
     func redirectResult(with context: IDXClient.Context?,
-                        redirect: URL) -> IDXClient.RedirectResult
+                        redirect url: URL) -> IDXClient.RedirectResult
     
     func exchangeCode(with context: IDXClient.Context?,
                       redirect url: URL,
@@ -57,7 +57,7 @@ protocol IDXClientAPIImpl: class {
                  completion: @escaping (_ response: IDXClient.Response?, _ error: Swift.Error?) -> Void)
     
     func redirectResult(with context: IDXClient.Context,
-                        redirect: URL) -> IDXClient.RedirectResult
+                        redirect url: URL) -> IDXClient.RedirectResult
     
     func exchangeCode(with context: IDXClient.Context,
                       redirect url: URL,

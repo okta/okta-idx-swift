@@ -9,7 +9,7 @@
     },
     "cancel": {
         "accepts": "application/json; okta-version=1.0.0",
-        "href": "https://idx-devex.clouditude.com/idp/idx/cancel",
+        "href": "https://example.com/idp/idx/cancel",
         "method": "POST",
         "name": "cancel",
         "produces": "application/ion+json; okta-version=1.0.0",
@@ -32,7 +32,7 @@
         "type": "array",
         "value": [
             {
-                "href": "https://idx-devex.clouditude.com/oauth2/avs2s4i2b4Cwi9PiG4k8/v1/authorize?client_id=O0a4ckjhvkcq2B88m54w9&request_uri=urn:okta:repLWTdpRjdldDJWaVNRMnVKY3pBV0pVeDB5IOI3SFJhVmE0UTlzTEwzdzowb2E0Y2V2TzZ3bGNxQzZtdDR3NA",
+                "href": "https://example.com/oauth2/avs2s4i2b4Cwi9PiG4k8/v1/authorize?client_id=O0a4ckjhvkcq2B88m54w9&request_uri=urn:okta:repLWTdpRjdldDJWaVNRMnVKY3pBV0pVeDB5IOI3SFJhVmE0UTlzTEwzdzowb2E0Y2V2TzZ3bGNxQzZtdDR3NA",
                 "idp": {
                     "id": "0oa4ccvO6wlbsC6mt4a4",
                     "name": "Facebook IdP"

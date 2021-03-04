@@ -24,14 +24,17 @@ public final class IDXClient: NSObject {
         case v1_0_0
     }
     
-    @objc(OKTRedirectResult)
+    /// Result of parsing a redirect URL.
+    @objc(IDXRedirectResult)
     public enum RedirectResult: Int {
 
+        /// Redirect URL contains Authorization Code.
         case authenticated
+        /// Remediation required to proceed authorization.
         case remediationRequired
-        /// Mismatch state or missing context.
+        /// State mismatch or missing context.
         case invalidContext
-        /// Anything related to invalid path, scheme or url.
+        /// Invalid path or scheme, or URL.
         case invalidRedirectUrl
     }
     
@@ -229,8 +232,12 @@ public final class IDXClient: NSObject {
         }
     }
     
-    @objc
-    public func redirectResult(with context: Context? = nil, redirect url: URL) -> RedirectResult {
+    /// Evaluates the given redirect URL.
+    /// - Parameters:
+    ///   - context: `IDXClient.Context` value returned from `interact`, or `nil` to use the value stored in the IDXClient.
+    ///   - url: URL with the app’s custom scheme. The value must match one of the authorized redirect URIs, which are configured in Okta Admin Console.
+    /// - Returns: Result of parsing the given redirect URL.
+    @objc public func redirectResult(with context: Context? = nil, redirect url: URL) -> RedirectResult {
         guard let context = context ?? self.context else {
             return .invalidContext
         }
@@ -238,6 +245,15 @@ public final class IDXClient: NSObject {
         return api.redirectResult(with: context, redirect: url)
     }
     
+    /// Exchanges the redirect URL with a token.
+    ///
+    /// Once the `redirectResult` method returns `authenticated`, the developer can exchange that redirect URL for a valid token by using this method.
+    /// - Important:
+    /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didExchangeToken:)` method to receive the token or to handle any errors.
+    /// - Parameters:
+    ///   - context: `IDXClient.Context` value returned from `interact`, or `nil` to use the value stored in the IDXClient.
+    ///   - url: URL with the app’s custom scheme. The value must match one of the authorized redirect URIs, which are configured in Okta Admin Console.
+    ///   - completion: Optional completion handler invoked when a token, or error, is received.
     @objc(exchangeCodeWithContext:redirectUrl:completion:)
     public func exchangeCode(with context: Context? = nil,
                              redirect url: URL,
@@ -263,8 +279,6 @@ public final class IDXClient: NSObject {
     ///   - context: `IDXClient.Context` value returned from `interact`, or `nil` to use the value stored in the IDXClient.
     ///   - response: Successful response.
     ///   - completion: Optional completion handler invoked when a token, or error, is received.
-    ///   - token: The token that was exchanged, or `nil` if an error occurred.
-    ///   - error: Describes the error that occurred, or `nil` if successful.
     @objc public func exchangeCode(with context: Context? = nil,
                                    using response: Response,
                                    completion: TokenResult?)

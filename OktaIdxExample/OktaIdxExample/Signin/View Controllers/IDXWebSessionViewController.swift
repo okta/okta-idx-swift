@@ -25,8 +25,9 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
         super.viewWillAppear(animated)
         
         guard let signin = self.signin,
-              let authURL = response?.remediation?.remediationOptions.first?.href,
-              let scheme = URL(string: signin.idx.configuration.redirectUri)?.scheme else {
+              let authURL = response?.remediation?[.redirectIdp]?.href,
+              let scheme = URL(string: signin.idx.configuration.redirectUri)?.scheme else
+        {
             return
         }
         
@@ -35,11 +36,11 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
                 return
             }
             
-            let result = self.signin?.idx.redirectResult(redirect: callbackURL)
+            let result = signin.idx.redirectResult(redirect: callbackURL)
             
             switch result {
             case .authenticated:
-                self.signin?.idx.exchangeCode(redirect: callbackURL) { (token, error) in
+                signin.idx.exchangeCode(redirect: callbackURL) { (token, error) in
                     if let error = error {
                         self.signin?.failure(with: error)
                     } else if let token = token {
@@ -48,11 +49,11 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
                 }
                 
             case .remediationRequired:
-                self.signin?.idx.introspect { (response, error) in
+                signin.idx.introspect { (response, error) in
                     if let error = error {
-                        self.signin?.failure(with: error)
+                        signin.failure(with: error)
                     } else if let response = response {
-                        self.signin?.proceed(to: response)
+                        signin.proceed(to: response)
                     }
                 }
             case .invalidContext, .invalidRedirectUrl, .none:

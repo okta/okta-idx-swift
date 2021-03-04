@@ -13,15 +13,14 @@
 import UIKit
 import OktaIdx
 
-class IDXRemediationTableViewController: UITableViewController, IDXRemediationController {
+class IDXRemediationTableViewController: UITableViewController, IDXResponseController {
     var response: IDXClient.Response?
     var signin: Signin?
-    var remediationOption: IDXClient.Remediation.Option?
 
-    var formSections: [Signin.Section] = []
-    let formValues = IDXClient.Remediation.Parameters()
-    var chosenRemediationOption: IDXClient.Remediation.FormValue? = nil
-    let pollActivityIndicator: UIActivityIndicatorView = {
+    private var formSections: [Signin.Section] = []
+    private let formValues = IDXClient.Remediation.Parameters()
+
+    private let pollActivityIndicator: UIActivityIndicatorView = {
         let result = UIActivityIndicatorView(style: .medium)
         result.hidesWhenStopped = true
         return result

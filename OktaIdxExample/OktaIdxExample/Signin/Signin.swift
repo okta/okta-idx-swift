@@ -115,20 +115,20 @@ public class Signin {
             return controller
         }
         
-        if response.remediation?[.redirectIdp] != nil {
+        if let remediationOption = response.remediation?[.redirectIdp] {
             guard let controller = storyboard.instantiateViewController(identifier: "idp-redirect") as? UIViewController & IDXWebSessionController else {
                 return nil
             }
             
             controller.signin = self
             controller.response = response
-            controller.redirectUrl = response.remediation?.remediationOptions.first?.href
+            controller.redirectUrl = remediationOption.href
             
             return controller
         }
         
         // Attempt to instantiate a view controller to represent the remediation options in this response.
-        if let controller = storyboard.instantiateViewController(identifier: "remediation") as? UIViewController & IDXRemediationController {
+        if let controller = storyboard.instantiateViewController(identifier: "remediation") as? UIViewController & IDXResponseController {
             controller.signin = self
             controller.response = response
             return controller

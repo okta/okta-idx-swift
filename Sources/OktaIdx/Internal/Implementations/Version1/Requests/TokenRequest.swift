@@ -16,7 +16,9 @@ extension IDXClient.APIVersion1.TokenRequest: IDXClientAPIRequest {
     typealias ResponseType = IDXClient.APIVersion1.Token
     
     init(successResponse option: IDXClient.Remediation.Option, parameters: [String:Any]? = nil) throws {
-        guard let acceptType = IDXClient.APIVersion1.AcceptType(rawValue: option.accepts) else {
+        guard let accepts = option.accepts,
+              let acceptType = IDXClient.APIVersion1.AcceptType(rawValue: accepts) else
+        {
             throw IDXClientError.invalidRequestData
         }
         

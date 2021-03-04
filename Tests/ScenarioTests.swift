@@ -23,7 +23,6 @@ class ScenarioTests: XCTestCase {
     var session: URLSessionMock!
     var api: IDXClient.APIVersion1!
     var idx: IDXClient!
-    var redirectUrl: URL!
     
     override func setUpWithError() throws {
         session = URLSessionMock()
@@ -33,8 +32,6 @@ class ScenarioTests: XCTestCase {
                         context: nil,
                         api: api,
                         queue: DispatchQueue.main)
-        
-        redirectUrl = try XCTUnwrap(URL(string: "com.preview.example:///callback?interaction_code=qwe4xJasF897EbEKL0LLbNUI-QwXZa8YOkY8QkWUlpXxU&state=46C40AC5-9DFW-55CE-B291-31A4854F4164#_=_"))
     }
     
     func testScenario1() throws {
@@ -270,11 +267,19 @@ class ScenarioTests: XCTestCase {
             XCTAssertNotNil(response)
             XCTAssertNil(error)
             
+            let redirectUrl = URL(string: """
+                        redirect:///uri?\
+                        interaction_code=qwe4xJaJF897EbEKL0LLbNUI-QwXZa8YOkY8QkWUlpXxU&\
+                        state=\(context!.state)#_=_
+                        """)!
+            
             XCTAssertTrue(response?.canCancel ?? false)
             XCTAssertNotNil(response?.remediation?[.redirectIdp])
+            XCTAssertNotNil(response?.remediation?[.redirectIdp]?.href)
             XCTAssertFalse(response?.isLoginSuccessful ?? true)
+            XCTAssertEqual(self.idx.redirectResult(with: context, redirect: redirectUrl), .authenticated)
             
-            self.idx.exchangeCode(with: self.context, redirect: self.redirectUrl) { (token, error) in
+            self.idx.exchangeCode(with: self.context, redirect: redirectUrl) { (token, error) in
                 XCTAssertNotNil(token)
                 XCTAssertNotNil(token?.idToken)
                 XCTAssertNotNil(token?.refreshToken)
@@ -282,6 +287,35 @@ class ScenarioTests: XCTestCase {
                 
                 completion.fulfill()
             }
+        }
+        
+        wait(for: [completion], timeout: 2)
+    }
+    
+    func testScenario6() throws {
+        let completion = expectation(description: "Start")
+        try session.expect("https://example.com/oauth2/default/v1/interact", folderName: "IdP", fileName: "01-interact-response")
+        try session.expect("https://example.com/idp/idx/introspect", folderName: "IdP", fileName: "02-introspect-response")
+
+        idx.start { (context, response, error) in
+            XCTAssertNotNil(context)
+            XCTAssertNotNil(response)
+            XCTAssertNil(error)
+            
+            let redirectUrl = URL(string: """
+                    redirect:///uri?\
+                    state=\(context!.state)&\
+                    error=interaction_required&\
+                    error_description=Your+client+is+configured+to+use+the+interaction+code+flow+and+user+interaction+is+required+to+complete+the+request.#_=_
+                    """)!
+            
+            XCTAssertTrue(response?.canCancel ?? false)
+            XCTAssertNotNil(response?.remediation?[.redirectIdp])
+            XCTAssertNotNil(response?.remediation?[.redirectIdp]?.href)
+            XCTAssertFalse(response?.isLoginSuccessful ?? true)
+            XCTAssertEqual(self.idx.redirectResult(with: context, redirect: redirectUrl), .remediationRequired)
+            
+            completion.fulfill()
         }
         
         wait(for: [completion], timeout: 2)

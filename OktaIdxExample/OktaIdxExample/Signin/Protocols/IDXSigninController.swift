@@ -39,7 +39,3 @@ protocol IDXResponseController: IDXSigninController {
 protocol IDXWebSessionController: IDXResponseController {
     var redirectUrl: URL? { get set }
 }
-
-protocol IDXRemediationController: IDXResponseController {
-    
-}

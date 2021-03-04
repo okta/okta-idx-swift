@@ -300,7 +300,9 @@ extension IDXClient.APIVersion1 {
         init?(url: URL) {
             self.url = url
             
-            guard let urlComponents = URLComponents(string: url.absoluteString), let scheme = urlComponents.scheme else {
+            guard let urlComponents = URLComponents(string: url.absoluteString),
+                  let scheme = urlComponents.scheme else
+            {
                 return nil
             }
 
@@ -317,8 +319,8 @@ extension IDXClient.APIVersion1 {
             self.state = queryValue(Query.Key.state)
             
             self.error = queryValue(Query.Key.error)
-            self.errorDescription = queryItems?.first { $0.name == Query.Key.errorDescription }?.value?.removingPercentEncoding
-            self.interactionRequired = self.error == "interaction_required"
+            self.errorDescription = queryValue(Query.Key.errorDescription)
+            self.interactionRequired = (self.error == Query.Value.interactionRequired)
         }
     }
 }
