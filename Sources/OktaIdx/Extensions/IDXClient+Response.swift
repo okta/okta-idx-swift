@@ -551,11 +551,11 @@ public extension IDXClient {
             private weak var api: IDXClientAPIImpl?
             
             internal init(api: IDXClientAPIImpl,
-                          rel: [String],
+                          rel: [String]?,
                           name: String,
                           method: String,
                           href: URL,
-                          accepts: String,
+                          accepts: String?,
                           form: [FormValue],
                           relatesTo: [APIVersion1.Response.RelatesTo]?,
                           refresh: TimeInterval?)
