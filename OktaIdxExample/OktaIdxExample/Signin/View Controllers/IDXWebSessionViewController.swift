@@ -42,9 +42,9 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
             case .authenticated:
                 signin.idx.exchangeCode(redirect: callbackURL) { (token, error) in
                     if let error = error {
-                        signin?.failure(with: error)
+                        signin.failure(with: error)
                     } else if let token = token {
-                        signin?.success(with: token)
+                        signin.success(with: token)
                     }
                 }
                 
@@ -56,7 +56,7 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
                         signin.proceed(to: response)
                     }
                 }
-            case .invalidContext, .invalidRedirectUrl, .none:
+            case .invalidContext, .invalidRedirectUrl:
                 return
             }
         }
