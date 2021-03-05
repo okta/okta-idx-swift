@@ -13,6 +13,7 @@
 import XCTest
 @testable import OktaIdx
 
+#if !SWIFT_PACKAGE
 class UserAgentTests: XCTestCase {
     var regex: NSRegularExpression!
     
@@ -78,3 +79,4 @@ class UserAgentTests: XCTestCase {
         XCTAssertNotNil(match)
     }
 }
+#endif
