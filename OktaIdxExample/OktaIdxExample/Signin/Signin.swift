@@ -75,6 +75,9 @@ public class Signin {
         case .selectAuthenticatorAuthenticate:
             return "Choose"
             
+        case .launchAuthenticator:
+            return "Launch Authenticator"
+            
         default:
             return "Continue"
         }
@@ -154,6 +157,10 @@ public class Signin {
             return controller
         }
         
+        // If no remediation options are available, this response probably just contains
+        // error messages, so we should remain on our current form.
+        guard response.remediation != nil else { return nil }
+
         // Attempt to instantiate a view controller to represent the remediation options in this response.
         if let controller = storyboard.instantiateViewController(identifier: "remediation") as? UIViewController & IDXResponseController {
             controller.signin = self
