@@ -523,7 +523,7 @@ public extension IDXClient {
         ///
         ///    remediationOption["identifier"]
         @objc(IDXRemediationOption)
-        final public class Option: NSObject {
+        public class Option: NSObject {
             @objc public let rel: [String]? // TODO: Is this necessary to expose to the developer?
             
             /// The name of this remediation step, which can be used to control how the form is presented to the user.

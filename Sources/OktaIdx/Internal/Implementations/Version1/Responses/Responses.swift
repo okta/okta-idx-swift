@@ -71,7 +71,7 @@ extension IDXClient.APIVersion1 {
         let user: IonObject<User>?
         let app: IonObject<App>?
         let successWithInteractionCode: Form?
-        let cancel: Form
+        let cancel: Form?
         
         struct IonObject<T>: Decodable where T: Decodable {
             let type: String?
