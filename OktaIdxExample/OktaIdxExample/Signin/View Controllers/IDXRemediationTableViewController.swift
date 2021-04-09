@@ -64,7 +64,7 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
             return true
         }
         
-        return !app.label.isEmpty && remediation.remediationOptions.count != 0
+        return !app.label.isEmpty && !remediation.remediationOptions.isEmpty
     }
     
     @IBAction @objc func cancelAction() {
