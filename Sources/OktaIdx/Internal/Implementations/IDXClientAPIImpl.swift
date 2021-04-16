@@ -128,7 +128,11 @@ extension IDXClient {
 }
 
 extension IDXClient.Remediation.Option {
-    func formValues(using parameters: IDXClient.Remediation.Parameters) throws -> [String:Any] {
+    func formValues(using parameters: IDXClient.Remediation.Parameters?) throws -> [String:Any] {
+        guard let parameters = parameters else {
+            return [:]
+        }
+        
         return try form.reduce(into: [:]) { (result, formValue) in
             guard let nestedResult = try formValue.formValues(using: parameters, in: self) else {
                 return
