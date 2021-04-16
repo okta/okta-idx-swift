@@ -129,50 +129,6 @@ extension OktaIdxAuth {
                     self.send(to: implementation, from: response)
                 }
             }
-            
-            
-            public class RecoverPassword: Request {
-                public var username: String
-                
-                public init(implementation: Implementation,
-                            with username: String,
-                            completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {
-                    self.username = username
-                    
-                    super.init(completion: completion)
-                }
-            }
-            
-            
-            public class VerifyAuthenticator: Request {
-                public var code: String
-                
-                public init(implementation: Implementation,
-                            with code: String,
-                            completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {
-                    self.code = code
-                    
-                    super.init(completion: completion)
-                }
-            }
-            
-            public class RevokeToken: Request {
-                public var type: TokenType
-                
-                public init(implementation: Implementation,
-                            with type: TokenType,
-                            completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {
-                    self.type = type
-                    
-                    super.init(completion: completion)
-                }
-            }
-            
-            public class Cancel: Request {
-            }
-            
-            public class SelfServiceRegistration: Request {
-            }
         }
     }
 }

@@ -45,6 +45,9 @@
 		96C3F0262627AC200064893F /* OktaIdxAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F0252627AC200064893F /* OktaIdxAuth.swift */; };
 		96C3F04E2629FC6E0064893F /* Authenticate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F04D2629FC6E0064893F /* Authenticate.swift */; };
 		96C3F0532629FC770064893F /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F0522629FC770064893F /* ChangePassword.swift */; };
+		96C3F066262A03B10064893F /* RecoverPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F065262A03B10064893F /* RecoverPassword.swift */; };
+		96C3F06B262A03BA0064893F /* VerifyAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F06A262A03BA0064893F /* VerifyAuthenticator.swift */; };
+		96C3F070262A03C20064893F /* RevokeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F06F262A03C20064893F /* RevokeToken.swift */; };
 		96C51E6A25BA050D007A2519 /* IDXClient+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E6825BA050D007A2519 /* IDXClient+Response.swift */; };
 		96C51E6B25BA050D007A2519 /* IDXClient+ResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E6925BA050D007A2519 /* IDXClient+ResponseTypes.swift */; };
 		96C51E7325BA09CB007A2519 /* IDXResponseTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E7225BA09CB007A2519 /* IDXResponseTypeTests.swift */; };
@@ -148,6 +151,9 @@
 		96C3F0252627AC200064893F /* OktaIdxAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OktaIdxAuth.swift; sourceTree = "<group>"; };
 		96C3F04D2629FC6E0064893F /* Authenticate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticate.swift; sourceTree = "<group>"; };
 		96C3F0522629FC770064893F /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
+		96C3F065262A03B10064893F /* RecoverPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassword.swift; sourceTree = "<group>"; };
+		96C3F06A262A03BA0064893F /* VerifyAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticator.swift; sourceTree = "<group>"; };
+		96C3F06F262A03C20064893F /* RevokeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeToken.swift; sourceTree = "<group>"; };
 		96C51E6825BA050D007A2519 /* IDXClient+Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IDXClient+Response.swift"; sourceTree = "<group>"; };
 		96C51E6925BA050D007A2519 /* IDXClient+ResponseTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IDXClient+ResponseTypes.swift"; sourceTree = "<group>"; };
 		96C51E7225BA09CB007A2519 /* IDXResponseTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXResponseTypeTests.swift; sourceTree = "<group>"; };
@@ -316,6 +322,9 @@
 			children = (
 				96C3F04D2629FC6E0064893F /* Authenticate.swift */,
 				96C3F0522629FC770064893F /* ChangePassword.swift */,
+				96C3F065262A03B10064893F /* RecoverPassword.swift */,
+				96C3F06A262A03BA0064893F /* VerifyAuthenticator.swift */,
+				96C3F06F262A03C20064893F /* RevokeToken.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -645,8 +654,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C3F0532629FC770064893F /* ChangePassword.swift in Sources */,
+				96C3F066262A03B10064893F /* RecoverPassword.swift in Sources */,
+				96C3F070262A03C20064893F /* RevokeToken.swift in Sources */,
 				965C3B71261FD03900EBD800 /* Implementation.swift in Sources */,
 				96C3F0262627AC200064893F /* OktaIdxAuth.swift in Sources */,
+				96C3F06B262A03BA0064893F /* VerifyAuthenticator.swift in Sources */,
 				96C3F04E2629FC6E0064893F /* Authenticate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

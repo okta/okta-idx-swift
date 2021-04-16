@@ -14,13 +14,13 @@ import Foundation
 import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
-    public class Authenticate: Request, OktaIdxAuthRemediationRequest {
-        public var username: String
-        public var password: String?
+    class Authenticate: Request, OktaIdxAuthRemediationRequest {
+        var username: String
+        var password: String?
         
-        public init(username: String,
-                    password: String?,
-                    completion: OktaIdxAuth.ResponseResult?)
+        init(username: String,
+             password: String?,
+             completion: OktaIdxAuth.ResponseResult?)
         {
             self.username = username
             self.password = password
