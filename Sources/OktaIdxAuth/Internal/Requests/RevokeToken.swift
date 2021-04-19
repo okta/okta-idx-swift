@@ -14,7 +14,7 @@ import Foundation
 import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
-    class RevokeToken: Request, OktaIdxAuthRemediationRequest {
+    class RevokeToken: Request<Response>, OktaIdxAuthRemediationRequest {
         var type: OktaIdxAuth.TokenType
         
         init(with type: OktaIdxAuth.TokenType, completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {

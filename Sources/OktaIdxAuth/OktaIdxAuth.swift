@@ -17,7 +17,7 @@ import OktaIdx
     var implementation: OktaIdxAuthImplementation
     let completion: IDXClient.TokenResult
     
-    public typealias ResponseResult = (_ response: Response?, _ error: Swift.Error?) -> Void
+    public typealias ResponseResult<T: Response> = (_ response: T?, _ error: Swift.Error?) -> Void
     
     @objc
     public convenience init(issuer: String,
@@ -76,10 +76,10 @@ import OktaIdx
         @objc
         public let additionalInfo: [String: Any]?
         
-        init(status: Status,
-             token: IDXClient.Token?,
-             context: IDXClient.Context?,
-             additionalInfo: [String: Any]?)
+        required init(status: Status,
+                      token: IDXClient.Token?,
+                      context: IDXClient.Context?,
+                      additionalInfo: [String: Any]?)
         {
             self.status = status
             self.token = token
@@ -102,14 +102,14 @@ import OktaIdx
     @objc
     public func authenticate(username: String,
                              password: String?,
-                             completion: ResponseResult? = nil)
+                             completion: ResponseResult<Response>? = nil)
     {
         implementation.authenticate(username: username, password: password, completion: completion)
     }
     
     @objc
     public func changePassword(_ password: String,
-                               completion: ResponseResult? = nil)
+                               completion: ResponseResult<Response>? = nil)
     {
         implementation.changePassword(password,
                                       completion: completion)
@@ -118,7 +118,7 @@ import OktaIdx
     @objc
     public func recoverPassword(username: String,
                                 authenticator type: AuthenticatorType,
-                                completion: ResponseResult? = nil)
+                                completion: ResponseResult<Response>? = nil)
     {
         implementation.recoverPassword(username: username,
                                        authenticator: type,
@@ -127,7 +127,7 @@ import OktaIdx
     
     @objc
     public func verifyAuthenticator(code: String,
-                                    completion: ResponseResult? = nil)
+                                    completion: ResponseResult<Response>? = nil)
     {
         implementation.verifyAuthenticator(code: code,
                                            completion: completion)
@@ -136,7 +136,7 @@ import OktaIdx
     @objc
     public func revokeTokens(token: String,
                              type: TokenType,
-                             completion: ResponseResult? = nil)
+                             completion: ResponseResult<Response>? = nil)
     {
         implementation.revokeTokens(token: token,
                                     type: type,

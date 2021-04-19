@@ -14,7 +14,7 @@ import Foundation
 import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
-    class VerifyAuthenticator: Request, OktaIdxAuthRemediationRequest {
+    class VerifyAuthenticator: Request<Response>, OktaIdxAuthRemediationRequest {
         var code: String
         
         init(with code: String, completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {

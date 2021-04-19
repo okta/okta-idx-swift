@@ -14,11 +14,11 @@ import Foundation
 import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
-    class ChangePassword: Request, OktaIdxAuthRemediationRequest  {
+    class ChangePassword: Request<Response>, OktaIdxAuthRemediationRequest  {
         var password: String
         
         init(password: String,
-             completion: OktaIdxAuth.ResponseResult?)
+             completion: OktaIdxAuth.ResponseResult<Response>?)
         {
             self.password = password
             

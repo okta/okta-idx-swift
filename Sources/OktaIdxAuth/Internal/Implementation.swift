@@ -18,21 +18,21 @@ protocol OktaIdxAuthImplementation {
     
     func authenticate(username: String,
                       password: String?,
-                      completion: OktaIdxAuth.ResponseResult?)
+                      completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     func changePassword(_ password: String,
-                        completion: OktaIdxAuth.ResponseResult?)
+                        completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     func recoverPassword(username: String,
                          authenticator type: OktaIdxAuth.AuthenticatorType,
-                         completion: OktaIdxAuth.ResponseResult?)
+                         completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     func verifyAuthenticator(code: String,
-                             completion: OktaIdxAuth.ResponseResult?)
+                             completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     func revokeTokens(token: String,
                       type: OktaIdxAuth.TokenType,
-                      completion: OktaIdxAuth.ResponseResult?)
+                      completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
 }
 
 protocol OktaIdxAuthImplementationDelegate: class {
@@ -54,15 +54,15 @@ extension OktaIdxAuth {
             self.client = client
         }
 
-        class Request {
+        class Request<T> where T: Response {
             typealias Implementation = OktaIdxAuth.Implementation
             typealias Request = Implementation.Request
             typealias Response = OktaIdxAuth.Response
             typealias AuthError = OktaIdxAuth.Implementation.AuthError
 
-            let completion: OktaIdxAuth.ResponseResult?
+            let completion: OktaIdxAuth.ResponseResult<T>?
             
-            init(completion:OktaIdxAuth.ResponseResult?) {
+            init(completion:OktaIdxAuth.ResponseResult<T>?) {
                 self.completion = completion
             }
             
@@ -74,7 +74,7 @@ extension OktaIdxAuth {
                 completion?(nil, error)
             }
             
-            func recoverableError(response: OktaIdxAuth.Response, error: AuthError) {
+            func recoverableError(response: T, error: AuthError) {
                 completion?(response, error)
             }
             
@@ -93,7 +93,7 @@ extension OktaIdxAuth {
                          using option: IDXClient.Remediation.Option,
                          with parameters: IDXClient.Remediation.Parameters? = nil)
             {
-                guard let self = self as? Request & OktaIdxAuthRemediationRequest else {
+                guard let self = self as? Request<T> & OktaIdxAuthRemediationRequest else {
                     fatalError(.unexpectedTransitiveRequest)
                     return
                 }
@@ -117,10 +117,10 @@ extension OktaIdxAuth {
                                 return
                             }
                             
-                            self.completion?(Response(status: .success,
-                                                      token: token,
-                                                      context: nil,
-                                                      additionalInfo: nil),
+                            self.completion?(T(status: .success,
+                                               token: token,
+                                               context: nil,
+                                               additionalInfo: nil),
                                              nil)
                         }
                         return
@@ -198,7 +198,7 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
     @objc
     func authenticate(username: String,
                       password: String? = nil,
-                      completion: OktaIdxAuth.ResponseResult?)
+                      completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
         client.start { (context, response, error) in
             guard let response = response else {
@@ -211,16 +211,16 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                 return
             }
             
-            let request = Request.Authenticate(username: username,
-                                               password: password,
-                                               completion: completion)
+            let request = Request<OktaIdxAuth.Response>.Authenticate(username: username,
+                                                                     password: password,
+                                                                     completion: completion)
             request.send(to: self,
                          from: response)
         }
     }
     
     func changePassword(_ password: String,
-                        completion: OktaIdxAuth.ResponseResult?)
+                        completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
         client.introspect { (response, error) in
             guard let response = response else {
@@ -233,8 +233,8 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                 return
             }
             
-            let request = Request.ChangePassword(password: password,
-                                                 completion: completion)
+            let request = Request<OktaIdxAuth.Response>.ChangePassword(password: password,
+                                                                       completion: completion)
             request.send(to: self,
                          from: response)
         }
@@ -242,18 +242,18 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
     
     func recoverPassword(username: String,
                          authenticator type: OktaIdxAuth.AuthenticatorType,
-                         completion: OktaIdxAuth.ResponseResult?)
+                         completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
     }
     
     func verifyAuthenticator(code: String,
-                             completion: OktaIdxAuth.ResponseResult?)
+                             completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
     }
     
     func revokeTokens(token: String,
                       type: OktaIdxAuth.TokenType,
-                      completion: OktaIdxAuth.ResponseResult?)
+                      completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
     }
 }
