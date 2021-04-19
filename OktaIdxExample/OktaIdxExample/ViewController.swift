@@ -83,6 +83,7 @@ class ViewController: UIViewController {
                 print("Could not sign in: \(error)")
             } else {
                 guard let controller = self?.storyboard?.instantiateViewController(identifier: "TokenResult") as? TokenResultViewController else { return }
+                controller.client = self?.signin?.idx
                 controller.token = token
                 self?.navigationController?.pushViewController(controller, animated: true)
             }

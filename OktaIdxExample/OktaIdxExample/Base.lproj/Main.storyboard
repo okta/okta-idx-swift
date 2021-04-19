@@ -175,6 +175,14 @@
                             <constraint firstAttribute="trailing" secondItem="j3a-6M-DNV" secondAttribute="trailing" id="ieW-UF-F7Z"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nt1-l3-6nB">
+                        <barButtonItem key="rightBarButtonItem" title="Revoke" id="13y-hk-nSv">
+                            <connections>
+                                <action selector="revokeAction:" destination="ZK5-dB-Die" id="mCq-b0-5WJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="textView" destination="j3a-6M-DNV" id="rvm-zt-e5m"/>
                     </connections>

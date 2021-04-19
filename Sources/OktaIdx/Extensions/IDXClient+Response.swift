@@ -184,6 +184,11 @@ public extension IDXClient {
         
         /// The type of this token.
         @objc public let tokenType: String
+        
+        @objc public enum RevokeType: Int {
+            case refreshToken
+            case accessAndRefreshToken
+        }
 
         internal init(accessToken: String,
                       refreshToken: String?,

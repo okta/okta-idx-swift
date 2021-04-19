@@ -50,6 +50,7 @@ import OktaIdx
         case success
         case passwordInvalid
         case passwordExpired
+        case tokenRevoked
     }
 
     @objc(OktaIdxAuthAuthenticatorType)
@@ -59,7 +60,7 @@ import OktaIdx
    
     @objc(OktaIdxAuthTokenType)
     public enum TokenType: Int {
-        case accessToken, refreshToken
+        case accessAndRefreshToken, refreshToken
     }
 
     @objc(OktaIdxAuthResponse)
@@ -77,9 +78,9 @@ import OktaIdx
         public let additionalInfo: [String: Any]?
         
         required init(status: Status,
-                      token: IDXClient.Token?,
-                      context: IDXClient.Context?,
-                      additionalInfo: [String: Any]?)
+                      token: IDXClient.Token? = nil,
+                      context: IDXClient.Context? = nil,
+                      additionalInfo: [String: Any]? = nil)
         {
             self.status = status
             self.token = token

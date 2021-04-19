@@ -47,12 +47,14 @@
 		96C3F0532629FC770064893F /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F0522629FC770064893F /* ChangePassword.swift */; };
 		96C3F066262A03B10064893F /* RecoverPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F065262A03B10064893F /* RecoverPassword.swift */; };
 		96C3F06B262A03BA0064893F /* VerifyAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F06A262A03BA0064893F /* VerifyAuthenticator.swift */; };
-		96C3F070262A03C20064893F /* RevokeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3F06F262A03C20064893F /* RevokeToken.swift */; };
 		96C51E6A25BA050D007A2519 /* IDXClient+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E6825BA050D007A2519 /* IDXClient+Response.swift */; };
 		96C51E6B25BA050D007A2519 /* IDXClient+ResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E6925BA050D007A2519 /* IDXClient+ResponseTypes.swift */; };
 		96C51E7325BA09CB007A2519 /* IDXResponseTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E7225BA09CB007A2519 /* IDXResponseTypeTests.swift */; };
 		96C584E8258A982400E79975 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C584E7258A982400E79975 /* JSONValue.swift */; };
 		96C584EE258ACEB200E79975 /* JSONValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C584ED258ACEB200E79975 /* JSONValueTests.swift */; };
+		96D00F4E262E1DD000D4D693 /* RevokeTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D00F4D262E1DD000D4D693 /* RevokeTypeExtensions.swift */; };
+		96D00F53262E213700D4D693 /* RevokeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D00F52262E213700D4D693 /* RevokeRequest.swift */; };
+		96D00F59262E49B100D4D693 /* TokenTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D00F58262E49B100D4D693 /* TokenTypeExtension.swift */; };
 		96DCDCEC25882263009487CB /* IDXClientAPIVersion1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCDCEB25882263009487CB /* IDXClientAPIVersion1Tests.swift */; };
 		96DCDCFC258844AD009487CB /* ReceivesIONJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCDCFB258844AD009487CB /* ReceivesIONJSON.swift */; };
 		96F5417D258A843300D3995F /* IDXClient+V1ResponseConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F5417C258A843300D3995F /* IDXClient+V1ResponseConstructors.swift */; };
@@ -153,12 +155,14 @@
 		96C3F0522629FC770064893F /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
 		96C3F065262A03B10064893F /* RecoverPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassword.swift; sourceTree = "<group>"; };
 		96C3F06A262A03BA0064893F /* VerifyAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthenticator.swift; sourceTree = "<group>"; };
-		96C3F06F262A03C20064893F /* RevokeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeToken.swift; sourceTree = "<group>"; };
 		96C51E6825BA050D007A2519 /* IDXClient+Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IDXClient+Response.swift"; sourceTree = "<group>"; };
 		96C51E6925BA050D007A2519 /* IDXClient+ResponseTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IDXClient+ResponseTypes.swift"; sourceTree = "<group>"; };
 		96C51E7225BA09CB007A2519 /* IDXResponseTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXResponseTypeTests.swift; sourceTree = "<group>"; };
 		96C584E7258A982400E79975 /* JSONValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
 		96C584ED258ACEB200E79975 /* JSONValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONValueTests.swift; sourceTree = "<group>"; };
+		96D00F4D262E1DD000D4D693 /* RevokeTypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeTypeExtensions.swift; sourceTree = "<group>"; };
+		96D00F52262E213700D4D693 /* RevokeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeRequest.swift; sourceTree = "<group>"; };
+		96D00F58262E49B100D4D693 /* TokenTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTypeExtension.swift; sourceTree = "<group>"; };
 		96DCDCEB25882263009487CB /* IDXClientAPIVersion1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXClientAPIVersion1Tests.swift; sourceTree = "<group>"; };
 		96DCDCFB258844AD009487CB /* ReceivesIONJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivesIONJSON.swift; sourceTree = "<group>"; };
 		96F5417C258A843300D3995F /* IDXClient+V1ResponseConstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDXClient+V1ResponseConstructors.swift"; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				961BE43D258406EC00DCE8AC /* PKCEExtensions.swift */,
 				96C584E7258A982400E79975 /* JSONValue.swift */,
 				964A44AB259A6285002CB250 /* AcceptType.swift */,
+				96D00F4D262E1DD000D4D693 /* RevokeTypeExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 		965C3B6F261FD02C00EBD800 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				96D00F57262E499F00D4D693 /* Extensions */,
 				965C3B70261FD03900EBD800 /* Implementation.swift */,
 				96C3F04C2629FC5E0064893F /* Requests */,
 			);
@@ -324,9 +330,16 @@
 				96C3F0522629FC770064893F /* ChangePassword.swift */,
 				96C3F065262A03B10064893F /* RecoverPassword.swift */,
 				96C3F06A262A03BA0064893F /* VerifyAuthenticator.swift */,
-				96C3F06F262A03C20064893F /* RevokeToken.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		96D00F57262E499F00D4D693 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				96D00F58262E49B100D4D693 /* TokenTypeExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		96F8B33D25BB445100DAECDC /* Debugging */ = {
@@ -462,6 +475,7 @@
 				96F8F2612582E9C900DA2701 /* RemediationRequest.swift */,
 				96F8F2632582E9C900DA2701 /* TokenRequest.swift */,
 				96F8F25A2582E96B00DA2701 /* InteractRequest.swift */,
+				96D00F52262E213700D4D693 /* RevokeRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -655,7 +669,7 @@
 			files = (
 				96C3F0532629FC770064893F /* ChangePassword.swift in Sources */,
 				96C3F066262A03B10064893F /* RecoverPassword.swift in Sources */,
-				96C3F070262A03C20064893F /* RevokeToken.swift in Sources */,
+				96D00F59262E49B100D4D693 /* TokenTypeExtension.swift in Sources */,
 				965C3B71261FD03900EBD800 /* Implementation.swift in Sources */,
 				96C3F0262627AC200064893F /* OktaIdxAuth.swift in Sources */,
 				96C3F06B262A03BA0064893F /* VerifyAuthenticator.swift in Sources */,
@@ -686,6 +700,8 @@
 				96437C2225CB1E6900ED7E11 /* IDXClient+ResponseExtensions.swift in Sources */,
 				961DE96325897C6B007CAB16 /* Responses.swift in Sources */,
 				96C51E6B25BA050D007A2519 /* IDXClient+ResponseTypes.swift in Sources */,
+				96D00F53262E213700D4D693 /* RevokeRequest.swift in Sources */,
+				96D00F4E262E1DD000D4D693 /* RevokeTypeExtensions.swift in Sources */,
 				9617090F25AD109C000E9552 /* IDXVersion+Extension.swift in Sources */,
 				96F8F2722583E31800DA2701 /* IDXClientAPIImpl.swift in Sources */,
 				96F8F26C2582E9C900DA2701 /* IntrospectRequest.swift in Sources */,

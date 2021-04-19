@@ -318,6 +318,33 @@ public final class IDXClient: NSObject {
 
         self.api.client = self
     }
+    
+    @objc(revokeToken:type:completion:)
+    public func revoke(token: Token, type: Token.RevokeType, completion: @escaping(_ successful: Bool, _ error: Error?) -> Void) {
+        let selectedToken: String?
+        switch type {
+        case .refreshToken:
+            selectedToken = token.refreshToken
+        case .accessAndRefreshToken:
+            selectedToken = token.accessToken
+        }
+        
+        guard let tokenString = selectedToken else {
+            completion(false, IDXClientError.invalidParameter(name: "token"))
+            return
+        }
+        
+        revoke(token: tokenString, type: type, completion: completion)
+    }
+
+    @objc(revokeTokenWithString:type:completion:)
+    public func revoke(token: String, type: Token.RevokeType, completion: @escaping(_ successful: Bool, _ error: Error?) -> Void) {
+        api.revoke(token: token, type: type.tokenTypeHint) { (success, error) in
+            self.queue.async {
+                completion(success, error)
+            }
+        }
+    }
 }
 
 /// Delegate protocol that can be used to receive updates from the IDXClient through the process of a user's authentication.

@@ -21,10 +21,16 @@ protocol IDXIONObject: Decodable {
 }
 
 extension IDXClient.APIVersion1 {
-    struct OAuth2Error: Codable {
-        let error: String
-        let errorDescription: String?
+    struct OAuth2Error: Codable, Error, LocalizedError {
+        let errorSummary: String
+        let errorCode: String?
         let errorUri: String?
+        let errorLink: String?
+        let errorId: String?
+        
+        var errorDescription: String? {
+            errorSummary
+        }
     }
 
     struct IDXError: Codable {
@@ -48,6 +54,11 @@ extension IDXClient.APIVersion1 {
         let href: URL
         let accepts: AcceptType
         let parameters: [String:Any]
+    }
+    
+    struct RevokeRequest: HasOAuthHTTPHeaders {
+        let token: String
+        let tokenTypeHint: String
     }
     
     struct RemediationRequest: HasHTTPHeaders {
