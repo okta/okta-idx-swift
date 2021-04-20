@@ -15,9 +15,9 @@ import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
     class VerifyAuthenticator: Request<Response>, OktaIdxAuthRemediationRequest {
-        var code: String
+        let code: String
         
-        init(with code: String, completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {
+        init(code: String, completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {
             self.code = code
             
             super.init(completion: completion)

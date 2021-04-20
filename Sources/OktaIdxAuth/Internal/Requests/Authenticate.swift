@@ -15,8 +15,8 @@ import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
     class Authenticate: Request<Response>, OktaIdxAuthRemediationRequest {
-        var username: String
-        var password: String?
+        let username: String
+        let password: String?
         
         init(username: String,
              password: String?,

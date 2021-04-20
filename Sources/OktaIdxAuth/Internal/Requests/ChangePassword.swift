@@ -15,7 +15,7 @@ import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
     class ChangePassword: Request<Response>, OktaIdxAuthRemediationRequest  {
-        var password: String
+        let password: String
         
         init(password: String,
              completion: OktaIdxAuth.ResponseResult<Response>?)

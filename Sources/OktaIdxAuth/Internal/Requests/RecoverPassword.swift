@@ -15,9 +15,9 @@ import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
     class RecoverPassword: Request<Response>, OktaIdxAuthRemediationRequest {
-        var username: String
+        let username: String
         
-        init(with username: String, completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {
+        init(username: String, completion: @escaping (OktaIdxAuth.Response?, Error?) -> Void) {
             self.username = username
             
             super.init(completion: completion)
