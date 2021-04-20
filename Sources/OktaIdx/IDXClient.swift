@@ -143,6 +143,13 @@ public final class IDXClient: NSObject {
     /// This is a convenience method that wraps the `interact` and `introspect` API calls, since for the majority of scenarios a developer would not need to explicitly call one or the other.
     /// - Parameter completion: Invoked when a context and response are received, or if an error occurs.
     @objc public func start(completion: StartResult?) {
+        if let context = context {
+            introspect(context) { (response, error) in
+                completion?(context, response, error)
+            }
+            return
+        }
+        
         interact { (context, error) in
             guard error == nil else {
                 completion?(nil, nil, error)

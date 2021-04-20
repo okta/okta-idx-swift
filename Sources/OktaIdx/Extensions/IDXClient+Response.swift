@@ -635,7 +635,7 @@ public extension IDXClient {
             ///   - response: `IDXClient.Response` object describing the next step in the remediation workflow, or `nil` if an error occurred.
             ///   - error: A description of the error that occurred, or `nil` if the request was successful.
             @objc(proceedWithParameters:completion:)
-            public func proceed(with parameters: Parameters, completion: ((_ response: Response?, _ error: Error?) -> Void)?) {
+            public func proceed(with parameters: Parameters?, completion: ((_ response: Response?, _ error: Error?) -> Void)?) {
                 guard let client = api?.client else {
                     completion?(nil, IDXClientError.invalidClient)
                     return
