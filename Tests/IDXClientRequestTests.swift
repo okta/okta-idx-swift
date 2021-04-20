@@ -82,4 +82,24 @@ class IDXClientRequestTests: XCTestCase {
         XCTAssertEqual(data["grant_type"], "interaction_code")
         XCTAssertEqual(data["interaction_code"], "TheInteractionCode")
     }
+
+    func testRevokeRequest() throws {
+        let request = IDXClient.APIVersion1.RevokeRequest(token: "SsshItsSecret", tokenTypeHint: "access_token")
+
+        let urlRequest = try XCTUnwrap(request.urlRequest(using: configuration))
+        XCTAssertEqual(urlRequest.httpMethod, "POST")
+
+        let url = try XCTUnwrap(urlRequest.url?.absoluteString)
+        XCTAssertEqual(url, "https://example.com/oauth2/v1/revoke")
+        
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Content-Type"], "application/x-www-form-urlencoded")
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Accept"], "application/json")
+        XCTAssertNotNil(urlRequest.allHTTPHeaderFields?["User-Agent"])
+
+        let data = try XCTUnwrap(urlRequest.httpBody?.urlFormEncoded())
+        XCTAssertEqual(data.keys.sorted(), ["client_id", "token", "token_type_hint"])
+        XCTAssertEqual(data["client_id"], "clientId")
+        XCTAssertEqual(data["token"], "SsshItsSecret")
+        XCTAssertEqual(data["token_type_hint"], "access_token")
+    }
 }

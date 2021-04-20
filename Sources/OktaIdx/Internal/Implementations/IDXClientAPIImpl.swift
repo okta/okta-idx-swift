@@ -34,6 +34,10 @@ protocol IDXClientAPI: class {
     func exchangeCode(with context: IDXClient.Context?,
                       using response: IDXClient.Response,
                       completion: IDXClient.TokenResult?)
+
+    func revoke(token: String,
+                type: IDXClient.Token.RevokeType,
+                completion: @escaping(_ successful: Bool, _ error: Error?) -> Void)
 }
 
 /// Internal protocol used to implement the IDXClientAPI protocol.
@@ -66,6 +70,10 @@ protocol IDXClientAPIImpl: class {
     func exchangeCode(with context: IDXClient.Context,
                       using response: IDXClient.Response,
                       completion: @escaping (_ token: IDXClient.Token?, _ error: Swift.Error?) -> Void)
+
+    func revoke(token: String,
+                type: String,
+                completion: @escaping(_ successful: Bool, _ error: Error?) -> Void)
 }
 
 /// Protocol used to represent IDX API requests, and their expected response types.

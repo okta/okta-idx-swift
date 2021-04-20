@@ -255,5 +255,13 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                       type: OktaIdxAuth.TokenType,
                       completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
+        client.revoke(token: token, type: type.idxType) { (success, error) in
+            guard let completion = completion else { return }
+            if success {
+                completion(.init(status: .tokenRevoked), nil)
+            } else {
+                completion(nil, error)
+            }
+        }
     }
 }

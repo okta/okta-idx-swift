@@ -247,6 +247,14 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
         send(request, completion)
     }
     
+    func revoke(token: String, type: String, completion: @escaping (Bool, Error?) -> Void) {
+        let request = RevokeRequest(token: token, tokenTypeHint: type)
+        request.send(to: session,
+                     using: configuration) { (response, error) in
+            completion(response ?? false, error)
+        }
+    }
+    
     private func send(_ request: IDXClient.APIVersion1.TokenRequest, _ completion: @escaping (IDXClient.Token?, Error?) -> Void) {
         request.send(to: session, using: configuration) { (response, error) in
             guard error == nil else {
