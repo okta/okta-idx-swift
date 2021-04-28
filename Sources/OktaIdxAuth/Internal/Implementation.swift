@@ -10,6 +10,7 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
+import AuthenticationServices
 import Foundation
 import OktaIdx
 
@@ -19,6 +20,13 @@ protocol OktaIdxAuthImplementation {
     func authenticate(username: String,
                       password: String?,
                       completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
+    
+    @available(iOSApplicationExtension 13.0, *)
+    func socialAuth(with options: OktaIdxAuth.SocialAuth.Options,
+                    completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
+    
+    @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
+    func socialAuth(completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     func changePassword(_ password: String,
                         completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
@@ -216,6 +224,45 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                                                                      completion: completion)
             request.send(to: self,
                          from: response)
+        }
+    }
+    
+    @available(iOSApplicationExtension 13.0, *)
+    @objc func socialAuth(with options: OktaIdxAuth.SocialAuth.Options, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        client.start { (context, response, error) in
+            guard let response = response else {
+                self.fail(with: AuthError.missingResponse)
+                return
+            }
+
+            if let error = error ?? AuthError(from: response) {
+                self.fail(with: error)
+                return
+            }
+            
+            let request = Request<OktaIdxAuth.Response>.SocialAuthenticate(options: options, completion: completion)
+            request.send(to: self,
+                         from: response)
+        }
+    }
+    
+    @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
+    @objc func socialAuth(completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        client.start { (context, response, error) in
+            guard let response = response else {
+                self.fail(with: AuthError.missingResponse)
+                return
+            }
+
+            if let error = error ?? AuthError(from: response) {
+                self.fail(with: error)
+                return
+            }
+            
+            let request = Request<OktaIdxAuth.Response>.SocialAuthenticateIOS12(completion: completion)
+            request.send(to: self,
+                         from: response)
+
         }
     }
     
