@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9291B40A25E90FC500450BBE /* IDXRedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9291B40925E90FC500450BBE /* IDXRedirectTests.swift */; };
+		92F22F1E2631832300EE57FD /* SocialAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F22F1D2631832300EE57FD /* SocialAuth.swift */; };
 		960CD20825D5B02600523192 /* UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CD20725D5B02600523192 /* UserAgent.swift */; };
 		960CD20E25D5B77A00523192 /* UserAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CD20D25D5B77A00523192 /* UserAgentTests.swift */; };
 		960CD21225D5BC2D00523192 /* URLSessionAuditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CD21125D5BC2D00523192 /* URLSessionAuditTests.swift */; };
@@ -114,6 +115,7 @@
 
 /* Begin PBXFileReference section */
 		9291B40925E90FC500450BBE /* IDXRedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXRedirectTests.swift; sourceTree = "<group>"; };
+		92F22F1D2631832300EE57FD /* SocialAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuth.swift; sourceTree = "<group>"; };
 		960CD20725D5B02600523192 /* UserAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgent.swift; sourceTree = "<group>"; };
 		960CD20D25D5B77A00523192 /* UserAgentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgentTests.swift; sourceTree = "<group>"; };
 		960CD21125D5BC2D00523192 /* URLSessionAuditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAuditTests.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				96C3F0522629FC770064893F /* ChangePassword.swift */,
 				96C3F065262A03B10064893F /* RecoverPassword.swift */,
 				96C3F06A262A03BA0064893F /* VerifyAuthenticator.swift */,
+				92F22F1D2631832300EE57FD /* SocialAuth.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F22F1E2631832300EE57FD /* SocialAuth.swift in Sources */,
 				96C3F0532629FC770064893F /* ChangePassword.swift in Sources */,
 				96C3F066262A03B10064893F /* RecoverPassword.swift in Sources */,
 				96D00F59262E49B100D4D693 /* TokenTypeExtension.swift in Sources */,

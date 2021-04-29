@@ -12,6 +12,7 @@
 
 import Foundation
 import OktaIdx
+import AuthenticationServices
 
 @objc public class OktaIdxAuth: NSObject {
     var implementation: OktaIdxAuthImplementation
@@ -91,6 +92,21 @@ import OktaIdx
         }
     }
     
+    @objc(OktaIdxAuthSocialOptions)
+    @available(iOSApplicationExtension 13.0, *)
+    public class SocialOptions: NSObject {
+        @objc
+        public let presentationContext: ASWebAuthenticationPresentationContextProviding
+        
+        @objc
+        public let prefersEphemeralSession: Bool
+        
+        public init(presentationContext: ASWebAuthenticationPresentationContextProviding, prefersEphemeralSession: Bool) {
+            self.presentationContext = presentationContext
+            self.prefersEphemeralSession = prefersEphemeralSession
+        }
+    }
+    
     init(with implementation: OktaIdxAuthImplementation, completion: @escaping IDXClient.TokenResult) {
         self.implementation = implementation
         self.completion = completion
@@ -106,6 +122,20 @@ import OktaIdx
                              completion: ResponseResult<Response>? = nil)
     {
         implementation.authenticate(username: username, password: password, completion: completion)
+    }
+    
+    @available(iOSApplicationExtension 13.0, *)
+    @objc
+    public func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: ResponseResult<Response>? = nil)
+    {
+        implementation.socialAuth(with: options, completion: completion)
+    }
+    
+    @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
+    @objc
+    public func socialAuth(completion: ResponseResult<Response>? = nil)
+    {
+        implementation.socialAuth(completion: completion)
     }
     
     @objc
