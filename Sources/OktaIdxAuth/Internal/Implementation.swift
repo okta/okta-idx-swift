@@ -22,7 +22,7 @@ protocol OktaIdxAuthImplementation {
                       completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     @available(iOSApplicationExtension 13.0, *)
-    func socialAuth(with options: OktaIdxAuth.SocialAuth.Options,
+    func socialAuth(with options: OktaIdxAuth.SocialOptions,
                     completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
@@ -228,7 +228,7 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
     }
     
     @available(iOSApplicationExtension 13.0, *)
-    @objc func socialAuth(with options: OktaIdxAuth.SocialAuth.Options, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+    @objc func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
         client.start { (context, response, error) in
             guard let response = response else {
                 self.fail(with: AuthError.missingResponse)
@@ -240,7 +240,7 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                 return
             }
             
-            let request = Request<OktaIdxAuth.Response>.SocialAuthenticate(options: options, completion: completion)
+            let request = Request<OktaIdxAuth.Response>.SocialAuthenticateIOS13(options: options, completion: completion)
             request.send(to: self,
                          from: response)
         }
@@ -259,7 +259,7 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                 return
             }
             
-            let request = Request<OktaIdxAuth.Response>.SocialAuthenticateIOS12(completion: completion)
+            let request = Request<OktaIdxAuth.Response>.SocialAuthenticate(completion: completion)
             request.send(to: self,
                          from: response)
 

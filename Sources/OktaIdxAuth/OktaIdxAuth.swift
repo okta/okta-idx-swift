@@ -92,21 +92,18 @@ import AuthenticationServices
         }
     }
     
-    @objc(OktaIdxAuthSocialAuthentication)
-    public class SocialAuth: NSObject {
-        @available(iOSApplicationExtension 13.0, *)
-        @objc(OktaIdxAuthSocialAuthenticationOptions)
-        public class Options: NSObject {
-            @objc
-            public let presentationContext: ASWebAuthenticationPresentationContextProviding
-            
-            @objc
-            public let prefersEphemeralSession: Bool
-            
-            public init(presentationContext: ASWebAuthenticationPresentationContextProviding, prefersEphemeralSession: Bool) {
-                self.presentationContext = presentationContext
-                self.prefersEphemeralSession = prefersEphemeralSession
-            }
+    @objc(OktaIdxAuthSocialOptions)
+    @available(iOSApplicationExtension 13.0, *)
+    public class SocialOptions: NSObject {
+        @objc
+        public let presentationContext: ASWebAuthenticationPresentationContextProviding
+        
+        @objc
+        public let prefersEphemeralSession: Bool
+        
+        public init(presentationContext: ASWebAuthenticationPresentationContextProviding, prefersEphemeralSession: Bool) {
+            self.presentationContext = presentationContext
+            self.prefersEphemeralSession = prefersEphemeralSession
         }
     }
     
@@ -129,7 +126,7 @@ import AuthenticationServices
     
     @available(iOSApplicationExtension 13.0, *)
     @objc
-    public func socialAuth(with options: OktaIdxAuth.SocialAuth.Options, completion: ResponseResult<Response>? = nil)
+    public func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: ResponseResult<Response>? = nil)
     {
         implementation.socialAuth(with: options, completion: completion)
     }
