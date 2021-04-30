@@ -12,51 +12,6 @@
 
 import Foundation
 
-extension IDXClient.Context: NSSecureCoding {
-    private enum Keys: String {
-        case state
-        case interactionHandle
-        case codeVerifier
-    }
-
-    public static var supportsSecureCoding: Bool {
-        return true
-    }
-    
-    public override func isEqual(_ object: Any?) -> Bool {
-        guard let object = object as? IDXClient.Context else {
-            return false
-        }
-        
-        guard state == object.state,
-              interactionHandle == object.interactionHandle,
-              codeVerifier == object.codeVerifier else { return false }
-        return true
-    }
-    
-    public func encode(with coder: NSCoder) {
-        coder.encode(state, forKey: Keys.state.rawValue)
-        coder.encode(interactionHandle, forKey: Keys.interactionHandle.rawValue)
-        coder.encode(codeVerifier, forKey: Keys.codeVerifier.rawValue)
-    }
-    
-    public convenience init?(coder: NSCoder) {
-        guard let state = coder.decodeObject(of: [NSString.self],
-                                             forKey: Keys.state.rawValue) as? String,
-              let interactionHandle = coder.decodeObject(of: [NSString.self],
-                                                         forKey: Keys.interactionHandle.rawValue) as? String,
-              let codeVerifier = coder.decodeObject(of: [NSString.self],
-                                                    forKey: Keys.codeVerifier.rawValue) as? String else
-        {
-            return nil
-        }
-        
-        self.init(state: state,
-                  interactionHandle: interactionHandle,
-                  codeVerifier: codeVerifier)
-    }
-}
-
 extension IDXClient.Token: NSSecureCoding {
     private enum Keys: String {
         case accessToken

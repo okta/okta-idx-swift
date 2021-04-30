@@ -76,8 +76,8 @@ extension IDXClient.APIVersion1 {
         let remediation: IonCollection<Form>?
         let messages: IonCollection<Message>?
         let authenticators: IonCollection<Authenticator>?
-        let authenticatorEnrollments: IonCollection<AuthenticatorEnrollment>?
-        let currentAuthenticatorEnrollment: IonObject<CurrentAuthenticatorEnrollment>?
+        let authenticatorEnrollments: IonCollection<Authenticator>?
+        let currentAuthenticatorEnrollment: IonObject<Authenticator>?
         let currentAuthenticator: IonObject<Authenticator>?
         let recoveryAuthenticator: IonObject<Authenticator>?
         let user: IonObject<User>?
@@ -146,27 +146,7 @@ extension IDXClient.APIVersion1 {
             let methods: [[String:String]]
             let settings: [String:JSONValue]?
             let contextualData: [String:JSONValue]?
-        }
-        
-        struct AuthenticatorEnrollment: Decodable {
-            let displayName: String
-            let id: String
-            let type: String
-            let key: String?
-            let methods: [[String:String]]
             let profile: [String:String]?
-            let settings: [String:JSONValue]?
-            let contextualData: [String:JSONValue]?
-        }
-        
-        struct CurrentAuthenticatorEnrollment: Decodable {
-            let displayName: String
-            let id: String
-            let type: String
-            let key: String?
-            let methods: [[String:String]]
-            let profile: [String:String]?
-            let contextualData: [String:JSONValue]?
             let send: Form?
             let resend: Form?
             let poll: Form?
@@ -182,6 +162,8 @@ extension IDXClient.APIVersion1 {
             let accepts: String?
             let relatesTo: [RelatesTo]?
             let refresh: Double?
+            let type: String?
+            let idp: [String:String]?
         }
         
         struct CompositeForm: Decodable {

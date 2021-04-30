@@ -25,18 +25,18 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
         super.viewWillAppear(animated)
         
         guard let signin = self.signin,
-              let authURL = response?.remediation?[.redirectIdp]?.href,
-              let scheme = URL(string: signin.idx.configuration.redirectUri)?.scheme else
+              let remediation = response?.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth,
+              let scheme = URL(string: signin.idx.context.configuration.redirectUri)?.scheme else
         {
             return
         }
         
-        self.webAuthSession = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme) { (callbackURL, error) in
+        self.webAuthSession = ASWebAuthenticationSession(url: remediation.redirectUrl, callbackURLScheme: scheme) { (callbackURL, error) in
             guard error == nil, let callbackURL = callbackURL else {
                 return
             }
             
-            let result = signin.idx.redirectResult(redirect: callbackURL)
+            let result = signin.idx.redirectResult(for: callbackURL)
             
             switch result {
             case .authenticated:
@@ -49,7 +49,7 @@ final class IDXWebSessionViewController: UIViewController, IDXWebSessionControll
                 }
                 
             case .remediationRequired:
-                signin.idx.introspect { (response, error) in
+                signin.idx.resume { (response, error) in
                     if let error = error {
                         signin.failure(with: error)
                     } else if let response = response {
