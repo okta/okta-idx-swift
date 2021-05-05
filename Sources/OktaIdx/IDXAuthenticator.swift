@@ -12,34 +12,64 @@
 
 import Foundation
 
+/// Protocol authenticators may conform to if they are capable of the "send" action.
+///
+/// This is often used in Phone authenticators.
 @objc(IDXAuthenticatorIsSendable)
 public protocol Sendable {
+    /// Determines if this action can perform the send action.
     @objc var canSend: Bool { get }
+    
+    /// Sends the authentication code.
+    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
     @objc func send(completion: IDXClient.ResponseResult?)
 }
 
+/// Protocol authenticators may conform to if they are capable of the "resend" action.
+///
+/// This is typically used by Email and Phone authenticators.
 @objc(IDXAuthenticatorIsResendable)
 public protocol Resendable {
+    /// Determines if this action can perform the resend action.
     @objc var canResend: Bool { get }
+
+    /// Resends a new authentication code.
+    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
     @objc func resend(completion: IDXClient.ResponseResult?)
 }
 
+/// Protocol authenticators may conform to if they can be used to recover an account.
 @objc(IDXAuthenticatorIsRecoverable)
 public protocol Recoverable {
+    /// Determines if this action can perform the recover action.
     @objc var canRecover: Bool { get }
+
+    /// Requests that the recovery code is sent.
+    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
     @objc func recover(completion: IDXClient.ResponseResult?)
 }
 
+/// Protocol authenticators can conform to if they can be polled to determine out-of-band actions taken by the user.
 @objc(IDXAuthenticatorIsPollable)
 public protocol Pollable {
+    /// Determines if this authenticator can be polled.
     @objc var canPoll: Bool { get }
+    
+    /// Indicates whether or not this authenticator is actively polling.
     @objc var isPolling: Bool { get }
+    
+    /// Starts the polling process.
+    ///
+    /// The action will be continually polled in the background either until `stopPolling` is called, or when the authenticator has finished. The completion block is invoked once the user has completed the action out-of-band, or when an error is received.
+    /// - Parameter completion: Completion handler when the polling is complete, or `nil` if the developer does not need to handle the response
     @objc func startPolling(completion: IDXClient.ResponseResult?)
     @objc func stopPolling()
 }
 
+/// Protocol authenticators conform to when they can contain profile information related to the authenticator.
 @objc(IDXAuthenticatorHasProfile)
 public protocol HasProfile {
+    /// Profile information describing the authenticator. This usually contains redacted information relevant to display to the user.
     @objc var profile: [String:String]? { get }
 }
 
@@ -63,8 +93,10 @@ extension IDXClient {
         /// Indicates the state of this authenticator, either being an available authenticator, an enrolled authenticator, authenticating, or enrolling.
         @objc public let state: State
 
-        /// Describes the various
+        /// Describes the various methods this authenticator can perform.
         @nonobjc public let methods: [Method]?
+        
+        /// Describes the various methods this authenticator can perform, as string values.
         @objc public let methodNames: [String]?
         
         // TODO: deviceKnown?
@@ -100,8 +132,11 @@ extension IDXClient {
             super.init()
         }
         
+        /// Describes a password authenticator.
         @objc(IDXPasswordAuthenticator)
         public class Password: Authenticator {
+            
+            /// Provides details about the password complexity settings for this authenticator.
             @objc public let settings: Settings?
             
             @objc(IDXPasswordSettings)
