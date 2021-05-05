@@ -35,7 +35,7 @@ extension IDXClient {
         /// A description of the form values that this remediation option supports and expects.
         @objc public let form: Form
         
-        @objc public internal(set) var authenticators: AuthenticatorCollection?
+        @objc public internal(set) var authenticators: AuthenticatorCollection = .init(authenticators: nil)
         
         @objc public subscript(name: String) -> Form.Field? {
             get { form.filter { $0.name == name }.first }

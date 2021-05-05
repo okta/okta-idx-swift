@@ -93,16 +93,6 @@ extension IDXClient.Remediation.Form.Field {
                     rows.append(Row(kind: .option(field: self, option: option),
                                     parent: parent,
                                     delegate: delegate))
-
-//                    if let optionForm = option.form,
-//                       let chosenValue = delegate.value(for: self) as? Form
-//                    {
-//                        if chosenValue == option {
-//                            optionForm.forEach { childValue in
-//                                rows.append(contentsOf: childValue.remediationRow(parent: self, delegate: delegate))
-//                            }
-//                        }
-//                    }
                 }
             } else if let form = form {
                 rows.append(contentsOf: form.flatMap { nested in
@@ -126,7 +116,7 @@ extension IDXClient.Remediation.Form.Field {
             }
         }
         
-        self.messages?.forEach { message in
+        self.messages.forEach { message in
             rows.append(Row(kind: .message(style: .message(message: message)),
                             parent: parent,
                             delegate: delegate))
@@ -180,7 +170,7 @@ extension IDXClient.Response {
     func remediationForm(delegate: AnyObject & SigninRowDelegate) -> [Section] {
         var result: [Section] = []
         
-        if let messages = messages {
+        if !messages.isEmpty {
             result.append(Section(remediationOption: nil,
                                   rows: messages.map { message in
                                     Row(kind: .message(style: .message(message: message)),
@@ -192,14 +182,6 @@ extension IDXClient.Response {
         result.append(contentsOf: remediations.map { option in
             self.remediationForm(remediationOption: option, in: self, delegate: delegate)
         })
-
-//        if canCancel {
-//            result.append(Section(remediationOption: nil,
-//                                  rows: [
-//                                    Row(kind: .button(remediationOption: nil),
-//                                        parent: nil,
-//                                        delegate: delegate)]))
-//        }
 
         return result
     }
@@ -218,7 +200,7 @@ extension IDXClient.Response {
             rows.append(Row(kind: .separator, parent: nil, delegate: nil))
         }
         
-        if let messages = messages {
+        if !messages.isEmpty {
             rows.append(contentsOf: messages.map { message in
                 Row(kind: .message(style: .message(message: message)),
                     parent: nil,
@@ -233,25 +215,31 @@ extension IDXClient.Response {
                             parent: nil,
                             delegate: delegate))
 
-//        if let enrollment = currentAuthenticatorEnrollment {
-//            if enrollment.send != nil {
-//                rows.append(Row(kind: .message(style: .enrollment(action: .send)),
-//                                parent: nil,
-//                                delegate: delegate))
-//            }
-//
-//            if enrollment.resend != nil {
-//                rows.append(Row(kind: .message(style: .enrollment(action: .resend)),
-//                                parent: nil,
-//                                delegate: delegate))
-//            }
-//
-//            if enrollment.recover != nil {
-//                rows.append(Row(kind: .message(style: .enrollment(action: .recover)),
-//                                parent: nil,
-//                                delegate: delegate))
-//            }
-//        }
+        for authenticator in remediationOption.authenticators {
+            if let sendable = authenticator.value as? Sendable,
+               sendable.canSend
+            {
+                rows.append(Row(kind: .message(style: .enrollment(action: .send)),
+                                parent: nil,
+                                delegate: delegate))
+            }
+            
+            if let resendable = authenticator.value as? Resendable,
+               resendable.canResend
+            {
+                rows.append(Row(kind: .message(style: .enrollment(action: .resend)),
+                                parent: nil,
+                                delegate: delegate))
+            }
+            
+            if let recoverable = authenticator.value as? Recoverable,
+               recoverable.canRecover
+            {
+                rows.append(Row(kind: .message(style: .enrollment(action: .recover)),
+                                parent: nil,
+                                delegate: delegate))
+            }
+        }
 
         return Section(remediationOption: remediationOption, rows: rows)
     }

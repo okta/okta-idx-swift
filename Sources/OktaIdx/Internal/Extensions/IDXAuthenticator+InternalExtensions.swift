@@ -12,8 +12,12 @@
 
 import Foundation
 
-//extension IDXClient.Authenticator: IDXResponseJSONPath {
-//    func matchesV1(jsonPath: String) -> Bool {
-//        v1JsonPaths.contains(jsonPath)
-//    }
-//}
+extension IDXClient.Authenticator.Email: PollingHandlerDelegate {
+    func pollingRefreshTime(handler: PollingHandler) -> TimeInterval {
+        self.refreshTime
+    }
+    
+    func pollingRemediation(handler: PollingHandler) -> IDXClient.Remediation? {
+        pollOption
+    }
+}

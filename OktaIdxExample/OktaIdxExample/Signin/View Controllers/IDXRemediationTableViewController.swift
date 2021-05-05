@@ -50,10 +50,11 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
             inputView.becomeFirstResponder()
         }
         
-//        if let poll = response?.authenticators.current as? IDXClient.Authenticator & Pollable {
-//            poll.startPolling { (response, error) in
-//            }
-//        }
+        if let poll = response?.authenticators.current as? IDXClient.Authenticator & Pollable,
+           poll.canPoll
+        {
+            beginPolling(using: poll)
+        }
     }
     
     var shouldShowNavigationBar: Bool {
@@ -118,29 +119,28 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
         }
     }
     
-    func beginPolling(using poll: IDXClient.Remediation & Pollable) {
-//        guard let refreshTime = poll.refresh else { return }
-//
-//        if !pollActivityIndicator.isAnimating {
-//            pollActivityIndicator.startAnimating()
-//        }
-//
-//        let deadlineTime = DispatchTime.now() + refreshTime
-//        DispatchQueue.global().asyncAfter(deadline: deadlineTime) {
-//            poll.proceed(with: [:]) { (response, error) in
-//                guard let response = response else {
-//                    return
-//                }
-//
-//                DispatchQueue.main.async {
-//                    if let nextPoll = response.currentAuthenticatorEnrollment?.poll {
-//                        self.beginPolling(using: nextPoll)
-//                    } else {
-//                        self.signin?.proceed(to: response)
-//                    }
-//                }
-//            }
-//        }
+    func beginPolling(using poll: IDXClient.Authenticator & Pollable) {
+        guard let signin = signin else {
+            showError(SigninError.genericError(message: "Signin session deallocated"))
+            return
+        }
+
+        if !pollActivityIndicator.isAnimating {
+            pollActivityIndicator.startAnimating()
+        }
+
+        poll.startPolling { [weak self] (response, error) in
+            guard let response = response else {
+                if let error = error {
+                    self?.showError(error)
+                    self?.pollActivityIndicator.stopAnimating()
+                    poll.stopPolling()
+                }
+                return
+            }
+            
+            signin.proceed(to: response)
+        }
     }
     
     // MARK: - Table view data source
@@ -172,29 +172,50 @@ extension IDXRemediationTableViewController: SigninRowDelegate {
     func formNeedsUpdate() {
         tableView.reloadData()
     }
-//    func row(row: Signin.Row, changedValue: (IDXClient.Remediation.Form.Field, Any)) {
-//        formValues[changedValue.0] = changedValue.1
-//
-//        if let changedFormValue = changedValue.1 as? IDXClient.Remediation.Form.Field {
-//            if changedFormValue.hasVisibleFields {
-//                rebuildForm()
-//            }
-//            tableView.reloadData()
-//        }
-//    }
 
     func enrollment(action: Signin.EnrollmentAction) {
-//        var remediationOption: IDXClient.Remediation?
-//        switch action {
-//        case .send:
-//            remediationOption = response?.currentAuthenticatorEnrollment?.send
-//        case .resend:
-//            remediationOption = response?.currentAuthenticatorEnrollment?.resend
-//        case .recover:
-//            remediationOption = response?.currentAuthenticatorEnrollment?.recover
-//        }
-//
-//        proceed(to: remediationOption)
+        guard let signin = signin else { return }
+        switch action {
+        case .send:
+            if let authenticator = response?.authenticators.current as? Sendable,
+               authenticator.canSend
+            {
+                authenticator.send { (response, error) in
+                    guard let response = response else {
+                        signin.failure(with: error ?? SigninError.stepUnsupported)
+                        return
+                    }
+                    
+                    signin.proceed(to: response)
+                }
+            }
+        case .resend:
+            if let authenticator = response?.authenticators.current as? Resendable,
+               authenticator.canResend
+            {
+                authenticator.resend { (response, error) in
+                    guard let response = response else {
+                        signin.failure(with: error ?? SigninError.stepUnsupported)
+                        return
+                    }
+                    
+                    signin.proceed(to: response)
+                }
+            }
+        case .recover:
+            if let authenticator = response?.authenticators.current as? Recoverable,
+               authenticator.canRecover
+            {
+                authenticator.recover { (response, error) in
+                    guard let response = response else {
+                        signin.failure(with: error ?? SigninError.stepUnsupported)
+                        return
+                    }
+                    
+                    signin.proceed(to: response)
+                }
+            }
+        }
     }
     
     func buttonSelected(remediationOption: IDXClient.Remediation, sender: Any?) {
@@ -294,7 +315,6 @@ extension Signin.Row {
                 cell.update = {
                     field.selectedOption = option
                     delegate?.formNeedsUpdate()
-//                    delegate?.row(row: self, changedValue: (field, option))
                 }
             }
             
@@ -323,8 +343,6 @@ extension Signin.Row {
                 cell.selectedValue = currentValue
                 cell.update = { value in
                     field.selectedOption = values.first { $0.value as? String == value }
-//                    delegate?.formNeedsUpdate()
-//                    self.delegate?.row(row: self, changedValue: (field, value))
                 }
             }
             

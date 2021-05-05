@@ -81,13 +81,6 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
             }
             
             do {
-                try self.consumeResponse(response)
-            } catch {
-                completion(nil, error)
-                return
-            }
-
-            do {
                 completion(try IDXClient.Response(client: client, v1: response), nil)
             } catch {
                 completion(nil, error)
@@ -122,13 +115,6 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
                 return
             }
             
-            do {
-                try self.consumeResponse(response)
-            } catch {
-                completion(nil, error)
-                return
-            }
-
             do {
                 completion(try IDXClient.Response(client: client, v1: response), nil)
             } catch {
@@ -211,7 +197,6 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
             return
         }
 
-        remediation.form.allFields
         remediation.form["client_id"]?.value = configuration.clientId as AnyObject
         remediation.form["client_secret"]?.value = configuration.clientSecret as AnyObject
         remediation.form["code_verifier"]?.value = context.codeVerifier as AnyObject
@@ -247,29 +232,8 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
                 return
             }
             
-            do {
-                try self.consumeResponse(response)
-            } catch {
-                completion(nil, error)
-                return
-            }
-            
             completion(IDXClient.Token(v1: response), nil)
         }
-    }
-}
-
-extension IDXClient.APIVersion1 {
-    func consumeResponse(_ response: IntrospectRequest.ResponseType) throws {
-//        self.cancelRemediationOption = IDXClient.Remediation.Option(api: self, v1: response.cancel)
-    }
-    
-    func consumeResponse(_ response: IDXClient.Response) throws  {
-//        self.cancelRemediationOption = response.cancelRemediationOption
-    }
-
-    func consumeResponse(_ response: TokenRequest.ResponseType) throws  {
-        // Do nothing, for now
     }
 }
 

@@ -125,10 +125,10 @@ class IDXClientAPIv1Mock: MockBase, IDXClientAPIImpl {
     func redirectResult(for url: URL) -> IDXClient.RedirectResult {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
-                                            "redirect": url as Any
+                                            "url": url as Any
                                           ]))
-        
-        return client?.redirectResult(for: url) ?? .invalidContext
+        let result = response(for: #function)
+        return result?["result"] as? IDXClient.RedirectResult ?? .invalidContext
     }
     
     @objc func exchangeCode(redirect url: URL, completion: @escaping (IDXClient.Token?, Error?) -> Void) {

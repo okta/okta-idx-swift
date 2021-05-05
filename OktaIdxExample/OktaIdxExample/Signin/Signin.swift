@@ -86,7 +86,7 @@ public class Signin {
     
     /// Called by each view controller once their remediation step has been completed, allowing it to proceed to the next step of the workflow.
     /// - Parameter response: IDX response object received from the API.
-    internal func proceed(to response: IDXClient.Response) {
+    func proceed(to response: IDXClient.Response) {
         if !Thread.isMainThread {
             DispatchQueue.main.async {
                 self.proceed(to: response)
@@ -100,7 +100,7 @@ public class Signin {
         }
         
         guard let controller = controller(for: response) else {
-            if let message = response.messages?.first {
+            if let message = response.messages.first {
                 let alert = UIAlertController(title: "Error",
                                               message: message.message,
                                               preferredStyle: .alert)
@@ -128,7 +128,7 @@ public class Signin {
         }
         
         // Don't animate between controllers of the same type, to avoid
-        // annoing animations
+        // annoying animations
         var animated = true
         if let previousController = navigationController.topViewController {
             if type(of: previousController) === type(of: controller) {

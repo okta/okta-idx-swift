@@ -75,9 +75,6 @@ import AuthenticationServices
         @objc
         public let context: IDXClient.Context?
         
-//        @objc
-//        public let additionalInfo: [String: Any]?
-
         @objc
         public let detailedResponse: IDXClient.Response?
         

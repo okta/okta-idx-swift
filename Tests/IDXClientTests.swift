@@ -25,17 +25,9 @@ class IDXClientTests: XCTestCase {
     var client: IDXClient!
     var api: IDXClientAPIv1Mock!
     
-    var redirectClient: IDXClient!
-    
     override func setUpWithError() throws {
         api = IDXClientAPIv1Mock(configuration: context.configuration)
         client = IDXClient(context: context, api: api)
-        
-//        redirectClient = IDXClient(
-//            configuration: configuration,
-//            context: context,
-//            api: IDXClient.APIVersion1(with: configuration, session: URLSessionMock()),
-//            queue: .main)
     }
 
     func testConstructors() {
@@ -177,6 +169,16 @@ class IDXClientTests: XCTestCase {
         XCTAssertEqual(call?.arguments?["type"] as! String, "access_token")
         api.reset()
 
+        // redirectResult()
+        let url = try XCTUnwrap(URL(string: "redirect://uri"))
+        let result = client.redirectResult(for: url)
+        XCTAssertEqual(result, .invalidContext)
+        call = api.recordedCalls.last
+        XCTAssertEqual(call?.function, "redirectResult(for:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
+        XCTAssertEqual(call?.arguments?["url"] as! URL, url)
+        api.reset()
+
         // Option.proceed()
         expect = expectation(description: "Option.proceed")
         remedationOption.proceed { (_, _) in
@@ -219,56 +221,4 @@ class IDXClientTests: XCTestCase {
         XCTAssertEqual(call?.arguments?["using"] as! IDXClient.Remediation, remedationOption)
         api.reset()
     }
-    
-    func testRedirectResultWithInvalidContext() throws {
-        let redirectUrl = try XCTUnwrap(URL(string: "redirect:/uri"))
-//
-//        let client = IDXClient(
-//            configuration: context.configuration,
-//            context: nil,
-//            api: IDXClient.APIVersion1(with: configuration, session: URLSessionMock()),
-//            queue: .main)
-//
-//        XCTAssertEqual(client.redirectResult(with: nil, redirect: redirectUrl), .invalidContext)
-    }
-    
-    func testRedirectResultAuthenticated() throws {
-//        let redirectUrl = try XCTUnwrap(URL(string: """
-//                redirect:///uri?\
-//                interaction_code=qwe4xJasF897EbEKL0LLbNUI-QwXZa8YOkY8QkWUlpXxU&\
-//                state=state#_=_
-//                """))
-//
-//        XCTAssertEqual(redirectClient.redirectResult(redirect: redirectUrl), .authenticated)
-    }
-    
-//    func testRedirectResultWithInvalidUrl() throws {
-//        let redirectUrl = try XCTUnwrap(URL(string: "redirect///uri"))
-//        
-//        XCTAssertEqual(redirectClient.redirectResult(for: redirectUrl), .invalidRedirectUrl)
-//    }
-//    
-//    func testRedirectResultWithInvalidScheme() throws {
-//        let redirectUrl = try XCTUnwrap(URL(string: "redirect.com:///uri"))
-//        
-//        XCTAssertEqual(redirectClient.redirectResult(for: redirectUrl), .invalidRedirectUrl)
-//    }
-//    
-//    func testRedirectResultWithInvalidState() throws {
-//        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state1"))
-//        
-//        XCTAssertEqual(redirectClient.redirectResult(for: redirectUrl), .invalidContext)
-//    }
-//
-//    func testRedirectResultWithRemediationError() throws {
-//        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state&error=interaction_required"))
-//        
-//        XCTAssertEqual(redirectClient.redirectResult(for: redirectUrl), .remediationRequired)
-//    }
-//    
-//    func testRedirectResultWithEmptyResponse() throws {
-//        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state"))
-//        
-//        XCTAssertEqual(redirectClient.redirectResult(for: redirectUrl), .invalidContext)
-//    }
 }

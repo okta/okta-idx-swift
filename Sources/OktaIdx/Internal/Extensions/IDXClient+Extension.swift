@@ -44,39 +44,3 @@ extension IDXClient: IDXClientAPI {
         }
     }
 }
-
-
-//extension IDXClient.Authenticator.AuthenticatorType {
-//    internal init(string value: String) {
-//        switch value {
-//        case "app":               self = .app
-//        case "email":             self = .email
-//        case "phone":             self = .phone
-//        case "password":          self = .password
-//        case "security_question": self = .security_question
-//        case "device":            self = .device
-//        case "security_key":      self = .security_key
-//        case "federated":         self = .federated
-//        default:                  self = .unknown
-//        }
-//    }
-//}
-//
-//extension IDXClient.Authenticator.AuthenticatorMethodType {
-//    internal init(string value: String) {
-//        switch value {
-//        case "sms":               self = .sms
-//        case "voice":             self = .voice
-//        case "email":             self = .email
-//        case "push":              self = .push
-//        case "crypto":            self = .crypto
-//        case "signedNonce":       self = .signedNonce
-//        case "totp":              self = .totp
-//        case "password":          self = .password
-//        case "webauthn":          self = .webauthn
-//        case "security_question": self = .security_question
-//        default:                  self = .unknown
-//        }
-//    }
-//}
-

@@ -98,39 +98,6 @@ extension IDXClient.APIVersion1 {
             let type: String?
             let value: [T]
         }
-
-//        struct RelatesTo: Decodable {
-//            enum Path: Equatable {
-//                init(string: String) {
-//                    if string == "$" {
-//                        self = .root
-//                    } else if let index = Int(string) {
-//                        self = .array(index: index)
-//                    } else {
-//                        self = .property(name: string)
-//                    }
-//                }
-//
-//                case root
-//                case property(name: String)
-//                case array(index: Int)
-//            }
-//
-//            let path: [Path]
-//            init(from decoder: Decoder) throws {
-//                let container = try decoder.singleValueContainer()
-//                guard let value = try? container.decode(String.self) else {
-//                    throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath,
-//                                                            debugDescription: "Invalid relatesTo value \(decoder.codingPath)"))
-//                }
-//
-//                let charset = CharacterSet(charactersIn: ".[]")
-//                path = value
-//                    .components(separatedBy: charset)
-//                    .filter { !$0.isEmpty }
-//                    .compactMap { Path(string: $0) }
-//            }
-//        }
         
         struct User: Decodable {
             let id: String

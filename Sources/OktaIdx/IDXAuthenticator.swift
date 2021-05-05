@@ -14,26 +14,26 @@ import Foundation
 
 @objc(IDXAuthenticatorIsSendable)
 public protocol Sendable {
+    @objc var canSend: Bool { get }
     @objc func send(completion: IDXClient.ResponseResult?)
 }
 
 @objc(IDXAuthenticatorIsResendable)
 public protocol Resendable {
+    @objc var canResend: Bool { get }
     @objc func resend(completion: IDXClient.ResponseResult?)
 }
 
 @objc(IDXAuthenticatorIsRecoverable)
 public protocol Recoverable {
+    @objc var canRecover: Bool { get }
     @objc func recover(completion: IDXClient.ResponseResult?)
-}
-
-@objc(IDXAuthenticatorIsCancellable)
-public protocol Cancellable {
-    @objc func cancel(completion: IDXClient.ResponseResult?)
 }
 
 @objc(IDXAuthenticatorIsPollable)
 public protocol Pollable {
+    @objc var canPoll: Bool { get }
+    @objc var isPolling: Bool { get }
     @objc func startPolling(completion: IDXClient.ResponseResult?)
     @objc func stopPolling()
 }
@@ -190,7 +190,40 @@ extension IDXClient {
         @objc(IDXEmailAuthenticator)
         public class Email: ProfileAuthenticator, Resendable, Pollable {
             @objc public var emailAddress: String? { profile?["email"] }
-            @objc public private(set) var isPolling: Bool = false
+            @objc public var isPolling: Bool { pollHandler?.isPolling ?? false }
+            @objc public var refreshTime: TimeInterval { pollOption?.refresh ?? 0 }
+            @objc public var canResend: Bool { resendOption != nil }
+            @objc public var canPoll: Bool { pollOption != nil }
+
+            public func startPolling(completion: IDXClient.ResponseResult?) {
+                // Stop any previous polling
+                stopPolling()
+                
+                let handler = PollingHandler()
+                handler.delegate = self
+                handler.start { [weak self] (response, error) in
+                    guard let response = response else {
+                        completion?(nil, error)
+                        return false
+                    }
+                    
+                    // If we don't get another email authenticator back, we know the
+                    // magic link was clicked, and we can proceed to the completion block.
+                    guard let emailAuthenticator = response.authenticators.current as? Email else {
+                        completion?(response, error)
+                        return false
+                    }
+                    
+                    self?.pollOption = emailAuthenticator.pollOption
+                    return true
+                }
+                pollHandler = handler
+            }
+            
+            public func stopPolling() {
+                pollHandler?.stopPolling()
+                pollHandler = nil
+            }
             
             public func resend(completion: IDXClient.ResponseResult?) {
                 guard let client = client else {
@@ -206,17 +239,9 @@ extension IDXClient {
                 client.proceed(remediation: resendOption, completion: completion)
             }
             
-            public func startPolling(completion: IDXClient.ResponseResult?) {
-                isPolling = true
-                // TODO: Add polling handler
-            }
-            
-            public func stopPolling() {
-                isPolling = false
-            }
-            
             internal let resendOption: IDXClient.Remediation?
-            internal let pollOption: IDXClient.Remediation?
+            internal private(set) var pollOption: IDXClient.Remediation?
+            private var pollHandler: PollingHandler?
             
             internal init(client: IDXClientAPI,
                           v1JsonPaths: [String],
@@ -248,7 +273,9 @@ extension IDXClient {
         @objc(IDXPhoneAuthenticator)
         public class Phone: ProfileAuthenticator, Sendable, Resendable {
             @objc public var phoneNumber: String? { profile?["phoneNumber"] }
-            
+            @objc public var canSend: Bool { sendOption != nil }
+            @objc public var canResend: Bool { resendOption != nil }
+
             public func send(completion: IDXClient.ResponseResult?) {
                 guard let client = client else {
                     completion?(nil, IDXClientError.invalidClient)
