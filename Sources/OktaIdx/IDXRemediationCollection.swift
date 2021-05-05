@@ -13,13 +13,15 @@
 import Foundation
 
 extension IDXClient {
+    /// Represents a collection of remediation options.
     @objc(IDXRemediationCollection)
     public class RemediationCollection: NSObject {
-        @objc
-        public subscript(name: String) -> Remediation? {
+        /// Returns a remediation based on its string name.
+        @objc public subscript(name: String) -> Remediation? {
             remediations.first { $0.name == name }
         }
         
+        /// Returns a remediation based on its type.
         public subscript(type: Remediation.RemediationType) -> Remediation? {
             remediations.first { $0.type == type }
         }

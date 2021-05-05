@@ -32,11 +32,7 @@ public final class IDXClient: NSObject {
 
     /// The current context for the authentication session.
     ///
-    /// This value will be populated in the following circumstances:
-    /// * When a context value is specified when the IDXClient initializer is called.
-    /// * When a valid Context object is returned when the `interact` method receives a successful response.
-    ///
-    /// For convenience, when calls to `introspect` or `exchangeCode` are made with a `nil` context value, they will use the value stored in this `context` property.
+    /// This value is used when resuming authentication at a later date or after app launch, and to ensure the final token exchange can be completed.
     @objc public let context: Context
     
     /// Optional delegate property, used to be informed when important events occur throughout the authentication workflow.
@@ -70,7 +66,7 @@ public final class IDXClient: NSObject {
         }
     }
     
-    /// Initializes an IDX client instance with the given configuration object.
+    /// Initializes an IDX client instance with the given configuration object. This can be used when a Context is available from a previous session, and the user needs to resume the authentication.
     /// - Parameters:
     ///   - context: Context object to use when resuming a session.
     @objc public convenience init(context: Context) {
@@ -80,11 +76,10 @@ public final class IDXClient: NSObject {
         
     /// Resumes the authentication state to identify the available remediation steps.
     ///
-    /// Once an interaction handle is received, this method can be used to determine what remedation options are available to the user to authenticate.
+    /// This method is usually performed after an IDXClient is created in `IDXClient.start(with:state:completion:)`, but can also be called at any time to identify what next remediation steps are available to the user.
     /// - Important:
     /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didReceive:)` methods to process any response or error returned from this call.
     /// - Parameters:
-    ///   - context: `IDXClient.Context` object that contains a valid interactionHandle, or `nil` to use the value in the IDXClient.
     ///   - completion: Optional completion handler invoked when a response is received.
     ///   - response: The response describing the new workflow next steps, or `nil` if an error occurred.
     ///   - error: Describes the error that occurred, or `nil` if successful.
@@ -94,9 +89,8 @@ public final class IDXClient: NSObject {
         }
     }
     
-    /// Evaluates the given redirect URL.
+    /// Evaluates the given redirect URL to determine what next steps can be performed. This is usually used when receiving a redirection from an IDP authentication flow.
     /// - Parameters:
-    ///   - context: `IDXClient.Context` value returned from `interact`, or `nil` to use the value stored in the IDXClient.
     ///   - url: URL with the app’s custom scheme. The value must match one of the authorized redirect URIs, which are configured in Okta Admin Console.
     /// - Returns: Result of parsing the given redirect URL.
     @objc public func redirectResult(for url: URL) -> RedirectResult {
@@ -107,9 +101,8 @@ public final class IDXClient: NSObject {
     ///
     /// Once the `redirectResult` method returns `authenticated`, the developer can exchange that redirect URL for a valid token by using this method.
     /// - Important:
-    /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didExchangeToken:)` method to receive the token or to handle any errors.
+    /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didReceive:)` method to receive the token or to handle any errors.
     /// - Parameters:
-    ///   - context: `IDXClient.Context` value returned from `interact`, or `nil` to use the value stored in the IDXClient.
     ///   - url: URL with the app’s custom scheme. The value must match one of the authorized redirect URIs, which are configured in Okta Admin Console.
     ///   - completion: Optional completion handler invoked when a token, or error, is received.
     @objc(exchangeCodeWithRedirectUrl:completion:)
@@ -130,6 +123,11 @@ public final class IDXClient: NSObject {
         self.api.client = self
     }
     
+    /// Revokes the given token.
+    /// - Parameters:
+    ///   - token: Token object to revoke.
+    ///   - type: The type to revoke (e.g. access token, or refresh token)
+    ///   - completion: Completion handler for when the token is revoked.
     @objc(revokeToken:type:completion:)
     public func revoke(token: Token, type: Token.RevokeType, completion: @escaping(_ successful: Bool, _ error: Error?) -> Void) {
         let selectedToken: String?
@@ -148,6 +146,11 @@ public final class IDXClient: NSObject {
         revoke(token: tokenString, type: type, completion: completion)
     }
 
+    /// Revokes the given token using the string value of the token.
+    /// - Parameters:
+    ///   - token: Token string to revoke.
+    ///   - type: The type to revoke (e.g. access token, or refresh token)
+    ///   - completion: Completion handler for when the token is revoked.
     @objc(revokeTokenWithString:type:completion:)
     public func revoke(token: String, type: Token.RevokeType, completion: @escaping(_ successful: Bool, _ error: Error?) -> Void) {
         api.revoke(token: token, type: type.tokenTypeHint) { (success, error) in

@@ -13,10 +13,10 @@
 import Foundation
 
 extension IDXClient.Remediation {
+    /// Object that represents a form of fields associated with a remediation.
     @objc(IDXRemediationForm)
     public class Form: NSObject {
-        @objc
-        public subscript(index: Int) -> Field? {
+        @objc public subscript(index: Int) -> Field? {
             fields[index]
         }
         
@@ -32,8 +32,8 @@ extension IDXClient.Remediation {
             return result
         }
         
-        @objc
-        public let fields: [Field]
+        /// The array of ordered user-visible fields within this form. Each field may also contain nested forms for collections of related fields.
+        @objc public let fields: [Field]
         
         let allFields: [Field]
 

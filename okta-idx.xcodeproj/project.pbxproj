@@ -306,7 +306,6 @@
 				964773EB2638C5E40059EBC4 /* IDXRemediationCollection+Extension.swift */,
 				96437C2125CB1E6900ED7E11 /* IDXToken+Extensions.swift */,
 				9617090E25AD109C000E9552 /* IDXVersion+Extension.swift */,
-				96F8F1B9258049B000DA2701 /* IDXVersion+InternalExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +516,7 @@
 				96C6B2082641CAB000D75766 /* IDXMessageCollection+InternalExtensions.swift */,
 				9647742E263B88D50059EBC4 /* IDXRemediation+Extensions.swift */,
 				962ABD40263CD4420049B0C4 /* IDXResponse+InternalExtensions.swift */,
+				96F8F1B9258049B000DA2701 /* IDXVersion+InternalExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

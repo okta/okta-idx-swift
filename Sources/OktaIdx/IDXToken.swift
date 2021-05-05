@@ -34,6 +34,7 @@ extension IDXClient {
         /// The type of this token.
         @objc public let tokenType: String
 
+        /// The possible token types that can be revoked.
         @objc public enum RevokeType: Int {
             case refreshToken
             case accessAndRefreshToken

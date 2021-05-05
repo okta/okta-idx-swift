@@ -13,6 +13,7 @@
 import Foundation
 
 extension IDXClient.Response {
+    /// The intent of the authentication workflow, as returned from the server.
     @objc(IDXResponseIntent)
     public enum Intent: Int {
         case enrollNewUser

@@ -13,13 +13,16 @@
 import Foundation
 
 extension IDXClient {
+    /// Represents a collection of messages.
     @objc(IDXMessageCollection)
     public class MessageCollection: NSObject {
+        /// Convenience to return the message associated with the given field.
         @objc(messageForField:)
         public func message(for field: IDXClient.Remediation.Form.Field) -> Message? {
             return allMessages.first(where: { $0.field == field })
         }
         
+        /// Convenience method to return the message for a field with the given name.
         @objc(messageForFieldNamed:)
         public func message(for fieldName: String) -> Message? {
             return allMessages.first(where: { $0.field?.name == fieldName })

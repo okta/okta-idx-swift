@@ -18,6 +18,7 @@ extension IDXClient.Authenticator {
         case normal, enrolled, authenticating, enrolling
     }
     
+    /// The type of authenticator.
     @objc(IDXAuthenticatorKind)
     public enum Kind: Int {
         case unknown
@@ -31,6 +32,7 @@ extension IDXClient.Authenticator {
         case federated
     }
     
+    /// The method, or sub-type, of an authenticator.
     @objc(IDXAuthenticatorMethod)
     public enum Method: Int {
         case unknown

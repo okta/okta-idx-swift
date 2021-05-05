@@ -66,10 +66,8 @@ extension IDXClient {
         ///
         /// Once the `isLoginSuccessful` property is `true`, the developer can exchange the response for a valid token by using this method.
         /// - Important:
-        /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didExchangeToken:)` method to receive the token or to handle any errors.
+        /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didReceive:)` method to receive the token or to handle any errors.
         /// - Parameters:
-        ///   - context: Context object returned from the initial response to `interact`, or `nil` to use the value stored in the IDXClient.
-        ///   - response: Successful response.
         ///   - completion: Optional completion handler invoked when a token, or error, is received.
         ///   - token: The token that was exchanged, or `nil` if an error occurred.
         ///   - error: Describes the error that occurred, or `nil` if successful.

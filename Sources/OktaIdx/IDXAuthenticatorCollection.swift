@@ -13,20 +13,21 @@
 import Foundation
 
 extension IDXClient {
+    /// Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.
     @objc(IDXAuthenticatorCollection)
     public class AuthenticatorCollection: NSObject {
-        @objc
-        public var current: Authenticator? {
+        /// The current authenticator, if one is actively being enrolled or authenticated.
+        @objc public var current: Authenticator? {
             allAuthenticators.values.first { $0.state == .authenticating || $0.state == .enrolling }
         }
         
-        @objc
-        public var enrolled: [Authenticator] {
+        /// The array of currently-enrolled authenticators.
+        @objc public var enrolled: [Authenticator] {
             allAuthenticators.values.filter { $0.state == .enrolled }
         }
         
-        @objc
-        public subscript(type: Authenticator.Kind) -> Authenticator? {
+        /// Access authenticators based on their type.
+        @objc public subscript(type: Authenticator.Kind) -> Authenticator? {
             allAuthenticators[type]
         }
         

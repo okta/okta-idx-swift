@@ -13,7 +13,7 @@
 import Foundation
 
 extension IDXClient {
-    /// Instances of `IDXClient.Remediation.Option` describe choices the user can make to proceed through the authentication workflow.
+    /// Instances of `IDXClient.Remediation` describe choices the user can make to proceed through the authentication workflow.
     ///
     /// Either simple or complex authentication scenarios consist of a set of steps that may be followed, but at some times the user may have a choice in what they use to verify their identity. For example, a user may have multiple choices in verifying their account, such as:
     ///
@@ -26,17 +26,26 @@ extension IDXClient {
     ///
     /// Nested form values can be accessed through keyed subscripting, for example:
     ///
-    ///    remediationOption["identifier"]
+    ///    response.remediations[.identifier]
     @objc(IDXRemediation)
     public class Remediation: NSObject {
+        /// The type of this remediation, which is used for keyed subscripting from a `IDXClient.RemediationCollection`.
         @objc public let type: RemediationType
+        
+        /// The string name for this type.
         @objc public let name: String
 
         /// A description of the form values that this remediation option supports and expects.
         @objc public let form: Form
         
+        /// The set of authenticators associated with this remediation.
         @objc public internal(set) var authenticators: AuthenticatorCollection = .init(authenticators: nil)
-        
+
+        /// Returns the field within this remedation with the given name or key-path.
+        ///
+        /// To retrieve nested fields, keyPath "." notation can be used to select fields within child forms, for example:
+        ///
+        ///    response.remediations[.identifier]["credentials.passcode"]
         @objc public subscript(name: String) -> Form.Field? {
             get { form.filter { $0.name == name }.first }
         }
@@ -78,11 +87,10 @@ extension IDXClient {
         
         /// Executes the remediation option and proceeds through the workflow using the supplied form parameters.
         ///
-        /// This method is used to proceed through the authentication flow, using the given data to make the user's selection. It accepts the user data as a `IDXClient.Remediation.Parameters` object to associate individual `IDXClient.Remediation.FormValue` fields to the associated user-supplied data to submit to the request.
+        /// This method is used to proceed through the authentication flow, using the data assigned to the nested fields' `value` to make selections.
         /// - Important:
         /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didReceive:)` methods to process any response or error returned from this call.
         /// - Parameters:
-        ///   - parameters: `IDXClient.Parameters` object representing the data to submit to the remediation option.
         ///   - completion: Optional completion handler invoked when a response is received.
         ///   - response: `IDXClient.Response` object describing the next step in the remediation workflow, or `nil` if an error occurred.
         ///   - error: A description of the error that occurred, or `nil` if the request was successful.
@@ -96,11 +104,16 @@ extension IDXClient {
             client.proceed(remediation: self, completion: completion)
         }
         
+        /// Remediation subclass used to represent social authentication remediations (e.g. IDP authentication).
         @objc(IDXSocialAuthRemediation)
         public class SocialAuth: Remediation {
+            /// The URL an application should load or redirect to in order to continue authentication with the IDP service.
             @objc public var redirectUrl: URL { href }
+            
+            /// The service for this social authentication remediation.
             @objc public let service: Service
-            @objc(identifier) public let id: String
+
+            /// The developer-assigned IDP name within the Okta admin dashboard.
             @objc public let idpName: String
             
             init(client: IDXClientAPI,
@@ -129,6 +142,7 @@ extension IDXClient {
                            relatesTo: relatesTo)
             }
             
+            /// The list of services that are possible within a social authentication workflow.
             @objc(IDXSocialAuthRemediationService)
             public enum Service: Int {
             case facebook

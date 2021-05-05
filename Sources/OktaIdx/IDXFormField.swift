@@ -13,11 +13,11 @@
 import Foundation
 
 extension IDXClient.Remediation.Form {
-    /// Describes an individual value within a form, used to collect and submit information from the user to proceed through the authentication workflow.
+    /// Describes an individual field within a form, used to collect and submit information from the user to proceed through the authentication workflow.
     ///
     /// Nested form values can be accessed through keyed subscripting, for example:
     ///
-    ///    credentialsFormValue["passcode"]
+    ///    credentials.form["passcode"]
     @objc(IDXRemediationFormField)
     final public class Field: NSObject {
         /// The programmatic name for this form value.
@@ -53,8 +53,12 @@ extension IDXClient.Remediation.Form {
         /// For form fields that have specific options the user can choose from (e.g. security question, passcode, etc), this indicates the different form options that should be displayed to the user.
         @objc public let options: [IDXClient.Remediation.Form.Field]?
         
+        /// Indicates if this field is the selected option within a parent field's `options` array.
         @objc public internal(set) var isSelectedOption: Bool
         
+        /// Allows a developer to set the selected option for a field that contains multiple `options`.
+        ///
+        /// This will update the `isSelectedOption` on all relevant fields.
         @objc public weak var selectedOption: IDXClient.Remediation.Form.Field? {
             didSet {
                 guard let options = options else { return }
@@ -69,8 +73,10 @@ extension IDXClient.Remediation.Form {
         /// Messages reported from the server at the FormValue level should be considered relevant to the individual form field, and as a result should be displayed to the user alongside any UI elements associated with it.
         @objc public let messages: IDXClient.MessageCollection
         
+        /// Relates this field to an authenticator, when a field is used to represent an authenticator. For example, when a field is used within a series of `options` to identify which authenticator to select.
         @objc public internal(set) weak var authenticator: IDXClient.Authenticator?
 
+        /// Returns the nested `form` field with the given name.
         @objc public subscript(name: String) -> Field? {
             form?[name]
         }

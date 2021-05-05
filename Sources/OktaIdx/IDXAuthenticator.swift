@@ -195,6 +195,7 @@ extension IDXClient {
             }
         }
 
+        /// Base class that several authenticators are built upon.
         @objc(IDXProfileBaseAuthenticator)
         public class ProfileAuthenticator: Authenticator, HasProfile {
             @objc public let profile: [String:String]?
@@ -222,8 +223,10 @@ extension IDXClient {
             }
         }
         
+        /// Email authenticator, used to authenticate a user based on their email address.
         @objc(IDXEmailAuthenticator)
         public class Email: ProfileAuthenticator, Resendable, Pollable {
+            /// Convenience method to return the redacted email address associated with this user.
             @objc public var emailAddress: String? { profile?["email"] }
             @objc public var isPolling: Bool { pollHandler?.isPolling ?? false }
             @objc public var refreshTime: TimeInterval { pollOption?.refresh ?? 0 }
@@ -305,8 +308,10 @@ extension IDXClient {
             }
         }
 
+        /// Authenticator that utilizes a user's phone to authenticate them, either by sending an SMS or voice message.
         @objc(IDXPhoneAuthenticator)
         public class Phone: ProfileAuthenticator, Sendable, Resendable {
+            /// Convenience method to return the redacted phone number associated with this user.
             @objc public var phoneNumber: String? { profile?["phoneNumber"] }
             @objc public var canSend: Bool { sendOption != nil }
             @objc public var canResend: Bool { resendOption != nil }
