@@ -48,51 +48,56 @@ extension IDXClient.Remediation.Form {
         @objc public let isSecret: Bool
         
         /// For composite form fields, this contains the nested array of form values to group together.
-        @objc public let form: IDXClient.Remediation.Form
+        @objc public let form: IDXClient.Remediation.Form?
         
         /// For form fields that have specific options the user can choose from (e.g. security question, passcode, etc), this indicates the different form options that should be displayed to the user.
-        @objc public let options: [IDXClient.Remediation.Form]?
+        @objc public let options: [IDXClient.Remediation.Form.Field]?
         
-        @objc public weak var selectedOption: IDXClient.Remediation.Form? {
+        @objc public internal(set) var isSelectedOption: Bool
+        
+        @objc public weak var selectedOption: IDXClient.Remediation.Form.Field? {
             didSet {
                 guard let options = options else { return }
                 for option in options {
-                    option.isSelected = (option === selectedOption)
+                    option.isSelectedOption = (option === selectedOption)
                 }
             }
         }
         
-        /// The list of messages sent from the server, or `nil` if no messages are available at the form value level.
+        /// The list of messages sent from the server.
         ///
         /// Messages reported from the server at the FormValue level should be considered relevant to the individual form field, and as a result should be displayed to the user alongside any UI elements associated with it.
-        @objc public let messages: [IDXClient.Message]?
+        @objc public let messages: IDXClient.MessageCollection
         
-        @objc public internal(set) var authenticator: IDXClient.Authenticator?
+        @objc public internal(set) weak var authenticator: IDXClient.Authenticator?
 
         @objc public subscript(name: String) -> Field? {
-            form[name]
+            form?[name]
         }
         
-//        @objc public internal(set) var relatesTo: AnyObject?
-//        internal let v1RelatesTo: APIVersion1.Response.RelatesTo?
-        
-//        /// For composite or nested forms, this method composes the list of form values, merging the supplied parameters along with the defaults included in the form.
-//        ///
-//        /// Validation checks for required and immutable values are performed, which will throw exceptions if any of those parameters fail validation.
-//        /// - Parameter params: User-supplied parameters, `nil` to simply retrieve the defaults.
-//        /// - Throws:
-//        ///   - IDXClientError.invalidParameter
-//        ///   - IDXClientError.parameterImmutable
-//        ///   - IDXClientError.missingRequiredParameter
-//        /// - Returns: Collection of key/value pairs, or `nil` if this form value does not contain a nested form.
-//        /// - SeeAlso: IDXClient.Remediation.Option.formValues(with:)
-//        public func formValues(with params: [String:Any]? = nil) throws -> [String:Any]? {
-//            guard let form = form else { return nil }
-//            
-//            return try IDXClient.extractFormValues(from: form, with: params)
-//        }
-        
+        let isVisible: Bool
+        let relatesTo: String?
         var _value: AnyObject?
+        lazy var hasVisibleFields: Bool = {
+            if isVisible {
+                return true
+            }
+            
+            if let form = form,
+               !form.fields.lazy.filter({ $0.hasVisibleFields }).isEmpty
+            {
+                return true
+            }
+            
+            if let options = options,
+               !options.filter({ $0.hasVisibleFields }).isEmpty
+            {
+                return true
+            }
+            
+            return false
+        }()
+
         internal init(name: String? = nil,
                       label: String? = nil,
                       type: String? = nil,
@@ -101,22 +106,24 @@ extension IDXClient.Remediation.Form {
                       mutable: Bool,
                       required: Bool,
                       secret: Bool,
-                      form: IDXClient.Remediation.Form,
-//                      relatesTo:APIVersion1.Response.RelatesTo? = nil,
-                      options: [IDXClient.Remediation.Form]? = nil,
-                      messages: [IDXClient.Message]? = nil)
+                      relatesTo: String? = nil,
+                      form: IDXClient.Remediation.Form? = nil,
+                      options: [IDXClient.Remediation.Form.Field]? = nil,
+                      messages: IDXClient.MessageCollection = .init(messages: nil))
         {
             self.name = name
             self.label = label
             self.type = type
             self._value = value
+            self.isVisible = visible
             self.isMutable = mutable
             self.isRequired = required
             self.isSecret = secret
             self.form = form
-//            self.v1RelatesTo = relatesTo
+            self.relatesTo = relatesTo
             self.options = options
             self.messages = messages
+            self.isSelectedOption = false
             
             super.init()
         }

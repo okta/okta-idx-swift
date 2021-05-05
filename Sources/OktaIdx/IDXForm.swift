@@ -24,9 +24,9 @@ extension IDXClient.Remediation {
             var components = name.components(separatedBy: ".")
 
             let name = components.removeFirst()
-            var result = fields.first { $0.name == name }
+            var result = allFields.first { $0.name == name }
             if result != nil && !components.isEmpty {
-                result = result?.form[components.joined(separator: ".")]
+                result = result?.form?[components.joined(separator: ".")]
             }
             
             return result
@@ -35,13 +35,13 @@ extension IDXClient.Remediation {
         @objc
         public let fields: [Field]
         
-        @objc
-        public internal(set) var isSelected: Bool
-        
-        init(fields: [Field]?) {
-            self.fields = fields ?? []
-            self.isSelected = false
+        let allFields: [Field]
 
+        init?(fields: [Field]?) {
+            guard let fields = fields else { return nil }
+            self.allFields = fields
+            self.fields = self.allFields.filter { $0.hasVisibleFields }
+            
             super.init()
         }
     }

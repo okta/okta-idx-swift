@@ -14,40 +14,34 @@ import XCTest
 @testable import OktaIdx
 
 class IDXRemediationParameterTests: XCTestCase {
-    typealias Parameters = IDXClient.Remediation.Parameters
-    let clientMock = IDXClientAPIv1Mock(configuration: IDXClient.Configuration(issuer: "https://example.com",
-                                                                               clientId: "Bar",
-                                                                               clientSecret: nil,
-                                                                               scopes: ["scope"],
-                                                                               redirectUri: "redirect:/"))
+    let clientMock = IDXClientAPIMock(context: .init(configuration: .init(issuer: "https://example.com",
+                                                                          clientId: "Bar",
+                                                                          clientSecret: nil,
+                                                                          scopes: ["scope"],
+                                                                          redirectUri: "redirect:/"),
+                                                     state: "state",
+                                                     interactionHandle: "handle",
+                                                     codeVerifier: "verifier"))
 
     func testFlatForm() throws {
         let response = try IDXClient.Response.response(
-            api: clientMock,
+            client: clientMock,
             folderName: "Passcode",
             fileName: "02-introspect-response")
         XCTAssertNotNil(response)
                 
-        guard let remediationOption = response.remediation?["identify"],
+        guard let remediationOption = response.remediations["identify"],
               let identifier = remediationOption["identifier"],
-              let stateHandle = remediationOption["stateHandle"],
               let rememberMe = remediationOption["rememberMe"] else
         {
             XCTFail("Could not find required fields")
             return
         }
 
-        let params = Parameters()
-        params[stateHandle] = "newValue"
-        XCTAssertThrowsError(try remediationOption.formValues(using: params))
+        identifier.value = "test@example.com" as AnyObject
+        rememberMe.value = true as AnyObject
 
-        params[identifier] = "test@example.com"
-        params[rememberMe] = true
-        XCTAssertThrowsError(try remediationOption.formValues(using: params))
-
-        params[stateHandle] = nil
-
-        let result = try remediationOption.formValues(using: params)
+        let result = try remediationOption.form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "ahc52KautBHCANs3ScZjLfRcxFjP_N5mqOTYouqHFP")
         XCTAssertEqual(result["identifier"] as? String, "test@example.com")
         XCTAssertEqual(result["rememberMe"] as? Bool, true)
@@ -55,12 +49,12 @@ class IDXRemediationParameterTests: XCTestCase {
     
     func testNestedForm() throws {
         let response = try IDXClient.Response.response(
-            api: clientMock,
+            client: clientMock,
             folderName: "Passcode",
             fileName: "03-identify-response")
         XCTAssertNotNil(response)
                 
-        guard let remediationOption = response.remediation?["challenge-authenticator"],
+        guard let remediationOption = response.remediations["challenge-authenticator"],
               let credentials = remediationOption["credentials"],
               let passcode = credentials["passcode"] else
         {
@@ -68,10 +62,9 @@ class IDXRemediationParameterTests: XCTestCase {
             return
         }
 
-        let params = Parameters()
-        params[passcode] = "password"
+        passcode.value = "password" as AnyObject
 
-        let result = try remediationOption.formValues(using: params)
+        let result = try remediationOption.form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "ahc52KautBHCANs3ScZjLfRcxFjP_N5mqOTYouqHFP")
         
         let credentialResult = result["credentials"] as? [String:Any]
@@ -81,12 +74,12 @@ class IDXRemediationParameterTests: XCTestCase {
 
     func testNestedFormWithUnnamedOption() throws {
         let response = try IDXClient.Response.response(
-            api: clientMock,
+            client: clientMock,
             folderName: "MFA-Email",
             fileName: "03-identify-response")
         XCTAssertNotNil(response)
                 
-        guard let remediationOption = response.remediation?["select-authenticator-authenticate"],
+        guard let remediationOption = response.remediations["select-authenticator-authenticate"],
               let authenticator = remediationOption["authenticator"],
               let emailOption = authenticator.options?.filter({ $0.label == "Email" }).first else
         {
@@ -94,10 +87,9 @@ class IDXRemediationParameterTests: XCTestCase {
             return
         }
 
-        let params = Parameters()
-        params[authenticator] = emailOption
+        authenticator.selectedOption = emailOption
 
-        let result = try remediationOption.formValues(using: params)
+        let result = try remediationOption.form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "ahc52KautBHCANs3ScZjLfRcxFjP_N5mqOTYouqHFP")
         
         let authenticatorResult = result["authenticator"] as? [String:Any]
@@ -108,27 +100,27 @@ class IDXRemediationParameterTests: XCTestCase {
 
     func testNestedFormWithCustomizedOption() throws {
         let response = try IDXClient.Response.response(
-            api: clientMock,
+            client: clientMock,
             folderName: "MFA-SOP",
             fileName: "10-credential-enroll")
         XCTAssertNotNil(response)
                 
-        guard let remediationOption = response.remediation?["select-authenticator-enroll"],
+        guard let remediationOption = response.remediations["select-authenticator-enroll"],
               let authenticator = remediationOption["authenticator"],
               let phoneOption = authenticator.options?.filter({ $0.label == "Phone" }).first,
               let methodType = phoneOption["methodType"],
+              let smsType = methodType.options?.filter({ $0.label == "SMS" }).first,
               let phoneNumber = phoneOption["phoneNumber"] else
         {
             XCTFail("Could not find required fields")
             return
         }
 
-        let params = Parameters()
-        params[authenticator] = phoneOption
-        params[methodType] = "sms"
-        params[phoneNumber] = "5551234567"
+        authenticator.selectedOption = phoneOption
+        methodType.selectedOption = smsType
+        phoneNumber.value = "5551234567" as AnyObject
 
-        let result = try remediationOption.formValues(using: params)
+        let result = try remediationOption.form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "ahc52KautBHCANs3ScZjLfRcxFjP_N5mqOTYouqHFP")
         
         let authenticatorResult = result["authenticator"] as? [String:Any]

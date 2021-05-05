@@ -12,24 +12,8 @@
 
 import Foundation
 
-extension IDXClient {
-    @objc(IDXRemediationCollection)
-    public class RemediationCollection: NSObject {
-        @objc
-        public subscript(name: String) -> Remediation? {
-            remediations.first { $0.name == name }
-        }
-        
-        public subscript(type: Remediation.RemediationType) -> Remediation? {
-            remediations.first { $0.type == type }
-        }
-        
-        let remediations: [Remediation]
-        
-        init(remediations: [Remediation]?) {
-            self.remediations = remediations ?? []
-
-            super.init()
-        }
-    }
-}
+//extension IDXClient.Authenticator: IDXResponseJSONPath {
+//    func matchesV1(jsonPath: String) -> Bool {
+//        v1JsonPaths.contains(jsonPath)
+//    }
+//}

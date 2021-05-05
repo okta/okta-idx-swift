@@ -14,15 +14,17 @@ import XCTest
 @testable import OktaIdx
 
 class IDXClientDelegateTests: XCTestCase {
-    let configuration = IDXClient.Configuration(issuer: "issuer",
-                                                clientId: "clientId",
-                                                clientSecret: "clientSecret",
-                                                scopes: ["all"],
-                                                redirectUri: "redirect:/uri")
-    let context = IDXClient.Context(state: "state", interactionHandle: "foo", codeVerifier: "bar")
+    let context = IDXClient.Context(configuration: IDXClient.Configuration(issuer: "issuer",
+                                                                           clientId: "clientId",
+                                                                           clientSecret: "clientSecret",
+                                                                           scopes: ["all"],
+                                                                           redirectUri: "redirect:/uri"),
+                                    state: "state",
+                                    interactionHandle: "foo",
+                                    codeVerifier: "bar")
     var client: IDXClient!
     var api: IDXClientAPIv1Mock!
-    var remediationOption: IDXClient.Remediation.Option!
+    var remediationOption: IDXClient.Remediation!
     var response: IDXClient.Response!
     var redirectUrl: URL!
     var token: IDXClient.Token!
@@ -40,47 +42,37 @@ class IDXClientDelegateTests: XCTestCase {
 
 
     override func setUpWithError() throws {
-        api = IDXClientAPIv1Mock(configuration: configuration)
-        client = IDXClient(configuration: configuration,
-                           context: nil,
-                           api: api,
-                           queue: DispatchQueue.main)
+        api = IDXClientAPIv1Mock(configuration: context.configuration)
+        client = IDXClient(context: context, api: api)
         client.delegate = delegate
         
-        remediationOption = IDXClient.Remediation.Option(api: api,
-                                                        rel: ["foo"],
-                                                        name: "name",
-                                                        method: "GET",
-                                                        href: URL(string: "some://url")!,
-                                                        accepts: "application/json",
-                                                        form: [
-                                                            IDXClient.Remediation.FormValue(name: "foo",
-                                                                                            visible: false,
-                                                                                            mutable: true,
-                                                                                            required: false,
-                                                                                            secret: false)
-                                                        ],
-                                                        relatesTo: nil,
-                                                        refresh: nil)
+        remediationOption = .init(client: client,
+                                  name: "cancel",
+                                  method: "GET",
+                                  href: URL(string: "some://url")!,
+                                  accepts: "application/json",
+                                  form: IDXClient.Remediation.Form(fields: [
+                                    IDXClient.Remediation.Form.Field(name: "foo",
+                                                                     visible: false,
+                                                                     mutable: true,
+                                                                     required: false,
+                                                                     secret: false)
+                                  ])!,
+                                  refresh: nil,
+                                  relatesTo: nil)
         token = IDXClient.Token(accessToken: "access",
                                 refreshToken: "refresh",
                                 expiresIn: 10,
                                 idToken: "id",
                                 scope: "scope",
                                 tokenType: "type")
-        response = IDXClient.Response(api: api,
-                                      stateHandle: "handle",
-                                      version: "1",
+        response = IDXClient.Response(client: client,
                                       expiresAt: Date(),
-                                      intent: "Login",
-                                      authenticators: nil,
-                                      authenticatorEnrollments: nil,
-                                      currentAuthenticator: nil,
-                                      currentAuthenticatorEnrollment: nil,
-                                      remediation: nil,
-                                      cancel: remediationOption,
-                                      success: remediationOption,
-                                      messages: nil,
+                                      intent: .login,
+                                      authenticators: .init(authenticators: nil),
+                                      remediations: .init(remediations: [remediationOption]),
+                                      successRemediationOption: remediationOption,
+                                      messages: .init(messages: nil),
                                       app: nil,
                                       user: nil)
         
@@ -92,439 +84,188 @@ class IDXClientDelegateTests: XCTestCase {
         api.reset()
     }
 
-    func testInteractError() {
-        // interact
-        api.expect(function: "interact(state:completion:)", arguments: ["error": error])
+    func testResumeError() {
+        api.expect(function: "resume(completion:)", arguments: ["error": error])
         waitFor { expectation in
-            self.client.interact { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.client.resume { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testIntrospectError() {
-        api.expect(function: "introspect(_:completion:)", arguments: ["error": error])
-        waitFor { expectation in
-            self.client.introspect(self.context) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testIntrospectWithoutContextError() {
-        api.expect(function: "introspect(_:completion:)", arguments: ["error": error])
-        waitFor { expectation in
-            self.client.introspect(nil) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
     func testCancelError() {
-        api.expect(function: "cancel(completion:)", arguments: ["error": error])
+        api.expect(function: "proceed(remediation:completion:)", arguments: ["error": error])
         waitFor { expectation in
-            self.client.cancel { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.response.cancel { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
     func testProceedError() {
-        api.expect(function: "proceed(remediation:data:completion:)", arguments: ["error": error])
+        api.expect(function: "proceed(remediation:completion:)", arguments: ["error": error])
         waitFor { expectation in
-            self.client.proceed(remediation: self.remediationOption, data: [:]) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.client.proceed(remediation: self.remediationOption) { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
     func testExchangeRedirectCodeError() {
-        api.expect(function: "exchangeCode(with:redirect:completion:)", arguments: ["error": error])
+        api.expect(function: "exchangeCode(redirect:completion:)", arguments: ["error": error])
         waitFor { expectation in
-            self.client.exchangeCode(with: self.context, redirect: self.redirectUrl) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.client.exchangeCode(redirect: self.redirectUrl) { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
 
     func testExchangeCodeError() {
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["error": error])
+        api.expect(function: "exchangeCode(using:completion:)", arguments: ["error": error])
         waitFor { expectation in
-            self.client.exchangeCode(with: self.context, using: self.response) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.client.exchangeCode(using: self.remediationOption) { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
-    func testExchangeRedirectCodeWithoutContextError() {
-        api.expect(function: "exchangeCode(with:redirect:completion:)", arguments: ["error": error])
-        waitFor { expectation in
-            self.client.exchangeCode(with: nil, redirect: self.redirectUrl) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-
-    func testExchangeCodeWithoutContextError() {
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["error": error])
-        waitFor { expectation in
-            self.client.exchangeCode(with: nil, using: self.response) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .error)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-
     func testToken() {
         // exchangeCode()
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["token": token as Any])
+        api.expect(function: "exchangeCode(using:completion:)", arguments: ["token": token as Any])
         waitFor { expectation in
-            self.client.exchangeCode(with: self.context, using: self.response) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.client.exchangeCode(using: self.remediationOption) { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .token)
         XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
     func testExchangeCodeRedirectUrlFromClient() {
-        api.expect(function: "exchangeCode(with:redirect:completion:)", arguments: ["token": token as Any])
+        api.expect(function: "exchangeCode(redirect:completion:)", arguments: ["token": token as Any])
         waitFor { expectation in
-            self.client.exchangeCode(with: self.context, redirect: self.redirectUrl) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.client.exchangeCode(redirect: self.redirectUrl) { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .token)
         XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-
-    func testExchangeCodeFromClient() {
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["token": token as Any])
-        waitFor { expectation in
-            self.client.exchangeCode(with: self.context, using: self.response) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .token)
-        XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
 
     func testExchangeCodeFromResponse() {
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["token": token as Any])
+        api.expect(function: "exchangeCode(using:completion:)", arguments: ["token": token as Any])
         waitFor { expectation in
-            self.response.exchangeCode(with: self.context) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.response.exchangeCode { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .token)
         XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
-    
 
-    func testInteract() {
+    func testResume() {
         // introspect()
-        api.expect(function: "interact(state:completion:)", arguments: ["context": context as Any])
+        api.expect(function: "resume(completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
-            self.client.interact { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .context)
-        XCTAssertEqual(delegate.calls.first?.context, context)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testIntrospect() {
-        // introspect()
-        api.expect(function: "introspect(_:completion:)", arguments: ["response": response as Any])
-        waitFor { expectation in
-            self.client.introspect(self.context) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.client.resume() { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .response)
         XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
-    func testCancelFromClient() {
-        api.expect(function: "cancel(completion:)", arguments: ["response": response as Any])
-        waitFor { expectation in
-            self.client.cancel { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .response)
-        XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testCancelFromResponse() {
-        api.expect(function: "proceed(remediation:data:completion:)", arguments: ["response": response as Any])
+    func testCancel() {
+        api.expect(function: "proceed(remediation:completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
             self.response.cancel { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .response)
         XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
-    func testProceedFromClient() {
-        api.expect(function: "proceed(remediation:data:completion:)", arguments: ["response": response as Any])
+    func testProceed() {
+        api.expect(function: "proceed(remediation:completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
-            self.client.proceed(remediation: self.remediationOption, data: [:]) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
+            self.remediationOption.proceed { (_, _) in
                 expectation.fulfill()
             }
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .response)
         XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
-
-    func testProceedFromOption() {
-        api.expect(function: "proceed(remediation:data:completion:)", arguments: ["response": response as Any])
+    
+    func testResumeWithoutCompletionBlock() {
+        api.expect(function: "resume(completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
-            self.remediationOption.proceed(with: [:]) { (_, _) in
-                XCTAssertTrue(Thread.isMainThread)
-                expectation.fulfill()
-            }
+            self.client.resume(completion: nil)
+            expectation.fulfill()
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .response)
         XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testInteractWithoutCompletionBlock() {
-        // introspect()
-        api.expect(function: "interact(state:completion:)", arguments: ["context": context as Any])
-        waitFor { expectation in
-            self.client.interact(completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .context)
-        XCTAssertEqual(delegate.calls.first?.context, context)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testTokenWithoutContext() {
-        self.client.context = context
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["token": token as Any])
-        waitFor { expectation in
-            self.client.exchangeCode(with: nil, using: self.response, completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .token)
-        XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testTokenWithoutCompletionBlock() {
-        // exchangeCode()
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["token": token as Any])
-        waitFor { expectation in
-            self.client.exchangeCode(with: self.context, using: self.response, completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .token)
-        XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
     func testExchangeCodeRedirectWithoutCompletionBlock() {
         // exchangeCode()
-        api.expect(function: "exchangeCode(with:redirect:completion:)", arguments: ["token": token as Any])
+        api.expect(function: "exchangeCode(redirect:completion:)", arguments: ["token": token as Any])
         waitFor { expectation in
-            self.client.exchangeCode(with: self.context, redirect: self.redirectUrl, completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
+            self.client.exchangeCode(redirect: self.redirectUrl, completion: nil)
+            expectation.fulfill()
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .token)
         XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
-    func testExchangeCodeFromClientWithoutCompletionBlock() {
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["token": token as Any])
+    func testExchangeCodeWithoutCompletionBlock() {
+        api.expect(function: "exchangeCode(using:completion:)", arguments: ["token": token as Any])
         waitFor { expectation in
-            self.client.exchangeCode(with: self.context, using: self.response, completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
+            self.response.exchangeCode(completion: nil)
+            expectation.fulfill()
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .token)
         XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
-    func testExchangeCodeFromResponseWithoutCompletionBlock() {
-        api.expect(function: "exchangeCode(with:using:completion:)", arguments: ["token": token as Any])
-        waitFor { expectation in
-            self.response.exchangeCode(with: self.context, completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .token)
-        XCTAssertEqual(delegate.calls.first?.token, token)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testIntrospectWithoutContext() {
-        self.client.context = context
-        api.expect(function: "introspect(_:completion:)", arguments: ["response": response as Any])
-        waitFor { expectation in
-            self.client.introspect(nil, completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .response)
-        XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-
-    func testIntrospectWithoutCompletionBlock() {
-        // introspect()
-        api.expect(function: "introspect(_:completion:)", arguments: ["response": response as Any])
-        waitFor { expectation in
-            self.client.introspect(self.context, completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .response)
-        XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testCancelFromClientWithoutCompletionBlock() {
-        api.expect(function: "cancel(completion:)", arguments: ["response": response as Any])
-        waitFor { expectation in
-            self.client.cancel(completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .response)
-        XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testCancelFromResponseWithoutCompletionBlock() {
-        api.expect(function: "proceed(remediation:data:completion:)", arguments: ["response": response as Any])
+    func testCancelWithoutCompletionBlock() {
+        api.expect(function: "proceed(remediation:completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
             self.response.cancel(completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
+            expectation.fulfill()
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .response)
         XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
     
-    func testProceedFromClientWithoutCompletionBlock() {
-        api.expect(function: "proceed(remediation:data:completion:)", arguments: ["response": response as Any])
+    func testProceedWithoutCompletionBlock() {
+        api.expect(function: "proceed(remediation:completion:)", arguments: ["response": response as Any])
         waitFor { expectation in
-            self.client.proceed(remediation: self.remediationOption, data: [:], completion: nil)
-            self.client.queue.async {
-                expectation.fulfill()
-            }
+            self.remediationOption.proceed(completion: nil)
+            expectation.fulfill()
         }
         XCTAssertEqual(delegate.calls.count, 1)
         XCTAssertEqual(delegate.calls.first?.type, .response)
         XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
-    }
-    
-    func testProceedFromOptionWithoutCompletionBlock() {
-        api.expect(function: "proceed(remediation:data:completion:)", arguments: ["response": response as Any])
-        waitFor { expectation in
-            self.remediationOption.proceed(with: [:])
-            self.client.queue.async {
-                expectation.fulfill()
-            }
-        }
-        XCTAssertEqual(delegate.calls.count, 1)
-        XCTAssertEqual(delegate.calls.first?.type, .response)
-        XCTAssertEqual(delegate.calls.first?.response, response)
-        XCTAssertEqual(delegate.calls.first?.isMainThread, true)
     }
 }

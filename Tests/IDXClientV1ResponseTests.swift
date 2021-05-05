@@ -15,11 +15,19 @@ import XCTest
 
 class IDXClientV1ResponseTests: XCTestCase {
     typealias API = IDXClient.APIVersion1
-    let clientMock = IDXClientAPIv1Mock(configuration: IDXClient.Configuration(issuer: "https://example.com",
-                                                                               clientId: "Bar",
-                                                                               clientSecret: nil,
-                                                                               scopes: ["scope"],
-                                                                               redirectUri: "redirect:/"))
+    let clientMock = IDXClientAPIMock(context: .init(configuration: .init(issuer: "https://example.com",
+                                                                          clientId: "Bar",
+                                                                          clientSecret: nil,
+                                                                          scopes: ["scope"],
+                                                                          redirectUri: "redirect:/"),
+                                                     state: "state",
+                                                     interactionHandle: "handle",
+                                                     codeVerifier: "verifier"))
+    let apiMock = IDXClientAPIv1Mock(configuration: IDXClient.Configuration(issuer: "https://example.com",
+                                                                            clientId: "Bar",
+                                                                            clientSecret: nil,
+                                                                            scopes: ["scope"],
+                                                                            redirectUri: "redirect:/"))
     var response: API.Response {
         return try! decode(type: API.Response.self, """
             {
@@ -279,7 +287,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(option?.form?.value[0].name, "id")
             XCTAssertEqual(option?.form?.value[1].name, "methodType")
             
-            let publicObj = IDXClient.Remediation.FormValue(api: clientMock, v1: obj)
+            let publicObj = IDXClient.Remediation.Form.Field(client: clientMock, v1: obj)
             XCTAssertNotNil(publicObj)
             XCTAssertEqual(publicObj.name, "authenticator")
             XCTAssertEqual(publicObj.type, "object")
@@ -290,13 +298,14 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertNotNil(publicOption)
             if let publicOption = publicOption {
                 XCTAssertEqual(publicOption.label, "Email")
-                XCTAssertEqual(publicOption.form?.count, 2)
-                XCTAssertEqual(publicOption.form?[0].name, "id")
-                XCTAssertEqual(publicOption.form?[1].name, "methodType")
-                XCTAssertTrue(publicOption.visible)
+                XCTAssertEqual(publicOption.form?.count, 0)
+                XCTAssertEqual(publicOption.form?.allFields.count, 2 )
+                XCTAssertEqual(publicOption.form?.allFields[0].name, "id")
+                XCTAssertEqual(publicOption.form?.allFields[1].name, "methodType")
+                XCTAssertTrue(publicOption.isVisible)
 
-                if let idValue = publicOption.form?[0] {
-                    XCTAssertFalse(idValue.visible)
+                if let idValue = publicOption.form?.allFields[0] {
+                    XCTAssertFalse(idValue.isVisible)
                 }
             }
         }
@@ -331,13 +340,13 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(obj.messages?.value[0].i18n?.key, "authfactor.challenge.question_factor.answer_invalid")
             XCTAssertEqual(obj.messages?.value[0].message, "Your answer doesn't match our records. Please try again.")
             
-            let publicObj = IDXClient.Remediation.FormValue(api: clientMock, v1: obj)
+            let publicObj = IDXClient.Remediation.Form.Field(client: clientMock, v1: obj)
             XCTAssertNotNil(publicObj)
             XCTAssertNotNil(publicObj.messages)
-            XCTAssertEqual(publicObj.messages?.count, 1)
-            XCTAssertEqual(publicObj.messages?.first?.type, .error)
-            XCTAssertEqual(publicObj.messages?.first?.localizationKey, "authfactor.challenge.question_factor.answer_invalid")
-            XCTAssertEqual(publicObj.messages?.first?.message, "Your answer doesn't match our records. Please try again.")
+            XCTAssertEqual(publicObj.messages.count, 1)
+            XCTAssertEqual(publicObj.messages.first?.type, .error)
+            XCTAssertEqual(publicObj.messages.first?.localizationKey, "authfactor.challenge.question_factor.answer_invalid")
+            XCTAssertEqual(publicObj.messages.first?.message, "Your answer doesn't match our records. Please try again.")
         }
     }
     
@@ -397,13 +406,13 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(obj.messages?.value[0].i18n?.key, "errors.E0000004")
             XCTAssertEqual(obj.messages?.value[0].message, "Authentication failed")
             
-            let publicObj = IDXClient.Response(api: clientMock, v1: obj)
+            let publicObj = try IDXClient.Response(client: clientMock, v1: obj)
             XCTAssertNotNil(publicObj)
             XCTAssertNotNil(publicObj.messages)
-            XCTAssertEqual(publicObj.messages?.count, 1)
-            XCTAssertEqual(publicObj.messages?.first?.type, .error)
-            XCTAssertEqual(publicObj.messages?.first?.localizationKey, "errors.E0000004")
-            XCTAssertEqual(publicObj.messages?.first?.message, "Authentication failed")
+            XCTAssertEqual(publicObj.messages.count, 1)
+            XCTAssertEqual(publicObj.messages.first?.type, .error)
+            XCTAssertEqual(publicObj.messages.first?.localizationKey, "errors.E0000004")
+            XCTAssertEqual(publicObj.messages.first?.message, "Authentication failed")
         }
     }
 
@@ -421,7 +430,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(obj.i18n?.key, "errors.E0000004")
             XCTAssertEqual(obj.message, "Authentication failed")
             
-            let publicObj = IDXClient.Message(api: clientMock, v1: obj)
+            let publicObj = IDXClient.Message(client: clientMock, v1: obj)
             XCTAssertNotNil(publicObj)
             XCTAssertEqual(publicObj?.type, .error)
             XCTAssertEqual(publicObj?.localizationKey, "errors.E0000004")
@@ -440,7 +449,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertNil(obj.i18n)
             XCTAssertEqual(obj.message, "Authentication failed")
             
-            let publicObj = IDXClient.Message(api: clientMock, v1: obj)
+            let publicObj = IDXClient.Message(client: clientMock, v1: obj)
             XCTAssertNotNil(publicObj)
             XCTAssertEqual(publicObj?.type, .info)
             XCTAssertNil(publicObj?.localizationKey)
@@ -527,15 +536,43 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(obj.type, "object")
             XCTAssertEqual(obj.value.id, "lae8wj8nnjB3BrbcH0g6")
 
-            let publicObj = try XCTUnwrap(IDXClient.Authenticator(v1: obj.value))
+            let publicObj = try XCTUnwrap(IDXClient.Authenticator.makeAuthenticator(client: clientMock,
+                                                                                    v1: [obj.value],
+                                                                                    jsonPaths: [],
+                                                                                    in: response) as? IDXClient.Authenticator.Password)
             XCTAssertEqual(publicObj.id, "lae8wj8nnjB3BrbcH0g6")
             
-            let settings = try XCTUnwrap(publicObj.settings as? [String:Any])
-            let age = try XCTUnwrap(settings["age"] as? [String:Any])
-            let complexity = try XCTUnwrap(settings["complexity"] as? [String:Any])
+            let settings = try XCTUnwrap(publicObj.settings)
 
-            XCTAssertEqual(age["historyCount"] as? Int, 4)
-            XCTAssertTrue(complexity["excludeUsername"] as? Bool ?? false)
+            XCTAssertEqual(settings.minLength, 8)
+            XCTAssertTrue(settings.excludeUsername)
+        }
+    }
+
+    func testIdpRemediation() throws {
+        try decode(type: API.Response.Form.self, """
+        {
+            "href": "https://example.com/oauth2/avs2s4i2b4Cwi9PiG4k8/v1/authorize?client_id=O0a4ckjhvkcq2B88m54w9&request_uri=urn:okta:repLWTdpRjdldDJWaVNRMnVKY3pBV0pVeDB5IOI3SFJhVmE0UTlzTEwzdzowb2E0Y2V2TzZ3bGNxQzZtdDR3NA",
+            "idp": {
+                "id": "0oa4ccvO6wlbsC6mt4a4",
+                "name": "Facebook IdP"
+            },
+            "method": "GET",
+            "name": "redirect-idp",
+            "type": "FACEBOOK"
+        }
+        """) { (obj) in
+            XCTAssertNotNil(obj)
+            XCTAssertNotNil(obj.href)
+            XCTAssertEqual(obj.method, "GET")
+            XCTAssertEqual(obj.name, "redirect-idp")
+            XCTAssertEqual(obj.type, "FACEBOOK")
+
+            let publicObj = IDXClient.Remediation.makeRemediation(client: clientMock, v1: obj) as? IDXClient.Remediation.SocialAuth
+            XCTAssertNotNil(publicObj)
+            XCTAssertEqual(publicObj?.redirectUrl, URL(string: "https://example.com/oauth2/avs2s4i2b4Cwi9PiG4k8/v1/authorize?client_id=O0a4ckjhvkcq2B88m54w9&request_uri=urn:okta:repLWTdpRjdldDJWaVNRMnVKY3pBV0pVeDB5IOI3SFJhVmE0UTlzTEwzdzowb2E0Y2V2TzZ3bGNxQzZtdDR3NA"))
+            XCTAssertEqual(publicObj?.service, .facebook)
+            XCTAssertEqual(publicObj?.idpName, "Facebook IdP")
         }
     }
 }

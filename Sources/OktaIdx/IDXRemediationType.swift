@@ -21,7 +21,6 @@ extension IDXClient.Remediation {
         case selectIdentify
         case selectEnrollProfile
         case cancel
-        case issue
         case activateFactor
         case sendChallenge
         case resendChallenge

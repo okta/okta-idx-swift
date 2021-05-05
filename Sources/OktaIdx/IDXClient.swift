@@ -52,6 +52,13 @@ public final class IDXClient: NSObject {
                                    completion: @escaping (_ client: IDXClient?, _ error: Error?) -> Void)
     {
         let api = Version.latest.clientImplementation(with: configuration)
+        start(with: api, state: state, completion: completion)
+    }
+    
+    static func start(with api: IDXClientAPIImpl,
+                      state: String? = nil,
+                      completion: @escaping (_ client: IDXClient?, _ error: Error?) -> Void)
+    {
         api.start(state: state) { (context, error) in
             guard let context = context else {
                 completion(nil, error)
@@ -158,13 +165,6 @@ public protocol IDXClientDelegate {
     ///   - error: The error that was received.
     @objc(idxClient:didReceiveError:)
     func idx(client: IDXClient, didReceive error: Error)
-    
-//    /// Message sent when an IDX context object is returned from `interact`.
-//    /// - Parameters:
-//    ///   - client: IDXClient sending the response.
-//    ///   - context: The context that was received.
-//    @objc(idxClient:didReceiveContext:)
-//    func idx(client: IDXClient, didReceive context: IDXClient.Context)
     
     /// Informs the delegate when an IDX response is received, either through an `introspect` or `proceed` call.
     /// - Parameters:

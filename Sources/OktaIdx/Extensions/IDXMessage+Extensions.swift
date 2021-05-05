@@ -12,7 +12,7 @@
 
 import Foundation
 
-extension IDXClient.Message.MessageClass {
+extension IDXClient.Message.Severity {
     internal init(string value: String) {
         switch value {
         case "ERROR": self = .error

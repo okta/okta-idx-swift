@@ -13,55 +13,6 @@
 import Foundation
 
 extension IDXClient {
-    
-//    /// Value object that stores the user-supplied values with their associated remediation FormValues.
-//    /// This simplifies the way data can be supplied to remediation forms without requiring state management
-//    /// to keep track of nested options, hierarchial data, required values, and so on.
-//    ///
-//    /// Example:
-//    ///    parameters.setValue("user@okta.com", identifierFormValue)
-//    ///    parameters[identifierFormValue] = "user@okta.com"
-//    @objc(IDXRemediationParameters)
-//    final public class Parameters: NSObject {
-//        internal var storage: [FormValue:Any] = [:]
-//        
-//        convenience public init(_ parameters: [FormValue:Any]) {
-//            self.init()
-//            
-//            storage.merge(parameters, uniquingKeysWith: { return $1 })
-//        }
-//        
-//        /// Sets the user-supplied value for the given form Value.
-//        /// - Parameters:
-//        ///   - value: Value to set, or `nil` to unset.
-//        ///   - formValue: `FormValue` instance to associate this value with.
-//        public func setValue(_ value: Any?, for formValue: FormValue) {
-//            if let value = value {
-//                storage[formValue] = value
-//            } else {
-//                storage.removeValue(forKey: formValue)
-//            }
-//        }
-//        
-//        /// Returns the user-supplied value for the given value.
-//        /// *Note:* This will not show default values implicitly associated with the FormValue instance, only the values supplied to `setValue(:for:)`.
-//        /// - Parameter formValue: The form value to find a value for.
-//        /// - Returns: The assigned form value, or `nil` if none has been set yet.
-//        public func value(for formValue: FormValue) -> Any? {
-//            return storage[formValue] as Any?
-//        }
-//        
-//        @objc public subscript(formValue: FormValue) -> Any? {
-//            get {
-//                value(for: formValue)
-//            }
-//            
-//            set (newValue) {
-//                setValue(newValue, for: formValue)
-//            }
-//        }
-//    }
-    
     /// Instances of `IDXClient.Remediation.Option` describe choices the user can make to proceed through the authentication workflow.
     ///
     /// Either simple or complex authentication scenarios consist of a set of steps that may be followed, but at some times the user may have a choice in what they use to verify their identity. For example, a user may have multiple choices in verifying their account, such as:
@@ -90,12 +41,18 @@ extension IDXClient {
             get { form.filter { $0.name == name }.first }
         }
         
+        /// Collection of messages for all fields within this remedation.
+        @objc public lazy var messages: MessageCollection = {
+            MessageCollection(messages: nil, nestedMessages: nestedMessages())
+        }()
+        
         private weak var client: IDXClientAPI?
         
         let method: String
         let href: URL
         let accepts: String?
         let refresh: TimeInterval?
+        let relatesTo: [String]?
 
         internal init(client: IDXClientAPI,
                       name: String,
@@ -103,7 +60,8 @@ extension IDXClient {
                       href: URL,
                       accepts: String?,
                       form: Form,
-                      refresh: TimeInterval?)
+                      refresh: TimeInterval?,
+                      relatesTo: [String]?)
         {
             self.client = client
             self.name = name
@@ -113,6 +71,7 @@ extension IDXClient {
             self.accepts = accepts
             self.form = form
             self.refresh = refresh
+            self.relatesTo = relatesTo
             
             super.init()
         }
@@ -137,20 +96,6 @@ extension IDXClient {
             client.proceed(remediation: self, completion: completion)
         }
         
-//        /// Apply the remediation option parameters, reconciling default values and mutability requirements.
-//        ///
-//        /// Validation checks for required and immutable values are performed, which will throw exceptions if any of those parameters fail validation.
-//        /// - Parameter params: User-supplied parameters, `nil` to simply retrieve the defaults.
-//        /// - Throws:
-//        ///   - IDXClientError.invalidParameter
-//        ///   - IDXClientError.parameterImmutable
-//        ///   - IDXClientError.missingRequiredParameter
-//        /// - Returns: Collection of key/value pairs, or `nil` if this form value does not contain a nested form.
-//        /// - SeeAlso: IDXClient.Remediation.FormValue.formValues(with:)
-//        @objc public func formValues(with params: [String:Any]? = nil) throws -> [String:Any] {
-//            return try IDXClient.extractFormValues(from: form, with: params)
-//        }
-        
         @objc(IDXSocialAuthRemediation)
         public class SocialAuth: Remediation {
             @objc public var redirectUrl: URL { href }
@@ -165,6 +110,7 @@ extension IDXClient {
                  accepts: String?,
                  form: IDXClient.Remediation.Form,
                  refresh: TimeInterval?,
+                 relatesTo: [String]?,
                  id: String,
                  idpName: String,
                  service: Service)
@@ -179,7 +125,8 @@ extension IDXClient {
                            href: href,
                            accepts: accepts,
                            form: form,
-                           refresh: refresh)
+                           refresh: refresh,
+                           relatesTo: relatesTo)
             }
             
             @objc(IDXSocialAuthRemediationService)

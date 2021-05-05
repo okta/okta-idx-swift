@@ -14,39 +14,39 @@ import XCTest
 @testable import OktaIdx
 
 class IDXExtractFormValueTests: XCTestCase {
-    typealias FormValue = IDXClient.Remediation.FormValue
+    typealias Form = IDXClient.Remediation.Form
 
     func testPlainDefaultValues() throws {
-        let form = [
-            FormValue(name: "stateHandle",
-                      value: "abcEasyAs123" as AnyObject,
-                      visible: false,
-                      mutable: false,
-                      required: true,
-                      secret: false)
-        ]
-        let result = try IDXClient.extractFormValues(from: form)
+        let form = try XCTUnwrap(Form(fields: [
+            Form.Field(name: "stateHandle",
+                       value: "abcEasyAs123" as AnyObject,
+                       visible: false,
+                       mutable: false,
+                       required: true,
+                       secret: false)
+        ]))
+        let result = try form.formValues()
         XCTAssertEqual(result as? [String:String], [
             "stateHandle": "abcEasyAs123"
         ])
     }
 
     func testPlainWithAdditiveValues() throws {
-        let form = [
-            FormValue(name: "stateHandle",
+        let form = try XCTUnwrap(Form(fields: [
+            Form.Field(name: "stateHandle",
                       value: "abcEasyAs123" as AnyObject,
                       visible: false,
                       mutable: false,
                       required: true,
                       secret: false),
-            FormValue(name: "identifier",
+            Form.Field(name: "identifier",
                       visible: true,
                       mutable: true,
                       required: true,
                       secret: false)
-        ]
-        let result = try IDXClient.extractFormValues(from: form,
-                                                     with: ["identifier": "me@example.com"])
+        ]))
+        form["identifier"]?.value = "me@example.com" as AnyObject
+        let result = try form.formValues()
         XCTAssertEqual(result as? [String:String], [
             "stateHandle": "abcEasyAs123",
             "identifier": "me@example.com"
@@ -54,73 +54,73 @@ class IDXExtractFormValueTests: XCTestCase {
     }
 
     func testNestedWithRootDefaults() throws {
-        let form = [
-            FormValue(name: "stateHandle",
+        let form = try XCTUnwrap(Form(fields: [
+            Form.Field(name: "stateHandle",
                       value: "abcEasyAs123" as AnyObject,
                       visible: false,
                       mutable: false,
                       required: true,
                       secret: false),
-            FormValue(name: "credentials",
+            Form.Field(name: "credentials",
                       type: "object",
                       visible: true,
                       mutable: true,
                       required: true,
                       secret: false,
-                      form: [
-                        FormValue(name: "passcode",
+                      form: Form(fields: [
+                        Form.Field(name: "passcode",
                                   label: "Password",
                                   visible: true,
                                   mutable: true,
                                   required: true,
                                   secret: true)
-                      ])
-        ]
+                      ]))
+        ]))
+        form["credentials.passcode"]?.value = "password" as AnyObject
         
-        let result = try IDXClient.extractFormValues(from: form,
-                                                     with: ["credentials": ["passcode": "password"]])
+        let result = try form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "abcEasyAs123")
         XCTAssertEqual(result["credentials"] as? [String:String], [ "passcode": "password" ])
     }
 
     func testNestedWithNestedDefaults() throws {
-        let nestedForm = FormValue(label: "Security Question",
+        let nestedForm = Form.Field(label: "Security Question",
                                    visible: true,
                                    mutable: true,
                                    required: true,
                                    secret: true,
-                                   form: [
-                                    FormValue(name: "id",
+                                   form: Form(fields: [
+                                    Form.Field(name: "id",
                                               value: "idvalue" as AnyObject,
                                               visible: true,
                                               mutable: false,
                                               required: true,
                                               secret: false),
-                                    FormValue(name: "methodType",
+                                    Form.Field(name: "methodType",
                                               value: "security_question" as AnyObject,
                                               visible: true,
                                               mutable: false,
                                               required: false,
                                               secret: false)
-                                   ])
-        let form = [
-            FormValue(name: "stateHandle",
+                                   ]))
+        let form = try XCTUnwrap(Form(fields: [
+            Form.Field(name: "stateHandle",
                       value: "abcEasyAs123" as AnyObject,
                       visible: false,
                       mutable: false,
                       required: true,
                       secret: false),
-            FormValue(name: "authenticator",
+            Form.Field(name: "authenticator",
                       type: "object",
                       visible: true,
                       mutable: true,
                       required: true,
                       secret: false,
-                      options: [ nestedForm ])
-        ]
+                      options: [nestedForm])
+        ]))
+        form["authenticator"]?.selectedOption = nestedForm
         
-        let result = try IDXClient.extractFormValues(from: form,
-                                                     with: ["authenticator": nestedForm])
+        let result = try form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "abcEasyAs123")
         XCTAssertEqual(result["authenticator"] as? [String:String], [
             "id": "idvalue",
@@ -129,67 +129,69 @@ class IDXExtractFormValueTests: XCTestCase {
     }
 
     func testNestedWithNestedDefaultsAndValues() throws {
-        let nestedForm = FormValue(label: "Phone",
+        let smsOption = Form.Field(label: "SMS",
+                                   value: "sms" as AnyObject,
                                    visible: true,
                                    mutable: true,
-                                   required: true,
-                                   secret: true,
-                                   form: [
-                                    FormValue(name: "id",
-                                              value: "idvalue" as AnyObject,
-                                              visible: true,
-                                              mutable: false,
-                                              required: true,
-                                              secret: false),
-                                    FormValue(name: "methodType",
-                                              type: "string",
-                                              visible: true,
-                                              mutable: true,
-                                              required: false,
-                                              secret: false,
-                                              options: [
-                                                FormValue(label: "SMS",
-                                                          value: "sms" as AnyObject,
-                                                          visible: true,
-                                                          mutable: true,
-                                                          required: false,
-                                                          secret: false),
-                                                FormValue(label: "Voice call",
-                                                          value: "voice" as AnyObject,
-                                                          visible: true,
-                                                          mutable: true,
-                                                          required: false,
-                                                          secret: false),
-                                              ]),
-                                    FormValue(name: "phoneNumber",
-                                              label: "Phone number",
-                                              visible: true,
-                                              mutable: true,
-                                              required: false,
-                                              secret: false),
-                                   ])
-        let form = [
-            FormValue(name: "stateHandle",
+                                   required: false,
+                                   secret: false)
+        let voiceOption = Form.Field(label: "Voice call",
+                                     value: "voice" as AnyObject,
+                                     visible: true,
+                                     mutable: true,
+                                     required: false,
+                                     secret: false)
+        let nestedForm = Form.Field(label: "Phone",
+                                    visible: true,
+                                    mutable: true,
+                                    required: true,
+                                    secret: true,
+                                    form: Form(fields: [
+                                        Form.Field(name: "id",
+                                                   value: "idvalue" as AnyObject,
+                                                   visible: true,
+                                                   mutable: false,
+                                                   required: true,
+                                                   secret: false),
+                                        Form.Field(name: "methodType",
+                                                   type: "string",
+                                                   visible: true,
+                                                   mutable: true,
+                                                   required: false,
+                                                   secret: false,
+                                                   options: [ smsOption, voiceOption ]),
+                                        Form.Field(name: "phoneNumber",
+                                                   label: "Phone number",
+                                                   visible: true,
+                                                   mutable: true,
+                                                   required: false,
+                                                   secret: false),
+                                    ]))
+        let form = try XCTUnwrap(Form(fields: [
+            Form.Field(name: "stateHandle",
                       value: "abcEasyAs123" as AnyObject,
                       visible: false,
                       mutable: false,
                       required: true,
                       secret: false),
-            FormValue(name: "authenticator",
+            Form.Field(name: "authenticator",
                       type: "object",
                       visible: true,
                       mutable: true,
                       required: true,
                       secret: false,
                       options: [ nestedForm ])
-        ]
+        ]))
+        form["authenticator"]?.selectedOption = nestedForm
+        nestedForm.form?["methodType"]?.selectedOption = smsOption
+        nestedForm.form?["phoneNumber"]?.value = "+1 123-555-1234" as AnyObject
         
-        let result = try IDXClient.extractFormValues(from: form,
-                                                     with: ["authenticator": nestedForm.formValues(with: ["methodType": "sms" ]) as Any])
+        let result = try form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "abcEasyAs123")
         XCTAssertEqual(result["authenticator"] as? [String:String], [
             "id": "idvalue",
-            "methodType": "sms"
+            "methodType": "sms",
+            "phoneNumber": "+1 123-555-1234"
         ])
     }
 }

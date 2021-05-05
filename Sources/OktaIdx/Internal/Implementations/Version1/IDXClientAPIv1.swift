@@ -206,11 +206,12 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
             return
         }
         
-        guard remediation.type == .issue else {
+        guard remediation.name == "issue" else {
             completion(nil, IDXClientError.successResponseMissing)
             return
         }
 
+        remediation.form.allFields
         remediation.form["client_id"]?.value = configuration.clientId as AnyObject
         remediation.form["client_secret"]?.value = configuration.clientSecret as AnyObject
         remediation.form["code_verifier"]?.value = context.codeVerifier as AnyObject

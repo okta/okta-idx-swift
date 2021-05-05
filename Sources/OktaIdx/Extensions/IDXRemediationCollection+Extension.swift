@@ -13,22 +13,22 @@
 import Foundation
 
 extension IDXClient.RemediationCollection: Collection {
-    public typealias Index = DictionaryType.Index
-    public typealias Element = DictionaryType.Element
+    public typealias Index = Int
+    public typealias Element = IDXClient.Remediation
 
-    public var startIndex: DictionaryType.Index {
+    public var startIndex: Index {
         remediations.startIndex
     }
     
-    public var endIndex: DictionaryType.Index {
+    public var endIndex: Index {
         remediations.endIndex
     }
 
-    public subscript(index: DictionaryType.Index) -> DictionaryType.Element {
+    public subscript(index: Index) -> Element {
         remediations[index]
     }
     
-    public func index(after i: DictionaryType.Index) -> DictionaryType.Index {
+    public func index(after i: Index) -> Index {
         remediations.index(after: i)
     }
 }

@@ -77,6 +77,10 @@ protocol IDXClientAPIRequest {
               completion: @escaping (ResponseType?, Error?) -> Void)
 }
 
+protocol IDXResponseJSONPath {
+    func matchesV1(jsonPath: String) -> Bool
+}
+
 //extension IDXClient {
 //    class func extractFormValues(from form: [IDXClient.Remediation.FormValue], with params: [String:Any]? = nil) throws -> [String:Any] {
 //        var result: [String:Any] = try form

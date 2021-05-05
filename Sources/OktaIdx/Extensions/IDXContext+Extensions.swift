@@ -43,7 +43,7 @@ extension IDXClient.Context: NSSecureCoding {
         coder.encode(state, forKey: Keys.state.rawValue)
         coder.encode(interactionHandle, forKey: Keys.interactionHandle.rawValue)
         coder.encode(codeVerifier, forKey: Keys.codeVerifier.rawValue)
-        coder.encode(version, forKey: Keys.version.rawValue)
+        coder.encode(version.rawValue, forKey: Keys.version.rawValue)
     }
     
     public convenience init?(coder: NSCoder) {
@@ -69,4 +69,3 @@ extension IDXClient.Context: NSSecureCoding {
                   version: version)
     }
 }
-

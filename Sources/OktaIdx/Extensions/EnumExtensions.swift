@@ -95,7 +95,7 @@ extension IDXClient.Remediation.RemediationType {
 }
 
 extension IDXClient.Response.Intent {
-    public init(string: String) {
+    public init(string: String?) {
         switch string {
         case "ENROLL_NEW_USER":
             self = .enrollNewUser

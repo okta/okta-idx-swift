@@ -17,14 +17,14 @@ extension IDXClient {
     @objc(IDXMessage)
     public final class Message: NSObject {
         /// Enumeration describing the type of message.
-        @objc public enum MessageClass: Int {
+        @objc public enum Severity: Int {
             case error
             case info
             case unknown
         }
         
         /// The type of message received from the server
-        @objc public let type: MessageClass
+        @objc public let type: Severity
         
         /// A localization key representing this message.
         ///
@@ -34,11 +34,14 @@ extension IDXClient {
         /// The default text for this message.
         @objc public let message: String
         
+        /// The field where this error occurred, or `nil` if this message is not scoped to a particular field.
+        @objc weak internal(set) public var field: IDXClient.Remediation.Form.Field?
+        
         internal init(type: String,
                       localizationKey: String?,
                       message: String)
         {
-            self.type = MessageClass(string: type)
+            self.type = Severity(string: type)
             self.localizationKey = localizationKey
             self.message = message
             

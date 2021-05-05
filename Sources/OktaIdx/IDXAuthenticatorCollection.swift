@@ -17,25 +17,49 @@ extension IDXClient {
     public class AuthenticatorCollection: NSObject {
         @objc
         public var current: Authenticator? {
-            authenticators.values.first { $0.state == .authenticating || $0.state == .enrolling }
+            allAuthenticators.values.first { $0.state == .authenticating || $0.state == .enrolling }
         }
         
         @objc
         public var enrolled: [Authenticator] {
-            authenticators.values.filter { $0.state == .enrolled }
+            allAuthenticators.values.filter { $0.state == .enrolled }
         }
         
         @objc
         public subscript(type: Authenticator.Kind) -> Authenticator? {
-            authenticators[type]
+            allAuthenticators[type]
         }
         
         public typealias DictionaryType = [IDXClient.Authenticator.Kind: IDXClient.Authenticator]
+        
+        var allAuthenticators: DictionaryType {
+            authenticators
+        }
+        
         let authenticators: DictionaryType
         init(authenticators: DictionaryType?) {
             self.authenticators = authenticators ?? DictionaryType()
 
             super.init()
+        }
+    }
+    
+    class WeakAuthenticatorCollection: AuthenticatorCollection {
+        typealias DictionaryType = [IDXClient.Authenticator.Kind: Weak<IDXClient.Authenticator>]
+
+        override var allAuthenticators: AuthenticatorCollection.DictionaryType {
+            weakAuthenticators.reduce(into: [IDXClient.Authenticator.Kind:IDXClient.Authenticator]()) { (result, item) in
+                result[item.key] = item.value.object
+            }
+        }
+        
+        let weakAuthenticators: DictionaryType
+        override init(authenticators: AuthenticatorCollection.DictionaryType?) {
+            weakAuthenticators = authenticators?.reduce(into: DictionaryType(), { (result, item) in
+                result[item.key] = Weak(object: item.value)
+            }) ?? DictionaryType()
+
+            super.init(authenticators: nil)
         }
     }
 }

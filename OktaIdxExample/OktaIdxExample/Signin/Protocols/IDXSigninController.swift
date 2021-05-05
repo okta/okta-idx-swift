@@ -19,6 +19,13 @@ protocol IDXSigninController: class {
 }
 extension IDXSigninController where Self: UIViewController {
     func showError(_ error: Error) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.showError(error)
+            }
+            return
+        }
+        
         let parentController = navigationController?.presentingViewController
         dismiss(animated: true) {
             let alert = UIAlertController(title: "Login error",

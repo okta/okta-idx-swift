@@ -12,24 +12,23 @@
 
 import Foundation
 
-extension IDXClient {
-    @objc(IDXRemediationCollection)
-    public class RemediationCollection: NSObject {
-        @objc
-        public subscript(name: String) -> Remediation? {
-            remediations.first { $0.name == name }
-        }
-        
-        public subscript(type: Remediation.RemediationType) -> Remediation? {
-            remediations.first { $0.type == type }
-        }
-        
-        let remediations: [Remediation]
-        
-        init(remediations: [Remediation]?) {
-            self.remediations = remediations ?? []
+extension IDXClient.MessageCollection: Collection {
+    public typealias Index = Int
+    public typealias Element = IDXClient.Message
 
-            super.init()
-        }
+    public var startIndex: Index {
+        allMessages.startIndex
+    }
+    
+    public var endIndex: Index {
+        allMessages.endIndex
+    }
+
+    public subscript(index: Index) -> Element {
+        allMessages[index]
+    }
+    
+    public func index(after i: Index) -> Index {
+        allMessages.index(after: i)
     }
 }

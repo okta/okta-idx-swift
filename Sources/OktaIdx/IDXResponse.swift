@@ -17,7 +17,7 @@ extension IDXClient {
     @objc(IDXResponse)
     public final class Response: NSObject {
         /// The date at which this stage of the workflow expires, after which the authentication process should be restarted.
-        @objc public let expiresAt: Date
+        @objc public let expiresAt: Date?
         
         /// A string describing the intent of the workflow, e.g. "LOGIN".
         @objc public let intent: Intent
@@ -34,10 +34,10 @@ extension IDXClient {
         /// Returns information about the user authenticating, if available.
         @objc public let user: IDXClient.User?
 
-        /// The list of messages sent from the server, or `nil` if no messages are available at the response level.
+        /// The list of messages sent from the server.
         ///
         /// Messages reported from the server are usually errors, but may include other information relevant to the user. They should be displayed to the user in the context of the remediation form itself.
-        @objc public let messages: [Message]?
+        @objc public let messages: MessageCollection
 
         /// Indicates whether or not the user has logged in successfully. If this is `true`, this response object should be exchanged for access tokens utilizing the `exchangeCode` method.
         @objc public let isLoginSuccessful: Bool
@@ -74,8 +74,8 @@ extension IDXClient {
         ///   - token: The token that was exchanged, or `nil` if an error occurred.
         ///   - error: Describes the error that occurred, or `nil` if successful.
         @objc public func exchangeCode(completion: ((_ token: Token?, _ error: Error?) -> Void)?) {
-            guard let successOption = remediations[.issue] else {
-                completion?(nil, IDXClientError.unknownRemediationOption(name: "issue"))
+            guard let successOption = successRemediationOption else {
+                completion?(nil, IDXClientError.successResponseMissing)
                 return
             }
             
@@ -83,12 +83,14 @@ extension IDXClient {
         }
         
         private let client: IDXClientAPI
+        let successRemediationOption: Remediation?
         internal init(client: IDXClientAPI,
-                      expiresAt: Date,
+                      expiresAt: Date?,
                       intent: Intent,
                       authenticators: AuthenticatorCollection,
                       remediations: RemediationCollection,
-                      messages: [Message]?,
+                      successRemediationOption: Remediation?,
+                      messages: MessageCollection,
                       app: Application?,
                       user: User?)
         {
@@ -97,7 +99,8 @@ extension IDXClient {
             self.intent = intent
             self.authenticators = authenticators
             self.remediations = remediations
-            self.isLoginSuccessful = remediations[.issue] != nil
+            self.successRemediationOption = successRemediationOption
+            self.isLoginSuccessful = successRemediationOption != nil
             self.messages = messages
             self.app = app
             self.user = user

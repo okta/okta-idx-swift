@@ -17,18 +17,18 @@ extension IDXClient.AuthenticatorCollection: Collection {
     public typealias Element = DictionaryType.Element
 
     public var startIndex: DictionaryType.Index {
-        authenticators.startIndex
+        allAuthenticators.startIndex
     }
     
     public var endIndex: DictionaryType.Index {
-        authenticators.endIndex
+        allAuthenticators.endIndex
     }
 
     public subscript(index: DictionaryType.Index) -> DictionaryType.Element {
-        authenticators[index]
+        allAuthenticators[index]
     }
     
     public func index(after i: DictionaryType.Index) -> DictionaryType.Index {
-        authenticators.index(after: i)
+        allAuthenticators.index(after: i)
     }
 }

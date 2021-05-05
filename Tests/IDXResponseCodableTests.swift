@@ -14,8 +14,15 @@ import XCTest
 @testable import OktaIdx
 
 class IDXResponseCodableTests: XCTestCase {
+    let configuration = IDXClient.Configuration(issuer: "issuer",
+                                                clientId: "client",
+                                                clientSecret: nil,
+                                                scopes: ["scope"],
+                                                redirectUri: "redirect")
+    
     func testContextCodable() throws {
-        let object = IDXClient.Context(state: "state",
+        let object = IDXClient.Context(configuration: configuration,
+                                       state: "state",
                                        interactionHandle: "handle",
                                        codeVerifier: "verifier")
         let data = try JSONEncoder().encode(object)
@@ -36,7 +43,8 @@ class IDXResponseCodableTests: XCTestCase {
     }
 
     func testContextSecureCoding() throws {
-        let object = IDXClient.Context(state: "state",
+        let object = IDXClient.Context(configuration: configuration,
+                                       state: "state",
                                        interactionHandle: "handle",
                                        codeVerifier: "verifier")
         let data = try NSKeyedArchiver.archivedData(withRootObject: object,

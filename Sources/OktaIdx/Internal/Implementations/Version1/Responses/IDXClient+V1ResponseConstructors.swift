@@ -14,74 +14,25 @@ import Foundation
 
 typealias V1 = IDXClient.APIVersion1
 
-protocol IDXContainsRelatableObjects {
-    typealias RelatesTo = IDXClient.APIVersion1.Response.RelatesTo
-    func nestedRelatableObjects() -> [IDXHasRelatedObjects]
-
-    func find(relatesTo: IDXClient.APIVersion1.Response.RelatesTo?,
-              root: IDXContainsRelatableObjects) -> AnyObject?
-    func find(relatesTo: [IDXClient.APIVersion1.Response.RelatesTo]?,
-              root: IDXContainsRelatableObjects) -> [AnyObject]?
-}
-
-extension IDXContainsRelatableObjects {
-    func find(relatesTo: IDXClient.APIVersion1.Response.RelatesTo?,
-              root: IDXContainsRelatableObjects) -> AnyObject?
-    {
-        guard let relatesTo = relatesTo else { return nil }
-        var result: AnyObject? = self as AnyObject
-        for item in relatesTo.path {
-            switch item {
-            case .root:
-                result = root as AnyObject
-            case .property(name: let name):
-                if result?.responds(to: Selector(name)) ?? false,
-                    let object = result?.value(forKey: name) {
-                    result = object as AnyObject
-                }
-            case .array(index: let index):
-                if let array = result as? Array<AnyObject> {
-                    result = array[index]
-                }
-            }
-        }
-        return result
-    }
-    
-    func find(relatesTo: [IDXClient.APIVersion1.Response.RelatesTo]?,
-              root: IDXContainsRelatableObjects) -> [AnyObject]?
-    {
-        guard let relatesTo = relatesTo else { return nil }
-        return relatesTo.compactMap { find(relatesTo: $0, root: root) }
-    }
-}
-
-protocol IDXHasRelatedObjects: IDXContainsRelatableObjects {
-    func findRelatedObjects(from root: IDXContainsRelatableObjects)
-}
-
-extension IDXClient.Response: IDXContainsRelatableObjects {
+extension IDXClient.Response {
     internal convenience init(client: IDXClientAPI, v1 response: V1.Response) throws {
+        let authenticators = try IDXClient.AuthenticatorCollection(client: client, v1: response)
+        let remediations = IDXClient.RemediationCollection(client: client, v1: response)
+        let successRemediationOption = IDXClient.Remediation(client: client, v1: response.successWithInteractionCode)
+        let messages = IDXClient.MessageCollection(messages: response.messages?.value.compactMap { IDXClient.Message(client: client, v1: $0) },
+                                                   nestedMessages: remediations.nestedMessages())
+        
         self.init(client: client,
                   expiresAt: response.expiresAt,
                   intent: Intent(string: response.intent),
-                  authenticators: try .init(client: client, v1: response),
-                  remediations: .init(client: client, v1: response),
-                  messages: response.messages?.value.compactMap { IDXClient.Message(client: client, v1: $0) },
+                  authenticators: authenticators,
+                  remediations: remediations,
+                  successRemediationOption: successRemediationOption,
+                  messages: messages,
                   app: IDXClient.Application(v1: response.app?.value),
                   user: IDXClient.User(v1: response.user?.value))
 
-        nestedRelatableObjects().forEach { (object) in
-            object.findRelatedObjects(from: self)
-        }
-    }
-    
-    func nestedRelatableObjects() -> [IDXHasRelatedObjects] {
-        var result: [IDXHasRelatedObjects] = []
-//        result.append(contentsOf: remediation?.nestedRelatableObjects() ?? [])
-//        result.append(contentsOf: cancelRemediationOption?.nestedRelatableObjects() ?? [])
-//        result.append(contentsOf: successResponse?.nestedRelatableObjects() ?? [])
-        return result
+        loadRelatedObjects()
     }
 }
 
@@ -111,6 +62,11 @@ extension IDXClient.User {
 }
 
 extension V1.Response {
+    struct AuthenticatorMapping {
+        let jsonPath: String
+        let authenticator: V1.Response.Authenticator
+    }
+
     func authenticatorState(for authenticatorId: String) -> IDXClient.Authenticator.State {
         if currentAuthenticatorEnrollment?.value.id == authenticatorId {
             return .enrolling
@@ -131,22 +87,35 @@ extension V1.Response {
         }
     }
     
-    func allAuthenticators() -> [Authenticator] {
-        var allAuthenticators: [V1.Response.Authenticator] = []
+    func allAuthenticators() -> [AuthenticatorMapping] {
+        var allAuthenticators: [AuthenticatorMapping] = []
         if let authenticator = currentAuthenticatorEnrollment?.value {
-            allAuthenticators.append(authenticator)
+            allAuthenticators.append(.init(jsonPath: "$.currentAuthenticatorEnrollment",
+                                           authenticator: authenticator))
         }
+        
         if let authenticator = currentAuthenticator?.value {
-            allAuthenticators.append(authenticator)
+            allAuthenticators.append(.init(jsonPath: "$.currentAuthenticator",
+                                           authenticator: authenticator))
         }
+        
         if let authenticator = recoveryAuthenticator?.value {
-            allAuthenticators.append(authenticator)
+            allAuthenticators.append(.init(jsonPath: "$.recoveryAuthenticator",
+                                           authenticator: authenticator))
         }
+        
         if let authenticators = authenticatorEnrollments?.value {
-            allAuthenticators.append(contentsOf: authenticators)
+            for index in 0 ... authenticators.count - 1 {
+                allAuthenticators.append(.init(jsonPath: "$.authenticatorEnrollments.value[\(index)]",
+                                               authenticator: authenticators[index]))
+            }
         }
+        
         if let authenticators = authenticators?.value {
-            allAuthenticators.append(contentsOf: authenticators)
+            for index in 0 ... authenticators.count - 1 {
+                allAuthenticators.append(.init(jsonPath: "$.authenticators.value[\(index)]",
+                                               authenticator: authenticators[index]))
+            }
         }
 
         return allAuthenticators
@@ -156,35 +125,36 @@ extension V1.Response {
 extension IDXClient.Authenticator.Password.Settings {
     convenience init?(with settings: [String:JSONValue]?) {
         guard let settings = settings,
-              let complexity = settings["complexity"]?.toAnyObject() as? [String: JSONValue]
+              let complexity = settings["complexity"]?.toAnyObject() as? [String: Any]
         else { return nil }
         
-        self.init(daysToExpiry: settings["daysToExpiry"]?.numberValue()?.intValue ?? 0,
-                  minLength: complexity["minLength"]?.numberValue()?.intValue ?? 0,
-                  minLowerCase: complexity["minLowerCase"]?.numberValue()?.intValue ?? 0,
-                  minUpperCase: complexity["minUpperCase"]?.numberValue()?.intValue ?? 0,
-                  minNumber: complexity["minNumber"]?.numberValue()?.intValue ?? 0,
-                  minSymbol: complexity["minSymbol"]?.numberValue()?.intValue ?? 0,
-                  excludeUsername: complexity["excludeUsername"]?.numberValue()?.boolValue ?? false,
-                  excludeAttributes: complexity["excludeAttributes"]?.toAnyObject() as? [String] ?? [])
+        self.init(daysToExpiry: settings["daysToExpiry"]?.numberValue() as? Int ?? 0,
+                  minLength: complexity["minLength"] as? Int ?? 0,
+                  minLowerCase: complexity["minLowerCase"] as? Int ?? 0,
+                  minUpperCase: complexity["minUpperCase"] as? Int ?? 0,
+                  minNumber: complexity["minNumber"] as? Int ?? 0,
+                  minSymbol: complexity["minSymbol"] as? Int ?? 0,
+                  excludeUsername: complexity["excludeUsername"] as? Bool ?? false,
+                  excludeAttributes: complexity["excludeAttributes"] as? [String] ?? [])
     }
 }
 
 extension IDXClient.AuthenticatorCollection {
     convenience init(client: IDXClientAPI, v1 object: V1.Response) throws {
-        let authenticatorMapping: [String:[V1.Response.Authenticator]] = object
+        let authenticatorMapping: [String:[V1.Response.AuthenticatorMapping]] = object
             .allAuthenticators()
-            .reduce(into: [:]) { (result, authenticator) in
-                var collection: [V1.Response.Authenticator] = result[authenticator.type] ?? []
-                collection.append(authenticator)
-                result[authenticator.type] = collection
+            .reduce(into: [:]) { (result, mapping) in
+                var collection: [V1.Response.AuthenticatorMapping] = result[mapping.authenticator.type] ?? []
+                collection.append(mapping)
+                result[mapping.authenticator.type] = collection
             }
         
         let authenticators: [IDXClient.Authenticator.Kind: IDXClient.Authenticator] = try authenticatorMapping
             .values
-            .reduce(into: [:]) { (result, authenticatorArray) in
+            .reduce(into: [:]) { (result, mappingArray) in
                 guard let authenticator = try IDXClient.Authenticator.makeAuthenticator(client: client,
-                                                                                        v1: authenticatorArray,
+                                                                                        v1: mappingArray.map { $0.authenticator },
+                                                                                        jsonPaths: mappingArray.map { $0.jsonPath },
                                                                                         in: object)
                 else { return }
                 result[authenticator.type] = authenticator
@@ -192,54 +162,36 @@ extension IDXClient.AuthenticatorCollection {
         
         self.init(authenticators: authenticators)
     }
+    
+    convenience init(authenticators: [IDXClient.Authenticator]) {
+        self.init(authenticators: authenticators.reduce(into: DictionaryType(), { (result, authenticator) in
+            result[authenticator.type] = authenticator
+        }))
+    }
 }
 
 extension IDXClient.RemediationCollection {
     convenience init(client: IDXClientAPI, v1 object: V1.Response?) {
         var remediations: [IDXClient.Remediation] = object?.remediation?.value.compactMap { (value) in
-            IDXClient.Remediation(client:client, v1: value)
+            IDXClient.Remediation.makeRemediation(client: client, v1: value)
         } ?? []
         
-        if let cancelResponse = IDXClient.Remediation(client: client, v1: object?.cancel) {
+        if let cancelResponse = IDXClient.Remediation.makeRemediation(client: client, v1: object?.cancel) {
             remediations.append(cancelResponse)
         }
 
-        if let successResponse = IDXClient.Remediation(client: client, v1: object?.successWithInteractionCode) {
+        if let successResponse = IDXClient.Remediation.makeRemediation(client: client, v1: object?.successWithInteractionCode) {
             remediations.append(successResponse)
         }
         
         self.init(remediations: remediations)
     }
-    
-    convenience init(remediations: [IDXClient.Remediation]) {
-        self.init(remediations: remediations.reduce(into: [:], { (result, remediation) in
-            result[remediation.name] = remediation
-        }))
-    }
 }
-    
-//extension IDXClient.Remediation: IDXContainsRelatableObjects {
-//    internal convenience init?(client: IDXClientAPI, v1 object: V1.Response.IonCollection<V1.Response.Form>?) {
-//        guard let object = object,
-//              let type = object.type
-//        else {
-//            return nil
-//        }
-//        self.init(client: client,
-//                  type: type,
-//                  remediationOptions: object.value.compactMap { (value) in
-//                    IDXClient.Remediation(client: client, v1: value)
-//                  })
-//    }
-//
-//    func nestedRelatableObjects() -> [IDXHasRelatedObjects] {
-//        return remediationOptions.flatMap { $0.nestedRelatableObjects() }
-//    }
-//}
 
 extension IDXClient.Authenticator {
     static func makeAuthenticator(client: IDXClientAPI,
                                   v1 authenticators: [V1.Response.Authenticator],
+                                  jsonPaths: [String],
                                   in response: V1.Response) throws -> IDXClient.Authenticator?
     {
         guard let first = authenticators.first else { return nil }
@@ -255,15 +207,16 @@ extension IDXClient.Authenticator {
         let methods = authenticators.compactMap { $0.methods }.first
         let settings = authenticators.compactMap { $0.settings }.first
         let profile = authenticators.compactMap { $0.profile }.first
-        let contextualData = authenticators.compactMap { $0.contextualData }.first
-        let sendOption = IDXClient.Remediation(client: client, v1: authenticators.compactMap { $0.send }.first )
-        let resendOption = IDXClient.Remediation(client: client, v1: authenticators.compactMap { $0.resend }.first)
-        let pollOption = IDXClient.Remediation(client: client, v1: authenticators.compactMap { $0.poll }.first)
-
+//        let contextualData = authenticators.compactMap { $0.contextualData }.first
+        let sendOption = IDXClient.Remediation.makeRemediation(client: client, v1: authenticators.compactMap { $0.send }.first )
+        let resendOption = IDXClient.Remediation.makeRemediation(client: client, v1: authenticators.compactMap { $0.resend }.first)
+        let pollOption = IDXClient.Remediation.makeRemediation(client: client, v1: authenticators.compactMap { $0.poll }.first)
+        
         switch type {
         case .password:
             let password = IDXClient.Authenticator.Password.Settings(with: settings)
             return IDXClient.Authenticator.Password(client: client,
+                                                    v1JsonPaths: jsonPaths,
                                                     state: state,
                                                     id: first.id,
                                                     displayName: first.displayName,
@@ -274,6 +227,7 @@ extension IDXClient.Authenticator {
             
         case .phone:
             return IDXClient.Authenticator.Phone(client: client,
+                                                 v1JsonPaths: jsonPaths,
                                                  state: state,
                                                  id: first.id,
                                                  displayName: first.displayName,
@@ -286,6 +240,7 @@ extension IDXClient.Authenticator {
             
         case .email:
             return IDXClient.Authenticator.Email(client: client,
+                                                 v1JsonPaths: jsonPaths,
                                                  state: state,
                                                  id: first.id,
                                                  displayName: first.displayName,
@@ -298,6 +253,7 @@ extension IDXClient.Authenticator {
 
         default:
             return IDXClient.Authenticator(client: client,
+                                           v1JsonPaths: jsonPaths,
                                            state: state,
                                            id: first.id,
                                            displayName: first.displayName,
@@ -308,17 +264,17 @@ extension IDXClient.Authenticator {
     }
 }
 
-extension IDXClient.Remediation: IDXHasRelatedObjects {
+extension IDXClient.Remediation {
     static func makeRemediation(client: IDXClientAPI,
                                 v1 object: V1.Response.Form?) -> IDXClient.Remediation?
     {
         guard let object = object else { return nil }
         let form = Form(fields: object.value?.map({ (value) in
-            .init(client: client, v1: value)
-        }))
+          .init(client: client, v1: value)
+        })) ?? Form(fields: [])!
         let refresh = (object.refresh != nil) ? Double(object.refresh!) / 1000.0 : nil
-        
         let type = IDXClient.Remediation.RemediationType(string: object.name)
+        
         switch type {
         case .redirectIdp:
             guard let idpObject = object.idp,
@@ -334,41 +290,41 @@ extension IDXClient.Remediation: IDXHasRelatedObjects {
                                                     accepts: object.accepts,
                                                     form: form,
                                                     refresh: refresh,
+                                                    relatesTo: object.relatesTo,
                                                     id: idpId,
                                                     idpName: idpName,
                                                     service: .init(string: idpType))
         default:
-            return IDXClient.Remediation(client: client, v1: object)
+            return IDXClient.Remediation(client: client,
+                                         name: object.name,
+                                         method: object.method,
+                                         href: object.href,
+                                         accepts: object.accepts,
+                                         form: form,
+                                         refresh: refresh,
+                                         relatesTo: object.relatesTo)
         }
     }
 
     internal convenience init?(client: IDXClientAPI, v1 object: V1.Response.Form?) {
-        guard let object = object else { return nil }
+        guard let object = object,
+              let form = Form(fields: object.value?.map({ (value) in
+                .init(client: client, v1: value)
+              }))
+        else { return nil }
 
         self.init(client: client,
                   name: object.name,
                   method: object.method,
                   href: object.href,
                   accepts: object.accepts,
-                  form: Form(fields: object.value?.map({ (value) in
-                    .init(client: client, v1: value)
-                  })),
-                  refresh: (object.refresh != nil) ? Double(object.refresh!) / 1000.0 : nil)
-    }
-
-    func nestedRelatableObjects() -> [IDXHasRelatedObjects] {
-//        var result = form.flatMap { $0.nestedRelatableObjects() }
-//        result.append(self)
-//        return result
-        return []
-    }
-
-    func findRelatedObjects(from root: IDXContainsRelatableObjects) {
-//        relatesTo = find(relatesTo: v1RelatesTo, root: root)
+                  form: form,
+                  refresh: (object.refresh != nil) ? Double(object.refresh!) / 1000.0 : nil,
+                  relatesTo: object.relatesTo)
     }
 }
 
-extension IDXClient.Remediation.Form.Field: IDXHasRelatedObjects {
+extension IDXClient.Remediation.Form.Field {
     internal convenience init(client: IDXClientAPI, v1 object: V1.Response.FormValue) {
         self.init(name: object.name,
                   label: object.label,
@@ -378,28 +334,17 @@ extension IDXClient.Remediation.Form.Field: IDXHasRelatedObjects {
                   mutable: object.mutable ?? true,
                   required: object.required ?? false,
                   secret: object.secret ?? false,
+                  relatesTo: object.relatesTo,
                   form: IDXClient.Remediation.Form(fields: object.form?.value.map({ (value) in
                     .init(client: client, v1: value)
                   })),
-                  options: object.options?.map {
-                    IDXClient.Remediation.Form(fields: $0.form?.value.map({ (value) in
-                      .init(client: client, v1: value)
-                    }))
+                  options: object.options?.map { (value) in
+                    .init(client: client, v1: value)
                   },
-                  messages: object.messages?.value.compactMap {
+                  messages: .init(messages: object.messages?.value.compactMap {
                     IDXClient.Message(client: client, v1: $0)
-                  })
-    }
-
-    func nestedRelatableObjects() -> [IDXHasRelatedObjects] {
-        var result: [IDXHasRelatedObjects] = [self]
-//        result.append(contentsOf: form?.flatMap { $0.nestedRelatableObjects() } ?? [])
-//        result.append(contentsOf: options?.flatMap { $0.nestedRelatableObjects() } ?? [])
-        return result
-    }
-
-    func findRelatedObjects(from root: IDXContainsRelatableObjects) {
-//        relatesTo = find(relatesTo: v1RelatesTo, root: root)
+                  }))
+        self.messages.allMessages.forEach { $0.field = self }
     }
 }
 

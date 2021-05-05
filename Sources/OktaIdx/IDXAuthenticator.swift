@@ -74,7 +74,9 @@ extension IDXClient {
 //        @objc public let contextualData: Any?
 
         private weak var client: IDXClientAPI?
+        let jsonPaths: [String]
         init(client: IDXClientAPI,
+             v1JsonPaths: [String],
              state: State,
              id: String,
              displayName: String,
@@ -83,6 +85,7 @@ extension IDXClient {
              methods: [[String:String]]?)
         {
             self.client = client
+            self.jsonPaths = v1JsonPaths
             self.state = state
             self.id = id
             self.displayName = displayName
@@ -135,6 +138,7 @@ extension IDXClient {
             }
             
             internal init(client: IDXClientAPI,
+                          v1JsonPaths: [String],
                           state: State,
                           id: String,
                           displayName: String,
@@ -146,6 +150,7 @@ extension IDXClient {
                 self.settings = settings
 
                 super.init(client: client,
+                           v1JsonPaths: v1JsonPaths,
                            state: state,
                            id: id,
                            displayName: displayName,
@@ -160,6 +165,7 @@ extension IDXClient {
             @objc public let profile: [String:String]?
             
             internal init(client: IDXClientAPI,
+                          v1JsonPaths: [String],
                           state: State,
                           id: String,
                           displayName: String,
@@ -171,6 +177,7 @@ extension IDXClient {
                 self.profile = profile
 
                 super.init(client: client,
+                           v1JsonPaths: v1JsonPaths,
                            state: state,
                            id: id,
                            displayName: displayName,
@@ -212,6 +219,7 @@ extension IDXClient {
             internal let pollOption: IDXClient.Remediation?
             
             internal init(client: IDXClientAPI,
+                          v1JsonPaths: [String],
                           state: State,
                           id: String,
                           displayName: String,
@@ -226,6 +234,7 @@ extension IDXClient {
                 self.pollOption = pollOption
 
                 super.init(client: client,
+                           v1JsonPaths: v1JsonPaths,
                            state: state,
                            id: id,
                            displayName: displayName,
@@ -271,6 +280,7 @@ extension IDXClient {
             internal let sendOption: IDXClient.Remediation?
             internal let resendOption: IDXClient.Remediation?
             internal init(client: IDXClientAPI,
+                          v1JsonPaths: [String],
                           state: State,
                           id: String,
                           displayName: String,
@@ -285,6 +295,7 @@ extension IDXClient {
                 self.resendOption = resendOption
 
                 super.init(client: client,
+                           v1JsonPaths: v1JsonPaths,
                            state: state,
                            id: id,
                            displayName: displayName,
