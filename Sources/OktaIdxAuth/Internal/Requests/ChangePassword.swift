@@ -28,21 +28,12 @@ extension OktaIdxAuth.Implementation.Request {
         func send(to implementation: OktaIdxAuth.Implementation,
                   from response: IDXClient.Response)
         {
-            if let reenroll = response.remediation?[.reenrollAuthenticator] {
-                let parameters = IDXClient.Remediation.Parameters()
-                if let field = reenroll["credentials"]?["passcode"] {
-                    parameters[field] = password
-                    
-                    if let (errorResponse, error) = doesFieldHaveError(implementation: implementation,
-                                                                       from: reenroll,
-                                                                       in: field)
-                    {
-                        self.recoverableError(response: errorResponse, error: error)
-                        return
-                    }
-                }
+            guard !hasError(implementation: implementation, in: response) else { return }
+
+            if let reenroll = response.remediations[.reenrollAuthenticator] {
+                reenroll["credentials.passcode"]?.value = password as AnyObject
                 
-                proceed(to: implementation, using: reenroll, with: parameters)
+                proceed(to: implementation, using: reenroll)
             }
             
             else {
@@ -50,26 +41,21 @@ extension OktaIdxAuth.Implementation.Request {
             }
         }
         
-        override func doesFieldHaveError(implementation: Implementation,
-                                         from option: IDXClient.Remediation.Option,
-                                         in field: IDXClient.Remediation.FormValue) -> (Response, AuthError)?
+        override func hasError(implementation: Implementation,
+                               in response: IDXClient.Response) -> Bool
         {
-            guard let message = field.messages?.first,
-               let error = AuthError(from: message)
-            else {
-                return nil
-            }
-         
-            var additionalInfo: [String: Any]?
-            if let authenticator = option.relatesTo?.first as? IDXClient.Authenticator {
-                additionalInfo = authenticator.settings as? [String: Any]
+            if let message = response.remediations[.reenrollAuthenticator]?.messages.message(for: "passcode") {
+                completion?(T(status: .passwordInvalid,
+                              context: implementation.context,
+                              detailedResponse: response),
+                            AuthError(from: message))
+                return true
             }
             
-            return (.init(status: .passwordInvalid,
-                          token: nil,
-                          context: implementation.client.context,
-                          additionalInfo: additionalInfo),
-                    error)
+            else {
+                return super.hasError(implementation: implementation, in: response)
+            }
         }
+
     }
 }

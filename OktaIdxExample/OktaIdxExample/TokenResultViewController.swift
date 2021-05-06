@@ -65,12 +65,16 @@ class TokenResultViewController: UIViewController {
         let prompt = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         prompt.addAction(.init(title: "All Tokens", style: .default) { (alert) in
             client.revoke(token: token, type: .accessAndRefreshToken) { (response, error) in
-                self.tokenRevoked(response, error: error)
+                DispatchQueue.main.async {
+                    self.tokenRevoked(response, error: error)
+                }
             }
         })
         prompt.addAction(.init(title: "Refresh Token", style: .default) { (alert) in
             client.revoke(token: token, type: .refreshToken) { (response, error) in
-                self.tokenRevoked(response, error: error)
+                DispatchQueue.main.async {
+                    self.tokenRevoked(response, error: error)
+                }
             }
         })
         prompt.addAction(.init(title: "Cancel", style: .cancel))

@@ -55,11 +55,65 @@ protocol OktaIdxAuthRemediationRequest {
 
 extension OktaIdxAuth {
     class Implementation {
-        let client: IDXClient
+        let configuration: IDXClient.Configuration?
+        var context: IDXClient.Context?
+
+        private var storedClient: IDXClient?
         var delegate: OktaIdxAuthImplementationDelegate?
         
-        init(with client: IDXClient) {
-            self.client = client
+        init(with context: IDXClient.Context) {
+            self.context = context
+            self.configuration = context.configuration
+        }
+
+        init(with configuration: IDXClient.Configuration) {
+            self.configuration = configuration
+        }
+        
+        func client(reset: Bool = false, completion: @escaping (IDXClient) -> Void) {
+            if reset {
+                storedClient = nil
+                context = nil
+            }
+            
+            if let client = storedClient {
+                completion(client)
+            }
+            
+            else if let configuration = configuration {
+                IDXClient.start(with: configuration) { (client, error) in
+                    guard let client = client else {
+                        self.fail(with: error ?? AuthError.internalError(message: "Could not create an IDX client"))
+                        return
+                    }
+                    self.storedClient = client
+                    self.context = client.context
+                    completion(client)
+                }
+            }
+            
+            else if let context = context {
+                let client = IDXClient(context: context)
+                self.storedClient = client
+                completion(client)
+            }
+            
+            else {
+                self.fail(with: AuthError.internalError(message: "No client or configuration available"))
+            }
+        }
+
+        func resume(reset: Bool = false, completion: @escaping (IDXClient, IDXClient.Response) -> Void) {
+            client(reset: reset) { (client) in
+                client.resume { (response, error) in
+                    guard let response = response else {
+                        self.fail(with: error ?? AuthError.missingResponse)
+                        return
+                    }
+                    
+                    completion(client, response)
+                }
+            }
         }
 
         class Request<T> where T: Response {
@@ -86,27 +140,29 @@ extension OktaIdxAuth {
                 completion?(response, error)
             }
             
-            func doesFieldHaveError(implementation: Implementation,
-                                    from option: IDXClient.Remediation.Option,
-                                    in field: IDXClient.Remediation.FormValue) -> (Response, AuthError)?
+            func hasError(implementation: Implementation,
+                          in response: IDXClient.Response) -> Bool
             {
-                return nil
+                guard !response.messages.isEmpty else { return false }
+
+                completion?(T(status: .unknown,
+                              context: implementation.context,
+                              detailedResponse: response),
+                            AuthError(from: response.messages.first))
+                return true
             }
             
             func needsAdditionalRemediation(using response: IDXClient.Response, from implementation: Implementation) {
                 fatalError(.unexpectedTransitiveRequest)
             }
             
-            func proceed(to implementation: OktaIdxAuth.Implementation,
-                         using option: IDXClient.Remediation.Option,
-                         with parameters: IDXClient.Remediation.Parameters? = nil)
-            {
+            func proceed(to implementation: OktaIdxAuth.Implementation, using option: IDXClient.Remediation) {
                 guard let self = self as? Request<T> & OktaIdxAuthRemediationRequest else {
                     fatalError(.unexpectedTransitiveRequest)
                     return
                 }
 
-                option.proceed(with: parameters) { (response, error) in
+                option.proceed { (response, error) in
                     guard let response = response else {
                         self.fatalError(.missingRemediation)
                         return
@@ -126,9 +182,7 @@ extension OktaIdxAuth {
                             }
                             
                             self.completion?(T(status: .success,
-                                               token: token,
-                                               context: nil,
-                                               additionalInfo: nil),
+                                               token: token),
                                              nil)
                         }
                         return
@@ -151,14 +205,16 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
         case internalError(message: String)
 
         init?(from response: IDXClient.Response) {
-            guard let message = response.messages?.first else {
+            guard let message = response.messages.first else {
                 return nil
             }
             
             self.init(from: message)
         }
         
-        init?(from message: IDXClient.Message) {
+        init?(from message: IDXClient.Message?) {
+            guard let message = message else { return nil }
+            
             self = .serverError(message: message.message)
         }
         
@@ -208,82 +264,37 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                       password: String? = nil,
                       completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
-        client.start { (context, response, error) in
-            guard let response = response else {
-                self.fail(with: AuthError.missingResponse)
-                return
-            }
-
-            if let error = error ?? AuthError(from: response) {
-                self.fail(with: error)
-                return
-            }
-            
+        resume(reset: true) { (client, response) in
             let request = Request<OktaIdxAuth.Response>.Authenticate(username: username,
                                                                      password: password,
                                                                      completion: completion)
-            request.send(to: self,
-                         from: response)
+            request.send(to: self, from: response)
         }
     }
     
     @available(iOSApplicationExtension 13.0, *)
     @objc func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
-        client.start { (context, response, error) in
-            guard let response = response else {
-                self.fail(with: AuthError.missingResponse)
-                return
-            }
-
-            if let error = error ?? AuthError(from: response) {
-                self.fail(with: error)
-                return
-            }
-            
+        resume(reset: true) { (client, response) in
             let request = Request<OktaIdxAuth.Response>.SocialAuthenticateIOS13(options: options, completion: completion)
-            request.send(to: self,
-                         from: response)
+            request.send(to: self, from: response)
         }
     }
     
     @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
     @objc func socialAuth(completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
-        client.start { (context, response, error) in
-            guard let response = response else {
-                self.fail(with: AuthError.missingResponse)
-                return
-            }
-
-            if let error = error ?? AuthError(from: response) {
-                self.fail(with: error)
-                return
-            }
-            
+        resume(reset: true) { (client, response) in
             let request = Request<OktaIdxAuth.Response>.SocialAuthenticate(completion: completion)
-            request.send(to: self,
-                         from: response)
-
+            request.send(to: self, from: response)
         }
     }
     
     func changePassword(_ password: String,
                         completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
-        client.introspect { (response, error) in
-            guard let response = response else {
-                self.fail(with: AuthError.missingResponse)
-                return
-            }
-
-            if let error = error ?? AuthError(from: response) {
-                self.fail(with: error)
-                return
-            }
-            
+        resume { (client, response) in
             let request = Request<OktaIdxAuth.Response>.ChangePassword(password: password,
                                                                        completion: completion)
-            request.send(to: self,
-                         from: response)
+            request.send(to: self, from: response)
         }
     }
     
@@ -302,12 +313,14 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                       type: OktaIdxAuth.TokenType,
                       completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
-        client.revoke(token: token, type: type.idxType) { (success, error) in
-            guard let completion = completion else { return }
-            if success {
-                completion(.init(status: .tokenRevoked), nil)
-            } else {
-                completion(nil, error)
+        client { (client) in
+            client.revoke(token: token, type: type.idxType) { (success, error) in
+                guard let completion = completion else { return }
+                if success {
+                    completion(.init(status: .tokenRevoked), nil)
+                } else {
+                    completion(nil, error)
+                }
             }
         }
     }

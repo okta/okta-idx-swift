@@ -41,7 +41,7 @@ class IDXButtonTableViewCell: UITableViewCell {
             case .cancel:
                 return "Restart"
             case .remediation(type: let type):
-                return IDXClient.Remediation.Option.title(for: type)
+                return IDXClient.Remediation.title(for: type)
             }
         }
     }

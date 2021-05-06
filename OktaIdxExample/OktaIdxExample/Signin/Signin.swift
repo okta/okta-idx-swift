@@ -26,12 +26,13 @@ public class Signin {
     private var completion: ((IDXClient.Token?, Error?) -> Void)?
     private var navigationController: UINavigationController?
     
-    internal let idx: IDXClient
+    internal let configuration: IDXClient.Configuration
+    internal var idx: IDXClient?
     
     /// Initializes a signin instance with the given client configuration.
     /// - Parameter configuration: Client app configuration.
     init(using configuration: IDXClient.Configuration) {
-        idx = IDXClient(configuration: configuration)
+        self.configuration = configuration
         self.storyboard = UIStoryboard(name: "IDXSignin", bundle: Bundle(for: type(of: self)))
     }
     
@@ -53,7 +54,7 @@ public class Signin {
         viewController.present(navigationController, animated: true, completion: nil)
     }
     
-    internal func buttonTitle(for option: IDXClient.Remediation.Option?) -> String? {
+    internal func buttonTitle(for option: IDXClient.Remediation?) -> String? {
         guard let option = option else {
             return "Restart"
         }
@@ -85,14 +86,21 @@ public class Signin {
     
     /// Called by each view controller once their remediation step has been completed, allowing it to proceed to the next step of the workflow.
     /// - Parameter response: IDX response object received from the API.
-    internal func proceed(to response: IDXClient.Response) {
+    func proceed(to response: IDXClient.Response) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.proceed(to: response)
+            }
+            return
+        }
+        
         guard let navigationController = navigationController else {
             failure(with: SigninError.genericError(message: "Navigation controller undefined"))
             return
         }
         
         guard let controller = controller(for: response) else {
-            if let message = response.messages?.first {
+            if let message = response.messages.first {
                 let alert = UIAlertController(title: "Error",
                                               message: message.message,
                                               preferredStyle: .alert)
@@ -120,7 +128,7 @@ public class Signin {
         }
         
         // Don't animate between controllers of the same type, to avoid
-        // annoing animations
+        // annoying animations
         var animated = true
         if let previousController = navigationController.topViewController {
             if type(of: previousController) === type(of: controller) {
@@ -145,21 +153,21 @@ public class Signin {
             return controller
         }
         
-        if let remediationOption = response.remediation?[.redirectIdp] {
+        if let remediationOption = response.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth {
             guard let controller = storyboard.instantiateViewController(identifier: "idp-redirect") as? UIViewController & IDXWebSessionController else {
                 return nil
             }
             
             controller.signin = self
             controller.response = response
-            controller.redirectUrl = remediationOption.href
+            controller.redirectUrl = remediationOption.redirectUrl
             
             return controller
         }
         
         // If no remediation options are available, this response probably just contains
         // error messages, so we should remain on our current form.
-        guard response.remediation != nil else { return nil }
+        guard !response.remediations.isEmpty else { return nil }
 
         // Attempt to instantiate a view controller to represent the remediation options in this response.
         if let controller = storyboard.instantiateViewController(identifier: "remediation") as? UIViewController & IDXResponseController {
@@ -174,7 +182,14 @@ public class Signin {
     /// Called by the signin view controllers when the Future should fail.
     /// - Parameter error: The error to pass to the future.
     internal func failure(with error: Error) {
-        navigationController?.dismiss(animated: true) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.failure(with: error)
+            }
+            return
+        }
+        
+        self.navigationController?.dismiss(animated: true) {
             guard let completion = self.completion else { return }
             defer { self.completion = nil }
             completion(nil, error)
@@ -184,6 +199,13 @@ public class Signin {
     /// Called by the signin view controllers when the Future should succeed.
     /// - Parameter token: The token produced at the end of the signin process.
     internal func success(with token: IDXClient.Token) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.success(with: token)
+            }
+            return
+        }
+        
         guard let completion = self.completion else { return }
         defer { self.completion = nil }
         navigationController?.dismiss(animated: true) {

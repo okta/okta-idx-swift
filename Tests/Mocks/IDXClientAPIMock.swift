@@ -13,93 +13,137 @@
 import Foundation
 @testable import OktaIdx
 
-class IDXClientAPIv1Mock: IDXClientAPIImpl {
-    
-    var client: IDXClientAPI?
-    
-    var canCancel: Bool {
-        recordedCalls.append(RecordedCall(function: #function, arguments: nil))
-        return false
-    }
-    
-    let configuration: IDXClient.Configuration
-    
+class MockBase {
     struct RecordedCall {
         let function: String
         let arguments: [String:Any]?
     }
-    static var version = IDXClient.Version.v1_0_0
+
     var recordedCalls: [RecordedCall] = []
     func reset() {
         recordedCalls.removeAll()
     }
     
-    private var expectations: [String:[String:Any]] = [:]
+    private(set) var expectations: [String:[String:Any]] = [:]
     func expect(function name: String, arguments: [String:Any]) {
         expectations[name] = arguments
     }
     
-    private func response(for name: String) -> [String:Any]? {
+    func response(for name: String) -> [String:Any]? {
         return expectations.removeValue(forKey: name)
     }
+}
+
+class IDXClientAPIMock: MockBase, IDXClientAPI {
+    var context: IDXClient.Context
+    
+    init(context: IDXClient.Context) {
+        self.context = context
+    }
+    
+    func proceed(remediation option: IDXClient.Remediation, completion: IDXClient.ResponseResult?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "remediation": option as Any,
+                                          ]))
+        let result = response(for: #function)
+        completion?(result?["response"] as? IDXClient.Response, result?["error"] as? Error)
+    }
+    
+    func exchangeCode(redirect url: URL, completion: IDXClient.TokenResult?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "redirect": url as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["token"] as? IDXClient.Token, result?["error"] as? Error)
+    }
+    
+    func exchangeCode(using remediation: IDXClient.Remediation, completion: IDXClient.TokenResult?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "using": response as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["token"] as? IDXClient.Token, result?["error"] as? Error)
+    }
+    
+    func redirectResult(for url: URL) -> IDXClient.RedirectResult {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "redirect": url as Any
+                                          ]))
+        
+        return .authenticated
+    }
+    
+    func revoke(token: String, type: IDXClient.Token.RevokeType, completion: @escaping (Bool, Error?) -> Void) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "token": token as Any,
+                                            "type": type as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion(result?["success"] as? Bool ?? true, result?["error"] as? Error)
+    }
+    
+}
+
+class IDXClientAPIv1Mock: MockBase, IDXClientAPIImpl {
+    var client: IDXClientAPI?
+    let configuration: IDXClient.Configuration
+    static var version: IDXClient.Version = .latest
     
     init(configuration: IDXClient.Configuration) {
         self.configuration = configuration
     }
     
-    func interact(state: String?, completion: @escaping (IDXClient.Context?, Error?) -> Void) {
-        recordedCalls.append(RecordedCall(function: #function, arguments: nil))
+    func start(state: String?, completion: @escaping (IDXClient.Context?, Error?) -> Void) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "state": state as Any
+                                          ]))
         let result = response(for: #function)
         completion(result?["context"] as? IDXClient.Context, result?["error"] as? Error)
     }
     
-    func introspect(_ context: IDXClient.Context, completion: @escaping (IDXClient.Response?, Error?) -> Void) {
+    func resume(completion: @escaping (IDXClient.Response?, Error?) -> Void) {
         recordedCalls.append(RecordedCall(function: #function, arguments: nil))
         let result = response(for: #function)
         completion(result?["response"] as? IDXClient.Response, result?["error"] as? Error)
     }
     
-    func cancel(completion: @escaping (IDXClient.Response?, Error?) -> Void) {
-        recordedCalls.append(RecordedCall(function: #function, arguments: nil))
-        let result = response(for: #function)
-        completion(result?["response"] as? IDXClient.Response, result?["error"] as? Error)
-    }
-    
-    func proceed(remediation option: IDXClient.Remediation.Option, data: [String : Any], completion: @escaping (IDXClient.Response?, Error?) -> Void) {
+    func proceed(remediation option: IDXClient.Remediation, completion: @escaping (IDXClient.Response?, Error?) -> Void) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "remediation": option as Any,
-                                            "data": data 
                                           ]))
         let result = response(for: #function)
         completion(result?["response"] as? IDXClient.Response, result?["error"] as? Error)
     }
     
-    func redirectResult(with context: IDXClient.Context, redirect url: URL) -> IDXClient.RedirectResult {
+    func redirectResult(for url: URL) -> IDXClient.RedirectResult {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
-                                            "context": context as Any,
-                                            "redirect": url as Any
+                                            "url": url as Any
                                           ]))
-        
-        return client?.redirectResult(with: context, redirect: url) ?? .invalidContext
+        let result = response(for: #function)
+        return result?["result"] as? IDXClient.RedirectResult ?? .invalidContext
     }
     
-    @objc func exchangeCode(with context: IDXClient.Context, redirect url: URL, completion: @escaping (IDXClient.Token?, Error?) -> Void) {
+    @objc func exchangeCode(redirect url: URL, completion: @escaping (IDXClient.Token?, Error?) -> Void) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
-                                            "with": context as Any,
                                             "redirect": url as Any
                                           ]))
         let result = self.response(for: #function)
         completion(result?["token"] as? IDXClient.Token, result?["error"] as? Error)
     }
 
-    func exchangeCode(with context: IDXClient.Context, using response: IDXClient.Response, completion: @escaping (IDXClient.Token?, Error?) -> Void) {
+    func exchangeCode(using remediation: IDXClient.Remediation, completion: @escaping (IDXClient.Token?, Error?) -> Void) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
-                                            "with": context as Any,
-                                            "using": response as Any
+                                            "using": remediation as Any
                                           ]))
         let result = self.response(for: #function)
         completion(result?["token"] as? IDXClient.Token, result?["error"] as? Error)

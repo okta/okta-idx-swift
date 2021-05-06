@@ -31,46 +31,22 @@ extension OktaIdxAuth.Implementation.Request {
         func send(to implementation: Implementation,
                   from response: IDXClient.Response)
         {
-            if let selectIdentify = response.remediation?[.selectIdentify] {
+            guard !hasError(implementation: implementation, in: response) else { return }
+            
+            if let selectIdentify = response.remediations[.selectIdentify] {
                 proceed(to: implementation, using: selectIdentify)
             }
             
-            else if let identify = response.remediation?[.identify] {
-                let parameters = IDXClient.Remediation.Parameters()
-                if let field = identify["identifier"] {
-                    parameters[field] = username
-                }
-                
-                if let field = identify["credentials"]?["passcode"] {
-                    parameters[field] = password
-                    
-                    if let (errorResponse, error) = doesFieldHaveError(implementation: implementation,
-                                                                       from: identify,
-                                                                       in: field)
-                    {
-                        self.recoverableError(response: errorResponse, error: error)
-                        return
-                    }
-                }
-                
-                proceed(to: implementation, using: identify, with: parameters)
+            else if let identify = response.remediations[.identify] {
+                identify.form["identifier"]?.value = username as AnyObject
+                identify.form["credentials.passcode"]?.value = password as AnyObject
+                proceed(to: implementation, using: identify)
             }
             
-            else if let challengeAuthenticator = response.remediation?[.challengeAuthenticator] {
-                let parameters = IDXClient.Remediation.Parameters()
-                if let field = challengeAuthenticator["credentials"]?["passcode"] {
-                    parameters[field] = password
-                    
-                    if let (errorResponse, error) = doesFieldHaveError(implementation: implementation,
-                                                                       from: challengeAuthenticator,
-                                                                       in: field)
-                    {
-                        self.recoverableError(response: errorResponse, error: error)
-                        return
-                    }
-                }
-                
-                proceed(to: implementation, using: challengeAuthenticator, with: parameters)
+            else if let challengeAuthenticator = response.remediations[.challengeAuthenticator] {
+                challengeAuthenticator.form["credentials.passcode"]?.value = password as AnyObject
+
+                proceed(to: implementation, using: challengeAuthenticator)
             }
             
             else {
@@ -84,42 +60,38 @@ extension OktaIdxAuth.Implementation.Request {
                 return
             }
             
-            if let reenroll = response.remediation?[.reenrollAuthenticator] {
-                var additionalInfo: [String: Any]?
-                if let authenticator = reenroll.relatesTo?.first as? IDXClient.Authenticator {
-                    additionalInfo = authenticator.settings as? [String: Any]
-                }
-                
+            if response.remediations[.reenrollAuthenticator] != nil {
                 completion(Response(status: .passwordExpired,
-                                    token: nil,
-                                    context: implementation.client.context,
-                                    additionalInfo: additionalInfo),
+                                    context: implementation.context,
+                                    detailedResponse: response),
                            nil)
             } else {
                 super.needsAdditionalRemediation(using: response, from: implementation)
             }
         }
         
-        override func doesFieldHaveError(implementation: Implementation,
-                                         from option: IDXClient.Remediation.Option,
-                                         in field: IDXClient.Remediation.FormValue) -> (Response, AuthError)?
+        override func hasError(implementation: Implementation,
+                               in response: IDXClient.Response) -> Bool
         {
-            guard let message = field.messages?.first,
-               let error = AuthError(from: message)
-            else {
-                return nil
-            }
-         
-            var additionalInfo: [String: Any]?
-            if let authenticator = option.relatesTo?.first as? IDXClient.Authenticator {
-                additionalInfo = authenticator.settings as? [String: Any]
+            if let message = response.messages.message(for: "identifier") {
+                completion?(T(status: .unknown,
+                              context: implementation.context,
+                              detailedResponse: response),
+                            AuthError(from: message))
+                return true
             }
             
-            return (.init(status: .passwordInvalid,
-                          token: nil,
-                          context: implementation.client.context,
-                          additionalInfo: additionalInfo),
-                    error)
+            else if let message = response.messages.message(for: "passcode") {
+                completion?(.init(status: .passwordInvalid,
+                                  context: implementation.context,
+                                  detailedResponse: response),
+                            AuthError.serverError(message: message.message))
+                return true
+            }
+            
+            else {
+                return super.hasError(implementation: implementation, in: response)
+            }
         }
     }
 }

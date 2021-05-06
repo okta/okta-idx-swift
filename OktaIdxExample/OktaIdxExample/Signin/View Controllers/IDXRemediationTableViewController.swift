@@ -18,7 +18,6 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
     var signin: Signin?
 
     private var formSections: [Signin.Section] = []
-    private let formValues = IDXClient.Remediation.Parameters()
 
     private let pollActivityIndicator: UIActivityIndicatorView = {
         let result = UIActivityIndicatorView(style: .medium)
@@ -51,27 +50,28 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
             inputView.becomeFirstResponder()
         }
         
-        if let poll = response?.currentAuthenticatorEnrollment?.poll {
+        if let poll = response?.authenticators.current as? IDXClient.Authenticator & Pollable,
+           poll.canPoll
+        {
             beginPolling(using: poll)
         }
     }
     
     var shouldShowNavigationBar: Bool {
         guard let response = response,
-              let app = response.app,
-              let remediation = response.remediation
+              let app = response.app
         else {
             return true
         }
         
-        return !app.label.isEmpty && !remediation.remediationOptions.isEmpty
+        return !app.label.isEmpty && !response.remediations.isEmpty
     }
     
     @IBAction @objc func cancelAction() {
         signin?.failure(with: SigninError.genericError(message: "Cancelled"))
     }
     
-    func proceed(to remediationOption: IDXClient.Remediation.Option?, from sender: Any? = nil) {
+    func proceed(to remediationOption: IDXClient.Remediation?, from sender: Any? = nil) {
         guard let signin = signin else {
             showError(SigninError.genericError(message: "Signin session deallocated"))
             return
@@ -81,7 +81,7 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
             button.isEnabled = false
         }
         
-        remediationOption?.proceed(with: formValues) { [weak self] (response, error) in
+        remediationOption?.proceed { [weak self] (response, error) in
             guard let response = response else {
                 if let error = error {
                     self?.showError(error)
@@ -119,28 +119,27 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
         }
     }
     
-    func beginPolling(using poll: IDXClient.Remediation.Option) {
-        guard let refreshTime = poll.refresh else { return }
+    func beginPolling(using poll: IDXClient.Authenticator & Pollable) {
+        guard let signin = signin else {
+            showError(SigninError.genericError(message: "Signin session deallocated"))
+            return
+        }
 
         if !pollActivityIndicator.isAnimating {
             pollActivityIndicator.startAnimating()
         }
-        
-        let deadlineTime = DispatchTime.now() + refreshTime
-        DispatchQueue.global().asyncAfter(deadline: deadlineTime) {
-            poll.proceed(with: [:]) { (response, error) in
-                guard let response = response else {
-                    return
+
+        poll.startPolling { [weak self] (response, error) in
+            guard let response = response else {
+                if let error = error {
+                    self?.showError(error)
+                    self?.pollActivityIndicator.stopAnimating()
+                    poll.stopPolling()
                 }
-                
-                DispatchQueue.main.async {
-                    if let nextPoll = response.currentAuthenticatorEnrollment?.poll {
-                        self.beginPolling(using: nextPoll)
-                    } else {
-                        self.signin?.proceed(to: response)
-                    }
-                }
+                return
             }
+            
+            signin.proceed(to: response)
         }
     }
     
@@ -166,41 +165,61 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
 }
 
 extension IDXRemediationTableViewController: SigninRowDelegate {
-    func value(for value: IDXClient.Remediation.FormValue) -> Any? {
-        return formValues[value]
+    func value(for value: IDXClient.Remediation.Form.Field) -> Any? {
+        return value.value
     }
     
-    func row(row: Signin.Row, changedValue: (IDXClient.Remediation.FormValue, Any)) {
-        formValues[changedValue.0] = changedValue.1
-
-        if let changedFormValue = changedValue.1 as? IDXClient.Remediation.FormValue {
-            if changedFormValue.hasVisibleFields {
-                rebuildForm()
-            }
-            tableView.reloadData()
-        }
+    func formNeedsUpdate() {
+        tableView.reloadData()
     }
 
     func enrollment(action: Signin.EnrollmentAction) {
-        var remediationOption: IDXClient.Remediation.Option?
+        guard let signin = signin else { return }
         switch action {
         case .send:
-            remediationOption = response?.currentAuthenticatorEnrollment?.send
+            if let authenticator = response?.authenticators.current as? Sendable,
+               authenticator.canSend
+            {
+                authenticator.send { (response, error) in
+                    guard let response = response else {
+                        signin.failure(with: error ?? SigninError.stepUnsupported)
+                        return
+                    }
+                    
+                    signin.proceed(to: response)
+                }
+            }
         case .resend:
-            remediationOption = response?.currentAuthenticatorEnrollment?.resend
+            if let authenticator = response?.authenticators.current as? Resendable,
+               authenticator.canResend
+            {
+                authenticator.resend { (response, error) in
+                    guard let response = response else {
+                        signin.failure(with: error ?? SigninError.stepUnsupported)
+                        return
+                    }
+                    
+                    signin.proceed(to: response)
+                }
+            }
         case .recover:
-            remediationOption = response?.currentAuthenticatorEnrollment?.recover
+            if let authenticator = response?.authenticators.current as? Recoverable,
+               authenticator.canRecover
+            {
+                authenticator.recover { (response, error) in
+                    guard let response = response else {
+                        signin.failure(with: error ?? SigninError.stepUnsupported)
+                        return
+                    }
+                    
+                    signin.proceed(to: response)
+                }
+            }
         }
-        
-        proceed(to: remediationOption)
     }
     
-    func buttonSelected(remediationOption: IDXClient.Remediation.Option?, sender: Any?) {
-        if let remediationOption = remediationOption {
-            proceed(to: remediationOption, from: sender)
-        } else {
-            cancelAction(sender)
-        }
+    func buttonSelected(remediationOption: IDXClient.Remediation, sender: Any?) {
+        proceed(to: remediationOption, from: sender)
     }
 }
 
@@ -226,7 +245,7 @@ extension Signin.Row {
     func configure(signin: Signin?, cell: UITableViewCell, at indexPath: IndexPath) {
         switch self.kind {
         case .separator:
-            if let cell = cell as? IDXSeparatorTableViewCell {
+            if cell is IDXSeparatorTableViewCell {
                 // TODO:
             }
 
@@ -258,11 +277,11 @@ extension Signin.Row {
             {
                 cell.fieldLabel.text = field.label
                 cell.fieldLabel.accessibilityIdentifier = "\(fieldName).label"
-                cell.textField.isSecureTextEntry = field.secret
-                cell.textField.text = (delegate?.value(for: field) ?? field.value as Any) as? String
+                cell.textField.isSecureTextEntry = field.isSecret
+                cell.textField.text = field.value as? String
                 cell.textField.accessibilityIdentifier = "\(fieldName).field"
                 cell.update = { value in
-                    self.delegate?.row(row: self, changedValue: (field, value))
+                    field.value = value as AnyObject
                 }
             }
             
@@ -272,47 +291,47 @@ extension Signin.Row {
              {
                 cell.fieldLabel.text = field.label
                 cell.fieldLabel.accessibilityIdentifier = "\(fieldName).label"
-                cell.switchView.isOn = (delegate?.value(for: field) ?? field.value as Any) as? Bool ?? false
+                cell.switchView.isOn = field.value as? Bool ?? false
+                cell.update = { (value) in
+                    field.value = value as AnyObject
+                }
             }
             
         case .option(field: let field, option: let option):
             if let cell = cell as? IDXOptionTableViewCell,
-               let fieldName = field.name {
-                let currentValue = self.delegate?.value(for: field) as? IDXClient.Remediation.FormValue
-                
-                if let authenticator = option.relatesTo as? IDXClient.Authenticator,
+               let fieldName = field.name
+            {
+                if let authenticator = option.authenticator as? IDXClient.Authenticator & HasProfile,
                    let profile = authenticator.profile
                 {
                     cell.detailLabel.text = profile.values.first
                 } else {
                     cell.detailLabel.text = nil
                 }
-                
+
                 cell.fieldLabel.text = option.label
                 cell.fieldLabel.accessibilityIdentifier = "\(fieldName).label"
-                cell.state = (currentValue == option) ? .checked : .unchecked
+                cell.state = option.isSelectedOption ? .checked : .unchecked
                 cell.update = {
-                    self.delegate?.row(row: self, changedValue: (field, option))
+                    field.selectedOption = option
+                    delegate?.formNeedsUpdate()
                 }
             }
             
         case .button(remediationOption: let option):
             if let cell = cell as? IDXButtonTableViewCell {
-                var style = IDXButtonTableViewCell.Style.cancel
-                if let option = option {
-                    style = .remediation(type: option.type)
-                }
-                cell.style = style
+                cell.style = .remediation(type: option.type)
                 cell.buttonView.setTitle(signin?.buttonTitle(for: option), for: .normal)
                 cell.update = { (sender, _) in
-                    self.delegate?.buttonSelected(remediationOption: option, sender: sender)
+                    delegate?.buttonSelected(remediationOption: option, sender: sender)
                 }
             }
             
         case .select(field: let field, values: let values):
             if let cell = cell as? IDXPickerTableViewCell,
-               let fieldName = field.name {
-                let currentValue = self.delegate?.value(for: field) as? String
+               let fieldName = field.name
+            {
+                let currentValue = field.selectedOption?.value as? String
                 
                 cell.fieldLabel.text = field.label
                 cell.fieldLabel.accessibilityIdentifier = "\(fieldName).label"
@@ -323,7 +342,7 @@ extension Signin.Row {
                 }
                 cell.selectedValue = currentValue
                 cell.update = { value in
-                    self.delegate?.row(row: self, changedValue: (field, value))
+                    field.selectedOption = values.first { $0.value as? String == value }
                 }
             }
             

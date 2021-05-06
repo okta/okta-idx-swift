@@ -19,21 +19,25 @@ class IDXClientAPIVersion1Tests: XCTestCase {
                                                 clientSecret: "clientSecret",
                                                 scopes: ["all"],
                                                 redirectUri: "redirect:/uri")
-    let context = IDXClient.Context(state: "state", interactionHandle: "foo", codeVerifier: "bar")
+    var context: IDXClient.Context!
     var session: URLSessionMock!
     var api: IDXClient.APIVersion1!
+    var client: IDXClientAPIMock!
     
     override func setUpWithError() throws {
         session = URLSessionMock()
+        context = IDXClient.Context(configuration: configuration, state: "state", interactionHandle: "foo", codeVerifier: "bar")
+        client = IDXClientAPIMock(context: context)
         api = IDXClient.APIVersion1(with: configuration,
                                     session: session)
+        api.client = client
     }
 
     func testInteractSuccess() throws {
         try session.expect("https://foo.oktapreview.com/oauth2/default/v1/interact", fileName: "interact-response")
         
         let completion = expectation(description: "Response")
-        api.interact(state: nil) { (context, error) in
+        api.start(state: nil) { (context, error) in
             XCTAssertNotNil(context)
             XCTAssertEqual(context?.interactionHandle, "003Q14X7li")
             XCTAssertNil(error)
@@ -48,8 +52,8 @@ class IDXClientAPIVersion1Tests: XCTestCase {
                            statusCode: 400)
         
         let completion = expectation(description: "Response")
-        api.interact(state: nil) { (handle, error) in
-            XCTAssertNil(handle)
+        api.start(state: nil) { (context, error) in
+            XCTAssertNil(context)
             XCTAssertNotNil(error)
             completion.fulfill()
         }
@@ -62,7 +66,7 @@ class IDXClientAPIVersion1Tests: XCTestCase {
 
         var response: IDXClient.Response!
         let completion = expectation(description: "Response")
-        api.introspect(context) { (responseValue, error) in
+        api.resume { (responseValue, error) in
             XCTAssertNotNil(responseValue)
             XCTAssertNil(error)
             response = responseValue
@@ -75,18 +79,18 @@ class IDXClientAPIVersion1Tests: XCTestCase {
             return
         }
         
-        XCTAssertEqual(response.stateHandle, "02tYS1NHhCPLcOpT3GByBBRHmGU63p7LGRXJx5cOvp")
-        XCTAssertEqual(response.intent, "LOGIN")
+        XCTAssertEqual(response.intent, .login)
         
-        XCTAssertEqual(response.remediation?.remediationOptions.count, 1)
+        XCTAssertEqual(response.remediations.count, 2)
         
-        let remediation = response.remediation?.remediationOptions.first
+        let remediation = response.remediations.first
         XCTAssertEqual(remediation?.name, "identify")
         XCTAssertEqual(remediation?.href.absoluteString, "https://foo.oktapreview.com/idp/idx/identify")
         XCTAssertEqual(remediation?.method, "POST")
         XCTAssertEqual(remediation?.accepts, "application/ion+json; okta-version=1.0.0")
-        XCTAssertEqual(remediation?.form.count, 3)
-        
+        XCTAssertEqual(remediation?.form.count, 2)
+        XCTAssertEqual(remediation?.form.allFields.count, 3)
+
         var form = remediation?.form[0]
         XCTAssertEqual(form?.name, "identifier")
         XCTAssertEqual(form?.label, "Username")
@@ -97,11 +101,10 @@ class IDXClientAPIVersion1Tests: XCTestCase {
         XCTAssertEqual(form?.label, "Remember this device")
         XCTAssertEqual(form?.type, "boolean")
 
-        form = remediation?.form[2]
+        form = remediation?.form.allFields[2]
         XCTAssertEqual(form?.name, "stateHandle")
-        XCTAssertEqual(form?.required, true)
-        XCTAssertEqual(form?.visible, false)
-        XCTAssertEqual(form?.mutable, false)
+        XCTAssertEqual(form?.isRequired, true)
+        XCTAssertEqual(form?.isMutable, false)
         
         if let stringValue = form?.value as? String {
             XCTAssertEqual(stringValue, "02tYS1NHhCPLcOpT3GByBBRHmGU63p7LGRXJx5cOvp")
@@ -109,11 +112,12 @@ class IDXClientAPIVersion1Tests: XCTestCase {
             XCTFail("Form value \(String(describing: form?.value)) is not a string")
         }
         
-        XCTAssertNotNil(api.cancelRemediationOption)
-        XCTAssertEqual(api.cancelRemediationOption?.name, "cancel")
-        XCTAssertEqual(api.cancelRemediationOption?.href.absoluteString, "https://foo.oktapreview.com/idp/idx/cancel")
-        XCTAssertEqual(api.cancelRemediationOption?.method, "POST")
-        XCTAssertEqual(api.cancelRemediationOption?.accepts, "application/ion+json; okta-version=1.0.0")
+        let cancelOption = response.remediations[.cancel]
+        XCTAssertNotNil(cancelOption)
+        XCTAssertEqual(cancelOption?.name, "cancel")
+        XCTAssertEqual(cancelOption?.href.absoluteString, "https://foo.oktapreview.com/idp/idx/cancel")
+        XCTAssertEqual(cancelOption?.method, "POST")
+        XCTAssertEqual(cancelOption?.accepts, "application/ion+json; okta-version=1.0.0")
     }
 
     func testIntrospectFailure() throws {
@@ -122,7 +126,7 @@ class IDXClientAPIVersion1Tests: XCTestCase {
                            statusCode: 400)
         
         let completion = expectation(description: "Response")
-        api.introspect(context) { (response, error) in
+        api.resume { (response, error) in
             XCTAssertNil(response)
             XCTAssertNotNil(error)
             XCTAssertTrue(error is IDXClientError)
@@ -130,5 +134,45 @@ class IDXClientAPIVersion1Tests: XCTestCase {
             completion.fulfill()
         }
         wait(for: [completion], timeout: 1)
+    }
+    
+    func testRedirectResultAuthenticated() throws {
+        let redirectUrl = try XCTUnwrap(URL(string: """
+                redirect:///uri?\
+                interaction_code=qwe4xJasF897EbEKL0LLbNUI-QwXZa8YOkY8QkWUlpXxU&\
+                state=state#_=_
+                """))
+
+        XCTAssertEqual(api.redirectResult(for: redirectUrl), .authenticated)
+    }
+
+    func testRedirectResultWithInvalidUrl() throws {
+        let redirectUrl = try XCTUnwrap(URL(string: "redirect///uri"))
+
+        XCTAssertEqual(api.redirectResult(for: redirectUrl), .invalidRedirectUrl)
+    }
+
+    func testRedirectResultWithInvalidScheme() throws {
+        let redirectUrl = try XCTUnwrap(URL(string: "redirect.com:///uri"))
+
+        XCTAssertEqual(api.redirectResult(for: redirectUrl), .invalidRedirectUrl)
+    }
+
+    func testRedirectResultWithInvalidState() throws {
+        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state1"))
+
+        XCTAssertEqual(api.redirectResult(for: redirectUrl), .invalidContext)
+    }
+
+    func testRedirectResultWithRemediationError() throws {
+        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state&error=interaction_required"))
+
+        XCTAssertEqual(api.redirectResult(for: redirectUrl), .remediationRequired)
+    }
+
+    func testRedirectResultWithEmptyResponse() throws {
+        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state"))
+
+        XCTAssertEqual(api.redirectResult(for: redirectUrl), .invalidContext)
     }
 }

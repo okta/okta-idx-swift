@@ -14,24 +14,25 @@ import XCTest
 @testable import OktaIdx
 
 class ScenarioTests: XCTestCase {
-    let configuration = IDXClient.Configuration(issuer: "https://example.com/oauth2/default",
+    var configuration: IDXClient.Configuration!
+    var context: IDXClient.Context!
+    var session: URLSessionMock!
+    var api: IDXClient.APIVersion1!
+    
+    override func setUpWithError() throws {
+        session = URLSessionMock()
+        configuration = IDXClient.Configuration(issuer: "https://example.com/oauth2/default",
                                                 clientId: "clientId",
                                                 clientSecret: "clientSecret",
                                                 scopes: ["all"],
                                                 redirectUri: "redirect:/uri")
-    let context = IDXClient.Context(state: "state", interactionHandle: "foo", codeVerifier: "bar")
-    var session: URLSessionMock!
-    var api: IDXClient.APIVersion1!
-    var idx: IDXClient!
-    
-    override func setUpWithError() throws {
-        session = URLSessionMock()
+        context = IDXClient.Context(configuration: configuration,
+                                    state: "state",
+                                    interactionHandle: "foo",
+                                    codeVerifier: "bar")
+
         api = IDXClient.APIVersion1(with: configuration,
                                     session: session)
-        idx = IDXClient(configuration: configuration,
-                        context: nil,
-                        api: api,
-                        queue: DispatchQueue.main)
     }
     
     func testScenario1() throws {
@@ -42,49 +43,55 @@ class ScenarioTests: XCTestCase {
         try session.expect("https://example.com/idp/idx/challenge/answer", folderName: "Passcode", fileName: "04-challenge-answer-response")
         try session.expect("https://example.com/oauth2/auszsfkYrgGCTilsV2o4/v1/token", folderName: "Passcode", fileName: "05-token-response")
 
-        idx.start { (context, response, error) in
-            XCTAssertNotNil(context)
-            XCTAssertNotNil(response)
+        IDXClient.start(with: api) { (client, error) in
+            XCTAssertNotNil(client)
             XCTAssertNil(error)
-            XCTAssertFalse(response!.isLoginSuccessful)
-            
-            let remediation = response?.remediation?.remediationOptions.first
-            XCTAssertNotNil(remediation)
-            XCTAssertEqual(remediation?.name, "identify")
-            XCTAssertEqual(remediation?.form.count, 3)
-            XCTAssertEqual(remediation?.form[0].name, "identifier")
-            XCTAssertEqual(remediation?.form[1].name, "rememberMe")
-            XCTAssertEqual(remediation?.form[2].name, "stateHandle")
-
-            remediation?.proceed(with: ["identifier": "user@example.com"]) { (response, error) in
+            client?.resume { (response, error) in
                 XCTAssertNotNil(response)
                 XCTAssertNil(error)
                 XCTAssertFalse(response!.isLoginSuccessful)
-
-                let remediation = response?.remediation?.remediationOptions.first
+                
+                let remediation = response?.remediations.first
                 XCTAssertNotNil(remediation)
-                XCTAssertEqual(remediation?.name, "challenge-authenticator")
+                XCTAssertEqual(remediation?.name, "identify")
                 XCTAssertEqual(remediation?.form.count, 2)
+                XCTAssertEqual(remediation?.form.allFields.count, 3)
+                XCTAssertEqual(remediation?.form[0].name, "identifier")
+                XCTAssertEqual(remediation?.form[1].name, "rememberMe")
+                XCTAssertEqual(remediation?.form.allFields[2].name, "stateHandle")
+                remediation?.form["identifier"]?.value = "user@example.com" as AnyObject
                 
-                XCTAssertEqual(remediation?.form[0].name, "credentials")
-                XCTAssertEqual(remediation?.form[1].name, "stateHandle")
-
-                let credentials = remediation?.form[0]
-                XCTAssertTrue(credentials!.required)
-                
-                remediation?.proceed(with: ["credentials": [ "passcode": "password" ]]) { (response, error) in
+                remediation?.proceed { (response, error) in
                     XCTAssertNotNil(response)
                     XCTAssertNil(error)
-                    XCTAssertTrue(response!.isLoginSuccessful)
+                    XCTAssertFalse(response?.isLoginSuccessful ?? true)
+                    
+                    let remediation = response?.remediations.first
+                    XCTAssertNotNil(remediation)
+                    XCTAssertEqual(remediation?.name, "challenge-authenticator")
+                    XCTAssertEqual(remediation?.form.count, 1)
+                    
+                    XCTAssertEqual(remediation?.form[0].name, "credentials")
+                    XCTAssertEqual(remediation?.form.allFields[1].name, "stateHandle")
+                    
+                    let credentials = remediation?.form[0]
+                    XCTAssertTrue(credentials?.isRequired ?? false)
+                    remediation?.form["credentials"]?.form?["passcode"]?.value = "password" as AnyObject
 
-                    response?.exchangeCode(with: self.context) { (token, error) in
-                        XCTAssertNotNil(token)
+                    remediation?.proceed { (response, error) in
+                        XCTAssertNotNil(response)
                         XCTAssertNil(error)
+                        XCTAssertTrue(response?.isLoginSuccessful ?? false)
                         
-                        XCTAssertEqual(token?.tokenType, "Bearer")
-                        XCTAssertEqual(token?.expiresIn, 3600)
-                        XCTAssertEqual(token?.refreshToken, "CCY4M4fR3")
-                        completion.fulfill()
+                        response?.exchangeCode { (token, error) in
+                            XCTAssertNotNil(token)
+                            XCTAssertNil(error)
+                            
+                            XCTAssertEqual(token?.tokenType, "Bearer")
+                            XCTAssertEqual(token?.expiresIn, 3600)
+                            XCTAssertEqual(token?.refreshToken, "CCY4M4fR3")
+                            completion.fulfill()
+                        }
                     }
                 }
             }
@@ -100,78 +107,96 @@ class ScenarioTests: XCTestCase {
         try session.expect("https://example.com/idp/idx/challenge", folderName: "MFA-Email", fileName: "04-challenge-authenticator")
 //        try session.expect("https://example.com/idp/idx/challenge/answer", folderName: "MFA-Email", fileName: "05-challenge-authenticator")
         try session.expect("https://example.com/oauth2/auszsfkYrgGCTilsV2o4/v1/token", folderName: "MFA-Email", fileName: "05-challenge-answer-invalid")
-
+        
         // Start, takes us through interact & introspect
-        idx.start { (context, response, error) in
-            XCTAssertNotNil(context)
-            XCTAssertNotNil(response)
+        IDXClient.start(with: api) { (client, error) in
+            XCTAssertNotNil(client)
             XCTAssertNil(error)
-            XCTAssertFalse(response!.isLoginSuccessful)
-            
-            let remediation = response?.remediation?.remediationOptions.first
-            XCTAssertNotNil(remediation)
-            XCTAssertEqual(remediation?.name, "identify")
-            XCTAssertEqual(remediation?.form.count, 3)
-            XCTAssertEqual(remediation?.form[0].name, "identifier")
-            XCTAssertEqual(remediation?.form[1].name, "rememberMe")
-            XCTAssertEqual(remediation?.form[2].name, "stateHandle")
-
-            // Identify ourselves as the given user, which returns the identify-response
-            remediation?.proceed(with: ["identifier": "user@example.com", "rememberMe": false]) { (response, error) in
+            client?.resume { (response, error) in
                 XCTAssertNotNil(response)
                 XCTAssertNil(error)
-                guard let response = response else {
-                    XCTFail()
-                    return
-                }
-
-                XCTAssertFalse(response.isLoginSuccessful)
-
-                let remediation = response.remediation?.remediationOptions.first
+                XCTAssertFalse(response!.isLoginSuccessful)
+                
+                let remediation = response?.remediations.first
                 XCTAssertNotNil(remediation)
-                XCTAssertEqual(remediation?.name, "select-authenticator-authenticate")
+                XCTAssertEqual(remediation?.name, "identify")
                 XCTAssertEqual(remediation?.form.count, 2)
-                
-                XCTAssertEqual(remediation?.form[0].name, "authenticator")
-                XCTAssertEqual(remediation?.form[1].name, "stateHandle")
+                XCTAssertEqual(remediation?.form.allFields.count, 3)
 
-                let credentials = remediation?.form[0]
-                XCTAssertEqual(credentials?.type, "object")
-                XCTAssertNotNil(credentials?.options)
-                XCTAssertEqual(credentials?.options?.count, 3)
+                let identifierField = remediation?.form[0]
+                XCTAssertEqual(identifierField?.name, "identifier")
+
+                let rememberMeField = remediation?.form[1]
+                XCTAssertEqual(rememberMeField?.name, "rememberMe")
+
+                let stateHandleField = remediation?.form.allFields[2]
+                XCTAssertEqual(stateHandleField?.name, "stateHandle")
                 
-                let securityQuestion = credentials?.options?.filter { $0.label == "Security Question" }.first
-                XCTAssertNotNil(securityQuestion)
-                XCTAssertEqual(securityQuestion?.form?.count, 2)
+                identifierField?.value = "user@example.com" as AnyObject
+                rememberMeField?.value = false as AnyObject
                 
-                // Choose a authenticator challenge type
-                remediation?.proceed(with: ["authenticator": securityQuestion as Any]) { (response, error) in
+                // Identify ourselves as the given user, which returns the identify-response
+                remediation?.proceed { (response, error) in
                     XCTAssertNotNil(response)
                     XCTAssertNil(error)
                     guard let response = response else {
                         XCTFail()
                         return
                     }
-
-                    XCTAssertFalse(response.isLoginSuccessful)
-
-                    let remediation = response.remediation?.remediationOptions.first
-                    XCTAssertNotNil(remediation)
-                    XCTAssertEqual(remediation?.name, "challenge-authenticator")
-                    XCTAssertEqual(remediation?.form.count, 2)
                     
-                    XCTAssertEqual(remediation?.form[0].name, "credentials")
-                    XCTAssertEqual(remediation?.form[1].name, "stateHandle")
-//                    TODO: MFA authentication tests aren't yet complete
-//                    response?.exchangeCode(completionHandler: { (token, error) in
-//                        XCTAssertNotNil(token)
-//                        XCTAssertNil(error)
-//
-//                        XCTAssertEqual(token?.tokenType, "Bearer")
-//                        XCTAssertEqual(token?.expiresIn, 3600)
-//                        XCTAssertEqual(token?.refreshToken, "WQcGbvjBpm2EA30-rPR7m6vGSzI8YMqNGYY9Qe14fT0")
+                    XCTAssertFalse(response.isLoginSuccessful)
+                    
+                    let remediation = response.remediations.first
+                    XCTAssertNotNil(remediation)
+                    XCTAssertEqual(remediation?.name, "select-authenticator-authenticate")
+                    XCTAssertEqual(remediation?.form.count, 1)
+                    XCTAssertEqual(remediation?.form.allFields.count, 2)
+
+                    XCTAssertEqual(remediation?.form[0].name, "authenticator")
+                    XCTAssertEqual(remediation?.form.allFields[1].name, "stateHandle")
+                    
+                    let credentials = remediation?.form[0]
+                    XCTAssertEqual(credentials?.type, "object")
+                    XCTAssertNotNil(credentials?.options)
+                    XCTAssertEqual(credentials?.options?.count, 3)
+                    
+                    let securityQuestion = credentials?.options?.filter { $0.label == "Security Question" }.first
+                    XCTAssertNotNil(securityQuestion)
+                    XCTAssertEqual(securityQuestion?.form?.count, 0)
+                    XCTAssertEqual(securityQuestion?.form?.allFields.count, 2)
+
+                    credentials?.selectedOption = securityQuestion
+                    
+                    // Choose a authenticator challenge type
+                    remediation?.proceed { (response, error) in
+                        XCTAssertNotNil(response)
+                        XCTAssertNil(error)
+                        guard let response = response else {
+                            XCTFail()
+                            return
+                        }
+                        
+                        XCTAssertFalse(response.isLoginSuccessful)
+                        
+                        let remediation = response.remediations.first
+                        XCTAssertNotNil(remediation)
+                        XCTAssertEqual(remediation?.name, "challenge-authenticator")
+                        XCTAssertEqual(remediation?.form.count, 1)
+                        XCTAssertEqual(remediation?.form.allFields.count, 2)
+
+                        XCTAssertEqual(remediation?.form[0].name, "credentials")
+                        XCTAssertEqual(remediation?.form.allFields[1].name, "stateHandle")
+                        //                    TODO: MFA authentication tests aren't yet complete
+                        //                    response?.exchangeCode(completionHandler: { (token, error) in
+                        //                        XCTAssertNotNil(token)
+                        //                        XCTAssertNil(error)
+                        //
+                        //                        XCTAssertEqual(token?.tokenType, "Bearer")
+                        //                        XCTAssertEqual(token?.expiresIn, 3600)
+                        //                        XCTAssertEqual(token?.refreshToken, "WQcGbvjBpm2EA30-rPR7m6vGSzI8YMqNGYY9Qe14fT0")
                         completion.fulfill()
-//                    })
+                        //                    })
+                    }
                 }
             }
         }
@@ -188,66 +213,77 @@ class ScenarioTests: XCTestCase {
         try session.expect("https://example.com/idp/idx/challenge/answer", folderName: "RestartTransaction", fileName: "05-challenge-answer-response")
         try session.expect("https://example.com/idp/idx/cancel", folderName: "RestartTransaction", fileName: "06-cancel-response")
 
-        idx.start { (context, response, error) in
-            XCTAssertNotNil(context)
-            XCTAssertNotNil(response)
+        IDXClient.start(with: api) { (client, error) in
+            XCTAssertNotNil(client)
             XCTAssertNil(error)
-            XCTAssertTrue(response?.canCancel ?? false)
-
-            let remediation = response?.remediation?.remediationOptions.first
-            XCTAssertEqual(remediation?.name, "identify")
-
-            remediation?.proceed(with: ["identifier": "user@example.com"]) { (response, error) in
+            client?.resume { (response, error) in
                 XCTAssertNotNil(response)
                 XCTAssertNil(error)
                 XCTAssertTrue(response?.canCancel ?? false)
-
-                let remediation = response?.remediation?.remediationOptions.first
-                XCTAssertEqual(remediation?.name, "select-authenticator-authenticate")
                 
-                let passcodeOption = remediation?.form
-                    .filter { $0.name == "authenticator" }.first?
-                    .options?.filter { $0.label == "Password" }.first
-                XCTAssertNotNil(passcodeOption)
-
-                remediation?.proceed(with: ["authenticator": passcodeOption!]) { (response, error) in
+                let remediation = response?.remediations.first
+                XCTAssertEqual(remediation?.name, "identify")
+                
+                remediation?["identify"]?.value = "user@example.com" as AnyObject
+                
+                remediation?.proceed { (response, error) in
                     XCTAssertNotNil(response)
                     XCTAssertNil(error)
                     XCTAssertTrue(response?.canCancel ?? false)
-
-                    let remediation = response?.remediation?.remediationOptions.first
-                    XCTAssertEqual(remediation?.name, "challenge-authenticator")
-
-                    let currentEnrollment = response?.currentAuthenticatorEnrollment
-                    let related = remediation?.relatesTo?.first as? IDXClient.Authenticator.CurrentEnrollment
-                    XCTAssertEqual(related, currentEnrollment)
-
-                    remediation?.proceed(with: ["credentials": [ "passcode": "password" ]]) { (response, error) in
+                    
+                    let remediation = response?.remediations.first
+                    XCTAssertEqual(remediation?.name, "select-authenticator-authenticate")
+                    
+                    let authenticator = remediation?.form
+                        .filter { $0.name == "authenticator" }.first
+                    let passcodeOption = authenticator?
+                        .options?.filter { $0.label == "Password" }.first
+                    XCTAssertNotNil(passcodeOption)
+                    
+                    authenticator?.selectedOption = passcodeOption
+                    
+                    remediation?.proceed { (response, error) in
                         XCTAssertNotNil(response)
                         XCTAssertNil(error)
                         XCTAssertTrue(response?.canCancel ?? false)
                         
-                        let remediation = response?.remediation?.remediationOptions.first
-                        XCTAssertEqual(remediation?.name, "select-authenticator-authenticate")
+                        let remediation = response?.remediations.first
+                        XCTAssertEqual(remediation?.name, "challenge-authenticator")
                         
-                        let emailOption = remediation?.form
-                            .filter { $0.name == "authenticator" }.first?
-                            .options?.filter { $0.label == "Email" }.first
-                        XCTAssertNotNil(emailOption)
+                        let currentEnrollment = response?.authenticators.current
+                        let related = remediation?.authenticators.first?.value
+                        XCTAssertEqual(related, currentEnrollment)
                         
-                        let authenticator = response?.authenticatorEnrollments?.first
-                        let related = emailOption?.relatesTo as? IDXClient.Authenticator
-                        XCTAssertEqual(related, authenticator)
-
-                        response?.cancel() { (response, error) in
+                        remediation?.form["credentials.passcode"]?.value = "password" as AnyObject
+                        
+                        remediation?.proceed { (response, error) in
                             XCTAssertNotNil(response)
                             XCTAssertNil(error)
                             XCTAssertTrue(response?.canCancel ?? false)
-
-                            let remediation = response?.remediation?.remediationOptions.first
-                            XCTAssertEqual(remediation?.name, "identify")
                             
-                            completion.fulfill()
+                            let remediation = response?.remediations.first
+                            XCTAssertEqual(remediation?.name, "select-authenticator-authenticate")
+                            XCTAssertEqual(remediation?.type, .selectAuthenticatorAuthenticate)
+
+                            let emailOption = remediation?.form
+                                .filter { $0.name == "authenticator" }.first?
+                                .options?.filter { $0.label == "Email" }.first
+                            XCTAssertNotNil(emailOption)
+                            
+                            let authenticator = response?.authenticators.enrolled.first
+                            let related = emailOption?.authenticator
+                            XCTAssertEqual(related, authenticator)
+                            
+                            response?.cancel() { (response, error) in
+                                XCTAssertNotNil(response)
+                                XCTAssertNil(error)
+                                XCTAssertTrue(response?.canCancel ?? false)
+                                
+                                let remediation = response?.remediations.first
+                                XCTAssertEqual(remediation?.name, "identify")
+                                
+                                completion.fulfill()
+                            }
                         }
                     }
                 }
@@ -262,30 +298,33 @@ class ScenarioTests: XCTestCase {
         try session.expect("https://example.com/idp/idx/introspect", folderName: "IdP", fileName: "02-introspect-response")
         try session.expect("https://example.com/oauth2/default/v1/token", folderName: "IdP", fileName: "03-token-response")
 
-        idx.start { (context, response, error) in
-            XCTAssertNotNil(context)
-            XCTAssertNotNil(response)
+        IDXClient.start(with: api) { (client, error) in
+            XCTAssertNotNil(client)
             XCTAssertNil(error)
-            
-            let redirectUrl = URL(string: """
-                        redirect:///uri?\
-                        interaction_code=qwe4xJaJF897EbEKL0LLbNUI-QwXZa8YOkY8QkWUlpXxU&\
-                        state=\(context!.state)#_=_
-                        """)!
-            
-            XCTAssertTrue(response?.canCancel ?? false)
-            XCTAssertNotNil(response?.remediation?[.redirectIdp])
-            XCTAssertNotNil(response?.remediation?[.redirectIdp]?.href)
-            XCTAssertFalse(response?.isLoginSuccessful ?? true)
-            XCTAssertEqual(self.idx.redirectResult(with: context, redirect: redirectUrl), .authenticated)
-            
-            self.idx.exchangeCode(with: self.context, redirect: redirectUrl) { (token, error) in
-                XCTAssertNotNil(token)
-                XCTAssertNotNil(token?.idToken)
-                XCTAssertNotNil(token?.refreshToken)
+            client?.resume { (response, error) in
+                XCTAssertNotNil(response)
                 XCTAssertNil(error)
                 
-                completion.fulfill()
+                let redirectUrl = URL(string: """
+                        redirect:///uri?\
+                        interaction_code=qwe4xJaJF897EbEKL0LLbNUI-QwXZa8YOkY8QkWUlpXxU&\
+                        state=\(client!.context.state)#_=_
+                        """)!
+                
+                XCTAssertTrue(response?.canCancel ?? false)
+                XCTAssertNotNil(response?.remediations[.redirectIdp])
+                XCTAssertNotNil(response?.remediations[.redirectIdp]?.href)
+                XCTAssertFalse(response?.isLoginSuccessful ?? true)
+                XCTAssertEqual(client?.redirectResult(for: redirectUrl), .authenticated)
+                
+                client?.exchangeCode(redirect: redirectUrl) { (token, error) in
+                    XCTAssertNotNil(token)
+                    XCTAssertNotNil(token?.idToken)
+                    XCTAssertNotNil(token?.refreshToken)
+                    XCTAssertNil(error)
+                    
+                    completion.fulfill()
+                }
             }
         }
         
@@ -297,25 +336,28 @@ class ScenarioTests: XCTestCase {
         try session.expect("https://example.com/oauth2/default/v1/interact", folderName: "IdP", fileName: "01-interact-response")
         try session.expect("https://example.com/idp/idx/introspect", folderName: "IdP", fileName: "02-introspect-response")
 
-        idx.start { (context, response, error) in
-            XCTAssertNotNil(context)
-            XCTAssertNotNil(response)
+        IDXClient.start(with: api) { (client, error) in
+            XCTAssertNotNil(client)
             XCTAssertNil(error)
-            
-            let redirectUrl = URL(string: """
+            client?.resume { (response, error) in
+                XCTAssertNotNil(response)
+                XCTAssertNil(error)
+                
+                let redirectUrl = URL(string: """
                     redirect:///uri?\
-                    state=\(context!.state)&\
+                    state=\(client!.context.state)&\
                     error=interaction_required&\
                     error_description=Your+client+is+configured+to+use+the+interaction+code+flow+and+user+interaction+is+required+to+complete+the+request.#_=_
                     """)!
-            
-            XCTAssertTrue(response?.canCancel ?? false)
-            XCTAssertNotNil(response?.remediation?[.redirectIdp])
-            XCTAssertNotNil(response?.remediation?[.redirectIdp]?.href)
-            XCTAssertFalse(response?.isLoginSuccessful ?? true)
-            XCTAssertEqual(self.idx.redirectResult(with: context, redirect: redirectUrl), .remediationRequired)
-            
-            completion.fulfill()
+                
+                XCTAssertTrue(response?.canCancel ?? false)
+                XCTAssertNotNil(response?.remediations[.redirectIdp])
+                XCTAssertNotNil(response?.remediations[.redirectIdp]?.href)
+                XCTAssertFalse(response?.isLoginSuccessful ?? true)
+                XCTAssertEqual(client?.redirectResult(for: redirectUrl), .remediationRequired)
+                
+                completion.fulfill()
+            }
         }
         
         wait(for: [completion], timeout: 2)

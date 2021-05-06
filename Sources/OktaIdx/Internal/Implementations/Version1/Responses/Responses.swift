@@ -20,6 +20,10 @@ protocol IDXIONObject: Decodable {
     var type: IDXIONObjectType { get }
 }
 
+protocol IDXIONRelatable {
+    var relatableIdentifier: String? { get }
+}
+
 extension IDXClient.APIVersion1 {
     struct OAuth2Error: Codable, Error, LocalizedError {
         let errorSummary: String
@@ -69,15 +73,15 @@ extension IDXClient.APIVersion1 {
     }
 
     final class Response: NSObject, Decodable {
-        let stateHandle: String
+        let stateHandle: String?
         let version: String
-        let expiresAt: Date
-        let intent: String
+        let expiresAt: Date?
+        let intent: String?
         let remediation: IonCollection<Form>?
         let messages: IonCollection<Message>?
         let authenticators: IonCollection<Authenticator>?
-        let authenticatorEnrollments: IonCollection<AuthenticatorEnrollment>?
-        let currentAuthenticatorEnrollment: IonObject<CurrentAuthenticatorEnrollment>?
+        let authenticatorEnrollments: IonCollection<Authenticator>?
+        let currentAuthenticatorEnrollment: IonObject<Authenticator>?
         let currentAuthenticator: IonObject<Authenticator>?
         let recoveryAuthenticator: IonObject<Authenticator>?
         let user: IonObject<User>?
@@ -94,39 +98,6 @@ extension IDXClient.APIVersion1 {
             let type: String?
             let value: [T]
         }
-
-        struct RelatesTo: Decodable {
-            enum Path: Equatable {
-                init(string: String) {
-                    if string == "$" {
-                        self = .root
-                    } else if let index = Int(string) {
-                        self = .array(index: index)
-                    } else {
-                        self = .property(name: string)
-                    }
-                }
-                
-                case root
-                case property(name: String)
-                case array(index: Int)
-            }
-            
-            let path: [Path]
-            init(from decoder: Decoder) throws {
-                let container = try decoder.singleValueContainer()
-                guard let value = try? container.decode(String.self) else {
-                    throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath,
-                                                            debugDescription: "Invalid relatesTo value \(decoder.codingPath)"))
-                }
-                
-                let charset = CharacterSet(charactersIn: ".[]")
-                path = value
-                    .components(separatedBy: charset)
-                    .filter { !$0.isEmpty }
-                    .compactMap { Path(string: $0) }
-            }
-        }
         
         struct User: Decodable {
             let id: String
@@ -138,7 +109,7 @@ extension IDXClient.APIVersion1 {
             let name: String
         }
         
-        struct Authenticator: Decodable {
+        struct Authenticator: Decodable, IDXIONRelatable {
             let displayName: String
             let id: String
             let type: String
@@ -146,31 +117,14 @@ extension IDXClient.APIVersion1 {
             let methods: [[String:String]]
             let settings: [String:JSONValue]?
             let contextualData: [String:JSONValue]?
-        }
-        
-        struct AuthenticatorEnrollment: Decodable {
-            let displayName: String
-            let id: String
-            let type: String
-            let key: String?
-            let methods: [[String:String]]
             let profile: [String:String]?
-            let settings: [String:JSONValue]?
-            let contextualData: [String:JSONValue]?
-        }
-        
-        struct CurrentAuthenticatorEnrollment: Decodable {
-            let displayName: String
-            let id: String
-            let type: String
-            let key: String?
-            let methods: [[String:String]]
-            let profile: [String:String]?
-            let contextualData: [String:JSONValue]?
             let send: Form?
             let resend: Form?
             let poll: Form?
             let recover: Form?
+            
+            var relatableIdentifier: String? { id }
+            var jsonPath: String?
         }
         
         struct Form: Decodable {
@@ -180,8 +134,10 @@ extension IDXClient.APIVersion1 {
             let href: URL
             let value: [FormValue]?
             let accepts: String?
-            let relatesTo: [RelatesTo]?
+            let relatesTo: [String]?
             let refresh: Double?
+            let type: String?
+            let idp: [String:String]?
         }
         
         struct CompositeForm: Decodable {
@@ -204,7 +160,7 @@ extension IDXClient.APIVersion1 {
             let mutable: Bool?
             let form: CompositeFormValue?
             let options: [FormValue]?
-            let relatesTo: RelatesTo?
+            let relatesTo: String?
             let messages: IonCollection<Message>?
             
             private enum CodingKeys: String, CodingKey {
@@ -221,7 +177,7 @@ extension IDXClient.APIVersion1 {
                 secret = try container.decodeIfPresent(Bool.self, forKey: .secret)
                 visible = try container.decodeIfPresent(Bool.self, forKey: .visible)
                 mutable = try container.decodeIfPresent(Bool.self, forKey: .mutable)
-                relatesTo = try container.decodeIfPresent(RelatesTo.self, forKey: .relatesTo)
+                relatesTo = try container.decodeIfPresent(String.self, forKey: .relatesTo)
                 options = try container.decodeIfPresent([FormValue].self, forKey: .options)
                 messages = try container.decodeIfPresent(IonCollection<Message>.self, forKey: .messages)
 

@@ -24,15 +24,7 @@ class DelegateRecorder: IDXClientDelegate {
         
         let type: CallType
         let object: AnyObject?
-        let isMainThread: Bool = {
-            Thread.isMainThread
-        }()
         
-        var context: IDXClient.Context? {
-            guard let result = object as? IDXClient.Context else { return nil }
-            return result
-        }
-
         var response: IDXClient.Response? {
             guard let result = object as? IDXClient.Response else { return nil }
             return result
@@ -54,15 +46,11 @@ class DelegateRecorder: IDXClientDelegate {
         calls.append(Call(type: .error, object: nil))
     }
     
-    func idx(client: IDXClient, didReceive context: IDXClient.Context) {
-        calls.append(Call(type: .context, object: context))
-    }
-    
     func idx(client: IDXClient, didReceive response: IDXClient.Response) {
         calls.append(Call(type: .response, object: response))
     }
     
-    func idx(client: IDXClient, didExchangeToken token: IDXClient.Token) {
+    func idx(client: IDXClient, didReceive token: IDXClient.Token) {
         calls.append(Call(type: .token, object: token))
     }
 }

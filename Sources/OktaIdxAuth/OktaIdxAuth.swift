@@ -26,23 +26,22 @@ import AuthenticationServices
                             clientSecret: String?,
                             scopes: [String],
                             redirectUri: String,
-                            context: IDXClient.Context? = nil,
                             completion: @escaping IDXClient.TokenResult)
     {
-        self.init(with: IDXClient(configuration: .init(issuer: issuer,
-                                                       clientId: clientId,
-                                                       clientSecret: clientSecret,
-                                                       scopes: scopes,
-                                                       redirectUri: redirectUri),
-                                  context: context),
+        let configuration = IDXClient.Configuration(issuer: issuer,
+                                                    clientId: clientId,
+                                                    clientSecret: clientSecret,
+                                                    scopes: scopes,
+                                                    redirectUri: redirectUri)
+        self.init(with: OktaIdxAuth.Implementation(with: configuration),
                   completion: completion)
     }
 
     @objc
-    public convenience init(with client: IDXClient,
+    public convenience init(with context: IDXClient.Context,
                             completion: @escaping IDXClient.TokenResult)
     {
-        self.init(with: OktaIdxAuth.Implementation(with: client),
+        self.init(with: OktaIdxAuth.Implementation(with: context),
                   completion: completion)
     }
     
@@ -52,6 +51,7 @@ import AuthenticationServices
         case passwordInvalid
         case passwordExpired
         case tokenRevoked
+        case unknown
     }
 
     @objc(OktaIdxAuthAuthenticatorType)
@@ -76,17 +76,17 @@ import AuthenticationServices
         public let context: IDXClient.Context?
         
         @objc
-        public let additionalInfo: [String: Any]?
+        public let detailedResponse: IDXClient.Response?
         
         required init(status: Status,
                       token: IDXClient.Token? = nil,
                       context: IDXClient.Context? = nil,
-                      additionalInfo: [String: Any]? = nil)
+                      detailedResponse: IDXClient.Response? = nil)
         {
             self.status = status
             self.token = token
             self.context = context
-            self.additionalInfo = additionalInfo
+            self.detailedResponse = detailedResponse
             
             super.init()
         }

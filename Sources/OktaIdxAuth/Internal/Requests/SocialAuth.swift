@@ -28,56 +28,61 @@ extension OktaIdxAuth.Implementation.Request {
         }
         
         final func send(to implementation: OktaIdxAuth.Implementation, from response: IDXClient.Response) {
-            guard let authURL = response.remediation?[.redirectIdp]?.href,
-                  let scheme = URL(string: implementation.client.configuration.redirectUri)?.scheme else
-            {
+            guard !hasError(implementation: implementation, in: response) else { return }
+
+            guard let remediation = response.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth,
+                  let redirectUri = implementation.configuration?.redirectUri,
+                  let scheme = URL(string: redirectUri)?.scheme
+            else {
                 return
             }
             
-            self.webAuthSession = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme) { (callbackURL, error) in
+            self.webAuthSession = ASWebAuthenticationSession(url: remediation.redirectUrl, callbackURLScheme: scheme) { (callbackURL, error) in
                 guard error == nil, let
                         callbackURL = callbackURL else
                 {
                     return
                 }
                 
-                let result = implementation.client.redirectResult(redirect: callbackURL)
-                
-                switch result {
-                case .authenticated:
-                    implementation.client.exchangeCode(redirect: callbackURL) { (token, error) in
-                        if let error = error {
-                            implementation.fail(with: error)
-                            
-                            self.completion?(nil, error)
-                        } else if let token = token {
-                            implementation.delegate?.didSucceed(with: token)
-                            
-                            self.completion?(T(status: .success,
-                                               token: token,
-                                               context: nil,
-                                               additionalInfo: nil),
-                                             nil)
-                        }
-                    }
+                implementation.client { (client) in
+                    let result = client.redirectResult(for: callbackURL)
                     
-                case .remediationRequired:
-                    implementation.client.introspect { (response, error) in
-                        if let error = error {
-                            implementation.fail(with: error)
-                            
-                            self.completion?(nil, error)
-                        } else if let response = response {
-                            // TODO: Handle remediation response here.
-                            self.needsAdditionalRemediation(using: response, from: implementation)
+                    switch result {
+                    case .authenticated:
+                        client.exchangeCode(redirect: callbackURL) { (token, error) in
+                            if let error = error {
+                                implementation.fail(with: error)
+                                
+                                self.completion?(nil, error)
+                            } else if let token = token {
+                                implementation.delegate?.didSucceed(with: token)
+                                
+                                self.completion?(T(status: .success,
+                                                   token: token),
+                                                 nil)
+                            }
                         }
+                        
+                    case .remediationRequired:
+                        client.resume { (response, error) in
+                            if let error = error {
+                                implementation.fail(with: error)
+                                
+                                self.completion?(nil, error)
+                            } else if let response = response {
+                                // TODO: Handle remediation response here.
+                                self.needsAdditionalRemediation(using: response, from: implementation)
+                            }
+                        }
+                    case .invalidContext, .invalidRedirectUrl:
+                        self.fatalError(AuthError.internalError(message: "Unexpected RedirectResult: \(result). Check correctness of redirect URL and state."))
                     }
-                case .invalidContext, .invalidRedirectUrl:
-                    self.fatalError(AuthError.internalError(message: "Unexpected RedirectResult: \(result). Check correctness of redirect URL and state."))
                 }
             }
             
-            guard let webAuthSession = webAuthSession, canStartSession else {
+            guard let webAuthSession = webAuthSession,
+                  canStartSession
+            else {
                 self.fatalError(AuthError.internalError(message: "Cannot start session. Check presentation context availability."))
                 return
             }

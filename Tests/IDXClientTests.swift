@@ -14,74 +14,52 @@ import XCTest
 @testable import OktaIdx
 
 class IDXClientTests: XCTestCase {
-    let configuration = IDXClient.Configuration(issuer: "issuer",
-                                                clientId: "clientId",
-                                                clientSecret: "clientSecret",
-                                                scopes: ["all"],
-                                                redirectUri: "redirect:/uri")
-    let context = IDXClient.Context(state: "state", interactionHandle: "foo", codeVerifier: "bar")
+    let context = IDXClient.Context(configuration: .init(issuer: "issuer",
+                                                         clientId: "clientId",
+                                                         clientSecret: "clientSecret",
+                                                         scopes: ["all"],
+                                                         redirectUri: "redirect:/uri"),
+                                    state: "state",
+                                    interactionHandle: "foo",
+                                    codeVerifier: "bar")
     var client: IDXClient!
     var api: IDXClientAPIv1Mock!
     
-    var redirectClient: IDXClient!
-    
     override func setUpWithError() throws {
-        api = IDXClientAPIv1Mock(configuration: configuration)
-        client = IDXClient(configuration: configuration,
-                           context: nil,
-                           api: api,
-                           queue: DispatchQueue.main)
-        
-        redirectClient = IDXClient(
-            configuration: configuration,
-            context: context,
-            api: IDXClient.APIVersion1(with: configuration, session: URLSessionMock()),
-            queue: .main)
+        api = IDXClientAPIv1Mock(configuration: context.configuration)
+        client = IDXClient(context: context, api: api)
     }
 
     func testConstructors() {
-        var idx = IDXClient(configuration: configuration)
+        let idx = IDXClient(context: context, api: api)
         XCTAssertNotNil(idx)
-        XCTAssertEqual(idx.configuration, configuration)
-        XCTAssertNil(idx.context)
-        
-        idx = IDXClient(configuration: configuration, context: context)
-        XCTAssertNotNil(idx)
-        XCTAssertEqual(idx.configuration, configuration)
         XCTAssertEqual(idx.context, context)
     }
     
     func testApiDelegation() throws {
         XCTAssertEqual(api.recordedCalls.count, 0)
         
-        let remedationOption = IDXClient.Remediation.Option(api: api,
-                                                            rel: ["foo"],
-                                                            name: "name",
-                                                            method: "GET",
-                                                            href: URL(string: "some://url")!,
-                                                            accepts: "application/json",
-                                                            form: [
-                                                                IDXClient.Remediation.FormValue(name: "foo",
-                                                                                                visible: false,
-                                                                                                mutable: true,
-                                                                                                required: false,
-                                                                                                secret: false)
-                                                            ],
-                                                            relatesTo: nil,
-                                                            refresh: nil)
-        let response = IDXClient.Response(api: api,
-                                          stateHandle: "handle",
-                                          version: "1",
+        let remedationOption = IDXClient.Remediation(client: client,
+                                                     name: "cancel",
+                                                     method: "GET",
+                                                     href: URL(string: "some://url")!,
+                                                     accepts: "application/json",
+                                                     form: IDXClient.Remediation.Form(fields: [
+                                                        IDXClient.Remediation.Form.Field(name: "foo",
+                                                                                         visible: false,
+                                                                                         mutable: true,
+                                                                                         required: false,
+                                                                                         secret: false)
+                                                     ])!,
+                                                     refresh: nil,
+                                                     relatesTo: nil)
+        let response = IDXClient.Response(client: client,
                                           expiresAt: Date(),
-                                          intent: "Login",
-                                          authenticators: nil,
-                                          authenticatorEnrollments: nil,
-                                          currentAuthenticator: nil,
-                                          currentAuthenticatorEnrollment: nil,
-                                          remediation: nil,
-                                          cancel: remedationOption,
-                                          success: remedationOption,
-                                          messages: nil,
+                                          intent: .login,
+                                          authenticators: .init(authenticators: nil),
+                                          remediations: .init(remediations: [remedationOption]),
+                                          successRemediationOption: remedationOption,
+                                          messages: .init(messages: nil),
                                           app: nil,
                                           user: nil)
         
@@ -91,93 +69,72 @@ class IDXClientTests: XCTestCase {
         var call: IDXClientAPIv1Mock.RecordedCall?
         var called = false
         
-        // canCancel
-        XCTAssertFalse(client.canCancel)
-        call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "canCancel")
-        XCTAssertNil(call?.arguments)
-        api.reset()
-
-        // cancel()
-        expect = expectation(description: "cancel")
-        client.cancel { (_, _) in
+        // start()
+        expect = expectation(description: "start")
+        IDXClient.start(with: api, state: "state") { (_, _) in
             called = true
             expect.fulfill()
         }
         wait(for: [ expect ], timeout: 1)
         XCTAssertTrue(called)
         call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "cancel(completion:)")
-        XCTAssertNil(call?.arguments)
+        XCTAssertEqual(call?.function, "start(state:completion:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
+        XCTAssertEqual(call?.arguments?["state"] as! String, "state")
         api.reset()
 
-        // interact()
-        expect = expectation(description: "interact")
-        client.interact { (_, _) in
+        // resume()
+        expect = expectation(description: "resume")
+        client.resume { (_, _) in
             called = true
             expect.fulfill()
         }
         wait(for: [ expect ], timeout: 1)
         XCTAssertTrue(called)
         call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "interact(state:completion:)")
-        XCTAssertNil(call?.arguments)
-        api.reset()
-
-        // introspect()
-        expect = expectation(description: "introspect")
-        client.introspect(context) { (_, _) in
-            called = true
-            expect.fulfill()
-        }
-        wait(for: [ expect ], timeout: 1)
-        XCTAssertTrue(called)
-        call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "introspect(_:completion:)")
+        XCTAssertEqual(call?.function, "resume(completion:)")
         XCTAssertNil(call?.arguments)
         api.reset()
 
         // proceed()
         expect = expectation(description: "proceed")
-        client.proceed(remediation: remedationOption, data: ["Foo": "Bar"]) { (_, _) in
+        client.proceed(remediation: remedationOption) { (_, _) in
             called = true
             expect.fulfill()
         }
         wait(for: [ expect ], timeout: 1)
         XCTAssertTrue(called)
         call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "proceed(remediation:data:completion:)")
-        XCTAssertEqual(call?.arguments?.count, 2)
-        XCTAssertEqual(call?.arguments?["remediation"] as! IDXClient.Remediation.Option, remedationOption)
+        XCTAssertEqual(call?.function, "proceed(remediation:completion:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
+        XCTAssertEqual(call?.arguments?["remediation"] as! IDXClient.Remediation, remedationOption)
         api.reset()
         
         // exchangeCode()
         expect = expectation(description: "exchangeCode")
-        client.exchangeCode(with: context, using: response) { (_, _) in
+        client.exchangeCode(using: remedationOption) { (_, _) in
             called = true
             expect.fulfill()
         }
         wait(for: [ expect ], timeout: 1)
         XCTAssertTrue(called)
         call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "exchangeCode(with:using:completion:)")
-        XCTAssertEqual(call?.arguments?.count, 2)
-        XCTAssertEqual(call?.arguments?["with"] as! IDXClient.Context, context)
-        XCTAssertEqual(call?.arguments?["using"] as! IDXClient.Response, response)
+        XCTAssertEqual(call?.function, "exchangeCode(using:completion:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
+        XCTAssertEqual(call?.arguments?["using"] as! IDXClient.Remediation, remedationOption)
         api.reset()
         
         // exchangeCodeRedirect()
-        expect = expectation(description: "exchangeCode(with:redirect:completion:)")
-        client.exchangeCode(with: context, redirect: redirectUrl) { (_, _) in
+        expect = expectation(description: "exchangeCode(redirect:completion:)")
+        client.exchangeCode(redirect: redirectUrl) { (_, _) in
             called = true
             expect.fulfill()
         }
         wait(for: [ expect ], timeout: 1)
         XCTAssertTrue(called)
         call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "exchangeCode(with:redirect:completion:)")
-        XCTAssertEqual(call?.arguments?.count, 2)
-        XCTAssertEqual(call?.arguments?["with"] as! IDXClient.Context, context)
+        XCTAssertEqual(call?.function, "exchangeCode(redirect:completion:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
         XCTAssertEqual(call?.arguments?["redirect"] as! URL, redirectUrl)
         api.reset()
         
@@ -212,18 +169,28 @@ class IDXClientTests: XCTestCase {
         XCTAssertEqual(call?.arguments?["type"] as! String, "access_token")
         api.reset()
 
+        // redirectResult()
+        let url = try XCTUnwrap(URL(string: "redirect://uri"))
+        let result = client.redirectResult(for: url)
+        XCTAssertEqual(result, .invalidContext)
+        call = api.recordedCalls.last
+        XCTAssertEqual(call?.function, "redirectResult(for:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
+        XCTAssertEqual(call?.arguments?["url"] as! URL, url)
+        api.reset()
+
         // Option.proceed()
         expect = expectation(description: "Option.proceed")
-        remedationOption.proceed(with: ["foo": "bar" as AnyObject]) { (_, _) in
+        remedationOption.proceed { (_, _) in
             called = true
             expect.fulfill()
         }
         wait(for: [ expect ], timeout: 1)
         XCTAssertTrue(called)
         call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "proceed(remediation:data:completion:)")
-        XCTAssertEqual(call?.arguments?.count, 2)
-        XCTAssertEqual(call?.arguments?["remediation"] as? IDXClient.Remediation.Option, remedationOption)
+        XCTAssertEqual(call?.function, "proceed(remediation:completion:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
+        XCTAssertEqual(call?.arguments?["remediation"] as? IDXClient.Remediation, remedationOption)
         api.reset()
 
         // Response.cancel()
@@ -235,76 +202,23 @@ class IDXClientTests: XCTestCase {
         wait(for: [ expect ], timeout: 1)
         XCTAssertTrue(called)
         call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "proceed(remediation:data:completion:)")
-        XCTAssertEqual(call?.arguments?.count, 2)
-        XCTAssertEqual(call?.arguments?["remediation"] as! IDXClient.Remediation.Option, remedationOption)
+        XCTAssertEqual(call?.function, "proceed(remediation:completion:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
+        XCTAssertEqual(call?.arguments?["remediation"] as! IDXClient.Remediation, remedationOption)
         api.reset()
 
         // Response.exchangeCode()
         expect = expectation(description: "Response.exchangeCode")
-        response.exchangeCode(with: context) { (_, _) in
+        response.exchangeCode { (_, _) in
             called = true
             expect.fulfill()
         }
         wait(for: [ expect ], timeout: 1)
         XCTAssertTrue(called)
         call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "exchangeCode(with:using:completion:)")
-        XCTAssertEqual(call?.arguments?.count, 2)
-        XCTAssertEqual(call?.arguments?["with"] as! IDXClient.Context, context)
-        XCTAssertEqual(call?.arguments?["using"] as! IDXClient.Response, response)
+        XCTAssertEqual(call?.function, "exchangeCode(using:completion:)")
+        XCTAssertEqual(call?.arguments?.count, 1)
+        XCTAssertEqual(call?.arguments?["using"] as! IDXClient.Remediation, remedationOption)
         api.reset()
-    }
-    
-    func testRedirectResultWithInvalidContext() throws {
-        let redirectUrl = try XCTUnwrap(URL(string: "redirect:/uri"))
-        
-        let client = IDXClient(
-            configuration: configuration,
-            context: nil,
-            api: IDXClient.APIVersion1(with: configuration, session: URLSessionMock()),
-            queue: .main)
-        
-        XCTAssertEqual(client.redirectResult(with: nil, redirect: redirectUrl), .invalidContext)
-    }
-    
-    func testRedirectResultAuthenticated() throws {
-        let redirectUrl = try XCTUnwrap(URL(string: """
-                redirect:///uri?\
-                interaction_code=qwe4xJasF897EbEKL0LLbNUI-QwXZa8YOkY8QkWUlpXxU&\
-                state=state#_=_
-                """))
-        
-        XCTAssertEqual(redirectClient.redirectResult(redirect: redirectUrl), .authenticated)
-    }
-    
-    func testRedirectResultWithInvalidUrl() throws {
-        let redirectUrl = try XCTUnwrap(URL(string: "redirect///uri"))
-        
-        XCTAssertEqual(redirectClient.redirectResult(redirect: redirectUrl), .invalidRedirectUrl)
-    }
-    
-    func testRedirectResultWithInvalidScheme() throws {
-        let redirectUrl = try XCTUnwrap(URL(string: "redirect.com:///uri"))
-        
-        XCTAssertEqual(redirectClient.redirectResult(redirect: redirectUrl), .invalidRedirectUrl)
-    }
-    
-    func testRedirectResultWithInvalidState() throws {
-        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state1"))
-        
-        XCTAssertEqual(redirectClient.redirectResult(redirect: redirectUrl), .invalidContext)
-    }
-
-    func testRedirectResultWithRemediationError() throws {
-        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state&error=interaction_required"))
-        
-        XCTAssertEqual(redirectClient.redirectResult(redirect: redirectUrl), .remediationRequired)
-    }
-    
-    func testRedirectResultWithEmptyResponse() throws {
-        let redirectUrl = try XCTUnwrap(URL(string: "redirect:///uri?state=state"))
-        
-        XCTAssertEqual(redirectClient.redirectResult(redirect: redirectUrl), .invalidContext)
     }
 }
