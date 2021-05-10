@@ -27,10 +27,8 @@ extension OktaIdxAuth.Implementation.Request {
             return true
         }
         
-        final func send(to implementation: OktaIdxAuth.Implementation, from response: IDXClient.Response) {
-            guard !hasError(implementation: implementation, in: response) else { return }
-
-            guard let remediation = response.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth,
+        final func send(to implementation: OktaIdxAuth.Implementation, from response: IDXClient.Response? = nil) {
+            guard let remediation = response?.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth,
                   let redirectUri = implementation.configuration?.redirectUri,
                   let scheme = URL(string: redirectUri)?.scheme
             else {
@@ -56,9 +54,11 @@ extension OktaIdxAuth.Implementation.Request {
                                 self.completion?(nil, error)
                             } else if let token = token {
                                 implementation.delegate?.didSucceed(with: token)
-                                
-                                self.completion?(T(status: .success,
-                                                   token: token),
+                                // TODO:
+                                abort()
+                                self.completion?(T(with: implementation,
+                                                   status: .success,
+                                                   detailedResponse: nil),
                                                  nil)
                             }
                         }

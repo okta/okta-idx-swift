@@ -23,7 +23,7 @@ extension OktaIdxAuth.Implementation.Request {
             super.init(completion: completion)
         }
         
-        func send(to implementation: OktaIdxAuth.Implementation, from response: IDXClient.Response) {
+        func send(to implementation: OktaIdxAuth.Implementation, from response: IDXClient.Response? = nil) {
             
         }
     }

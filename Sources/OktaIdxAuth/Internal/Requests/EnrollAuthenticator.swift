@@ -14,13 +14,16 @@ import Foundation
 import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
-    class ChangePassword: Request<Response>, OktaIdxAuthRemediationRequest  {
-        let password: String
-        
-        init(password: String,
+    class EnrollAuthenticator: Request<Response>, OktaIdxAuthRemediationRequest  {
+        let authenticator: OktaIdxAuth.Authenticator
+        let parameters: [String:String]
+
+        init(authenticator: OktaIdxAuth.Authenticator,
+             with parameters: [String:String],
              completion: OktaIdxAuth.ResponseResult<Response>?)
         {
-            self.password = password
+            self.authenticator = authenticator
+            self.parameters = parameters
             
             super.init(completion: completion)
         }
@@ -28,32 +31,19 @@ extension OktaIdxAuth.Implementation.Request {
         func send(to implementation: OktaIdxAuth.Implementation,
                   from response: IDXClient.Response? = nil)
         {
-            if let reenroll = response?.remediations[.reenrollAuthenticator] {
-                reenroll["credentials.passcode"]?.value = password as AnyObject
-                
-                proceed(to: implementation, using: reenroll)
+            let remediationOption = (response != nil ? response?.remediations[.enrollAuthenticator] : authenticator.remediation)
+            if let remediationOption = remediationOption,
+               remediationOption.type == authenticator.remediation.type
+            {
+                for (key, value) in parameters {
+                    remediationOption[key]?.value = value as AnyObject
+                }
+                proceed(to: implementation, using: remediationOption)
             }
             
             else {
                 needsAdditionalRemediation(using: response, from: implementation)
             }
         }
-        
-        override func hasError(implementation: Implementation,
-                               in response: IDXClient.Response) -> Bool
-        {
-            if let message = response.remediations[.reenrollAuthenticator]?.messages.message(for: "passcode") {
-                completion?(T(with: implementation,
-                              status: .passwordInvalid,
-                              detailedResponse: response),
-                            AuthError(from: message))
-                return true
-            }
-            
-            else {
-                return super.hasError(implementation: implementation, in: response)
-            }
-        }
-
     }
 }

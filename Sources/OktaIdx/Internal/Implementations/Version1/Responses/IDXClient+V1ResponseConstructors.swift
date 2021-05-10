@@ -104,14 +104,18 @@ extension V1.Response {
                                            authenticator: authenticator))
         }
         
-        if let authenticators = authenticatorEnrollments?.value {
+        if let authenticators = authenticatorEnrollments?.value,
+           authenticators.count > 0
+        {
             for index in 0 ... authenticators.count - 1 {
                 allAuthenticators.append(.init(jsonPath: "$.authenticatorEnrollments.value[\(index)]",
                                                authenticator: authenticators[index]))
             }
         }
         
-        if let authenticators = authenticators?.value {
+        if let authenticators = authenticators?.value,
+           authenticators.count > 0
+        {
             for index in 0 ... authenticators.count - 1 {
                 allAuthenticators.append(.init(jsonPath: "$.authenticators.value[\(index)]",
                                                authenticator: authenticators[index]))
