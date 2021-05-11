@@ -16,7 +16,13 @@ extension Bundle {
     static var resourcesPath: URL {
         #if os(macOS)
         if let bundle = Bundle.allBundles.first(where: { $0.bundlePath.hasSuffix(".xctest") }) {
-            return bundle.bundleURL.deletingLastPathComponent().appendingPathComponent("OktaIdx_OktaIdxTests.bundle")
+            #if SWIFT_PACKAGE
+            let bundleName = "OktaIdx_TestCommon_OktaIdx"
+            #else
+            let bundleName = "TestCommon_OktaIdx"
+            #endif
+
+            return bundle.bundleURL.deletingLastPathComponent().appendingPathComponent("\(bundleName).bundle")
         }
         fatalError("Couldn't find the products directory")
         #else

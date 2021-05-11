@@ -96,7 +96,7 @@ extension IDXClient.Remediation.Form {
             }
             
             if let options = options,
-               !options.filter({ $0.hasVisibleFields }).isEmpty
+               !options.lazy.filter({ $0.hasVisibleFields }).isEmpty
             {
                 return true
             }

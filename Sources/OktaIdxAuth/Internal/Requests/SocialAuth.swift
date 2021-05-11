@@ -15,22 +15,21 @@ import Foundation
 import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 12.0, *)
     class SocialAuthenticate: Request<Response>, OktaIdxAuthRemediationRequest {
         private var webAuthSession: ASWebAuthenticationSession?
         
         private var canStartSession: Bool {
-            if #available(iOSApplicationExtension 13.4, *) {
+            if #available(iOSApplicationExtension 13.4, OSX 10.15.4, *) {
                 return webAuthSession?.canStart == true
             }
             
             return true
         }
         
-        final func send(to implementation: OktaIdxAuth.Implementation, from response: IDXClient.Response) {
-            guard !hasError(implementation: implementation, in: response) else { return }
-
-            guard let remediation = response.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth,
+        final func send(to implementation: OktaIdxAuth.Implementation, from response: IDXClient.Response? = nil) {
+            guard let remediation = response?.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth,
                   let redirectUri = implementation.configuration?.redirectUri,
                   let scheme = URL(string: redirectUri)?.scheme
             else {
@@ -56,9 +55,11 @@ extension OktaIdxAuth.Implementation.Request {
                                 self.completion?(nil, error)
                             } else if let token = token {
                                 implementation.delegate?.didSucceed(with: token)
-                                
-                                self.completion?(T(status: .success,
-                                                   token: token),
+                                // TODO:
+                                abort()
+                                self.completion?(T(with: implementation,
+                                                   status: .success,
+                                                   detailedResponse: nil),
                                                  nil)
                             }
                         }
@@ -98,6 +99,7 @@ extension OktaIdxAuth.Implementation.Request {
         }
     }
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     class SocialAuthenticateIOS13: SocialAuthenticate {
         private var webAuthSession: ASWebAuthenticationSession?

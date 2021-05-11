@@ -16,27 +16,45 @@ import OktaIdx
 
 protocol OktaIdxAuthImplementation {
     var delegate: OktaIdxAuthImplementationDelegate? { get set }
-    
+    var queue: DispatchQueue { get }
+
     func authenticate(username: String,
                       password: String?,
                       completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     func socialAuth(with options: OktaIdxAuth.SocialOptions,
                     completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
     func socialAuth(completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     func changePassword(_ password: String,
+                        from response: OktaIdxAuth.Response,
                         completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     func recoverPassword(username: String,
-                         authenticator type: OktaIdxAuth.AuthenticatorType,
+                         authenticator type: OktaIdxAuth.Authenticator.AuthenticatorType,
                          completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
-    func verifyAuthenticator(code: String,
-                             completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
+    func select(authenticator: OktaIdxAuth.Authenticator.AuthenticatorType,
+                from idxResponse: IDXClient.Response,
+                completion: @escaping OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>)
+
+    func verify(authenticator: OktaIdxAuth.Authenticator,
+                with result: [String:String],
+                completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
+    
+    func enroll(authenticator: OktaIdxAuth.Authenticator,
+                with result: [String:String],
+                completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
+
+    func register(firstName: String,
+                  lastName: String,
+                  email: String,
+                  completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
     func revokeTokens(token: String,
                       type: OktaIdxAuth.TokenType,
@@ -44,30 +62,40 @@ protocol OktaIdxAuthImplementation {
 }
 
 protocol OktaIdxAuthImplementationDelegate: class {
+    func didReceive(context: IDXClient.Context)
     func didSucceed(with token: IDXClient.Token)
     func didFail(with error: Error)
 }
 
 protocol OktaIdxAuthRemediationRequest {
     func send(to implementation: OktaIdxAuth.Implementation,
-              from response: IDXClient.Response)
+              from response: IDXClient.Response?)
 }
 
 extension OktaIdxAuth {
     class Implementation {
         let configuration: IDXClient.Configuration?
         var context: IDXClient.Context?
-
-        private var storedClient: IDXClient?
+        let queue: DispatchQueue
+        
+        private var storedClient: IDXClient? {
+            didSet {
+                guard let context = storedClient?.context else { return }
+                delegate?.didReceive(context: context)
+            }
+        }
+        
         var delegate: OktaIdxAuthImplementationDelegate?
         
-        init(with context: IDXClient.Context) {
+        init(with context: IDXClient.Context, queue: DispatchQueue) {
             self.context = context
             self.configuration = context.configuration
+            self.queue = queue
         }
 
-        init(with configuration: IDXClient.Configuration) {
+        init(with configuration: IDXClient.Configuration, queue: DispatchQueue) {
             self.configuration = configuration
+            self.queue = queue
         }
         
         func client(reset: Bool = false, completion: @escaping (IDXClient) -> Void) {
@@ -145,15 +173,30 @@ extension OktaIdxAuth {
             {
                 guard !response.messages.isEmpty else { return false }
 
-                completion?(T(status: .unknown,
-                              context: implementation.context,
+                completion?(T(with: implementation,
+                              status: .unknown,
                               detailedResponse: response),
                             AuthError(from: response.messages.first))
                 return true
             }
             
-            func needsAdditionalRemediation(using response: IDXClient.Response, from implementation: Implementation) {
-                fatalError(.unexpectedTransitiveRequest)
+            func needsAdditionalRemediation(using response: IDXClient.Response?, from implementation: Implementation) {
+                guard let completion = completion else {
+                    fatalError(.unexpectedTransitiveRequest)
+                    return
+                }
+
+                if let response = response,
+                   response.remediations[.selectAuthenticatorEnroll] != nil
+                {
+                    let response = T(with: implementation,
+                                     status: .enrollAuthenticator,
+                                     availableAuthenticators: response.availableAuthenticators,
+                                     detailedResponse: response)
+                    completion(response, nil)
+                } else {
+                    fatalError(.unexpectedTransitiveRequest)
+                }
             }
             
             func proceed(to implementation: OktaIdxAuth.Implementation, using option: IDXClient.Remediation) {
@@ -173,6 +216,8 @@ extension OktaIdxAuth {
                         return
                     }
 
+                    guard !self.hasError(implementation: implementation, in: response) else { return }
+
                     if response.isLoginSuccessful {
                         implementation.succeeded(with: response) { (token, error) in
                             guard let token = token else {
@@ -181,8 +226,9 @@ extension OktaIdxAuth {
                                 return
                             }
                             
-                            self.completion?(T(status: .success,
-                                               token: token),
+                            self.completion?(T(with: implementation,
+                                               status: .success,
+                                               detailedResponse: nil),
                                              nil)
                         }
                         return
@@ -199,6 +245,8 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
     enum AuthError: Error, LocalizedError {
         case missingResponse
         case missingRemediation
+        case missingExpectedFormField
+        case unsupportedAuthenticator
         case unexpectedTransitiveRequest
         case serverError(message: String)
         case failedToExchangeToken
@@ -224,6 +272,10 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
                 return "Missing a response"
             case .missingRemediation:
                 return "Missing an expected remediation"
+            case .missingExpectedFormField:
+                return "Missing an expected form field"
+            case .unsupportedAuthenticator:
+                return "This authenticator is unsupported"
             case .unexpectedTransitiveRequest:
                 return "An unexpected request was received"
             case .failedToExchangeToken:
@@ -272,6 +324,7 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
         }
     }
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     @objc func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
         resume(reset: true) { (client, response) in
@@ -280,6 +333,7 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
         }
     }
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
     @objc func socialAuth(completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
         resume(reset: true) { (client, response) in
@@ -289,24 +343,80 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
     }
     
     func changePassword(_ password: String,
+                        from response: OktaIdxAuth.Response,
                         completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
-        resume { (client, response) in
-            let request = Request<OktaIdxAuth.Response>.ChangePassword(password: password,
-                                                                       completion: completion)
-            request.send(to: self, from: response)
+        guard let idxResponse = response.detailedResponse else {
+            completion?(nil, AuthError.missingResponse)
+            return
         }
+        
+        let request = Request<OktaIdxAuth.Response>.ChangePassword(password: password,
+                                                                   completion: completion)
+        request.send(to: self, from: idxResponse)
+    }
+    
+    func select(authenticator: OktaIdxAuth.Authenticator.AuthenticatorType,
+                from idxResponse: IDXClient.Response,
+                completion: @escaping OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>)
+    {
+        let request = Request<OktaIdxAuth.Response>.SelectAuthenticator(type: authenticator,
+                                                                        response: idxResponse,
+                                                                        completion: completion)
+        request.send(to: self, from: idxResponse)
+    }
+    
+    func enroll(authenticator: OktaIdxAuth.Authenticator,
+                with result: [String : String],
+                completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
+    {
+        let request = Request<OktaIdxAuth.Response>.EnrollAuthenticator(authenticator: authenticator,
+                                                                        with: result,
+                                                                        completion: completion)
+        request.send(to: self)
+    }
+    
+    func verify(authenticator: OktaIdxAuth.Authenticator,
+                with result: [String : String],
+                completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
+    {
+        let request = Request<OktaIdxAuth.Response>.VerifyAuthenticator(authenticator: authenticator,
+                                                                        with: result,
+                                                                        completion: completion)
+        request.send(to: self)
     }
     
     func recoverPassword(username: String,
-                         authenticator type: OktaIdxAuth.AuthenticatorType,
+                         authenticator type: OktaIdxAuth.Authenticator.AuthenticatorType,
                          completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
     }
     
-    func verifyAuthenticator(code: String,
-                             completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
+    func register(firstName: String,
+                  lastName: String,
+                  email: String,
+                  completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     {
+        client(reset: true) { (client) in
+            client.resume { (response, error) in
+                guard let response = response else {
+                    self.fail(with: AuthError.missingResponse)
+                    return
+                }
+                
+                if let error = error ?? AuthError(from: response) {
+                    self.fail(with: error)
+                    return
+                }
+                
+                let request = Request<OktaIdxAuth.Response>.Register(firstName: firstName,
+                                                                     lastName: lastName,
+                                                                     email: email,
+                                                                     completion: completion)
+                request.send(to: self,
+                             from: response)
+            }
+        }
     }
     
     func revokeTokens(token: String,
@@ -317,7 +427,10 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
             client.revoke(token: token, type: type.idxType) { (success, error) in
                 guard let completion = completion else { return }
                 if success {
-                    completion(.init(status: .tokenRevoked), nil)
+                    completion(.init(with: self,
+                                     status: .tokenRevoked,
+                                     detailedResponse: nil),
+                               nil)
                 } else {
                     completion(nil, error)
                 }

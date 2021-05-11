@@ -47,7 +47,7 @@ extension IDXClient {
         ///
         ///    response.remediations[.identifier]["credentials.passcode"]
         @objc public subscript(name: String) -> Form.Field? {
-            get { form.filter { $0.name == name }.first }
+            get { form[name] }
         }
         
         /// Collection of messages for all fields within this remedation.
@@ -128,7 +128,6 @@ extension IDXClient {
                  idpName: String,
                  service: Service)
             {
-                self.id = id
                 self.idpName = idpName
                 self.service = service
                 

@@ -13,6 +13,10 @@
 import XCTest
 @testable import OktaIdx
 
+#if SWIFT_PACKAGE
+@testable import TestCommon_OktaIdx
+#endif
+
 class IDXRemediationParameterTests: XCTestCase {
     let clientMock = IDXClientAPIMock(context: .init(configuration: .init(issuer: "https://example.com",
                                                                           clientId: "Bar",

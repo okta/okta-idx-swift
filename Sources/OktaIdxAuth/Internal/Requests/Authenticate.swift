@@ -29,21 +29,19 @@ extension OktaIdxAuth.Implementation.Request {
         }
 
         func send(to implementation: Implementation,
-                  from response: IDXClient.Response)
+                  from response: IDXClient.Response? = nil)
         {
-            guard !hasError(implementation: implementation, in: response) else { return }
-            
-            if let selectIdentify = response.remediations[.selectIdentify] {
+            if let selectIdentify = response?.remediations[.selectIdentify] {
                 proceed(to: implementation, using: selectIdentify)
             }
             
-            else if let identify = response.remediations[.identify] {
+            else if let identify = response?.remediations[.identify] {
                 identify.form["identifier"]?.value = username as AnyObject
                 identify.form["credentials.passcode"]?.value = password as AnyObject
                 proceed(to: implementation, using: identify)
             }
             
-            else if let challengeAuthenticator = response.remediations[.challengeAuthenticator] {
+            else if let challengeAuthenticator = response?.remediations[.challengeAuthenticator] {
                 challengeAuthenticator.form["credentials.passcode"]?.value = password as AnyObject
 
                 proceed(to: implementation, using: challengeAuthenticator)
@@ -54,16 +52,16 @@ extension OktaIdxAuth.Implementation.Request {
             }
         }
         
-        override func needsAdditionalRemediation(using response: IDXClient.Response, from implementation: Implementation) {
+        override func needsAdditionalRemediation(using response: IDXClient.Response?, from implementation: Implementation) {
             guard let completion = completion else {
                 fatalError(.unexpectedTransitiveRequest)
                 return
             }
             
-            if response.remediations[.reenrollAuthenticator] != nil {
-                completion(Response(status: .passwordExpired,
-                                    context: implementation.context,
-                                    detailedResponse: response),
+            if response?.remediations[.reenrollAuthenticator] != nil {
+                completion(T(with: implementation,
+                             status: .passwordExpired,
+                             detailedResponse: response),
                            nil)
             } else {
                 super.needsAdditionalRemediation(using: response, from: implementation)
@@ -74,16 +72,16 @@ extension OktaIdxAuth.Implementation.Request {
                                in response: IDXClient.Response) -> Bool
         {
             if let message = response.messages.message(for: "identifier") {
-                completion?(T(status: .unknown,
-                              context: implementation.context,
+                completion?(T(with: implementation,
+                              status: .unknown,
                               detailedResponse: response),
                             AuthError(from: message))
                 return true
             }
             
             else if let message = response.messages.message(for: "passcode") {
-                completion?(.init(status: .passwordInvalid,
-                                  context: implementation.context,
+                completion?(.init(with: implementation,
+                                  status: .passwordInvalid,
                                   detailedResponse: response),
                             AuthError.serverError(message: message.message))
                 return true

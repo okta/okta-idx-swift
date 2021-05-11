@@ -17,82 +17,257 @@ import AuthenticationServices
 @objc public class OktaIdxAuth: NSObject {
     var implementation: OktaIdxAuthImplementation
     let completion: IDXClient.TokenResult
+    let queue: DispatchQueue
     
     public typealias ResponseResult<T: Response> = (_ response: T?, _ error: Swift.Error?) -> Void
     
-    @objc
-    public convenience init(issuer: String,
-                            clientId: String,
-                            clientSecret: String?,
-                            scopes: [String],
-                            redirectUri: String,
-                            completion: @escaping IDXClient.TokenResult)
+    /// Initiates a new authentication workflow.
+    /// - Parameters:
+    ///   - issuer: Issuer URL
+    ///   - clientId: Application's Client ID
+    ///   - clientSecret: Application's Client Secret, or `nil` if unneeded
+    ///   - scopes: Application's scopes
+    ///   - redirectUri: Application's redirect URI
+    ///   - queue: Dispatch queue used when invoking completion blocks. Default: `.main`
+    ///   - completion: invoked either when a token is successfully exchanged, or when a fatal error occurs
+    @objc public convenience init(issuer: String,
+                                  clientId: String,
+                                  clientSecret: String?,
+                                  scopes: [String],
+                                  redirectUri: String,
+                                  queue: DispatchQueue = .main,
+                                  completion: @escaping IDXClient.TokenResult)
     {
         let configuration = IDXClient.Configuration(issuer: issuer,
                                                     clientId: clientId,
                                                     clientSecret: clientSecret,
                                                     scopes: scopes,
                                                     redirectUri: redirectUri)
-        self.init(with: OktaIdxAuth.Implementation(with: configuration),
-                  completion: completion)
-    }
-
-    @objc
-    public convenience init(with context: IDXClient.Context,
-                            completion: @escaping IDXClient.TokenResult)
-    {
-        self.init(with: OktaIdxAuth.Implementation(with: context),
+        self.init(with: OktaIdxAuth.Implementation(with: configuration, queue: queue),
+                  queue: queue,
                   completion: completion)
     }
     
+    /// Resumes an authentication workflow using the supplied context.
+    /// - Parameters:
+    ///   - context: Context to reinitialize the workflow with.
+    ///   - queue: Dispatch queue used when invoking completion blocks. Default: `.main`
+    ///   - completion: invoked either when a token is successfully exchanged, or when a fatal error occurs
+    @objc public convenience init(with context: IDXClient.Context,
+                                  queue: DispatchQueue = .main,
+                                  completion: @escaping IDXClient.TokenResult)
+    {
+        self.init(with: OktaIdxAuth.Implementation(with: context, queue: queue),
+                  queue: queue,
+                  completion: completion)
+    }
+    
+    /// The context object created as a part of the authentication process; can be serialized for later use.
+    @objc private(set) public var context: IDXClient.Context?
+
+    /// Enum of the possible statuses a response may return.
     @objc(OktaIdxAuthStatus)
     public enum Status: Int {
         case success
         case passwordInvalid
         case passwordExpired
         case tokenRevoked
+        case enrollAuthenticator
+        case verifyAuthenticator
         case unknown
-    }
-
-    @objc(OktaIdxAuthAuthenticatorType)
-    public enum AuthenticatorType: Int {
-        case email, sms
+        
+        /// Returned when the given operation is unavailable at this point
+        /// (e.g. calling changePassword when it's not a possible outcome of a given status, e.g. selectAuthenticatorAuthenticate)
+        case operationUnavailable
     }
    
+    /// The possible token types that can be revoked.
     @objc(OktaIdxAuthTokenType)
     public enum TokenType: Int {
         case accessAndRefreshToken, refreshToken
     }
 
+    /// Object that describes the response from a call, and the possible next steps that can be taken.
     @objc(OktaIdxAuthResponse)
     public class Response: NSObject {
-        @objc
-        public let status: Status
+        /// The status of the response
+        @objc public let status: Status
         
-        @objc
-        public let token: IDXClient.Token?
+        @objc public let detailedResponse: IDXClient.Response?
         
-        @objc
-        public let context: IDXClient.Context?
+        /// The list of possible authenticators, if any, that may be verified or enrolled.
+        @nonobjc public let availableAuthenticators: [OktaIdxAuth.Authenticator.AuthenticatorType]
         
-        @objc
-        public let detailedResponse: IDXClient.Response?
-        
-        required init(status: Status,
-                      token: IDXClient.Token? = nil,
-                      context: IDXClient.Context? = nil,
-                      detailedResponse: IDXClient.Response? = nil)
+        /// The list of possible authenticators, if any, that may be verified or enrolled. (Objective-C compatability)
+        @objc public var availableAuthenticatorNames: [String] {
+            availableAuthenticators.map { $0.stringValue() }
+        }
+
+        /// An Authenticator object that describes the authenticator chosen, where verify or enrolment operations may be performed.
+        ///
+        /// If an error occurred while selecting the authenticator in a previous call, this value will be null, and the appropriate
+        /// error status will be reported in `status`.
+        @objc public let authenticator: OktaIdxAuth.Authenticator?
+
+        /// Initiates a change password request, if available.
+        @objc public func change(password: String,
+                                 completion: @escaping ResponseResult<Response>)
         {
+            let queue = implementation.queue
+            implementation.changePassword(password, from: self) { (response, error) in
+                queue.async {
+                    completion(response, error)
+                }
+            }
+        }
+        
+        /// Selects the given authenticator, either to verify or enroll
+        @objc public func select(authenticator: OktaIdxAuth.Authenticator.AuthenticatorType,
+                                 completion: @escaping ResponseResult<Response>)
+        {
+            let queue = implementation.queue
+            guard let response = detailedResponse else {
+                queue.async {
+                    completion(nil, OktaIdxAuth.Implementation.AuthError.missingResponse)
+                }
+                return
+            }
+            
+            implementation.select(authenticator: authenticator, from: response) { (response, error) in
+                queue.async {
+                    completion(response, error)
+                }
+            }
+        }
+
+        let implementation: OktaIdxAuthImplementation
+        required init(with implementation: OktaIdxAuthImplementation,
+                      status: Status,
+                      availableAuthenticators: [Authenticator.AuthenticatorType] = [],
+                      detailedResponse: IDXClient.Response?,
+                      authenticator: OktaIdxAuth.Authenticator? = nil)
+        {
+            self.implementation = implementation
             self.status = status
-            self.token = token
-            self.context = context
             self.detailedResponse = detailedResponse
+            self.availableAuthenticators = availableAuthenticators
+            self.authenticator = authenticator
             
             super.init()
         }
     }
     
+    /// Describes an authenticator, and any associated information that may be relevant.
+    @objc(OktaIdxAuthAuthenticator)
+    public class Authenticator: NSObject {
+        /// Enum value describing the authenticator; can be used to determine what class to cast this object to.
+        @objc public let type: AuthenticatorType
+        
+        /// Verify the authenticator with the given value
+        @objc public func verify(with result: String,
+                                 completion: @escaping ResponseResult<Response>)
+        {
+            let queue = implementation.queue
+            implementation.verify(authenticator: self,
+                                  with: ["credentials.passcode": result])
+            { (response, error) in
+                queue.async {
+                    completion(response, error)
+                }
+            }
+        }
+        
+        func enroll(using result: [String:String], completion: @escaping ResponseResult<Response>) {
+            let queue = implementation.queue
+            implementation.enroll(authenticator: self,
+                                  with: result)
+            { (response, error) in
+                queue.async {
+                    completion(response, error)
+                }
+            }
+        }
+
+        let implementation: OktaIdxAuthImplementation
+        let remediation: IDXClient.Remediation
+        required init(implementation: OktaIdxAuthImplementation, remediation: IDXClient.Remediation, type: AuthenticatorType) {
+            self.implementation = implementation
+            self.remediation = remediation
+            self.type = type
+            
+            super.init()
+        }
+        
+        @objc(OktaIdxAuthAuthenticatorType)
+        public enum AuthenticatorType: Int {
+            case phone, email, password, skip
+        }
+        
+        @objc(OktaIdxAuthPasswordAuthenticator)
+        public class Password: Authenticator {
+            @objc public func enroll(password: String, completion: @escaping ResponseResult<Response>) {
+                enroll(using: ["credentials.passcode": password], completion: completion)
+            }
+            
+            required init(implementation: OktaIdxAuthImplementation, remediation: IDXClient.Remediation, type: AuthenticatorType) {
+                fatalError("init(implementation:type:) has not been implemented")
+            }
+            
+            required init(implementation: OktaIdxAuthImplementation, remediation: IDXClient.Remediation) {
+                super.init(implementation: implementation, remediation: remediation, type: .password)
+            }
+        }
+
+        @objc(OktaIdxAuthPhoneAuthenticator)
+        public class Phone: Authenticator {
+            @objc public func enroll(phoneNumber: String,
+                                     method: Method,
+                                     completion: @escaping ResponseResult<Response>)
+            {}
+            
+            /// Select the phone authenticator method
+            @objc public func select(method: Method,
+                                     completion: @escaping ResponseResult<Response>)
+            {
+            }
+            
+            @objc(OktaIdxAuthPhoneAuthenticatorMethod)
+            public enum Method: Int {
+                case sms, voice
+            }
+            
+            required init(implementation: OktaIdxAuthImplementation, remediation: IDXClient.Remediation, type: AuthenticatorType) {
+                fatalError("init(implementation:type:) has not been implemented")
+            }
+            
+            required init(implementation: OktaIdxAuthImplementation, remediation: IDXClient.Remediation) {
+                super.init(implementation: implementation, remediation: remediation, type: .phone)
+            }
+        }
+
+        @objc(OktaIdxAuthPhoneAuthenticator)
+        public class Email: Authenticator {
+            @objc public func enroll(email: String,
+                                     completion: @escaping ResponseResult<Response>)
+            {}
+            
+            /// Initiates a polling operation out-of-band, and returns the result if the user clicks the magic link.
+            /// Otherwise, the `enroll(email:completion:)` method may be used concurrently.
+            @objc public func poll(completion: @escaping ResponseResult<Response>) {}
+            
+            required init(implementation: OktaIdxAuthImplementation, remediation: IDXClient.Remediation, type: AuthenticatorType) {
+                fatalError("init(implementation:type:) has not been implemented")
+            }
+            
+            required init(implementation: OktaIdxAuthImplementation, remediation: IDXClient.Remediation) {
+                super.init(implementation: implementation, remediation: remediation, type: .email)
+            }
+        }
+    }
+
+
     @objc(OktaIdxAuthSocialOptions)
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     public class SocialOptions: NSObject {
         @objc
@@ -107,8 +282,9 @@ import AuthenticationServices
         }
     }
     
-    init(with implementation: OktaIdxAuthImplementation, completion: @escaping IDXClient.TokenResult) {
+    init(with implementation: OktaIdxAuthImplementation, queue: DispatchQueue, completion: @escaping IDXClient.TokenResult) {
         self.implementation = implementation
+        self.queue = queue
         self.completion = completion
         
         super.init()
@@ -116,71 +292,95 @@ import AuthenticationServices
         self.implementation.delegate = self
     }
     
-    @objc
-    public func authenticate(username: String,
-                             password: String?,
-                             completion: ResponseResult<Response>? = nil)
+    /// Authenticates using username/password
+    @objc public func authenticate(username: String,
+                                   password: String?,
+                                   completion: @escaping ResponseResult<Response>)
     {
-        implementation.authenticate(username: username, password: password, completion: completion)
+        implementation.authenticate(username: username, password: password) { (response, error) in
+            self.queue.async {
+                completion(response, error)
+            }
+        }
     }
     
+    /// Authenticates using IDP
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
-    @objc
-    public func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: ResponseResult<Response>? = nil)
+    @objc public func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: @escaping ResponseResult<Response>)
     {
-        implementation.socialAuth(with: options, completion: completion)
+        implementation.socialAuth(with: options) { (response, error) in
+            self.queue.async {
+                completion(response, error)
+            }
+        }
     }
     
+    /// Authenticates using IDP (on older iOS versions)
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
-    @objc
-    public func socialAuth(completion: ResponseResult<Response>? = nil)
+    @objc public func socialAuth(completion: @escaping ResponseResult<Response>)
     {
-        implementation.socialAuth(completion: completion)
+        implementation.socialAuth { (response, error) in
+            self.queue.async {
+                completion(response, error)
+            }
+        }
     }
     
-    @objc
-    public func changePassword(_ password: String,
-                               completion: ResponseResult<Response>? = nil)
-    {
-        implementation.changePassword(password,
-                                      completion: completion)
-    }
-    
-    @objc
-    public func recoverPassword(username: String,
-                                authenticator type: AuthenticatorType,
-                                completion: ResponseResult<Response>? = nil)
+    @objc public func recoverPassword(username: String,
+                                      authenticator type: Authenticator.AuthenticatorType,
+                                      completion: @escaping ResponseResult<Response>)
     {
         implementation.recoverPassword(username: username,
-                                       authenticator: type,
-                                       completion: completion)
+                                       authenticator: type) { (response, error) in
+            self.queue.async {
+                completion(response, error)
+            }
+        }
     }
     
-    @objc
-    public func verifyAuthenticator(code: String,
-                                    completion: ResponseResult<Response>? = nil)
+    @objc public func register(firstName: String,
+                               lastName: String,
+                               email: String,
+                               completion: @escaping ResponseResult<Response>)
     {
-        implementation.verifyAuthenticator(code: code,
-                                           completion: completion)
+        implementation.register(firstName: firstName,
+                                lastName: lastName,
+                                email: email) { (response, error) in
+            self.queue.async {
+                completion(response, error)
+            }
+        }
     }
     
-    @objc
-    public func revokeTokens(token: String,
-                             type: TokenType,
-                             completion: ResponseResult<Response>? = nil)
+    @objc public func revokeTokens(token: String,
+                                   type: TokenType,
+                                   completion: @escaping ResponseResult<Response>)
     {
         implementation.revokeTokens(token: token,
-                                    type: type,
-                                    completion: completion)
+                                    type: type) { (response, error) in
+            self.queue.async {
+                completion(response, error)
+            }
+        }
     }
 }
 
 extension OktaIdxAuth: OktaIdxAuthImplementationDelegate {
+    func didReceive(context: IDXClient.Context) {
+        self.context = context
+    }
+    
     func didSucceed(with token: IDXClient.Token) {
-        completion(token, nil)
+        queue.async {
+            self.completion(token, nil)
+        }
     }
     
     func didFail(with error: Error) {
-        completion(nil, error)
+        queue.async {
+            self.completion(nil, error)
+        }
     }
 }
