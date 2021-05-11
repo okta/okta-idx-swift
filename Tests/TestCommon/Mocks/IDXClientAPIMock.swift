@@ -12,6 +12,7 @@
 
 import Foundation
 @testable import OktaIdx
+@testable import OktaIdxAuth
 
 class MockBase {
     struct RecordedCall {
@@ -157,5 +158,109 @@ class IDXClientAPIv1Mock: MockBase, IDXClientAPIImpl {
                                           ]))
         let result = self.response(for: #function)
         completion(result?["success"] as? Bool ?? true, result?["error"] as? Error)
+    }
+}
+
+
+class OktaIdxAuthImplementationMock: MockBase, OktaIdxAuthImplementation {
+    weak var delegate: OktaIdxAuthImplementationDelegate?
+    
+    var queue: DispatchQueue = .main
+    
+    func authenticate(username: String, password: String?, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "username": username as Any,
+                                            "password": password as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "options": options as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func socialAuth(completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [:]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func changePassword(_ password: String, from response: OktaIdxAuth.Response, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "password": password as Any,
+                                            "response": response as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func recoverPassword(username: String, authenticator type: OktaIdxAuth.Authenticator.AuthenticatorType, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "username": username as Any,
+                                            "type": type as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func select(authenticator: OktaIdxAuth.Authenticator.AuthenticatorType, from idxResponse: IDXClient.Response, completion: @escaping OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "authenticator": authenticator as Any,
+                                            "idxResponse": idxResponse as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func verify(authenticator: OktaIdxAuth.Authenticator, with result: [String : String], completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "authenticator": authenticator as Any,
+                                            "result": result as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func enroll(authenticator: OktaIdxAuth.Authenticator, with result: [String : String], completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "authenticator": authenticator as Any,
+                                            "result": result as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func register(firstName: String, lastName: String, email: String, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "firstName": firstName as Any,
+                                            "lastName": lastName as Any,
+                                            "email": email as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
+    }
+    
+    func revokeTokens(token: String, type: OktaIdxAuth.TokenType, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [
+                                            "token": token as Any,
+                                            "type": type as Any
+                                          ]))
+        let result = self.response(for: #function)
+        completion?(result?["response"] as? OktaIdxAuth.Response, result?["error"] as? Error)
     }
 }
