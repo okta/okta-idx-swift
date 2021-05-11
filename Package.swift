@@ -21,15 +21,18 @@ let package = Package(
         .target(name: "OktaIdxAuth",
                 dependencies: [ "OktaIdx" ],
                 exclude: ["Info.plist"]),
-        .target(name: "TestCommon",
-                dependencies: [ "OktaIdx", "OktaIdxAuth" ],
-                path: "Tests/TestCommon",
+        .target(name: "TestCommon_OktaIdx",
+                dependencies: [ "OktaIdx" ],
+                path: "Tests/TestCommon_OktaIdx",
                 resources: [ .copy("Resources") ]),
+        .target(name: "TestCommon_OktaIdxAuth",
+                dependencies: [ "OktaIdxAuth" ],
+                path: "Tests/TestCommon_OktaIdxAuth"),
         .testTarget(name: "OktaIdxTests",
-                    dependencies: [ "OktaIdx", "TestCommon" ],
+                    dependencies: [ "OktaIdx", "TestCommon_OktaIdx" ],
                     exclude: ["Info.plist"]),
         .testTarget(name: "OktaIdxAuthTests",
-                    dependencies: [ "OktaIdxAuth", "TestCommon" ],
+                    dependencies: [ "OktaIdxAuth", "TestCommon_OktaIdx", "TestCommon_OktaIdxAuth" ],
                     exclude: ["Info.plist"])
     ]
 )

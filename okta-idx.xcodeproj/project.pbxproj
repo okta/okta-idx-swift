@@ -72,6 +72,7 @@
 		966A1E76258BDB1B00864DB7 /* URLSessionProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A1E75258BDB1B00864DB7 /* URLSessionProtocolTests.swift */; };
 		966A1E80258BEADB00864DB7 /* IDXClientError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A1E7F258BEADB00864DB7 /* IDXClientError+Extensions.swift */; };
 		967102CA2587F93E00D5D85F /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967102C92587F93D00D5D85F /* URLSessionMock.swift */; };
+		969096BB264A0847003275E5 /* OktaIdxAuthImplementationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969096BA264A0847003275E5 /* OktaIdxAuthImplementationMock.swift */; };
 		9692D5E9264378A200D30404 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692D5E7264378A200D30404 /* Register.swift */; };
 		9692D5EA264378A200D30404 /* EnrollAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692D5E8264378A200D30404 /* EnrollAuthenticator.swift */; };
 		96A1A2112645FA7A0088EF85 /* SelectAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1A2102645FA7A0088EF85 /* SelectAuthenticator.swift */; };
@@ -223,6 +224,7 @@
 		966A1E75258BDB1B00864DB7 /* URLSessionProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocolTests.swift; sourceTree = "<group>"; };
 		966A1E7F258BEADB00864DB7 /* IDXClientError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDXClientError+Extensions.swift"; sourceTree = "<group>"; };
 		967102C92587F93D00D5D85F /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		969096BA264A0847003275E5 /* OktaIdxAuthImplementationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OktaIdxAuthImplementationMock.swift; sourceTree = "<group>"; };
 		9692D5E7264378A200D30404 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		9692D5E8264378A200D30404 /* EnrollAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollAuthenticator.swift; sourceTree = "<group>"; };
 		96A1A2102645FA7A0088EF85 /* SelectAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAuthenticator.swift; sourceTree = "<group>"; };
@@ -443,14 +445,22 @@
 			path = OktaIdxTests;
 			sourceTree = "<group>";
 		};
-		96AD28972649FB1E00829BF7 /* TestCommon */ = {
+		969096B9264A0847003275E5 /* TestCommon_OktaIdxAuth */ = {
+			isa = PBXGroup;
+			children = (
+				969096BA264A0847003275E5 /* OktaIdxAuthImplementationMock.swift */,
+			);
+			path = TestCommon_OktaIdxAuth;
+			sourceTree = "<group>";
+		};
+		96AD28972649FB1E00829BF7 /* TestCommon_OktaIdx */ = {
 			isa = PBXGroup;
 			children = (
 				960F853E25D4988000CAB52A /* Resources */,
 				96F8F22E2582C32400DA2701 /* Mocks */,
 				961BE42A2583EC4C00DCE8AC /* Utilities */,
 			);
-			path = TestCommon;
+			path = TestCommon_OktaIdx;
 			sourceTree = "<group>";
 		};
 		96C3F04C2629FC5E0064893F /* Requests */ = {
@@ -518,7 +528,8 @@
 		96F8F1A025803B8500DA2701 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				96AD28972649FB1E00829BF7 /* TestCommon */,
+				96AD28972649FB1E00829BF7 /* TestCommon_OktaIdx */,
+				969096B9264A0847003275E5 /* TestCommon_OktaIdxAuth */,
 				9667883F2649F9BE00BE36EB /* OktaIdxTests */,
 				965C3B47261F87B200EBD800 /* OktaIdxAuthTests */,
 			);
@@ -833,6 +844,7 @@
 			files = (
 				96AD28A0264A01D000829BF7 /* URLSessionMock.swift in Sources */,
 				96AD28A1264A01D000829BF7 /* TestExtensions.swift in Sources */,
+				969096BB264A0847003275E5 /* OktaIdxAuthImplementationMock.swift in Sources */,
 				96AD289E264A01D000829BF7 /* Bundle+Extensions.swift in Sources */,
 				96AD28A6264A01ED00829BF7 /* OktaIdxAuthTests.swift in Sources */,
 				96AD289D264A01D000829BF7 /* IDXClientAPIMock.swift in Sources */,

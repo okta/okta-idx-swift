@@ -14,7 +14,7 @@ import XCTest
 @testable import OktaIdx
 
 #if SWIFT_PACKAGE
-@testable import TestCommon
+@testable import TestCommon_OktaIdx
 #endif
 
 class IDXClientV1ResponseTests: XCTestCase {

@@ -17,9 +17,9 @@ extension Bundle {
         #if os(macOS)
         if let bundle = Bundle.allBundles.first(where: { $0.bundlePath.hasSuffix(".xctest") }) {
             #if SWIFT_PACKAGE
-            let bundleName = "OktaIdx_OktaIdxTests"
+            let bundleName = "OktaIdx_TestCommon_OktaIdx"
             #else
-            let bundleName = "OktaIdx_TestCommon"
+            let bundleName = "TestCommon_OktaIdx"
             #endif
 
             return bundle.bundleURL.deletingLastPathComponent().appendingPathComponent("\(bundleName).bundle")

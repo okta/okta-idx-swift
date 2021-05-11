@@ -15,7 +15,8 @@ import XCTest
 @testable import OktaIdxAuth
 
 #if SWIFT_PACKAGE
-@testable import TestCommon
+@testable import TestCommon_OktaIdx
+@testable import TestCommon_OktaIdxAuth
 #endif
 
 class OktaIdxAuthTests: XCTestCase {
