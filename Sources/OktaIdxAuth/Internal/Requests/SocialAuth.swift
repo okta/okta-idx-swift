@@ -15,12 +15,13 @@ import Foundation
 import OktaIdx
 
 extension OktaIdxAuth.Implementation.Request {
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 12.0, *)
     class SocialAuthenticate: Request<Response>, OktaIdxAuthRemediationRequest {
         private var webAuthSession: ASWebAuthenticationSession?
         
         private var canStartSession: Bool {
-            if #available(iOSApplicationExtension 13.4, *) {
+            if #available(iOSApplicationExtension 13.4, OSX 10.15.4, *) {
                 return webAuthSession?.canStart == true
             }
             
@@ -98,6 +99,7 @@ extension OktaIdxAuth.Implementation.Request {
         }
     }
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     class SocialAuthenticateIOS13: SocialAuthenticate {
         private var webAuthSession: ASWebAuthenticationSession?

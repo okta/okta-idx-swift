@@ -13,6 +13,10 @@
 import XCTest
 @testable import OktaIdx
 
+#if SWIFT_PACKAGE
+@testable import TestCommon
+#endif
+
 class IDXClientTests: XCTestCase {
     let context = IDXClient.Context(configuration: .init(issuer: "issuer",
                                                          clientId: "clientId",

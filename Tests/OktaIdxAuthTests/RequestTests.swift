@@ -11,16 +11,18 @@
  */
 
 import XCTest
-@testable import OktaIdx
+@testable import OktaIdxAuth
 
-class PKCETests: XCTestCase {
-    func testSha256() {
-        let codeVerifier = String.pkceCodeVerifier()
-        XCTAssertNotNil(codeVerifier)
-        XCTAssertTrue(codeVerifier!.isBase64URLEncoded())
-        
-        let challenge = codeVerifier?.pkceCodeChallenge()
-        XCTAssertNotNil(challenge)
-        XCTAssertTrue(challenge!.isBase64URLEncoded())
+class RequestTests: XCTestCase {
+
+    func testAuthenticateRequest() {
+//        let request = AuthSession.Request.Authenticate(with: "username", password: "password")
+//        XCTAssertEqual(request.username, "username")
+//        XCTAssertEqual(request.password, "password")
+//        
+//        let requestCopy = request.copy() as! AuthSession.Request.Authenticate
+//        request.username = "foo"
+//        
+//        XCTAssertNotEqual(request.username, requestCopy.username)
     }
 }

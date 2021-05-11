@@ -22,10 +22,12 @@ protocol OktaIdxAuthImplementation {
                       password: String?,
                       completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     func socialAuth(with options: OktaIdxAuth.SocialOptions,
                     completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
     func socialAuth(completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?)
     
@@ -322,6 +324,7 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
         }
     }
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     @objc func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
         resume(reset: true) { (client, response) in
@@ -330,6 +333,7 @@ extension OktaIdxAuth.Implementation: OktaIdxAuthImplementation {
         }
     }
     
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
     @objc func socialAuth(completion: OktaIdxAuth.ResponseResult<OktaIdxAuth.Response>?) {
         resume(reset: true) { (client, response) in

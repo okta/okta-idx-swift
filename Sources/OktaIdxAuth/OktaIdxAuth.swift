@@ -267,6 +267,7 @@ import AuthenticationServices
 
 
     @objc(OktaIdxAuthSocialOptions)
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     public class SocialOptions: NSObject {
         @objc
@@ -304,6 +305,7 @@ import AuthenticationServices
     }
     
     /// Authenticates using IDP
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension 13.0, *)
     @objc public func socialAuth(with options: OktaIdxAuth.SocialOptions, completion: @escaping ResponseResult<Response>)
     {
@@ -315,6 +317,7 @@ import AuthenticationServices
     }
     
     /// Authenticates using IDP (on older iOS versions)
+    @available(OSX 10.15, *)
     @available(iOSApplicationExtension, introduced: 12.0, deprecated: 13.0)
     @objc public func socialAuth(completion: @escaping ResponseResult<Response>)
     {
