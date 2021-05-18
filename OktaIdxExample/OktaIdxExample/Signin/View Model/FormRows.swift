@@ -93,6 +93,13 @@ extension IDXClient.Remediation.Form.Field {
                     rows.append(Row(kind: .option(field: self, option: option),
                                     parent: parent,
                                     delegate: delegate))
+                    if option.isSelectedOption,
+                       let form = option.form
+                    {
+                        rows.append(contentsOf: form.flatMap { nested in
+                            nested.remediationRow(delegate: delegate)
+                        })
+                    }
                 }
             } else if let form = form {
                 rows.append(contentsOf: form.flatMap { nested in

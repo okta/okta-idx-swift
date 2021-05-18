@@ -170,6 +170,8 @@ extension IDXRemediationTableViewController: SigninRowDelegate {
     }
     
     func formNeedsUpdate() {
+        guard let response = response else { return }
+        formSections = response.remediationForm(delegate: self)
         tableView.reloadData()
     }
 

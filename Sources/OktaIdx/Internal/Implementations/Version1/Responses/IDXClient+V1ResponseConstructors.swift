@@ -334,7 +334,7 @@ extension IDXClient.Remediation.Form.Field {
                   label: object.label,
                   type: object.type,
                   value: object.value?.toAnyObject(),
-                  visible: object.visible ?? (object.label != nil),
+                  visible: object.visible ?? true,
                   mutable: object.mutable ?? true,
                   required: object.required ?? false,
                   secret: object.secret ?? false,
