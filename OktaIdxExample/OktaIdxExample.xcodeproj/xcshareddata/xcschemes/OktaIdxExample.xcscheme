@@ -38,6 +38,16 @@
       </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
+            key = "A18N_API_KEY"
+            value = "$(A18N_API_KEY)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "A18N_PROFILE_ID"
+            value = "$(A18N_PROFILE_ID)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "CLIENT_ID"
             value = "$(CLIENT_ID)"
             isEnabled = "YES">
