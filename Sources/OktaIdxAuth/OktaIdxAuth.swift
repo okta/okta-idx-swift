@@ -60,6 +60,7 @@ import AuthenticationServices
         self.init(with: OktaIdxAuth.Implementation(with: context, queue: queue),
                   queue: queue,
                   completion: completion)
+        self.context = context
     }
     
     /// The context object created as a part of the authentication process; can be serialized for later use.
@@ -264,7 +265,6 @@ import AuthenticationServices
             }
         }
     }
-
 
     @objc(OktaIdxAuthSocialOptions)
     @available(OSX 10.15, *)

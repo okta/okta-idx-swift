@@ -42,8 +42,8 @@ class IDXRemediationParameterTests: XCTestCase {
             return
         }
 
-        identifier.value = "test@example.com" as AnyObject
-        rememberMe.value = true as AnyObject
+        identifier.value = "test@example.com"
+        rememberMe.value = true
 
         let result = try remediationOption.form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "ahc52KautBHCANs3ScZjLfRcxFjP_N5mqOTYouqHFP")
@@ -66,7 +66,7 @@ class IDXRemediationParameterTests: XCTestCase {
             return
         }
 
-        passcode.value = "password" as AnyObject
+        passcode.value = "password"
 
         let result = try remediationOption.form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "ahc52KautBHCANs3ScZjLfRcxFjP_N5mqOTYouqHFP")
@@ -122,7 +122,7 @@ class IDXRemediationParameterTests: XCTestCase {
 
         authenticator.selectedOption = phoneOption
         methodType.selectedOption = smsType
-        phoneNumber.value = "5551234567" as AnyObject
+        phoneNumber.value = "5551234567"
 
         let result = try remediationOption.form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "ahc52KautBHCANs3ScZjLfRcxFjP_N5mqOTYouqHFP")

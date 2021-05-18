@@ -197,9 +197,9 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
             return
         }
 
-        remediation.form["client_id"]?.value = configuration.clientId as AnyObject
-        remediation.form["client_secret"]?.value = configuration.clientSecret as AnyObject
-        remediation.form["code_verifier"]?.value = context.codeVerifier as AnyObject
+        remediation.form["client_id"]?.value = configuration.clientId
+        remediation.form["client_secret"]?.value = configuration.clientSecret
+        remediation.form["code_verifier"]?.value = context.codeVerifier
 
         let request: TokenRequest
         do {

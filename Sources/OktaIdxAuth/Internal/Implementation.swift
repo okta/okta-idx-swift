@@ -17,6 +17,11 @@ import OktaIdx
 protocol OktaIdxAuthImplementation {
     var delegate: OktaIdxAuthImplementationDelegate? { get set }
     var queue: DispatchQueue { get }
+    var configuration: IDXClient.Configuration? { get }
+
+    func client(reset: Bool, completion: @escaping (IDXClientAPI) -> Void)
+    func succeeded(with response: IDXClient.Response, completion: @escaping(IDXClient.Token?, Error?) -> Void)
+    func fail(with error: Error)
 
     func authenticate(username: String,
                       password: String?,
@@ -68,7 +73,7 @@ protocol OktaIdxAuthImplementationDelegate: class {
 }
 
 protocol OktaIdxAuthRemediationRequest {
-    func send(to implementation: OktaIdxAuth.Implementation,
+    func send(to implementation: OktaIdxAuthImplementation,
               from response: IDXClient.Response?)
 }
 
@@ -78,7 +83,7 @@ extension OktaIdxAuth {
         var context: IDXClient.Context?
         let queue: DispatchQueue
         
-        private var storedClient: IDXClient? {
+        private var storedClient: IDXClientAPI? {
             didSet {
                 guard let context = storedClient?.context else { return }
                 delegate?.didReceive(context: context)
@@ -98,7 +103,7 @@ extension OktaIdxAuth {
             self.queue = queue
         }
         
-        func client(reset: Bool = false, completion: @escaping (IDXClient) -> Void) {
+        func client(reset: Bool = false, completion: @escaping (IDXClientAPI) -> Void) {
             if reset {
                 storedClient = nil
                 context = nil
@@ -131,7 +136,7 @@ extension OktaIdxAuth {
             }
         }
 
-        func resume(reset: Bool = false, completion: @escaping (IDXClient, IDXClient.Response) -> Void) {
+        func resume(reset: Bool = false, completion: @escaping (IDXClientAPI, IDXClient.Response) -> Void) {
             client(reset: reset) { (client) in
                 client.resume { (response, error) in
                     guard let response = response else {
@@ -168,7 +173,7 @@ extension OktaIdxAuth {
                 completion?(response, error)
             }
             
-            func hasError(implementation: Implementation,
+            func hasError(implementation: OktaIdxAuthImplementation,
                           in response: IDXClient.Response) -> Bool
             {
                 guard !response.messages.isEmpty else { return false }
@@ -180,7 +185,7 @@ extension OktaIdxAuth {
                 return true
             }
             
-            func needsAdditionalRemediation(using response: IDXClient.Response?, from implementation: Implementation) {
+            func needsAdditionalRemediation(using response: IDXClient.Response?, from implementation: OktaIdxAuthImplementation) {
                 guard let completion = completion else {
                     fatalError(.unexpectedTransitiveRequest)
                     return
@@ -199,7 +204,7 @@ extension OktaIdxAuth {
                 }
             }
             
-            func proceed(to implementation: OktaIdxAuth.Implementation, using option: IDXClient.Remediation) {
+            func proceed(to implementation: OktaIdxAuthImplementation, using option: IDXClient.Remediation) {
                 guard let self = self as? Request<T> & OktaIdxAuthRemediationRequest else {
                     fatalError(.unexpectedTransitiveRequest)
                     return

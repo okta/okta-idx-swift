@@ -13,8 +13,9 @@
 import Foundation
 
 /// Internal protocol that defines the interface for the public IDXClient
-protocol IDXClientAPI: class {
+public protocol IDXClientAPI: class {
     var context: IDXClient.Context { get }
+    func resume(completion: IDXClient.ResponseResult?)
     func proceed(remediation option: IDXClient.Remediation,
                  completion: IDXClient.ResponseResult?)
 

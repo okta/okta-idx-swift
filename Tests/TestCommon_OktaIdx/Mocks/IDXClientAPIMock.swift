@@ -41,6 +41,13 @@ class IDXClientAPIMock: MockBase, IDXClientAPI {
         self.context = context
     }
     
+    func resume(completion: IDXClient.ResponseResult?) {
+        recordedCalls.append(RecordedCall(function: #function,
+                                          arguments: [:]))
+        let result = response(for: #function)
+        completion?(result?["response"] as? IDXClient.Response, result?["error"] as? Error)
+    }
+    
     func proceed(remediation option: IDXClient.Remediation, completion: IDXClient.ResponseResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [

@@ -63,7 +63,7 @@ class ScenarioTests: XCTestCase {
                 XCTAssertEqual(remediation?.form[0].name, "identifier")
                 XCTAssertEqual(remediation?.form[1].name, "rememberMe")
                 XCTAssertEqual(remediation?.form.allFields[2].name, "stateHandle")
-                remediation?.form["identifier"]?.value = "user@example.com" as AnyObject
+                remediation?.form["identifier"]?.value = "user@example.com"
                 
                 remediation?.proceed { (response, error) in
                     XCTAssertNotNil(response)
@@ -80,7 +80,7 @@ class ScenarioTests: XCTestCase {
                     
                     let credentials = remediation?.form[0]
                     XCTAssertTrue(credentials?.isRequired ?? false)
-                    remediation?.form["credentials"]?.form?["passcode"]?.value = "password" as AnyObject
+                    remediation?.form["credentials"]?.form?["passcode"]?.value = "password"
 
                     remediation?.proceed { (response, error) in
                         XCTAssertNotNil(response)
@@ -136,8 +136,8 @@ class ScenarioTests: XCTestCase {
                 let stateHandleField = remediation?.form.allFields[2]
                 XCTAssertEqual(stateHandleField?.name, "stateHandle")
                 
-                identifierField?.value = "user@example.com" as AnyObject
-                rememberMeField?.value = false as AnyObject
+                identifierField?.value = "user@example.com"
+                rememberMeField?.value = false
                 
                 // Identify ourselves as the given user, which returns the identify-response
                 remediation?.proceed { (response, error) in
@@ -228,7 +228,7 @@ class ScenarioTests: XCTestCase {
                 let remediation = response?.remediations.first
                 XCTAssertEqual(remediation?.name, "identify")
                 
-                remediation?["identify"]?.value = "user@example.com" as AnyObject
+                remediation?["identify"]?.value = "user@example.com"
                 
                 remediation?.proceed { (response, error) in
                     XCTAssertNotNil(response)
@@ -258,7 +258,7 @@ class ScenarioTests: XCTestCase {
                         let related = remediation?.authenticators.first?.value
                         XCTAssertEqual(related, currentEnrollment)
                         
-                        remediation?.form["credentials.passcode"]?.value = "password" as AnyObject
+                        remediation?.form["credentials.passcode"]?.value = "password"
                         
                         remediation?.proceed { (response, error) in
                             XCTAssertNotNil(response)

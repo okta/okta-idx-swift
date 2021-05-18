@@ -28,7 +28,7 @@ extension OktaIdxAuth.Implementation.Request {
             super.init(completion: completion)
         }
 
-        func send(to implementation: OktaIdxAuth.Implementation,
+        func send(to implementation: OktaIdxAuthImplementation,
                   from response: IDXClient.Response? = nil)
         {
             let remediationOption = (response != nil ? response?.remediations[.enrollAuthenticator] : authenticator.remediation)

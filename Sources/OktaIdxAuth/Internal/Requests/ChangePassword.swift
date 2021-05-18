@@ -25,7 +25,7 @@ extension OktaIdxAuth.Implementation.Request {
             super.init(completion: completion)
         }
 
-        func send(to implementation: OktaIdxAuth.Implementation,
+        func send(to implementation: OktaIdxAuthImplementation,
                   from response: IDXClient.Response? = nil)
         {
             if let reenroll = response?.remediations[.reenrollAuthenticator] {
@@ -39,7 +39,7 @@ extension OktaIdxAuth.Implementation.Request {
             }
         }
         
-        override func hasError(implementation: Implementation,
+        override func hasError(implementation: OktaIdxAuthImplementation,
                                in response: IDXClient.Response) -> Bool
         {
             if let message = response.remediations[.reenrollAuthenticator]?.messages.message(for: "passcode") {

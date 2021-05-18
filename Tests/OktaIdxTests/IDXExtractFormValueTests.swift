@@ -45,7 +45,7 @@ class IDXExtractFormValueTests: XCTestCase {
                       required: true,
                       secret: false)
         ]))
-        form["identifier"]?.value = "me@example.com" as AnyObject
+        form["identifier"]?.value = "me@example.com"
         let result = try form.formValues()
         XCTAssertEqual(result as? [String:String], [
             "stateHandle": "abcEasyAs123",
@@ -76,7 +76,7 @@ class IDXExtractFormValueTests: XCTestCase {
                                   secret: true)
                       ]))
         ]))
-        form["credentials.passcode"]?.value = "password" as AnyObject
+        form["credentials.passcode"]?.value = "password"
         
         let result = try form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "abcEasyAs123")
@@ -184,7 +184,7 @@ class IDXExtractFormValueTests: XCTestCase {
         ]))
         form["authenticator"]?.selectedOption = nestedForm
         nestedForm.form?["methodType"]?.selectedOption = smsOption
-        nestedForm.form?["phoneNumber"]?.value = "+1 123-555-1234" as AnyObject
+        nestedForm.form?["phoneNumber"]?.value = "+1 123-555-1234"
         
         let result = try form.formValues()
         XCTAssertEqual(result["stateHandle"] as? String, "abcEasyAs123")
