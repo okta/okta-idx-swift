@@ -11,28 +11,17 @@ let package = Package(
     ],
     products: [
         .library(name: "OktaIdx",
-                 targets: [ "OktaIdx" ]),
-        .library(name: "OktaIdxAuth",
-                 targets: [ "OktaIdxAuth" ])
+                 targets: [ "OktaIdx" ])
     ],
     targets: [
         .target(name: "OktaIdx",
                 exclude: ["Info.plist"]),
-        .target(name: "OktaIdxAuth",
+        .target(name: "TestCommon",
                 dependencies: [ "OktaIdx" ],
-                exclude: ["Info.plist"]),
-        .target(name: "TestCommon_OktaIdx",
-                dependencies: [ "OktaIdx" ],
-                path: "Tests/TestCommon_OktaIdx",
+                path: "Tests/TestCommon",
                 resources: [ .copy("Resources") ]),
-        .target(name: "TestCommon_OktaIdxAuth",
-                dependencies: [ "OktaIdxAuth" ],
-                path: "Tests/TestCommon_OktaIdxAuth"),
         .testTarget(name: "OktaIdxTests",
-                    dependencies: [ "OktaIdx", "TestCommon_OktaIdx" ],
-                    exclude: ["Info.plist"]),
-        .testTarget(name: "OktaIdxAuthTests",
-                    dependencies: [ "OktaIdxAuth", "TestCommon_OktaIdx", "TestCommon_OktaIdxAuth" ],
+                    dependencies: [ "OktaIdx", "TestCommon" ],
                     exclude: ["Info.plist"])
     ]
 )
