@@ -28,7 +28,7 @@ extension OktaIdxAuth.Implementation.Request {
             return true
         }
         
-        final func send(to implementation: OktaIdxAuth.Implementation, from response: IDXClient.Response? = nil) {
+        final func send(to implementation: OktaIdxAuthImplementation, from response: IDXClient.Response? = nil) {
             guard let remediation = response?.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth,
                   let redirectUri = implementation.configuration?.redirectUri,
                   let scheme = URL(string: redirectUri)?.scheme
@@ -43,7 +43,7 @@ extension OktaIdxAuth.Implementation.Request {
                     return
                 }
                 
-                implementation.client { (client) in
+                implementation.client(reset: false) { (client) in
                     let result = client.redirectResult(for: callbackURL)
                     
                     switch result {

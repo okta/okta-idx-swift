@@ -69,8 +69,8 @@ extension IDXClient {
                       href: URL,
                       accepts: String?,
                       form: Form,
-                      refresh: TimeInterval?,
-                      relatesTo: [String]?)
+                      refresh: TimeInterval? = nil,
+                      relatesTo: [String]? = nil)
         {
             self.client = client
             self.name = name

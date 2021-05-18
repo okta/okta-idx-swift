@@ -31,7 +31,7 @@ extension OktaIdxAuth.Implementation.Request {
             super.init(completion: completion)
         }
 
-        func send(to implementation: Implementation,
+        func send(to implementation: OktaIdxAuthImplementation,
                   from response: IDXClient.Response? = nil)
         {
             if let selectEnrollProfile = response?.remediations[.selectEnrollProfile] {

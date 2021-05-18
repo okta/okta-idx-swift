@@ -281,7 +281,7 @@ extension Signin.Row {
                 cell.textField.text = field.value as? String
                 cell.textField.accessibilityIdentifier = "\(fieldName).field"
                 cell.update = { value in
-                    field.value = value as AnyObject
+                    field.value = value
                 }
             }
             
@@ -293,7 +293,7 @@ extension Signin.Row {
                 cell.fieldLabel.accessibilityIdentifier = "\(fieldName).label"
                 cell.switchView.isOn = field.value as? Bool ?? false
                 cell.update = { (value) in
-                    field.value = value as AnyObject
+                    field.value = value
                 }
             }
             

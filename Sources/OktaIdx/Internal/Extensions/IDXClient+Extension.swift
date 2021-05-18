@@ -13,13 +13,13 @@
 import Foundation
 
 extension IDXClient: IDXClientAPI {
-    func proceed(remediation option: Remediation, completion: ResponseResult?) {
+    public func proceed(remediation option: Remediation, completion: ResponseResult?) {
         api.proceed(remediation: option) { (response, error) in
             self.handleResponse(response, error: error, completion: completion)
         }
     }
 
-    func exchangeCode(using remediation: Remediation, completion: TokenResult?) {
+    public func exchangeCode(using remediation: Remediation, completion: TokenResult?) {
         api.exchangeCode(using: remediation) { (token, error) in
             self.handleResponse(token, error: error, completion: completion)
         }

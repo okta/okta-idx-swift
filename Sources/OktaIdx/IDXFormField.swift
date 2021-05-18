@@ -30,7 +30,15 @@ extension IDXClient.Remediation.Form {
         @objc public let type: String?
         
         /// The value to send, if a default is provided from the Identity Engine.
-        @objc public var value: AnyObject? {
+        @nonobjc public var value: IDXFormValue? {
+            get { _value as? IDXFormValue }
+            set {
+                guard isMutable else { return }
+                _value = newValue as AnyObject
+            }
+        }
+        
+        @objc(value) public var objcValue: AnyObject? {
             get { _value }
             set {
                 guard isMutable else { return }

@@ -15,7 +15,7 @@ import Foundation
 extension IDXClient {
     /// Describes the response from an Okta Identity Engine workflow stage. This is used to determine the current state of the workflow, the set of available remediation steps to proceed through the workflow, actions that can be performed, and other information relevant to the authentication of a user.
     @objc(IDXResponse)
-    public final class Response: NSObject {
+    public class Response: NSObject {
         /// The date at which this stage of the workflow expires, after which the authentication process should be restarted.
         @objc public let expiresAt: Date?
         

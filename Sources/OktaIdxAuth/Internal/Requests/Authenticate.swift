@@ -28,7 +28,7 @@ extension OktaIdxAuth.Implementation.Request {
             super.init(completion: completion)
         }
 
-        func send(to implementation: Implementation,
+        func send(to implementation: OktaIdxAuthImplementation,
                   from response: IDXClient.Response? = nil)
         {
             if let selectIdentify = response?.remediations[.selectIdentify] {
@@ -52,7 +52,7 @@ extension OktaIdxAuth.Implementation.Request {
             }
         }
         
-        override func needsAdditionalRemediation(using response: IDXClient.Response?, from implementation: Implementation) {
+        override func needsAdditionalRemediation(using response: IDXClient.Response?, from implementation: OktaIdxAuthImplementation) {
             guard let completion = completion else {
                 fatalError(.unexpectedTransitiveRequest)
                 return
@@ -68,7 +68,7 @@ extension OktaIdxAuth.Implementation.Request {
             }
         }
         
-        override func hasError(implementation: Implementation,
+        override func hasError(implementation: OktaIdxAuthImplementation,
                                in response: IDXClient.Response) -> Bool
         {
             if let message = response.messages.message(for: "identifier") {
