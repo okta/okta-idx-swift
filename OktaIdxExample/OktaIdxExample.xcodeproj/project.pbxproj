@@ -199,8 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				965A112726547EB4006B784F /* Utilities */,
-				96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */,
 				96749B0425B8EA9D002849A0 /* Extensions */,
+				96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */,
 				964F747425A3E5F3003EE300 /* PasscodeScenarioTests.swift */,
 				96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */,
 				96C51E9225BA591F007A2519 /* MFAOktaSOPScenarioTests.swift */,

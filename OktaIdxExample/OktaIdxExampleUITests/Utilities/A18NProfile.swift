@@ -23,7 +23,6 @@ struct A18NProfile: Codable {
     let phoneNumber: String
     let emailAddress: String
     let url: URL
-    private let apiKey: String?
     
     static func loadProfile(using apiKey: String, profileId: String, completion: @escaping (A18NProfile?, Error?) -> Void) {
         guard let url = URL(string: "https://api.a18n.help/v1/profile/\(profileId)") else {
@@ -35,11 +34,8 @@ struct A18NProfile: Codable {
         request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            let decoder = JSONDecoder()
-            decoder.userInfo[A18NProfile.apiKeyUserInfoKey] = apiKey
-            
             guard let data = data,
-                  let profile = try? decoder.decode(A18NProfile.self, from: data)
+                  let profile = try? A18NProfile.jsonDecoder.decode(A18NProfile.self, from: data)
             else {
                 completion(nil, error)
                 return
@@ -119,17 +115,12 @@ struct A18NProfile: Codable {
         case email, sms, voice
     }
 
-    private static var apiKeyUserInfoKey: CodingUserInfoKey {
-        return CodingUserInfoKey(rawValue: "apiKey")!
-    }
-    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         profileId = try container.decode(String.self, forKey: .profileId)
         emailAddress = try container.decode(String.self, forKey: .emailAddress)
         phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
         url = try container.decode(URL.self, forKey: .url)
-        apiKey = decoder.userInfo[Self.apiKeyUserInfoKey] as? String
     }
 
     fileprivate static let jsonDecoder: JSONDecoder = {
