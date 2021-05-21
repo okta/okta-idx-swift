@@ -54,12 +54,18 @@ class IDXResponseEqualityTests: XCTestCase {
     }
 
     func testTokenEquality() throws {
+        let configuration = IDXClient.Configuration(issuer: "issuer",
+                                                    clientId: "client",
+                                                    clientSecret: nil,
+                                                    scopes: ["scope"],
+                                                    redirectUri: "redirect")
         let compare = IDXClient.Token(accessToken: "access",
                                      refreshToken: "refresh",
                                      expiresIn: 10,
                                      idToken: "foo",
                                      scope: "bar",
-                                     tokenType: "type")
+                                     tokenType: "type",
+                                     configuration: configuration)
         XCTAssertNotEqual(compare as NSObject, "Foo" as NSObject)
 
         var object = IDXClient.Token(accessToken: "access2",
@@ -67,7 +73,8 @@ class IDXResponseEqualityTests: XCTestCase {
                                      expiresIn: 100,
                                      idToken: "foo2",
                                      scope: "bar2",
-                                     tokenType: "type2")
+                                     tokenType: "type2",
+                                     configuration: configuration)
         XCTAssertNotEqual(compare, object)
 
         object = IDXClient.Token(accessToken: "access",
@@ -75,7 +82,8 @@ class IDXResponseEqualityTests: XCTestCase {
                                      expiresIn: 10,
                                      idToken: nil,
                                      scope: "bar",
-                                     tokenType: "type")
+                                     tokenType: "type",
+                                     configuration: configuration)
         XCTAssertNotEqual(compare, object)
 
         object = IDXClient.Token(accessToken: "access",
@@ -83,7 +91,8 @@ class IDXResponseEqualityTests: XCTestCase {
                                      expiresIn: 10,
                                      idToken: "foo",
                                      scope: "bar",
-                                     tokenType: "type")
+                                     tokenType: "type",
+                                     configuration: configuration)
         XCTAssertEqual(compare, object)
     }
 }

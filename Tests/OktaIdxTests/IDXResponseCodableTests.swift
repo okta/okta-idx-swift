@@ -36,7 +36,8 @@ class IDXResponseCodableTests: XCTestCase {
                                      expiresIn: 10,
                                      idToken: "foo",
                                      scope: "bar",
-                                     tokenType: "type")
+                                     tokenType: "type",
+                                     configuration: configuration)
         let data = try JSONEncoder().encode(object)
         let result = try JSONDecoder().decode(IDXClient.Token.self, from: data)
         XCTAssertEqual(object, result)
@@ -59,7 +60,8 @@ class IDXResponseCodableTests: XCTestCase {
                                      expiresIn: 10,
                                      idToken: "foo",
                                      scope: "bar",
-                                     tokenType: "type")
+                                     tokenType: "type",
+                                     configuration: configuration)
         let data = try NSKeyedArchiver.archivedData(withRootObject: object,
                                                     requiringSecureCoding: true)
         let result = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? IDXClient.Token

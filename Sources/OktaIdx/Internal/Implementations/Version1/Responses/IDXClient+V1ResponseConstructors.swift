@@ -334,7 +334,7 @@ extension IDXClient.Remediation.Form.Field {
                   label: object.label,
                   type: object.type,
                   value: object.value?.toAnyObject(),
-                  visible: object.visible ?? true,
+                  visible: object.visible ?? (object.label != nil || object.mutable ?? true),
                   mutable: object.mutable ?? true,
                   required: object.required ?? false,
                   secret: object.secret ?? false,
@@ -353,12 +353,13 @@ extension IDXClient.Remediation.Form.Field {
 }
 
 extension IDXClient.Token {
-    internal convenience init(v1 object: V1.Token) {
+    internal convenience init(v1 object: V1.Token, configuration: IDXClient.Configuration) {
         self.init(accessToken: object.accessToken,
                   refreshToken: object.refreshToken,
                   expiresIn: TimeInterval(object.expiresIn),
                   idToken: object.idToken,
                   scope: object.scope,
-                  tokenType: object.tokenType)
+                  tokenType: object.tokenType,
+                  configuration: configuration)
     }
 }

@@ -35,6 +35,7 @@ struct TestCredentials {
     let password: String
     let clientId: String
     let issuer: String
+    let scopes: String
     let redirectUri: String
     let a18nAPIKey: String
     let a18nProfileId: String
@@ -46,6 +47,7 @@ struct TestCredentials {
         let env = ProcessInfo.processInfo.environment
         guard let clientId = env["CLIENT_ID"],
               let issuer = env["ISSUER_DOMAIN"],
+              let scopes = env["SCOPES"],
               let redirectUri = env["REDIRECT_URI"],
               let a18nAPIKey = env["A18N_API_KEY"],
               let a18nProfileId = env["A18N_PROFILE_ID"],
@@ -57,6 +59,7 @@ struct TestCredentials {
         
         guard clientId != "",
               issuer != "",
+              scopes != "",
               redirectUri != "",
               a18nAPIKey != "",
               a18nProfileId != "",
@@ -68,6 +71,7 @@ struct TestCredentials {
         
         self.clientId = clientId
         self.issuer = issuer
+        self.scopes = scopes
         self.redirectUri = redirectUri
         self.a18nAPIKey = a18nAPIKey
         self.a18nProfileId = a18nProfileId

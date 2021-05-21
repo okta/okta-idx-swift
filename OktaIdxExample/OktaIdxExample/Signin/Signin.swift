@@ -17,13 +17,14 @@ import AuthenticationServices
 enum SigninError: Error {
     case genericError(message: String)
     case stepUnsupported
+    case invalidUrl
 }
 
 /// Signin wrapper that uses the Okta IDX client to step through the series
 /// of remediation steps necessary to sign a user in.
 public class Signin {
     private let storyboard: UIStoryboard
-    private var completion: ((IDXClient.Token?, Error?) -> Void)?
+    private var completion: ((User?, Error?) -> Void)?
     private var navigationController: UINavigationController?
     
     internal let configuration: IDXClient.Configuration
@@ -36,10 +37,17 @@ public class Signin {
         self.storyboard = UIStoryboard(name: "IDXSignin", bundle: Bundle(for: type(of: self)))
     }
     
+    convenience init?() {
+        guard let configuration = UserManager.shared.configuration else {
+            return nil
+        }
+        self.init(using: configuration)
+    }
+    
     /// Begins the signin UI, presented from the given presenting view controller.
     /// - Parameter viewController: View controller to modally present the sign in navigation controller from.
     /// - Returns: Future to represent the completion of the signin process.
-    public func signin(from viewController: UIViewController, completion: @escaping (IDXClient.Token?, Error?) -> Void) {
+    public func signin(from viewController: UIViewController, completion: @escaping (User?, Error?) -> Void) {
         guard let controller = self.storyboard.instantiateViewController(identifier: "start") as? IDXStartViewController else {
             completion(nil, SigninError.genericError(message: "Cannot find story board controller \"start\""))
             return
@@ -68,7 +76,7 @@ public class Signin {
             
         case .selectEnrollProfile: fallthrough
         case .enrollProfile:
-            return "Create profile"
+            return "Create Profile"
             
         case .selectIdentify:
             return "Sign in"
@@ -199,17 +207,39 @@ public class Signin {
     /// Called by the signin view controllers when the Future should succeed.
     /// - Parameter token: The token produced at the end of the signin process.
     internal func success(with token: IDXClient.Token) {
-        if !Thread.isMainThread {
-            DispatchQueue.main.async {
-                self.success(with: token)
-            }
+        let userinfoUrl: URL
+        do {
+            userinfoUrl = try configuration.url(for: "/v1/userinfo")
+        } catch {
+            failure(with: error)
             return
         }
         
         guard let completion = self.completion else { return }
         defer { self.completion = nil }
-        navigationController?.dismiss(animated: true) {
-            completion(token, nil)
-        }
+
+        var request = URLRequest(url: userinfoUrl)
+        token.authorize(request: &request)
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                self.failure(with: error ?? SigninError.genericError(message: "Invalid user profile response"))
+                return
+            }
+            
+            do {
+                let userinfo = try User.Info.jsonDecoder.decode(User.Info.self, from: data)
+                let user = User(token: token, info: userinfo)
+                
+                DispatchQueue.main.async {
+                    self.navigationController?.dismiss(animated: true) {
+                        completion(user, nil)
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.failure(with: error)
+                }
+            }
+        }.resume()
     }
 }

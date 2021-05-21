@@ -138,17 +138,17 @@ extension IDXClient.Remediation {
         switch type {
         case .selectEnrollProfile: fallthrough
         case .enrollProfile:
-            return "Create profile"
+            return "Sign Up"
             
         case .selectIdentify: fallthrough
         case .identify:
-            return "Sign in"
+            return "Sign In"
         
         case .challengeAuthenticator:
             return "Password"
             
         case .selectAuthenticatorAuthenticate:
-            return "Choose method"
+            return "Choose Method"
             
         case .skip:
             return "Skip"
@@ -219,8 +219,8 @@ extension IDXClient.Response {
             nested.remediationRow(delegate: delegate)
         })
         rows.append(Row(kind: .button(remediationOption: remediationOption),
-                            parent: nil,
-                            delegate: delegate))
+                        parent: nil,
+                        delegate: delegate))
 
         for authenticator in remediationOption.authenticators {
             if let sendable = authenticator.value as? Sendable,

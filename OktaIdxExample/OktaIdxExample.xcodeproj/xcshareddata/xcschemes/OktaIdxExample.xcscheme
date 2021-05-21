@@ -53,6 +53,11 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "SCOPES"
+            value = "$(SCOPES)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "ISSUER_DOMAIN"
             value = "$(ISSUER_DOMAIN)"
             isEnabled = "YES">
@@ -130,6 +135,11 @@
          <EnvironmentVariable
             key = "ISSUER_DOMAIN"
             value = "$(ISSUER_DOMAIN)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "SCOPES"
+            value = "$(SCOPES)"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

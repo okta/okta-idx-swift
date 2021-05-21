@@ -26,10 +26,6 @@ public protocol IDXClientAPI: class {
 
     func exchangeCode(using remediation: IDXClient.Remediation,
                       completion: IDXClient.TokenResult?)
-
-    func revoke(token: String,
-                type: IDXClient.Token.RevokeType,
-                completion: @escaping(_ successful: Bool, _ error: Error?) -> Void)
 }
 
 /// Internal protocol used to implement the IDXClientAPI protocol.

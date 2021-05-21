@@ -20,24 +20,24 @@ class PasscodeScenarioTests: XCTestCase {
         
         let app = XCUIApplication()
         app.launchArguments = [
-            "--clientId", credentials!.clientId,
-            "--issuer", credentials!.issuerUrl,
-            "--redirectUri", credentials!.redirectUri
+            "--clientId \"\(credentials!.clientId)\"",
+            "--issuer \"\(credentials!.issuerUrl)\"",
+            "--scopes \"\(credentials!.scopes)\"",
+            "--redirectUri \"\(credentials!.redirectUri)\"",
+            "--reset-user"
         ]
         app.launch()
 
         continueAfterFailure = false
         
-        XCTAssertEqual(app.textFields["issuerField"].value as? String, credentials!.issuerUrl)
-        XCTAssertEqual(app.textFields["clientIdField"].value as? String, credentials!.clientId)
-        XCTAssertEqual(app.textFields["redirectField"].value as? String, credentials!.redirectUri)
+        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials!.clientId)")
     }
 
     func testSuccessfulPasscode() throws {
-        guard let credentials = credentials else { return }
+        let credentials = try XCTUnwrap(self.credentials)
 
         let app = XCUIApplication()
-        app.buttons["Log in"].tap()
+        app.buttons["Sign In"].tap()
 
         // Username
         XCTAssertTrue(app.staticTexts["identifier.label"].waitForExistence(timeout: 5.0))
