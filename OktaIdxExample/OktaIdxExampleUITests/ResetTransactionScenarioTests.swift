@@ -33,7 +33,7 @@ class ResetTransactionScenarioTests: XCTestCase {
     }
 
     func testCancelMFARemediation() throws {
-        guard let credentials = credentials else { return }
+        let credentials = try XCTUnwrap(self.credentials)
 
         let app = XCUIApplication()
         app.buttons["Sign In"].tap()

@@ -78,15 +78,15 @@ class ProfileTableViewController: UITableViewController {
         
         tableContent = [
             .profile: [
-                .init(kind: .rightDetail, title: "Given name", detail: user.info.givenName),
-                .init(kind: .rightDetail, title: "Family name", detail: user.info.familyName),
-                .init(kind: .rightDetail, title: "Locale", detail: user.info.locale),
-                .init(kind: .rightDetail, title: "Timezone", detail: user.info.zoneinfo)
+                .init(kind: .rightDetail, id: "givenName", title: "Given name", detail: user.info.givenName),
+                .init(kind: .rightDetail, id: "familyName", title: "Family name", detail: user.info.familyName),
+                .init(kind: .rightDetail, id: "locale", title: "Locale", detail: user.info.locale),
+                .init(kind: .rightDetail, id: "timezone", title: "Timezone", detail: user.info.zoneinfo)
             ],
             .details: [
-                .init(kind: .rightDetail, title: "Username", detail: user.info.preferredUsername),
-                .init(kind: .rightDetail, title: "User ID", detail: user.info.sub),
-                .init(kind: .rightDetail, title: "Created at", detail: dateFormatter.string(from: user.info.updatedAt)),
+                .init(kind: .rightDetail, id: "username", title: "Username", detail: user.info.preferredUsername),
+                .init(kind: .rightDetail, id: "userId", title: "User ID", detail: user.info.sub),
+                .init(kind: .rightDetail, id: "createdAt", title: "Created at", detail: dateFormatter.string(from: user.info.updatedAt)),
                 .init(kind: .disclosure, id: "details", title: "Token details")
             ],
             .signOut: [
@@ -140,7 +140,7 @@ class ProfileTableViewController: UITableViewController {
         }
 
         let cell = tableView.dequeueReusableCell(withIdentifier: row.kind.rawValue, for: indexPath)
-
+        cell.accessibilityIdentifier = row.id
         cell.textLabel?.text = row.title
         cell.detailTextLabel?.text = row.detail
 

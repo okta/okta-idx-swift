@@ -12,7 +12,7 @@
 
 import XCTest
 
-class MFAOktaSOPScenarioTests: XCTestCase {
+class SelfServiceRegistrationScenarioTests: XCTestCase {
     let credentials = TestCredentials(with: .mfasop)
 
     override func setUpWithError() throws {

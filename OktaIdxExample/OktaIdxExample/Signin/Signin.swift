@@ -87,6 +87,9 @@ public class Signin {
         case .launchAuthenticator:
             return "Launch Authenticator"
             
+        case .cancel:
+            return "Restart"
+            
         default:
             return "Continue"
         }
