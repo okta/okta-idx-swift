@@ -11,8 +11,12 @@ jobs:
       - xcodebuild -workspace okta-idx.xcworkspace -scheme "okta-idx-ios" -destination "platform=iOS Simulator,OS=latest,name=iPhone 11" clean test
     - stage: Test
       name: iOS Automated Tests
+      before_script:
+      - ./scripts/setup-automation.sh
       script:
       - xcodebuild -workspace okta-idx.xcworkspace -scheme "OktaIdxExample" -destination "platform=iOS Simulator,OS=latest,name=iPhone 11" clean test
+      after_script:
+      - ./scripts/teardown-automation.sh
     - stage: Package Management
       name: Swift Package Manager
       script:

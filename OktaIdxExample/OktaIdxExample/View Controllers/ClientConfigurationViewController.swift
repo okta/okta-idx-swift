@@ -19,44 +19,42 @@ extension ClientConfiguration {
         return IDXClient.Configuration(issuer: issuer,
                                        clientId: clientId,
                                        clientSecret: nil,
-                                       scopes: ["openid", "profile", "offline_access"],
+                                       scopes: scopes.components(separatedBy: .whitespaces),
                                        redirectUri: redirectUri)
     }
 }
 
-class ViewController: UIViewController {
+class ClientConfigurationViewController: UIViewController {
     @IBOutlet weak var issuerField: UITextField!
     @IBOutlet weak var clientIdField: UITextField!
+    @IBOutlet weak var scopesField: UITextField!
     @IBOutlet weak var redirectField: UITextField!
-    private var signin: Signin?
-    var configuration: ClientConfiguration? = nil
+    var configuration: ClientConfiguration? = ClientConfiguration.active
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configuration = ClientConfiguration.launchConfiguration ?? ClientConfiguration.userDefaults
         issuerField.text = configuration?.issuer
         clientIdField.text = configuration?.clientId
+        scopesField.text = configuration?.scopes
         redirectField.text = configuration?.redirectUri
         
         issuerField.accessibilityIdentifier = "issuerField"
         clientIdField.accessibilityIdentifier = "clientIdField"
+        scopesField.accessibilityIdentifier = "scopesField"
         redirectField.accessibilityIdentifier = "redirectField"
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(backgroundTapped)))
     }
     
-    @objc func backgroundTapped() {
-        view.endEditing(true)
+    @IBAction func cancelAction(_ sender: Any) {
+        dismiss(animated: true)
     }
     
-    func loginComplete(with token: IDXClient.Token) {
-        print("Authenticated with \(token)")
-    }
-
-    @IBAction func logIn(_ sender: Any) {
+    @IBAction func doneAction(_ sender: Any) {
         guard let issuerUrl = issuerField.text,
               let clientId = clientIdField.text,
+              let scopes = scopesField.text,
               let redirectUri = redirectField.text else
         {
             let alert = UIAlertController(title: "Invalid configuration",
@@ -70,26 +68,20 @@ class ViewController: UIViewController {
         configuration = ClientConfiguration(clientId: clientId,
                                             issuer: issuerUrl,
                                             redirectUri: redirectUri,
+                                            scopes: scopes,
                                             shouldSave: true)
         configuration?.save()
-        
-        guard let config = configuration?.idxConfiguration else {
-            return
-        }
-        
-        signin = Signin(using: config)
-        signin?.signin(from: self) { [weak self] (token, error) in
-            if let error = error {
-                print("Could not sign in: \(error)")
-            } else {
-                guard let controller = self?.storyboard?.instantiateViewController(identifier: "TokenResult") as? TokenResultViewController else { return }
-                controller.client = self?.signin?.idx
-                controller.token = token
-                self?.navigationController?.pushViewController(controller, animated: true)
-            }
-        }
+        dismiss(animated: true)
     }
     
+    @objc func backgroundTapped() {
+        view.endEditing(true)
+    }
+    
+    func loginComplete(with token: IDXClient.Token) {
+        print("Authenticated with \(token)")
+    }
+
     @IBAction func dumpRequestLog(_ sender: Any) {
         print(URLSessionAudit.shared)
     }
@@ -99,16 +91,17 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension ClientConfigurationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case issuerField:
             clientIdField.becomeFirstResponder()
         case clientIdField:
+            scopesField.becomeFirstResponder()
+        case scopesField:
             redirectField.becomeFirstResponder()
         case redirectField:
             redirectField.resignFirstResponder()
-            logIn(redirectField as Any)
             
         default: break
         }

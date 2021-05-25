@@ -53,19 +53,6 @@ class IDXClientV1ResponseTests: XCTestCase {
             }
         """)
     }
-    
-    func data(for json: String) -> Data {
-        return json.data(using: .utf8)!
-    }
-    
-    func decode<T>(type: T.Type, _ json: String) throws -> T where T : Decodable {
-        let jsonData = data(for: json)
-        return try JSONDecoder.idxResponseDecoder.decode(T.self, from: jsonData)
-    }
-
-    func decode<T>(type: T.Type, _ json: String, _ test: ((T) throws -> Void)) throws where T : Decodable {
-        try test(try decode(type: type, json))
-    }
 
     func testForm() throws {
         let obj = try decode(type: API.Response.Form.self, """

@@ -23,6 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .filter({ $0.responds(to: setHardwareLayout) })
             .forEach { $0.perform(setHardwareLayout, with: nil) }
         #endif
+        
+        for argument in ProcessInfo.processInfo.arguments {
+            switch argument {
+            case "--reset-user":
+                UserManager.shared.current = nil
+            default: break
+            }
+        }
 
         return true
     }

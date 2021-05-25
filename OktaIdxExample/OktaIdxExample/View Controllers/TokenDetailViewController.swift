@@ -13,7 +13,7 @@
 import UIKit
 import OktaIdx
 
-class TokenResultViewController: UIViewController {
+class TokenDetailViewController: UIViewController {
     var client: IDXClient?
     var token: IDXClient.Token?
     
@@ -56,44 +56,5 @@ class TokenResultViewController: UIViewController {
         }
         
         textView.attributedText = string
-    }
-    
-    @IBAction func revokeAction(_ sender: Any) {
-        guard let client = self.client,
-              let token = self.token
-        else { return }
-        let prompt = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        prompt.addAction(.init(title: "All Tokens", style: .default) { (alert) in
-            client.revoke(token: token, type: .accessAndRefreshToken) { (response, error) in
-                DispatchQueue.main.async {
-                    self.tokenRevoked(response, error: error)
-                }
-            }
-        })
-        prompt.addAction(.init(title: "Refresh Token", style: .default) { (alert) in
-            client.revoke(token: token, type: .refreshToken) { (response, error) in
-                DispatchQueue.main.async {
-                    self.tokenRevoked(response, error: error)
-                }
-            }
-        })
-        prompt.addAction(.init(title: "Cancel", style: .cancel))
-        present(prompt, animated: true)
-    }
-    
-    func tokenRevoked(_ success: Bool, error: Error?) {
-        let alert: UIAlertController
-        if success {
-            alert = .init(title: "Token revoked",
-                          message: "Your token has been revoked successfully",
-                          preferredStyle: .alert)
-        } else {
-            alert = .init(title: "Revoke failed",
-                          message: error?.localizedDescription ?? "Could not revoke your token",
-                          preferredStyle: .alert)
-        }
-        
-        alert.addAction(.init(title: "OK", style: .default))
-        present(alert, animated: true)
     }
 }

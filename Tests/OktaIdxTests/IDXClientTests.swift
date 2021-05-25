@@ -144,7 +144,7 @@ class IDXClientTests: XCTestCase {
         
         // revoke()
         expect = expectation(description: "revoke(token:type:completion:)")
-        client.revoke(token: "token", type: .refreshToken) { (_, _) in
+        IDXClient.Token.revoke(token: "token", type: .refreshToken, api: api) { (_, _) in
             called = true
             expect.fulfill()
         }
@@ -155,22 +155,6 @@ class IDXClientTests: XCTestCase {
         XCTAssertEqual(call?.arguments?.count, 2)
         XCTAssertEqual(call?.arguments?["token"] as! String, "token")
         XCTAssertEqual(call?.arguments?["type"] as! String, "refresh_token")
-        api.reset()
-
-        // revoke(WithToken)
-        let token = IDXClient.Token(accessToken: "access", refreshToken: "refresh", expiresIn: 100, idToken: nil, scope: "", tokenType: "type")
-        expect = expectation(description: "revoke(token:type:completion:)")
-        client.revoke(token: token, type: .accessAndRefreshToken) { (_, _) in
-            called = true
-            expect.fulfill()
-        }
-        wait(for: [ expect ], timeout: 1)
-        XCTAssertTrue(called)
-        call = api.recordedCalls.last
-        XCTAssertEqual(call?.function, "revoke(token:type:completion:)")
-        XCTAssertEqual(call?.arguments?.count, 2)
-        XCTAssertEqual(call?.arguments?["token"] as! String, "access")
-        XCTAssertEqual(call?.arguments?["type"] as! String, "access_token")
         api.reset()
 
         // redirectResult()

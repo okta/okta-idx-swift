@@ -168,7 +168,12 @@ extension IDXClient.Token {
                                          expiresIn: 3600,
                                          idToken: nil,
                                          scope: "all",
-                                         tokenType: "Bearer")
+                                         tokenType: "Bearer",
+                                         configuration: .init(issuer: "issuer",
+                                                              clientId: "clientId",
+                                                              clientSecret: nil,
+                                                              scopes: ["all"],
+                                                              redirectUri: "redirect://uri"))
 }
 
 extension IDXClient.Remediation.Form.Field {

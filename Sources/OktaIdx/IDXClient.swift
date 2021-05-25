@@ -122,41 +122,6 @@ public final class IDXClient: NSObject {
 
         self.api.client = self
     }
-    
-    /// Revokes the given token.
-    /// - Parameters:
-    ///   - token: Token object to revoke.
-    ///   - type: The type to revoke (e.g. access token, or refresh token)
-    ///   - completion: Completion handler for when the token is revoked.
-    @objc(revokeToken:type:completion:)
-    public func revoke(token: Token, type: Token.RevokeType, completion: @escaping(_ successful: Bool, _ error: Error?) -> Void) {
-        let selectedToken: String?
-        switch type {
-        case .refreshToken:
-            selectedToken = token.refreshToken
-        case .accessAndRefreshToken:
-            selectedToken = token.accessToken
-        }
-        
-        guard let tokenString = selectedToken else {
-            completion(false, IDXClientError.invalidParameter(name: "token"))
-            return
-        }
-        
-        revoke(token: tokenString, type: type, completion: completion)
-    }
-
-    /// Revokes the given token using the string value of the token.
-    /// - Parameters:
-    ///   - token: Token string to revoke.
-    ///   - type: The type to revoke (e.g. access token, or refresh token)
-    ///   - completion: Completion handler for when the token is revoked.
-    @objc(revokeTokenWithString:type:completion:)
-    public func revoke(token: String, type: Token.RevokeType, completion: @escaping(_ successful: Bool, _ error: Error?) -> Void) {
-        api.revoke(token: token, type: type.tokenTypeHint) { (success, error) in
-            completion(success, error)
-        }
-    }
 }
 
 /// Delegate protocol that can be used to receive updates from the IDXClient through the process of a user's authentication.

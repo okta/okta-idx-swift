@@ -69,7 +69,8 @@ class IDXClientDelegateTests: XCTestCase {
                                 expiresIn: 10,
                                 idToken: "id",
                                 scope: "scope",
-                                tokenType: "type")
+                                tokenType: "type",
+                                configuration: context.configuration)
         response = IDXClient.Response(client: client,
                                       expiresAt: Date(),
                                       intent: .login,

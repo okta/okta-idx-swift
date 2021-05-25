@@ -232,7 +232,7 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
                 return
             }
             
-            completion(IDXClient.Token(v1: response), nil)
+            completion(IDXClient.Token(v1: response, configuration: self.configuration), nil)
         }
     }
 }

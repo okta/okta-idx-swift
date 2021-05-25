@@ -20,6 +20,7 @@ extension IDXClient.Token: NSSecureCoding {
         case idToken
         case scope
         case tokenType
+        case configuration
     }
 
     public static var supportsSecureCoding: Bool {
@@ -36,7 +37,9 @@ extension IDXClient.Token: NSSecureCoding {
               expiresIn == object.expiresIn,
               idToken == object.idToken,
               scope == object.scope,
-              tokenType == object.tokenType else { return false }
+              tokenType == object.tokenType,
+              configuration == object.configuration
+        else { return false }
         return true
     }
     
@@ -47,6 +50,7 @@ extension IDXClient.Token: NSSecureCoding {
         coder.encode(idToken, forKey: Keys.idToken.rawValue)
         coder.encode(scope, forKey: Keys.scope.rawValue)
         coder.encode(tokenType, forKey: Keys.tokenType.rawValue)
+        coder.encode(configuration, forKey: Keys.configuration.rawValue)
     }
     
     public convenience init?(coder: NSCoder) {
@@ -55,7 +59,9 @@ extension IDXClient.Token: NSSecureCoding {
               let scope = coder.decodeObject(of: [NSString.self],
                                              forKey: Keys.scope.rawValue) as? String,
               let tokenType = coder.decodeObject(of: [NSString.self],
-                                                 forKey: Keys.tokenType.rawValue) as? String else
+                                                 forKey: Keys.tokenType.rawValue) as? String,
+              let configuration = coder.decodeObject(of: [IDXClient.Configuration.self],
+                                                     forKey: Keys.configuration.rawValue) as? IDXClient.Configuration else
         {
             return nil
         }
@@ -70,6 +76,7 @@ extension IDXClient.Token: NSSecureCoding {
                   expiresIn: expiresIn,
                   idToken: idToken,
                   scope: scope,
-                  tokenType: tokenType)
+                  tokenType: tokenType,
+                  configuration: configuration)
     }
 }

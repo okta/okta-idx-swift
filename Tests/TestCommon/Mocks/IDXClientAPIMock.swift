@@ -83,17 +83,6 @@ class IDXClientAPIMock: MockBase, IDXClientAPI {
         
         return .authenticated
     }
-    
-    func revoke(token: String, type: IDXClient.Token.RevokeType, completion: @escaping (Bool, Error?) -> Void) {
-        recordedCalls.append(RecordedCall(function: #function,
-                                          arguments: [
-                                            "token": token as Any,
-                                            "type": type as Any
-                                          ]))
-        let result = self.response(for: #function)
-        completion(result?["success"] as? Bool ?? true, result?["error"] as? Error)
-    }
-    
 }
 
 class IDXClientAPIv1Mock: MockBase, IDXClientAPIImpl {

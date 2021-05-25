@@ -34,10 +34,61 @@ extension IDXClient {
         /// The type of this token.
         @objc public let tokenType: String
 
+        /// The configuration used when this token was created
+        @objc public let configuration: Configuration
+
         /// The possible token types that can be revoked.
         @objc public enum RevokeType: Int {
             case refreshToken
             case accessAndRefreshToken
+        }
+        
+        /// Revokes the token.
+        /// - Parameters:
+        ///   - type: The type to revoke (e.g. access token, or refresh token).
+        ///   - completion: Completion handler for when the token is revoked.
+        @objc(revokeToken:completion:)
+        public func revoke(type: Token.RevokeType = .accessAndRefreshToken, completion: @escaping(_ successful: Bool, _ error: Error?) -> Void) {
+            let selectedToken: String?
+            switch type {
+            case .refreshToken:
+                selectedToken = refreshToken
+            case .accessAndRefreshToken:
+                selectedToken = accessToken
+            }
+            
+            guard let tokenString = selectedToken else {
+                completion(false, IDXClientError.invalidParameter(name: "token"))
+                return
+            }
+            
+            Token.revoke(token: tokenString, type: type, configuration: configuration, completion: completion)
+        }
+
+        /// Revokes the given token using the string value of the token.
+        /// - Parameters:
+        ///   - token: Token string to revoke.
+        ///   - type: The type to revoke (e.g. access token, or refresh token).
+        ///   - configuration: The client configuration used when the token was created.
+        ///   - completion: Completion handler for when the token is revoked.
+        @objc(revokeToken:type:configuration:completion:)
+        public static func revoke(token: String,
+                                  type: Token.RevokeType,
+                                  configuration: Configuration,
+                                  completion: @escaping(_ successful: Bool, _ error: Error?) -> Void)
+        {
+            let api = IDXClient.Version.latest.clientImplementation(with: configuration)
+            revoke(token: token, type: type, api: api, completion: completion)
+        }
+
+        static func revoke(token: String,
+                           type: Token.RevokeType,
+                           api: IDXClientAPIImpl,
+                           completion: @escaping(_ successful: Bool, _ error: Error?) -> Void)
+        {
+            api.revoke(token: token, type: type.tokenTypeHint) { (success, error) in
+                completion(success, error)
+            }
         }
 
         internal init(accessToken: String,
@@ -45,7 +96,8 @@ extension IDXClient {
                       expiresIn: TimeInterval,
                       idToken: String?,
                       scope: String,
-                      tokenType: String)
+                      tokenType: String,
+                      configuration: Configuration)
         {
             self.accessToken = accessToken
             self.refreshToken = refreshToken
@@ -53,6 +105,7 @@ extension IDXClient {
             self.idToken = idToken
             self.scope = scope
             self.tokenType = tokenType
+            self.configuration = configuration
             
             super.init()
         }
