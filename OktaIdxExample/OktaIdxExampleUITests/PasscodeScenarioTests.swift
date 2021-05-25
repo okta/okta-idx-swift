@@ -12,69 +12,94 @@
 
 import XCTest
 
-class PasscodeScenarioTests: XCTestCase {
-    let credentials = TestCredentials(with: .passcode)
-
+final class PasscodeScenarioTests: XCTestCase {
+    private var app: XCUIApplication!
+    
     override func setUpWithError() throws {
-        try XCTSkipIf(credentials == nil)
+        app = XCUIApplication()
         
-        let app = XCUIApplication()
+        let credentials: TestingCredentials = try XCTUnwrap(PasswordCredentials(scenario: .regural))
+        // These parameters are the same for all scenarios of Passcode feature.
         app.launchArguments = [
-            "--clientId \"\(credentials!.clientId)\"",
-            "--issuer \"\(credentials!.issuerUrl)\"",
-            "--scopes \"\(credentials!.scopes)\"",
-            "--redirectUri \"\(credentials!.redirectUri)\"",
+            "--clientId \"\(credentials.clientId)\"",
+            "--issuer \"\(credentials.issuerUrl)\"",
+            "--scopes \"\(credentials.scopes)\"",
+            "--redirectUri \"\(credentials.redirectUri)\"",
             "--reset-user"
         ]
+        
         app.launch()
 
         continueAfterFailure = false
         
-        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials!.clientId)")
+        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials.clientId)")
     }
 
     func testSuccessfulPasscode() throws {
-        let credentials = try XCTUnwrap(self.credentials)
-
-        let app = XCUIApplication()
-        app.buttons["Sign In"].tap()
-
-        // Username
-        XCTAssertTrue(app.staticTexts["identifier.label"].waitForExistence(timeout: 5.0))
-        XCTAssertEqual(app.staticTexts["identifier.label"].label, "Username")
-        XCTAssertEqual(app.staticTexts["rememberMe.label"].label, "Remember this device")
+        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .regural))
         
-        let usernameField = app.textFields["identifier.field"]
-        XCTAssertEqual(usernameField.value as? String, "")
-        if !usernameField.isFocused {
-            usernameField.tap()
-        }
-        usernameField.typeText(credentials.username)
-
-        app.buttons["Next"].tap()
-        
-        // Password
-        XCTAssertTrue(app.staticTexts["passcode.label"].waitForExistence(timeout: 5.0))
-        XCTAssertEqual(app.staticTexts["passcode.label"].label, "Password")
-        
-        let passwordField = app.secureTextFields["passcode.field"]
-        XCTAssertEqual(passwordField.value as? String, "")
-        if !passwordField.isFocused {
-            passwordField.tap()
-        }
-        passwordField.typeText(credentials.password)
-
-        app.buttons["Continue"].tap()
+        signIn(username: credentials.username, password: credentials.password)
         
         // Token
-        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: 5.0))
+        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: 15.0))
         XCTAssertTrue(app.tables.cells["username"].staticTexts[credentials.username].exists)
     }
+    
+    func testIncorrectUsername() throws {
+        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .regural))
+        
+        signIn(username: "incorrect.username", password: credentials.username)
 
-    func testUnsuccessfulPasscode() throws {
-        let credentials = try XCTUnwrap(self.credentials)
+        let incorrectUsernameAlert = app.alerts.staticTexts["You do not have permission to perform the requested action."]
+        XCTAssertTrue(incorrectUsernameAlert.waitForExistence(timeout: 5.0))
+    }
 
-        let app = XCUIApplication()
+    func testIncorrectPassword() throws {
+        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .regural))
+        
+        signIn(username: credentials.username, password: "InvalidPassword")
+
+        let incorrectPasswordLabel = app.tables.staticTexts["Authentication failed"]
+        XCTAssertTrue(incorrectPasswordLabel.waitForExistence(timeout: 5.0))
+    }
+    
+    func testNotAssignedUser() throws {
+        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .notAssigned))
+        
+        signIn(username: credentials.username, password: credentials.password)
+
+        let notAssignedUserLabel = app.tables.staticTexts["User is not assigned to this application"]
+        XCTAssertTrue(notAssignedUserLabel.waitForExistence(timeout: 5.0))
+    }
+    
+    func testSuspendedUser() throws {
+        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .suspended))
+        
+        signIn(username: credentials.username, password: credentials.password)
+
+        let suspendedUserLabel = app.tables.staticTexts["Authentication failed"]
+        XCTAssertTrue(suspendedUserLabel.waitForExistence(timeout: 5.0))
+    }
+    
+    func testLockedUser() throws {
+        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .locked))
+        
+        signIn(username: credentials.username, password: credentials.password)
+
+        let lockedUserLabel = app.tables.staticTexts["Authentication failed"]
+        XCTAssertTrue(lockedUserLabel.waitForExistence(timeout: 5.0))
+    }
+    
+    func testDeactivatedUser() throws {
+        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .deactivated))
+        
+        signIn(username: credentials.username, password: credentials.password)
+
+        let deactivatedUserLabel = app.tables.staticTexts["User is not assigned to this application"]
+        XCTAssertTrue(deactivatedUserLabel.waitForExistence(timeout: 5.0))
+    }
+    
+    private func signIn(username: String, password: String) {
         app.buttons["Sign In"].tap()
 
         // Username
@@ -87,9 +112,7 @@ class PasscodeScenarioTests: XCTestCase {
         if !usernameField.isFocused {
             usernameField.tap()
         }
-        usernameField.typeText(credentials.username)
-
-        app.buttons["Next"].tap()
+        usernameField.typeText(username)
         
         // Password
         XCTAssertTrue(app.staticTexts["passcode.label"].waitForExistence(timeout: 5.0))
@@ -100,12 +123,14 @@ class PasscodeScenarioTests: XCTestCase {
         if !passwordField.isFocused {
             passwordField.tap()
         }
-        passwordField.typeText("InvalidPassword")
+        
+        passwordField.press(forDuration: 1.3)
+        UIPasteboard.general.string = password
+        passwordField.doubleTap()
+        app.menuItems["Paste"].tap()
+        
+        sleep(1)
 
-        app.buttons["Continue"].tap()
-
-        let incorrectPasswordLabel = app.tables.staticTexts["Password is incorrect"]
-        XCTAssertTrue(incorrectPasswordLabel.waitForExistence(timeout: 5.0))
-        XCTAssertTrue(incorrectPasswordLabel.exists)
+        app.buttons["Next"].tap()
     }
 }

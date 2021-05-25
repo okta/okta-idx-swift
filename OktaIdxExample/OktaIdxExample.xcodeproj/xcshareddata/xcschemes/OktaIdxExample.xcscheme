@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "NO">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -75,6 +84,46 @@
          <EnvironmentVariable
             key = "PASSCODE_PASSWORD"
             value = "$(PASSCODE_PASSWORD)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "PASSCODE_NOT_ASSIGNED_USERNAME"
+            value = "$(PASSCODE_NOT_ASSIGNED_USERNAME)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "PASSCODE_NOT_ASSIGNED_PASSWORD"
+            value = "$(PASSCODE_NOT_ASSIGNED_PASSWORD)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "PASSCODE_LOCKED_USERNAME"
+            value = "$(PASSCODE_LOCKED_USERNAME)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "PASSCODE_LOCKED_PASSWORD"
+            value = "$(PASSCODE_LOCKED_PASSWORD)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "PASSCODE_DEACTIVATED_USERNAME"
+            value = "$(PASSCODE_DEACTIVATED_USERNAME)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "PASSCODE_DEACTIVATED_PASSWORD"
+            value = "$(PASSCODE_DEACTIVATED_PASSWORD)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "PASSCODE_SUSPENDED_USERNAME"
+            value = "$(PASSCODE_SUSPENDED_USERNAME)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "PASSCODE_SUSPENDED_PASSWORD"
+            value = "$(PASSCODE_SUSPENDED_PASSWORD)"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

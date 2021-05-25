@@ -32,7 +32,7 @@ class ResetTransactionScenarioTests: XCTestCase {
         XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials!.clientId)")
     }
 
-    func testCancelMFARemediation() throws {
+    func DISABLED_testCancelMFARemediation() throws {
         let credentials = try XCTUnwrap(self.credentials)
 
         let app = XCUIApplication()
