@@ -126,7 +126,6 @@ final class PasscodeScenarioTests: XCTestCase {
         
         passwordField.press(forDuration: 1.3)
         UIPasteboard.general.string = password
-        passwordField.doubleTap()
         app.menuItems["Paste"].tap()
         
         sleep(1)

@@ -54,6 +54,7 @@ struct TestCredentials {
               let username = env[scenario.usernameKey],
               let password = env[scenario.passwordKey] else
         {
+            assertionFailure("Make sure all parameters exist.")
             return nil
         }
         
