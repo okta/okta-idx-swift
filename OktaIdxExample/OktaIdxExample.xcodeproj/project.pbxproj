@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9235837126613C7D003496CB /* ResetTransactionScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */; };
 		928DF4CE265BF74A009DB2AC /* PasswordCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928DF4CD265BF74A009DB2AC /* PasswordCredentials.swift */; };
 		92BB11B525E6B51F005D13FA /* IDXWebSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BB11B425E6B51F005D13FA /* IDXWebSessionViewController.swift */; };
 		964D59EE2657121000DDBCBB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59ED2657121000DDBCBB /* Notifications.swift */; };
@@ -20,7 +21,6 @@
 		964F745C25A3E5F2003EE300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964F745B25A3E5F2003EE300 /* Assets.xcassets */; };
 		964F745F25A3E5F2003EE300 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964F745D25A3E5F2003EE300 /* LaunchScreen.storyboard */; };
 		964F746A25A3E5F3003EE300 /* OktaIdxExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F746925A3E5F3003EE300 /* OktaIdxExampleTests.swift */; };
-		964F747525A3E5F3003EE300 /* PasscodeScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F747425A3E5F3003EE300 /* PasscodeScenarioTests.swift */; };
 		964F748725A3E602003EE300 /* OktaIdx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964F748625A3E602003EE300 /* OktaIdx.framework */; };
 		964F748825A3E602003EE300 /* OktaIdx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 964F748625A3E602003EE300 /* OktaIdx.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9652D9CA25A9142600927FA5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652D9C925A9142600927FA5 /* UIView+Extensions.swift */; };
@@ -54,7 +54,6 @@
 		96E0A78D260500080002933C /* IDXSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0A78C260500080002933C /* IDXSeparatorTableViewCell.swift */; };
 		96E0A791260505F30002933C /* IDXTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0A790260505F30002933C /* IDXTitleTableViewCell.swift */; };
 		96F8B34925BB556500DAECDC /* IDXPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B34825BB556500DAECDC /* IDXPickerTableViewCell.swift */; };
-		96F8B35F25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -572,8 +571,7 @@
 				96C51E9A25BA5A3F007A2519 /* Credentials.swift in Sources */,
 				965A112F26547EC1006B784F /* A18NProfile.swift in Sources */,
 				928DF4CE265BF74A009DB2AC /* PasswordCredentials.swift in Sources */,
-				96F8B35F25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift in Sources */,
-				964F747525A3E5F3003EE300 /* PasscodeScenarioTests.swift in Sources */,
+				9235837126613C7D003496CB /* ResetTransactionScenarioTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

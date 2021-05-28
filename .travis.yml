@@ -3,6 +3,7 @@ os: osx
 osx_image: xcode12.2
 before_install:
   - touch TestCredentials.xcconfig
+  - brew install jq
 jobs:
   include:
     - stage: Test
