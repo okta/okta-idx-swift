@@ -28,7 +28,7 @@ extension IDXClient {
             return allMessages.first(where: { $0.field?.name == fieldName })
         }
         
-        var allMessages: [Message] {
+        @objc public var allMessages: [Message] {
             guard let nestedMessages = nestedMessages else { return messages }
             return messages + nestedMessages.compactMap { $0.object }
         }

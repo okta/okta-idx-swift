@@ -134,10 +134,26 @@ extension IDXClient {
         
         /// Describes a password authenticator.
         @objc(IDXPasswordAuthenticator)
-        public class Password: Authenticator {
+        public class Password: Authenticator, Recoverable {
             
             /// Provides details about the password complexity settings for this authenticator.
             @objc public let settings: Settings?
+            
+            public var canRecover: Bool { recoverOption != nil }
+            
+            public func recover(completion: IDXClient.ResponseResult?) {
+                guard let client = client else {
+                    completion?(nil, IDXClientError.invalidClient)
+                    return
+                }
+                
+                guard let recoverOption = recoverOption else {
+                    completion?(nil, nil) // TODO: Send error
+                    return
+                }
+                
+                client.proceed(remediation: recoverOption, completion: completion)
+            }
             
             @objc(IDXPasswordSettings)
             public class Settings: NSObject {
@@ -172,6 +188,8 @@ extension IDXClient {
                 }
             }
             
+            internal let recoverOption: IDXClient.Remediation?
+            
             internal init(client: IDXClientAPI,
                           v1JsonPaths: [String],
                           state: State,
@@ -180,9 +198,11 @@ extension IDXClient {
                           type: String,
                           key: String?,
                           methods: [[String:String]]?,
-                          settings: Settings?)
+                          settings: Settings?,
+                          recoverOption: IDXClient.Remediation?)
             {
                 self.settings = settings
+                self.recoverOption = recoverOption
 
                 super.init(client: client,
                            v1JsonPaths: v1JsonPaths,

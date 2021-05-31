@@ -77,18 +77,6 @@ class ClientConfigurationViewController: UIViewController {
     @objc func backgroundTapped() {
         view.endEditing(true)
     }
-    
-    func loginComplete(with token: IDXClient.Token) {
-        print("Authenticated with \(token)")
-    }
-
-    @IBAction func dumpRequestLog(_ sender: Any) {
-        print(URLSessionAudit.shared)
-    }
-
-    @IBAction func resetRequestLog(_ sender: Any) {
-        URLSessionAudit.shared.reset()
-    }
 }
 
 extension ClientConfigurationViewController: UITextFieldDelegate {
