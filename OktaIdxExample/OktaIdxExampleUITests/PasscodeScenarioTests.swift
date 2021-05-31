@@ -18,7 +18,7 @@ final class PasscodeScenarioTests: XCTestCase {
     override func setUpWithError() throws {
         app = XCUIApplication()
         
-        let credentials: TestingCredentials = try XCTUnwrap(PasswordCredentials(scenario: .regural))
+        let credentials = try XCTUnwrap(TestCredentials(with: .passcode))
         // These parameters are the same for all scenarios of Passcode feature.
         app.launchArguments = [
             "--clientId \"\(credentials.clientId)\"",
@@ -36,7 +36,7 @@ final class PasscodeScenarioTests: XCTestCase {
     }
 
     func testSuccessfulPasscode() throws {
-        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .regural))
+        let credentials = try XCTUnwrap(TestCredentials(with: .passcode))
         
         signIn(username: credentials.username, password: credentials.password)
         
@@ -46,7 +46,7 @@ final class PasscodeScenarioTests: XCTestCase {
     }
     
     func testIncorrectUsername() throws {
-        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .regural))
+        let credentials = try XCTUnwrap(TestCredentials(with: .passcode))
         
         signIn(username: "incorrect.username", password: credentials.username)
 
@@ -55,48 +55,12 @@ final class PasscodeScenarioTests: XCTestCase {
     }
 
     func testIncorrectPassword() throws {
-        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .regural))
+        let credentials = try XCTUnwrap(TestCredentials(with: .passcode))
         
         signIn(username: credentials.username, password: "InvalidPassword")
 
         let incorrectPasswordLabel = app.tables.staticTexts["Authentication failed"]
         XCTAssertTrue(incorrectPasswordLabel.waitForExistence(timeout: 5.0))
-    }
-    
-    func testNotAssignedUser() throws {
-        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .notAssigned))
-        
-        signIn(username: credentials.username, password: credentials.password)
-
-        let notAssignedUserLabel = app.tables.staticTexts["User is not assigned to this application"]
-        XCTAssertTrue(notAssignedUserLabel.waitForExistence(timeout: 5.0))
-    }
-    
-    func testSuspendedUser() throws {
-        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .suspended))
-        
-        signIn(username: credentials.username, password: credentials.password)
-
-        let suspendedUserLabel = app.tables.staticTexts["Authentication failed"]
-        XCTAssertTrue(suspendedUserLabel.waitForExistence(timeout: 5.0))
-    }
-    
-    func testLockedUser() throws {
-        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .locked))
-        
-        signIn(username: credentials.username, password: credentials.password)
-
-        let lockedUserLabel = app.tables.staticTexts["Authentication failed"]
-        XCTAssertTrue(lockedUserLabel.waitForExistence(timeout: 5.0))
-    }
-    
-    func testDeactivatedUser() throws {
-        let credentials = try XCTUnwrap(PasswordCredentials(scenario: .deactivated))
-        
-        signIn(username: credentials.username, password: credentials.password)
-
-        let deactivatedUserLabel = app.tables.staticTexts["User is not assigned to this application"]
-        XCTAssertTrue(deactivatedUserLabel.waitForExistence(timeout: 5.0))
     }
     
     private func signIn(username: String, password: String) {
