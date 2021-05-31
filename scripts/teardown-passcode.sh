@@ -10,4 +10,4 @@ if [[ -z $OKTA_DOMAIN ]]; then
     exit 1
 fi
 
-./oktamate users delete -k $OKTA_API_KEY -d $OKTA_DOMAIN $PASSCODE_USERNAME
+./scripts/oktamate users delete -k $OKTA_API_KEY -d $OKTA_DOMAIN $PASSCODE_USERNAME
