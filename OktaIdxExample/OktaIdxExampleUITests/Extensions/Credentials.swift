@@ -45,12 +45,12 @@ struct TestCredentials {
 
     init?(with scenario: Scenario) {
         let env = ProcessInfo.processInfo.environment
+       
         guard let clientId = env["CLIENT_ID"],
               let issuer = env["ISSUER_DOMAIN"],
               let scopes = env["SCOPES"],
               let redirectUri = env["REDIRECT_URI"],
               let a18nAPIKey = env["A18N_API_KEY"],
-              let a18nProfileId = env["A18N_PROFILE_ID"],
               let username = env[scenario.usernameKey],
               let password = env[scenario.passwordKey] else
         {
@@ -63,12 +63,13 @@ struct TestCredentials {
               scopes != "",
               redirectUri != "",
               a18nAPIKey != "",
-              a18nProfileId != "",
               username != "",
               password != "" else
         {
             return nil
         }
+        
+        let a18nProfileId = env["A18N_PROFILE_ID"] ?? ""
         
         self.clientId = clientId
         self.issuer = issuer
