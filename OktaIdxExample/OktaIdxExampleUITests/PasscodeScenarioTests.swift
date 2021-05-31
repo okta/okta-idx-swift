@@ -48,9 +48,11 @@ final class PasscodeScenarioTests: XCTestCase {
     func testIncorrectUsername() throws {
         let credentials = try XCTUnwrap(TestCredentials(with: .passcode))
         
-        signIn(username: "incorrect.username", password: credentials.username)
+        let username = "incorrect.username@okta.com"
+        
+        signIn(username: username, password: credentials.username)
 
-        let incorrectUsernameAlert = app.alerts.staticTexts["You do not have permission to perform the requested action."]
+        let incorrectUsernameAlert = app.tables.staticTexts["There is no account with the Username \(username)."]
         XCTAssertTrue(incorrectUsernameAlert.waitForExistence(timeout: 5.0))
     }
 
@@ -88,7 +90,9 @@ final class PasscodeScenarioTests: XCTestCase {
             passwordField.tap()
         }
         
-        passwordField.press(forDuration: 1.3)
+        sleep(1)
+        
+        passwordField.doubleTap()
         UIPasteboard.general.string = password
         app.menuItems["Paste"].tap()
         

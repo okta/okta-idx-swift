@@ -38,27 +38,31 @@ struct ClientConfiguration {
         var redirectUri: String?
         var key: String?
         for argument in CommandLine.arguments {
-            if arguments.contains(argument) {
-                key = argument
-                continue
-            }
+            key = arguments.first { argument.hasPrefix($0) }
+            
+            let value = key
+                .flatMap { argument.replacingOccurrences(of: $0, with: "") }?
+                .replacingOccurrences(of: "\"", with: "")
+                .trimmingCharacters(in: .whitespacesAndNewlines)
             
             switch key {
             case "--issuer": fallthrough
             case "-i":
-                issuer = argument
+                issuer = value
                 
             case "--redirectUri": fallthrough
             case "-r":
-                redirectUri = argument
+                redirectUri = value
                 
             case "--clientId": fallthrough
             case "-c":
-                clientId = argument
+                clientId = value
                 
             case "--scopes": fallthrough
             case "-s":
-                scopes = argument
+                value.flatMap {
+                    scopes = $0
+                }
                 
             default: break
             }
