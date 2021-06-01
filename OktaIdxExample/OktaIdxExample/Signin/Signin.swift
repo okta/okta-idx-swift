@@ -68,18 +68,30 @@ public class Signin {
         }
         
         switch option.type {
-        case .identify:
-            return "Next"
-        
         case .skip:
             return "Skip"
             
         case .selectEnrollProfile: fallthrough
         case .enrollProfile:
-            return "Create Profile"
+            return "Sign Up"
             
-        case .selectIdentify:
-            return "Sign in"
+        case .selectIdentify: fallthrough
+        case .identify:
+            return "Sign In"
+            
+        case .redirectIdp:
+            guard let socialOption = option as? IDXClient.Remediation.SocialAuth else {
+                return "Social Login"
+            }
+
+            switch socialOption.service {
+            case .facebook:
+                return "Login with Facebook"
+            case .google:
+                return "Login with Google"
+            default:
+                return "Social Login"
+            }
             
         case .selectAuthenticatorAuthenticate:
             return "Choose"
@@ -160,18 +172,6 @@ public class Signin {
             guard let controller = storyboard.instantiateViewController(identifier: "get-token") as? UIViewController & IDXResponseController else { return nil }
             controller.signin = self
             controller.response = response
-            
-            return controller
-        }
-        
-        if let remediationOption = response.remediations[.redirectIdp] as? IDXClient.Remediation.SocialAuth {
-            guard let controller = storyboard.instantiateViewController(identifier: "idp-redirect") as? UIViewController & IDXWebSessionController else {
-                return nil
-            }
-            
-            controller.signin = self
-            controller.response = response
-            controller.redirectUrl = remediationOption.redirectUrl
             
             return controller
         }

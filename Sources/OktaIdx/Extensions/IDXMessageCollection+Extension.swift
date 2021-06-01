@@ -17,18 +17,18 @@ extension IDXClient.MessageCollection: Collection {
     public typealias Element = IDXClient.Message
 
     public var startIndex: Index {
-        allMessages.startIndex
+        messages.startIndex
     }
     
     public var endIndex: Index {
-        allMessages.endIndex
+        messages.endIndex
     }
 
     public subscript(index: Index) -> Element {
-        allMessages[index]
+        messages[index]
     }
     
     public func index(after i: Index) -> Index {
-        allMessages.index(after: i)
+        messages.index(after: i)
     }
 }

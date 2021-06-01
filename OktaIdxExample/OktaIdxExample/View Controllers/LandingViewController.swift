@@ -52,6 +52,21 @@ class LandingViewController: UIViewController {
         }
     }
     
+    @IBAction func debugAction(_ sender: Any) {
+        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionsheet.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+
+        actionsheet.addAction(.init(title: "Print request log to console", style: .default, handler: { _ in
+            print(URLSessionAudit.shared)
+        }))
+        actionsheet.addAction(.init(title: "Reset request log", style: .destructive, handler: { _ in
+            URLSessionAudit.shared.reset()
+        }))
+        actionsheet.addAction(.init(title: "Cancel", style: .cancel))
+        
+        present(actionsheet, animated: true)
+    }
+    
     @IBAction func logIn(_ sender: Any) {
         guard let signin = signin else {
             return

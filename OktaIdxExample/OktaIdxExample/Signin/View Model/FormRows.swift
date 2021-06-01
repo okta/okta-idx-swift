@@ -201,13 +201,16 @@ extension IDXClient.Response {
     func remediationForm(remediationOption: IDXClient.Remediation, in response: IDXClient.Response, delegate: AnyObject & SigninRowDelegate) -> Section {
         var rows: [Row] = []
         
-        if response.remediations.first == remediationOption {
+        // Based on which remediation option we're in, show either a title or separator
+        switch response.remediations.firstIndex(of: remediationOption) {
+        case 0:
             rows.append(Row(kind: .title(remediationOption: remediationOption), parent: nil, delegate: nil))
-        } else {
+        case 1:
             rows.append(Row(kind: .separator, parent: nil, delegate: nil))
+        default: break
         }
         
-        if !messages.isEmpty {
+        if !remediationOption.messages.isEmpty {
             rows.append(contentsOf: messages.map { message in
                 Row(kind: .message(style: .message(message: message)),
                     parent: nil,
