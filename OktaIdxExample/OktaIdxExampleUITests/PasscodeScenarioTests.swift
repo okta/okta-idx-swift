@@ -21,10 +21,10 @@ final class PasscodeScenarioTests: XCTestCase {
         let credentials = try XCTUnwrap(TestCredentials(with: .passcode))
         // These parameters are the same for all scenarios of Passcode feature.
         app.launchArguments = [
-            "--clientId \"\(credentials.clientId)\"",
-            "--issuer \"\(credentials.issuerUrl)\"",
-            "--scopes \"\(credentials.scopes)\"",
-            "--redirectUri \"\(credentials.redirectUri)\"",
+            "--clientId", credentials.clientId,
+            "--issuer", credentials.issuerUrl,
+            "--scopes", credentials.scopes,
+            "--redirectUri", credentials.redirectUri,
             "--reset-user"
         ]
         
@@ -41,7 +41,7 @@ final class PasscodeScenarioTests: XCTestCase {
         signIn(username: credentials.username, password: credentials.password)
         
         // Token
-        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: 15.0))
+        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: .testing))
         XCTAssertTrue(app.tables.cells["username"].staticTexts[credentials.username].exists)
     }
     
@@ -53,7 +53,7 @@ final class PasscodeScenarioTests: XCTestCase {
         signIn(username: username, password: credentials.username)
 
         let incorrectUsernameAlert = app.tables.staticTexts["There is no account with the Username \(username)."]
-        XCTAssertTrue(incorrectUsernameAlert.waitForExistence(timeout: 5.0))
+        XCTAssertTrue(incorrectUsernameAlert.waitForExistence(timeout: .testing))
     }
 
     func testIncorrectPassword() throws {
@@ -62,14 +62,14 @@ final class PasscodeScenarioTests: XCTestCase {
         signIn(username: credentials.username, password: "InvalidPassword")
 
         let incorrectPasswordLabel = app.tables.staticTexts["Authentication failed"]
-        XCTAssertTrue(incorrectPasswordLabel.waitForExistence(timeout: 5.0))
+        XCTAssertTrue(incorrectPasswordLabel.waitForExistence(timeout: .testing))
     }
     
     private func signIn(username: String, password: String) {
         app.buttons["Sign In"].tap()
 
         // Username
-        XCTAssertTrue(app.staticTexts["identifier.label"].waitForExistence(timeout: 5.0))
+        XCTAssertTrue(app.staticTexts["identifier.label"].waitForExistence(timeout: .testing))
         XCTAssertEqual(app.staticTexts["identifier.label"].label, "Username")
         XCTAssertEqual(app.staticTexts["rememberMe.label"].label, "Remember this device")
         
@@ -81,7 +81,7 @@ final class PasscodeScenarioTests: XCTestCase {
         usernameField.typeText(username)
         
         // Password
-        XCTAssertTrue(app.staticTexts["passcode.label"].waitForExistence(timeout: 5.0))
+        XCTAssertTrue(app.staticTexts["passcode.label"].waitForExistence(timeout: .testing))
         XCTAssertEqual(app.staticTexts["passcode.label"].label, "Password")
         
         let passwordField = app.secureTextFields["passcode.field"]
@@ -101,3 +101,4 @@ final class PasscodeScenarioTests: XCTestCase {
         app.buttons["Next"].tap()
     }
 }
+

@@ -17,3 +17,8 @@ extension XCUIElement {
         (self.value(forKey: "hasKeyboardFocus") as? Bool) ?? false
     }
 }
+
+extension TimeInterval {
+    static let testing: TimeInterval = 30
+    static let minimal: TimeInterval = testing * 0.5
+}

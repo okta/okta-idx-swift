@@ -132,7 +132,8 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         app.launchArguments = [
             "--clientId", credentials.clientId,
             "--issuer", credentials.issuerUrl,
-            "--redirectUri", credentials.redirectUri
+            "--redirectUri", credentials.redirectUri,
+            "--reset-user"
         ]
         app.launch()
 
