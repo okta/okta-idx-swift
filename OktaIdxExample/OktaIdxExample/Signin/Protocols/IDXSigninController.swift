@@ -15,25 +15,34 @@ import OktaIdx
 
 protocol IDXSigninController: class {
     var signin: Signin? { get set }
-    func showError(_ error: Error)
+    func showError(_ error: Error, recoverable: Bool)
 }
 extension IDXSigninController where Self: UIViewController {
-    func showError(_ error: Error) {
+    func showError(_ error: Error, recoverable: Bool = false) {
         if !Thread.isMainThread {
             DispatchQueue.main.async {
-                self.showError(error)
+                self.showError(error, recoverable: recoverable)
             }
             return
         }
         
+        let alert = UIAlertController(title: "Login error",
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
         let parentController = navigationController?.presentingViewController
-        dismiss(animated: true) {
-            let alert = UIAlertController(title: "Login error",
-                                          message: error.localizedDescription,
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            parentController?.present(alert, animated: true) {
-                self.signin?.failure(with: error)
+        if recoverable {
+            parentController?.present(alert, animated: true)
+        } else {
+            dismiss(animated: true) {
+                let alert = UIAlertController(title: "Login error",
+                                              message: error.localizedDescription,
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                parentController?.present(alert, animated: true) {
+                    self.signin?.failure(with: error)
+                }
             }
         }
     }
@@ -41,8 +50,4 @@ extension IDXSigninController where Self: UIViewController {
 
 protocol IDXResponseController: IDXSigninController {
     var response: IDXClient.Response? { get set }
-}
-
-protocol IDXWebSessionController: IDXResponseController {
-    var redirectUrl: URL? { get set }
 }

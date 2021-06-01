@@ -89,11 +89,18 @@ extension IDXClient.Remediation: IDXHasRelatedObjects {
     var jsonPaths: [String] { [] }
     
     func findRelatedObjects(using jsonMapping: [String: IDXHasRelatedObjects]) {
-        guard let relatesTo = relatesTo else { return }
-        let authenticatorObjects = relatesTo.compactMap({ (jsonPath) -> IDXClient.Authenticator? in
+        var authenticatorObjects = relatesTo?.compactMap({ (jsonPath) -> IDXClient.Authenticator? in
             guard let authenticator = jsonMapping[jsonPath] as? IDXClient.Authenticator else { return nil }
             return authenticator
-        })
+        }) ?? []
+        
+        // Work-around for 
+        if let currentAuthenticator = jsonMapping["$.currentAuthenticator"] as? IDXClient.Authenticator,
+           currentAuthenticator.type == .password,
+           type == .identify
+        {
+            authenticatorObjects.append(currentAuthenticator)
+        }
         
         guard !authenticatorObjects.isEmpty else { return }
         

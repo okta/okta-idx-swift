@@ -12,11 +12,13 @@
 
 import UIKit
 import OktaIdx
+import AuthenticationServices
 
 class IDXRemediationTableViewController: UITableViewController, IDXResponseController {
     var response: IDXClient.Response?
     var signin: Signin?
 
+    private var webAuthSession: ASWebAuthenticationSession?
     private var formSections: [Signin.Section] = []
 
     private let pollActivityIndicator: UIActivityIndicatorView = {
@@ -81,12 +83,59 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
             button.isEnabled = false
         }
         
+        if let socialAuth = remediationOption as? IDXClient.Remediation.SocialAuth,
+           let idx = signin.idx,
+           let scheme = URL(string: idx.context.configuration.redirectUri)?.scheme
+        {
+            let session = ASWebAuthenticationSession(url: socialAuth.redirectUrl,
+                                                     callbackURLScheme: scheme)
+            { [weak self] (callbackURL, error) in
+                guard error == nil,
+                      let callbackURL = callbackURL
+                else {
+                    self?.showError(error ?? SigninError.genericError(message: "Could not authenticate"),
+                                    recoverable: true)
+                    return
+                }
+                
+                let result = signin.idx?.redirectResult(for: callbackURL)
+                
+                switch result {
+                case .authenticated:
+                    idx.exchangeCode(redirect: callbackURL) { (token, error) in
+                        if let error = error {
+                            signin.failure(with: error)
+                        } else if let token = token {
+                            signin.success(with: token)
+                        }
+                    }
+                    
+                case .remediationRequired:
+                    idx.resume { (response, error) in
+                        if let error = error {
+                            signin.failure(with: error)
+                        } else if let response = response {
+                            signin.proceed(to: response)
+                        }
+                    }
+                case .invalidContext, .invalidRedirectUrl, .none:
+                    return
+                }
+            }
+            
+            session.presentationContextProvider = self
+            session.prefersEphemeralWebBrowserSession = false
+            session.start()
+            
+            self.webAuthSession = session
+            
+            return
+        }
+
         remediationOption?.proceed { [weak self] (response, error) in
             guard let response = response else {
                 if let error = error {
-                    self?.showError(error)
-                    
-                    signin.failure(with: error)
+                    self?.showError(error, recoverable: true)
                 }
                 return
             }
@@ -132,7 +181,7 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
         poll.startPolling { [weak self] (response, error) in
             guard let response = response else {
                 if let error = error {
-                    self?.showError(error)
+                    self?.showError(error, recoverable: true)
                     self?.pollActivityIndicator.stopAnimating()
                     poll.stopPolling()
                 }
@@ -161,6 +210,12 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
         row.configure(signin: signin, cell: cell, at: indexPath)
 
         return cell
+    }
+}
+
+extension IDXRemediationTableViewController: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        view.window ?? UIWindow()
     }
 }
 

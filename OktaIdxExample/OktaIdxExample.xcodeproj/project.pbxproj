@@ -88,7 +88,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		92BB11B425E6B51F005D13FA /* IDXWebSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXWebSessionViewController.swift; sourceTree = "<group>"; };
 		964D59ED2657121000DDBCBB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		964D59F126580AA600DDBCBB /* SigninCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninCoordinator.swift; sourceTree = "<group>"; };
 		964D59FB26580E3300DDBCBB /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
@@ -290,7 +289,6 @@
 				96576C4F25A91EEA00B02E3B /* IDXStartViewController.swift */,
 				96576C6125ACC53200B02E3B /* IDXGetTokenViewController.swift */,
 				9691E6BE25AF7279000CD02C /* IDXRemediationTableViewController.swift */,
-				92BB11B425E6B51F005D13FA /* IDXWebSessionViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -538,7 +536,6 @@
 				96576C6225ACC53200B02E3B /* IDXGetTokenViewController.swift in Sources */,
 				9691E6C425AF73C4000CD02C /* IDXTextTableViewCell.swift in Sources */,
 				96576C8725ACFC5900B02E3B /* TokenDetailViewController.swift in Sources */,
-				92BB11B525E6B51F005D13FA /* IDXWebSessionViewController.swift in Sources */,
 				96576C6F25ACDD8A00B02E3B /* IDXSigninController.swift in Sources */,
 				96749AF825B8AC3B002849A0 /* ClientConfiguration.swift in Sources */,
 				96ADA06D25B111AA008BF50D /* IDXMessageTableViewCell.swift in Sources */,

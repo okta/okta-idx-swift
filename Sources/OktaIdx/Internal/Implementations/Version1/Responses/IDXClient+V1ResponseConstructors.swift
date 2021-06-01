@@ -215,7 +215,8 @@ extension IDXClient.Authenticator {
         let sendOption = IDXClient.Remediation.makeRemediation(client: client, v1: authenticators.compactMap { $0.send }.first )
         let resendOption = IDXClient.Remediation.makeRemediation(client: client, v1: authenticators.compactMap { $0.resend }.first)
         let pollOption = IDXClient.Remediation.makeRemediation(client: client, v1: authenticators.compactMap { $0.poll }.first)
-        
+        let recoverOption = IDXClient.Remediation.makeRemediation(client: client, v1: authenticators.compactMap { $0.recover }.first)
+
         switch type {
         case .password:
             let password = IDXClient.Authenticator.Password.Settings(with: settings)
@@ -227,7 +228,8 @@ extension IDXClient.Authenticator {
                                                     type: first.type,
                                                     key: key,
                                                     methods: methods,
-                                                    settings: password)
+                                                    settings: password,
+                                                    recoverOption: recoverOption)
             
         case .phone:
             return IDXClient.Authenticator.Phone(client: client,
@@ -330,11 +332,21 @@ extension IDXClient.Remediation {
 
 extension IDXClient.Remediation.Form.Field {
     internal convenience init(client: IDXClientAPI, v1 object: V1.Response.FormValue) {
+        // Fields default to visible, except there are circumstances where
+        // fields (such as `id`) don't properly include a `visible: false`. As a result,
+        // we need to infer visibility from other values.
+        var visible = object.visible ?? true
+        if let isMutable = object.mutable,
+           !isMutable && object.value != nil
+        {
+            visible = false
+        }
+        
         self.init(name: object.name,
                   label: object.label,
                   type: object.type,
                   value: object.value?.toAnyObject(),
-                  visible: object.visible ?? (object.label != nil || object.mutable ?? true),
+                  visible: visible,
                   mutable: object.mutable ?? true,
                   required: object.required ?? false,
                   secret: object.secret ?? false,
