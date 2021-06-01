@@ -19,6 +19,6 @@ extension XCUIElement {
 }
 
 extension TimeInterval {
-    static let testing: TimeInterval = 30
-    static let minimal: TimeInterval = testing * 0.5
+    static let regular: TimeInterval = 30
+    static let minimal: TimeInterval = regular * 0.5
 }

@@ -125,7 +125,10 @@ struct A18NProfile: Codable {
 
     fileprivate static let jsonDecoder: JSONDecoder = {
         let result = JSONDecoder()
-        result.dateDecodingStrategy = .iso8601
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        result.dateDecodingStrategy = .formatted(dateFormatter)
+        
         return result
     }()
     

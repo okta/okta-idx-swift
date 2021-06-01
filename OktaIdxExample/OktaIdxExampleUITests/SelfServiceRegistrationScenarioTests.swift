@@ -72,7 +72,7 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         }
         
         var passcodeLabel: XCUIElement { app.staticTexts["passcode.label"] }
-        var passcodeField: XCUIElement { app.secureTextFields["passcode.field"] }
+        var passcodeField: XCUIElement { app.textFields["passcode.field"] }
     }
     
     private struct PhoneFormPage {
@@ -107,7 +107,8 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
     }
     
     private var continueButton: XCUIElement {
-        app.buttons["button.Next"]
+        // There're two buttons with the same identifier
+        app.buttons.allElementsBoundByIndex.first { $0.identifier == "button.Next" } ?? app.buttons["button.Next"]
     }
     
     private var skipButton: XCUIElement {
@@ -127,7 +128,7 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
             profileExpectation.fulfill()
         }
         
-        wait(for: [profileExpectation], timeout: 15)
+        wait(for: [profileExpectation], timeout: .regular)
 
         app.launchArguments = [
             "--clientId", credentials.clientId,
@@ -148,12 +149,12 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
 
         try passEmailFactor(email: a18nProfile.emailAddress)
         
-        XCTAssertTrue(skipButton.waitForExistence(timeout: 5))
+        XCTAssertTrue(skipButton.waitForExistence(timeout: .regular))
         skipButton.tap()
         
         let usernameLabel = app.tables.cells["username"]
-        XCTAssertTrue(usernameLabel.waitForExistence(timeout: 15.0))
-        XCTAssertTrue(usernameLabel.staticTexts[credentials.username].exists)
+        XCTAssertTrue(usernameLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(usernameLabel.staticTexts[a18nProfile.emailAddress].exists)
     }
     
     func testSignUpWithPasswordEmailPhone() throws {
@@ -162,45 +163,40 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         try passEmailAndPhoneFactors(email: a18nProfile.emailAddress, phone: a18nProfile.phoneNumber)
         
         let usernameLabel = app.tables.cells["username"]
-        XCTAssertTrue(usernameLabel.waitForExistence(timeout: 15.0))
+        XCTAssertTrue(usernameLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(usernameLabel.staticTexts[credentials.username].exists)
     }
     
     func testSignUpWithIncorrectEmail() {
         signInButton.tap()
-        XCTAssertTrue(signUpButton.waitForExistence(timeout: 15))
+        XCTAssertTrue(signUpButton.waitForExistence(timeout: .regular))
         signUpButton.tap()
         
         fillInInitialPage(email: "invalid@email")
         
-        XCTAssertTrue(app.tables.staticTexts["'Email' must be in the form of an email address"].waitForExistence(timeout: 5))
-        XCTAssertTrue(app.tables.staticTexts["Provided value for property 'Email' does not match required pattern"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.tables.staticTexts["'Email' must be in the form of an email address"].waitForExistence(timeout: .regular))
+        XCTAssertTrue(app.tables.staticTexts["Provided value for property 'Email' does not match required pattern"].waitForExistence(timeout: .minimal))
     }
     
     func testSignUpWithIncorrectPhone() throws {
         signInButton.tap()
-        XCTAssertTrue(signUpButton.waitForExistence(timeout: 15))
-        signUpButton.tap()
         
         try passEmailFactor(email: a18nProfile.emailAddress)
         
         let factorsEntrolmentPage = FactorsEnrolmentPage(app: app)
-        XCTAssertTrue(factorsEntrolmentPage.phoneLabel.waitForExistence(timeout: 5))
+        XCTAssertTrue(factorsEntrolmentPage.phoneLabel.waitForExistence(timeout: .regular))
         factorsEntrolmentPage.phoneLabel.tap()
         
-        continueButton.tap()
+        fillInPhonePage(phone: "1230871234567")
         
-        fillInPhonePage(phone: "+380871234567")
-        
-        XCTAssertTrue(app.tables.staticTexts["'Email' must be in the form of an email address"].waitForExistence(timeout: 5))
-        XCTAssertTrue(app.tables.staticTexts["Provided value for property 'Email' does not match required pattern"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.tables.staticTexts["Unable to initiate factor enrollment: Invalid Phone Number."].waitForExistence(timeout: .regular))
     }
     
     private func passEmailAndPhoneFactors(email: String, phone: String) throws {
         try passEmailFactor(email: email)
 
         let factorsEntrolmentPage = FactorsEnrolmentPage(app: app)
-        XCTAssertTrue(factorsEntrolmentPage.phoneLabel.waitForExistence(timeout: 5))
+        XCTAssertTrue(factorsEntrolmentPage.phoneLabel.waitForExistence(timeout: .regular))
         factorsEntrolmentPage.phoneLabel.tap()
         
         continueButton.tap()
@@ -208,7 +204,7 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         fillInPhonePage(phone: phone)
 
         let phonePasscodePage = PhonePasscodeFormPage(app: app)
-        XCTAssertTrue(phonePasscodePage.passcodeLabel.waitForExistence(timeout: 5))
+        XCTAssertTrue(phonePasscodePage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(phonePasscodePage.passcodeField.exists)
         XCTAssertTrue(continueButton.exists)
         
@@ -219,13 +215,17 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         let smsExpectation = expectation(description: "SMS code received.")
         var smsCode: String?
         
-        a18nProfile.message { (message: A18NProfile.SMSMessage?, error) in
-            smsCode = message?.content
+        // Wait the code received by phone.
+        Thread.sleep(forTimeInterval: TimeInterval.minimal)
+        
+        let smsReceiver = SMSReceiver(profile: a18nProfile)
+        smsReceiver.receiveCode { (code) in
+            smsCode = code
             
             smsExpectation.fulfill()
         }
         
-        wait(for: [smsExpectation], timeout: 15)
+        wait(for: [smsExpectation], timeout: .regular)
         
         phonePasscodePage.passcodeField.typeText(try XCTUnwrap(smsCode))
         
@@ -233,19 +233,19 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
     }
     
     private func passEmailFactor(email: String) throws {
-        XCTAssertTrue(signUpButton.waitForExistence(timeout: 15))
+        XCTAssertTrue(signUpButton.waitForExistence(timeout: .regular))
         signUpButton.tap()
         
         fillInInitialPage(email: email)
         
         let secondPage = PasswordEnrolmentPage(app: app)
-        XCTAssertTrue(secondPage.passwordLabel.waitForExistence(timeout: 5))
+        XCTAssertTrue(secondPage.passwordLabel.waitForExistence(timeout: .regular))
         secondPage.passwordLabel.tap()
         
         continueButton.tap()
         
         let passwordPage = PasscodeFormPage(app: app)
-        XCTAssertTrue(passwordPage.passcodeLabel.waitForExistence(timeout: 5))
+        XCTAssertTrue(passwordPage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(passwordPage.passcodeField.exists)
         
         if !passwordPage.passcodeField.isFocused {
@@ -256,18 +256,18 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         UIPasteboard.general.string = "Sample123!"
         app.menuItems["Paste"].tap()
         
-        sleep(1)
+        Thread.sleep(forTimeInterval: 1)
         
-        app.buttons.allElementsBoundByIndex.first { $0.identifier == "button.Next" }?.tap()
+        continueButton.tap()
         
         let factorEnrolmentPage = FactorsEnrolmentPage(app: app)
-        XCTAssertTrue(factorEnrolmentPage.emailLabel.waitForExistence(timeout: 5))
+        XCTAssertTrue(factorEnrolmentPage.emailLabel.waitForExistence(timeout: .regular))
         factorEnrolmentPage.emailLabel.tap()
         
         continueButton.tap()
         
         let emailCodePage = EmailPasscodeFormPage(app: app)
-        XCTAssertTrue(emailCodePage.passcodeLabel.waitForExistence(timeout: 5))
+        XCTAssertTrue(emailCodePage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(emailCodePage.passcodeField.exists)
         
         if !emailCodePage.passcodeField.isFocused {
@@ -277,23 +277,31 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         let codeExpectation = expectation(description: "Email code received.")
         var emailCode: String?
         
-        a18nProfile.message { (message: A18NProfile.EmailMessage?, error) in
-            emailCode = message?.content
+        // Wait the code received by email box
+        Thread.sleep(forTimeInterval: TimeInterval.minimal)
+        
+        let emailReceiver = EmailCodeReceiver(profile: a18nProfile)
+        emailReceiver.receiveCode { code in
+            emailCode = code
             
             codeExpectation.fulfill()
         }
         
-        wait(for: [codeExpectation], timeout: 15)
+        wait(for: [codeExpectation], timeout: .regular)
 
         emailCodePage.passcodeField.typeText(try XCTUnwrap(emailCode))
         
         continueButton.tap()
+        
+        // Sometimes tests are very quick. And there's a strange bug after Continue button pressed.
+        // UI is updated faster than the events delivered
+        Thread.sleep(forTimeInterval: 2)
     }
     
     private func fillInInitialPage(email: String) {
         let firstPage = InitialFormPage(app: app)
         
-        XCTAssertTrue(firstPage.firstNameLabel.waitForExistence(timeout: 5))
+        XCTAssertTrue(firstPage.firstNameLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(firstPage.firstNameField.exists)
         
         XCTAssertTrue(firstPage.lastNameLabel.exists)
@@ -313,16 +321,19 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
     }
     
     private func fillInPhonePage(phone: String) {
-        app.pickers.firstMatch.pickerWheels.element.adjust(toPickerWheelValue: "SMS")
+        let picker = app.pickers.firstMatch
+        XCTAssertTrue(app.pickers.firstMatch.waitForExistence(timeout: .regular))
+        picker.pickerWheels.element.adjust(toPickerWheelValue: "SMS")
         
         let phoneFormPage = PhoneFormPage(app: app)
-        
-        XCTAssertTrue(phoneFormPage.phoneLabel.waitForExistence(timeout: 5))
-        XCTAssertTrue(phoneFormPage.phoneField.exists)
 
-        phoneFormPage.phoneField.tap()
+        XCTAssertTrue(phoneFormPage.phoneField.waitForExistence(timeout: .regular))
+        XCTAssertTrue(phoneFormPage.phoneField.waitForExistence(timeout: .regular))
         
-        // TODO: Here Phone Number
+        if !phoneFormPage.phoneField.isFocused {
+            phoneFormPage.phoneField.tap()
+        }
+        
         phoneFormPage.phoneField.typeText(phone)
         
         continueButton.tap()

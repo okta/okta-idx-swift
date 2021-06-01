@@ -58,7 +58,7 @@ struct EmailCodeReceiver: CodeReceiver {
         profile.message { (message: A18NProfile.EmailMessage?, error) in
             guard error == nil,
                   let message = message,
-                  let code = try? message.content?.firstMatch(for: "Enter a code instead: (\\d+)")
+                  let code = try? message.content?.firstMatch(for: "enter this code: (\\d+)")?.firstMatch(for: "(\\d+)")
             else {
                 completion(nil)
                 return
@@ -106,7 +106,7 @@ struct SMSReceiver: CodeReceiver {
         profile.message { (message: A18NProfile.SMSMessage?, error) in
             guard error == nil,
                   let message = message,
-                  let code = try? message.content.firstMatch(for: "code is (\\d+)")
+                  let code = try? message.content.firstMatch(for: "code is (\\d+)")?.firstMatch(for: "(\\d+)")
             else {
                 completion(nil)
                 return

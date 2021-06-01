@@ -39,7 +39,7 @@ class ResetTransactionScenarioTests: XCTestCase {
         app.buttons["Sign In"].tap()
 
         // Username
-        XCTAssertTrue(app.staticTexts["identifier.label"].waitForExistence(timeout: 5.0))
+        XCTAssertTrue(app.staticTexts["identifier.label"].waitForExistence(timeout: .regular))
         XCTAssertEqual(app.staticTexts["identifier.label"].label, "Username")
         XCTAssertEqual(app.staticTexts["rememberMe.label"].label, "Remember this device")
         
@@ -53,13 +53,13 @@ class ResetTransactionScenarioTests: XCTestCase {
         app.buttons["Next"].tap()
         
         // Select remediation type
-        XCTAssertTrue(app.tables.staticTexts["authenticator.label"].waitForExistence(timeout: 5.0))
+        XCTAssertTrue(app.tables.staticTexts["authenticator.label"].waitForExistence(timeout: .regular))
         app.tables.staticTexts["Password"].tap()
         app.buttons["Choose"].tap()
 
         // Password
         let passwordField = app.secureTextFields["passcode.field"]
-        XCTAssertTrue(passwordField.waitForExistence(timeout: 5.0))
+        XCTAssertTrue(passwordField.waitForExistence(timeout: .regular))
         XCTAssertEqual(app.staticTexts["passcode.label"].label, "Password")
         
         XCTAssertEqual(passwordField.value as? String, "")
@@ -71,11 +71,11 @@ class ResetTransactionScenarioTests: XCTestCase {
         app.buttons["Continue"].tap()
         
         // Cancel remediation
-        XCTAssertTrue(app.tables.staticTexts["authenticator.label"].waitForExistence(timeout: 5.0))
+        XCTAssertTrue(app.tables.staticTexts["authenticator.label"].waitForExistence(timeout: .regular))
         app.buttons["Restart"].tap()
 
         // Back to the Username screen
-        XCTAssertTrue(app.staticTexts["identifier.label"].waitForExistence(timeout: 5.0))
+        XCTAssertTrue(app.staticTexts["identifier.label"].waitForExistence(timeout: .regular))
         XCTAssertEqual(app.staticTexts["identifier.label"].label, "Username")
         XCTAssertEqual(app.staticTexts["rememberMe.label"].label, "Remember this device")
     }
