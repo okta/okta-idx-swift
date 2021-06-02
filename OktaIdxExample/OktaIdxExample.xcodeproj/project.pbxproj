@@ -10,7 +10,7 @@
 		922820F526650FAA00AC66E9 /* PasscodeScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F747425A3E5F3003EE300 /* PasscodeScenarioTests.swift */; };
 		92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E9225BA591F007A2519 /* SelfServiceRegistrationScenarioTests.swift */; };
 		92B559C826662AA300AB566F /* ResetTransactionScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */; };
-		92BB11B525E6B51F005D13FA /* IDXWebSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BB11B425E6B51F005D13FA /* IDXWebSessionViewController.swift */; };
+		92B559D226667A7D00AB566F /* ResetPasswordScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */; };
 		964D59EE2657121000DDBCBB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59ED2657121000DDBCBB /* Notifications.swift */; };
 		964D59F226580AA600DDBCBB /* SigninCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59F126580AA600DDBCBB /* SigninCoordinator.swift */; };
 		964D59FC26580E3300DDBCBB /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 964D59FB26580E3300DDBCBB /* Okta.plist */; };
@@ -88,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScenarioTests.swift; sourceTree = "<group>"; };
 		964D59ED2657121000DDBCBB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		964D59F126580AA600DDBCBB /* SigninCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninCoordinator.swift; sourceTree = "<group>"; };
 		964D59FB26580E3300DDBCBB /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
@@ -233,6 +234,7 @@
 				965A112726547EB4006B784F /* Utilities */,
 				96749B0425B8EA9D002849A0 /* Extensions */,
 				96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */,
+				92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */,
 				964F747425A3E5F3003EE300 /* PasscodeScenarioTests.swift */,
 				96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */,
 				96C51E9225BA591F007A2519 /* SelfServiceRegistrationScenarioTests.swift */,
@@ -560,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92B559D226667A7D00AB566F /* ResetPasswordScenarioTests.swift in Sources */,
 				92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */,
 				96749B0625B8EAAD002849A0 /* XCTest+Extensions.swift in Sources */,
 				965A113326547EE9006B784F /* CodeReceiver.swift in Sources */,

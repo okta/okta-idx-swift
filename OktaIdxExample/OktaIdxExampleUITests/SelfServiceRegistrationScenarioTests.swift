@@ -215,11 +215,8 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         let smsExpectation = expectation(description: "SMS code received.")
         var smsCode: String?
         
-        // Wait the code received by phone.
-        Thread.sleep(forTimeInterval: TimeInterval.minimal)
-        
         let smsReceiver = SMSReceiver(profile: a18nProfile)
-        smsReceiver.receiveCode { (code) in
+        smsReceiver.waitForCode(timeout: .regular, pollInterval: .regular / 4) { (code) in
             smsCode = code
             
             smsExpectation.fulfill()
@@ -277,11 +274,8 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         let codeExpectation = expectation(description: "Email code received.")
         var emailCode: String?
         
-        // Wait the code received by email box
-        Thread.sleep(forTimeInterval: TimeInterval.minimal)
-        
         let emailReceiver = EmailCodeReceiver(profile: a18nProfile)
-        emailReceiver.receiveCode { code in
+        emailReceiver.waitForCode(timeout: .regular, pollInterval: .regular / 4) { code in
             emailCode = code
             
             codeExpectation.fulfill()
