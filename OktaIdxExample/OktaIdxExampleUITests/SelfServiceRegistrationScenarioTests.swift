@@ -121,7 +121,7 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         let a18nAPIKey = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_API_KEY"])
         let a18nProfileID = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_PROFILE_ID"])
         
-        let profileExpectation = expectation(description: "Loaded profile.")
+        let profileExpectation = expectation(description: "A18N profile exists.")
         
         A18NProfile.loadProfile(using: a18nAPIKey, profileId: a18nProfileID) { (profile, error) in
             self.a18nProfile = profile
