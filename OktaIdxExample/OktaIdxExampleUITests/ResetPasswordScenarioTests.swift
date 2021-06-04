@@ -17,59 +17,6 @@ final class ResetPasswordScenarioTests: XCTestCase {
     private let credentials = TestCredentials(with: .passcode)!
     private var a18nProfile: A18NProfile!
     
-    private struct UsernameRecoveryPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var usernameLabel: XCUIElement { app.staticTexts["identifier.label"] }
-        var usernameField: XCUIElement { app.textFields["identifier.field"] }
-        var continueButton: XCUIElement { app.buttons["button.Next"] }
-    }
-    
-    private struct RecoveryMethodPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var emailButton: XCUIElement {
-            app.staticTexts.allElementsBoundByIndex.first {
-                $0.identifier == "authenticator.label" && $0.label == "Email"
-            } ?? app.staticTexts["Email"]
-        }
-        
-        var continueButton: XCUIElement { app.buttons["button.Choose Method"] }
-    }
-    
-    private struct EmailCodePage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var codeLabel: XCUIElement { app.staticTexts["passcode.label"] }
-        var codeField: XCUIElement { app.textFields["passcode.field"] }
-        var resendButton: XCUIElement { app.staticTexts["resend"] }
-        var continueButton: XCUIElement { app.buttons["button.Password"] }
-    }
-    
-    private struct NewPasswordPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var passwordLabel: XCUIElement { app.staticTexts["passcode.label"] }
-        var passwordField: XCUIElement { app.secureTextFields["passcode.field"] }
-        var continueButton: XCUIElement { app.buttons["button.Next"] }
-    }
-    
     override func setUpWithError() throws {
         app = XCUIApplication()
         
@@ -94,22 +41,23 @@ final class ResetPasswordScenarioTests: XCTestCase {
         ]
         
         app.launch()
-
+        
         continueAfterFailure = false
         
         let clientIdLabel = app.staticTexts["clientIdLabel"]
         XCTAssertTrue(clientIdLabel.waitForExistence(timeout: 5))
         XCTAssertEqual(clientIdLabel.label, "Client ID: \(credentials.clientId)")
     }
- 
+    
     func testResetSuccessful() throws {
-        app.buttons["Sign In"].tap()
+        let signInPage = SignInFormPage(app: app)
+        XCTAssertTrue(signInPage.initialSignInButton.waitForExistence(timeout: .regular))
+        signInPage.initialSignInButton.tap()
         
-        let recoverButton = app.staticTexts["Recover your account"]
-        XCTAssertTrue(recoverButton.waitForExistence(timeout: .regular))
-        recoverButton.tap()
+        XCTAssertTrue(signInPage.recoveryButton.waitForExistence(timeout: .regular))
+        signInPage.recoveryButton.tap()
         
-        let emailRecoveryPage = UsernameRecoveryPage(app: app)
+        let emailRecoveryPage = UsernameRecoveryFormPage(app: app)
         XCTAssertTrue(emailRecoveryPage.usernameLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(emailRecoveryPage.usernameField.exists)
         XCTAssertTrue(emailRecoveryPage.continueButton.exists)
@@ -129,11 +77,11 @@ final class ResetPasswordScenarioTests: XCTestCase {
         methodPage.emailButton.tap()
         methodPage.continueButton.tap()
         
-        let emailCodePage = EmailCodePage(app: app)
-        XCTAssertTrue(emailCodePage.codeField.waitForExistence(timeout: .regular))
-        XCTAssertTrue(emailCodePage.codeLabel.exists)
-        XCTAssertTrue(emailCodePage.resendButton.exists)
-        XCTAssertTrue(emailCodePage.continueButton.exists)
+        let codePage = PasscodeFormPage(app: app)
+        XCTAssertTrue(codePage.passcodeLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(codePage.passcodeField.exists)
+        XCTAssertTrue(codePage.resendButton.exists)
+        XCTAssertTrue(codePage.continueButton.exists)
         
         let codeExpectation = expectation(description: "Email code received.")
         var emailCode: String?
@@ -149,14 +97,14 @@ final class ResetPasswordScenarioTests: XCTestCase {
         
         wait(for: [codeExpectation], timeout: .regular)
         
-        if !emailCodePage.codeField.isFocused {
-            emailCodePage.codeField.tap()
+        if !codePage.passcodeField.isFocused {
+            codePage.passcodeField.tap()
         }
         
-        emailCodePage.codeField.typeText(try XCTUnwrap(emailCode))
-        emailCodePage.continueButton.tap()
+        codePage.passcodeField.typeText(try XCTUnwrap(emailCode))
+        codePage.continueButton.tap()
         
-        let passwordPage = NewPasswordPage(app: app)
+        let passwordPage = NewPasswordFormPage(app: app)
         XCTAssertTrue(passwordPage.passwordField.waitForExistence(timeout: .regular))
         XCTAssertTrue(passwordPage.passwordLabel.exists)
         XCTAssertTrue(passwordPage.continueButton.exists)
@@ -175,13 +123,13 @@ final class ResetPasswordScenarioTests: XCTestCase {
     }
     
     func testResetWithIncorrectUsername() throws {
-        app.buttons["Sign In"].tap()
+        let signInPage = SignInFormPage(app: app)
+        signInPage.initialSignInButton.tap()
         
-        let recoverButton = app.staticTexts["Recover your account"]
-        XCTAssertTrue(recoverButton.waitForExistence(timeout: .regular))
-        recoverButton.tap()
+        XCTAssertTrue(signInPage.recoveryButton.waitForExistence(timeout: .regular))
+        signInPage.recoveryButton.tap()
         
-        let emailRecoveryPage = UsernameRecoveryPage(app: app)
+        let emailRecoveryPage = UsernameRecoveryFormPage(app: app)
         XCTAssertTrue(emailRecoveryPage.usernameLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(emailRecoveryPage.usernameField.exists)
         XCTAssertTrue(emailRecoveryPage.continueButton.exists)
@@ -191,7 +139,6 @@ final class ResetPasswordScenarioTests: XCTestCase {
         }
         
         let incorrectUsername = "incorrect.username"
-        
         emailRecoveryPage.usernameField.typeText(incorrectUsername)
         emailRecoveryPage.continueButton.tap()
         

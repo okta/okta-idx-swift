@@ -17,22 +17,7 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
     private var app: XCUIApplication!
     private var a18nProfile: A18NProfile!
     
-    private struct InitialFormPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var firstNameLabel: XCUIElement { app.staticTexts["firstName.label"] }
-        var firstNameField: XCUIElement { app.textFields["firstName.field"] }
-        var lastNameLabel: XCUIElement { app.staticTexts["lastName.label"] }
-        var lastNameField: XCUIElement { app.textFields["lastName.field"] }
-        var emailLabel: XCUIElement { app.staticTexts["email.label"] }
-        var emailField: XCUIElement { app.textFields["email.field"] }
-    }
-    
-    private struct PasswordEnrolmentPage {
+    private struct PasswordEnrollmentPage {
         private let app: XCUIApplication
         
         init(app: XCUIApplication) {
@@ -40,62 +25,6 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         }
         
         var passwordLabel: XCUIElement { app.staticTexts["Password"] }
-    }
-    
-    private struct PasscodeFormPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var passcodeLabel: XCUIElement { app.staticTexts["passcode.label"] }
-        var passcodeField: XCUIElement { app.secureTextFields["passcode.field"] }
-    }
-    
-    private struct FactorsEnrolmentPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var emailLabel: XCUIElement { app.staticTexts["Email"] }
-        var phoneLabel: XCUIElement { app.staticTexts["Phone"] }
-    }
-    
-    private struct EmailPasscodeFormPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var passcodeLabel: XCUIElement { app.staticTexts["passcode.label"] }
-        var passcodeField: XCUIElement { app.textFields["passcode.field"] }
-    }
-    
-    private struct PhoneFormPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var picker: XCUIElement { app.pickers.firstMatch }
-        var phoneLabel: XCUIElement { app.staticTexts["phoneNumber.label"] }
-        var phoneField: XCUIElement { app.textFields["phoneNumber.field"] }
-    }
-    
-    private struct PhonePasscodeFormPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var passcodeLabel: XCUIElement { app.staticTexts["passcode.label"] }
-        var passcodeField: XCUIElement { app.textFields["passcode.field"] }
     }
     
     private var signInButton: XCUIElement {
@@ -183,10 +112,6 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         
         try passEmailFactor(email: a18nProfile.emailAddress)
         
-        let factorsEntrolmentPage = FactorsEnrolmentPage(app: app)
-        XCTAssertTrue(factorsEntrolmentPage.phoneLabel.waitForExistence(timeout: .regular))
-        factorsEntrolmentPage.phoneLabel.tap()
-        
         fillInPhonePage(phone: "1230871234567")
         
         XCTAssertTrue(app.tables.staticTexts["Unable to initiate factor enrollment: Invalid Phone Number."].waitForExistence(timeout: .regular))
@@ -194,19 +119,13 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
     
     private func passEmailAndPhoneFactors(email: String, phone: String) throws {
         try passEmailFactor(email: email)
-
-        let factorsEntrolmentPage = FactorsEnrolmentPage(app: app)
-        XCTAssertTrue(factorsEntrolmentPage.phoneLabel.waitForExistence(timeout: .regular))
-        factorsEntrolmentPage.phoneLabel.tap()
-        
-        continueButton.tap()
         
         fillInPhonePage(phone: phone)
 
-        let phonePasscodePage = PhonePasscodeFormPage(app: app)
+        let phonePasscodePage = PasscodeFormPage(app: app)
         XCTAssertTrue(phonePasscodePage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(phonePasscodePage.passcodeField.exists)
-        XCTAssertTrue(continueButton.exists)
+        XCTAssertTrue(phonePasscodePage.continueButton.exists)
         
         if !phonePasscodePage.passcodeField.isFocused {
             phonePasscodePage.passcodeField.tap()
@@ -235,9 +154,9 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         
         fillInInitialPage(email: email)
         
-        let secondPage = PasswordEnrolmentPage(app: app)
-        XCTAssertTrue(secondPage.passwordLabel.waitForExistence(timeout: .regular))
-        secondPage.passwordLabel.tap()
+        let passwordEnrollmentPage = PasswordEnrollmentPage(app: app)
+        XCTAssertTrue(passwordEnrollmentPage.passwordLabel.waitForExistence(timeout: .regular))
+        passwordEnrollmentPage.passwordLabel.tap()
         
         continueButton.tap()
         
@@ -257,18 +176,17 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         
         continueButton.tap()
         
-        let factorEnrolmentPage = FactorsEnrolmentPage(app: app)
+        let factorEnrolmentPage = FactorsEnrollmentPage(app: app)
         XCTAssertTrue(factorEnrolmentPage.emailLabel.waitForExistence(timeout: .regular))
         factorEnrolmentPage.emailLabel.tap()
+        factorEnrolmentPage.continueButton.tap()
         
-        continueButton.tap()
+        let codePage = PasscodeFormPage(app: app)
+        XCTAssertTrue(codePage.passcodeLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(codePage.passcodeField.exists)
         
-        let emailCodePage = EmailPasscodeFormPage(app: app)
-        XCTAssertTrue(emailCodePage.passcodeLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(emailCodePage.passcodeField.exists)
-        
-        if !emailCodePage.passcodeField.isFocused {
-            emailCodePage.passcodeField.tap()
+        if !codePage.passcodeField.isFocused {
+            codePage.passcodeField.tap()
         }
 
         let codeExpectation = expectation(description: "Email code received.")
@@ -283,9 +201,8 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         
         wait(for: [codeExpectation], timeout: .regular)
 
-        emailCodePage.passcodeField.typeText(try XCTUnwrap(emailCode))
-        
-        continueButton.tap()
+        codePage.passcodeField.typeText(try XCTUnwrap(emailCode))
+        codePage.continueButton.tap()
         
         // Sometimes tests are very quick. And there's a strange bug after Continue button pressed.
         // UI is updated faster than the events delivered
@@ -293,31 +210,34 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
     }
     
     private func fillInInitialPage(email: String) {
-        let firstPage = InitialFormPage(app: app)
+        let registrationPage = RegistrationFormPage(app: app)
         
-        XCTAssertTrue(firstPage.firstNameLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(firstPage.firstNameField.exists)
+        XCTAssertTrue(registrationPage.firstNameLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(registrationPage.firstNameField.exists)
         
-        XCTAssertTrue(firstPage.lastNameLabel.exists)
-        XCTAssertTrue(firstPage.lastNameField.exists)
+        XCTAssertTrue(registrationPage.lastNameLabel.exists)
+        XCTAssertTrue(registrationPage.lastNameField.exists)
         
-        XCTAssertTrue(firstPage.emailLabel.exists)
-        XCTAssertTrue(firstPage.emailField.exists)
+        XCTAssertTrue(registrationPage.emailLabel.exists)
+        XCTAssertTrue(registrationPage.emailField.exists)
         
-        firstPage.firstNameField.tap()
-        firstPage.firstNameField.typeText("Test")
-        firstPage.lastNameField.tap()
-        firstPage.lastNameField.typeText("User")
-        firstPage.emailField.tap()
-        firstPage.emailField.typeText(email)
+        registrationPage.firstNameField.tap()
+        registrationPage.firstNameField.typeText("Test")
+        registrationPage.lastNameField.tap()
+        registrationPage.lastNameField.typeText("User")
+        registrationPage.emailField.tap()
+        registrationPage.emailField.typeText(email)
         
         signUpButton.tap()
     }
     
     private func fillInPhonePage(phone: String) {
-        let picker = app.pickers.firstMatch
-        XCTAssertTrue(app.pickers.firstMatch.waitForExistence(timeout: .regular))
-        picker.pickerWheels.element.adjust(toPickerWheelValue: "SMS")
+        let factorsPage = FactorsEnrollmentPage(app: app)
+        XCTAssertTrue(factorsPage.phoneLabel.waitForExistence(timeout: .regular))
+        factorsPage.phoneLabel.tap()
+        
+        XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .regular))
+        factorsPage.phonePicker.pickerWheels.element.adjust(toPickerWheelValue: "SMS")
         
         let phoneFormPage = PhoneFormPage(app: app)
 
