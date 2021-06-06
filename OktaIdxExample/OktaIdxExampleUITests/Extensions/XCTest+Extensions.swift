@@ -14,7 +14,45 @@ import XCTest
 
 extension XCUIElement {
     var isFocused: Bool {
-        let isFocused = (self.value(forKey: "hasKeyboardFocus") as? Bool) ?? false
-        return isFocused
+        (self.value(forKey: "hasKeyboardFocus") as? Bool) ?? false
     }
+    
+    @objc var stringValue: String? {
+        value as? String
+    }
+    
+    func clearText(app: XCUIApplication? = nil) {
+        guard let stringValue = value as? String else {
+            XCTFail("Tried to clear and enter text into a non string value.")
+            return
+        }
+        
+        if stringValue.isEmpty || stringValue == placeholderValue {
+            return
+        }
+        
+        if let app = app {
+            press(forDuration: 1.5)
+            
+            let selectAllMenuItem = app.menuItems["Select All"]
+            
+            if selectAllMenuItem.waitForExistence(timeout: .minimal) {
+                selectAllMenuItem.tap()
+            }
+            
+            let cutMenuItem = app.menuItems["Cut"]
+            if cutMenuItem.waitForExistence(timeout: .minimal) {
+                cutMenuItem.tap()
+            }
+        }
+        
+        for deletedChar in String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count) {
+            typeText(String(deletedChar))
+        }
+    }
+}
+
+extension TimeInterval {
+    static let regular: TimeInterval = 30
+    static let minimal: TimeInterval = regular * 0.5
 }

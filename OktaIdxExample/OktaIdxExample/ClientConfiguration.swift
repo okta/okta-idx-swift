@@ -100,7 +100,7 @@ struct ClientConfiguration {
     static var userDefaults: ClientConfiguration? {
         let defaults = UserDefaults.standard
         let environment = ProcessInfo.processInfo.environment
-        guard let issuer = defaults.string(forKey: issuerKey) ?? ((environment["ISSUER_DOMAIN"] != "") ? "https://\(environment["ISSUER_DOMAIN"]!)" : nil),
+        guard let issuer = defaults.string(forKey: issuerKey) ?? ((environment["ISSUER_DOMAIN"] != nil) ? "https://\(environment["ISSUER_DOMAIN"]!)" : nil),
               let clientId = defaults.string(forKey: clientIdKey) ?? environment["CLIENT_ID"],
               let scopes = defaults.string(forKey: scopesKey) ?? environment["SCOPES"],
               let redirectUri = defaults.string(forKey: redirectUriKey) ?? environment["REDIRECT_URI"] else
