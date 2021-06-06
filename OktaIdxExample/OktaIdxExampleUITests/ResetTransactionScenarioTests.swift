@@ -12,28 +12,21 @@
 
 import XCTest
 
-class ResetTransactionScenarioTests: XCTestCase {
-    let credentials = TestCredentials(with: .mfasop)
+class ResetTransactionScenarioTests: ScenarioTestCase {
+    class override var category: Scenario.Category { .passcodeOnly }
 
-    override func setUpWithError() throws {
-        try XCTSkipIf(credentials == nil)
+    override class func setUp() {
+        super.setUp()
         
-        let app = XCUIApplication()
-        app.launchArguments = [
-            "--clientId", credentials!.clientId,
-            "--issuer", credentials!.issuerUrl,
-            "--redirectUri", credentials!.redirectUri,
-            "--reset-user"
-        ]
-        app.launch()
-
-        continueAfterFailure = false
-        
-        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials!.clientId)")
+        do {
+            try scenario.createUser()
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
     }
 
     func DISABLED_testCancelMFARemediation() throws {
-        let credentials = try XCTUnwrap(self.credentials)
+        let credentials = try XCTUnwrap(scenario.credentials)
 
         let app = XCUIApplication()
         app.buttons["Sign In"].tap()

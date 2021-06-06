@@ -12,31 +12,21 @@
 
 import XCTest
 
-final class PasscodeScenarioTests: XCTestCase {
-    private var app: XCUIApplication!
-    private let credentials = TestCredentials(with: .passcode)!
-    
-    override func setUpWithError() throws {
-        app = XCUIApplication()
-        
-        let credentials = try XCTUnwrap(TestCredentials(with: .passcode))
-        // These parameters are the same for all scenarios of Passcode feature.
-        app.launchArguments = [
-            "--clientId", credentials.clientId,
-            "--issuer", credentials.issuerUrl,
-            "--scopes", credentials.scopes,
-            "--redirectUri", credentials.redirectUri,
-            "--reset-user"
-        ]
-        
-        app.launch()
+final class PasscodeScenarioTests: ScenarioTestCase {
+    class override var category: Scenario.Category { .passcodeOnly }
 
-        continueAfterFailure = false
+    override class func setUp() {
+        super.setUp()
         
-        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials.clientId)")
+        do {
+            try scenario.createUser()
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
     }
-
+    
     func testSuccessfulPasscode() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
         
@@ -46,6 +36,8 @@ final class PasscodeScenarioTests: XCTestCase {
     }
     
     func testIncorrectUsername() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
+
         let username = "incorrect.username@okta.com"
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: username, password: credentials.password)
@@ -55,8 +47,8 @@ final class PasscodeScenarioTests: XCTestCase {
     }
 
     func testIncorrectPassword() throws {
-        let credentials = try XCTUnwrap(TestCredentials(with: .passcode))
-        
+        let credentials = try XCTUnwrap(scenario.credentials)
+
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: "InvalidPassword")
 

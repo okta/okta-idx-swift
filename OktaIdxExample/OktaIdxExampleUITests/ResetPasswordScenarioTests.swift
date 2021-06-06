@@ -12,48 +12,15 @@
 
 import XCTest
 
-final class ResetPasswordScenarioTests: XCTestCase {
-    private var app: XCUIApplication!
-    private let credentials = TestCredentials(with: .passcode)!
-    private var a18nProfile: A18NProfile!
-    
-    override func setUpWithError() throws {
-        app = XCUIApplication()
-        
-        let a18nAPIKey = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_API_KEY"])
-        let a18nProfileID = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_PROFILE_ID"])
-        
-        let profileExpectation = expectation(description: "A18N profile exists.")
-        
-        A18NProfile.loadProfile(using: a18nAPIKey, profileId: a18nProfileID) { (profile, error) in
-            self.a18nProfile = profile
-            profileExpectation.fulfill()
-        }
-        
-        wait(for: [profileExpectation], timeout: .regular)
-        
-        app.launchArguments = [
-            "--clientId", credentials.clientId,
-            "--issuer", credentials.issuerUrl,
-            "--scopes", credentials.scopes,
-            "--redirectUri", credentials.redirectUri,
-            "--reset-user"
-        ]
-        
-        app.launch()
-        
-        continueAfterFailure = false
-        
-        let clientIdLabel = app.staticTexts["clientIdLabel"]
-        XCTAssertTrue(clientIdLabel.waitForExistence(timeout: 5))
-        XCTAssertEqual(clientIdLabel.label, "Client ID: \(credentials.clientId)")
-    }
-    
+final class ResetPasswordScenarioTests: ScenarioTestCase {
+    class override var category: Scenario.Category { .passcodeOnly }
+
     func testResetSuccessful() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         XCTAssertTrue(signInPage.initialSignInButton.waitForExistence(timeout: .regular))
         signInPage.initialSignInButton.tap()
-        
+
         XCTAssertTrue(signInPage.recoveryButton.waitForExistence(timeout: .regular))
         signInPage.recoveryButton.tap()
         
@@ -83,25 +50,13 @@ final class ResetPasswordScenarioTests: XCTestCase {
         XCTAssertTrue(codePage.resendButton.exists)
         XCTAssertTrue(codePage.continueButton.exists)
         
-        let codeExpectation = expectation(description: "Email code received.")
-        var emailCode: String?
-        
-        let emailReceiver = EmailCodeReceiver(profile: a18nProfile)
-        emailReceiver.waitForCode(timeout: .regular, pollInterval: .regular / 4) { code in
-            emailCode = code
-            
-            if code != nil {
-                codeExpectation.fulfill()
-            }
-        }
-        
-        wait(for: [codeExpectation], timeout: .regular)
-        
+        let emailCode = try scenario.receive(code: .email)
+
         if !codePage.passcodeField.isFocused {
             codePage.passcodeField.tap()
         }
         
-        codePage.passcodeField.typeText(try XCTUnwrap(emailCode))
+        codePage.passcodeField.typeText(emailCode)
         codePage.continueButton.tap()
         
         let passwordPage = NewPasswordFormPage(app: app)

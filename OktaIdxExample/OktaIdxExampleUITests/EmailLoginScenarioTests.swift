@@ -23,41 +23,21 @@ private struct EmailFormPage {
     var passcodeField: XCUIElement { app.textFields["passcode.field"] }
 }
 
-final class EmailLoginScenarioTests: XCTestCase {
-    private let credentials = TestCredentials(with: .passcode)!
-    private var app: XCUIApplication!
-    private var a18nProfile: A18NProfile!
+final class EmailLoginScenarioTests: ScenarioTestCase {
+    class override var category: Scenario.Category { .passcodeOnly }
 
-    override func setUpWithError() throws {
-        self.app = XCUIApplication()
+    override class func setUp() {
+        super.setUp()
         
-        let a18nAPIKey = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_API_KEY"])
-        let a18nProfileID = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_PROFILE_ID"])
-        
-        let profileExpectation = expectation(description: "A18N profile exists.")
-        
-        A18NProfile.loadProfile(using: a18nAPIKey, profileId: a18nProfileID) { (profile, error) in
-            self.a18nProfile = profile
-            profileExpectation.fulfill()
+        do {
+            try scenario.createUser()
+        } catch {
+            XCTFail(error.localizedDescription)
         }
-        
-        wait(for: [profileExpectation], timeout: .regular)
-
-        app.launchArguments = [
-            "--clientId", credentials.clientId,
-            "--issuer", credentials.issuerUrl,
-            "--redirectUri", credentials.redirectUri,
-            "--reset-user"
-        ]
-        app.launch()
-
-        continueAfterFailure = false
-        
-        XCTAssertNotNil(a18nProfile)
-        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials.clientId)")
     }
     
     func testLoginWithEmail() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
         
@@ -72,19 +52,10 @@ final class EmailLoginScenarioTests: XCTestCase {
         XCTAssertTrue(codePage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(codePage.passcodeField.exists)
         
-        let codeExpectation = expectation(description: "Email code received.")
-        var emailCode: String?
-        let emailReceiver = SMSReceiver(profile: a18nProfile)
-        emailReceiver.waitForCode(timeout: .regular, pollInterval: .regular / 4) { (code) in
-            emailCode = code
-            
-            codeExpectation.fulfill()
-        }
-
-        wait(for: [codeExpectation], timeout: .regular)
+        let emailCode = try scenario.receive(code: .sms)
         
         codePage.passcodeField.tap()
-        codePage.passcodeField.typeText(try XCTUnwrap(emailCode))
+        codePage.passcodeField.typeText(emailCode)
         
         codePage.continueButton.tap()
         
@@ -93,6 +64,7 @@ final class EmailLoginScenarioTests: XCTestCase {
     }
     
     func testLoginWithInvalidCode() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
         

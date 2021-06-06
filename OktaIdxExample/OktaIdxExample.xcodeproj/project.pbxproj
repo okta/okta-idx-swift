@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E9225BA591F007A2519 /* SelfServiceRegistrationScenarioTests.swift */; };
 		92B559C826662AA300AB566F /* ResetTransactionScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */; };
 		92B559D226667A7D00AB566F /* ResetPasswordScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */; };
+		961B7126266D3A6100A3A4A2 /* OktaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961B7125266D3A6100A3A4A2 /* OktaSdk.framework */; };
 		964D59EE2657121000DDBCBB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59ED2657121000DDBCBB /* Notifications.swift */; };
 		964D59F226580AA600DDBCBB /* SigninCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59F126580AA600DDBCBB /* SigninCoordinator.swift */; };
 		964D59FC26580E3300DDBCBB /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 964D59FB26580E3300DDBCBB /* Okta.plist */; };
@@ -60,9 +61,15 @@
 		96ADA06125B0D173008BF50D /* FormRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ADA06025B0D173008BF50D /* FormRows.swift */; };
 		96ADA06725B0F5D5008BF50D /* IDXLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ADA06625B0F5D5008BF50D /* IDXLabelTableViewCell.swift */; };
 		96ADA06D25B111AA008BF50D /* IDXMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ADA06C25B111AA008BF50D /* IDXMessageTableViewCell.swift */; };
-		96C51E9A25BA5A3F007A2519 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E9925BA5A3F007A2519 /* Credentials.swift */; };
 		96E0A78D260500080002933C /* IDXSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0A78C260500080002933C /* IDXSeparatorTableViewCell.swift */; };
 		96E0A791260505F30002933C /* IDXTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0A790260505F30002933C /* IDXTitleTableViewCell.swift */; };
+		96E339B4266A9136000E0B0F /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E339B3266A9136000E0B0F /* Scenario.swift */; };
+		96E339B9266A9151000E0B0F /* PasscodeScenarioValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E339B8266A9151000E0B0F /* PasscodeScenarioValidator.swift */; };
+		96E339C6266A9B57000E0B0F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E339C5266A9B57000E0B0F /* Configuration.swift */; };
+		96E339E4266AAE4C000E0B0F /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E339E3266AAE4C000E0B0F /* CreateUser.swift */; };
+		96E339EC266AAF7F000E0B0F /* DeleteUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E339EB266AAF7F000E0B0F /* DeleteUser.swift */; };
+		96F79495266AC67000D340CD /* SelfServiceRegistrationScenarioValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F79494266AC67000D340CD /* SelfServiceRegistrationScenarioValidator.swift */; };
+		96F7949A266AC6F200D340CD /* ScenarioTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F79499266AC6F200D340CD /* ScenarioTestCase.swift */; };
 		96F8B34925BB556500DAECDC /* IDXPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B34825BB556500DAECDC /* IDXPickerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +116,7 @@
 		9234CCFA266A4D650033564D /* EmailLoginScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginScenarioTests.swift; sourceTree = "<group>"; };
 		928B7C71266A7F2D006DF45A /* SignInFormPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormPage.swift; sourceTree = "<group>"; };
 		92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScenarioTests.swift; sourceTree = "<group>"; };
+		961B7125266D3A6100A3A4A2 /* OktaSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OktaSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		964D59ED2657121000DDBCBB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		964D59F126580AA600DDBCBB /* SigninCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninCoordinator.swift; sourceTree = "<group>"; };
 		964D59FB26580E3300DDBCBB /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
@@ -156,9 +164,15 @@
 		96ADA06C25B111AA008BF50D /* IDXMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXMessageTableViewCell.swift; sourceTree = "<group>"; };
 		96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = TestCredentials.xcconfig; path = ../../TestCredentials.xcconfig; sourceTree = "<group>"; };
 		96C51E9225BA591F007A2519 /* SelfServiceRegistrationScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfServiceRegistrationScenarioTests.swift; sourceTree = "<group>"; };
-		96C51E9925BA5A3F007A2519 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		96E0A78C260500080002933C /* IDXSeparatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXSeparatorTableViewCell.swift; sourceTree = "<group>"; };
 		96E0A790260505F30002933C /* IDXTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXTitleTableViewCell.swift; sourceTree = "<group>"; };
+		96E339B3266A9136000E0B0F /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
+		96E339B8266A9151000E0B0F /* PasscodeScenarioValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeScenarioValidator.swift; sourceTree = "<group>"; };
+		96E339C5266A9B57000E0B0F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		96E339E3266AAE4C000E0B0F /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUser.swift; sourceTree = "<group>"; };
+		96E339EB266AAF7F000E0B0F /* DeleteUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUser.swift; sourceTree = "<group>"; };
+		96F79494266AC67000D340CD /* SelfServiceRegistrationScenarioValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfServiceRegistrationScenarioValidator.swift; sourceTree = "<group>"; };
+		96F79499266AC6F200D340CD /* ScenarioTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioTestCase.swift; sourceTree = "<group>"; };
 		96F8B34825BB556500DAECDC /* IDXPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXPickerTableViewCell.swift; sourceTree = "<group>"; };
 		96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTransactionScenarioTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961B7126266D3A6100A3A4A2 /* OktaSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +299,7 @@
 		964F748525A3E602003EE300 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				961B7125266D3A6100A3A4A2 /* OktaSdk.framework */,
 				964F748625A3E602003EE300 /* OktaIdx.framework */,
 			);
 			name = Frameworks;
@@ -336,8 +352,11 @@
 		965A112726547EB4006B784F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				96E339E2266AAE3F000E0B0F /* Default Actions */,
+				96E3368F26699ADB000E0B0F /* Scenario Configurations */,
 				965A112E26547EC1006B784F /* A18NProfile.swift */,
 				965A113226547EE9006B784F /* CodeReceiver.swift */,
+				96E339B3266A9136000E0B0F /* Scenario.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -346,7 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				96749B0525B8EAAD002849A0 /* XCTest+Extensions.swift */,
-				96C51E9925BA5A3F007A2519 /* Credentials.swift */,
+				96F79499266AC6F200D340CD /* ScenarioTestCase.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,6 +411,25 @@
 				96ADA06025B0D173008BF50D /* FormRows.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		96E3368F26699ADB000E0B0F /* Scenario Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				96E339B8266A9151000E0B0F /* PasscodeScenarioValidator.swift */,
+				96F79494266AC67000D340CD /* SelfServiceRegistrationScenarioValidator.swift */,
+				96E339C5266A9B57000E0B0F /* Configuration.swift */,
+			);
+			path = "Scenario Configurations";
+			sourceTree = "<group>";
+		};
+		96E339E2266AAE3F000E0B0F /* Default Actions */ = {
+			isa = PBXGroup;
+			children = (
+				96E339E3266AAE4C000E0B0F /* CreateUser.swift */,
+				96E339EB266AAF7F000E0B0F /* DeleteUser.swift */,
+			);
+			path = "Default Actions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,6 +524,7 @@
 			);
 			mainGroup = 964F744625A3E5F0003EE300;
 			packageReferences = (
+				96E339A2266A8E6F000E0B0F /* XCRemoteSwiftPackageReference "AnyCodable" */,
 			);
 			productRefGroup = 964F745025A3E5F0003EE300 /* Products */;
 			projectDirPath = "";
@@ -603,17 +642,23 @@
 				920B9DC0266A867E00D38A8C /* PasscodeFormPage.swift in Sources */,
 				92B559D226667A7D00AB566F /* ResetPasswordScenarioTests.swift in Sources */,
 				9234CCEE2668D5E90033564D /* PhoneLoginScenarioTests.swift in Sources */,
+				96F79495266AC67000D340CD /* SelfServiceRegistrationScenarioValidator.swift in Sources */,
 				92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */,
+				96E339C6266A9B57000E0B0F /* Configuration.swift in Sources */,
 				96749B0625B8EAAD002849A0 /* XCTest+Extensions.swift in Sources */,
 				920B9DCA266A887E00D38A8C /* FactorsEnrollmentPage.swift in Sources */,
+				96E339B9266A9151000E0B0F /* PasscodeScenarioValidator.swift in Sources */,
+				96F7949A266AC6F200D340CD /* ScenarioTestCase.swift in Sources */,
+				96E339EC266AAF7F000E0B0F /* DeleteUser.swift in Sources */,
+				96E339E4266AAE4C000E0B0F /* CreateUser.swift in Sources */,
 				965A113326547EE9006B784F /* CodeReceiver.swift in Sources */,
 				920B9DD4266A90B800D38A8C /* PhoneFormPage.swift in Sources */,
 				928B7C72266A7F2D006DF45A /* SignInFormPage.swift in Sources */,
 				920B9DCE266A8E0E00D38A8C /* RegistrationFormPage.swift in Sources */,
-				96C51E9A25BA5A3F007A2519 /* Credentials.swift in Sources */,
 				9234CCFB266A4D650033564D /* EmailLoginScenarioTests.swift in Sources */,
 				92B559C826662AA300AB566F /* ResetTransactionScenarioTests.swift in Sources */,
 				920B9DB8266A861F00D38A8C /* UsernameRecoveryFormPage.swift in Sources */,
+				96E339B4266A9136000E0B0F /* Scenario.swift in Sources */,
 				965A112F26547EC1006B784F /* A18NProfile.swift in Sources */,
 				922820F526650FAA00AC66E9 /* PasscodeScenarioTests.swift in Sources */,
 				920B9DBC266A863600D38A8C /* RecoveryMethodPage.swift in Sources */,
@@ -932,6 +977,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96E339A2266A8E6F000E0B0F /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flight-School/AnyCodable";
+			requirement = {
+				kind = exactVersion;
+				version = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 964F744725A3E5F0003EE300 /* Project object */;
 }

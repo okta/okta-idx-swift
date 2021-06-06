@@ -12,11 +12,9 @@
 
 import XCTest
 
-class SelfServiceRegistrationScenarioTests: XCTestCase {
-    private let credentials = TestCredentials(with: .mfasop)!
-    private var app: XCUIApplication!
-    private var a18nProfile: A18NProfile!
-    
+class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
+    class override var category: Scenario.Category { .selfServiceRegistration }
+
     private struct PasswordEnrollmentPage {
         private let app: XCUIApplication
         
@@ -44,52 +42,33 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
         app.buttons["button.Skip"]
     }
 
-    override func setUpWithError() throws {
-        self.app = XCUIApplication()
-        
-        let a18nAPIKey = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_API_KEY"])
-        let a18nProfileID = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_PROFILE_ID"])
-        
-        let profileExpectation = expectation(description: "A18N profile exists.")
-        
-        A18NProfile.loadProfile(using: a18nAPIKey, profileId: a18nProfileID) { (profile, error) in
-            self.a18nProfile = profile
-            profileExpectation.fulfill()
-        }
-        
-        wait(for: [profileExpectation], timeout: .regular)
-
-        app.launchArguments = [
-            "--clientId", credentials.clientId,
-            "--issuer", credentials.issuerUrl,
-            "--redirectUri", credentials.redirectUri,
-            "--reset-user"
-        ]
-        app.launch()
-
-        continueAfterFailure = false
-        
-        XCTAssertNotNil(a18nProfile)
-        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials.clientId)")
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
+        try scenario.deleteUser()
     }
     
     func testSignUpWithPasswordEmail() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
+
         signInButton.tap()
 
-        try passEmailFactor(email: a18nProfile.emailAddress)
+        try passEmailFactor(email: credentials.username)
         
         XCTAssertTrue(skipButton.waitForExistence(timeout: .regular))
         skipButton.tap()
         
         let usernameLabel = app.tables.cells["username"]
         XCTAssertTrue(usernameLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(usernameLabel.staticTexts[a18nProfile.emailAddress].exists)
+        XCTAssertTrue(usernameLabel.staticTexts[credentials.username].exists)
     }
     
     func testSignUpWithPasswordEmailPhone() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
+        let phoneNumber = try XCTUnwrap(scenario.profile?.phoneNumber)
+
         signInButton.tap()
 
-        try passEmailAndPhoneFactors(email: a18nProfile.emailAddress, phone: a18nProfile.phoneNumber)
+        try passEmailAndPhoneFactors(email: credentials.username, phone: phoneNumber)
         
         let usernameLabel = app.tables.cells["username"]
         XCTAssertTrue(usernameLabel.waitForExistence(timeout: .regular))
@@ -108,9 +87,11 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
     }
     
     func testSignUpWithIncorrectPhone() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
+
         signInButton.tap()
         
-        try passEmailFactor(email: a18nProfile.emailAddress)
+        try passEmailFactor(email: credentials.username)
         
         fillInPhonePage(phone: "1230871234567")
         
@@ -131,19 +112,8 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
             phonePasscodePage.passcodeField.tap()
         }
         
-        let smsExpectation = expectation(description: "SMS code received.")
-        var smsCode: String?
-        
-        let smsReceiver = SMSReceiver(profile: a18nProfile)
-        smsReceiver.waitForCode(timeout: .regular, pollInterval: .regular / 4) { (code) in
-            smsCode = code
-            
-            smsExpectation.fulfill()
-        }
-        
-        wait(for: [smsExpectation], timeout: .regular)
-        
-        phonePasscodePage.passcodeField.typeText(try XCTUnwrap(smsCode))
+        let smsCode = try scenario.receive(code: .sms)
+        phonePasscodePage.passcodeField.typeText(smsCode)
         
         continueButton.tap()
     }
@@ -189,19 +159,9 @@ class SelfServiceRegistrationScenarioTests: XCTestCase {
             codePage.passcodeField.tap()
         }
 
-        let codeExpectation = expectation(description: "Email code received.")
-        var emailCode: String?
-        
-        let emailReceiver = EmailCodeReceiver(profile: a18nProfile)
-        emailReceiver.waitForCode(timeout: .regular, pollInterval: .regular / 4) { code in
-            emailCode = code
-            
-            codeExpectation.fulfill()
-        }
-        
-        wait(for: [codeExpectation], timeout: .regular)
+        let emailCode = try scenario.receive(code: .email)
 
-        codePage.passcodeField.typeText(try XCTUnwrap(emailCode))
+        codePage.passcodeField.typeText(emailCode)
         codePage.continueButton.tap()
         
         // Sometimes tests are very quick. And there's a strange bug after Continue button pressed.

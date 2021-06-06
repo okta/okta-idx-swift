@@ -1,0 +1,3 @@
+[submodule "OktaIdxExample/OktaIdxExample/OktaSdk"]
+	path = OktaIdxExample/OktaIdxExample/OktaSdk
+	url = git@github.com:okta/okta-sdk-swift.git

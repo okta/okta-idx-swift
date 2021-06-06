@@ -24,6 +24,31 @@ struct A18NProfile: Codable {
     let emailAddress: String
     let url: URL
     
+    static func createProfile(using apiKey: String, completion: @escaping (A18NProfile?, Error?) -> Void) {
+        guard let url = URL(string: "https://api.a18n.help/v1/profile") else {
+            completion(nil, A18NError.invalidUrl)
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+            "displayName": "okta-idx-swift"
+        ], options: [])
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data,
+                  let profile = try? A18NProfile.jsonDecoder.decode(A18NProfile.self, from: data)
+            else {
+                completion(nil, error)
+                return
+            }
+            completion(profile, nil)
+        }.resume()
+    }
+    
     static func loadProfile(using apiKey: String, profileId: String, completion: @escaping (A18NProfile?, Error?) -> Void) {
         guard let url = URL(string: "https://api.a18n.help/v1/profile/\(profileId)") else {
             completion(nil, A18NError.invalidUrl)
@@ -58,6 +83,21 @@ struct A18NProfile: Codable {
                 return
             }
             completion(message, nil)
+        }.resume()
+    }
+    
+    func delete(using apiKey: String, completion: @escaping (Error?) -> Void) {
+        guard let url = URL(string: "https://api.a18n.help/v1/profile/\(profileId)") else {
+            completion(A18NError.invalidUrl)
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            completion(error)
         }.resume()
     }
     

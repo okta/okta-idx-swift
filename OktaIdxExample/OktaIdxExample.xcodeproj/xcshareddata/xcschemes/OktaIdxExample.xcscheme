@@ -47,6 +47,16 @@
       </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
+            key = "OKTA_API_KEY"
+            value = "$(OKTA_API_KEY)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "OKTA_DOMAIN"
+            value = "$(OKTA_DOMAIN)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "A18N_API_KEY"
             value = "$(A18N_API_KEY)"
             isEnabled = "YES">
@@ -74,26 +84,6 @@
          <EnvironmentVariable
             key = "REDIRECT_URI"
             value = "$(REDIRECT_URI)"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "PASSCODE_USERNAME"
-            value = "$(PASSCODE_USERNAME)"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "PASSCODE_PASSWORD"
-            value = "$(PASSCODE_PASSWORD)"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "MFASOP_USERNAME"
-            value = "$(MFASOP_USERNAME)"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "MFASOP_PASSWORD"
-            value = "$(MFASOP_PASSWORD)"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
