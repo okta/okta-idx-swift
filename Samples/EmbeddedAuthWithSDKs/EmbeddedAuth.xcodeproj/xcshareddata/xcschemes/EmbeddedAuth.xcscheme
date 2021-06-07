@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "964F744E25A3E5F0003EE300"
-               BuildableName = "OktaIdxExample.app"
-               BlueprintName = "OktaIdxExample"
-               ReferencedContainer = "container:OktaIdxExample.xcodeproj">
+               BuildableName = "EmbeddedAuth.app"
+               BlueprintName = "EmbeddedAuth"
+               ReferencedContainer = "container:EmbeddedAuth.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,9 +40,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "964F746F25A3E5F3003EE300"
-            BuildableName = "OktaIdxExampleUITests.xctest"
-            BlueprintName = "OktaIdxExampleUITests"
-            ReferencedContainer = "container:OktaIdxExample.xcodeproj">
+            BuildableName = "EmbeddedAuthUITests.xctest"
+            BlueprintName = "EmbeddedAuthUITests"
+            ReferencedContainer = "container:EmbeddedAuth.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <EnvironmentVariables>
@@ -93,9 +93,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "964F746425A3E5F3003EE300"
-               BuildableName = "OktaIdxExampleTests.xctest"
-               BlueprintName = "OktaIdxExampleTests"
-               ReferencedContainer = "container:OktaIdxExample.xcodeproj">
+               BuildableName = "EmbeddedAuthTests.xctest"
+               BlueprintName = "EmbeddedAuthTests"
+               ReferencedContainer = "container:EmbeddedAuth.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -103,9 +103,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "964F746F25A3E5F3003EE300"
-               BuildableName = "OktaIdxExampleUITests.xctest"
-               BlueprintName = "OktaIdxExampleUITests"
-               ReferencedContainer = "container:OktaIdxExample.xcodeproj">
+               BuildableName = "EmbeddedAuthUITests.xctest"
+               BlueprintName = "EmbeddedAuthUITests"
+               ReferencedContainer = "container:EmbeddedAuth.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -125,9 +125,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "964F744E25A3E5F0003EE300"
-            BuildableName = "OktaIdxExample.app"
-            BlueprintName = "OktaIdxExample"
-            ReferencedContainer = "container:OktaIdxExample.xcodeproj">
+            BuildableName = "EmbeddedAuth.app"
+            BlueprintName = "EmbeddedAuth"
+            ReferencedContainer = "container:EmbeddedAuth.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -164,9 +164,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "964F744E25A3E5F0003EE300"
-            BuildableName = "OktaIdxExample.app"
-            BlueprintName = "OktaIdxExample"
-            ReferencedContainer = "container:OktaIdxExample.xcodeproj">
+            BuildableName = "EmbeddedAuth.app"
+            BlueprintName = "EmbeddedAuth"
+            ReferencedContainer = "container:EmbeddedAuth.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
