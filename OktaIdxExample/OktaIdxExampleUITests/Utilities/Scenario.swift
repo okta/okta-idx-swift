@@ -102,18 +102,6 @@ struct Scenario {
         
         var errors = [Swift.Error]()
         XCTContext.runActivity(named: "Tearing down test configuration") { _ in
-            if let credentials = credentials {
-                group.enter()
-                XCTContext.runActivity(named: "Deleting test user \(credentials.username)") { _ in
-                    validator.deleteUser(username: credentials.username) { (error) in
-                        if let error = error {
-                            errors.append(error)
-                        }
-                        group.leave()
-                    }
-                }
-            }
-            
             if let profile = profile {
                 group.enter()
                 XCTContext.runActivity(named: "Deleting A18N profile") { _ in
@@ -135,7 +123,7 @@ struct Scenario {
         }
     }
     
-    func createUser() throws {
+    func createUser(groups: [String] = []) throws {
         guard let credentials = credentials else {
             throw Error.profileValuesInvalid
         }
@@ -148,7 +136,8 @@ struct Scenario {
             validator.createUser(username: credentials.username,
                                  password: credentials.password,
                                  firstName: credentials.firstName,
-                                 lastName: credentials.lastName)
+                                 lastName: credentials.lastName,
+                                 groupNames: groups)
             {
                 error = $0
                 group.leave()
@@ -179,7 +168,7 @@ struct Scenario {
         group.wait()
 
         if let error = error {
-            if let error = error as? OktaSdk.ErrorResponse {
+            if let error = error as? ErrorResponse {
                 switch error {
                 case .error(let code, _, _, _):
                     if code == 404 {
@@ -210,12 +199,24 @@ struct Scenario {
         var result: String?
         let group = DispatchGroup()
         group.enter()
-        DispatchQueue.global().async {
+
+        let queue = DispatchQueue.global()
+        queue.async {
+            receiver.reset {
+                group.leave()
+            }
+        }
+        
+        group.wait()
+        
+        group.enter()
+        queue.async {
             receiver.waitForCode(timeout: timeout, pollInterval: pollInterval) { (code) in
                 result = code
                 group.leave()
             }
         }
+        
         group.wait()
         
         guard result != nil,
@@ -254,6 +255,7 @@ protocol ScenarioValidator {
                     password: String,
                     firstName: String,
                     lastName: String,
+                    groupNames: [String],
                     completion: @escaping (Error?) -> Void)
     func deleteUser(username: String,
                     completion: @escaping (Error?) -> Void)

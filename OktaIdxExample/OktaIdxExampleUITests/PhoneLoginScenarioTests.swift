@@ -14,30 +14,58 @@ import XCTest
 
 final class PhoneLoginScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }
-
-    override class func setUp() {
+    
+    override func setUp() {
         super.setUp()
         
         do {
-            try scenario.createUser()
+            try scenario.createUser(groups: ["MFA Required", "Phone Enrollment Required"])
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
     
-    func testLoginWithSMS() throws {
+    override func tearDown() {
+        super.tearDown()
+        
+        do {
+            try scenario.deleteUser()
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
+    func testEnrollWithSMS() throws {
         let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
         
-        let isUserEnrolled = passFactorsEnrollment(phoneNumber: try XCTUnwrap(scenario.profile?.phoneNumber))
+        let factorsPage = FactorsEnrollmentPage(app: app)
+        
+        XCTAssertTrue(factorsPage.phoneLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(factorsPage.continueButton.exists)
+        
+        factorsPage.phoneLabel.tap()
+        
+        XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
+        factorsPage.selectPickerWheel(.sms)
+        
+        
+        XCTAssertTrue(factorsPage.phoneNumberLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(factorsPage.phoneNumberField.exists)
+        
+        factorsPage.phoneNumberField.tap()
+        
+        factorsPage.phoneNumberField.typeText(try XCTUnwrap(scenario.profile?.phoneNumber))
+        
+        factorsPage.continueButton.tap()
         
         let passcodePage = PasscodeFormPage(app: app)
         XCTAssertTrue(passcodePage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(passcodePage.passcodeField.exists)
         XCTAssertTrue(passcodePage.resendButton.exists)
         
-        let smsCode = try scenario.receive(code: .sms)
+        let smsCode = try scenario.receive(code: .sms, pollInterval: .regular / 4)
         
         passcodePage.passcodeField.tap()
         passcodePage.passcodeField.typeText(smsCode)
@@ -46,18 +74,82 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         
         XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: .regular))
         XCTAssertTrue(app.tables.cells["username"].staticTexts[credentials.username].exists)
-        
-        if !isUserEnrolled {
-            try testLoginWithSMS()
-        }
     }
     
-    func testLoginWithInvalidCode() throws {
+    func testEnrollWithInvalidPhone() throws {
         let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
-
-        _ = passFactorsEnrollment(phoneNumber: try XCTUnwrap(scenario.profile?.phoneNumber))
+        
+        let factorsPage = FactorsEnrollmentPage(app: app)
+        
+        XCTAssertTrue(factorsPage.phoneLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(factorsPage.continueButton.exists)
+        
+        factorsPage.phoneLabel.tap()
+        
+        XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
+        factorsPage.selectPickerWheel(.sms)
+        
+        
+        XCTAssertTrue(factorsPage.phoneNumberLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(factorsPage.phoneNumberField.exists)
+        
+        factorsPage.phoneNumberField.tap()
+        factorsPage.phoneNumberField.typeText("+123456789")
+        factorsPage.continueButton.tap()
+        
+        XCTAssertTrue(app.staticTexts["Unable to initiate factor enrollment: Invalid Phone Number."].waitForExistence(timeout: .regular))
+    }
+    
+    func testLoginWithSMS() throws {
+        try testEnrollWithSMS()
+        
+        app.terminate()
+        app.launch()
+        
+        let credentials = try XCTUnwrap(scenario.credentials)
+        let signInPage = SignInFormPage(app: app)
+        signInPage.signIn(username: credentials.username, password: credentials.password)
+        
+        let factorsPage = FactorsEnrollmentPage(app: app)
+        
+        XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
+        factorsPage.selectPickerWheel(.sms)
+        
+        factorsPage.continueButton.tap()
+        
+        let passcodePage = PasscodeFormPage(app: app)
+        XCTAssertTrue(passcodePage.passcodeLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(passcodePage.passcodeField.exists)
+        XCTAssertTrue(passcodePage.resendButton.exists)
+        
+        let smsCode = try scenario.receive(code: .sms, pollInterval: .regular / 4)
+        
+        passcodePage.passcodeField.tap()
+        passcodePage.passcodeField.typeText(smsCode)
+        
+        passcodePage.continueButton.tap()
+        
+        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: .regular))
+        XCTAssertTrue(app.tables.cells["username"].staticTexts[credentials.username].exists)
+    }
+    
+    func testLoginWithInvalidCode() throws {
+        try testEnrollWithSMS()
+        
+        app.terminate()
+        app.launch()
+        
+        let credentials = try XCTUnwrap(scenario.credentials)
+        let signInPage = SignInFormPage(app: app)
+        signInPage.signIn(username: credentials.username, password: credentials.password)
+        
+        let factorsPage = FactorsEnrollmentPage(app: app)
+        XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
+        factorsPage.selectPickerWheel(.sms)
+        
+        factorsPage.continueButton.tap()
         
         let passcodePage = PasscodeFormPage(app: app)
         XCTAssertTrue(passcodePage.passcodeLabel.waitForExistence(timeout: .regular))
@@ -70,41 +162,5 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         passcodePage.continueButton.tap()
         
         XCTAssertTrue(app.staticTexts["Invalid code. Try again."].waitForExistence(timeout: .regular))
-    }
-    
-    private func passFactorsEnrollment(phoneNumber: String) -> Bool {
-        let factorsPage = FactorsEnrollmentPage(app: app)
-        let isUserEnrolled = factorsPage.isUserPhoneEnrolled
-
-        if !isUserEnrolled {
-            XCTAssertTrue(factorsPage.phoneLabel.waitForExistence(timeout: .regular))
-            XCTAssertTrue(factorsPage.continueButton.exists)
-            
-            factorsPage.phoneLabel.tap()
-        }
-        
-        XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
-        factorsPage.phonePicker.pickerWheels.firstMatch.adjust(toPickerWheelValue: "SMS")
-        
-        if !isUserEnrolled {
-            XCTAssertTrue(factorsPage.phoneNumberLabel.waitForExistence(timeout: .regular))
-            XCTAssertTrue(factorsPage.phoneNumberField.exists)
-            
-            factorsPage.phoneNumberField.tap()
-            
-            factorsPage.phoneNumberField.typeText("+123456789")
-            factorsPage.continueButton.tap()
-            
-            XCTAssertTrue(app.staticTexts["Unable to initiate factor enrollment: Invalid Phone Number"].waitForExistence(timeout: .regular))
-            
-            factorsPage.phoneNumberField.tap()
-            factorsPage.phoneNumberField.clearText()
-            
-            factorsPage.phoneNumberField.typeText(phoneNumber)
-        }
-        
-        factorsPage.continueButton.tap()
-        
-        return isUserEnrolled
     }
 }
