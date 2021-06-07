@@ -524,7 +524,6 @@
 			);
 			mainGroup = 964F744625A3E5F0003EE300;
 			packageReferences = (
-				96E339A2266A8E6F000E0B0F /* XCRemoteSwiftPackageReference "AnyCodable" */,
 			);
 			productRefGroup = 964F745025A3E5F0003EE300 /* Products */;
 			projectDirPath = "";
@@ -977,17 +976,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		96E339A2266A8E6F000E0B0F /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Flight-School/AnyCodable";
-			requirement = {
-				kind = exactVersion;
-				version = 0.4.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 964F744725A3E5F0003EE300 /* Project object */;
 }
