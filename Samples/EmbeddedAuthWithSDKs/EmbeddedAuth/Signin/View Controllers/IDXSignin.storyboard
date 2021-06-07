@@ -13,7 +13,7 @@
         <!--Initializing-->
         <scene sceneID="rsI-Fl-H4f">
             <objects>
-                <viewController storyboardIdentifier="start" title="Initializing" id="nHo-yk-WJ5" customClass="IDXStartViewController" customModule="OktaIdxExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="start" title="Initializing" id="nHo-yk-WJ5" customClass="IDXStartViewController" customModule="EmbeddedAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oSS-xv-b6k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,14 +38,14 @@
         <!--Remediation Table View Controller-->
         <scene sceneID="7bK-lk-qiJ">
             <objects>
-                <tableViewController storyboardIdentifier="remediation" id="uUT-nS-xEk" customClass="IDXRemediationTableViewController" customModule="OktaIdxExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="remediation" id="uUT-nS-xEk" customClass="IDXRemediationTableViewController" customModule="EmbeddedAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="yd9-sU-imG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Title" id="FSc-td-4m7" userLabel="Label" customClass="IDXTitleTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Title" id="FSc-td-4m7" userLabel="Label" customClass="IDXTitleTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="414" height="42.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FSc-td-4m7" id="p5C-ye-pSm">
@@ -75,7 +75,7 @@
                                     <outlet property="titleLabel" destination="zXp-iJ-XmK" id="r32-lF-xgS"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Label" id="7oI-85-feY" userLabel="Label" customClass="IDXLabelTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Label" id="7oI-85-feY" userLabel="Label" customClass="IDXLabelTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="98" width="414" height="35.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7oI-85-feY" id="QI0-2o-bSt">
@@ -105,7 +105,7 @@
                                     <outlet property="fieldLabel" destination="XRw-Zr-YHj" id="1FM-vm-sd3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Message" id="QHP-mb-W6C" userLabel="Message" customClass="IDXMessageTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Message" id="QHP-mb-W6C" userLabel="Message" customClass="IDXMessageTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="133.5" width="414" height="28"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QHP-mb-W6C" id="ByI-2B-YcO">
@@ -140,7 +140,7 @@
                                     <outlet property="messageTypeImageView" destination="fUD-cq-FWv" id="oeW-qZ-n4j"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Text" id="PHo-rh-7fp" customClass="IDXTextTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Text" id="PHo-rh-7fp" customClass="IDXTextTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="161.5" width="414" height="70.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PHo-rh-7fp" id="Lka-8Z-dZA">
@@ -179,7 +179,7 @@
                                     <outlet property="textField" destination="ecT-xC-Xz4" id="qVU-sG-suB"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Picker" id="Hf3-jo-VMq" customClass="IDXPickerTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Picker" id="Hf3-jo-VMq" customClass="IDXPickerTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="232" width="414" height="252.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hf3-jo-VMq" id="0Gu-Nx-S4T">
@@ -217,7 +217,7 @@
                                     <outlet property="pickerView" destination="96l-TI-rhE" id="hwZ-fZ-w8O"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Toggle" id="ASg-OQ-1dX" customClass="IDXToggleTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Toggle" id="ASg-OQ-1dX" customClass="IDXToggleTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="484.5" width="414" height="47"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ASg-OQ-1dX" id="5PE-a9-gxz">
@@ -254,7 +254,7 @@
                                     <outlet property="switchView" destination="Uc9-RO-ou7" id="xtE-8b-BUY"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Option" id="PVy-An-OEY" customClass="IDXOptionTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Option" id="PVy-An-OEY" customClass="IDXOptionTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="531.5" width="414" height="36.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PVy-An-OEY" id="8sr-2B-Tnf">
@@ -298,7 +298,7 @@
                                     <outlet property="fieldLabel" destination="a5M-hu-XrB" id="Mdo-C1-0K9"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Button" id="cJh-nH-d1y" customClass="IDXButtonTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Button" id="cJh-nH-d1y" customClass="IDXButtonTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="568" width="414" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJh-nH-d1y" id="JDt-u0-IBf">
@@ -329,7 +329,7 @@
                                     <outlet property="buttonView" destination="1Hv-8K-4Ks" id="RVn-tN-GM4"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="IDXTextTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Separator" id="tv2-dR-I0u" customClass="IDXSeparatorTableViewCell" customModule="OktaIdxExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="IDXTextTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Separator" id="tv2-dR-I0u" customClass="IDXSeparatorTableViewCell" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="624" width="414" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tv2-dR-I0u" id="CfB-tX-hMs">
@@ -396,7 +396,7 @@
         <!--Finishing up-->
         <scene sceneID="d8n-ID-zlK">
             <objects>
-                <viewController storyboardIdentifier="get-token" title="Finishing up" id="Bwh-iA-6YP" customClass="IDXGetTokenViewController" customModule="OktaIdxExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="get-token" title="Finishing up" id="Bwh-iA-6YP" customClass="IDXGetTokenViewController" customModule="EmbeddedAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OxO-U0-vMo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
