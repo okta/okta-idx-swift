@@ -12,64 +12,35 @@
 
 import XCTest
 
-final class PhoneLoginScenarioTests: XCTestCase {
-    private let credentials = TestCredentials(with: .passcode)!
-    private var app: XCUIApplication!
-    private var a18nProfile: A18NProfile!
+final class PhoneLoginScenarioTests: ScenarioTestCase {
+    class override var category: Scenario.Category { .passcodeOnly }
 
-    override func setUpWithError() throws {
-        self.app = XCUIApplication()
+    override class func setUp() {
+        super.setUp()
         
-        let a18nAPIKey = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_API_KEY"])
-        let a18nProfileID = try XCTUnwrap(ProcessInfo.processInfo.environment["A18N_PROFILE_ID"])
-        
-        let profileExpectation = expectation(description: "A18N profile exists.")
-        
-        A18NProfile.loadProfile(using: a18nAPIKey, profileId: a18nProfileID) { (profile, error) in
-            self.a18nProfile = profile
-            profileExpectation.fulfill()
+        do {
+            try scenario.createUser()
+        } catch {
+            XCTFail(error.localizedDescription)
         }
-        
-        wait(for: [profileExpectation], timeout: .regular)
-
-        app.launchArguments = [
-            "--clientId", credentials.clientId,
-            "--issuer", credentials.issuerUrl,
-            "--redirectUri", credentials.redirectUri,
-            "--reset-user"
-        ]
-        app.launch()
-
-        continueAfterFailure = false
-        
-        XCTAssertNotNil(a18nProfile)
-        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(credentials.clientId)")
     }
     
     func testLoginWithSMS() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
         
-        let isUserEnrolled = passFactorsEnrollment(phoneNumber: a18nProfile.phoneNumber)
+        let isUserEnrolled = passFactorsEnrollment(phoneNumber: try XCTUnwrap(scenario.profile?.phoneNumber))
         
         let passcodePage = PasscodeFormPage(app: app)
         XCTAssertTrue(passcodePage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(passcodePage.passcodeField.exists)
         XCTAssertTrue(passcodePage.resendButton.exists)
         
-        let codeExpectation = expectation(description: "SMS code received.")
-        var smsCode: String?
-        let smsReceiver = SMSReceiver(profile: a18nProfile)
-        smsReceiver.waitForCode(timeout: .regular, pollInterval: .regular / 4) { (code) in
-            smsCode = code
-            
-            codeExpectation.fulfill()
-        }
-
-        wait(for: [codeExpectation], timeout: .regular)
+        let smsCode = try scenario.receive(code: .sms)
         
         passcodePage.passcodeField.tap()
-        passcodePage.passcodeField.typeText(try XCTUnwrap(smsCode))
+        passcodePage.passcodeField.typeText(smsCode)
         
         passcodePage.continueButton.tap()
         
@@ -82,10 +53,11 @@ final class PhoneLoginScenarioTests: XCTestCase {
     }
     
     func testLoginWithInvalidCode() throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
 
-        _ = passFactorsEnrollment(phoneNumber: a18nProfile.phoneNumber)
+        _ = passFactorsEnrollment(phoneNumber: try XCTUnwrap(scenario.profile?.phoneNumber))
         
         let passcodePage = PasscodeFormPage(app: app)
         XCTAssertTrue(passcodePage.passcodeLabel.waitForExistence(timeout: .regular))
