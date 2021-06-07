@@ -18,6 +18,8 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
     override func setUp() {
         super.setUp()
         
+        try? scenario.resetMessages(.sms)
+        
         do {
             try scenario.createUser(groups: ["MFA Required", "Phone Enrollment Required"])
         } catch {
@@ -50,7 +52,6 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
         factorsPage.selectPickerWheel(.sms)
         
-        
         XCTAssertTrue(factorsPage.phoneNumberLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(factorsPage.phoneNumberField.exists)
         
@@ -65,7 +66,7 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         XCTAssertTrue(passcodePage.passcodeField.exists)
         XCTAssertTrue(passcodePage.resendButton.exists)
         
-        let smsCode = try scenario.receive(code: .sms, pollInterval: .regular / 4)
+        let smsCode = try scenario.receive(code: .sms)
         
         passcodePage.passcodeField.tap()
         passcodePage.passcodeField.typeText(smsCode)
@@ -117,6 +118,9 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
         factorsPage.selectPickerWheel(.sms)
         
+        // Before receiving a code, we must reset all messages.
+        try scenario.resetMessages(.sms)
+        
         factorsPage.continueButton.tap()
         
         let passcodePage = PasscodeFormPage(app: app)
@@ -124,7 +128,7 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         XCTAssertTrue(passcodePage.passcodeField.exists)
         XCTAssertTrue(passcodePage.resendButton.exists)
         
-        let smsCode = try scenario.receive(code: .sms, pollInterval: .regular / 4)
+        let smsCode = try scenario.receive(code: .sms)
         
         passcodePage.passcodeField.tap()
         passcodePage.passcodeField.typeText(smsCode)

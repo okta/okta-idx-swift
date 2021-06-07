@@ -181,12 +181,38 @@ struct Scenario {
         }
     }
     
+    func resetMessages(_ messageType: A18NProfile.MessageType) throws {
+        guard let profile = profile else {
+            throw Error.noA18NProfile
+        }
+        
+        let receiver: CodeReceiver
+        switch messageType {
+        case .email:
+            receiver = EmailCodeReceiver(profile: profile)
+        case .sms:
+            receiver = SMSReceiver(profile: profile)
+        case .voice:
+            receiver = VoiceReceiver(profile: profile)
+        }
+
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global().async {
+            receiver.reset {
+                group.leave()
+            }
+        }
+        
+        group.wait()
+    }
+    
     func receive(code type: A18NProfile.MessageType, timeout: TimeInterval = 30, pollInterval: TimeInterval = 1) throws -> String {
         guard let profile = profile else {
             throw Error.noA18NProfile
         }
         
-        var receiver: CodeReceiver!
+        let receiver: CodeReceiver
         switch type {
         case .email:
             receiver = EmailCodeReceiver(profile: profile)
@@ -199,18 +225,7 @@ struct Scenario {
         var result: String?
         let group = DispatchGroup()
         group.enter()
-
-        let queue = DispatchQueue.global()
-        queue.async {
-            receiver.reset {
-                group.leave()
-            }
-        }
-        
-        group.wait()
-        
-        group.enter()
-        queue.async {
+        DispatchQueue.global().async {
             receiver.waitForCode(timeout: timeout, pollInterval: pollInterval) { (code) in
                 result = code
                 group.leave()
