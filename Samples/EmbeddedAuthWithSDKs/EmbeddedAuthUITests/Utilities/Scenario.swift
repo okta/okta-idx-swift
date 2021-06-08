@@ -135,7 +135,7 @@ struct Scenario {
         }
     }
     
-    func createUser() throws {
+    func createUser(enroll factors: [FactorType] = []) throws {
         guard let credentials = credentials else {
             throw Error.profileValuesInvalid
         }
@@ -148,7 +148,9 @@ struct Scenario {
             validator.createUser(username: credentials.username,
                                  password: credentials.password,
                                  firstName: credentials.firstName,
-                                 lastName: credentials.lastName)
+                                 lastName: credentials.lastName,
+                                 phoneNumber: profile?.phoneNumber,
+                                 enrollFactors: factors)
             {
                 error = $0
                 group.leave()
@@ -254,9 +256,17 @@ protocol ScenarioValidator {
                     password: String,
                     firstName: String,
                     lastName: String,
+                    phoneNumber: String?,
+                    enrollFactors: [FactorType],
                     completion: @escaping (Error?) -> Void)
     func deleteUser(username: String,
                     completion: @escaping (Error?) -> Void)
+    func activatePolicy(named: String,
+                   type: PolicyType,
+                   completion: @escaping(Error?) -> Void)
+    func deactivatePolicy(named: String,
+                          type: PolicyType,
+                          completion: @escaping(Error?) -> Void)
 }
 
 extension Scenario.Category {    
