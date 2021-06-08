@@ -27,6 +27,11 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         }
     }
     
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
+        try scenario.deleteUser()
+    }
+    
     func testEnrollWithSMS() throws {
         let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
