@@ -14,13 +14,15 @@ import XCTest
 
 struct PasscodeFormPage {
     private let app: XCUIApplication
+    private let isSecure: Bool
     
-    init(app: XCUIApplication) {
+    init(app: XCUIApplication, isSecure: Bool = false) {
         self.app = app
+        self.isSecure = isSecure
     }
     
     var passcodeLabel: XCUIElement { app.staticTexts["passcode.label"] }
-    var passcodeField: XCUIElement { app.textFields ["passcode.field"] }
+    var passcodeField: XCUIElement { (isSecure ? app.secureTextFields : app.textFields)["passcode.field"] }
     var resendButton: XCUIElement { app.staticTexts["resend"] }
     var continueButton: XCUIElement {
         app.buttons
