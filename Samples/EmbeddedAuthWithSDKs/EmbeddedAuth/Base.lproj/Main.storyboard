@@ -28,7 +28,7 @@
         <!--Configuration-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ClientConfigurationViewController" customModule="OktaIdxExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ClientConfigurationViewController" customModule="EmbeddedAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,7 +198,7 @@
         <!--Profile-->
         <scene sceneID="BgN-u1-1m5">
             <objects>
-                <tableViewController id="Yg8-Nr-LdZ" customClass="ProfileTableViewController" customModule="OktaIdxExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Yg8-Nr-LdZ" customClass="ProfileTableViewController" customModule="EmbeddedAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="39D-ud-QpH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +303,7 @@
         <!--Token Details-->
         <scene sceneID="8Hy-6Z-l4h">
             <objects>
-                <viewController storyboardIdentifier="TokenDetailViewController" id="hRg-fs-UZ5" customClass="TokenDetailViewController" customModule="OktaIdxExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TokenDetailViewController" id="hRg-fs-UZ5" customClass="TokenDetailViewController" customModule="EmbeddedAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v0H-gb-n7G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,7 +388,7 @@
         <!--Landing View Controller-->
         <scene sceneID="3ia-Ct-ciq">
             <objects>
-                <viewController id="4R9-My-6Nw" customClass="LandingViewController" customModule="OktaIdxExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4R9-My-6Nw" customClass="LandingViewController" customModule="EmbeddedAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dNr-2n-lLU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -397,7 +397,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="tintColor" name="signin-footer-background-tintColor"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6BY-J0-lMG" customClass="FooterView" customModule="OktaIdxExample" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6BY-J0-lMG" customClass="FooterView" customModule="EmbeddedAuth" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="769" width="414" height="167"/>
                                 <color key="backgroundColor" name="signin-footer-background-color"/>
                                 <userDefinedRuntimeAttributes>
@@ -409,7 +409,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="qDq-Ed-dD7">
                                 <rect key="frame" x="52" y="769" width="310.5" height="93"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okD-fF-dj3" customClass="SigninButton" customModule="OktaIdxExample" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okD-fF-dj3" customClass="SigninButton" customModule="EmbeddedAuth" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="310.5" height="53"/>
                                         <color key="backgroundColor" name="signin-color-primary"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -441,7 +441,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="hgh-jI-DCG"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Okta IDX Sign-in Sample" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIt-OV-FAH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Embedded Auth with SDKs" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIt-OV-FAH">
                                 <rect key="frame" x="52" y="243.5" width="310.5" height="215"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="60"/>
                                 <color key="textColor" name="signin-title-color"/>
