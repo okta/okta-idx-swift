@@ -250,6 +250,17 @@ struct Scenario {
     }
 }
 
+enum OktaPolicy: String, CaseIterable {
+    case selfServiceRegistration = "Self Service Registration"
+    
+    var policyType: PolicyType {
+        switch self {
+        case .selfServiceRegistration:
+            return .oktaProfileEnrollment
+        }
+    }
+}
+
 protocol ScenarioValidator {
     func configure(completion: @escaping (Error?) -> Void)
     func createUser(username: String,
@@ -261,11 +272,9 @@ protocol ScenarioValidator {
                     completion: @escaping (Error?) -> Void)
     func deleteUser(username: String,
                     completion: @escaping (Error?) -> Void)
-    func activatePolicy(named: String,
-                   type: PolicyType,
-                   completion: @escaping(Error?) -> Void)
-    func deactivatePolicy(named: String,
-                          type: PolicyType,
+    func activatePolicy(_ policy: OktaPolicy,
+                        completion: @escaping(Error?) -> Void)
+    func deactivatePolicy(_ policy: OktaPolicy,
                           completion: @escaping(Error?) -> Void)
 }
 

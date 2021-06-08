@@ -15,8 +15,7 @@ import OktaSdk
 
 struct PasscodeScenarioValidator: ScenarioValidator {
     func configure(completion: @escaping (Error?) -> Void) {
-        deactivatePolicy(named: "Self Service Registration",
-                         type: .oktaProfileEnrollment,
+        deactivatePolicy(.selfServiceRegistration,
                          completion: completion)
     }
 }

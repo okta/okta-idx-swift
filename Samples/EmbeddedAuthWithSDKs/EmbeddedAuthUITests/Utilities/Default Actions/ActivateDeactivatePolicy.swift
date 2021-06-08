@@ -14,24 +14,22 @@ import Foundation
 import OktaSdk
 
 extension ScenarioValidator {
-    func activatePolicy(named: String,
-                   type: PolicyType,
-                   completion: @escaping(Error?) -> Void)
+    func activatePolicy(_ policy: OktaPolicy,
+                        completion: @escaping(Error?) -> Void)
     {
-        setPolicy(named: named, type: type, isActive: true, completion: completion)
+        setPolicy(named: policy.rawValue, type: policy.policyType, isActive: true, completion: completion)
     }
     
-    func deactivatePolicy(named: String,
-                          type: PolicyType,
+    func deactivatePolicy(_ policy: OktaPolicy,
                           completion: @escaping(Error?) -> Void)
     {
-        setPolicy(named: named, type: type, isActive: false, completion: completion)
+        setPolicy(named: policy.rawValue, type: policy.policyType, isActive: false, completion: completion)
     }
 
     private func setPolicy(named: String,
-                   type: PolicyType,
-                   isActive: Bool,
-                   completion: @escaping(Error?) -> Void)
+                           type: PolicyType,
+                           isActive: Bool,
+                           completion: @escaping(Error?) -> Void)
     {
         PolicyAPI.listPolicies(type: type.rawValue) { (policies, error) in
             guard let policies = policies,
