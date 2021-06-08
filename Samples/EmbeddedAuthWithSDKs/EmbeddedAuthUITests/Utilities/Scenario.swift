@@ -102,6 +102,18 @@ struct Scenario {
         
         var errors = [Swift.Error]()
         XCTContext.runActivity(named: "Tearing down test configuration") { _ in
+            if let credentials = credentials {
+                group.enter()
+                XCTContext.runActivity(named: "Deleting test user \(credentials.username)") { _ in
+                    validator.deleteUser(username: credentials.username) { (error) in
+                        if let error = error {
+                            errors.append(error)
+                        }
+                        group.leave()
+                    }
+                }
+            }
+            
             if let profile = profile {
                 group.enter()
                 XCTContext.runActivity(named: "Deleting A18N profile") { _ in
@@ -123,7 +135,7 @@ struct Scenario {
         }
     }
     
-    func createUser(groups: [String] = []) throws {
+    func createUser(groups: [OktaGroup] = []) throws {
         guard let credentials = credentials else {
             throw Error.profileValuesInvalid
         }
@@ -264,13 +276,18 @@ struct Scenario {
     }
 }
 
+enum OktaGroup: String, CaseIterable {
+    case mfa = "MFA Required"
+    case phoneEnrollment = "Phone Enrollment Required"
+}
+
 protocol ScenarioValidator {
     func configure(completion: @escaping (Error?) -> Void)
     func createUser(username: String,
                     password: String,
                     firstName: String,
                     lastName: String,
-                    groupNames: [String],
+                    groupNames: [OktaGroup],
                     completion: @escaping (Error?) -> Void)
     func deleteUser(username: String,
                     completion: @escaping (Error?) -> Void)

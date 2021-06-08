@@ -21,7 +21,9 @@ struct PasscodeFormPage {
     
     var passcodeLabel: XCUIElement { app.staticTexts["passcode.label"] }
     var passcodeField: XCUIElement { app.textFields ["passcode.field"] }
+    var securityPasscodeField: XCUIElement { app.secureTextFields["passcode.field"] }
     var resendButton: XCUIElement { app.staticTexts["resend"] }
+    
     var continueButton: XCUIElement {
         app.buttons
             .allElementsBoundByIndex

@@ -14,16 +14,6 @@ import XCTest
 
 class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .selfServiceRegistration }
-
-    private struct PasswordEnrollmentPage {
-        private let app: XCUIApplication
-        
-        init(app: XCUIApplication) {
-            self.app = app
-        }
-        
-        var passwordLabel: XCUIElement { app.staticTexts["Password"] }
-    }
     
     private var signInButton: XCUIElement {
         app.buttons["Sign In"]
@@ -40,6 +30,13 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
     
     private var skipButton: XCUIElement {
         app.buttons["button.Skip"]
+    }
+    
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        
+        try? scenario.resetMessages(.sms)
+        try? scenario.resetMessages(.email)
     }
 
     override func tearDownWithError() throws {
@@ -75,12 +72,12 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         XCTAssertTrue(usernameLabel.staticTexts[credentials.username].exists)
     }
     
-    func testSignUpWithIncorrectEmail() {
+    func testSignUpWithIncorrectEmail() throws {
         signInButton.tap()
         XCTAssertTrue(signUpButton.waitForExistence(timeout: .regular))
         signUpButton.tap()
         
-        fillInInitialPage(email: "invalid@email")
+        try fillInInitialPage(email: "invalid@email")
         
         XCTAssertTrue(app.tables.staticTexts["'Email' must be in the form of an email address"].waitForExistence(timeout: .regular))
         XCTAssertTrue(app.tables.staticTexts["Provided value for property 'Email' does not match required pattern"].waitForExistence(timeout: .minimal))
@@ -115,36 +112,33 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         let smsCode = try scenario.receive(code: .sms)
         phonePasscodePage.passcodeField.typeText(smsCode)
         
-        continueButton.tap()
+        phonePasscodePage.continueButton.tap()
     }
     
     private func passEmailFactor(email: String) throws {
         XCTAssertTrue(signUpButton.waitForExistence(timeout: .regular))
         signUpButton.tap()
         
-        fillInInitialPage(email: email)
+        try fillInInitialPage(email: email)
         
-        let passwordEnrollmentPage = PasswordEnrollmentPage(app: app)
+        let passwordEnrollmentPage = FactorsEnrollmentPage(app: app)
         XCTAssertTrue(passwordEnrollmentPage.passwordLabel.waitForExistence(timeout: .regular))
         passwordEnrollmentPage.passwordLabel.tap()
         
-        continueButton.tap()
+        passwordEnrollmentPage.continueButton.tap()
         
         let passwordPage = PasscodeFormPage(app: app)
         XCTAssertTrue(passwordPage.passcodeLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(passwordPage.passcodeField.exists)
+        XCTAssertTrue(passwordPage.securityPasscodeField.exists)
         
-        if !passwordPage.passcodeField.isFocused {
-            passwordPage.passcodeField.tap()
+        if !passwordPage.securityPasscodeField.isFocused {
+            passwordPage.securityPasscodeField.tap()
         }
         
-        passwordPage.passcodeField.press(forDuration: 1.3)
-        UIPasteboard.general.string = "Sample123!"
-        app.menuItems["Paste"].tap()
-        
-        Thread.sleep(forTimeInterval: 1)
-        
-        continueButton.tap()
+        let credentials = try XCTUnwrap(scenario.credentials)
+        passwordPage.securityPasscodeField.typeText(credentials.password)
+
+        passwordPage.continueButton.tap()
         
         let factorEnrolmentPage = FactorsEnrollmentPage(app: app)
         XCTAssertTrue(factorEnrolmentPage.emailLabel.waitForExistence(timeout: .regular))
@@ -169,7 +163,8 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         Thread.sleep(forTimeInterval: 2)
     }
     
-    private func fillInInitialPage(email: String) {
+    private func fillInInitialPage(email: String) throws {
+        let credentials = try XCTUnwrap(scenario.credentials)
         let registrationPage = RegistrationFormPage(app: app)
         
         XCTAssertTrue(registrationPage.firstNameLabel.waitForExistence(timeout: .regular))
@@ -182,9 +177,9 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         XCTAssertTrue(registrationPage.emailField.exists)
         
         registrationPage.firstNameField.tap()
-        registrationPage.firstNameField.typeText("Test")
+        registrationPage.firstNameField.typeText(credentials.firstName)
         registrationPage.lastNameField.tap()
-        registrationPage.lastNameField.typeText("User")
+        registrationPage.lastNameField.typeText(credentials.lastName)
         registrationPage.emailField.tap()
         registrationPage.emailField.typeText(email)
         
@@ -197,11 +192,10 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         factorsPage.phoneLabel.tap()
         
         XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .regular))
-        factorsPage.phonePicker.pickerWheels.element.adjust(toPickerWheelValue: "SMS")
+        factorsPage.selectPickerWheel(.sms)
         
         let phoneFormPage = PhoneFormPage(app: app)
 
-        XCTAssertTrue(phoneFormPage.phoneField.waitForExistence(timeout: .regular))
         XCTAssertTrue(phoneFormPage.phoneField.waitForExistence(timeout: .regular))
         
         if !phoneFormPage.phoneField.isFocused {

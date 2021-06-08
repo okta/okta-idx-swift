@@ -15,6 +15,16 @@ import XCTest
 final class ResetPasswordScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }
 
+    override static func setUp() {
+        super.setUp()
+        
+        do {
+            try scenario.createUser()
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
     func testResetSuccessful() throws {
         let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)

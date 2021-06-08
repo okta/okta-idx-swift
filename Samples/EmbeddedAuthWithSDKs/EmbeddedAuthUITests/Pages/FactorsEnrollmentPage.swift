@@ -15,6 +15,7 @@ import XCTest
 struct FactorsEnrollmentPage {
     enum PickerWheel {
         case sms
+        case voice
     }
     
     private let app: XCUIApplication
@@ -25,6 +26,7 @@ struct FactorsEnrollmentPage {
     
     var emailLabel: XCUIElement { app.staticTexts["Email"] }
     var phoneLabel: XCUIElement { app.staticTexts["Phone"] }
+    var passwordLabel: XCUIElement { app.staticTexts["Password"] }
     var continueButton: XCUIElement { app.buttons["button.Next"] }
     
     var phonePicker: XCUIElement { app.pickers.firstMatch }
@@ -35,6 +37,8 @@ struct FactorsEnrollmentPage {
         switch value {
         case .sms:
             phonePicker.pickerWheels.firstMatch.adjust(toPickerWheelValue: "SMS")
+        case .voice:
+            phonePicker.pickerWheels.firstMatch.adjust(toPickerWheelValue: "Voice")
         }
     }
 }

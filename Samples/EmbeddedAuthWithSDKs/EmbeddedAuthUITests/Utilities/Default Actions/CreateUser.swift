@@ -14,7 +14,7 @@ import Foundation
 import OktaSdk
 
 extension ScenarioValidator {
-    func createUser(username: String, password: String, firstName: String, lastName: String, groupNames: [String] = [], completion: @escaping (Error?) -> Void) {
+    func createUser(username: String, password: String, firstName: String, lastName: String, groupNames: [OktaGroup] = [], completion: @escaping (Error?) -> Void) {
         let passwordCredential = PasswordCredential(hash: nil,
                                                     hook: nil,
                                                     value: password)
@@ -43,7 +43,7 @@ extension ScenarioValidator {
         }
     }
     
-    private func groupIds(byGroupNames groupNames: [String]) -> [String] {
+    private func groupIds(byGroupNames groupNames: [OktaGroup]) -> [String] {
         guard !groupNames.isEmpty else {
             return []
         }
@@ -53,7 +53,9 @@ extension ScenarioValidator {
         group.enter()
         
         GroupAPI.listGroups { (groups, error) in
-            groupIds = groups?.filter { groupNames.contains($0.profile?.name ?? "") }.compactMap {
+            groupIds = groups?.filter {
+                OktaGroup(rawValue: $0.profile?.name ?? "") != nil
+            }.compactMap {
                 $0.id
             } ?? []
             

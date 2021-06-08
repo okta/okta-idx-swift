@@ -21,17 +21,7 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         try? scenario.resetMessages(.sms)
         
         do {
-            try scenario.createUser(groups: ["MFA Required", "Phone Enrollment Required"])
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-        
-        do {
-            try scenario.deleteUser()
+            try scenario.createUser(groups: [.mfa, .phoneEnrollment])
         } catch {
             XCTFail(error.localizedDescription)
         }
