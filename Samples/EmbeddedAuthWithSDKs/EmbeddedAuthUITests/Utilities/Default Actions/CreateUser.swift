@@ -101,8 +101,15 @@ extension ScenarioValidator {
         group.enter()
         
         GroupAPI.listGroups { (groups, error) in
-            groupIds = groups?.filter {
-                OktaGroup(rawValue: $0.profile?.name ?? "") != nil
+            groupIds = groups?.filter { groupObject in
+                guard let groupName = groupObject.profile?.name,
+                      let oktaGroup = OktaGroup(rawValue: groupName)
+                else
+                {
+                    return false
+                }
+                
+                return groupNames.contains(oktaGroup)
             }.compactMap {
                 $0.id
             } ?? []

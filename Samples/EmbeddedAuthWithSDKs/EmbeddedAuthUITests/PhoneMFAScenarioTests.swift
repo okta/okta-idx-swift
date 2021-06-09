@@ -12,7 +12,7 @@
 
 import XCTest
 
-final class PhoneLoginScenarioTests: ScenarioTestCase {
+final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }
     
     override func setUp() {
@@ -97,21 +97,42 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
         
         XCTAssertTrue(app.staticTexts["Unable to initiate factor enrollment: Invalid Phone Number."].waitForExistence(timeout: .regular))
     }
+}
+
+final class PhoneMFALoginScenarioTests: ScenarioTestCase {
+    class override var category: Scenario.Category { .passcodeOnly }
+    
+    override func setUp() {
+        super.setUp()
+        
+        try? scenario.resetMessages(.sms)
+        
+        do {
+            try scenario.createUser(enroll: [.sms], groups: [.mfa, .phoneEnrollment])
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
+        try scenario.deleteUser()
+    }
     
     func testLoginWithSMS() throws {
-        try testEnrollWithSMS()
-        
-        app.terminate()
-        app.launch()
-        
         let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
         
         let factorsPage = FactorsEnrollmentPage(app: app)
+        XCTAssertTrue(factorsPage.phoneLabel.waitForExistence(timeout: .minimal))
+        factorsPage.phoneLabel.tap()
         
         XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
         factorsPage.selectPickerWheel(.sms)
+        
+        // Picker issue
+        Thread.sleep(forTimeInterval: 2)
         
         // Before receiving a code, we must reset all messages.
         try scenario.resetMessages(.sms)
@@ -135,18 +156,19 @@ final class PhoneLoginScenarioTests: ScenarioTestCase {
     }
     
     func testLoginWithInvalidCode() throws {
-        try testEnrollWithSMS()
-        
-        app.terminate()
-        app.launch()
-        
         let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
         
         let factorsPage = FactorsEnrollmentPage(app: app)
+        XCTAssertTrue(factorsPage.phoneLabel.waitForExistence(timeout: .minimal))
+        factorsPage.phoneLabel.tap()
+        
         XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
         factorsPage.selectPickerWheel(.sms)
+        
+        // Picker issue
+        Thread.sleep(forTimeInterval: 2)
         
         factorsPage.continueButton.tap()
         

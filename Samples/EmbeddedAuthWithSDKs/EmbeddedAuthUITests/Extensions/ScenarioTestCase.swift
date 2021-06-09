@@ -22,7 +22,11 @@ class ScenarioTestCase: XCTestCase {
     
     class var category: Scenario.Category { .passcodeOnly }
     
-    var shouldResetUser: Bool = true
+    var shouldResetUser: Bool = true {
+        didSet {
+            app.launchArguments = launchArguments()
+        }
+    }
     
     func launchArguments() -> [String] {
         var result = [

@@ -191,6 +191,9 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         XCTAssertTrue(factorsPage.phoneLabel.waitForExistence(timeout: .regular))
         factorsPage.phoneLabel.tap()
         
+        // Picker issue
+        Thread.sleep(forTimeInterval: 2)
+        
         XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .regular))
         factorsPage.selectPickerWheel(.sms)
         

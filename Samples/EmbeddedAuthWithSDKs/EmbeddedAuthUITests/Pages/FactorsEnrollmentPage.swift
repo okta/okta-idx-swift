@@ -28,6 +28,7 @@ struct FactorsEnrollmentPage {
     var phoneLabel: XCUIElement { app.staticTexts["Phone"] }
     var passwordLabel: XCUIElement { app.staticTexts["Password"] }
     var continueButton: XCUIElement { app.buttons["button.Next"] }
+    var chooseButton: XCUIElement { app.buttons["button.Choose Method"] }
     
     var phonePicker: XCUIElement { app.pickers.firstMatch }
     var phoneNumberLabel: XCUIElement { app.staticTexts["phoneNumber.label"] }

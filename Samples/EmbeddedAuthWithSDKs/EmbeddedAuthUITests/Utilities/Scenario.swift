@@ -80,7 +80,7 @@ struct Scenario {
         }
 
         self.profile = profile
-        Scenario.sharedProfileId = profile?.profileId
+//        Scenario.sharedProfileId = profile?.profileId
 
         // Configure the org
         group.enter()
