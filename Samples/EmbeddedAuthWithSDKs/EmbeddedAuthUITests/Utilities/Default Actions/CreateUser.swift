@@ -18,6 +18,7 @@ extension ScenarioValidator {
                     password: String,
                     firstName: String,
                     lastName: String,
+                    groupNames: [OktaGroup] = [],
                     phoneNumber: String? = nil,
                     enrollFactors: [FactorType] = [],
                     completion: @escaping (Error?) -> Void)
@@ -35,8 +36,10 @@ extension ScenarioValidator {
                                           provider: nil,
                                           recoveryQuestion: nil)
         
+        let groupIds = self.groupIds(byGroupNames: groupNames)
+        
         let userRequest = CreateUserRequest(credentials: credentials,
-                                            groupIds: nil,
+                                            groupIds: groupIds,
                                             profile: userProfile,
                                             type: nil)
         
@@ -86,5 +89,36 @@ extension ScenarioValidator {
                 completion(error ?? asyncError)
             }
         }
+    }
+    
+    private func groupIds(byGroupNames groupNames: [OktaGroup]) -> [String] {
+        guard !groupNames.isEmpty else {
+            return []
+        }
+        
+        var groupIds: [String] = []
+        let group = DispatchGroup()
+        group.enter()
+        
+        GroupAPI.listGroups { (groups, error) in
+            groupIds = groups?.filter { groupObject in
+                guard let groupName = groupObject.profile?.name,
+                      let oktaGroup = OktaGroup(rawValue: groupName)
+                else
+                {
+                    return false
+                }
+                
+                return groupNames.contains(oktaGroup)
+            }.compactMap {
+                $0.id
+            } ?? []
+            
+            group.leave()
+        }
+        
+        group.wait()
+        
+        return groupIds
     }
 }

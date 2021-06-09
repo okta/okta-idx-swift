@@ -80,7 +80,7 @@ struct Scenario {
         }
 
         self.profile = profile
-        Scenario.sharedProfileId = profile?.profileId
+//        Scenario.sharedProfileId = profile?.profileId
 
         // Configure the org
         group.enter()
@@ -135,7 +135,7 @@ struct Scenario {
         }
     }
     
-    func createUser(enroll factors: [FactorType] = []) throws {
+    func createUser(enroll factors: [FactorType] = [], groups: [OktaGroup] = []) throws {
         guard let credentials = credentials else {
             throw Error.profileValuesInvalid
         }
@@ -149,6 +149,7 @@ struct Scenario {
                                  password: credentials.password,
                                  firstName: credentials.firstName,
                                  lastName: credentials.lastName,
+                                 groupNames: groups,
                                  phoneNumber: profile?.phoneNumber,
                                  enrollFactors: factors)
             {
@@ -181,7 +182,7 @@ struct Scenario {
         group.wait()
 
         if let error = error {
-            if let error = error as? OktaSdk.ErrorResponse {
+            if let error = error as? ErrorResponse {
                 switch error {
                 case .error(let code, _, _, _):
                     if code == 404 {
@@ -194,12 +195,38 @@ struct Scenario {
         }
     }
     
+    func resetMessages(_ messageType: A18NProfile.MessageType) throws {
+        guard let profile = profile else {
+            throw Error.noA18NProfile
+        }
+        
+        let receiver: CodeReceiver
+        switch messageType {
+        case .email:
+            receiver = EmailCodeReceiver(profile: profile)
+        case .sms:
+            receiver = SMSReceiver(profile: profile)
+        case .voice:
+            receiver = VoiceReceiver(profile: profile)
+        }
+
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global().async {
+            receiver.reset {
+                group.leave()
+            }
+        }
+        
+        group.wait()
+    }
+    
     func receive(code type: A18NProfile.MessageType, timeout: TimeInterval = 30, pollInterval: TimeInterval = 1) throws -> String {
         guard let profile = profile else {
             throw Error.noA18NProfile
         }
         
-        var receiver: CodeReceiver!
+        let receiver: CodeReceiver
         switch type {
         case .email:
             receiver = EmailCodeReceiver(profile: profile)
@@ -218,6 +245,7 @@ struct Scenario {
                 group.leave()
             }
         }
+        
         group.wait()
         
         guard result != nil,
@@ -250,6 +278,11 @@ struct Scenario {
     }
 }
 
+enum OktaGroup: String, CaseIterable {
+    case mfa = "MFA Required"
+    case phoneEnrollment = "Phone Enrollment Required"
+}
+
 enum OktaPolicy: String, CaseIterable {
     case selfServiceRegistration = "Self Service Registration"
     
@@ -267,6 +300,7 @@ protocol ScenarioValidator {
                     password: String,
                     firstName: String,
                     lastName: String,
+                    groupNames: [OktaGroup],
                     phoneNumber: String?,
                     enrollFactors: [FactorType],
                     completion: @escaping (Error?) -> Void)

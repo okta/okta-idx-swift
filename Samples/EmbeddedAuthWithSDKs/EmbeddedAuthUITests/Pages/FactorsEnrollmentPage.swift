@@ -13,21 +13,33 @@
 import XCTest
 
 struct FactorsEnrollmentPage {
+    enum PickerWheel {
+        case sms
+        case voice
+    }
+    
     private let app: XCUIApplication
     
     init(app: XCUIApplication) {
         self.app = app
     }
     
-    var isUserPhoneEnrolled: Bool {
-        phonePicker.waitForExistence(timeout: .minimal)
-    }
-    
     var emailLabel: XCUIElement { app.staticTexts["Email"] }
     var phoneLabel: XCUIElement { app.staticTexts["Phone"] }
+    var passwordLabel: XCUIElement { app.staticTexts["Password"] }
     var continueButton: XCUIElement { app.buttons["button.Next"] }
+    var chooseButton: XCUIElement { app.buttons["button.Choose Method"] }
     
     var phonePicker: XCUIElement { app.pickers.firstMatch }
     var phoneNumberLabel: XCUIElement { app.staticTexts["phoneNumber.label"] }
     var phoneNumberField: XCUIElement { app.textFields["phoneNumber.field"] }
+    
+    func selectPickerWheel(_ value: PickerWheel) {
+        switch value {
+        case .sms:
+            phonePicker.pickerWheels.firstMatch.adjust(toPickerWheelValue: "SMS")
+        case .voice:
+            phonePicker.pickerWheels.firstMatch.adjust(toPickerWheelValue: "Voice")
+        }
+    }
 }

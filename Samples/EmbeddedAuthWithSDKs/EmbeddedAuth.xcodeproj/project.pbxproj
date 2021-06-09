@@ -15,9 +15,10 @@
 		920B9DCE266A8E0E00D38A8C /* RegistrationFormPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B9DCD266A8E0E00D38A8C /* RegistrationFormPage.swift */; };
 		920B9DD4266A90B800D38A8C /* PhoneFormPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B9DD3266A90B800D38A8C /* PhoneFormPage.swift */; };
 		922820F526650FAA00AC66E9 /* PasscodeScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F747425A3E5F3003EE300 /* PasscodeScenarioTests.swift */; };
-		9234CCEE2668D5E90033564D /* PhoneLoginScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234CCED2668D5E90033564D /* PhoneLoginScenarioTests.swift */; };
-		9234CCFB266A4D650033564D /* EmailLoginScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234CCFA266A4D650033564D /* EmailLoginScenarioTests.swift */; };
+		9234CCEE2668D5E90033564D /* PhoneMFAScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234CCED2668D5E90033564D /* PhoneMFAScenarioTests.swift */; };
+		9234CCFB266A4D650033564D /* EmailMFALoginScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234CCFA266A4D650033564D /* EmailMFALoginScenarioTests.swift */; };
 		928B7C72266A7F2D006DF45A /* SignInFormPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B7C71266A7F2D006DF45A /* SignInFormPage.swift */; };
+		928CF05E2670F53600DAAB4C /* AuthenticationScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CF05D2670F53600DAAB4C /* AuthenticationScenarioTests.swift */; };
 		92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E9225BA591F007A2519 /* SelfServiceRegistrationScenarioTests.swift */; };
 		92B559C826662AA300AB566F /* ResetTransactionScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */; };
 		92B559D226667A7D00AB566F /* ResetPasswordScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */; };
@@ -113,9 +114,10 @@
 		920B9DC9266A887E00D38A8C /* FactorsEnrollmentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorsEnrollmentPage.swift; sourceTree = "<group>"; };
 		920B9DCD266A8E0E00D38A8C /* RegistrationFormPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormPage.swift; sourceTree = "<group>"; };
 		920B9DD3266A90B800D38A8C /* PhoneFormPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormPage.swift; sourceTree = "<group>"; };
-		9234CCED2668D5E90033564D /* PhoneLoginScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLoginScenarioTests.swift; sourceTree = "<group>"; };
-		9234CCFA266A4D650033564D /* EmailLoginScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginScenarioTests.swift; sourceTree = "<group>"; };
+		9234CCED2668D5E90033564D /* PhoneMFAScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneMFAScenarioTests.swift; sourceTree = "<group>"; };
+		9234CCFA266A4D650033564D /* EmailMFALoginScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailMFALoginScenarioTests.swift; sourceTree = "<group>"; };
 		928B7C71266A7F2D006DF45A /* SignInFormPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormPage.swift; sourceTree = "<group>"; };
+		928CF05D2670F53600DAAB4C /* AuthenticationScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationScenarioTests.swift; sourceTree = "<group>"; };
 		92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScenarioTests.swift; sourceTree = "<group>"; };
 		961B7125266D3A6100A3A4A2 /* OktaSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OktaSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961B7139266D901400A3A4A2 /* ActivateDeactivatePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDeactivatePolicy.swift; sourceTree = "<group>"; };
@@ -286,9 +288,10 @@
 				928B7C79266A7F44006DF45A /* Pages */,
 				96749B0425B8EA9D002849A0 /* Extensions */,
 				965A112726547EB4006B784F /* Utilities */,
-				9234CCFA266A4D650033564D /* EmailLoginScenarioTests.swift */,
+				9234CCFA266A4D650033564D /* EmailMFALoginScenarioTests.swift */,
+				928CF05D2670F53600DAAB4C /* AuthenticationScenarioTests.swift */,
 				964F747425A3E5F3003EE300 /* PasscodeScenarioTests.swift */,
-				9234CCED2668D5E90033564D /* PhoneLoginScenarioTests.swift */,
+				9234CCED2668D5E90033564D /* PhoneMFAScenarioTests.swift */,
 				92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */,
 				96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */,
 				96C51E9225BA591F007A2519 /* SelfServiceRegistrationScenarioTests.swift */,
@@ -527,7 +530,6 @@
 			);
 			mainGroup = 964F744625A3E5F0003EE300;
 			packageReferences = (
-				96E339A2266A8E6F000E0B0F /* XCRemoteSwiftPackageReference "AnyCodable" */,
 			);
 			productRefGroup = 964F745025A3E5F0003EE300 /* Products */;
 			projectDirPath = "";
@@ -644,7 +646,7 @@
 			files = (
 				920B9DC0266A867E00D38A8C /* PasscodeFormPage.swift in Sources */,
 				92B559D226667A7D00AB566F /* ResetPasswordScenarioTests.swift in Sources */,
-				9234CCEE2668D5E90033564D /* PhoneLoginScenarioTests.swift in Sources */,
+				9234CCEE2668D5E90033564D /* PhoneMFAScenarioTests.swift in Sources */,
 				96F79495266AC67000D340CD /* SelfServiceRegistrationScenarioValidator.swift in Sources */,
 				92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */,
 				96E339C6266A9B57000E0B0F /* Configuration.swift in Sources */,
@@ -659,7 +661,8 @@
 				920B9DD4266A90B800D38A8C /* PhoneFormPage.swift in Sources */,
 				928B7C72266A7F2D006DF45A /* SignInFormPage.swift in Sources */,
 				920B9DCE266A8E0E00D38A8C /* RegistrationFormPage.swift in Sources */,
-				9234CCFB266A4D650033564D /* EmailLoginScenarioTests.swift in Sources */,
+				928CF05E2670F53600DAAB4C /* AuthenticationScenarioTests.swift in Sources */,
+				9234CCFB266A4D650033564D /* EmailMFALoginScenarioTests.swift in Sources */,
 				92B559C826662AA300AB566F /* ResetTransactionScenarioTests.swift in Sources */,
 				920B9DB8266A861F00D38A8C /* UsernameRecoveryFormPage.swift in Sources */,
 				96E339B4266A9136000E0B0F /* Scenario.swift in Sources */,
@@ -981,17 +984,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		96E339A2266A8E6F000E0B0F /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Flight-School/AnyCodable";
-			requirement = {
-				kind = exactVersion;
-				version = 0.4.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 964F744725A3E5F0003EE300 /* Project object */;
 }

@@ -12,25 +12,14 @@
 
 import XCTest
 
-private struct EmailFormPage {
-    private let app: XCUIApplication
-    
-    init(app: XCUIApplication) {
-        self.app = app
-    }
-    
-    var passcodeLabel: XCUIElement { app.staticTexts["passcode.label"] }
-    var passcodeField: XCUIElement { app.textFields["passcode.field"] }
-}
-
-final class EmailLoginScenarioTests: ScenarioTestCase {
-    class override var category: Scenario.Category { .passcodeOnly }
+final class EmailMFALoginScenarioTests: ScenarioTestCase {
+    class override var category: Scenario.Category { .selfServiceRegistration }
 
     override class func setUp() {
         super.setUp()
         
         do {
-            try scenario.createUser()
+            try scenario.createUser(groups: [.mfa])
         } catch {
             XCTFail(error.localizedDescription)
         }
@@ -43,16 +32,16 @@ final class EmailLoginScenarioTests: ScenarioTestCase {
         
         let factorsPage = FactorsEnrollmentPage(app: app)
         XCTAssertTrue(factorsPage.emailLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(factorsPage.continueButton.exists)
+        XCTAssertTrue(factorsPage.chooseButton.exists)
         
         factorsPage.emailLabel.tap()
-        factorsPage.continueButton.tap()
+        factorsPage.chooseButton.tap()
         
         let codePage = PasscodeFormPage(app: app)
         XCTAssertTrue(codePage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(codePage.passcodeField.exists)
         
-        let emailCode = try scenario.receive(code: .sms)
+        let emailCode = try scenario.receive(code: .email)
         
         codePage.passcodeField.tap()
         codePage.passcodeField.typeText(emailCode)
@@ -70,10 +59,10 @@ final class EmailLoginScenarioTests: ScenarioTestCase {
         
         let factorsPage = FactorsEnrollmentPage(app: app)
         XCTAssertTrue(factorsPage.emailLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(factorsPage.continueButton.exists)
+        XCTAssertTrue(factorsPage.chooseButton.exists)
         
         factorsPage.emailLabel.tap()
-        factorsPage.continueButton.tap()
+        factorsPage.chooseButton.tap()
         
         let codePage = PasscodeFormPage(app: app)
         XCTAssertTrue(codePage.passcodeLabel.waitForExistence(timeout: .regular))
