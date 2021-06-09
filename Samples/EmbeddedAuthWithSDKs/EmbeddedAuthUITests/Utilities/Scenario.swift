@@ -135,7 +135,7 @@ struct Scenario {
         }
     }
     
-    func createUser(groups: [OktaGroup] = []) throws {
+    func createUser(enroll factors: [FactorType] = [], groups: [OktaGroup] = []) throws {
         guard let credentials = credentials else {
             throw Error.profileValuesInvalid
         }
@@ -149,7 +149,9 @@ struct Scenario {
                                  password: credentials.password,
                                  firstName: credentials.firstName,
                                  lastName: credentials.lastName,
-                                 groupNames: groups)
+                                 groupNames: groups,
+                                 phoneNumber: profile?.phoneNumber,
+                                 enrollFactors: factors)
             {
                 error = $0
                 group.leave()
@@ -281,6 +283,17 @@ enum OktaGroup: String, CaseIterable {
     case phoneEnrollment = "Phone Enrollment Required"
 }
 
+enum OktaPolicy: String, CaseIterable {
+    case selfServiceRegistration = "Self Service Registration"
+    
+    var policyType: PolicyType {
+        switch self {
+        case .selfServiceRegistration:
+            return .oktaProfileEnrollment
+        }
+    }
+}
+
 protocol ScenarioValidator {
     func configure(completion: @escaping (Error?) -> Void)
     func createUser(username: String,
@@ -288,9 +301,15 @@ protocol ScenarioValidator {
                     firstName: String,
                     lastName: String,
                     groupNames: [OktaGroup],
+                    phoneNumber: String?,
+                    enrollFactors: [FactorType],
                     completion: @escaping (Error?) -> Void)
     func deleteUser(username: String,
                     completion: @escaping (Error?) -> Void)
+    func activatePolicy(_ policy: OktaPolicy,
+                        completion: @escaping(Error?) -> Void)
+    func deactivatePolicy(_ policy: OktaPolicy,
+                          completion: @escaping(Error?) -> Void)
 }
 
 extension Scenario.Category {    

@@ -15,9 +15,7 @@ import OktaSdk
 
 struct PasscodeScenarioValidator: ScenarioValidator {
     func configure(completion: @escaping (Error?) -> Void) {
-        // Do nothing for now...
-        DispatchQueue.global().async {
-            completion(nil)
-        }
+        deactivatePolicy(.selfServiceRegistration,
+                         completion: completion)
     }
 }

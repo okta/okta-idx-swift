@@ -127,7 +127,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         
         passwordEnrollmentPage.continueButton.tap()
         
-        let passwordPage = PasscodeFormPage(app: app)
+        let passwordPage = PasscodeFormPage(app: app, isSecure: true)
         XCTAssertTrue(passwordPage.passcodeLabel.waitForExistence(timeout: .regular))
         XCTAssertTrue(passwordPage.securityPasscodeField.exists)
         

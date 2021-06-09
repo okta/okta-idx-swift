@@ -14,9 +14,11 @@ import XCTest
 
 struct PasscodeFormPage {
     private let app: XCUIApplication
+    private let isSecure: Bool
     
-    init(app: XCUIApplication) {
+    init(app: XCUIApplication, isSecure: Bool = false) {
         self.app = app
+        self.isSecure = isSecure
     }
     
     var passcodeLabel: XCUIElement { app.staticTexts["passcode.label"] }

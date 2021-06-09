@@ -22,6 +22,7 @@
 		92B559C826662AA300AB566F /* ResetTransactionScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */; };
 		92B559D226667A7D00AB566F /* ResetPasswordScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */; };
 		961B7126266D3A6100A3A4A2 /* OktaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961B7125266D3A6100A3A4A2 /* OktaSdk.framework */; };
+		961B713A266D901400A3A4A2 /* ActivateDeactivatePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B7139266D901400A3A4A2 /* ActivateDeactivatePolicy.swift */; };
 		964D59EE2657121000DDBCBB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59ED2657121000DDBCBB /* Notifications.swift */; };
 		964D59F226580AA600DDBCBB /* SigninCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59F126580AA600DDBCBB /* SigninCoordinator.swift */; };
 		964D59FC26580E3300DDBCBB /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 964D59FB26580E3300DDBCBB /* Okta.plist */; };
@@ -117,6 +118,7 @@
 		928B7C71266A7F2D006DF45A /* SignInFormPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormPage.swift; sourceTree = "<group>"; };
 		92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScenarioTests.swift; sourceTree = "<group>"; };
 		961B7125266D3A6100A3A4A2 /* OktaSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OktaSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		961B7139266D901400A3A4A2 /* ActivateDeactivatePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDeactivatePolicy.swift; sourceTree = "<group>"; };
 		964D59ED2657121000DDBCBB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		964D59F126580AA600DDBCBB /* SigninCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninCoordinator.swift; sourceTree = "<group>"; };
 		964D59FB26580E3300DDBCBB /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 			children = (
 				96E339E3266AAE4C000E0B0F /* CreateUser.swift */,
 				96E339EB266AAF7F000E0B0F /* DeleteUser.swift */,
+				961B7139266D901400A3A4A2 /* ActivateDeactivatePolicy.swift */,
 			);
 			path = "Default Actions";
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */,
 				96E339C6266A9B57000E0B0F /* Configuration.swift in Sources */,
 				96749B0625B8EAAD002849A0 /* XCTest+Extensions.swift in Sources */,
+				961B713A266D901400A3A4A2 /* ActivateDeactivatePolicy.swift in Sources */,
 				920B9DCA266A887E00D38A8C /* FactorsEnrollmentPage.swift in Sources */,
 				96E339B9266A9151000E0B0F /* PasscodeScenarioValidator.swift in Sources */,
 				96F7949A266AC6F200D340CD /* ScenarioTestCase.swift in Sources */,

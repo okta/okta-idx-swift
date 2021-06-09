@@ -14,7 +14,15 @@ import Foundation
 import OktaSdk
 
 extension ScenarioValidator {
-    func createUser(username: String, password: String, firstName: String, lastName: String, groupNames: [OktaGroup] = [], completion: @escaping (Error?) -> Void) {
+    func createUser(username: String,
+                    password: String,
+                    firstName: String,
+                    lastName: String,
+                    groupNames: [OktaGroup] = [],
+                    phoneNumber: String? = nil,
+                    enrollFactors: [FactorType] = [],
+                    completion: @escaping (Error?) -> Void)
+    {
         let passwordCredential = PasswordCredential(hash: nil,
                                                     hook: nil,
                                                     value: password)
@@ -38,8 +46,48 @@ extension ScenarioValidator {
         UserAPI.createUser(body: userRequest,
                            activate: true,
                            provider: nil,
-                           nextLogin: nil) { (_, error) in
-            completion(error)
+                           nextLogin: nil) { (user, error) in
+            guard let user = user,
+                  let userId = user.id
+            else {
+                completion(error)
+                return
+            }
+            
+            let group = DispatchGroup()
+            var asyncError: Error?
+            
+            if let phoneNumber = phoneNumber {
+                if enrollFactors.contains(.sms) {
+                    group.enter()
+                    
+                    var factor = SmsUserFactor()
+                    factor.profile = SmsUserFactorProfile(phoneNumber: phoneNumber)
+                    UserFactorAPI.enrollFactor(userId: userId, body: factor) { (factor, error) in
+                        if let error = error {
+                            asyncError = error
+                        }
+                        group.leave()
+                    }
+                }
+                
+                if enrollFactors.contains(.call) {
+                    group.enter()
+                    
+                    var factor = CallUserFactor()
+                    factor.profile = CallUserFactorProfile(phoneExtension: nil, phoneNumber: phoneNumber)
+                    UserFactorAPI.enrollFactor(userId: userId, body: factor) { (factor, error) in
+                        if let error = error {
+                            asyncError = error
+                        }
+                        group.leave()
+                    }
+                }
+            }
+                        
+            group.notify(queue: DispatchQueue.global()) {
+                completion(error ?? asyncError)
+            }
         }
     }
     
