@@ -79,9 +79,9 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
             return
         }
         
-        if let button = sender as? UIButton {
-            button.isEnabled = false
-        }
+        //if let button = sender as? UIButton {
+        //    button.isEnabled = false
+        //}
         
         if let socialAuth = remediationOption as? IDXClient.Remediation.SocialAuth,
            let idx = signin.idx,

@@ -11,6 +11,7 @@
 //
 
 import XCTest
+import OktaSdk
 
 final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }

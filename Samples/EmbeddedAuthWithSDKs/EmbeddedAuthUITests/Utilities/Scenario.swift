@@ -80,7 +80,7 @@ struct Scenario {
         }
 
         self.profile = profile
-//        Scenario.sharedProfileId = profile?.profileId
+        Scenario.sharedProfileId = profile?.profileId
 
         // Configure the org
         group.enter()
@@ -105,7 +105,7 @@ struct Scenario {
             if let credentials = credentials {
                 group.enter()
                 XCTContext.runActivity(named: "Deleting test user \(credentials.username)") { _ in
-                    validator.deleteUser(username: credentials.username) { (error) in
+                    self.deleteUser(username: credentials.username) { (error) in
                         if let error = error {
                             errors.append(error)
                         }
@@ -145,13 +145,13 @@ struct Scenario {
         
         var error: Swift.Error?
         XCTContext.runActivity(named: "Creating test user \(credentials.username)") { _ in
-            validator.createUser(username: credentials.username,
-                                 password: credentials.password,
-                                 firstName: credentials.firstName,
-                                 lastName: credentials.lastName,
-                                 groupNames: groups,
-                                 phoneNumber: profile?.phoneNumber,
-                                 enrollFactors: factors)
+            self.createUser(username: credentials.username,
+                            password: credentials.password,
+                            firstName: credentials.firstName,
+                            lastName: credentials.lastName,
+                            groupNames: groups,
+                            phoneNumber: profile?.phoneNumber,
+                            enrollFactors: factors)
             {
                 error = $0
                 group.leave()
@@ -174,7 +174,7 @@ struct Scenario {
         
         var error: Swift.Error?
         XCTContext.runActivity(named: "Deleting test user \(credentials.username)") { _ in
-            validator.deleteUser(username: credentials.username) {
+            self.deleteUser(username: credentials.username) {
                 error = $0
                 group.leave()
             }
@@ -296,16 +296,6 @@ enum OktaPolicy: String, CaseIterable {
 
 protocol ScenarioValidator {
     func configure(completion: @escaping (Error?) -> Void)
-    func createUser(username: String,
-                    password: String,
-                    firstName: String,
-                    lastName: String,
-                    groupNames: [OktaGroup],
-                    phoneNumber: String?,
-                    enrollFactors: [FactorType],
-                    completion: @escaping (Error?) -> Void)
-    func deleteUser(username: String,
-                    completion: @escaping (Error?) -> Void)
     func activatePolicy(_ policy: OktaPolicy,
                         completion: @escaping(Error?) -> Void)
     func deactivatePolicy(_ policy: OktaPolicy,

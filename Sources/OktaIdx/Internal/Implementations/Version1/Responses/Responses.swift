@@ -100,7 +100,7 @@ extension IDXClient.APIVersion1 {
         }
         
         struct User: Decodable {
-            let id: String
+            let id: String?
         }
         
         struct App: Decodable {
@@ -111,7 +111,7 @@ extension IDXClient.APIVersion1 {
         
         struct Authenticator: Decodable, IDXIONRelatable {
             let displayName: String?
-            let id: String
+            let id: String?
             let type: String
             let key: String?
             let methods: [[String:String]]?

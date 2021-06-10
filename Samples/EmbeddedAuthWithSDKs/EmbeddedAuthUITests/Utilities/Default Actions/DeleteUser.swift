@@ -13,9 +13,9 @@
 import Foundation
 import OktaSdk
 
-extension ScenarioValidator {
+extension Scenario {
     func deleteUser(username: String,
-                    completion: @escaping (Error?) -> Void)
+                    completion: @escaping (Swift.Error?) -> Void)
     {
         UserAPI.deactivateOrDeleteUser(userId: username) { (_, error) in
             guard error == nil else {
