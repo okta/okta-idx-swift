@@ -37,8 +37,18 @@ struct UserInfoPage {
     }
     
     func assert(with credentials: Scenario.Credentials) {
-        XCTAssertTrue(label(.firstname, value: credentials.firstName).waitForExistence(timeout: .regular))
-        XCTAssertTrue(label(.lastname, value: credentials.lastName).waitForExistence(timeout: .regular))
-        XCTAssertTrue(label(.username, value: credentials.username).waitForExistence(timeout: .regular))
+        test("THEN she is redirected to the Root View") {
+            test("AND the cell for the value of 'email' is shown and contains her email") {
+                XCTAssertTrue(label(.username, value: credentials.username).waitForExistence(timeout: .regular))
+            }
+            
+            test("AND the cell for the value of 'firstname' is shown and contains her first name") {
+                XCTAssertTrue(label(.firstname, value: credentials.firstName).waitForExistence(timeout: .regular))
+            }
+            
+            test("AND the cell for the value of 'lastname' is shown and contains her last name") {
+                XCTAssertTrue(label(.lastname, value: credentials.lastName).waitForExistence(timeout: .regular))
+            }
+        }
     }
 }
