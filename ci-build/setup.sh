@@ -65,6 +65,7 @@ function runTests() {
     buildOktaSdk
   fi
 
+  get_secret test/devex/okta-idx-swift/TestCredentials.xcconfig > $IDX_ROOT/TestCredentials.xcconfig
   bundle exec fastlane test scheme:"$1"
 
   FOUND_ERROR=$?
