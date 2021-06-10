@@ -82,7 +82,7 @@ extension IDXClient {
         public let id: String
 
         /// The user-visible name to use for this authenticator enrollment.
-        @objc public let displayName: String
+        @objc public let displayName: String?
 
         /// The type of this authenticator, or `unknown` if the type isn't represented by this enumeration.
         @objc public let type: Kind
@@ -111,7 +111,7 @@ extension IDXClient {
              v1JsonPaths: [String],
              state: State,
              id: String,
-             displayName: String,
+             displayName: String?,
              type: String,
              key: String?,
              methods: [[String:String]]?)
@@ -194,7 +194,7 @@ extension IDXClient {
                           v1JsonPaths: [String],
                           state: State,
                           id: String,
-                          displayName: String,
+                          displayName: String?,
                           type: String,
                           key: String?,
                           methods: [[String:String]]?,
@@ -224,7 +224,7 @@ extension IDXClient {
                           v1JsonPaths: [String],
                           state: State,
                           id: String,
-                          displayName: String,
+                          displayName: String?,
                           type: String,
                           key: String?,
                           methods: [[String:String]]?,
@@ -305,7 +305,7 @@ extension IDXClient {
                           v1JsonPaths: [String],
                           state: State,
                           id: String,
-                          displayName: String,
+                          displayName: String?,
                           type: String,
                           key: String?,
                           methods: [[String:String]]?,
@@ -370,7 +370,7 @@ extension IDXClient {
                           v1JsonPaths: [String],
                           state: State,
                           id: String,
-                          displayName: String,
+                          displayName: String?,
                           type: String,
                           key: String?,
                           methods: [[String:String]]?,

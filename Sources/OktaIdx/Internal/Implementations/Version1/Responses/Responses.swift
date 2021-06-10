@@ -110,11 +110,11 @@ extension IDXClient.APIVersion1 {
         }
         
         struct Authenticator: Decodable, IDXIONRelatable {
-            let displayName: String
+            let displayName: String?
             let id: String
             let type: String
             let key: String?
-            let methods: [[String:String]]
+            let methods: [[String:String]]?
             let settings: [String:JSONValue]?
             let contextualData: [String:JSONValue]?
             let profile: [String:String]?
