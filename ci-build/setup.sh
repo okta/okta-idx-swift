@@ -92,6 +92,7 @@ function buildOktaSdk() {
   if [[ ! -d $IDX_ROOT/okta-sdk-swift/build/Release/OktaSdk.framework ]]; then
     git clone --depth 1 git@github.com:okta/okta-sdk-swift.git $IDX_ROOT/okta-sdk-swift
     xcodebuild -project $IDX_ROOT/okta-sdk-swift/OktaSdk.xcodeproj -target OktaSdk -sdk iphonesimulator -destination "destination=generic/iOS Simulator" build
+    cp -r $IDX_ROOT/okta-sdk-swift/build/Release-iphonesimulator/AnyCodable.framework $IDX_ROOT/Samples/EmbeddedAuthWithSDKs/EmbeddedAuthUITests/ExternalDependencies
     cp -r $IDX_ROOT/okta-sdk-swift/build/Release-iphonesimulator/OktaSdk.framework $IDX_ROOT/Samples/EmbeddedAuthWithSDKs/EmbeddedAuthUITests/ExternalDependencies
   else
     echo "Skipping OktaSdk since it's already built locally"
