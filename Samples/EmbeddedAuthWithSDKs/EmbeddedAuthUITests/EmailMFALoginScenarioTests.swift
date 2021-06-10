@@ -48,8 +48,8 @@ final class EmailMFALoginScenarioTests: ScenarioTestCase {
         
         codePage.continueButton.tap()
         
-        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: .regular))
-        XCTAssertTrue(app.tables.cells["username"].staticTexts[credentials.username].exists)
+        let userInfoPage = UserInfoPage(app: app)
+        userInfoPage.assert(with: credentials)
     }
     
     func testLoginWithInvalidCode() throws {

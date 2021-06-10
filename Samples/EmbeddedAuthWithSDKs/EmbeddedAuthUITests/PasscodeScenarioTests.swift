@@ -12,9 +12,14 @@
 
 import XCTest
 
+
+func test<T>(_ description: String, block: () throws -> T) rethrows -> T {
+    try XCTContext.runActivity(named: description, block: { _ in try block() })
+}
+
 final class PasscodeScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }
-
+    
     override class func setUp() {
         super.setUp()
         
@@ -25,35 +30,60 @@ final class PasscodeScenarioTests: ScenarioTestCase {
         }
     }
     
-    func testSuccessfulPasscode() throws {
+    func test_Login_with_a_Password() throws {
         let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
         
-        // Token
-        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: .regular))
-        XCTAssertTrue(app.tables.cells["username"].staticTexts[credentials.username].exists)
+        let userInfoPage = UserInfoPage(app: app)
+        userInfoPage.assert(with: credentials)
     }
     
-    func testIncorrectUsername() throws {
+    func test_Incorrect_Username() throws {
         let credentials = try XCTUnwrap(scenario.credentials)
-
+        
         let username = "incorrect.username@okta.com"
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: username, password: credentials.password)
-
-        let incorrectUsernameAlert = app.tables.staticTexts["There is no account with the Username \(username)."]
-        XCTAssertTrue(incorrectUsernameAlert.waitForExistence(timeout: .regular))
+        
+        test("THEN she should see a message on the Login form") {
+            let incorrectUsernameAlert = app.tables.staticTexts["There is no account with the Username \(username)."]
+            XCTAssertTrue(incorrectUsernameAlert.waitForExistence(timeout: .regular))
+        }
     }
-
-    func testIncorrectPassword() throws {
+    
+    func test_Incorrect_Password() throws {
         let credentials = try XCTUnwrap(scenario.credentials)
-
+        
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: "InvalidPassword")
-
-        let incorrectPasswordLabel = app.tables.staticTexts["Authentication failed"]
-        XCTAssertTrue(incorrectPasswordLabel.waitForExistence(timeout: .regular))
+        
+        test("THEN she should see the message") {
+            let incorrectPasswordLabel = app.tables.staticTexts["Authentication failed"]
+            XCTAssertTrue(incorrectPasswordLabel.waitForExistence(timeout: .regular))
+        }
+    }
+    
+    func test_Forgot_Password_Redirection() throws {
+        let signInPage = SignInFormPage(app: app)
+        
+        test("GIVEN Mary navigates to the Basic Login View") {
+            XCTAssertTrue(signInPage.initialSignInButton.waitForExistence(timeout: .regular))
+            signInPage.initialSignInButton.tap()
+        }
+        
+        test("WHEN she clicks on the Forgot Password button") {
+            XCTAssertTrue(signInPage.recoveryButton.waitForExistence(timeout: .regular))
+            signInPage.recoveryButton.tap()
+        }
+        
+        
+        test("THEN she is redirected to the Self Service Password Reset View") {
+            let emailRecoveryPage = UsernameRecoveryFormPage(app: app)
+            XCTAssertTrue(emailRecoveryPage.usernameLabel.waitForExistence(timeout: .regular))
+            XCTAssertTrue(emailRecoveryPage.usernameField.exists)
+            XCTAssertTrue(emailRecoveryPage.continueButton.exists)
+        }
     }
 }
 

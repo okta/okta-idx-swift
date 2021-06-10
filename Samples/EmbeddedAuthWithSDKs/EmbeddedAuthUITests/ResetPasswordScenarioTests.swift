@@ -82,9 +82,8 @@ final class ResetPasswordScenarioTests: ScenarioTestCase {
         
         passwordPage.continueButton.tap()
         
-        let usernameLabel = app.tables.cells["username"]
-        XCTAssertTrue(usernameLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(usernameLabel.staticTexts[credentials.username].exists)
+        let userInfoPage = UserInfoPage(app: app)
+        userInfoPage.assert(with: credentials)
     }
     
     func testResetWithIncorrectUsername() throws {

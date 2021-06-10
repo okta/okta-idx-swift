@@ -37,8 +37,9 @@ final class AuthenticationScenarioTests: ScenarioTestCase {
         signInPage.signIn(username: credentials.username, password: credentials.password)
         
         // Token
-        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: .regular))
-        XCTAssertTrue(app.tables.cells["username"].staticTexts[credentials.username].exists)
+        let userInfoPage = UserInfoPage(app: app)
+        userInfoPage.assert(with: credentials)
+        
         XCTAssertTrue(app.staticTexts["Sign Out"].exists)
     }
     

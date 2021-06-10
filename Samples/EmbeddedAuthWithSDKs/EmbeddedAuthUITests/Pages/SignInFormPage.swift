@@ -35,23 +35,30 @@ struct SignInFormPage {
     var signUpButton: XCUIElement { app.buttons["Sign Up"] }
     
     func signIn(username: String, password: String) {
-        let signInButton = app.buttons["Sign In"]
-        XCTAssertTrue(signInButton.waitForExistence(timeout: .regular))
-        signInButton.tap()
-        
-        let signInPage = SignInFormPage(app: app)
-        XCTAssertTrue(signInPage.usernameLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(signInPage.usernameField.exists)
-        XCTAssertTrue(signInPage.passwordLabel.exists)
-        XCTAssertTrue(signInPage.passwordField.exists)
-        XCTAssertTrue(signInPage.recoveryButton.exists)
-        
-        signInPage.usernameField.tap()
-        signInPage.usernameField.typeText(username)
-        
-        signInPage.passwordField.tap()
-        signInPage.passwordField.typeText(password)
-        
-        signInPage.signInButton.tap()
+        test("GIVEN Mary navigates to the Basic Login View") {
+            XCTAssertTrue(initialSignInButton.waitForExistence(timeout: .regular))
+            initialSignInButton.tap()
+            
+            XCTAssertTrue(usernameLabel.waitForExistence(timeout: .regular))
+            XCTAssertTrue(usernameField.exists)
+            XCTAssertTrue(passwordLabel.exists)
+            XCTAssertTrue(passwordField.exists)
+            XCTAssertTrue(recoveryButton.exists)
+            XCTAssertTrue(signInButton.exists)
+            
+            test("WHEN she fills in her correct username") {
+                usernameField.tap()
+                usernameField.typeText(username)
+            }
+            
+            test("AND she fills in her correct password") {
+                passwordField.tap()
+                passwordField.typeText(password)
+            }
+            
+            test("AND she submits the Login form") {
+                self.signInButton.tap()
+            }
+        }
     }
 }
