@@ -107,6 +107,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9209C13E26724C8600CC1DD5 /* UserInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPage.swift; sourceTree = "<group>"; };
 		920B9DB7266A861F00D38A8C /* UsernameRecoveryFormPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameRecoveryFormPage.swift; sourceTree = "<group>"; };
 		920B9DBB266A863600D38A8C /* RecoveryMethodPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryMethodPage.swift; sourceTree = "<group>"; };
 		920B9DBF266A867E00D38A8C /* PasscodeFormPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeFormPage.swift; sourceTree = "<group>"; };
@@ -219,6 +220,7 @@
 				920B9DCD266A8E0E00D38A8C /* RegistrationFormPage.swift */,
 				928B7C71266A7F2D006DF45A /* SignInFormPage.swift */,
 				920B9DB7266A861F00D38A8C /* UsernameRecoveryFormPage.swift */,
+				9209C13E26724C8600CC1DD5 /* UserInfoPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -650,6 +652,7 @@
 				96F79495266AC67000D340CD /* SelfServiceRegistrationScenarioValidator.swift in Sources */,
 				92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */,
 				96E339C6266A9B57000E0B0F /* Configuration.swift in Sources */,
+				9209C13F26724C8600CC1DD5 /* UserInfoPage.swift in Sources */,
 				96749B0625B8EAAD002849A0 /* XCTest+Extensions.swift in Sources */,
 				961B713A266D901400A3A4A2 /* ActivateDeactivatePolicy.swift in Sources */,
 				920B9DCA266A887E00D38A8C /* FactorsEnrollmentPage.swift in Sources */,

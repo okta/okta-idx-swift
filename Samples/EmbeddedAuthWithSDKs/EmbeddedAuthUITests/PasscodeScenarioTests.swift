@@ -29,10 +29,9 @@ final class PasscodeScenarioTests: ScenarioTestCase {
         let credentials = try XCTUnwrap(scenario.credentials)
         let signInPage = SignInFormPage(app: app)
         signInPage.signIn(username: credentials.username, password: credentials.password)
-        
-        // Token
-        XCTAssertTrue(app.tables.cells["username"].waitForExistence(timeout: .regular))
-        XCTAssertTrue(app.tables.cells["username"].staticTexts[credentials.username].exists)
+
+        let userInfoPage = UserInfoPage(app: app)
+        userInfoPage.assert(with: credentials)
     }
     
     func testIncorrectUsername() throws {
@@ -54,6 +53,20 @@ final class PasscodeScenarioTests: ScenarioTestCase {
 
         let incorrectPasswordLabel = app.tables.staticTexts["Authentication failed"]
         XCTAssertTrue(incorrectPasswordLabel.waitForExistence(timeout: .regular))
+    }
+    
+    func testForgotPasswordRedirection() throws {
+        let signInPage = SignInFormPage(app: app)
+        XCTAssertTrue(signInPage.initialSignInButton.waitForExistence(timeout: .regular))
+        signInPage.initialSignInButton.tap()
+        
+        XCTAssertTrue(signInPage.recoveryButton.waitForExistence(timeout: .regular))
+        signInPage.recoveryButton.tap()
+        
+        let emailRecoveryPage = UsernameRecoveryFormPage(app: app)
+        XCTAssertTrue(emailRecoveryPage.usernameLabel.waitForExistence(timeout: .regular))
+        XCTAssertTrue(emailRecoveryPage.usernameField.exists)
+        XCTAssertTrue(emailRecoveryPage.continueButton.exists)
     }
 }
 
