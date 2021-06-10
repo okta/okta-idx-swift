@@ -7,7 +7,4 @@
    <FileRef
       location = "group:okta-idx.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Samples/EmbeddedAuthWithSDKs/EmbeddedAuth/OktaSdk/OktaSdk.xcodeproj">
-   </FileRef>
 </Workspace>
