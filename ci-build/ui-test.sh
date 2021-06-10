@@ -12,7 +12,7 @@ pushd "${IDX_ROOT}"
 pushd "${IDX_ROOT}"
 printBuildEnvironment
 # set -e
-runTests "EmbeddedAuth"
+runTests "EmbeddedAuth" "OktaSdk"
 if [[ $? -ne 0 ]]; then
   echo "Error running tests"
   exit -1

@@ -61,6 +61,10 @@ function runTests() {
     rm -rf ${TEST_OUTPUT_DIR}
   fi
 
+  if [[ $1 == "OktaSdk" ]]; then
+    buildOktaSdk
+  fi
+
   bundle exec fastlane test scheme:"$0"
 
   FOUND_ERROR=$?
