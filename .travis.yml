@@ -11,6 +11,7 @@ jobs:
       name: iOS Unit Tests
       script:
       - xcodebuild -workspace okta-idx.xcworkspace -scheme "okta-idx-ios" -destination "platform=iOS Simulator,OS=latest,name=iPhone 11" clean test | xcpretty
+    # Disable UI tests in Travis until OktaSdk is public
     #- stage: Test
     #  name: iOS Automated Tests
     #  before_script:
