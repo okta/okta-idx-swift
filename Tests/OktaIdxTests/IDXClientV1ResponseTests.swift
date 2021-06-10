@@ -540,6 +540,32 @@ class IDXClientV1ResponseTests: XCTestCase {
         }
     }
 
+    func testAuthenticatorWithNullDisplayName() throws {
+        try decode(type: API.Response.IonObject<API.Response.Authenticator>.self, """
+        {
+          "type" : "object",
+          "value" : {
+             "id" : "lae8wj8nnjB3BrbcH0g6",
+             "key" : "okta_oth",
+             "type" : "other"
+          }
+        }
+        """) { (obj) in
+            XCTAssertEqual(obj.type, "object")
+            XCTAssertEqual(obj.value.id, "lae8wj8nnjB3BrbcH0g6")
+            XCTAssertNil(obj.value.displayName)
+            XCTAssertNil(obj.value.methods)
+
+            let publicObj = try XCTUnwrap(IDXClient.Authenticator.makeAuthenticator(client: clientMock,
+                                                                                    v1: [obj.value],
+                                                                                    jsonPaths: [],
+                                                                                    in: response) as? IDXClient.Authenticator)
+            XCTAssertEqual(publicObj.id, "lae8wj8nnjB3BrbcH0g6")
+            XCTAssertNil(publicObj.displayName)
+            XCTAssertNil(publicObj.methods)
+        }
+    }
+
     func testIdpRemediation() throws {
         try decode(type: API.Response.Form.self, """
         {
