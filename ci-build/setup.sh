@@ -65,7 +65,7 @@ function runTests() {
     buildOktaSdk
   fi
 
-  get_secret test/devex/okta-idx-swift/TestCredentials.xcconfig > $IDX_ROOT/TestCredentials.xcconfig
+  aws s3 --quiet --region us-east-1 cp s3://ci-secret-stash/test/devex/okta-idx-swift/TestCredentials.xcconfig > $IDX_ROOT/TestCredentials.xcconfig
   bundle exec fastlane test scheme:"$1"
 
   FOUND_ERROR=$?
