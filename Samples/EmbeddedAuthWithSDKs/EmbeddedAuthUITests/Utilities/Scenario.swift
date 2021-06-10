@@ -117,6 +117,10 @@ struct Scenario {
             if let profile = profile {
                 group.enter()
                 XCTContext.runActivity(named: "Deleting A18N profile") { _ in
+                    if profile.profileId == Scenario.sharedProfileId {
+                        Scenario.sharedProfileId = nil
+                    }
+                    
                     profile.delete(using: configuration.a18nApiKey) { (error) in
                         if let error = error {
                             errors.append(error)
