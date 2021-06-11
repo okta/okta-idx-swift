@@ -67,7 +67,7 @@ function runTests() {
 
   aws s3 --quiet --region us-east-1 cp s3://ci-secret-stash/test/devex/okta-idx-swift/TestCredentials.xcconfig > $IDX_ROOT/TestCredentials.xcconfig
   #bundle exec fastlane test scheme:"$1"
-  xcodebuild -workspace $IDX_ROOT/okta-idx.xcworkspace -scheme EmbeddedAuth -destination "platform=iOS Simulator,name=iPhone 12" test
+  xcodebuild -workspace $IDX_ROOT/okta-idx.xcworkspace -scheme $1 -destination "platform=iOS Simulator,name=iPhone 12" test
 
   FOUND_ERROR=$?
 
