@@ -79,7 +79,7 @@ extension IDXClient {
     public class Authenticator: NSObject {
         /// Unique identifier for this enrollment
         @objc(identifier)
-        public let id: String
+        public let id: String?
 
         /// The user-visible name to use for this authenticator enrollment.
         @objc public let displayName: String?
@@ -110,7 +110,7 @@ extension IDXClient {
         init(client: IDXClientAPI,
              v1JsonPaths: [String],
              state: State,
-             id: String,
+             id: String?,
              displayName: String?,
              type: String,
              key: String?,
@@ -193,7 +193,7 @@ extension IDXClient {
             internal init(client: IDXClientAPI,
                           v1JsonPaths: [String],
                           state: State,
-                          id: String,
+                          id: String?,
                           displayName: String?,
                           type: String,
                           key: String?,
@@ -223,7 +223,7 @@ extension IDXClient {
             internal init(client: IDXClientAPI,
                           v1JsonPaths: [String],
                           state: State,
-                          id: String,
+                          id: String?,
                           displayName: String?,
                           type: String,
                           key: String?,
@@ -304,7 +304,7 @@ extension IDXClient {
             internal init(client: IDXClientAPI,
                           v1JsonPaths: [String],
                           state: State,
-                          id: String,
+                          id: String?,
                           displayName: String?,
                           type: String,
                           key: String?,
@@ -369,7 +369,7 @@ extension IDXClient {
             internal init(client: IDXClientAPI,
                           v1JsonPaths: [String],
                           state: State,
-                          id: String,
+                          id: String?,
                           displayName: String?,
                           type: String,
                           key: String?,

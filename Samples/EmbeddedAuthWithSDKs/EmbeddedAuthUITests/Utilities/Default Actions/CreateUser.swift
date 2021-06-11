@@ -13,7 +13,7 @@
 import Foundation
 import OktaSdk
 
-extension ScenarioValidator {
+extension Scenario {
     func createUser(username: String,
                     password: String,
                     firstName: String,
@@ -21,7 +21,7 @@ extension ScenarioValidator {
                     groupNames: [OktaGroup] = [],
                     phoneNumber: String? = nil,
                     enrollFactors: [FactorType] = [],
-                    completion: @escaping (Error?) -> Void)
+                    completion: @escaping (Swift.Error?) -> Void)
     {
         let passwordCredential = PasswordCredential(hash: nil,
                                                     hook: nil,
@@ -55,7 +55,7 @@ extension ScenarioValidator {
             }
             
             let group = DispatchGroup()
-            var asyncError: Error?
+            var asyncError: Swift.Error?
             
             if let phoneNumber = phoneNumber {
                 if enrollFactors.contains(.sms) {
@@ -64,10 +64,25 @@ extension ScenarioValidator {
                     var factor = SmsUserFactor()
                     factor.profile = SmsUserFactorProfile(phoneNumber: phoneNumber)
                     UserFactorAPI.enrollFactor(userId: userId, body: factor) { (factor, error) in
-                        if let error = error {
+                        guard let factor = factor,
+                              let factorId = factor.id
+                        else {
                             asyncError = error
+                            group.leave()
+                            return
                         }
-                        group.leave()
+                        
+                        // Get SMS code
+                        let code = try? self.receive(code: .sms)
+                        let request = ActivateFactorRequest(passCode: code)
+                        UserFactorAPI.activateFactor(userId: userId,
+                                                     factorId: factorId,
+                                                     body: request) { (factor, error) in
+                            if let error = error {
+                                asyncError = error
+                            }
+                            group.leave()
+                        }
                     }
                 }
                 

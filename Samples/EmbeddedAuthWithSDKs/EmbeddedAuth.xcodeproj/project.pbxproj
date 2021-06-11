@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,10 @@
 		92B559C5266628D600AB566F /* SelfServiceRegistrationScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51E9225BA591F007A2519 /* SelfServiceRegistrationScenarioTests.swift */; };
 		92B559C826662AA300AB566F /* ResetTransactionScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8B35E25BF5A9400DAECDC /* ResetTransactionScenarioTests.swift */; };
 		92B559D226667A7D00AB566F /* ResetPasswordScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */; };
-		961B7126266D3A6100A3A4A2 /* OktaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961B7125266D3A6100A3A4A2 /* OktaSdk.framework */; };
+		9611F2C52672C7CC0013FAE1 /* OktaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9611F2C42672C7CC0013FAE1 /* OktaSdk.framework */; };
+		9611F2CB2672CAEE0013FAE1 /* OktaSdk.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9611F2C42672C7CC0013FAE1 /* OktaSdk.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9611F2D12672CB3C0013FAE1 /* AnyCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9611F2D02672CB3C0013FAE1 /* AnyCodable.framework */; platformFilter = ios; };
+		9611F2D22672CB460013FAE1 /* AnyCodable.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9611F2D02672CB3C0013FAE1 /* AnyCodable.framework */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		961B713A266D901400A3A4A2 /* ActivateDeactivatePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B7139266D901400A3A4A2 /* ActivateDeactivatePolicy.swift */; };
 		964D59EE2657121000DDBCBB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59ED2657121000DDBCBB /* Notifications.swift */; };
 		964D59F226580AA600DDBCBB /* SigninCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964D59F126580AA600DDBCBB /* SigninCoordinator.swift */; };
@@ -94,6 +97,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		9611F2CA2672CAE50013FAE1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9611F2CB2672CAEE0013FAE1 /* OktaSdk.framework in CopyFiles */,
+				9611F2D22672CB460013FAE1 /* AnyCodable.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		964F748925A3E602003EE300 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,7 +135,8 @@
 		928B7C71266A7F2D006DF45A /* SignInFormPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormPage.swift; sourceTree = "<group>"; };
 		928CF05D2670F53600DAAB4C /* AuthenticationScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationScenarioTests.swift; sourceTree = "<group>"; };
 		92B559D126667A7D00AB566F /* ResetPasswordScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScenarioTests.swift; sourceTree = "<group>"; };
-		961B7125266D3A6100A3A4A2 /* OktaSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OktaSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9611F2C42672C7CC0013FAE1 /* OktaSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OktaSdk.framework; path = EmbeddedAuthUITests/ExternalDependencies/OktaSdk.framework; sourceTree = "<group>"; };
+		9611F2D02672CB3C0013FAE1 /* AnyCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnyCodable.framework; path = EmbeddedAuthUITests/ExternalDependencies/AnyCodable.framework; sourceTree = "<group>"; };
 		961B7139266D901400A3A4A2 /* ActivateDeactivatePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDeactivatePolicy.swift; sourceTree = "<group>"; };
 		964D59ED2657121000DDBCBB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		964D59F126580AA600DDBCBB /* SigninCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninCoordinator.swift; sourceTree = "<group>"; };
@@ -203,7 +218,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961B7126266D3A6100A3A4A2 /* OktaSdk.framework in Frameworks */,
+				9611F2D12672CB3C0013FAE1 /* AnyCodable.framework in Frameworks */,
+				9611F2C52672C7CC0013FAE1 /* OktaSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +323,8 @@
 		964F748525A3E602003EE300 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				961B7125266D3A6100A3A4A2 /* OktaSdk.framework */,
+				9611F2D02672CB3C0013FAE1 /* AnyCodable.framework */,
+				9611F2C42672C7CC0013FAE1 /* OktaSdk.framework */,
 				964F748625A3E602003EE300 /* OktaIdx.framework */,
 			);
 			name = Frameworks;
@@ -490,6 +507,7 @@
 				964F746C25A3E5F3003EE300 /* Sources */,
 				964F746D25A3E5F3003EE300 /* Frameworks */,
 				964F746E25A3E5F3003EE300 /* Resources */,
+				9611F2CA2672CAE50013FAE1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -914,6 +932,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmbeddedAuthUITests/ExternalDependencies",
+				);
 				INFOPLIST_FILE = EmbeddedAuthUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -934,6 +956,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmbeddedAuthUITests/ExternalDependencies",
+				);
 				INFOPLIST_FILE = EmbeddedAuthUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

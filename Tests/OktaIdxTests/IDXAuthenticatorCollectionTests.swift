@@ -13,6 +13,10 @@
 import XCTest
 @testable import OktaIdx
 
+#if SWIFT_PACKAGE
+@testable import TestCommon
+#endif
+
 class IDXAuthenticatorCollectionTests: XCTestCase {
     let configuration = IDXClient.Configuration(issuer: "https://foo.oktapreview.com/oauth2/default",
                                                 clientId: "clientId",

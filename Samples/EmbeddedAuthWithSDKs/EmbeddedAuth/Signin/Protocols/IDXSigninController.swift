@@ -33,13 +33,9 @@ extension IDXSigninController where Self: UIViewController {
 
         let parentController = navigationController?.presentingViewController
         if recoverable {
-            parentController?.present(alert, animated: true)
+            present(alert, animated: true)
         } else {
             dismiss(animated: true) {
-                let alert = UIAlertController(title: "Login error",
-                                              message: error.localizedDescription,
-                                              preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 parentController?.present(alert, animated: true) {
                     self.signin?.failure(with: error)
                 }

@@ -1,3 +1,0 @@
-[submodule "OktaIdxExample/OktaIdxExample/OktaSdk"]
-	path = Samples/EmbeddedAuthWithSDKs/EmbeddedAuth/OktaSdk
-	url = git@github.com:okta/okta-sdk-swift.git

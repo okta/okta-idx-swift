@@ -56,8 +56,10 @@ extension IDXClient.Application {
 
 extension IDXClient.User {
     internal convenience init?(v1 object: V1.Response.User?) {
-        guard let object = object else { return nil }
-        self.init(id: object.id)
+        guard let object = object,
+              let userId = object.id
+        else { return nil }
+        self.init(id: userId)
     }
 }
 
@@ -67,7 +69,11 @@ extension V1.Response {
         let authenticator: V1.Response.Authenticator
     }
 
-    func authenticatorState(for authenticatorId: String) -> IDXClient.Authenticator.State {
+    func authenticatorState(for authenticatorId: String?) -> IDXClient.Authenticator.State {
+        guard let authenticatorId = authenticatorId else {
+            return .normal
+        }
+        
         if currentAuthenticatorEnrollment?.value.id == authenticatorId {
             return .enrolling
         }
