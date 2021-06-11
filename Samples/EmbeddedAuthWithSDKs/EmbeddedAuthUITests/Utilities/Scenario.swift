@@ -19,7 +19,7 @@ struct Scenario {
     let configuration: Configuration
     let validator: ScenarioValidator
 
-    private static var sharedProfileId: String? = ProcessInfo.processInfo.environment["A18N_PROFILE_ID"]
+    private static var sharedProfileId: String?
     private(set) var credentials: Credentials?
     private(set) var profile: A18NProfile? {
         didSet {
