@@ -20,6 +20,7 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
 
     private var webAuthSession: ASWebAuthenticationSession?
     private var formSections: [Signin.Section] = []
+    private weak var poll: Pollable?
 
     private let pollActivityIndicator: UIActivityIndicatorView = {
         let result = UIActivityIndicatorView(style: .medium)
@@ -83,6 +84,7 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
         //    button.isEnabled = false
         //}
         
+        poll?.stopPolling()
         if let socialAuth = remediationOption as? IDXClient.Remediation.SocialAuth,
            let idx = signin.idx,
            let scheme = URL(string: idx.context.configuration.redirectUri)?.scheme
@@ -178,6 +180,7 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
             pollActivityIndicator.startAnimating()
         }
 
+        self.poll = poll
         poll.startPolling { [weak self] (response, error) in
             guard let response = response else {
                 if let error = error {

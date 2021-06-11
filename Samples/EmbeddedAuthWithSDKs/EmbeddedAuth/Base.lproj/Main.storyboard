@@ -442,7 +442,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Embedded Auth with SDKs" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EIt-OV-FAH">
-                                <rect key="frame" x="52" y="243.5" width="310.5" height="215"/>
+                                <rect key="frame" x="31" y="243.5" width="352" height="215"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="60"/>
                                 <color key="textColor" name="signin-title-color"/>
                                 <nil key="highlightedColor"/>
@@ -452,7 +452,7 @@
                         <color key="backgroundColor" name="signin-title-background-color"/>
                         <constraints>
                             <constraint firstItem="6BY-J0-lMG" firstAttribute="top" secondItem="qDq-Ed-dD7" secondAttribute="top" id="8TX-eQ-AWa"/>
-                            <constraint firstItem="EIt-OV-FAH" firstAttribute="width" secondItem="dNr-2n-lLU" secondAttribute="width" multiplier="0.75" id="9Sk-Tb-IfP"/>
+                            <constraint firstItem="EIt-OV-FAH" firstAttribute="width" secondItem="dNr-2n-lLU" secondAttribute="width" multiplier="0.85" id="9Sk-Tb-IfP"/>
                             <constraint firstItem="EFc-7V-zFI" firstAttribute="top" secondItem="dNr-2n-lLU" secondAttribute="top" id="F2r-Ba-Edn"/>
                             <constraint firstItem="6BY-J0-lMG" firstAttribute="trailing" secondItem="XeN-Wc-4Fy" secondAttribute="trailing" id="MSG-4J-Jtl"/>
                             <constraint firstItem="6BY-J0-lMG" firstAttribute="leading" secondItem="XeN-Wc-4Fy" secondAttribute="leading" id="PlJ-GN-7Jv"/>
@@ -491,6 +491,11 @@
             <point key="canvasLocation" x="-70" y="319"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="okD-fF-dj3">
+            <size key="intrinsicContentSize" width="87" height="53"/>
+        </designable>
+    </designables>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
