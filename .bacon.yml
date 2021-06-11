@@ -12,7 +12,7 @@ test_suites:
   - name: ui-test
     script_path: okta-idx-swift/ci-build
     sort_order: '2'
-    timeout: '45'
+    timeout: '60'
     script_name: ui-test
     criteria: MERGE
     queue_name: apple-ci
