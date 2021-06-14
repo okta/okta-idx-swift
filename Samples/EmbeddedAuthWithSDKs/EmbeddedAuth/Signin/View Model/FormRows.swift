@@ -225,7 +225,7 @@ extension IDXClient.Response {
                         parent: nil,
                         delegate: delegate))
 
-        for (_,authenticator) in remediationOption.authenticators {
+        for authenticator in remediationOption.authenticators {
             if let sendable = authenticator as? Sendable,
                sendable.canSend
             {
