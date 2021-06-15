@@ -179,7 +179,6 @@ class Scenario {
     }
 
     func deleteUser() throws {
-        guard hasUser != nil else { return }
         guard let credentials = credentials else {
             throw Error.profileValuesInvalid
         }
