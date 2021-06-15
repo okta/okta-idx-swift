@@ -38,12 +38,12 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         try? scenario.resetMessages(.sms)
         try? scenario.resetMessages(.email)
     }
-
+    
     override func tearDownWithError() throws {
-        try super.tearDownWithError()
+        try super.setUpWithError()
         try scenario.deleteUser()
     }
-    
+
     func testSignUpWithPasswordEmail() throws {
         let credentials = try XCTUnwrap(scenario.credentials)
 
@@ -108,7 +108,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
             phonePasscodePage.passcodeField.tap()
         }
         
-        let smsCode = try scenario.receive(code: .sms)
+        let smsCode = try receive(code: .sms)
         phonePasscodePage.passcodeField.typeText(smsCode)
         
         phonePasscodePage.continueButton.tap()
@@ -152,7 +152,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
             codePage.passcodeField.tap()
         }
 
-        let emailCode = try scenario.receive(code: .email)
+        let emailCode = try receive(code: .email)
 
         codePage.passcodeField.typeText(emailCode)
         codePage.continueButton.tap()
