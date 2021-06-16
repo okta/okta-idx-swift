@@ -15,7 +15,9 @@ import OktaSdk
 
 struct SelfServiceRegistrationScenarioValidator: ScenarioValidator {
     func configure(completion: @escaping (Error?) -> Void) {
-        activatePolicy(.selfServiceRegistration,
-                       completion: completion)
+        deactivatePolicies(OktaPolicy.allCases.filter { $0 != .selfServiceRegistration }) { _ in
+            activatePolicy(.selfServiceRegistration,
+                           completion: completion)
+        }
     }
 }
