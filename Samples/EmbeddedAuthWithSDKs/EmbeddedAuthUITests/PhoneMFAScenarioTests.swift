@@ -16,16 +16,11 @@ import OktaSdk
 final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }
     
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         
         try? scenario.resetMessages(.sms)
-        
-        do {
-            try scenario.createUser(groups: [.mfa, .phoneEnrollment])
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+        try scenario.createUser(groups: [.mfa, .phoneEnrollment])
     }
     
     override func tearDownWithError() throws {
@@ -127,16 +122,11 @@ final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
 final class PhoneMFALoginScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }
     
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         
         try? scenario.resetMessages(.sms)
-        
-        do {
-            try scenario.createUser(enroll: [.sms], groups: [.mfa, .phoneEnrollment])
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+        try scenario.createUser(enroll: [.sms], groups: [.mfa, .phoneEnrollment])
     }
     
     override func tearDownWithError() throws {

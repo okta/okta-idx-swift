@@ -14,15 +14,10 @@ import XCTest
 
 final class EmailMFALoginScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .selfServiceRegistration }
-    
-    override class func setUp() {
-        super.setUp()
-        
-        do {
-            try scenario.createUser(groups: [.mfa])
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        try scenario.createUser(groups: [.mfa])
     }
     
     func test_Login_With_MFA_Email() throws {

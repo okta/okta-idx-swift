@@ -37,10 +37,11 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         
         try? scenario.resetMessages(.sms)
         try? scenario.resetMessages(.email)
+        try scenario.deleteUser()
     }
     
     override func tearDownWithError() throws {
-        try super.tearDownWithError()
+        try super.setUpWithError()
         try scenario.deleteUser()
     }
     

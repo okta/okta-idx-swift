@@ -14,15 +14,10 @@ import XCTest
 
 final class ResetPasswordScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }
-    
-    override static func setUp() {
-        super.setUp()
-        
-        do {
-            try scenario.createUser()
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        try scenario.createUser()
     }
     
     func test_Reset_Password() throws {
