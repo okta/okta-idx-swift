@@ -44,7 +44,7 @@ final class EmailMFALoginScenarioTests: ScenarioTestCase {
             XCTAssertTrue(codePage.passcodeLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(codePage.passcodeField.exists)
             
-            let emailCode = try scenario.receive(code: .email)
+            let emailCode = try receive(code: .email)
             
             test("WHEN She inputs the correct code from the Email") {
                 codePage.passcodeField.tap()

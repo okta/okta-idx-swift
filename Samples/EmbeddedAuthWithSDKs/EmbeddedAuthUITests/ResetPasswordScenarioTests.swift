@@ -70,7 +70,7 @@ final class ResetPasswordScenarioTests: ScenarioTestCase {
             XCTAssertTrue(codePage.resendButton.exists)
             XCTAssertTrue(codePage.continueButton.exists)
             
-            let emailCode = try scenario.receive(code: .email)
+            let emailCode = try receive(code: .email)
             
             test("WHEN she fills in the correct code") {
                 if !codePage.passcodeField.isFocused {

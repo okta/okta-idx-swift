@@ -115,7 +115,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
                     phonePasscodePage.passcodeField.tap()
                 }
                 
-                let smsCode = try scenario.receive(code: .sms)
+                let smsCode = try receive(code: .sms)
                 phonePasscodePage.passcodeField.typeText(smsCode)
             }
             
@@ -187,7 +187,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
                     codePage.passcodeField.tap()
                 }
                 
-                let emailCode = try scenario.receive(code: .email)
+                let emailCode = try receive(code: .email)
                 
                 codePage.passcodeField.typeText(emailCode)
                 codePage.continueButton.tap()

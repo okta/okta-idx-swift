@@ -65,7 +65,7 @@ final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
             XCTAssertTrue(passcodePage.passcodeField.exists)
             XCTAssertTrue(passcodePage.resendButton.exists)
             
-            let smsCode = try scenario.receive(code: .sms)
+            let smsCode = try receive(code: .sms)
             
             test("WHEN She inputs the correct code from the SMS") {
                 passcodePage.passcodeField.tap()
@@ -167,7 +167,7 @@ final class PhoneMFALoginScenarioTests: ScenarioTestCase {
             XCTAssertTrue(passcodePage.passcodeField.exists)
             XCTAssertTrue(passcodePage.resendButton.exists)
             
-            let smsCode = try scenario.receive(code: .sms)
+            let smsCode = try receive(code: .sms)
             
             test("WHEN She inputs the code from the SMS") {
                 passcodePage.passcodeField.tap()
