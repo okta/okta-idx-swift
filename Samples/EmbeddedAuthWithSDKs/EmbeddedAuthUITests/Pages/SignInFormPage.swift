@@ -53,7 +53,7 @@ struct SignInFormPage {
             XCTAssertTrue(recoveryButton.exists)
             XCTAssertTrue(signInButton.exists)
             
-            test("WHEN she fills in her correct username") {
+            test("AND she fills in her correct username") {
                 usernameField.tap()
                 usernameField.typeText(username)
             }
