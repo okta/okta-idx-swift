@@ -14,13 +14,32 @@ import Foundation
 import OktaSdk
 import XCTest
 
-struct Scenario {
+class Scenario {
     let category: Category
     let configuration: Configuration
     let validator: ScenarioValidator
+    private(set) var isSetUp: Bool = false
 
     private static var sharedProfileId: String?
     private(set) var credentials: Credentials?
+    
+    var socialAuthCredentials: Credentials? {
+        let env = ProcessInfo.processInfo.environment
+        
+        guard let username = env["SOCIAL_AUTH_USERNAME"],
+              let password = env["SOCIAL_AUTH_PASSWORD"],
+              !username.isEmpty,
+              !password.isEmpty
+        else {
+            return nil
+        }
+        
+        return Credentials(username: username,
+                           password: password,
+                           firstName: "ios",
+                           lastName: "User")
+    }
+    
     private(set) var profile: A18NProfile? {
         didSet {
             guard let emailAddress = profile?.emailAddress else {
@@ -33,6 +52,7 @@ struct Scenario {
                                 lastName: "Tester")
         }
     }
+    private(set) var hasUser: UserConfiguration?
     
     init(_ category: Category, configuration: Configuration? = nil) throws {
         self.configuration = try configuration ?? Configuration()
@@ -45,7 +65,9 @@ struct Scenario {
         validator = category.validator
     }
     
-    mutating func setUp() throws {
+    func setUp() throws {
+        guard !isSetUp else { return }
+        
         let group = DispatchGroup()
         group.enter()
         
@@ -95,6 +117,7 @@ struct Scenario {
         if let error = error {
             throw error
         }
+        isSetUp = true
     }
     
     func tearDown() throws {
@@ -102,7 +125,9 @@ struct Scenario {
         
         var errors = [Swift.Error]()
         XCTContext.runActivity(named: "Tearing down test configuration") { _ in
-            if let credentials = credentials {
+            if let credentials = credentials,
+               hasUser != nil
+            {
                 group.enter()
                 XCTContext.runActivity(named: "Deleting test user \(credentials.username)") { _ in
                     self.deleteUser(username: credentials.username) { (error) in
@@ -140,6 +165,8 @@ struct Scenario {
     }
     
     func createUser(enroll factors: [FactorType] = [], groups: [OktaGroup] = []) throws {
+        let userConfig = UserConfiguration(factors: factors, groups: groups)
+        guard hasUser == nil || hasUser != userConfig else { return }
         guard let credentials = credentials else {
             throw Error.profileValuesInvalid
         }
@@ -166,6 +193,7 @@ struct Scenario {
         if let error = error {
             throw error
         }
+        self.hasUser = userConfig
     }
 
     func deleteUser() throws {
@@ -197,6 +225,7 @@ struct Scenario {
             
             throw error
         }
+        self.hasUser = nil
     }
     
     func resetMessages(_ messageType: A18NProfile.MessageType) throws {
@@ -214,15 +243,17 @@ struct Scenario {
             receiver = VoiceReceiver(profile: profile)
         }
 
-        let group = DispatchGroup()
-        group.enter()
-        DispatchQueue.global().async {
-            receiver.reset {
-                group.leave()
+        XCTContext.runActivity(named: "Reset \(messageType.rawValue) messages") { _ in
+            let group = DispatchGroup()
+            group.enter()
+            DispatchQueue.global().async {
+                receiver.reset {
+                    group.leave()
+                }
             }
+            
+            group.wait()
         }
-        
-        group.wait()
     }
     
     func receive(code type: A18NProfile.MessageType, timeout: TimeInterval = 30, pollInterval: TimeInterval = 1) throws -> String {
@@ -260,6 +291,11 @@ struct Scenario {
         
         return result!
     }
+    
+    struct UserConfiguration: Equatable {
+        let factors: [FactorType]
+        let groups: [OktaGroup]
+    }
 
     struct Credentials {
         let username: String
@@ -271,10 +307,12 @@ struct Scenario {
     enum Category {
         case passcodeOnly
         case selfServiceRegistration
+        case socialAuth
     }
     
     enum Error: Swift.Error {
         case missingClientCredentials
+        case missingIDPCredentials
         case cannotCreateA18NProfile
         case profileValuesInvalid
         case noA18NProfile
@@ -289,11 +327,14 @@ enum OktaGroup: String, CaseIterable {
 
 enum OktaPolicy: String, CaseIterable {
     case selfServiceRegistration = "Self Service Registration"
+    case socialAuthMFA = "MFA Required (Social Auth)"
     
     var policyType: PolicyType {
         switch self {
         case .selfServiceRegistration:
             return .oktaProfileEnrollment
+        case .socialAuthMFA:
+            return .oktaSignOn
         }
     }
 }
@@ -304,6 +345,8 @@ protocol ScenarioValidator {
                         completion: @escaping(Error?) -> Void)
     func deactivatePolicy(_ policy: OktaPolicy,
                           completion: @escaping(Error?) -> Void)
+    func deactivatePolicies(_ policies: [OktaPolicy],
+                            completion: @escaping(Error?) -> Void)
 }
 
 extension Scenario.Category {    
@@ -313,6 +356,8 @@ extension Scenario.Category {
             return PasscodeScenarioValidator()
         case .selfServiceRegistration:
             return SelfServiceRegistrationScenarioValidator()
+        case .socialAuth:
+            return SocialAuthScenarioValidator()
         }
     }
 }

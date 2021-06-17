@@ -20,14 +20,9 @@ func test<T>(_ description: String, block: () throws -> T) rethrows -> T {
 final class PasscodeScenarioTests: ScenarioTestCase {
     class override var category: Scenario.Category { .passcodeOnly }
     
-    override class func setUp() {
-        super.setUp()
-        
-        do {
-            try scenario.createUser()
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        try scenario.createUser()
     }
     
     func test_Login_with_a_Password() throws {
@@ -84,20 +79,6 @@ final class PasscodeScenarioTests: ScenarioTestCase {
             XCTAssertTrue(emailRecoveryPage.usernameField.exists)
             XCTAssertTrue(emailRecoveryPage.continueButton.exists)
         }
-    }
-    
-    func testForgotPasswordRedirection() throws {
-        let signInPage = SignInFormPage(app: app)
-        XCTAssertTrue(signInPage.initialSignInButton.waitForExistence(timeout: .regular))
-        signInPage.initialSignInButton.tap()
-        
-        XCTAssertTrue(signInPage.recoveryButton.waitForExistence(timeout: .regular))
-        signInPage.recoveryButton.tap()
-        
-        let emailRecoveryPage = UsernameRecoveryFormPage(app: app)
-        XCTAssertTrue(emailRecoveryPage.usernameLabel.waitForExistence(timeout: .regular))
-        XCTAssertTrue(emailRecoveryPage.usernameField.exists)
-        XCTAssertTrue(emailRecoveryPage.continueButton.exists)
     }
 }
 

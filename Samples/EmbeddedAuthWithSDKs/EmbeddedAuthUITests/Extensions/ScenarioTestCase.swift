@@ -15,10 +15,8 @@ import XCTest
 
 class ScenarioTestCase: XCTestCase {
     private(set) var app: XCUIApplication!
-    private(set) static var scenario: Scenario!
-    var scenario: Scenario {
-        type(of: self).scenario
-    }
+    private static var scenario: Scenario?
+    var scenario: Scenario!
     
     class var category: Scenario.Category { .passcodeOnly }
     
@@ -42,31 +40,74 @@ class ScenarioTestCase: XCTestCase {
         
         return result
     }
-
-    override class func setUp() {
+    
+    func receive(code type: A18NProfile.MessageType, timeout: TimeInterval = 30, pollInterval: TimeInterval = 1) throws -> String {
         do {
-            scenario = try Scenario(category)
-            try scenario.setUp()
+            return try scenario.receive(code: type,
+                                        timeout: timeout,
+                                        pollInterval: pollInterval)
         } catch {
-            XCTFail(error.localizedDescription)
+            let sendAgain = app.tables.staticTexts["Send again"]
+            guard sendAgain.exists else {
+                throw error
+            }
+            
+            sendAgain.tap()
+            return try scenario.receive(code: type,
+                                        timeout: timeout,
+                                        pollInterval: pollInterval)
+        }
+    }
+
+    override func setUpWithError() throws {
+        if let scenario = type(of: self).scenario {
+            self.scenario = scenario
+        } else {
+            scenario = try Scenario(type(of: self).category)
+            type(of: self).scenario = scenario
+            try scenario.setUp()
+        }
+        
+        app = XCUIApplication()
+        if shouldResetUser {
+            app.terminate()
+        }
+        
+        switch app.state {
+        case .runningBackground:
+            app.activate()
+            fallthrough
+            
+        case .runningForeground:
+            let cancelButton = app.navigationBars.buttons["Cancel"]
+            let signOutButton = app.tables.cells.staticTexts["Sign Out"]
+            if cancelButton.exists {
+                cancelButton.tap()
+            }
+            
+            else if signOutButton.exists {
+                signOutButton.tap()
+                app.sheets.buttons["Revoke tokens"].tap()
+            }
+            
+        default:
+            app.launchArguments = launchArguments()
+            app.launch()
+        }
+        
+        continueAfterFailure = false
+        
+        test("GIVEN Mary navigates to the Basic Login View") {
+            XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(scenario.configuration.clientId)")
         }
     }
     
     override class func tearDown() {
         do {
-            try scenario.tearDown()
+            try scenario?.tearDown()
+            scenario = nil
         } catch {
             XCTFail(error.localizedDescription)
         }
-    }
-    
-    override func setUpWithError() throws {
-        app = XCUIApplication()
-        app.launchArguments = launchArguments()
-        app.launch()
-        
-        continueAfterFailure = false
-
-        XCTAssertEqual(app.staticTexts["clientIdLabel"].label, "Client ID: \(scenario.configuration.clientId)")
     }
 }
