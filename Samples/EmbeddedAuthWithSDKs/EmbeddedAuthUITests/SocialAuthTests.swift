@@ -21,30 +21,42 @@ final class SocialAuthTests: ScenarioTestCase {
         
         try XCTSkipIf(scenario.socialAuthCredentials == nil,
                       "Skipping social auth tests since no user credentials are defined")
+
+        let policyDeactivatedExpectation = expectation(description: "Social MFA policy deactivated.")
+        
+        scenario.validator.deactivatePolicy(.socialAuthMFA) { _ in
+            policyDeactivatedExpectation.fulfill()
+        }
+        
+        wait(for: [policyDeactivatedExpectation], timeout: .regular)
     }
     
     func test_Sign_In() throws {
         let credentials = try XCTUnwrap(scenario.socialAuthCredentials)
-        let policyDeactivatedExpaction = expectation(description: "Social MFA policy deactivated.")
-        
-        scenario.validator.deactivatePolicy(.socialAuthMFA) { _ in
-            policyDeactivatedExpaction.fulfill()
-        }
-        
-        wait(for: [policyDeactivatedExpaction], timeout: .regular)
         
         try signInSocialAuth(with: credentials)
-                
+        
         let userInfoPage = UserInfoPage(app: app)
         userInfoPage.assert(with: credentials)
     }
     
-    func DISABLED_test_Sign_In_with_MFA() throws {
+    func test_Sign_In_with_MFA() throws {
         let credentials = try XCTUnwrap(scenario.socialAuthCredentials)
+        let policyActivatedExpectation = expectation(description: "Social MFA policy dactivated.")
+        
+        scenario.validator.activatePolicy(.socialAuthMFA) { _ in
+            policyActivatedExpectation.fulfill()
+        }
+        
+        wait(for: [policyActivatedExpectation], timeout: .regular)
         
         try signInSocialAuth(with: credentials)
         
-        // Based on final decision implementation come here.
+        test("THEN She sees factors enrollment page") {
+            let factorsEnrollmentPage = FactorsEnrollmentPage(app: app)
+            XCTAssertTrue(factorsEnrollmentPage.chooseButton.waitForExistence(timeout: .regular))
+            XCTAssertTrue(factorsEnrollmentPage.emailLabel.exists || factorsEnrollmentPage.phoneLabel.exists)
+        }
     }
     
     private func signInSocialAuth(with credentials: Scenario.Credentials) throws {
