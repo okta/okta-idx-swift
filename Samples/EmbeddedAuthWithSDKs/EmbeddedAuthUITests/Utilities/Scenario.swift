@@ -31,7 +31,6 @@ class Scenario {
               !username.isEmpty,
               !password.isEmpty
         else {
-            assertionFailure("No environment variables. Cannot create SocialAuth Credentials")
             return nil
         }
         

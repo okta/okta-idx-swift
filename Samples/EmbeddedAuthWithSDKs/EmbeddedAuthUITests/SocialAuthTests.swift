@@ -16,6 +16,13 @@ final class SocialAuthTests: ScenarioTestCase {
     
     static override var category: Scenario.Category { .socialAuth }
     
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        
+        try XCTSkipIf(scenario.socialAuthCredentials == nil,
+                      "Skipping social auth tests since no user credentials are defined")
+    }
+    
     func test_Sign_In() throws {
         let credentials = try XCTUnwrap(scenario.socialAuthCredentials)
         let policyDeactivatedExpaction = expectation(description: "Social MFA policy deactivated.")
