@@ -111,11 +111,12 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
             XCTAssertTrue(phonePasscodePage.continueButton.exists)
             
             try test("WHEN She inputs the correct code from her SMS") {
+                let smsCode = try receive(code: .sms)
+
                 if !phonePasscodePage.passcodeField.isFocused {
                     phonePasscodePage.passcodeField.tap()
                 }
                 
-                let smsCode = try receive(code: .sms)
                 phonePasscodePage.passcodeField.typeText(smsCode)
             }
             
