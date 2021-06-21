@@ -80,6 +80,14 @@ extension IDXClient {
             let api = IDXClient.Version.latest.clientImplementation(with: configuration)
             revoke(token: token, type: type, api: api, completion: completion)
         }
+        
+        public func refresh(completion: @escaping(_ token: Token?, _ error: Error?) -> Void)
+        {
+            let api = IDXClient.Version.latest.clientImplementation(with: configuration)
+            api.refresh(token: self) { (token, error) in
+                completion(token, error)
+            }
+        }
 
         static func revoke(token: String,
                            type: Token.RevokeType,
