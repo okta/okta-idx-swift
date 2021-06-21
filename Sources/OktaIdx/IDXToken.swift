@@ -81,7 +81,7 @@ extension IDXClient {
             revoke(token: token, type: type, api: api, completion: completion)
         }
         
-        public func refresh(completion: @escaping(_ token: Token?, _ error: Error?) -> Void)
+        @objc public func refresh(completion: @escaping(_ token: Token?, _ error: Error?) -> Void)
         {
             let api = IDXClient.Version.latest.clientImplementation(with: configuration)
             api.refresh(token: self) { (token, error) in
