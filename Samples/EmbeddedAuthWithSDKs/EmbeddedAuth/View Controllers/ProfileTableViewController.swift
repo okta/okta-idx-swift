@@ -87,10 +87,10 @@ class ProfileTableViewController: UITableViewController {
                 .init(kind: .rightDetail, id: "username", title: "Username", detail: user.info.preferredUsername),
                 .init(kind: .rightDetail, id: "userId", title: "User ID", detail: user.info.sub),
                 .init(kind: .rightDetail, id: "createdAt", title: "Created at", detail: dateFormatter.string(from: user.info.updatedAt)),
-                .init(kind: .disclosure, id: "details", title: "Token details")
+                .init(kind: .disclosure, id: "details", title: "Token details"),
+                .init(kind: .action, id: "refresh", title: "Refresh")
             ],
             .actions: [
-                .init(kind: .action, id: "refresh", title: "Refresh"),
                 .init(kind: .destructive, id: "signout", title: "Sign Out")
             ]
         ]
