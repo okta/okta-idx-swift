@@ -223,13 +223,13 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
     func refresh(token: IDXClient.Token,
                  completion: @escaping(_ token: IDXClient.Token?, _ error: Error?) -> Void)
     {
-        guard let refreshToken = token.refreshToken else {
-            completion(nil, IDXClientError.missingRequiredParameter(name: "refresh_token"))
+        guard let url = token.configuration.issuerUrl(with: "v1/token") else {
+            completion(nil, IDXClientError.invalidClient)
             return
         }
         
-        guard let url = token.configuration.issuerUrl(with: "v1/token") else {
-            completion(nil, IDXClientError.invalidClient)
+        guard let refreshToken = token.refreshToken else {
+            completion(nil, IDXClientError.missingRefreshToken)
             return
         }
         
@@ -243,7 +243,7 @@ extension IDXClient.APIVersion1: IDXClientAPIImpl {
         ]
         
         if let clientSecret = configuration.clientSecret {
-            parameters["client_secret"] = configuration.clientSecret
+            parameters["client_secret"] = clientSecret
         }
         
         let request = TokenRequest(method: "POST",
