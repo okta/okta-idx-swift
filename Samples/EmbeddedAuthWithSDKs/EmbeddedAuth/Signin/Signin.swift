@@ -122,6 +122,56 @@ public class Signin {
             return
         }
         
+        if let authenticator = response.authenticators.current as? IDXClient.Authenticator.Password,
+           authenticator.canRecover
+        {
+            authenticator.recover { (response, error) in
+                guard let response = response,
+                      let remediation = response.remediations[.identifyRecovery],
+                      let identifierField = remediation.identifier
+                else {
+                    // Handle error
+                    return
+                }
+                
+                identifierField.value = "mary.smith@example.com"
+                remediation.proceed { (response, error) in
+                    // Handle the response
+                }
+            }
+        }
+        guard let remediation = response.remediations[.selectEnrollProfile] else {
+            return
+        }
+        
+        remediation.proceed { (response, error) in
+            guard let remediation = response?.remediations[.enrollProfile],
+                  let firstNameField = remediation.userProfile?.firstName,
+                  let lastNameField = remediation.userProfile?.lastName,
+                  let emailField = remediation.userProfile?.email
+            else {
+                return
+            }
+            
+            if response?.remediations.isEmpty
+            
+            guard let identifierField = response?.remediations[.identify]?.identifier else { return }
+            if !identifierField.messages.isEmpty {
+                identifierField.messages.forEach { message in
+                    // Display the field-level message
+                }
+            }
+            
+            firstNameField.value = "Mary"
+            lastNameField.value = "Smith"
+            emailField.value = "msmith@example.com"
+            remediation.proceed { (response, error) in
+                // Handle response
+            }
+        }
+        
+        response.messages.allMessages
+        
         guard let controller = controller(for: response) else {
             if let message = response.messages.first {
                 let alert = UIAlertController(title: "Error",
