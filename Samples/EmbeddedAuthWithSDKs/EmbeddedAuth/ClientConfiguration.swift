@@ -186,7 +186,7 @@ struct ClientConfiguration {
             case .missingValue(name: let name):
                 return "Missing required value \(name)"
             case .missingRecommendedScopes:
-                return "Missing recommended scopes \"openid\" and \"profile\".\n\nYou may want to include \"offile_access\" to support refresh tokens."
+                return "Missing recommended scopes \"openid\" and \"profile\".\n\nYou may want to include \"offline_access\" to support refresh tokens."
             case .issuerMissingPath:
                 return "The issuer URL should include an OAuth2 path, such as \"/oauth2/default\""
             }
