@@ -30,7 +30,7 @@ The latest release can always be found on the [releases page][github-releases].
 
 ## Need help?
  
-If you run into problems using the SDK, you can
+If you run into problems using the SDK, you can:
  
 * Ask questions on the [Okta Developer Forums][devforum]
 * Post [issues][github-issues] here on GitHub (for code errors)
@@ -51,6 +51,14 @@ dependencies: [
     .Package(url: "https://github.com/okta/okta-idx-swift.git", majorVersion: <majorVersion>, minor: <minor>)
 ]
 ```
+
+## API patterns
+
+The IDX SDK enables dynamic user authentication through a cyclical call-and-response pattern. A user is presented with a series of choices in how they can iteratively step through the authentication process, with each step giving way to additional choices until they can either successfully authenticate or receive actionable error messages.
+
+Each step in the authentication process is represented by an `IDXClient.Response` object, which contains the choices they can take, represented by the `IDXClient.Remediation` class. Remediations provides metadata about its type, a form object tree that describes the fields and values that should be presented to the user, and other related data that helps you, the developer, build a UI capable of prompting the user to take action.
+
+When a remediation is selected and its inputs have been supplied by the user, the `proceed()` method can be called on the remediation to proceed to the next step of the authentication process.  This returns another `IDXClient.Response` object, which causes the process to continue. 
 
 ## Usage
 
