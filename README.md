@@ -301,7 +301,7 @@ remediation.proceed { (response, error) in
 
 ### Sign up / Register
 
-When self-service registration is enabled, the initial response will include a `.selectEnrollProfile` remediation option. Proceeding through this remediation option will return a remediation that will allow the user to supply their name and email address, allowing them to proceed through to creating a new user profile.
+When you [configure and enable a self-service registration policy](https://developer.okta.com/docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/), the initial response will include a `.selectEnrollProfile` remediation option. Proceeding through this remediation option will return a remediation that will allow the user to supply their name and email address, allowing them to proceed through to creating a new user profile.
 
 ```swift
 guard let remediation = response.remediations[.selectEnrollProfile] else {
