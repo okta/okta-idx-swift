@@ -1,6 +1,6 @@
 language: swift
 os: osx
-osx_image: xcode12.2
+osx_image: xcode12.5
 before_install:
   - touch TestCredentials.xcconfig
 jobs:
@@ -22,8 +22,8 @@ jobs:
       name: Cocoapods
       script:
       - pod lib lint
-    # Disable Carthage validation until we can get it working
-    #- stage: Package Management
-    #  name: Carthage
-    #  script:
-    #  - carthage build --use-xcframeworks --no-skip-current
+    Disable Carthage validation until we can get it working
+    - stage: Package Management
+      name: Carthage
+      script:
+      - carthage build --use-xcframeworks --no-skip-current
