@@ -54,5 +54,16 @@ extension IDXClient {
             
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                [Issuer]: \(issuer)
+                [Client ID]: \(clientId)
+                [Client Secret]: \(clientSecret ?? "-")
+                [Scopes]: \(scopes.debugDescription)
+                [Redirect URI]: \(redirectUri)
+            """
+        }
     }
 }

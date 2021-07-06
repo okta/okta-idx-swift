@@ -122,6 +122,16 @@ public final class IDXClient: NSObject {
 
         self.api.client = self
     }
+    
+    public override var debugDescription: String {
+        """
+        [\(Self.self)]
+            \(context.debugDescription.indentingNewlines())
+            [IDXClientAPIImpl]
+                \(api.configuration.debugDescription.indentingNewlines(by: 8))
+                [Version]: \(type(of: api).version.rawValue)
+        """
+    }
 }
 
 /// Delegate protocol that can be used to receive updates from the IDXClient through the process of a user's authentication.

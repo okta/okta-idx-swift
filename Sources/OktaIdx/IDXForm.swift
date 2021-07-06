@@ -49,5 +49,12 @@ extension IDXClient.Remediation {
             
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                \(fields.map { $0.debugDescription.indentingNewlines() }.joined())
+            """
+        }
     }
 }

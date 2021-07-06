@@ -42,5 +42,13 @@ extension IDXClient {
 
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                [Messages]:
+                    \(allMessages.compactMap { $0.debugDescription }.joined())
+            """
+        }
     }
 }

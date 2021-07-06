@@ -46,5 +46,23 @@ extension IDXClient {
             
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                \(configuration.debugDescription.indentingNewlines())
+                [State]: \(state)
+                [Interaction Handle]: \(interactionHandle)
+                [Code Verifier]: \(codeVerifier)
+            """
+        }
+    }
+}
+
+// TODO: Move away from this file
+extension String {
+    func indentingNewlines(by spaceCount: Int = 4) -> String {
+        let spaces = String(repeating: " ", count: spaceCount)
+        return replacingOccurrences(of: "\n", with: "\n\(spaces)")
     }
 }

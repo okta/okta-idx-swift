@@ -146,6 +146,29 @@ extension IDXClient.Remediation.Form {
             
             super.init()
         }
+        
+        public override var debugDescription: String {
+            let options = options?.compactMap { $0.debugDescription.indentingNewlines(by: 8) } ?? ["-"]
+            let messages = messages.compactMap { $0.debugDescription.indentingNewlines(by: 8) }
+            
+            return """
+            [\(Self.self)]
+                [Name]: \(name ?? "-")
+                [Label]: \(label ?? "-")
+                [Type]: \(type ?? "-")
+                [Value]: \(value ?? "-")
+                [Visible]: \(isVisible)
+                [Mutable]: \(isMutable)
+                [Required]: \(isRequired)
+                [Secret]: \(isSecret)
+                [Options]:
+                    \(options.joined())
+                [Selected Option]: \(isSelectedOption)
+                [Messages]:
+                    \(messages.isEmpty ? "-" : messages.joined())
+                \(authenticator?.debugDescription ?? "Info: No authenticator") 
+            """
+        }
     }
     
 }

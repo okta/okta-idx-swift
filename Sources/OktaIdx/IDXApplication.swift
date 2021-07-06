@@ -33,5 +33,14 @@ extension IDXClient {
          
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                [id]: \(id)
+                [label]: \(label)
+                [name]: \(name)
+            """
+        }
     }
 }

@@ -47,5 +47,15 @@ extension IDXClient {
             
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                [Type]: \(type)
+                [Localization Key]: \(localizationKey ?? "-")
+                [Message]: \(message)
+                [Field Name]: \(field?.name ?? "\nInfo: There's no a particular field linked.")
+            """
+        }
     }
 }

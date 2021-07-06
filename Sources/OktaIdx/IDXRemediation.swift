@@ -90,6 +90,15 @@ extension IDXClient {
             super.init()
         }
         
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                [Type]: \(type)
+                [Name]: \(name)
+                \(form.debugDescription.indentingNewlines())
+            """
+        }
+        
         /// Executes the remediation option and proceeds through the workflow using the supplied form parameters.
         ///
         /// This method is used to proceed through the authentication flow, using the data assigned to the nested fields' `value` to make selections.

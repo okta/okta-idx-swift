@@ -126,5 +126,18 @@ extension IDXClient {
             
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                [Access Token]: \(accessToken)
+                [Refresh Token]: \(refreshToken ?? "-")
+                [ID Token]: \(idToken ?? "-")
+                [Expires In]: \(expiresIn) seconds
+                [Scope]: \(scope)
+                [Token Type]: \(tokenType)
+                \(configuration.debugDescription.indentingNewlines())
+            """
+        }
     }
 }

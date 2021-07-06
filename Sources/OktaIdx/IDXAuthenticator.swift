@@ -132,6 +132,19 @@ extension IDXClient {
             super.init()
         }
         
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                [ID]: \(id ?? "-")
+                [Display Name]: \(displayName ?? "-")
+                [Type]: \(type)
+                [Key]: \(key ?? "-")
+                [State]: \(state)
+                [Methods]: \(methods?.compactMap { $0.rawValue } ?? [])
+                [Method Names]: \(methodNames ?? [])
+            """
+        }
+        
         /// Describes a password authenticator.
         @objc(IDXPasswordAuthenticator)
         public class Password: Authenticator, Recoverable {
@@ -186,6 +199,19 @@ extension IDXClient {
 
                     super.init()
                 }
+                
+                public override var debugDescription: String {
+                    var description = ""
+                    let selfMirror = Mirror(reflecting: self)
+                    
+                    for child in selfMirror.children {
+                        if let propertyName = child.label {
+                            description += "\(propertyName): \(child.value)\n"
+                        }
+                    }
+                    
+                    return description
+                }
             }
             
             internal let recoverOption: IDXClient.Remediation?
@@ -212,6 +238,14 @@ extension IDXClient {
                            type: type,
                            key: key,
                            methods: methods)
+            }
+            
+            public override var debugDescription: String {
+                """
+                [\(Self.self)]
+                    [Can Recover]: \(canRecover)
+                    \(settings.debugDescription)
+                """
             }
         }
 
@@ -326,6 +360,17 @@ extension IDXClient {
                            methods: methods,
                            profile: profile)
             }
+            
+            public override var debugDescription: String {
+                """
+                \(super.debugDescription)
+                [\(Self.self)]
+                    [Email]: \(emailAddress ?? "-")
+                    [Polling]: \(isPolling)
+                    [Can Resend]: \(canResend)
+                    [Can Poll]: \(canPoll)
+                """
+            }
         }
 
         /// Authenticator that utilizes a user's phone to authenticate them, either by sending an SMS or voice message.
@@ -391,12 +436,31 @@ extension IDXClient {
                            methods: methods,
                            profile: profile)
             }
+            
+            public override var debugDescription: String {
+                """
+                \(super.debugDescription)
+                [\(Self.self)]
+                    [Phone]: \(phoneNumber ?? "-")
+                    [Can Send]: \(canSend)
+                    [Can Resend]: \(canResend)
+                """
+            }
         }
 
         @objc(IDXSecurityQuestionAuthenticator)
         public class SecurityQuestion: ProfileAuthenticator {
             @objc public var question: String? { profile?["question"] }
             @objc public var questionKey: String? { profile?["question_key"] }
+            
+            public override var debugDescription: String {
+                """
+                \(super.debugDescription)
+                [\(Self.self)]
+                    [Question]: \(question ?? "-")
+                    [Question Key]: \(questionKey ?? "-")
+                """
+            }
         }
     }
 }
