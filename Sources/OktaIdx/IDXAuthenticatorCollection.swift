@@ -41,6 +41,13 @@ extension IDXClient {
 
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                \(allAuthenticators.compactMap { $0.debugDescription.indentingNewlines(by: 8) }.joined())
+            """
+        }
     }
     
     class WeakAuthenticatorCollection: AuthenticatorCollection {

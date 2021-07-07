@@ -155,13 +155,22 @@ extension IDXClient {
                            relatesTo: relatesTo)
             }
             
+            public override var debugDescription: String {
+                """
+                \(super.debugDescription)
+                [\(Self.self)]
+                    [Redirect URL]: \(redirectUrl)
+                    [IdP]: \(idpName)
+                """
+            }
+            
             /// The list of services that are possible within a social authentication workflow.
             @objc(IDXSocialAuthRemediationService)
             public enum Service: Int {
-            case facebook
-            case google
-            case linkedin
-            case other
+                case facebook
+                case google
+                case linkedin
+                case other
             }
         }
     }

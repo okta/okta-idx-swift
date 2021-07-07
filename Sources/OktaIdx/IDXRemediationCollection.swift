@@ -33,5 +33,12 @@ extension IDXClient {
 
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                \(remediations.compactMap { $0.debugDescription.indentingNewlines(by: 8) }.joined())
+            """
+        }
     }
 }

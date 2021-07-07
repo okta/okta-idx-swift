@@ -212,6 +212,20 @@ extension IDXClient {
                     
                     return description
                 }
+                
+                public override var debugDescription: String {
+                    """
+                    [\(Self.self)]
+                        [Days To Expiry]: \(daysToExpiry)
+                        [Minimum Length]: \(minLength)
+                        [Minimum Lowercase]: \(minLowerCase)
+                        [Minimum Uppercase]: \(minUpperCase)
+                        [Minimum Numbers]: \(minNumber)
+                        [Minimum Symbols]: \(minSymbol)
+                        [Exclude Username]: \(excludeUsername)
+                        [Exclude Attributes]: \(excludeAttributes)
+                    """
+                }
             }
             
             internal let recoverOption: IDXClient.Remediation?

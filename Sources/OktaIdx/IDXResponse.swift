@@ -106,5 +106,19 @@ extension IDXClient {
             
             super.init()
         }
+        
+        public override var debugDescription: String {
+            """
+            [\(Self.self)]
+                [Expires At]: \(expiresAt?.debugDescription ?? "-")
+                [Intent]: \(intent)
+                [Remediations]: \(remediations)
+                [Authenticators]: \(authenticators)
+                [App]: \(app?.debugDescription ?? "-")
+                [Messages]:
+                    \(messages.debugDescription)
+                [Login Successful]: \(isLoginSuccessful)
+            """
+        }
     }
 }
