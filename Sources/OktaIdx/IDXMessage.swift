@@ -48,14 +48,20 @@ extension IDXClient {
             super.init()
         }
         
+        public override var description: String {
+            let logger = DebugDescription(self)
+            let components = [
+                logger.address(),
+                "\(#keyPath(type)): \(type)",
+                "\(#keyPath(message)): \(message)",
+                "\(#keyPath(localizationKey)): \(localizationKey ?? "-")"
+            ]
+
+            return logger.brace(components.joined(separator: "; "))
+        }
+        
         public override var debugDescription: String {
-            """
-            [\(Self.self)]
-                [Type]: \(type)
-                [Localization Key]: \(localizationKey ?? "-")
-                [Message]: \(message)
-                [Field Name]: \(field?.name ?? "\nInfo: There's no a particular field linked.")
-            """
+            description
         }
     }
 }

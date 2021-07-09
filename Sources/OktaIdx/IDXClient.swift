@@ -123,13 +123,23 @@ public final class IDXClient: NSObject {
         self.api.client = self
     }
     
+    public override var description: String {
+        let logger = DebugDescription(self)
+        let components = [logger.address()]
+        
+        return logger.brace(components.joined(separator: "; "))
+    }
+    
     public override var debugDescription: String {
-        """
-        [\(Self.self)]
-            \(context.debugDescription.indentingNewlines())
-            [IDXClientAPIImpl]
-                \(api.configuration.debugDescription.indentingNewlines(by: 8))
-                [Version]: \(type(of: api).version.rawValue)
+        let components = [
+            context.debugDescription,
+            api.configuration.debugDescription
+        ]
+        
+        return """
+        \(description) {
+            \(components.joined(separator: ";\n"))
+        }
         """
     }
 }

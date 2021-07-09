@@ -47,19 +47,52 @@ extension IDXClient {
             super.init()
         }
         
+        public override var description: String {
+            let logger = DebugDescription(self)
+            let components = [
+                logger.address(),
+                "\(#keyPath(state)): \(state)",
+                "\(#keyPath(interactionHandle)): \(interactionHandle)",
+                "\(#keyPath(codeVerifier)): \(codeVerifier)"
+            ]
+
+            return logger.brace(components.joined(separator: "; "))
+        }
+        
         public override var debugDescription: String {
-            """
-            [\(Self.self)]
-                \(configuration.debugDescription.indentingNewlines())
-                [State]: \(state)
-                [Interaction Handle]: \(interactionHandle)
-                [Code Verifier]: \(codeVerifier)
+            let components = [configuration.debugDescription]
+                
+            return """
+            \(description) {
+                \(components.joined(separator: ";\n"))
+            }
             """
         }
     }
 }
 
 // TODO: Move away from this file
+struct DebugDescription<T: Any> {
+    
+    let object: T
+    
+    init(_ object: T) {
+        self.object = object
+    }
+    
+    func address() -> String where T: AnyObject {
+        "\(type(of: object)): \(Unmanaged.passUnretained(object).toOpaque())"
+    }
+    
+    func address() -> String {
+        "\(type(of: object)): \(object)"
+    }
+    
+    func brace(_ string: String) -> String {
+        "<\(string)>"
+    }
+}
+
 extension String {
     func indentingNewlines(by spaceCount: Int = 4) -> String {
         let spaces = String(repeating: " ", count: spaceCount)

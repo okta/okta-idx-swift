@@ -147,26 +147,34 @@ extension IDXClient.Remediation.Form {
             super.init()
         }
         
+        public override var description: String {
+            let logger = DebugDescription(self)
+            
+            let components = [
+                logger.address(),
+                "\(#keyPath(name)): \(name ?? "-")",
+                "\(#keyPath(label)): \(label ?? "-")",
+                "\(#keyPath(type)): \(type ?? "-")",
+                "value: \(value ?? "-")"
+            ]
+
+            return logger.brace(components.joined(separator: "; "))
+        }
+        
         public override var debugDescription: String {
-            let options = options?.compactMap { $0.debugDescription.indentingNewlines(by: 8) } ?? ["-"]
-            let messages = messages.compactMap { $0.debugDescription.indentingNewlines(by: 8) }
+            let components = [
+                "isVisible: \(isVisible)",
+                "\(#keyPath(isMutable)): \(isMutable)",
+                "\(#keyPath(isRequired)): \(isRequired)",
+                "\(#keyPath(isSecret)): \(isSecret)",
+                "\(#keyPath(options)): \(options?.map(\.debugDescription).joined(separator: ";\n") ?? "-")",
+                "\(#keyPath(messages)): \(messages.map(\.debugDescription).joined(separator: ";\n"))"
+            ]
             
             return """
-            [\(Self.self)]
-                [Name]: \(name ?? "-")
-                [Label]: \(label ?? "-")
-                [Type]: \(type ?? "-")
-                [Value]: \(value ?? "-")
-                [Visible]: \(isVisible)
-                [Mutable]: \(isMutable)
-                [Required]: \(isRequired)
-                [Secret]: \(isSecret)
-                [Options]:
-                    \(options.joined())
-                [Selected Option]: \(isSelectedOption)
-                [Messages]:
-                    \(messages.isEmpty ? "-" : messages.joined())
-                \(authenticator?.debugDescription ?? "Info: No authenticator") 
+            \(description) {
+                \(components.joined(separator: ";\n"))
+            }
             """
         }
     }
