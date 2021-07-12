@@ -90,6 +90,21 @@ extension IDXClient {
             super.init()
         }
         
+        public override var description: String {
+            let logger = DebugDescription(self)
+            let components = [
+                logger.address(),
+                "\(#keyPath(type)): \(type)",
+                "\(#keyPath(name)): \(name)"
+            ]
+
+            return logger.brace(components.joined(separator: "; "))
+        }
+        
+        public override var debugDescription: String {
+            description
+        }
+        
         /// Executes the remediation option and proceeds through the workflow using the supplied form parameters.
         ///
         /// This method is used to proceed through the authentication flow, using the data assigned to the nested fields' `value` to make selections.
@@ -146,13 +161,31 @@ extension IDXClient {
                            relatesTo: relatesTo)
             }
             
+            public override var description: String {
+                let logger = DebugDescription(self)
+                let components = [
+                    logger.address(),
+                    "\(#keyPath(redirectUrl)): \(redirectUrl)",
+                    "\(#keyPath(idpName)): \(idpName)"
+                ]
+
+                return logger.brace(components.joined(separator: "; "))
+            }
+            
+            public override var debugDescription: String {
+                """
+                \(super.debugDescription)
+                \(description)
+                """
+            }
+            
             /// The list of services that are possible within a social authentication workflow.
             @objc(IDXSocialAuthRemediationService)
             public enum Service: Int {
-            case facebook
-            case google
-            case linkedin
-            case other
+                case facebook
+                case google
+                case linkedin
+                case other
             }
         }
     }

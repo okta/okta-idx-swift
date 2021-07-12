@@ -132,6 +132,32 @@ extension IDXClient {
             super.init()
         }
         
+        public override var description: String {
+            let logger = DebugDescription(self)
+            let components = [
+                logger.address(),
+                "\(#keyPath(type)): \(type)",
+                "\(#keyPath(state)): \(state)",
+            ]
+            
+            return logger.brace(components.joined(separator: "; "))
+        }
+        
+        public override var debugDescription: String {
+            let components = [
+                "\(#keyPath(id)): \(id ?? "-")",
+                "\(#keyPath(displayName)): \(displayName ?? "-")",
+                "\(#keyPath(key)): \(key ?? "-")",
+                "\(#keyPath(methodNames)): \(methodNames ?? [])",
+            ]
+            
+            return """
+            \(description) {
+                \(components.joined(separator: ";\n"))
+            }
+            """
+        }
+        
         /// Describes a password authenticator.
         @objc(IDXPasswordAuthenticator)
         public class Password: Authenticator, Recoverable {
@@ -186,6 +212,32 @@ extension IDXClient {
 
                     super.init()
                 }
+                
+                public override var description: String {
+                    let logger = DebugDescription(self)
+                    let components = [logger.address()]
+
+                    return logger.brace(components.joined(separator: "; "))
+                }
+                
+                public override var debugDescription: String {
+                    let components = [
+                        "\(#keyPath(daysToExpiry)): \(daysToExpiry)",
+                        "\(#keyPath(minLength)): \(minLength)",
+                        "\(#keyPath(minLowerCase)): \(minLowerCase)",
+                        "\(#keyPath(minUpperCase)): \(minUpperCase)",
+                        "\(#keyPath(minNumber)): \(minNumber)",
+                        "\(#keyPath(minSymbol)): \(minSymbol)",
+                        "\(#keyPath(excludeUsername)): \(excludeUsername)",
+                        "\(#keyPath(excludeAttributes)): \(excludeAttributes)",
+                    ]
+
+                    return """
+                    \(description) {
+                        \(components.joined(separator: ";\n"))
+                    }
+                    """
+                }
             }
             
             internal let recoverOption: IDXClient.Remediation?
@@ -212,6 +264,27 @@ extension IDXClient {
                            type: type,
                            key: key,
                            methods: methods)
+            }
+            
+            public override var description: String {
+                let logger = DebugDescription(self)
+                let components = [
+                    logger.address(),
+                    "\(#keyPath(canRecover)): \(canRecover)"
+                ]
+
+                return logger.brace(components.joined(separator: "; "))
+            }
+            
+            public override var debugDescription: String {
+                let components = [settings.debugDescription]
+                
+                return """
+                \(super.debugDescription)
+                \(description) {
+                    \(components.joined(separator: ";\n"))
+                }
+                """
             }
         }
 
@@ -326,6 +399,29 @@ extension IDXClient {
                            methods: methods,
                            profile: profile)
             }
+            
+            public override var description: String {
+                let logger = DebugDescription(self)
+                let components = [logger.address()]
+
+                return logger.brace(components.joined(separator: "; "))
+            }
+            
+            public override var debugDescription: String {
+                let components = [
+                    "\(#keyPath(emailAddress)): \(emailAddress ?? "-")",
+                    "\(#keyPath(isPolling)): \(isPolling)",
+                    "\(#keyPath(canResend)): \(canResend)",
+                    "\(#keyPath(canPoll)): \(canPoll)"
+                ]
+                
+                return """
+                \(super.debugDescription)
+                \(description) {
+                    \(components.joined(separator: ";\n"))
+                }
+                """
+            }
         }
 
         /// Authenticator that utilizes a user's phone to authenticate them, either by sending an SMS or voice message.
@@ -391,12 +487,59 @@ extension IDXClient {
                            methods: methods,
                            profile: profile)
             }
+            
+            public override var description: String {
+                let logger = DebugDescription(self)
+                let components = [
+                    logger.address(),
+                    "\(#keyPath(phoneNumber)): \(phoneNumber ?? "-")",
+                    "\(#keyPath(canSend)): \(canSend)",
+                    "\(#keyPath(canResend)): \(canResend)"
+                ]
+
+                return logger.brace(components.joined(separator: "; "))
+            }
+            
+            public override var debugDescription: String {
+                let components = [
+                    "\(#keyPath(canSend)): \(canSend)",
+                    "\(#keyPath(canResend)): \(canResend)"
+                ]
+                
+                return """
+                \(super.debugDescription)
+                \(description) {
+                    \(components.joined(separator: ";\n"))
+                }
+                """
+            }
         }
 
         @objc(IDXSecurityQuestionAuthenticator)
         public class SecurityQuestion: ProfileAuthenticator {
             @objc public var question: String? { profile?["question"] }
             @objc public var questionKey: String? { profile?["question_key"] }
+            
+            public override var description: String {
+                let logger = DebugDescription(self)
+                let components = [logger.address()]
+
+                return logger.brace(components.joined(separator: "; "))
+            }
+            
+            public override var debugDescription: String {
+                let components = [
+                    "\(#keyPath(question)): \(question ?? "-")",
+                    "\(#keyPath(questionKey)): \(questionKey ?? "-")"
+                ]
+                
+                return """
+                \(super.debugDescription)
+                \(description) {
+                    \(components.joined(separator: ";\n"))
+                }
+                """
+            }
         }
     }
 }
