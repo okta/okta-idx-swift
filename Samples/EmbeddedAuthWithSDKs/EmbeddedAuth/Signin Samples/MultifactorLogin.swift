@@ -13,6 +13,41 @@
 import Foundation
 import OktaIdx
 
+/// This class demonstrates how implementing signin with username, an optional password, and multiple factors.
+///
+/// The completion handler supplied to the `login` function will be invoked once, either with a fatal error, or with a token. When decisions need to be made during authentication (e.g. selecting an authenticator, or prompting the user for an MFA verification code), the `stepHandler` block supplied in the initializer will be called, giving you the option to interact with the authentication flow.
+///
+/// Example:
+///
+/// ```swift
+/// self.authHandler = MultifactorLogin(configuration: configuration,
+///                          username: "user@example.com",
+///                          password: "secretPassword")
+/// { step in
+///     switch step {
+///     case .chooseFactor(let factors):
+///         // Use this to prompt the user for the factor you'd like to authenticate with.
+///         if factors.contains(.email) {
+///             self.authHandler?.select(factor: .email)
+///         }
+///
+///     case .verifyCode(factor: let factor):
+///         // Prompt the user for the verification code; when they supply it, call the `verify` function.
+///         if factor == .email {
+///             self.authHandler?.verify(code: "123456")
+///         }
+///     }
+/// }
+///
+/// self.authHandler.login { result in
+///     switch result {
+///     case .success(let token):
+///         print(token)
+///     case .failure(let error):
+///         print(error)
+///     }
+/// }
+/// ```
 public class MultifactorLogin {
     let configuration: IDXClient.Configuration
     let username: String
