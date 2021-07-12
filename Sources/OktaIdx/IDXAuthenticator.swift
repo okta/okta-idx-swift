@@ -134,7 +134,6 @@ extension IDXClient {
         
         public override var description: String {
             let logger = DebugDescription(self)
-            
             let components = [
                 logger.address(),
                 "\(#keyPath(type)): \(type)",
@@ -269,7 +268,6 @@ extension IDXClient {
             
             public override var description: String {
                 let logger = DebugDescription(self)
-                
                 let components = [
                     logger.address(),
                     "\(#keyPath(canRecover)): \(canRecover)"
@@ -492,7 +490,6 @@ extension IDXClient {
             
             public override var description: String {
                 let logger = DebugDescription(self)
-                
                 let components = [
                     logger.address(),
                     "\(#keyPath(phoneNumber)): \(phoneNumber ?? "-")",

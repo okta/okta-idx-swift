@@ -71,28 +71,6 @@ extension IDXClient {
     }
 }
 
-// TODO: Move away from this file
-struct DebugDescription<T: Any> {
-    
-    let object: T
-    
-    init(_ object: T) {
-        self.object = object
-    }
-    
-    func address() -> String where T: AnyObject {
-        "\(type(of: object)): \(Unmanaged.passUnretained(object).toOpaque())"
-    }
-    
-    func address() -> String {
-        "\(type(of: object)): \(object)"
-    }
-    
-    func brace(_ string: String) -> String {
-        "<\(string)>"
-    }
-}
-
 extension String {
     func indentingNewlines(by spaceCount: Int = 4) -> String {
         let spaces = String(repeating: " ", count: spaceCount)

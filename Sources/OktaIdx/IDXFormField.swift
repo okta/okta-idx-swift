@@ -149,7 +149,6 @@ extension IDXClient.Remediation.Form {
         
         public override var description: String {
             let logger = DebugDescription(self)
-            
             let components = [
                 logger.address(),
                 "\(#keyPath(name)): \(name ?? "-")",

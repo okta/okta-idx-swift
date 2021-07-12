@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92598AB9269C59B50086C362 /* DebugDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92598AB8269C59B50086C362 /* DebugDescription.swift */; };
 		9291B40A25E90FC500450BBE /* IDXRedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9291B40925E90FC500450BBE /* IDXRedirectTests.swift */; };
 		960CD20825D5B02600523192 /* UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CD20725D5B02600523192 /* UserAgent.swift */; };
 		960CD20E25D5B77A00523192 /* UserAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CD20D25D5B77A00523192 /* UserAgentTests.swift */; };
@@ -111,6 +112,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92598AB8269C59B50086C362 /* DebugDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugDescription.swift; sourceTree = "<group>"; };
 		9291B40925E90FC500450BBE /* IDXRedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXRedirectTests.swift; sourceTree = "<group>"; };
 		960CD20725D5B02600523192 /* UserAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgent.swift; sourceTree = "<group>"; };
 		960CD20D25D5B77A00523192 /* UserAgentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgentTests.swift; sourceTree = "<group>"; };
@@ -290,8 +292,9 @@
 		962ABD4A264074FB0049B0C4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				962ABD4B264075050049B0C4 /* Weak.swift */,
+				92598AB8269C59B50086C362 /* DebugDescription.swift */,
 				96C6B21626421D8500D75766 /* PollingHandler.swift */,
+				962ABD4B264075050049B0C4 /* Weak.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				962ABD46263CD47C0049B0C4 /* IDXAuthenticator+InternalExtensions.swift in Sources */,
 				964773F42638C6C70059EBC4 /* IDXFormField.swift in Sources */,
 				96F8F1BA258049B000DA2701 /* IDXVersion+InternalExtension.swift in Sources */,
+				92598AB9269C59B50086C362 /* DebugDescription.swift in Sources */,
 				964773E82638C5A10059EBC4 /* IDXRemediationCollection.swift in Sources */,
 				96A21F3E25C1E4F0006C7BBB /* URLSessionAudit.swift in Sources */,
 				962ABD41263CD4420049B0C4 /* IDXResponse+InternalExtensions.swift in Sources */,
