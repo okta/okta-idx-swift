@@ -13,6 +13,25 @@
 import Foundation
 import OktaIdx
 
+/// This class demonstrates how implementing signin with basic username / password can be implemented.
+///
+/// The completion handler supplied to the `login` function will be invoked once, either with a fatal error, or with a token.
+///
+/// Example:
+///
+/// ```swift
+/// self.authHandler = BasicLogin(configuration: configuration,
+///                               username: "user@example.com",
+///                               password: "secretPassword")
+/// self.authHandler?.login { result in
+///     switch result {
+///     case .success(let token):
+///         print(token)
+///     case .failure(let error):
+///         print(error)
+///     }
+/// }
+/// ```
 public class BasicLogin {
     let configuration: IDXClient.Configuration
     let username: String
