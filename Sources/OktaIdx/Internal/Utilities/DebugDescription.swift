@@ -27,7 +27,30 @@ struct DebugDescription<T: Any> {
         "\(type(of: object)): \(object)"
     }
     
+    func unbrace(_ string: String) -> String {
+        String(
+            String(string.dropFirst()
+            ).dropLast())
+    }
+    
     func brace(_ string: String) -> String {
         "<\(string)>"
+    }
+    
+    func format<Element: CustomDebugStringConvertible>(_ list: Array<Element>, indent: Int = .zero) -> String {
+        if list.isEmpty {
+            return "-".indentingNewlines(by: indent)
+        }
+        
+        return list.map { $0.debugDescription.indentingNewlines(by: indent) }.joined(separator: ";\n")
+    }
+}
+
+extension String {
+    func indentingNewlines(by spaceCount: Int = 4) -> String {
+        let spaces = String(repeating: " ", count: spaceCount)
+        let components = components(separatedBy: "\n")
+
+        return String(components.map { "\n" + spaces + $0 }.joined().dropFirst())
     }
 }

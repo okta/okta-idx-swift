@@ -136,8 +136,8 @@ extension IDXClient {
             let logger = DebugDescription(self)
             let components = [
                 logger.address(),
-                "\(#keyPath(type)): \(type)",
-                "\(#keyPath(state)): \(state)",
+                "\(#keyPath(type)): \(type.rawValue)",
+                "\(#keyPath(state)): \(state.rawValue)",
             ]
             
             return logger.brace(components.joined(separator: "; "))
@@ -148,12 +148,12 @@ extension IDXClient {
                 "\(#keyPath(id)): \(id ?? "-")",
                 "\(#keyPath(displayName)): \(displayName ?? "-")",
                 "\(#keyPath(key)): \(key ?? "-")",
-                "\(#keyPath(methodNames)): \(methodNames ?? [])",
+                "\(#keyPath(methodNames)): \(methodNames ?? [])"
             ]
             
             return """
             \(description) {
-                \(components.joined(separator: ";\n"))
+            \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
             }
             """
         }
@@ -234,7 +234,7 @@ extension IDXClient {
 
                     return """
                     \(description) {
-                        \(components.joined(separator: ";\n"))
+                    \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
                     }
                     """
                 }
@@ -277,12 +277,11 @@ extension IDXClient {
             }
             
             public override var debugDescription: String {
-                let components = [settings.debugDescription]
+                let components = [settings?.debugDescription ?? "-"]
                 
                 return """
-                \(super.debugDescription)
-                \(description) {
-                    \(components.joined(separator: ";\n"))
+                \(super.debugDescription.replacingOccurrences(of: "\n}", with: ""))
+                \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
                 }
                 """
             }
@@ -313,6 +312,18 @@ extension IDXClient {
                            type: type,
                            key: key,
                            methods: methods)
+            }
+            
+            public override var debugDescription: String {
+                let components = [
+                    "\(#keyPath(profile)): \(profile?.debugDescription ?? "-")"
+                ]
+                
+                return """
+                \(super.debugDescription.replacingOccurrences(of: "\n}", with: ""))
+                \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
+                }
+                """
             }
         }
         
@@ -400,25 +411,18 @@ extension IDXClient {
                            profile: profile)
             }
             
-            public override var description: String {
-                let logger = DebugDescription(self)
-                let components = [logger.address()]
-
-                return logger.brace(components.joined(separator: "; "))
-            }
-            
             public override var debugDescription: String {
                 let components = [
                     "\(#keyPath(emailAddress)): \(emailAddress ?? "-")",
                     "\(#keyPath(isPolling)): \(isPolling)",
                     "\(#keyPath(canResend)): \(canResend)",
-                    "\(#keyPath(canPoll)): \(canPoll)"
+                    "\(#keyPath(canPoll)): \(canPoll)",
+                    "\(#keyPath(profile)): \(profile?.debugDescription ?? "-")"
                 ]
                 
                 return """
-                \(super.debugDescription)
-                \(description) {
-                    \(components.joined(separator: ";\n"))
+                \(super.debugDescription.replacingOccurrences(of: "\n}", with: ""))
+                \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
                 }
                 """
             }
@@ -501,15 +505,8 @@ extension IDXClient {
             }
             
             public override var debugDescription: String {
-                let components = [
-                    "\(#keyPath(canSend)): \(canSend)",
-                    "\(#keyPath(canResend)): \(canResend)"
-                ]
-                
-                return """
-                \(super.debugDescription)
-                \(description) {
-                    \(components.joined(separator: ";\n"))
+                """
+                \(super.debugDescription.replacingOccurrences(of: "\n}", with: ""))
                 }
                 """
             }
@@ -520,13 +517,6 @@ extension IDXClient {
             @objc public var question: String? { profile?["question"] }
             @objc public var questionKey: String? { profile?["question_key"] }
             
-            public override var description: String {
-                let logger = DebugDescription(self)
-                let components = [logger.address()]
-
-                return logger.brace(components.joined(separator: "; "))
-            }
-            
             public override var debugDescription: String {
                 let components = [
                     "\(#keyPath(question)): \(question ?? "-")",
@@ -534,9 +524,8 @@ extension IDXClient {
                 ]
                 
                 return """
-                \(super.debugDescription)
-                \(description) {
-                    \(components.joined(separator: ";\n"))
+                \(super.debugDescription.replacingOccurrences(of: "\n}", with: ""))
+                \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
                 }
                 """
             }

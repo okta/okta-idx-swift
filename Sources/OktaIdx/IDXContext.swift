@@ -64,16 +64,9 @@ extension IDXClient {
                 
             return """
             \(description) {
-                \(components.joined(separator: ";\n"))
+            \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
             }
             """
         }
-    }
-}
-
-extension String {
-    func indentingNewlines(by spaceCount: Int = 4) -> String {
-        let spaces = String(repeating: " ", count: spaceCount)
-        return replacingOccurrences(of: "\n", with: "\n\(spaces)")
     }
 }

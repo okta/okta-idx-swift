@@ -52,12 +52,12 @@ extension IDXClient {
         
         public override var debugDescription: String {
             let components = [
-                "messages: \(allMessages.map(\.debugDescription).joined(separator: ";\n"))"
+                "\(DebugDescription(self).format(messages))"
             ]
             
             return """
             \(description) {
-                \(components.joined(separator: ";\n"))
+            \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
             }
             """
         }

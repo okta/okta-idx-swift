@@ -51,12 +51,12 @@ extension IDXClient {
         
         public override var debugDescription: String {
             let components = [
-                allAuthenticators.map(\.debugDescription).joined(separator: ";\n")
+                DebugDescription(self).format(allAuthenticators)
             ]
             
             return """
             \(description) {
-                \(components.joined(separator: ";\n"))
+            \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
             }
             """
         }

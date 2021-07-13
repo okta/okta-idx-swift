@@ -111,8 +111,9 @@ extension IDXClient {
             let logger = DebugDescription(self)
             let components = [
                 logger.address(),
-                "\(#keyPath(intent)): \(intent)",
-                "\(#keyPath(isLoginSuccessful)): \(isLoginSuccessful)"
+                "\(#keyPath(intent)): \(intent.rawValue)",
+                "\(#keyPath(isLoginSuccessful)): \(isLoginSuccessful)",
+                "\(#keyPath(expiresAt)): \(expiresAt?.debugDescription ?? "-")",
             ]
 
             return logger.brace(components.joined(separator: "; "))
@@ -120,16 +121,15 @@ extension IDXClient {
         
         public override var debugDescription: String {
             let components = [
-                "\(#keyPath(expiresAt)): \(expiresAt?.debugDescription ?? "-")",
-                "\(#keyPath(remediations)): \(remediations.map(\.debugDescription).joined(separator: "\n"))",
-                "\(#keyPath(authenticators)): \(authenticators.map(\.debugDescription).joined(separator: "\n"))",
+                "\(#keyPath(remediations)): \(remediations.debugDescription)",
+                "\(#keyPath(authenticators)): \(authenticators.debugDescription)",
                 "\(#keyPath(app)): \(app?.debugDescription ?? "-")",
-                "\(#keyPath(messages)): \(messages.map(\.debugDescription).joined(separator: "\n"))"
+                "\(#keyPath(messages)): \(messages.debugDescription)"
             ]
             
             return """
             \(description) {
-                \(components.joined(separator: ";\n"))
+            \(components.map { $0.indentingNewlines(by: 8) }.joined(separator: ";\n"))
             }
             """
         }

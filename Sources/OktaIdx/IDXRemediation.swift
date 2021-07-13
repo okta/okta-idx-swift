@@ -94,7 +94,7 @@ extension IDXClient {
             let logger = DebugDescription(self)
             let components = [
                 logger.address(),
-                "\(#keyPath(type)): \(type)",
+                "\(#keyPath(type)): \(type.rawValue)",
                 "\(#keyPath(name)): \(name)"
             ]
 
@@ -102,7 +102,16 @@ extension IDXClient {
         }
         
         public override var debugDescription: String {
-            description
+            let components = [
+                "\(#keyPath(form)): \(form.debugDescription)",
+                "\(#keyPath(authenticators)): \(authenticators.debugDescription)",
+            ]
+            
+            return """
+            \(description) {
+            \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
+            }
+            """
         }
         
         /// Executes the remediation option and proceeds through the workflow using the supplied form parameters.
@@ -164,19 +173,17 @@ extension IDXClient {
             public override var description: String {
                 let logger = DebugDescription(self)
                 let components = [
-                    logger.address(),
                     "\(#keyPath(redirectUrl)): \(redirectUrl)",
                     "\(#keyPath(idpName)): \(idpName)"
                 ]
-
-                return logger.brace(components.joined(separator: "; "))
+                
+                let superDescription = logger.unbrace(super.description)
+                
+                return logger.brace(superDescription.appending(components.joined(separator: "; ")))
             }
             
             public override var debugDescription: String {
-                """
-                \(super.debugDescription)
-                \(description)
-                """
+                super.debugDescription
             }
             
             /// The list of services that are possible within a social authentication workflow.
