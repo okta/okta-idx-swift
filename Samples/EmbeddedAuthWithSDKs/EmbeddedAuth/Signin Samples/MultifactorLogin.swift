@@ -20,9 +20,7 @@ import OktaIdx
 /// Example:
 ///
 /// ```swift
-/// self.authHandler = MultifactorLogin(configuration: configuration,
-///                          username: "user@example.com",
-///                          password: "secretPassword")
+/// self.authHandler = MultifactorLogin(configuration: configuration)
 /// { step in
 ///     switch step {
 ///     case .chooseFactor(let factors):
@@ -39,7 +37,27 @@ import OktaIdx
 ///     }
 /// }
 ///
-/// self.authHandler.login { result in
+/// self.authHandler.login(username: "user@example.com",
+///                        password: "secretPassword")
+/// { result in
+///     switch result {
+///     case .success(let token):
+///         print(token)
+///     case .failure(let error):
+///         print(error)
+///     }
+/// }
+/// ```
+///
+/// Or, for user registration:
+/// ```Swift
+/// self.authHandler.register(username: "mike.nachbaur+example@okta.com",
+///                           password: "Tester123",
+///                           profile: [
+///                               .firstName: "Mike",
+///                               .lastName: "Nachbaur"
+///                           ])
+/// { result in
 ///     switch result {
 ///     case .success(let token):
 ///         print(token)
@@ -50,24 +68,21 @@ import OktaIdx
 /// ```
 public class MultifactorLogin {
     let configuration: IDXClient.Configuration
-    let username: String
-    let password: String?
-    let stepHandler: (Step) -> Void
-    
+    var username: String?
+    var password: String?
+    let stepHandler: ((Step) -> Void)?
+    var profile: [ProfileField: String]?
+
     var client: IDXClient?
     var response: IDXClient.Response?
     var completion: ((Result<IDXClient.Token, LoginError>) -> Void)?
     
-    public init(configuration: IDXClient.Configuration, username: String, password: String?, stepHandler: @escaping (Step) -> Void) {
+    public init(configuration: IDXClient.Configuration, stepHandler: ((Step) -> Void)? = nil) {
         self.configuration = configuration
-        self.username = username
-        self.password = password
         self.stepHandler = stepHandler
     }
     
-    public func login(completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
-        self.completion = completion
-        
+    func start() {
         IDXClient.start(with: configuration) { (client, error) in
             guard let client = client else {
                 self.finish(with: error)
@@ -80,23 +95,48 @@ public class MultifactorLogin {
         }
     }
     
-    public func select(factor: IDXClient.Authenticator.Kind) {
-        guard let remediation = response?.remediations[.selectAuthenticatorAuthenticate],
-              let authenticatorsField = remediation["authenticator"],
-              let factorField = authenticatorsField.options?.first(where: { field in
-                field.authenticator?.type == factor
-              })
+    public func login(username: String, password: String, completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
+        self.username = username
+        self.password = password
+        self.completion = completion
+        
+        start()
+    }
+    
+    public func register(username: String, password: String, profile: [ProfileField: String], completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
+        self.username = username
+        self.password = password
+        self.profile = profile
+        self.completion = completion
+        
+        start()
+    }
+
+    public func select(factor: IDXClient.Authenticator.Kind?) {
+        guard let remediation = response?.remediations[.selectAuthenticatorAuthenticate] ?? response?.remediations[.selectAuthenticatorEnroll],
+              let authenticatorsField = remediation["authenticator"]
         else {
             finish(with: .cannotProceed)
             return
         }
         
-        authenticatorsField.selectedOption = factorField
-        remediation.proceed(completion: nil)
+        if let factor = factor {
+            let factorField = authenticatorsField.options?.first(where: { field in
+                field.authenticator?.type == factor
+            })
+            authenticatorsField.selectedOption = factorField
+            remediation.proceed(completion: nil)
+        } else if let skipRemediation = response?.remediations[.skip] {
+            skipRemediation.proceed(completion: nil)
+        } else {
+            finish(with: .cannotProceed)
+            return
+        }
     }
 
     public func verify(code: String) {
-        guard let remediation = response?.remediations[.challengeAuthenticator] else {
+        guard let remediation = response?.remediations[.challengeAuthenticator] ?? response?.remediations[.enrollAuthenticator]
+        else {
             finish(with: .cannotProceed)
             return
         }
@@ -110,11 +150,16 @@ public class MultifactorLogin {
         case verifyCode(factor: IDXClient.Authenticator.Kind)
     }
     
+    public enum ProfileField: String {
+        case firstName, lastName
+    }
+    
     public enum LoginError: Error {
         case error(_ error: Error)
         case message(_ string: String)
         case cannotProceed
         case unexpectedAuthenticator
+        case noStepHandler
         case unknown
     }
 }
@@ -137,6 +182,14 @@ extension MultifactorLogin: IDXClientDelegate {
             return
         }
         
+        // If we can select enroll profile, immediately proceed to that.
+        if let remediation = response.remediations[.selectEnrollProfile],
+           profile != nil
+        {
+            remediation.proceed(completion: nil)
+            return
+        }
+        
         // If no remediations are present, abort the login process.
         guard let remediation = response.remediations.first else {
             finish(with: .cannotProceed)
@@ -151,12 +204,14 @@ extension MultifactorLogin: IDXClientDelegate {
         
         // Handle the various remediation choices the client may be presented with within this policy.
         switch remediation.type {
-        case .identify:
+        case .identify: fallthrough
+        case .identifyRecovery:
             remediation.identifier?.value = username
             remediation.credentials?.passcode?.value = password
             remediation.proceed(completion: nil)
-                        
+            
         // The challenge authenticator remediation is used to request a passcode of some sort from the user, either the user's password, or an authenticator verification code.
+        case .enrollAuthenticator: fallthrough
         case .challengeAuthenticator:
             guard let authenticator = remediation.authenticators.first else {
                 finish(with: .unexpectedAuthenticator)
@@ -164,20 +219,25 @@ extension MultifactorLogin: IDXClientDelegate {
             }
             
             switch authenticator.type {
-            
             // We may be requested to supply a password on a separate remediation step, for example if the user can authenticate using a factor other than password. In this case, if we have a password, we can immediately supply it.
             case .password:
                 if let password = password {
                     remediation.credentials?.passcode?.value = password
                     remediation.proceed(completion: nil)
                 } else {
-                    finish(with: .unexpectedAuthenticator)
+                    fallthrough
                 }
 
             default:
+                guard let stepHandler = stepHandler else {
+                    finish(with: .noStepHandler)
+                    return
+                }
+                
                 stepHandler(.verifyCode(factor: authenticator.type))
             }
                         
+        case .selectAuthenticatorEnroll: fallthrough
         case .selectAuthenticatorAuthenticate:
             let factors: [IDXClient.Authenticator.Kind]
             factors = remediation["authenticator"]?
@@ -189,9 +249,20 @@ extension MultifactorLogin: IDXClientDelegate {
             if factors.contains(.password) && password != nil {
                 select(factor: .password)
             } else {
+                guard let stepHandler = stepHandler else {
+                    finish(with: .noStepHandler)
+                    return
+                }
+                
                 stepHandler(.chooseFactor(factors))
             }
             
+        case .enrollProfile:
+            remediation["userProfile.firstName"]?.value = profile?[.firstName]
+            remediation["userProfile.lastName"]?.value = profile?[.lastName]
+            remediation["userProfile.email"]?.value = username
+            remediation.proceed(completion: nil)
+
         default:
             finish(with: .cannotProceed)
         }

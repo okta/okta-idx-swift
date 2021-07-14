@@ -20,10 +20,10 @@ import OktaIdx
 /// Example:
 ///
 /// ```swift
-/// self.authHandler = BasicLogin(configuration: configuration,
-///                               username: "user@example.com",
-///                               password: "secretPassword")
-/// self.authHandler?.login { result in
+/// self.authHandler = BasicLogin(configuration: configuration)
+/// self.authHandler?.login(username: "user@example.com",
+///                         password: "secretPassword")
+/// { result in
 ///     switch result {
 ///     case .success(let token):
 ///         print(token)
@@ -34,19 +34,19 @@ import OktaIdx
 /// ```
 public class BasicLogin {
     let configuration: IDXClient.Configuration
-    let username: String
-    let password: String
+    var username: String?
+    var password: String?
     
     var client: IDXClient?
     var completion: ((Result<IDXClient.Token, LoginError>) -> Void)?
     
-    public init(configuration: IDXClient.Configuration, username: String, password: String) {
+    public init(configuration: IDXClient.Configuration) {
         self.configuration = configuration
-        self.username = username
-        self.password = password
     }
     
-    public func login(completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
+    public func login(username: String, password: String, completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
+        self.username = username
+        self.password = password
         self.completion = completion
         
         IDXClient.start(with: configuration) { (client, error) in
