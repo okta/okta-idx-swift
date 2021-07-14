@@ -166,13 +166,13 @@ extension IDXClient.Remediation.Form {
                 "\(#keyPath(isMutable)): \(isMutable)",
                 "\(#keyPath(isRequired)): \(isRequired)",
                 "\(#keyPath(isSecret)): \(isSecret)",
-                "\(#keyPath(options)): \n\(DebugDescription(self).format(options ?? [], indent: 4))",
+                "\(#keyPath(options)): \n\(DebugDescription(self).format(options?.map(\.debugDescription) ?? [], indent: 4))",
                 "\(#keyPath(messages)): \(messages.debugDescription)"
             ]
             
             return """
             \(description) {
-            \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
+            \(DebugDescription(self).format(components, indent: 4))
             }
             """
         }

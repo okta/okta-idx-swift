@@ -37,17 +37,17 @@ struct DebugDescription<T: Any> {
         "<\(string)>"
     }
     
-    func format<Element: CustomDebugStringConvertible>(_ list: Array<Element>, indent: Int = .zero) -> String {
+    func format(_ list: Array<String>, indent spaceCount: Int) -> String {
         if list.isEmpty {
-            return "-".indentingNewlines(by: indent)
+            return "-".indentingNewlines(by: spaceCount)
         }
         
-        return list.map { $0.debugDescription.indentingNewlines(by: indent) }.joined(separator: ";\n")
+        return list.map { $0.indentingNewlines(by: spaceCount) }.joined(separator: ";\n")
     }
 }
 
 extension String {
-    func indentingNewlines(by spaceCount: Int = 4) -> String {
+    func indentingNewlines(by spaceCount: Int) -> String {
         let spaces = String(repeating: " ", count: spaceCount)
         let components = components(separatedBy: "\n")
 

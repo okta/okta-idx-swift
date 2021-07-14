@@ -42,13 +42,14 @@ extension IDXClient {
         }
         
         public override var debugDescription: String {
+            let logger = DebugDescription(self)
             let components = [
-                DebugDescription(self).format(remediations)
+                logger.format(remediations.map(\.debugDescription), indent: .zero)
             ]
             
             return """
             \(description) {
-            \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
+            \(logger.format(components, indent: 4))
             }
             """
         }

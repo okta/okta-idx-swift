@@ -138,7 +138,7 @@ public final class IDXClient: NSObject {
         
         return """
         \(description) {
-        \(components.map { $0.indentingNewlines(by: 4) }.joined(separator: ";\n"))
+        \(DebugDescription(self).format(components, indent: 4))
         }
         """
     }
