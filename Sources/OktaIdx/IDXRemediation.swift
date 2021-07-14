@@ -94,8 +94,7 @@ extension IDXClient {
             let logger = DebugDescription(self)
             let components = [
                 logger.address(),
-                "\(#keyPath(type)): \(type.rawValue)",
-                "\(#keyPath(name)): \(name)"
+                "\(#keyPath(type)): \(type.rawValue)"
             ]
 
             return logger.brace(components.joined(separator: "; "))
