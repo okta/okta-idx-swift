@@ -55,6 +55,7 @@
 		965A113326547EE9006B784F /* CodeReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A113226547EE9006B784F /* CodeReceiver.swift */; };
 		9671EF76269CC7BA00BBE409 /* BasicLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671EF75269CC7BA00BBE409 /* BasicLogin.swift */; };
 		9671EF7A269CF21B00BBE409 /* MultifactorLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671EF79269CF21B00BBE409 /* MultifactorLogin.swift */; };
+		9671EF7E269E8D9D00BBE409 /* SocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671EF7D269E8D9D00BBE409 /* SocialLogin.swift */; };
 		96749AF825B8AC3B002849A0 /* ClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749AF725B8AC3B002849A0 /* ClientConfiguration.swift */; };
 		96749B0625B8EAAD002849A0 /* XCTest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749B0525B8EAAD002849A0 /* XCTest+Extensions.swift */; };
 		9691E6BF25AF727A000CD02C /* IDXRemediationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6BE25AF7279000CD02C /* IDXRemediationTableViewController.swift */; };
@@ -177,6 +178,7 @@
 		965A113226547EE9006B784F /* CodeReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReceiver.swift; sourceTree = "<group>"; };
 		9671EF75269CC7BA00BBE409 /* BasicLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLogin.swift; sourceTree = "<group>"; };
 		9671EF79269CF21B00BBE409 /* MultifactorLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultifactorLogin.swift; sourceTree = "<group>"; };
+		9671EF7D269E8D9D00BBE409 /* SocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin.swift; sourceTree = "<group>"; };
 		96749AF725B8AC3B002849A0 /* ClientConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConfiguration.swift; sourceTree = "<group>"; };
 		96749B0525B8EAAD002849A0 /* XCTest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Extensions.swift"; sourceTree = "<group>"; };
 		9691E6BE25AF7279000CD02C /* IDXRemediationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXRemediationTableViewController.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			children = (
 				9671EF75269CC7BA00BBE409 /* BasicLogin.swift */,
 				9671EF79269CF21B00BBE409 /* MultifactorLogin.swift */,
+				9671EF7D269E8D9D00BBE409 /* SocialLogin.swift */,
 			);
 			path = "Signin Samples";
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				964F745525A3E5F0003EE300 /* SceneDelegate.swift in Sources */,
 				9691E6BF25AF727A000CD02C /* IDXRemediationTableViewController.swift in Sources */,
 				96576C6225ACC53200B02E3B /* IDXGetTokenViewController.swift in Sources */,
+				9671EF7E269E8D9D00BBE409 /* SocialLogin.swift in Sources */,
 				9691E6C425AF73C4000CD02C /* IDXTextTableViewCell.swift in Sources */,
 				96576C8725ACFC5900B02E3B /* TokenDetailViewController.swift in Sources */,
 				96576C6F25ACDD8A00B02E3B /* IDXSigninController.swift in Sources */,
