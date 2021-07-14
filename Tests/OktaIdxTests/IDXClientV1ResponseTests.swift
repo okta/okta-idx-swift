@@ -502,7 +502,7 @@ class IDXClientV1ResponseTests: XCTestCase {
              "key" : "okta_password",
              "methods" : [
                 {
-                   "type" : "phone"
+                   "type" : "password"
                 }
              ],
              "settings" : {
@@ -526,7 +526,7 @@ class IDXClientV1ResponseTests: XCTestCase {
         """) { (obj) in
             XCTAssertEqual(obj.type, "object")
             XCTAssertEqual(obj.value.id, "lae8wj8nnjB3BrbcH0g6")
-            
+
             let publicObj = try XCTUnwrap(IDXClient.Authenticator.makeAuthenticator(client: clientMock,
                                                                                     v1: [obj.value],
                                                                                     jsonPaths: [],
