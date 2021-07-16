@@ -35,6 +35,15 @@ import OktaIdx
 ///             self.authHandler?.verify(code: "123456")
 ///         }
 ///     }
+///
+///     case .chooseMethod(let methods):
+///         // Use this to prompt the user for the method you'd like to authenticate with.
+///         if methods.contains(.sms) {
+///             self.authHandler?.select(factor: .phone,
+///                                      method: .sms,
+///                                      phoneNumber: "+15551234567")
+///         }
+///     }
 /// }
 ///
 /// self.authHandler.login(username: "user@example.com",
@@ -51,11 +60,11 @@ import OktaIdx
 ///
 /// Or, for user registration:
 /// ```Swift
-/// self.authHandler.register(username: "mike.nachbaur+example@okta.com",
-///                           password: "Tester123",
+/// self.authHandler.register(username: "user@example.com",
+///                           password: "secretPassword",
 ///                           profile: [
-///                               .firstName: "Mike",
-///                               .lastName: "Nachbaur"
+///                               .firstName: "Jane",
+///                               .lastName: "Doe"
 ///                           ])
 /// { result in
 ///     switch result {
@@ -66,6 +75,19 @@ import OktaIdx
 ///     }
 /// }
 /// ```
+///
+/// Or to reset a user's password:
+/// ```Swift
+/// self.authHandler.resetPassword(username: "user@example.com")
+/// { result in
+///     switch result {
+///     case .success(let token):
+///         print(token)
+///     case .failure(let error):
+///         print(error)
+///     }
+/// }
+///```
 public class MultifactorLogin {
     let configuration: IDXClient.Configuration
     var username: String?
@@ -112,6 +134,13 @@ public class MultifactorLogin {
         start()
     }
 
+    public func resetPassword(username: String, completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
+        self.username = username
+        self.completion = completion
+       
+        start()
+    }
+
     public func select(factor: IDXClient.Authenticator.Kind?) {
         guard let remediation = response?.remediations[.selectAuthenticatorAuthenticate] ?? response?.remediations[.selectAuthenticatorEnroll],
               let authenticatorsField = remediation["authenticator"]
@@ -134,6 +163,29 @@ public class MultifactorLogin {
         }
     }
 
+    public func select(factor: IDXClient.Authenticator.Kind,
+                       method: IDXClient.Authenticator.Method,
+                       phoneNumber: String? = nil)
+    {
+        guard let remediation = response?.remediations[.selectAuthenticatorAuthenticate] ?? response?.remediations[.selectAuthenticatorEnroll],
+              let authenticatorsField = remediation["authenticator"],
+              let factorField = authenticatorsField.options?.first(where: { field in
+                field.authenticator?.type == factor
+              }),
+              let methodOption = factorField["methodType"]?.options?.first(where: { field in
+                field.value as? String == method.stringValue
+              })
+        else {
+            finish(with: .cannotProceed)
+            return
+        }
+        
+        authenticatorsField.selectedOption = methodOption
+        factorField["phoneNumber"]?.value = phoneNumber
+
+        remediation.proceed(completion: nil)
+    }
+
     public func verify(code: String) {
         guard let remediation = response?.remediations[.challengeAuthenticator] ?? response?.remediations[.enrollAuthenticator]
         else {
@@ -147,6 +199,7 @@ public class MultifactorLogin {
     
     public enum Step {
         case chooseFactor(_ factors: [IDXClient.Authenticator.Kind])
+        case chooseMethod(_ methods: [IDXClient.Authenticator.Method])
         case verifyCode(factor: IDXClient.Authenticator.Kind)
     }
     
@@ -202,6 +255,15 @@ extension MultifactorLogin: IDXClientDelegate {
             return
         }
         
+        // If we have no password, we assume we're performing an account recovery.
+        if password == nil,
+           (remediation.type == .identify || remediation.type == .challengeAuthenticator),
+           let passwordAuthenticator = response.authenticators.current as? IDXClient.Authenticator.Password
+        {
+            passwordAuthenticator.recover(completion: nil)
+            return
+        }
+
         // Handle the various remediation choices the client may be presented with within this policy.
         switch remediation.type {
         case .identify: fallthrough
@@ -257,6 +319,20 @@ extension MultifactorLogin: IDXClientDelegate {
                 stepHandler(.chooseFactor(factors))
             }
             
+        case .authenticatorEnrollmentData: fallthrough
+        case .authenticatorVerificationData:
+            guard let stepHandler = stepHandler else {
+                finish(with: .noStepHandler)
+                return
+            }
+
+            let methods: [IDXClient.Authenticator.Method]
+            methods = remediation.authenticators.flatMap({ authenticator in
+                authenticator.methods ?? []
+            })
+
+            stepHandler(.chooseMethod(methods))
+
         case .enrollProfile:
             remediation["userProfile.firstName"]?.value = profile?[.firstName]
             remediation["userProfile.lastName"]?.value = profile?[.lastName]
