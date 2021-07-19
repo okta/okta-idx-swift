@@ -72,7 +72,7 @@ class LandingViewController: UIViewController {
             return
         }
         
-        signin.signin(from: self) { [weak self] (user, error) in
+        signin.signin(from: self) { (user, error) in
             if let error = error {
                 print("Could not sign in: \(error)")
             } else {
