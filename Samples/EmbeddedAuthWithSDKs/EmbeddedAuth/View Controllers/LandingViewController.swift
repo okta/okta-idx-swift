@@ -77,10 +77,6 @@ class LandingViewController: UIViewController {
                 print("Could not sign in: \(error)")
             } else {
                 UserManager.shared.current = user
-//                guard let controller = self?.storyboard?.instantiateViewController(identifier: "TokenResult") as? TokenResultViewController else { return }
-//                controller.client = self?.signin?.idx
-//                controller.token = user?.token
-//                self?.navigationController?.pushViewController(controller, animated: true)
             }
         }
     }
