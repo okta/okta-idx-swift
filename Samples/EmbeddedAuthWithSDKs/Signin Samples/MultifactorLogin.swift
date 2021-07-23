@@ -99,11 +99,16 @@ public class MultifactorLogin {
     var response: IDXClient.Response?
     var completion: ((Result<IDXClient.Token, LoginError>) -> Void)?
     
+    /// Initializer used to create a multifactor login session.
+    /// - Parameters:
+    ///   - configuration: IDX client configuration.
+    ///   - stepHandler: Closure used when input from the user is needed.
     public init(configuration: IDXClient.Configuration, stepHandler: ((Step) -> Void)? = nil) {
         self.configuration = configuration
         self.stepHandler = stepHandler
     }
     
+    // Internal convenience method used to initialize an IDXClient.
     func start() {
         IDXClient.start(with: configuration) { (client, error) in
             guard let client = client else {
@@ -112,11 +117,21 @@ public class MultifactorLogin {
             }
             
             self.client = client
+
+            // Assign ourselves as the delegate receiver, to be notified
+            // when responses or errors are returned.
             client.delegate = self
+
+            // Calls the IDX API to receive the first IDX response.
             client.resume(completion: nil)
         }
     }
     
+    /// Public method that initiates the login flow.
+    /// - Parameters:
+    ///   - username: Username to log in with.
+    ///   - password: Password for the given username.
+    ///   - completion: Comletion block invoked when login completes.
     public func login(username: String, password: String, completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
         self.username = username
         self.password = password
@@ -125,6 +140,12 @@ public class MultifactorLogin {
         start()
     }
     
+    /// Public function used to initiate self-service user registration.
+    /// - Parameters:
+    ///   - username: Username to register with.
+    ///   - password: Password to select.
+    ///   - profile: Profile information (e.g. firstname / lastname) for the new user.
+    ///   - completion: Completion block invoked when registration completes.
     public func register(username: String, password: String, profile: [ProfileField: String], completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
         self.username = username
         self.password = password
@@ -133,14 +154,22 @@ public class MultifactorLogin {
         
         start()
     }
-
+    
+    /// Public function to initiate a password reset for an existing user.
+    ///
+    /// The `stepHandler` supplied to the initializer is used for factor verification and password selection.
+    /// - Parameters:
+    ///   - username: Username to reset.
+    ///   - completion: Completion block invoked when registration completes.
     public func resetPassword(username: String, completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
         self.username = username
         self.completion = completion
        
         start()
     }
-
+    
+    /// Method called by you to select an authenticator. This can be used in response to a `Step.chooseFactor` stepHandler call.
+    /// - Parameter factor: Factor to select, or `nil` to skip.
     public func select(factor: IDXClient.Authenticator.Kind?) {
         guard let remediation = response?.remediations[.selectAuthenticatorAuthenticate] ?? response?.remediations[.selectAuthenticatorEnroll],
               let authenticatorsField = remediation["authenticator"]
@@ -163,10 +192,23 @@ public class MultifactorLogin {
         }
     }
 
+    /// Method called by you to select an authentication factor method.
+    ///
+    /// This can be used in response to a `Step.chooseMethod` stepHandler call.
+    ///
+    /// Typically this is used to select either SMS or Voice when using a Phone factor.
+    /// When enrolling in a new factor, the phone number should be supplied with
+    /// the format: `+15551234567`. (e.g. + followed by the country-code and phone number).
+    /// - Parameters:
+    ///   - factor: Factor being selected.
+    ///   - method: Factor method (e.g. SMS or Voice) to select.
+    ///   - phoneNumber: Optional phone number to supply, when enrolling in a new factor.
     public func select(factor: IDXClient.Authenticator.Kind,
                        method: IDXClient.Authenticator.Method,
                        phoneNumber: String? = nil)
     {
+        // Retrieve the appropriate remedation, authentication factor field and method, to
+         // select the appropriate method type.
         guard let remediation = response?.remediations[.selectAuthenticatorAuthenticate] ?? response?.remediations[.selectAuthenticatorEnroll],
               let authenticatorsField = remediation["authenticator"],
               let factorField = authenticatorsField.options?.first(where: { field in
@@ -185,7 +227,11 @@ public class MultifactorLogin {
 
         remediation.proceed(completion: nil)
     }
-
+    
+    /// Method used to verify a factor.
+    ///
+    /// When a factor is selected, the user will receive a verification code. Once they receive it, you will use this method to supply it back to Okta.
+    /// - Parameter code: Verification code received and supplied by the user.
     public func verify(code: String) {
         guard let remediation = response?.remediations[.challengeAuthenticator] ?? response?.remediations[.enrollAuthenticator]
         else {
@@ -197,6 +243,10 @@ public class MultifactorLogin {
         remediation.proceed(completion: nil)
     }
     
+    /// Enumeration representing the different actionable steps that the
+    /// `stepHandler` can receive.
+    ///
+    /// You can use these values to determine what UI to present to the user to select factors, authenticator methods, and to verify authenticator verification codes.
     public enum Step {
         case chooseFactor(_ factors: [IDXClient.Authenticator.Kind])
         case chooseMethod(_ methods: [IDXClient.Authenticator.Method])
@@ -218,14 +268,18 @@ public class MultifactorLogin {
 }
 
 extension MultifactorLogin: IDXClientDelegate {
+    // Delegate method sent when an error occurs.
     public func idx(client: IDXClient, didReceive error: Error) {
         finish(with: error)
     }
     
+    // Delegate method sent when a token is successfully exchanged.
     public func idx(client: IDXClient, didReceive token: IDXClient.Token) {
         finish(with: token)
     }
     
+    // Delegate method invoked whenever an IDX response is received, regardless
+    // of what action or remediation is called.
     public func idx(client: IDXClient, didReceive response: IDXClient.Response) {
         self.response = response
         
@@ -272,7 +326,9 @@ extension MultifactorLogin: IDXClientDelegate {
             remediation.credentials?.passcode?.value = password
             remediation.proceed(completion: nil)
             
-        // The challenge authenticator remediation is used to request a passcode of some sort from the user, either the user's password, or an authenticator verification code.
+        // The challenge authenticator remediation is used to request a passcode
+         // of some sort from the user, either the user's password, or an
+         // authenticator verification code.
         case .enrollAuthenticator: fallthrough
         case .challengeAuthenticator:
             guard let authenticator = remediation.authenticators.first else {
@@ -281,7 +337,9 @@ extension MultifactorLogin: IDXClientDelegate {
             }
             
             switch authenticator.type {
-            // We may be requested to supply a password on a separate remediation step, for example if the user can authenticate using a factor other than password. In this case, if we have a password, we can immediately supply it.
+            // The challenge authenticator remediation is used to request a passcode
+             // of some sort from the user, either the user's password, or an
+             // authenticator verification code.
             case .password:
                 if let password = password {
                     remediation.credentials?.passcode?.value = password
@@ -301,6 +359,7 @@ extension MultifactorLogin: IDXClientDelegate {
                         
         case .selectAuthenticatorEnroll: fallthrough
         case .selectAuthenticatorAuthenticate:
+            // Find the factor types available to the user at this time.
             let factors: [IDXClient.Authenticator.Kind]
             factors = remediation["authenticator"]?
                 .options?.compactMap({ field in
@@ -326,6 +385,7 @@ extension MultifactorLogin: IDXClientDelegate {
                 return
             }
 
+            // Find the methods available to the user.
             let methods: [IDXClient.Authenticator.Method]
             methods = remediation.authenticators.flatMap({ authenticator in
                 authenticator.methods ?? []

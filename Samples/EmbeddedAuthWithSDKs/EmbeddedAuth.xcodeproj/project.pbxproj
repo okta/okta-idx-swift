@@ -271,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				962A81B12677C942003BC5E7 /* README.md */,
+				9671EF74269CC62C00BBE409 /* Signin Samples */,
 				964F745125A3E5F0003EE300 /* EmbeddedAuth */,
 				964F746825A3E5F3003EE300 /* EmbeddedAuthTests */,
 				964F747325A3E5F3003EE300 /* EmbeddedAuthUITests */,
@@ -292,7 +293,6 @@
 		964F745125A3E5F0003EE300 /* EmbeddedAuth */ = {
 			isa = PBXGroup;
 			children = (
-				9671EF74269CC62C00BBE409 /* Signin Samples */,
 				96576C6B25ACDD4F00B02E3B /* Signin */,
 				9652D9C625A90F8F00927FA5 /* Views */,
 				964D5A012658198B00DDBCBB /* View Controllers */,

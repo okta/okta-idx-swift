@@ -44,6 +44,11 @@ public class BasicLogin {
         self.configuration = configuration
     }
     
+    /// Public method that initiates the login flow.
+    /// - Parameters:
+    ///   - username: Username to log in with.
+    ///   - password: Password for the given username.
+    ///   - completion: Comletion block invoked when login completes.
     public func login(username: String, password: String, completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
         self.username = username
         self.password = password
@@ -56,7 +61,12 @@ public class BasicLogin {
             }
             
             self.client = client
+
+            // Assign ourselves as the delegate receiver, to be notified
+            // when responses or errors are returned.
             client.delegate = self
+            
+            // Calls the IDX API to receive the first IDX response.
             client.resume(completion: nil)
         }
     }
@@ -72,14 +82,18 @@ public class BasicLogin {
 
 /// Implementation details of performing basic username/password authentication.
 extension BasicLogin: IDXClientDelegate {
+    // Delegate method sent when an error occurs.
     public func idx(client: IDXClient, didReceive error: Error) {
         finish(with: error)
     }
     
+    // Delegate method sent when a token is successfully exchanged.
     public func idx(client: IDXClient, didReceive token: IDXClient.Token) {
         finish(with: token)
     }
     
+    // Delegate method invoked whenever an IDX response is received, regardless
+    // of what action or remediation is called.
     public func idx(client: IDXClient, didReceive response: IDXClient.Response) {
         // If a response is successful, immediately exchange it for a token.
         guard !response.isLoginSuccessful else {
