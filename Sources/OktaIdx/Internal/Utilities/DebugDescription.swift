@@ -13,6 +13,10 @@
 import Foundation
 
 struct DebugDescription<T: Any> {
+    
+    private let openBraceChar = "<"
+    private let closeBraceChar = ">"
+    
     let object: T
     
     init(_ object: T) {
@@ -28,13 +32,21 @@ struct DebugDescription<T: Any> {
     }
     
     func unbrace(_ string: String) -> String {
-        String(
-            String(string.dropFirst()
-            ).dropLast())
+        var result = string
+        
+        if string.first == Character(openBraceChar) {
+            result = String(result.dropFirst())
+        }
+        
+        if string.last == Character(closeBraceChar) {
+            result = String(result.dropLast())
+        }
+        
+        return result
     }
     
     func brace(_ string: String) -> String {
-        "<\(string)>"
+        openBraceChar + string + closeBraceChar
     }
     
     func format(_ list: Array<String>, indent spaceCount: Int) -> String {
