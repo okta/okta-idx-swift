@@ -15,62 +15,59 @@ import Foundation
 /// Protocol authenticators may conform to if they are capable of the "send" action.
 ///
 /// This is often used in Phone authenticators.
-@objc(IDXAuthenticatorIsSendable)
 public protocol Sendable {
     /// Determines if this action can perform the send action.
-    @objc var canSend: Bool { get }
+    var canSend: Bool { get }
     
     /// Sends the authentication code.
     /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
-    @objc func send(completion: IDXClient.ResponseResult?)
+    func send(completion: IDXClient.ResponseResult?)
 }
 
 /// Protocol authenticators may conform to if they are capable of the "resend" action.
 ///
 /// This is typically used by Email and Phone authenticators.
-@objc(IDXAuthenticatorIsResendable)
 public protocol Resendable {
     /// Determines if this action can perform the resend action.
-    @objc var canResend: Bool { get }
+    var canResend: Bool { get }
 
     /// Resends a new authentication code.
     /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
-    @objc func resend(completion: IDXClient.ResponseResult?)
+    func resend(completion: IDXClient.ResponseResult?)
 }
 
 /// Protocol authenticators may conform to if they can be used to recover an account.
-@objc(IDXAuthenticatorIsRecoverable)
 public protocol Recoverable {
     /// Determines if this action can perform the recover action.
-    @objc var canRecover: Bool { get }
+    var canRecover: Bool { get }
 
     /// Requests that the recovery code is sent.
     /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
-    @objc func recover(completion: IDXClient.ResponseResult?)
+    func recover(completion: IDXClient.ResponseResult?)
 }
 
 /// Protocol authenticators can conform to if they can be polled to determine out-of-band actions taken by the user.
-@objc(IDXAuthenticatorIsPollable)
 public protocol Pollable {
     /// Determines if this authenticator can be polled.
-    @objc var canPoll: Bool { get }
+    var canPoll: Bool { get }
     
     /// Indicates whether or not this authenticator is actively polling.
-    @objc var isPolling: Bool { get }
+    var isPolling: Bool { get }
     
     /// Starts the polling process.
     ///
     /// The action will be continually polled in the background either until `stopPolling` is called, or when the authenticator has finished. The completion block is invoked once the user has completed the action out-of-band, or when an error is received.
     /// - Parameter completion: Completion handler when the polling is complete, or `nil` if the developer does not need to handle the response
-    @objc func startPolling(completion: IDXClient.ResponseResult?)
-    @objc func stopPolling()
+    func startPolling(completion: IDXClient.ResponseResult?)
+
+    /// Stops the polling process from continuing.
+    func stopPolling()
 }
 
 /// Protocol authenticators conform to when they can contain profile information related to the authenticator.
-@objc(IDXAuthenticatorHasProfile)
 public protocol HasProfile {
     /// Profile information describing the authenticator. This usually contains redacted information relevant to display to the user.
-    @objc var profile: [String:String]? { get }
+    var profile: [String:String]? { get }
 }
 
 extension IDXClient {
@@ -165,16 +162,16 @@ extension IDXClient {
             /// Provides details about the password complexity settings for this authenticator.
             @objc public let settings: Settings?
             
-            public var canRecover: Bool { recoverOption != nil }
+            @objc public var canRecover: Bool { recoverOption != nil }
             
-            public func recover(completion: IDXClient.ResponseResult?) {
+            public func recover(completion: IDXClient.ResponseResult? = nil) {
                 guard let client = client else {
-                    completion?(nil, IDXClientError.invalidClient)
+                    completion?(.failure(.invalidClient))
                     return
                 }
                 
                 guard let recoverOption = recoverOption else {
-                    completion?(nil, nil) // TODO: Send error
+                    completion?(.failure(.missingRemediationOption(name: "recover")))
                     return
                 }
                 
@@ -345,14 +342,18 @@ extension IDXClient {
                 handler.delegate = self
                 handler.start { [weak self] (response, error) in
                     guard let response = response else {
-                        completion?(nil, error)
+                        if let error = error {
+                            completion?(.failure(.internalError(error)))
+                        } else {
+                            completion?(.failure(.invalidResponseData))
+                        }
                         return false
                     }
                     
                     // If we don't get another email authenticator back, we know the
                     // magic link was clicked, and we can proceed to the completion block.
                     guard let emailAuthenticator = response.authenticators.current as? Email else {
-                        completion?(response, error)
+                        completion?(.failure(.missingRelatedObject))
                         return false
                     }
                     
@@ -369,12 +370,12 @@ extension IDXClient {
             
             public func resend(completion: IDXClient.ResponseResult?) {
                 guard let client = client else {
-                    completion?(nil, IDXClientError.invalidClient)
+                    completion?(.failure(.invalidClient))
                     return
                 }
                 
                 guard let resendOption = resendOption else {
-                    completion?(nil, nil) // TODO: Send error
+                    completion?(.failure(.missingRemediationOption(name: "resend"))) // TODO: Send error
                     return
                 }
                 
@@ -438,12 +439,12 @@ extension IDXClient {
 
             public func send(completion: IDXClient.ResponseResult?) {
                 guard let client = client else {
-                    completion?(nil, IDXClientError.invalidClient)
+                    completion?(.failure(.invalidClient))
                     return
                 }
                 
                 guard let sendOption = sendOption else {
-                    completion?(nil, nil) // TODO: Send error
+                    completion?(.failure(.missingRemediationOption(name: "send"))) // TODO: Send error
                     return
                 }
                 
@@ -452,12 +453,12 @@ extension IDXClient {
             
             public func resend(completion: IDXClient.ResponseResult?) {
                 guard let client = client else {
-                    completion?(nil, IDXClientError.invalidClient)
+                    completion?(.failure(.invalidClient))
                     return
                 }
                 
                 guard let resendOption = resendOption else {
-                    completion?(nil, nil) // TODO: Send error
+                    completion?(.failure(.missingRemediationOption(name: "resend")))
                     return
                 }
                 
