@@ -15,39 +15,51 @@ import Foundation
 /// Protocol authenticators may conform to if they are capable of the "send" action.
 ///
 /// This is often used in Phone authenticators.
-public protocol Sendable {
+public protocol Sendable: AnyObject {
     /// Determines if this action can perform the send action.
     var canSend: Bool { get }
     
     /// Sends the authentication code.
-    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
+    /// - Parameter completion: Completion handler when the response is returned with the result of the operation.
     func send(completion: IDXClient.ResponseResult?)
+
+    /// Sends the authentication code.
+    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
+    func send(completion: IDXClient.ResponseResultCallback?)
 }
 
 /// Protocol authenticators may conform to if they are capable of the "resend" action.
 ///
 /// This is typically used by Email and Phone authenticators.
-public protocol Resendable {
+public protocol Resendable: AnyObject {
     /// Determines if this action can perform the resend action.
     var canResend: Bool { get }
 
     /// Resends a new authentication code.
-    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
+    /// - Parameter completion: Completion handler when the response is returned with the result of the operation.
     func resend(completion: IDXClient.ResponseResult?)
+
+    /// Resends a new authentication code.
+    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
+    func resend(completion: IDXClient.ResponseResultCallback?)
 }
 
 /// Protocol authenticators may conform to if they can be used to recover an account.
-public protocol Recoverable {
+public protocol Recoverable: AnyObject {
     /// Determines if this action can perform the recover action.
     var canRecover: Bool { get }
 
     /// Requests that the recovery code is sent.
-    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
+    /// - Parameter completion: Completion handler when the response is returned with the result of the operation.
     func recover(completion: IDXClient.ResponseResult?)
+
+    /// Requests that the recovery code is sent.
+    /// - Parameter completion: Completion handler when the response is returned, or `nil` if the developer does not need to handle the response.
+    func recover(completion: IDXClient.ResponseResultCallback?)
 }
 
 /// Protocol authenticators can conform to if they can be polled to determine out-of-band actions taken by the user.
-public protocol Pollable {
+public protocol Pollable: AnyObject {
     /// Determines if this authenticator can be polled.
     var canPoll: Bool { get }
     
@@ -59,13 +71,19 @@ public protocol Pollable {
     /// The action will be continually polled in the background either until `stopPolling` is called, or when the authenticator has finished. The completion block is invoked once the user has completed the action out-of-band, or when an error is received.
     /// - Parameter completion: Completion handler when the polling is complete, or `nil` if the developer does not need to handle the response
     func startPolling(completion: IDXClient.ResponseResult?)
+    
+    /// Starts the polling process.
+    ///
+    /// The action will be continually polled in the background either until `stopPolling` is called, or when the authenticator has finished. The completion block is invoked once the user has completed the action out-of-band, or when an error is received.
+    /// - Parameter completion: Completion handler when the polling is complete with the result of the operation.
+    func startPolling(completion: IDXClient.ResponseResultCallback?)
 
     /// Stops the polling process from continuing.
     func stopPolling()
 }
 
 /// Protocol authenticators conform to when they can contain profile information related to the authenticator.
-public protocol HasProfile {
+public protocol HasProfile: AnyObject {
     /// Profile information describing the authenticator. This usually contains redacted information relevant to display to the user.
     var profile: [String:String]? { get }
 }
@@ -158,11 +176,21 @@ extension IDXClient {
         /// Describes a password authenticator.
         @objc(IDXPasswordAuthenticator)
         public class Password: Authenticator, Recoverable {
-            
             /// Provides details about the password complexity settings for this authenticator.
             @objc public let settings: Settings?
             
             @objc public var canRecover: Bool { recoverOption != nil }
+            
+            @objc public func recover(completion: IDXClient.ResponseResultCallback?) {
+                recover { result in
+                    switch result {
+                    case .failure(let error):
+                        completion?(nil, error)
+                    case .success(let response):
+                        completion?(response, nil)
+                    }
+                }
+            }
             
             public func recover(completion: IDXClient.ResponseResult? = nil) {
                 guard let client = client else {
@@ -363,6 +391,18 @@ extension IDXClient {
                 pollHandler = handler
             }
             
+            @objc public func startPolling(completion: IDXClient.ResponseResultCallback?) {
+                startPolling { result in
+                    switch result {
+                    case .failure(let error):
+                        completion?(nil, error)
+                    case .success(let response):
+                        completion?(response, nil)
+                    }
+                }
+            }
+            
+
             public func stopPolling() {
                 pollHandler?.stopPolling()
                 pollHandler = nil
@@ -382,6 +422,17 @@ extension IDXClient {
                 client.proceed(remediation: resendOption, completion: completion)
             }
             
+            @objc public func resend(completion: IDXClient.ResponseResultCallback?) {
+                resend { result in
+                    switch result {
+                    case .failure(let error):
+                        completion?(nil, error)
+                    case .success(let response):
+                        completion?(response, nil)
+                    }
+                }
+            }
+
             internal let resendOption: IDXClient.Remediation?
             internal private(set) var pollOption: IDXClient.Remediation?
             private var pollHandler: PollingHandler?
@@ -451,6 +502,17 @@ extension IDXClient {
                 client.proceed(remediation: sendOption, completion: completion)
             }
             
+            @objc public func send(completion: IDXClient.ResponseResultCallback?) {
+                send { result in
+                    switch result {
+                    case .failure(let error):
+                        completion?(nil, error)
+                    case .success(let response):
+                        completion?(response, nil)
+                    }
+                }
+            }
+            
             public func resend(completion: IDXClient.ResponseResult?) {
                 guard let client = client else {
                     completion?(.failure(.invalidClient))
@@ -465,6 +527,17 @@ extension IDXClient {
                 client.proceed(remediation: resendOption, completion: completion)
             }
             
+            @objc public func resend(completion: IDXClient.ResponseResultCallback?) {
+                resend { result in
+                    switch result {
+                    case .failure(let error):
+                        completion?(nil, error)
+                    case .success(let response):
+                        completion?(response, nil)
+                    }
+                }
+            }
+
             internal let sendOption: IDXClient.Remediation?
             internal let resendOption: IDXClient.Remediation?
             internal init(client: IDXClientAPI,
