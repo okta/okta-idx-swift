@@ -15,13 +15,6 @@ import Foundation
 extension IDXClient.Remediation.RemediationType {
     var remediationClass: IDXClient.Remediation.Type {
         switch self {
-        case .identify: fallthrough
-        case .identifyRecovery:
-            return IDXClient.Remediation.Identify.self
-
-        case .challengeAuthenticator:
-            return IDXClient.Remediation.Challenge.self
-            
         case .redirectIdp:
             return IDXClient.Remediation.SocialAuth.self
 
