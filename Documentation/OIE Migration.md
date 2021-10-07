@@ -3,6 +3,10 @@
 
 ## Migrating from `okta-auth-swift`
 
+The OktaIdx SDK provides a dynamic approach to authenticating users, allowing server-side policy to dictate how a client application can progress through to signing in a user. For general usage patterns, please see the main README.md, which highlights many of the flows and patterns you can use to implement your app's authentication.
+
+For specific suggestions on how to implement the various capabilities that `okta-auth-swift` provides, please see the following suggestions.
+
 ### Configuring and initializing your client
 
 ```swift
@@ -29,8 +33,13 @@ IDXClient.start(configuration: config) { result in
 ### Authenticate a user 
 
 ```swift
-if let identify = response.remediations.identify {
-    identify.authenticate(username: "user@example.com", password: "secret") { result in
+if let identify = response.remediations[.identify],
+   let usernameField = identify["identifier"],
+   let passwordField = identify["credentials.passcode"]
+{
+    usernameField.value = "user@example.com"
+    passwordField.value = "secret"
+    identify.proceed() { result in
         // Handle the result
     } 
 }
@@ -38,78 +47,101 @@ if let identify = response.remediations.identify {
 
 ### Forgot password
 
+Password recovery is supported through the use of the current authenticator's associated actions.  This can be accessed through the use of the response's `authenticators` collection. Not all authenticators have the same set of capabilities, so these additional features are exposed through the use of protocols.  So those authenticators that can support account recovery, you can check to see if provides that capability
+
 ```swift
-if let authenticator = response.authenticators.current as? Recoverable,
-    authenticator.canRecover
+if let authenticator = response.authenticators.current as? IDXClient.Authenticator & Recoverable,
+   authenticator.canRecover
 {
-    authenticator.recover() { result in 
-        guard case let .success(response) = result,
-            let selectAuthenticator = response.remediations.selectAuthenticatorAuthenticate
-        else {
-            // Handle error
-            return
-        }
-        
-        // Choose the appropriate factor
-        selectAuthenticator.choose(authenticator: .email) { result in
-            // Handle the response
-        }
+    authenticator.recover { (response, error) in
+        // Handle the response
     }
 }
 ```
 
-### Responding to events
-
-OktaIdx supports the use of a delegate to centralize response handling and processing.
+Alternatively, if you want to explicitly check for the Password authenticator, that class already implements support for the `Recoverable` protocol.
 
 ```swift
-class LoginManager: IDXClientDelegate {
-    private var client: IDXClient?
-    let username: String
-    let password: String
-    
-    func start() {
-        IDXClient.start(configuration: config) { result in
-            switch result {
-            case .failure(let error):
-                // Handle the error
-            case .success(let client):
-                self.client = client
-                client.delegate = self
-                client.resume()
-            }
-        }
-    }
-    
-    func idx(client: IDXClient, didReceive response: IDXClient.Response) {
-        // If login is successful, immediately exchange it for a token.
-        guard !response.isLoginSuccessful else {
-            response.exchangeCode()
-            return
-        }
-        
-        // Identify the user
-        if let remediation = response.remediations.identify {
-            remediation.authenticate(username: username, password: password)
-        }
-        
-        // Select the MFA authenticator to use
-        else if let remediation = response.remediations.selectAuthenticatorAuthenticate {
-            remediation.choose(option: remediation.options[.email])
-        }
-        
-        // Supply the authenticator verification code
-        else if let remediation = response.remediations.challengeAuthenticator {
-            remediation.verify(passcode: "passcode")
-        }
-    }
-
-    func idx(client: IDXClient, didReceive token: IDXClient.Token) {
-        // Login succeeded, with the given token.
-    }
-
-    func idx(client: IDXClient, didReceive error: Error) {
-        // Handle the error
+if let authenticator = response.authenticators.current as? IDXClient.Authenticator.Password,
+   authenticator.canRecover
+{
+    authenticator.recover { (response, error) in
+        // Handle response
     }
 }
 ```
+
+Once you perform the `recover` action, the response you receive will contain a `.identifyRecovery` remediation option, which you can use to supply the user's identifier.
+
+```swift
+guard let response = response,
+      let remediation = response.remediations[.identifyRecovery],
+      let identifierField = remediation.identifier
+else {
+    // Handle error
+    return
+}
+
+identifierField.value = "mary.smith@example.com"
+remediation.proceed { (response, error) in
+    // Handle the response
+}
+```
+
+The subsequent responses will prompt the user to respond to different factor challenges to verify their account, and reset their password.
+
+### Verify recovery token
+
+After recovery has begun, a token or one-time code will be sent out-of-band to the user. The response to the recovery request in the previous section will enable a user to supply the code to the `challengeAuthenticator` remediation.
+
+```swift
+guard let remediation = response.remediations[.challengeAuthenticator],
+      let passcodeField = remediation["credentials.passcode"]
+else {
+    // Handle error
+    return
+}
+
+passcodeField.value = recoveryToken
+remediation.proceed { (response, error) in
+    // Handle response
+}
+```
+
+### Working with Authenticators / Factors
+
+Authenticators (aka Factors from the okta-auth-swift SDK) are selected, authenticated, and enrolled in a policy-driven fashion, in response to results returned from the server. As such, specific remediation types are returned when these options are available to the user.
+
+#### `selectAuthenticatorAuthenticate`
+
+This remediation is returned when a user has the option to select an authenticator to use to authenticate during log in. The list of available authenticators are returned as options to the `authenticator` field.
+
+```swift
+if let remediation = response.remediations[.selectAuthenticatorAuthenticate],
+   let authenticatorField = remediation["authenticator"],
+   let authenticatorOptions = authenticatorField.options
+{
+    for option in authenticatorOptions {
+        let label = option.label // This property is a user-visible label representing the choice (e.g. Email/Phone)
+        
+        // Display choices to the user
+    }
+}
+```
+
+To select an option, the desired option can be assigned to the `selectedOption` property of the authenticator field, after which you can call `remediation.proceed()` to make the selection.
+
+```swift
+authenticatorField.selectedOption = option
+remediation.proceed { result in
+    // Handle the response to enroll in the authenticator
+}
+```
+
+#### `selectAuthenticatorEnroll`
+
+Similar to `selectAuthenticatorAuthenticate`, this remediation allows a user to select a type of authenticator to enroll in. The approach is largely the same as selecting one to authenticate.
+
+#### `challengeAuthenticator`
+
+Once an authenticator has been selected, the user may be prompted to answer an authenticator challenge.  The fields returned in the remediation's form indicates whether or not an OTP token should be supplied, or other data that may be selected by the user.
