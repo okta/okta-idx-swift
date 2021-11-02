@@ -14,10 +14,14 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_13.1.app/Contents/Developer
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
+    - name: iOS Unit Tests
+      run: xcodebuild -workspace okta-idx.xcworkspace -scheme "okta-idx-ios" -destination "platform=iOS Simulator,OS=latest,name=iPhone 11" clean test
+    - name: Swift Package Manager
       run: swift test -v
+    - name: Cocoapods
+      run: pod lib lint
+    - name: Carthage
+      run: carthage build --use-xcframeworks --no-skip-current
 
   Xcode12_4:
     runs-on: macos-10.15
@@ -25,7 +29,11 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
+    - name: iOS Unit Tests
+      run: xcodebuild -workspace okta-idx.xcworkspace -scheme "okta-idx-ios" -destination "platform=iOS Simulator,OS=latest,name=iPhone 11" clean test
+    - name: Swift Package Manager
       run: swift test -v
+    - name: Cocoapods
+      run: pod lib lint
+    - name: Carthage
+      run: carthage build --use-xcframeworks --no-skip-current
