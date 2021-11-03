@@ -1,4 +1,4 @@
-name: Swift Unit Tests
+name: OktaIdx
 
 on:
   push:
