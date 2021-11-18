@@ -11,7 +11,7 @@
 //
 
 import Foundation
-
+/*
 extension IDXClient.Remediation {
     /// Remediation subclass used to represent social authentication remediations (e.g. IDP authentication).
     @objc(IDXSocialAuthRemediation)
@@ -25,7 +25,6 @@ extension IDXClient.Remediation {
         /// The developer-assigned IDP name within the Okta admin dashboard.
         @objc public let idpName: String
         
-        let idpType: String
         
         init?(client: IDXClientAPI,
               name: String,
@@ -73,36 +72,6 @@ extension IDXClient.Remediation {
         required internal init(client: IDXClientAPI, name: String, method: String, href: URL, accepts: String?, form: Form, refresh: TimeInterval? = nil, relatesTo: [String]? = nil) {
             fatalError("init(client:name:method:href:accepts:form:refresh:relatesTo:) has not been implemented")
         }
-        
-        /// The list of services that are possible within a social authentication workflow.
-        @objc(IDXSocialAuthRemediationService)
-        public enum Service: Int {
-            /// SAML 2.0
-            case saml
-            /// Google
-            case google
-            /// Facebook
-            case facebook
-            /// LinkedIn
-            case linkedin
-            /// Microsoft
-            case microsoft
-            /// OIDC
-            case oidc
-            /// Okta
-            case okta
-            /// IWA
-            case iwa
-            /// AgentlessDSSO
-            case agentless_iwa
-            /// Certificate based authentication
-            case x509
-            /// Apple
-            case apple
-            /// OIN Social IdP Placeholder
-            case oin_social
-            /// Other, unknown IDP service
-            case other
-        }
     }
 }
+*/

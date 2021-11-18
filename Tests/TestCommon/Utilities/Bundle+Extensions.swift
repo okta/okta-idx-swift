@@ -14,31 +14,35 @@ import Foundation
 
 extension Bundle {
     static var resourcesPath: URL {
-        #if os(macOS)
-        if let bundle = Bundle.allBundles.first(where: { $0.bundlePath.hasSuffix(".xctest") }) {
-            #if SWIFT_PACKAGE
-            let bundleName = "OktaIdx_TestCommon"
-            #else
-            let bundleName = "TestCommon"
-            #endif
-
-            return bundle.bundleURL.deletingLastPathComponent().appendingPathComponent("\(bundleName).bundle")
-        }
-        fatalError("Couldn't find the products directory")
+        let bundle = Bundle(for: IDXClientAPIv1Mock.self)
+        #if SWIFT_PACKAGE
+        let bundleName = "OktaIdx_TestCommon"
         #else
-        return Bundle(for: IDXClientAPIv1Mock.self).bundleURL
+        let bundleName = "TestCommon"
         #endif
-    }
-    
-    static func testResource(folderName: String? = nil, fileName: String) -> URL {
-        var path = resourcesPath
+        
+        var path = bundle.bundleURL
         
         // Handle differences when run in macOS targets.
         if FileManager.default.fileExists(atPath: "\(path.path)/Contents/Resources") {
             path.appendPathComponent("Contents/Resources")
         }
-
-        path.appendPathComponent("Resources")
+        
+        #if SWIFT_PACKAGE
+        path.appendPathComponent("\(bundleName).bundle")
+        #endif
+        
+        if FileManager.default.fileExists(atPath: "\(path.path)/Contents/Resources") {
+            path.appendPathComponent("Contents/Resources")
+        }
+        
+        return path
+    }
+    
+    static func testResource(folderName: String? = nil, fileName: String) -> URL {
+        var path = resourcesPath
+        
+        path.appendPathComponent("SampleResponses")
         if let folderName = folderName {
             path.appendPathComponent(folderName)
         }
