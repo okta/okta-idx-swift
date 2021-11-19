@@ -271,6 +271,7 @@ extension Signin.Row.Kind {
         switch self {
         case .separator:                   return "Separator"
         case .title(remediationOption: _): return "Title"
+        case .image(_):                    return "Image"
         case .label(field: _):             return "Label"
         case .message(style: _):           return "Message"
         case .text(field: _):              return "Text"
@@ -297,6 +298,11 @@ extension Signin.Row {
                 cell.titleLabel.text = option.title
             }
 
+        case .image(let image):
+            if let cell = cell as? IDXImageTableViewCell {
+                cell.imageContentView.image = image
+            }
+            
         case .label(field: let field):
             if let cell = cell as? IDXLabelTableViewCell {
                 cell.fieldLabel.text = field.label

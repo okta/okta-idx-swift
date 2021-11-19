@@ -48,6 +48,8 @@ extension Signin {
                 switch (lhs, rhs) {
                 case (.separator, .separator):
                     return true
+                case (.image(let lhsValue), .image(let rhsValue)):
+                    return lhsValue == rhsValue
                 case (.title(remediationOption: let lhsValue), .title(remediationOption: let rhsValue)):
                     return lhsValue == rhsValue
                 case (.label(field: let lhsValue), .label(field: let rhsValue)):
@@ -72,6 +74,7 @@ extension Signin {
             case separator
             case title(remediationOption: IDXClient.Remediation)
             case label(field: IDXClient.Remediation.Form.Field)
+            case image(_ image: UIImage)
             case message(style: IDXMessageTableViewCell.Style)
             case text(field: IDXClient.Remediation.Form.Field)
             case toggle(field: IDXClient.Remediation.Form.Field)
@@ -255,13 +258,19 @@ extension IDXClient.Response {
             })
         }
         
+        if let otp = remediationOption.authenticators.current?.otp,
+           let image = otp.image
+        {
+            rows.append(Row(kind: .image(image), parent: nil, delegate: nil))
+        }
+        
         rows.append(contentsOf: remediationOption.form.flatMap { nested in
             nested.remediationRow(delegate: delegate)
         })
         rows.append(Row(kind: .button(remediationOption: remediationOption),
                         parent: nil,
                         delegate: delegate))
-
+        
         for authenticator in remediationOption.authenticators {
             if authenticator.sendable != nil {
                 rows.append(Row(kind: .message(style: .enrollment(action: .send)),

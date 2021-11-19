@@ -270,6 +270,37 @@ extension Capability.PasswordSettings {
     }
 }
 
+extension Capability.OTP {
+    init?(client: IDXClientAPI, v1 authenticators: [V1.Response.Authenticator]) {
+        let methods = methodTypes(from: authenticators)
+        guard methods.contains(.otp) || methods.contains(.totp)
+        else {
+            return nil
+        }
+        
+        guard let typeName = authenticators.first?.type else { return nil }
+        let type = IDXClient.Authenticator.Kind(string: typeName)
+        
+        guard type == .app,
+              let contextualData = authenticators.compactMap({ $0.contextualData }).first,
+              let qrcode = contextualData["qrcode"]?.toAnyObject() as? [String:String],
+              qrcode["method"] == "embedded",
+              let mimeType = qrcode["type"],
+              let imageUrlString = qrcode["href"],
+              let imageUrl = URL(string: imageUrlString),
+              let imageData = try? Data(contentsOf: imageUrl)
+        else {
+            return nil
+        }
+        
+        let sharedSecret = contextualData["sharedSecret"]?.stringValue()
+
+        self.init(mimeType: mimeType,
+                  imageData: imageData,
+                  sharedSecret: sharedSecret)
+    }
+}
+
 extension Capability.SocialIDP {
     init?(client: IDXClientAPI, v1 object: V1.Response.Form) {
         let type = IDXClient.Remediation.RemediationType(string: object.name)
@@ -289,6 +320,27 @@ extension Capability.SocialIDP {
                   idpType: idpType,
                   service: .init(string: idpType))
     }
+}
+
+private func methodTypes(from authenticators: [V1.Response.Authenticator]) -> [IDXClient.Authenticator.Method]
+{
+    let methods = authenticators
+        .compactMap { $0.methods }
+        .reduce(into: [String:String]()) { (partialResult, items: [[String:String]]) in
+            items.forEach { item in
+                item.forEach { (key: String, value: String) in
+                    partialResult[key] = value
+                }
+            }
+        }
+    let methodTypes: [IDXClient.Authenticator.Method] = methods
+        .filter { (key, value) in
+            key == "type"
+        }
+        .map { (key, value) in
+            return IDXClient.Authenticator.Method(string: value)
+        }
+    return methodTypes
 }
 
 extension IDXClient.Authenticator {
@@ -314,7 +366,8 @@ extension IDXClient.Authenticator {
             Capability.Resendable(client: client, v1: authenticators),
             Capability.Pollable(client: client, v1: authenticators),
             Capability.Recoverable(client: client, v1: authenticators),
-            Capability.PasswordSettings(client: client, v1: authenticators)
+            Capability.PasswordSettings(client: client, v1: authenticators),
+            Capability.OTP(client: client, v1: authenticators)
         ]
         
         return IDXClient.Authenticator(client: client,
