@@ -448,7 +448,6 @@
 				964773F92638CDB40059EBC4 /* IDXRemediationType.swift */,
 				964773C92638BD9B0059EBC4 /* IDXResponse.swift */,
 				964773D52638BE4F0059EBC4 /* IDXResponseIntent.swift */,
-				96DC57EA26CD8233000DB11D /* IDXSocialAuthRemediation.swift */,
 				964773AF263880360059EBC4 /* IDXToken.swift */,
 				964773CD2638BDC60059EBC4 /* IDXUser.swift */,
 				964773A226387AFC0059EBC4 /* IDXVersion.swift */,
