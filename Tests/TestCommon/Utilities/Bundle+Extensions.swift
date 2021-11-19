@@ -23,12 +23,16 @@ extension Bundle {
         
         var path = bundle.bundleURL
         
+        let fm = FileManager.default
         // Handle differences when run in macOS targets.
-        if FileManager.default.fileExists(atPath: "\(path.path)/Contents/Resources") {
+        if fm.fileExists(atPath: "\(path.path)/Contents/Resources") {
             path.appendPathComponent("Contents/Resources")
         }
         
         #if SWIFT_PACKAGE
+        if !fm.fileExists(atPath: "\(path.path)/\(bundleName).bundle") {
+            path.deleteLastPathComponent()
+        }
         path.appendPathComponent("\(bundleName).bundle")
         #endif
         
