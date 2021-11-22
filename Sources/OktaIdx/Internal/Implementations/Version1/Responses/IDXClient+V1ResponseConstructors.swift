@@ -246,7 +246,9 @@ extension Capability.Pollable {
     }
 
     convenience init?(client: IDXClientAPI, v1 form: V1.Response.Form) {
-        guard form.name == "enroll-poll" else {
+        guard form.name == "enroll-poll" ||
+                form.name == "challenge-poll"
+        else {
             return nil
         }
         guard let remediation = IDXClient.Remediation.makeRemediation(client: client,
@@ -259,6 +261,17 @@ extension Capability.Pollable {
         self.init(client: client,
                   authenticatorType: .app,
                   remediation: remediation)
+    }
+}
+
+extension Capability.NumberChallenge {
+    init?(client: IDXClientAPI, v1 authenticators: [V1.Response.Authenticator]) {
+        guard let answer = authenticators.compactMap({ $0.contextualData?["correctAnswer"] }).first?.stringValue()
+        else {
+            return nil
+        }
+        
+        self.init(correctAnswer: answer)
     }
 }
 
@@ -382,6 +395,7 @@ extension IDXClient.Authenticator {
             Capability.Pollable(client: client, v1: authenticators),
             Capability.Recoverable(client: client, v1: authenticators),
             Capability.PasswordSettings(client: client, v1: authenticators),
+            Capability.NumberChallenge(client: client, v1: authenticators),
             Capability.OTP(client: client, v1: authenticators)
         ]
         

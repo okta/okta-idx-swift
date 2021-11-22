@@ -278,6 +278,7 @@ extension Signin.Row.Kind {
         case .image(_):                    return "Image"
         case .label(field: _):             return "Label"
         case .message(style: _):           return "Message"
+        case .numberChallenge(answer: _):  return "Title"
         case .text(field: _):              return "Text"
         case .toggle(field: _):            return "Toggle"
         case .option(field: _,
@@ -310,6 +311,11 @@ extension Signin.Row {
         case .label(field: let field):
             if let cell = cell as? IDXLabelTableViewCell {
                 cell.fieldLabel.text = field.label
+            }
+            
+        case .numberChallenge(answer: let answer):
+            if let cell = cell as? IDXTitleTableViewCell {
+                cell.titleLabel.text = "Correct answer: \(answer)"
             }
             
         case .message(style: let style):

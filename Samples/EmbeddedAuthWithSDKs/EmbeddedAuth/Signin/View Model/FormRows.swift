@@ -56,6 +56,8 @@ extension Signin {
                     return lhsValue == rhsValue
                 case (.message(style: let lhsValue), .message(style: let rhsValue)):
                     return lhsValue == rhsValue
+                case (.numberChallenge(answer: let lhsValue), .numberChallenge(answer: let rhsValue)):
+                    return lhsValue == rhsValue
                 case (.text(field: let lhsValue), .text(field: let rhsValue)):
                     return lhsValue == rhsValue
                 case (.toggle(field: let lhsValue), .toggle(field: let rhsValue)):
@@ -76,6 +78,7 @@ extension Signin {
             case label(field: IDXClient.Remediation.Form.Field)
             case image(_ image: UIImage)
             case message(style: IDXMessageTableViewCell.Style)
+            case numberChallenge(answer: String)
             case text(field: IDXClient.Remediation.Form.Field)
             case toggle(field: IDXClient.Remediation.Form.Field)
             case option(field: IDXClient.Remediation.Form.Field, option: IDXClient.Remediation.Form.Field)
@@ -192,6 +195,10 @@ extension IDXClient.Remediation {
         case .cancel:
             return "Restart"
             
+        case .enrollPoll: fallthrough
+        case .challengePoll:
+            return "Verify"
+            
         default:
             return "Next"
         }
@@ -264,12 +271,24 @@ extension IDXClient.Response {
             rows.append(Row(kind: .image(image), parent: nil, delegate: nil))
         }
         
+        if let numberChallenge = remediationOption.authenticators.current?.numberChallenge {
+            rows.append(Row(kind: .numberChallenge(answer: numberChallenge.correctAnswer),
+                            parent: nil,
+                            delegate: nil))
+        }
+        
         rows.append(contentsOf: remediationOption.form.flatMap { nested in
             nested.remediationRow(delegate: delegate)
         })
-        rows.append(Row(kind: .button(remediationOption: remediationOption),
-                        parent: nil,
-                        delegate: delegate))
+        
+        // Don't show a remediation option for strictly-pollable remediations
+        if !(remediationOption.pollable != nil &&
+             remediationOption.form.isEmpty)
+        {
+            rows.append(Row(kind: .button(remediationOption: remediationOption),
+                            parent: nil,
+                            delegate: delegate))
+        }
         
         for authenticator in remediationOption.authenticators {
             if authenticator.sendable != nil {

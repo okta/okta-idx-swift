@@ -592,6 +592,37 @@ class IDXClientV1ResponseTests: XCTestCase {
         }
     }
     
+    func testNumberChallengeCapability() throws {
+        try decode(type: API.Response.IonObject<API.Response.Authenticator>.self, """
+        {
+          "type" : "object",
+          "value" : {
+             "contextualData" : {
+                "correctAnswer" : "90"
+             },
+             "displayName" : "Okta Verify",
+             "id" : "auttcd6clasdflwbTD5d6",
+             "key" : "okta_verify",
+             "methods" : [
+                {
+                   "type" : "push"
+                }
+             ],
+             "type" : "app"
+          }
+        }
+        """) { (obj) in
+            let publicObj = try XCTUnwrap(IDXClient.Authenticator.makeAuthenticator(client: clientMock,
+                                                                                    v1: [obj.value],
+                                                                                    jsonPaths: [],
+                                                                                    in: response))
+            XCTAssertEqual(publicObj.type, .app)
+            let otp = try XCTUnwrap(publicObj.numberChallenge)
+
+            XCTAssertEqual(otp.correctAnswer, "90")
+        }
+    }
+    
     func testOTPAuthenticatorWithSettings() throws {
         try decode(type: API.Response.IonObject<API.Response.Authenticator>.self, """
         {
