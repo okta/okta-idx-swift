@@ -668,7 +668,7 @@ class IDXClientV1ResponseTests: XCTestCase {
         let remediation = try XCTUnwrap(publicObj.remediations[.enrollPoll])
         XCTAssertEqual(publicObj.authenticators.current, remediation.authenticators.current)
         
-        let pollable = try XCTUnwrap(remediation.pollable)
+        let _ = try XCTUnwrap(remediation.pollable)
     }
 
     func testMultipleRelatedAuthenticators() throws {

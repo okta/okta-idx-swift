@@ -30,12 +30,13 @@ class IDXCapabilityTests: XCTestCase {
     var response: IDXClient.Response!
 
     override func setUpWithError() throws {
+        let fields = try XCTUnwrap(IDXClient.Remediation.Form(fields: []))
         remediation = IDXClient.Remediation(client: clientMock,
                                             name: "remediation",
                                             method: "POST",
                                             href: URL(string: "https://example.com/idp/path")!,
                                             accepts: nil,
-                                            form: .init(fields: [])!,
+                                            form: fields,
                                             refresh: nil,
                                             relatesTo: nil,
                                             capabilities: [])
