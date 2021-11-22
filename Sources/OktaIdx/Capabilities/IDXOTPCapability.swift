@@ -15,8 +15,13 @@ import Foundation
 extension Capability {
     /// Capability to recover an account.
     public struct OTP: AuthenticatorCapability {
+        /// Mime type for the associated QR code image data.
         public let mimeType: String
+        
+        /// The data contents for the QR code image.
         public let imageData: Data
+        
+        /// For OTP providers that support it, the shared secret supplied along with the QR code.
         public let sharedSecret: String?
     }
 }
@@ -24,6 +29,7 @@ extension Capability {
 #if canImport(UIKit)
 import UIKit
 extension Capability.OTP {
+    /// Image representation of the QR code.
     public var image: UIImage? {
         UIImage(data: imageData)
     }
@@ -31,6 +37,7 @@ extension Capability.OTP {
 #elseif canImport(AppKit)
 import AppKit
 extension Capability.OTP {
+    /// Image representation of the QR code.
     public var image: NSImage? {
         NSImage(data: imageData)
     }

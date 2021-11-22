@@ -244,6 +244,22 @@ extension Capability.Pollable {
                   authenticatorType: type,
                   remediation: remediation)
     }
+
+    convenience init?(client: IDXClientAPI, v1 form: V1.Response.Form) {
+        guard form.name == "enroll-poll" else {
+            return nil
+        }
+        guard let remediation = IDXClient.Remediation.makeRemediation(client: client,
+                                                                      v1: form,
+                                                                      createCapabilities: false)
+        else {
+            return nil
+        }
+        
+        self.init(client: client,
+                  authenticatorType: .app,
+                  remediation: remediation)
+    }
 }
 
 extension Capability.Profile {
@@ -287,8 +303,7 @@ extension Capability.OTP {
               qrcode["method"] == "embedded",
               let mimeType = qrcode["type"],
               let imageUrlString = qrcode["href"],
-              let imageUrl = URL(string: imageUrlString),
-              let imageData = try? Data(contentsOf: imageUrl)
+              let imageData = imageUrlString.base64ImageData
         else {
             return nil
         }
@@ -384,16 +399,19 @@ extension IDXClient.Authenticator {
 
 extension IDXClient.Remediation {
     static func makeRemediation(client: IDXClientAPI,
-                                v1 object: V1.Response.Form?) -> IDXClient.Remediation?
+                                v1 object: V1.Response.Form?,
+                                createCapabilities: Bool = true) -> IDXClient.Remediation?
     {
         guard let object = object else { return nil }
         let form = Form(fields: object.value?.map({ (value) in
           .init(client: client, v1: value)
         })) ?? Form(fields: [])!
         let refresh = (object.refresh != nil) ? Double(object.refresh!) / 1000.0 : nil
-        let capabilities: [RemediationCapability?] = [
-            Capability.SocialIDP(client: client, v1: object)
-        ]
+        
+        let capabilities: [RemediationCapability?] = createCapabilities ? [
+            Capability.SocialIDP(client: client, v1: object),
+            Capability.Pollable(client: client, v1: object)
+        ] : []
         
         return IDXClient.Remediation(client: client,
                                      name: object.name,

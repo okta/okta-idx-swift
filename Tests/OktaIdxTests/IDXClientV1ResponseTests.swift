@@ -629,6 +629,16 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertNotNil(otp.image)
         }
     }
+    
+    func testEnrollPollWithoutRelatedAuthenticators() throws {
+        let obj = try decode(type: API.Response.self,
+                             Bundle.testResource(fileName: "enroll-poll-response"))
+        let publicObj = try IDXClient.Response(client: clientMock, v1: obj)
+        let remediation = try XCTUnwrap(publicObj.remediations[.enrollPoll])
+        XCTAssertEqual(publicObj.authenticators.current, remediation.authenticators.current)
+        
+        let pollable = try XCTUnwrap(remediation.pollable)
+    }
 
     func testMultipleRelatedAuthenticators() throws {
         let obj = try decode(type: API.Response.self,

@@ -69,6 +69,7 @@
 		964A44BE259BB8FC002CB250 /* IDXAcceptTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A44BD259BB8FC002CB250 /* IDXAcceptTypeTests.swift */; };
 		964A44E1259D3331002CB250 /* IDXClientV1ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A44E0259D3331002CB250 /* IDXClientV1ResponseTests.swift */; };
 		9653DCAA27483B0D003C6E20 /* IDXCapabilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9653DCA927483B0D003C6E20 /* IDXCapabilityTests.swift */; };
+		9653DCAC27485C40003C6E20 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9653DCAB27485C40003C6E20 /* String+Extensions.swift */; };
 		96549E2225C1FAF8007FCF29 /* IDXExtractFormValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96549E2125C1FAF8007FCF29 /* IDXExtractFormValueTests.swift */; };
 		965D74C52641A41C0093FFD1 /* IDXConfiguration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D74C42641A41C0093FFD1 /* IDXConfiguration+Extensions.swift */; };
 		965D74CA2641B8F60093FFD1 /* IDXClient+RelatesTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D74C92641B8F60093FFD1 /* IDXClient+RelatesTo.swift */; };
@@ -185,6 +186,7 @@
 		964A44BD259BB8FC002CB250 /* IDXAcceptTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXAcceptTypeTests.swift; sourceTree = "<group>"; };
 		964A44E0259D3331002CB250 /* IDXClientV1ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXClientV1ResponseTests.swift; sourceTree = "<group>"; };
 		9653DCA927483B0D003C6E20 /* IDXCapabilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXCapabilityTests.swift; sourceTree = "<group>"; };
+		9653DCAB27485C40003C6E20 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		96549E2125C1FAF8007FCF29 /* IDXExtractFormValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXExtractFormValueTests.swift; sourceTree = "<group>"; };
 		965D74C42641A41C0093FFD1 /* IDXConfiguration+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDXConfiguration+Extensions.swift"; sourceTree = "<group>"; };
 		965D74C92641B8F60093FFD1 /* IDXClient+RelatesTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDXClient+RelatesTo.swift"; sourceTree = "<group>"; };
@@ -310,15 +312,15 @@
 		9623F2D427359FF300EF3587 /* Capabilities */ = {
 			isa = PBXGroup;
 			children = (
-				9669E1682748334A00E3057D /* IDXOTPCapability.swift */,
 				9623F2D02734BA7E00EF3587 /* IDXCapability.swift */,
+				9669E1682748334A00E3057D /* IDXOTPCapability.swift */,
 				9623F2D52735A00400EF3587 /* IDXPasswordCapability.swift */,
-				9623F2D72735A03C00EF3587 /* IDXSocialIDPCapability.swift */,
+				9623F2DF2735A19D00EF3587 /* IDXPollableCapability.swift */,
+				9623F2E12735A76A00EF3587 /* IDXProfileCapability.swift */,
 				9623F2D92735A08D00EF3587 /* IDXRecoverableCapability.swift */,
 				9623F2DB2735A0C600EF3587 /* IDXResendableCapability.swift */,
 				9623F2DD2735A13900EF3587 /* IDXSendableCapability.swift */,
-				9623F2DF2735A19D00EF3587 /* IDXPollableCapability.swift */,
-				9623F2E12735A76A00EF3587 /* IDXProfileCapability.swift */,
+				9623F2D72735A03C00EF3587 /* IDXSocialIDPCapability.swift */,
 			);
 			path = Capabilities;
 			sourceTree = "<group>";
@@ -329,6 +331,7 @@
 				92598AB8269C59B50086C362 /* DebugDescription.swift */,
 				96C6B21626421D8500D75766 /* PollingHandler.swift */,
 				962ABD4B264075050049B0C4 /* Weak.swift */,
+				9653DCAB27485C40003C6E20 /* String+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				96F8F25B2582E96B00DA2701 /* InteractRequest.swift in Sources */,
 				9623F2DA2735A08D00EF3587 /* IDXRecoverableCapability.swift in Sources */,
 				96C6B21726421D8500D75766 /* PollingHandler.swift in Sources */,
+				9653DCAC27485C40003C6E20 /* String+Extensions.swift in Sources */,
 				962ABD4C264075050049B0C4 /* Weak.swift in Sources */,
 				965D74CA2641B8F60093FFD1 /* IDXClient+RelatesTo.swift in Sources */,
 				96C6B2092641CAB000D75766 /* IDXMessageCollection+InternalExtensions.swift in Sources */,

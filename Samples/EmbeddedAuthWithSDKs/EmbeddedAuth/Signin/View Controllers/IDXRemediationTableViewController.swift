@@ -68,6 +68,10 @@ class IDXRemediationTableViewController: UITableViewController, IDXResponseContr
         if let poll = response?.authenticators.current?.pollable {
             beginPolling(using: poll)
         }
+        
+        else if let poll = response?.remediations.compactMap({ $0.pollable }).first {
+            beginPolling(using: poll)
+        }
     }
     
     var shouldShowNavigationBar: Bool {
