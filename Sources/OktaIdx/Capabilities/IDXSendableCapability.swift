@@ -38,3 +38,17 @@ extension Capability {
         }
     }
 }
+
+#if swift(>=5.5.1) && !os(Linux)
+@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+extension Capability.Sendable {
+    /// Sends a new authentication code.
+    public func send() async throws -> IDXClient.Response {
+        try await withCheckedThrowingContinuation { continuation in
+            send() { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+}
+#endif

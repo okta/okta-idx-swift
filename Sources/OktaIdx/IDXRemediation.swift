@@ -151,3 +151,19 @@ extension IDXClient {
         }
     }
 }
+
+#if swift(>=5.5.1) && !os(Linux)
+@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+extension IDXClient.Remediation {
+    /// Executes the remediation option and proceeds through the workflow using the supplied form parameters.
+    ///
+    /// This method is used to proceed through the authentication flow, using the data assigned to the nested fields' `value` to make selections.
+    public func proceed() async throws -> IDXClient.Response {
+        try await withCheckedThrowingContinuation { continuation in
+            proceed() { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+}
+#endif

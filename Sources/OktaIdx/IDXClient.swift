@@ -200,6 +200,51 @@ public final class IDXClient: NSObject {
     }
 }
 
+#if swift(>=5.5.1) && !os(Linux)
+@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+extension IDXClient {
+    /// Starts a new authentication session using the given configuration values. If the client is able to successfully interact with Okta Identity Engine, a new client instance is returned to the caller.
+    /// - Parameters:
+    ///   - configuration: Configuration describing the app settings to contact.
+    ///   - state: Optional state string to use within the OAuth2 transaction.
+    /// - Returns: An IDXClient instance for this session.
+    public static func start(with configuration: Configuration,
+                             state: String? = nil) async throws -> IDXClient
+    {
+        try await withCheckedThrowingContinuation { continuation in
+            start(with: configuration, state: state) { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+
+    /// Resumes the authentication state to identify the available remediation steps.
+    ///
+    /// This method is usually performed after an IDXClient is created in ``IDXClient.start(with:state:)``, but can also be called at any time to identify what next remediation steps are available to the user.
+    /// - Returns: A response showing the user's next steps.
+    public func resume() async throws -> IDXClient.Response {
+        try await withCheckedThrowingContinuation { continuation in
+            resume() { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+    
+    /// Exchanges the redirect URL with a token.
+    ///
+    /// Once the `redirectResult` method returns `authenticated`, the developer can exchange that redirect URL for a valid token by using this method.
+    /// - Parameters:
+    ///   - url: URL with the app’s custom scheme. The value must match one of the authorized redirect URIs, which are configured in Okta Admin Console.
+    public func exchangeCode(redirect url: URL) async throws -> IDXClient.Token {
+        try await withCheckedThrowingContinuation { continuation in
+            exchangeCode(redirect: url) { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+}
+#endif
+
 /// Delegate protocol that can be used to receive updates from the IDXClient through the process of a user's authentication.
 @objc
 public protocol IDXClientDelegate {

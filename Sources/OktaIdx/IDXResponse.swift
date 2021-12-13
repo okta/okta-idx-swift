@@ -171,3 +171,28 @@ extension IDXClient {
         
     }
 }
+
+#if swift(>=5.5.1) && !os(Linux)
+@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+extension IDXClient.Response {
+    /// Cancels the current workflow, and restarts the session.
+    public func cancel() async throws -> IDXClient.Response {
+        try await withCheckedThrowingContinuation { continuation in
+            cancel() { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+
+    /// Exchanges the successful response with a token.
+    ///
+    /// Once the `isLoginSuccessful` property is `true`, the developer can exchange the response for a valid token by using this method.
+    public func exchangeCode() async throws -> IDXClient.Token {
+        try await withCheckedThrowingContinuation { continuation in
+            exchangeCode() { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+}
+#endif

@@ -210,3 +210,48 @@ extension IDXClient {
         }
     }
 }
+
+#if swift(>=5.5.1) && !os(Linux)
+@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+extension IDXClient.Token {
+    /// Refreshes the token.
+    ///
+    /// If no refresh token is available, or the tokens have been revoked, an error will be returned.
+    ///
+    /// > *Note:* Depending on organization or policy settings, the values contained within the token may or may not differ once the token is refreshed. Therefore, it may be necessary to save the newly-refeshed object for use in future requests.
+    public func refresh() async throws -> IDXClient.Token {
+        try await withCheckedThrowingContinuation { continuation in
+            refresh() { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+
+    /// Revokes the token.
+    /// - Parameters:
+    ///   - type: The type to revoke (e.g. access token, or refresh token).
+    public func revoke(type: IDXClient.Token.RevokeType = .accessAndRefreshToken) async throws {
+        try await withCheckedThrowingContinuation { continuation in
+            revoke(type: type) { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+    
+    /// Revokes the given token using the string value of the token.
+    /// - Parameters:
+    ///   - token: Token string to revoke.
+    ///   - type: The type to revoke (e.g. access token, or refresh token).
+    ///   - configuration: The client configuration used when the token was created.
+    public static func revoke(token: String,
+                              type: IDXClient.Token.RevokeType,
+                              configuration: IDXClient.Configuration) async throws
+    {
+        try await withCheckedThrowingContinuation { continuation in
+            revoke(token: token, type: type, configuration: configuration) { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+}
+#endif

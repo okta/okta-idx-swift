@@ -36,3 +36,17 @@ extension Capability {
         }
     }
 }
+
+#if swift(>=5.5.1) && !os(Linux)
+@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+extension Capability.Recoverable {
+    /// Requests that the recovery code is sent.
+    public func recover() async throws -> IDXClient.Response {
+        try await withCheckedThrowingContinuation { continuation in
+            recover() { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+}
+#endif
