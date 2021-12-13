@@ -21,7 +21,6 @@ struct SignInFormPage {
     
     private let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
     
-    var initialSignInButton: XCUIElement { app.buttons["Sign In"] }
     var facebookSignInButton: XCUIElement { app.buttons["Login with Facebook"] }
     
     var socialAuthContinueButton: XCUIElement {
@@ -43,9 +42,6 @@ struct SignInFormPage {
     
     func signIn(username: String, password: String) {
         test("GIVEN Mary navigates to the Basic Login View") {
-            XCTAssertTrue(initialSignInButton.waitForExistence(timeout: .regular))
-            initialSignInButton.tap()
-            
             XCTAssertTrue(usernameLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(usernameField.exists)
             XCTAssertTrue(passwordLabel.exists)

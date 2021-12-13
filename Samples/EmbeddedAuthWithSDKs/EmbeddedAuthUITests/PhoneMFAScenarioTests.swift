@@ -21,6 +21,9 @@ final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
         
         try? scenario.resetMessages(.sms)
         try scenario.createUser(groups: [.mfa, .phoneEnrollment])
+
+        XCTAssertTrue(initialSignInButton.waitForExistence(timeout: .regular))
+        initialSignInButton.tap()        
     }
     
     override func tearDownWithError() throws {
@@ -60,7 +63,7 @@ final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
         }
         
         try test("THEN the screen changes to receive an input for a code") {
-            let passcodePage = PasscodeFormPage(app: app)
+            let passcodePage = PasscodeFormPage(app: app, scenario: scenario)
             XCTAssertTrue(passcodePage.passcodeLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(passcodePage.passcodeField.exists)
             XCTAssertTrue(passcodePage.resendButton.exists)
@@ -93,6 +96,7 @@ final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
             XCTAssertTrue(factorsPage.continueButton.exists)
             
             factorsPage.phoneLabel.tap()
+            factorsPage.continueButton.tap()
             
             test("WHEN She selects SMS from the list") {
                 XCTAssertTrue(factorsPage.phonePicker.waitForExistence(timeout: .minimal))
@@ -162,7 +166,7 @@ final class PhoneMFALoginScenarioTests: ScenarioTestCase {
         }
         
         try test("THEN the screen changes to receive an input for a code") {
-            let passcodePage = PasscodeFormPage(app: app)
+            let passcodePage = PasscodeFormPage(app: app, scenario: scenario)
             XCTAssertTrue(passcodePage.passcodeLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(passcodePage.passcodeField.exists)
             XCTAssertTrue(passcodePage.resendButton.exists)
@@ -207,7 +211,7 @@ final class PhoneMFALoginScenarioTests: ScenarioTestCase {
         }
         
         test("THEN the screen changes to receive an input for a code") {
-            let passcodePage = PasscodeFormPage(app: app)
+            let passcodePage = PasscodeFormPage(app: app, scenario: scenario)
             XCTAssertTrue(passcodePage.passcodeLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(passcodePage.passcodeField.exists)
             XCTAssertTrue(passcodePage.resendButton.exists)

@@ -41,7 +41,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
     }
     
     override func tearDownWithError() throws {
-        try super.setUpWithError()
+        try super.tearDownWithError()
         try scenario.deleteUser()
     }
     
@@ -105,7 +105,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         fillInPhonePage(phone: phone)
         
         try test("THEN the screen changes to receive an input for a code") {
-            let phonePasscodePage = PasscodeFormPage(app: app)
+            let phonePasscodePage = PasscodeFormPage(app: app, scenario: scenario)
             XCTAssertTrue(phonePasscodePage.passcodeLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(phonePasscodePage.passcodeField.exists)
             XCTAssertTrue(phonePasscodePage.continueButton.exists)
@@ -122,6 +122,11 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
             
             test("AND She selects 'Verify'") {
                 phonePasscodePage.continueButton.tap()
+            }
+            
+            test("THEN selects skip to bypass additional authenticators") {
+                let factorsPage = FactorsEnrollmentPage(app: app)
+                factorsPage.skipButton.tap()
             }
         }
     }
@@ -146,7 +151,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         }
         
         try test("THEN she sees the set new password form") {
-            let passwordPage = PasscodeFormPage(app: app, isSecure: true)
+            let passwordPage = PasscodeFormPage(app: app, scenario: scenario, isSecure: true)
             XCTAssertTrue(passwordPage.passcodeLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(passwordPage.securityPasscodeField.exists)
             
@@ -179,7 +184,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         }
         
         try test("THEN she sees a page to input a code") {
-            let codePage = PasscodeFormPage(app: app)
+            let codePage = PasscodeFormPage(app: app, scenario: scenario)
             XCTAssertTrue(codePage.passcodeLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(codePage.passcodeField.exists)
             

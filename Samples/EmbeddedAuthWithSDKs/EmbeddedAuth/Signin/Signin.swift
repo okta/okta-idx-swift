@@ -102,6 +102,9 @@ public class Signin {
         case .cancel:
             return "Restart"
             
+        case .unlockAccount:
+            return "Unlock Account"
+            
         default:
             return "Continue"
         }

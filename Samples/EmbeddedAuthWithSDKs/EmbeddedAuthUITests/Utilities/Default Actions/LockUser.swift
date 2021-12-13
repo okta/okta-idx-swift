@@ -11,3 +11,45 @@
 //
 
 import Foundation
+
+extension Scenario {
+    func lockUser(username: String,
+                  times: Int = 5)
+    {
+        guard let url = URL(string: configuration.issuerUrl)?.appendingPathComponent("v1/token") else {
+            return
+        }
+        
+        let group = DispatchGroup()
+        for _ in 1...times {
+            let params = [
+                "client_id": configuration.clientId,
+                "scope": configuration.scopes,
+                "grant_type": "password",
+                "username": username,
+                "password": UUID().uuidString
+            ]
+            let bodyString = params.reduce(into: [String]()) { partialResult, item in
+                let key = item.key as NSString,
+                    value = item.value as NSString
+                
+                guard let encodedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                      let encodedValue = value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                else { return }
+                                                           
+                partialResult.append("\(encodedKey)=\(encodedValue)")
+            }.joined(separator: "&")
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.httpBody = bodyString.data(using: .utf8)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            
+            group.enter()
+            URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+                group.leave()
+            }).resume()
+            group.wait()
+        }
+    }
+}

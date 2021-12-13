@@ -199,6 +199,10 @@ extension IDXClient.Remediation {
         case .challengePoll:
             return "Verify"
             
+        case .unlockAccount: fallthrough
+        case .selectAuthenticatorUnlockAccount:
+            return "Unlock Account"
+            
         default:
             return "Next"
         }

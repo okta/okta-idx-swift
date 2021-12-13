@@ -21,6 +21,7 @@ final class SocialAuthTests: ScenarioTestCase {
         
         try XCTSkipIf(scenario.socialAuthCredentials == nil,
                       "Skipping social auth tests since no user credentials are defined")
+
     }
     
     func test_Sign_In() throws {
@@ -48,11 +49,12 @@ final class SocialAuthTests: ScenarioTestCase {
     }
     
     private func signInSocialAuth(with credentials: Scenario.Credentials) throws {
+        XCTAssertTrue(initialSignInButton.waitForExistence(timeout: .regular))
+        initialSignInButton.tap()
+
         let signInPage = SignInFormPage(app: app)
         
         test("WHEN she clicks the 'Login with Facebook' button") {
-            XCTAssertTrue(signInPage.initialSignInButton.waitForExistence(timeout: .regular))
-            signInPage.initialSignInButton.tap()
             
             test("AND logs in to Facebook") {
                 XCTAssertTrue(signInPage.facebookSignInButton.waitForExistence(timeout: .regular))
