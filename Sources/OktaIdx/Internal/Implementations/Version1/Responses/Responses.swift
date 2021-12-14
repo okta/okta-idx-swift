@@ -88,138 +88,137 @@ extension IDXClient.APIVersion1 {
         let app: IonObject<IonApp>?
         let successWithInteractionCode: IonForm?
         let cancel: IonForm?
+    }
+    
+    struct IonObject<T>: Decodable where T: Decodable {
+        let type: String?
+        let value: T
+    }
+    
+    struct IonCollection<T>: Decodable where T: Decodable {
+        let type: String?
+        let value: [T]
+    }
+    
+    struct IonUser: Decodable {
+        let id: String?
+    }
+    
+    struct IonApp: Decodable {
+        let id: String
+        let label: String
+        let name: String
+    }
+    
+    struct IonAuthenticator: Decodable, IDXIONRelatable {
+        let displayName: String?
+        let id: String?
+        let type: String
+        let key: String?
+        let methods: [[String:String]]?
+        let settings: [String:JSONValue]?
+        let contextualData: [String:JSONValue]?
+        let profile: [String:String]?
+        let send: IonForm?
+        let resend: IonForm?
+        let poll: IonForm?
+        let recover: IonForm?
         
-        struct IonObject<T>: Decodable where T: Decodable {
-            let type: String?
-            let value: T
-        }
-
-        struct IonCollection<T>: Decodable where T: Decodable {
-            let type: String?
-            let value: [T]
+        var relatableIdentifier: String? { id }
+        var jsonPath: String?
+    }
+    
+    struct IonForm: Decodable {
+        let rel: [String]?
+        let name: String
+        let method: String
+        let href: URL
+        let value: [IonFormValue]?
+        let accepts: String?
+        let relatesTo: [String]?
+        let refresh: Double?
+        let type: String?
+        let idp: [String:String]?
+    }
+    
+    struct IonCompositeForm: Decodable {
+        let form: IonCompositeFormValue
+    }
+    
+    struct IonCompositeFormValue: Decodable {
+        let value: [IonFormValue]
+    }
+    
+    struct IonFormValue: Decodable {
+        let id: String?
+        let name: String?
+        let label: String?
+        let type: String?
+        let value: JSONValue?
+        let required: Bool?
+        let secret: Bool?
+        let visible: Bool?
+        let mutable: Bool?
+        let form: IonCompositeFormValue?
+        let options: [IonFormValue]?
+        let relatesTo: String?
+        let messages: IonCollection<IonMessage>?
+        
+        private enum CodingKeys: String, CodingKey {
+            case id, name, required, label, type, value, secret, visible, mutable, options, form, relatesTo, messages
         }
         
-        struct IonUser: Decodable {
-            let id: String?
-        }
-        
-        struct IonApp: Decodable {
-            let id: String
-            let label: String
-            let name: String
-        }
-        
-        struct IonAuthenticator: Decodable, IDXIONRelatable {
-            let displayName: String?
-            let id: String?
-            let type: String
-            let key: String?
-            let methods: [[String:String]]?
-            let settings: [String:JSONValue]?
-            let contextualData: [String:JSONValue]?
-            let profile: [String:String]?
-            let send: IonForm?
-            let resend: IonForm?
-            let poll: IonForm?
-            let recover: IonForm?
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            id = try container.decodeIfPresent(String.self, forKey: .id)
+            name = try container.decodeIfPresent(String.self, forKey: .name)
+            label = try container.decodeIfPresent(String.self, forKey: .label)
+            type = try container.decodeIfPresent(String.self, forKey: .type)
+            required = try container.decodeIfPresent(Bool.self, forKey: .required)
+            secret = try container.decodeIfPresent(Bool.self, forKey: .secret)
+            visible = try container.decodeIfPresent(Bool.self, forKey: .visible)
+            mutable = try container.decodeIfPresent(Bool.self, forKey: .mutable)
+            relatesTo = try container.decodeIfPresent(String.self, forKey: .relatesTo)
+            options = try container.decodeIfPresent([IonFormValue].self, forKey: .options)
+            messages = try container.decodeIfPresent(IonCollection<IonMessage>.self, forKey: .messages)
             
-            var relatableIdentifier: String? { id }
-            var jsonPath: String?
-        }
-        
-        struct IonForm: Decodable {
-            let rel: [String]?
-            let name: String
-            let method: String
-            let href: URL
-            let value: [IonFormValue]?
-            let accepts: String?
-            let relatesTo: [String]?
-            let refresh: Double?
-            let type: String?
-            let idp: [String:String]?
-        }
-        
-        struct IonCompositeForm: Decodable {
-            let form: IonCompositeFormValue
-        }
-        
-        struct IonCompositeFormValue: Decodable {
-            let value: [IonFormValue]
-        }
-        
-        struct IonFormValue: Decodable {
-            let id: String?
-            let name: String?
-            let label: String?
-            let type: String?
-            let value: JSONValue?
-            let required: Bool?
-            let secret: Bool?
-            let visible: Bool?
-            let mutable: Bool?
-            let form: IonCompositeFormValue?
-            let options: [IonFormValue]?
-            let relatesTo: String?
-            let messages: IonCollection<IonMessage>?
+            let formObj = try? container.decodeIfPresent(IonCompositeFormValue.self, forKey: .form)
+            let valueAsCompositeObj = try? container.decodeIfPresent(IonCompositeForm.self, forKey: .value)
+            let valueAsJsonObj = try? container.decodeIfPresent(JSONValue.self, forKey: .value)
             
-            private enum CodingKeys: String, CodingKey {
-                case id, name, required, label, type, value, secret, visible, mutable, options, form, relatesTo, messages
-            }
-
-            init(from decoder: Decoder) throws {
-                let container = try decoder.container(keyedBy: CodingKeys.self)
-                id = try container.decodeIfPresent(String.self, forKey: .id)
-                name = try container.decodeIfPresent(String.self, forKey: .name)
-                label = try container.decodeIfPresent(String.self, forKey: .label)
-                type = try container.decodeIfPresent(String.self, forKey: .type)
-                required = try container.decodeIfPresent(Bool.self, forKey: .required)
-                secret = try container.decodeIfPresent(Bool.self, forKey: .secret)
-                visible = try container.decodeIfPresent(Bool.self, forKey: .visible)
-                mutable = try container.decodeIfPresent(Bool.self, forKey: .mutable)
-                relatesTo = try container.decodeIfPresent(String.self, forKey: .relatesTo)
-                options = try container.decodeIfPresent([IonFormValue].self, forKey: .options)
-                messages = try container.decodeIfPresent(IonCollection<IonMessage>.self, forKey: .messages)
-
-                let formObj = try? container.decodeIfPresent(IonCompositeFormValue.self, forKey: .form)
-                let valueAsCompositeObj = try? container.decodeIfPresent(IonCompositeForm.self, forKey: .value)
-                let valueAsJsonObj = try? container.decodeIfPresent(JSONValue.self, forKey: .value)
-                
-                if formObj == nil && valueAsCompositeObj != nil {
-                    form = valueAsCompositeObj?.form
-                } else {
-                    form = formObj
-                }
-                
-                if let valueAsCompositeObj = valueAsCompositeObj {
-                    value = .object(valueAsCompositeObj)
-                } else {
-                    value = valueAsJsonObj
-                }
-            }
-        }
-        
-        struct IonMessage: Codable {
-            let type: String
-            let i18n: IonLocalization?
-            let message: String
-
-            struct IonLocalization: Codable {
-                let key: String
+            if formObj == nil && valueAsCompositeObj != nil {
+                form = valueAsCompositeObj?.form
+            } else {
+                form = formObj
             }
             
-            private enum CodingKeys: String, CodingKey {
-                case type = "class", i18n, message
-            }
-            
-            init(from decoder: Decoder) throws {
-                let container = try decoder.container(keyedBy: CodingKeys.self)
-                type = try container.decode(String.self, forKey: .type)
-                i18n = try container.decodeIfPresent(IonLocalization.self, forKey: .i18n)
-                message = try container.decode(String.self, forKey: .message)
+            if let valueAsCompositeObj = valueAsCompositeObj {
+                value = .object(valueAsCompositeObj)
+            } else {
+                value = valueAsJsonObj
             }
         }
+    }
+    
+    struct IonMessage: Codable {
+        let type: String
+        let i18n: IonLocalization?
+        let message: String
         
+        struct IonLocalization: Codable {
+            let key: String
+        }
+        
+        private enum CodingKeys: String, CodingKey {
+            case type = "class", i18n, message
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            type = try container.decode(String.self, forKey: .type)
+            i18n = try container.decodeIfPresent(IonLocalization.self, forKey: .i18n)
+            message = try container.decode(String.self, forKey: .message)
+        }
     }
     
     /// Internal OIE API v1.0.0 token response.

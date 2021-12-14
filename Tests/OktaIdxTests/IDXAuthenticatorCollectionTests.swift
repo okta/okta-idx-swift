@@ -17,7 +17,7 @@ import XCTest
 @testable import TestCommon
 #endif
 
-class IDXAuthenticator.CollectionTests: XCTestCase {
+class IDXAuthenticatorCollectionTests: XCTestCase {
     let configuration = IDXClient.Configuration(issuer: "https://foo.oktapreview.com/oauth2/default",
                                                 clientId: "clientId",
                                                 clientSecret: "clientSecret",

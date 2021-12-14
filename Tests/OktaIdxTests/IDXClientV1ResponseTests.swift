@@ -32,8 +32,8 @@ class IDXClientV1ResponseTests: XCTestCase {
                                                                             clientSecret: nil,
                                                                             scopes: ["scope"],
                                                                             redirectUri: "redirect:/"))
-    var response: API.Response {
-        return try! decode(type: API.Response.self, """
+    var response: API.IonResponse {
+        return try! decode(type: API.IonResponse.self, """
             {
                "cancel" : {
                   "accepts" : "application/json; okta-version=1.0.0",
@@ -55,7 +55,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testForm() throws {
-        let obj = try decode(type: API.Response.Form.self, """
+        let obj = try decode(type: API.IonForm.self, """
         {
             "rel": ["create-form"],
             "name": "identify",
@@ -81,7 +81,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testCompositeForm() throws {
-        try decode(type: API.Response.CompositeForm.self, """
+        try decode(type: API.IonCompositeForm.self, """
         {
           "form": {
             "value": [
@@ -112,7 +112,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testFormValueWithLabel() throws {
-        try decode(type: API.Response.FormValue.self, """
+        try decode(type: API.IonFormValue.self, """
         {
             "name": "identifier",
             "label": "Username"
@@ -131,7 +131,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testFormValueWithNoLabel() throws {
-        try decode(type: API.Response.FormValue.self, """
+        try decode(type: API.IonFormValue.self, """
         {
             "name": "stateHandle",
             "required": true,
@@ -153,7 +153,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testFormValueWithCompositeValue() throws {
-        try decode(type: API.Response.FormValue.self, """
+        try decode(type: API.IonFormValue.self, """
           {
             "label": "Email",
             "value": {
@@ -180,7 +180,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertNotNil(obj)
             XCTAssertEqual(obj.label, "Email")
             
-            let form = obj.value?.toAnyObject() as? API.Response.CompositeForm
+            let form = obj.value?.toAnyObject() as? API.IonCompositeForm
             XCTAssertNotNil(form)
             XCTAssertEqual(form?.form.value.count, 2)
             
@@ -190,7 +190,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testFormValueWithNestedForm() throws {
-        try decode(type: API.Response.FormValue.self, """
+        try decode(type: API.IonFormValue.self, """
         {
             "name": "credentials",
             "type": "object",
@@ -216,7 +216,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testFormValueWithOptions() throws {
-        try decode(type: API.Response.FormValue.self, """
+        try decode(type: API.IonFormValue.self, """
           {
             "name": "authenticator",
             "type": "object",
@@ -236,7 +236,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testFormValueWithOptionsContainingCompositeValue() throws {
-        try decode(type: API.Response.FormValue.self, """
+        try decode(type: API.IonFormValue.self, """
         {
            "name" : "authenticator",
            "options" : [
@@ -303,7 +303,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testFormValueWithMessages() throws {
-        try decode(type: API.Response.FormValue.self, """
+        try decode(type: API.IonFormValue.self, """
         {
            "label" : "Answer",
            "messages" : {
@@ -342,7 +342,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testResponseWithMessages() throws {
-        try decode(type: API.Response.self, """
+        try decode(type: API.IonResponse.self, """
         {
            "app" : {
               "type" : "object",
@@ -408,7 +408,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testMessage() throws {
-        try decode(type: API.Response.Message.self, """
+        try decode(type: API.IonMessage.self, """
          {
             "class" : "ERROR",
             "i18n" : {
@@ -430,7 +430,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testMessageWithEmptyLocKey() throws {
-        try decode(type: API.Response.Message.self, """
+        try decode(type: API.IonMessage.self, """
          {
             "class" : "INFO",
             "message" : "Authentication failed"
@@ -449,7 +449,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testApplication() throws {
-        try decode(type: API.Response.IonObject<API.Response.App>.self, """
+        try decode(type: API.IonObject<API.IonApp>.self, """
            {
               "type" : "object",
               "value" : {
@@ -474,7 +474,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testUser() throws {
-        try decode(type: API.Response.IonObject<API.Response.User>.self, """
+        try decode(type: API.IonObject<API.IonUser>.self, """
            {
               "type" : "object",
               "value" : {
@@ -493,7 +493,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testPasswordAuthenticatorWithSettings() throws {
-        try decode(type: API.Response.IonObject<API.Response.Authenticator>.self, """
+        try decode(type: API.IonObject<API.IonAuthenticator>.self, """
         {
           "type" : "object",
           "value" : {
@@ -541,7 +541,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testAuthenticatorWithNullDisplayName() throws {
-        try decode(type: API.Response.IonObject<API.Response.Authenticator>.self, """
+        try decode(type: API.IonObject<API.IonAuthenticator>.self, """
         {
           "type" : "object",
           "value" : {
@@ -567,7 +567,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testIdpRemediation() throws {
-        try decode(type: API.Response.Form.self, """
+        try decode(type: API.IonForm.self, """
         {
             "href": "https://example.com/oauth2/avs2s4i2b4Cwi9PiG4k8/v1/authorize?client_id=O0a4ckjhvkcq2B88m54w9&request_uri=urn:okta:repLWTdpRjdldDJWaVNRMnVKY3pBV0pVeDB5IOI3SFJhVmE0UTlzTEwzdzowb2E0Y2V2TzZ3bGNxQzZtdDR3NA",
             "idp": {
@@ -593,7 +593,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testNumberChallengeCapability() throws {
-        try decode(type: API.Response.IonObject<API.Response.Authenticator>.self, """
+        try decode(type: API.IonObject<API.IonAuthenticator>.self, """
         {
           "type" : "object",
           "value" : {
@@ -624,7 +624,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testOTPAuthenticatorWithSettings() throws {
-        try decode(type: API.Response.IonObject<API.Response.Authenticator>.self, """
+        try decode(type: API.IonObject<API.IonAuthenticator>.self, """
         {
           "type" : "object",
           "value" : {
@@ -662,7 +662,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
     
     func testEnrollPollWithoutRelatedAuthenticators() throws {
-        let obj = try decode(type: API.Response.self,
+        let obj = try decode(type: API.IonResponse.self,
                              Bundle.testResource(fileName: "enroll-poll-response"))
         let publicObj = try Response(client: clientMock, v1: obj)
         let remediation = try XCTUnwrap(publicObj.remediations[.enrollPoll])
@@ -672,7 +672,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     }
 
     func testMultipleRelatedAuthenticators() throws {
-        let obj = try decode(type: API.Response.self,
+        let obj = try decode(type: API.IonResponse.self,
                              Bundle.testResource(fileName: "multiple-select-authenticator-authenticate"))
         let publicObj = try Response(client: clientMock, v1: obj)
         let remediation = try XCTUnwrap(publicObj.remediations[.selectAuthenticatorAuthenticate])

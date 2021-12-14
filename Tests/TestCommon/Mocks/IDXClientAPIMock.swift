@@ -51,13 +51,13 @@ class IDXClientAPIMock: MockBase, IDXClientAPI {
         self.context = context
     }
     
-    func resume(completion: ResponseResult?) {
+    func resume(completion: IDXClient.ResponseResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [:]))
         completion?(result(for: #function))
     }
     
-    func proceed(remediation option: Remediation, completion: ResponseResult?) {
+    func proceed(remediation option: Remediation, completion: IDXClient.ResponseResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "remediation": option as Any,
@@ -65,7 +65,7 @@ class IDXClientAPIMock: MockBase, IDXClientAPI {
         completion?(result(for: #function))
     }
     
-    func exchangeCode(redirect url: URL, completion: TokenResult?) {
+    func exchangeCode(redirect url: URL, completion: IDXClient.TokenResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "redirect": url as Any
@@ -73,7 +73,7 @@ class IDXClientAPIMock: MockBase, IDXClientAPI {
         completion?(result(for: #function))
     }
     
-    func exchangeCode(using remediation: Remediation, completion: TokenResult?) {
+    func exchangeCode(using remediation: Remediation, completion: IDXClient.TokenResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "using": response as Any

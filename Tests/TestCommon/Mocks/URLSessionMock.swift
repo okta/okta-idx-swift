@@ -26,7 +26,7 @@ extension Response {
             throw IDXClientError.invalidHTTPResponse
         }
         
-        let response = try JSONDecoder.idxResponseDecoder.decode(IDXClient.APIVersion1.Response.self, from: data)
+        let response = try JSONDecoder.idxResponseDecoder.decode(IDXClient.APIVersion1.IonResponse.self, from: data)
         return try Response(client: client, v1: response)
     }
 }
