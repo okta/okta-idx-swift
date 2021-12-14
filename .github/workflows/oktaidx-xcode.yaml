@@ -1,4 +1,4 @@
-name: OktaIdx
+name: Xcode Compatibility
 
 on:
   push:

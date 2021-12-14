@@ -1,4 +1,4 @@
-name: OktaIdx Xcode 13.1
+name: Package Managers
 
 on:
   push:
@@ -13,8 +13,6 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_13.1.app/Contents/Developer
     steps:
     - uses: actions/checkout@v2
-    - name: Xcode iOS Unit Tests
-      run: xcodebuild -workspace okta-idx.xcworkspace -scheme "okta-idx-ios" -destination "platform=iOS Simulator,OS=latest,name=iPhone 11" clean test
     - name: Swift Tests
       run: swift test -v
   PackageValidation:
