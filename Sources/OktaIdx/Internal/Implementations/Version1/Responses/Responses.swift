@@ -72,22 +72,22 @@ extension IDXClient.APIVersion1 {
         let parameters: [String:Any]
     }
 
-    final class Response: NSObject, Decodable {
+    final class IonResponse: NSObject, Decodable {
         let stateHandle: String?
         let version: String
         let expiresAt: Date?
         let intent: String?
-        let remediation: IonCollection<Form>?
-        let messages: IonCollection<Message>?
-        let authenticators: IonCollection<Authenticator>?
-        let authenticatorEnrollments: IonCollection<Authenticator>?
-        let currentAuthenticatorEnrollment: IonObject<Authenticator>?
-        let currentAuthenticator: IonObject<Authenticator>?
-        let recoveryAuthenticator: IonObject<Authenticator>?
-        let user: IonObject<User>?
-        let app: IonObject<App>?
-        let successWithInteractionCode: Form?
-        let cancel: Form?
+        let remediation: IonCollection<IonForm>?
+        let messages: IonCollection<IonMessage>?
+        let authenticators: IonCollection<IonAuthenticator>?
+        let authenticatorEnrollments: IonCollection<IonAuthenticator>?
+        let currentAuthenticatorEnrollment: IonObject<IonAuthenticator>?
+        let currentAuthenticator: IonObject<IonAuthenticator>?
+        let recoveryAuthenticator: IonObject<IonAuthenticator>?
+        let user: IonObject<IonUser>?
+        let app: IonObject<IonApp>?
+        let successWithInteractionCode: IonForm?
+        let cancel: IonForm?
         
         struct IonObject<T>: Decodable where T: Decodable {
             let type: String?
@@ -99,17 +99,17 @@ extension IDXClient.APIVersion1 {
             let value: [T]
         }
         
-        struct User: Decodable {
+        struct IonUser: Decodable {
             let id: String?
         }
         
-        struct App: Decodable {
+        struct IonApp: Decodable {
             let id: String
             let label: String
             let name: String
         }
         
-        struct Authenticator: Decodable, IDXIONRelatable {
+        struct IonAuthenticator: Decodable, IDXIONRelatable {
             let displayName: String?
             let id: String?
             let type: String
@@ -118,21 +118,21 @@ extension IDXClient.APIVersion1 {
             let settings: [String:JSONValue]?
             let contextualData: [String:JSONValue]?
             let profile: [String:String]?
-            let send: Form?
-            let resend: Form?
-            let poll: Form?
-            let recover: Form?
+            let send: IonForm?
+            let resend: IonForm?
+            let poll: IonForm?
+            let recover: IonForm?
             
             var relatableIdentifier: String? { id }
             var jsonPath: String?
         }
         
-        struct Form: Decodable {
+        struct IonForm: Decodable {
             let rel: [String]?
             let name: String
             let method: String
             let href: URL
-            let value: [FormValue]?
+            let value: [IonFormValue]?
             let accepts: String?
             let relatesTo: [String]?
             let refresh: Double?
@@ -140,15 +140,15 @@ extension IDXClient.APIVersion1 {
             let idp: [String:String]?
         }
         
-        struct CompositeForm: Decodable {
-            let form: CompositeFormValue
+        struct IonCompositeForm: Decodable {
+            let form: IonCompositeFormValue
         }
         
-        struct CompositeFormValue: Decodable {
-            let value: [FormValue]
+        struct IonCompositeFormValue: Decodable {
+            let value: [IonFormValue]
         }
         
-        struct FormValue: Decodable {
+        struct IonFormValue: Decodable {
             let id: String?
             let name: String?
             let label: String?
@@ -158,10 +158,10 @@ extension IDXClient.APIVersion1 {
             let secret: Bool?
             let visible: Bool?
             let mutable: Bool?
-            let form: CompositeFormValue?
-            let options: [FormValue]?
+            let form: IonCompositeFormValue?
+            let options: [IonFormValue]?
             let relatesTo: String?
-            let messages: IonCollection<Message>?
+            let messages: IonCollection<IonMessage>?
             
             private enum CodingKeys: String, CodingKey {
                 case id, name, required, label, type, value, secret, visible, mutable, options, form, relatesTo, messages
@@ -178,11 +178,11 @@ extension IDXClient.APIVersion1 {
                 visible = try container.decodeIfPresent(Bool.self, forKey: .visible)
                 mutable = try container.decodeIfPresent(Bool.self, forKey: .mutable)
                 relatesTo = try container.decodeIfPresent(String.self, forKey: .relatesTo)
-                options = try container.decodeIfPresent([FormValue].self, forKey: .options)
-                messages = try container.decodeIfPresent(IonCollection<Message>.self, forKey: .messages)
+                options = try container.decodeIfPresent([IonFormValue].self, forKey: .options)
+                messages = try container.decodeIfPresent(IonCollection<IonMessage>.self, forKey: .messages)
 
-                let formObj = try? container.decodeIfPresent(CompositeFormValue.self, forKey: .form)
-                let valueAsCompositeObj = try? container.decodeIfPresent(CompositeForm.self, forKey: .value)
+                let formObj = try? container.decodeIfPresent(IonCompositeFormValue.self, forKey: .form)
+                let valueAsCompositeObj = try? container.decodeIfPresent(IonCompositeForm.self, forKey: .value)
                 let valueAsJsonObj = try? container.decodeIfPresent(JSONValue.self, forKey: .value)
                 
                 if formObj == nil && valueAsCompositeObj != nil {
@@ -199,12 +199,12 @@ extension IDXClient.APIVersion1 {
             }
         }
         
-        struct Message: Codable {
+        struct IonMessage: Codable {
             let type: String
-            let i18n: Localization?
+            let i18n: IonLocalization?
             let message: String
 
-            struct Localization: Codable {
+            struct IonLocalization: Codable {
                 let key: String
             }
             
@@ -215,7 +215,7 @@ extension IDXClient.APIVersion1 {
             init(from decoder: Decoder) throws {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
                 type = try container.decode(String.self, forKey: .type)
-                i18n = try container.decodeIfPresent(Localization.self, forKey: .i18n)
+                i18n = try container.decodeIfPresent(IonLocalization.self, forKey: .i18n)
                 message = try container.decode(String.self, forKey: .message)
             }
         }
@@ -223,7 +223,7 @@ extension IDXClient.APIVersion1 {
     }
     
     /// Internal OIE API v1.0.0 token response.
-    final class Token: NSObject, Decodable {
+    final class IonToken: NSObject, Decodable {
         let tokenType: String
         let expiresIn: Int
         let accessToken: String

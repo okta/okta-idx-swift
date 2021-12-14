@@ -51,13 +51,13 @@ class IDXClientAPIMock: MockBase, IDXClientAPI {
         self.context = context
     }
     
-    func resume(completion: IDXClient.ResponseResult?) {
+    func resume(completion: ResponseResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [:]))
         completion?(result(for: #function))
     }
     
-    func proceed(remediation option: IDXClient.Remediation, completion: IDXClient.ResponseResult?) {
+    func proceed(remediation option: Remediation, completion: ResponseResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "remediation": option as Any,
@@ -65,7 +65,7 @@ class IDXClientAPIMock: MockBase, IDXClientAPI {
         completion?(result(for: #function))
     }
     
-    func exchangeCode(redirect url: URL, completion: IDXClient.TokenResult?) {
+    func exchangeCode(redirect url: URL, completion: TokenResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "redirect": url as Any
@@ -73,7 +73,7 @@ class IDXClientAPIMock: MockBase, IDXClientAPI {
         completion?(result(for: #function))
     }
     
-    func exchangeCode(using remediation: IDXClient.Remediation, completion: IDXClient.TokenResult?) {
+    func exchangeCode(using remediation: Remediation, completion: TokenResult?) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "using": response as Any
@@ -108,12 +108,12 @@ class IDXClientAPIv1Mock: MockBase, IDXClientAPIImpl {
         completion(result(for: #function))
     }
     
-    func resume(completion: @escaping (Result<IDXClient.Response, IDXClientError>) -> Void) {
+    func resume(completion: @escaping (Result<Response, IDXClientError>) -> Void) {
         recordedCalls.append(RecordedCall(function: #function, arguments: nil))
         completion(result(for: #function))
     }
     
-    func proceed(remediation option: IDXClient.Remediation, completion: @escaping (Result<IDXClient.Response, IDXClientError>) -> Void) {
+    func proceed(remediation option: Remediation, completion: @escaping (Result<Response, IDXClientError>) -> Void) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "remediation": option as Any,
@@ -130,7 +130,7 @@ class IDXClientAPIv1Mock: MockBase, IDXClientAPIImpl {
         return result?["result"] as? IDXClient.RedirectResult ?? .invalidContext
     }
     
-    func exchangeCode(redirect url: URL, completion: @escaping (Result<IDXClient.Token, IDXClientError>) -> Void) {
+    func exchangeCode(redirect url: URL, completion: @escaping (Result<Token, IDXClientError>) -> Void) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "redirect": url as Any
@@ -138,7 +138,7 @@ class IDXClientAPIv1Mock: MockBase, IDXClientAPIImpl {
         completion(result(for: #function))
     }
 
-    func exchangeCode(using remediation: IDXClient.Remediation, completion: @escaping (Result<IDXClient.Token, IDXClientError>) -> Void) {
+    func exchangeCode(using remediation: Remediation, completion: @escaping (Result<Token, IDXClientError>) -> Void) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "using": remediation as Any
@@ -155,7 +155,7 @@ class IDXClientAPIv1Mock: MockBase, IDXClientAPIImpl {
         completion(result(for: #function))
     }
     
-    func refresh(token: IDXClient.Token, completion: @escaping (Result<IDXClient.Token, IDXClientError>) -> Void) {
+    func refresh(token: Token, completion: @escaping (Result<Token, IDXClientError>) -> Void) {
         recordedCalls.append(RecordedCall(function: #function,
                                           arguments: [
                                             "token": token as Any

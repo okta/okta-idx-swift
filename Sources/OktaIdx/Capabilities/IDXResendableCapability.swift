@@ -29,9 +29,9 @@ extension Capability {
         }
         
         internal private(set) weak var client: IDXClientAPI?
-        internal let remediation: IDXClient.Remediation
+        internal let remediation: Remediation
         internal init(client: IDXClientAPI,
-                      remediation: IDXClient.Remediation)
+                      remediation: Remediation)
         {
             self.client = client
             self.remediation = remediation
@@ -43,7 +43,7 @@ extension Capability {
 @available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
 extension Capability.Resendable {
     /// Resends a new authentication code.
-    public func resend() async throws -> IDXClient.Response {
+    public func resend() async throws -> Response {
         try await withCheckedThrowingContinuation { continuation in
             resend() { result in
                 continuation.resume(with: result)

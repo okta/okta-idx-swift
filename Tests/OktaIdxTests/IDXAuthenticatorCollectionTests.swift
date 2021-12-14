@@ -17,7 +17,7 @@ import XCTest
 @testable import TestCommon
 #endif
 
-class IDXAuthenticatorCollectionTests: XCTestCase {
+class IDXAuthenticator.CollectionTests: XCTestCase {
     let configuration = IDXClient.Configuration(issuer: "https://foo.oktapreview.com/oauth2/default",
                                                 clientId: "clientId",
                                                 clientSecret: "clientSecret",
@@ -38,7 +38,7 @@ class IDXAuthenticatorCollectionTests: XCTestCase {
     }
 
     func testCurrentAuthenticatorWithoutRelatesTo() throws {
-        let response = try XCTUnwrap(IDXClient.Response.response(client: client,
+        let response = try XCTUnwrap(Response.response(client: client,
                                                                  fileName: "identify-single-form-response"))
         XCTAssertEqual(response.authenticators.count, 1)
         XCTAssertEqual(response.authenticators.first?.type, .password)
@@ -49,7 +49,7 @@ class IDXAuthenticatorCollectionTests: XCTestCase {
     }
     
     func testAuthenticatorEnrollmentWithoutId() throws {
-        let response = try XCTUnwrap(IDXClient.Response.response(client: client,
+        let response = try XCTUnwrap(Response.response(client: client,
                                                                  fileName: "account-recovery"))
         
         let remediation = try XCTUnwrap(response.remediations[.selectAuthenticatorAuthenticate])

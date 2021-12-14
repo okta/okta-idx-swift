@@ -278,7 +278,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(option?.form?.value[0].name, "id")
             XCTAssertEqual(option?.form?.value[1].name, "methodType")
             
-            let publicObj = IDXClient.Remediation.Form.Field(client: clientMock, v1: obj)
+            let publicObj = Remediation.Form.Field(client: clientMock, v1: obj)
             XCTAssertNotNil(publicObj)
             XCTAssertEqual(publicObj.name, "authenticator")
             XCTAssertEqual(publicObj.type, "object")
@@ -331,7 +331,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(obj.messages?.value[0].i18n?.key, "authfactor.challenge.question_factor.answer_invalid")
             XCTAssertEqual(obj.messages?.value[0].message, "Your answer doesn't match our records. Please try again.")
             
-            let publicObj = IDXClient.Remediation.Form.Field(client: clientMock, v1: obj)
+            let publicObj = Remediation.Form.Field(client: clientMock, v1: obj)
             XCTAssertNotNil(publicObj)
             XCTAssertNotNil(publicObj.messages)
             XCTAssertEqual(publicObj.messages.count, 1)
@@ -397,7 +397,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(obj.messages?.value[0].i18n?.key, "errors.E0000004")
             XCTAssertEqual(obj.messages?.value[0].message, "Authentication failed")
             
-            let publicObj = try IDXClient.Response(client: clientMock, v1: obj)
+            let publicObj = try Response(client: clientMock, v1: obj)
             XCTAssertNotNil(publicObj)
             XCTAssertNotNil(publicObj.messages)
             XCTAssertEqual(publicObj.messages.count, 1)
@@ -527,7 +527,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(obj.type, "object")
             XCTAssertEqual(obj.value.id, "lae8wj8nnjB3BrbcH0g6")
 
-            let publicObj = try XCTUnwrap(IDXClient.Authenticator.makeAuthenticator(client: clientMock,
+            let publicObj = try XCTUnwrap(Authenticator.makeAuthenticator(client: clientMock,
                                                                                     v1: [obj.value],
                                                                                     jsonPaths: [],
                                                                                     in: response))
@@ -556,7 +556,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertNil(obj.value.displayName)
             XCTAssertNil(obj.value.methods)
 
-            let publicObj = try XCTUnwrap(IDXClient.Authenticator.makeAuthenticator(client: clientMock,
+            let publicObj = try XCTUnwrap(Authenticator.makeAuthenticator(client: clientMock,
                                                                                     v1: [obj.value],
                                                                                     jsonPaths: [],
                                                                                     in: response))
@@ -585,7 +585,7 @@ class IDXClientV1ResponseTests: XCTestCase {
             XCTAssertEqual(obj.name, "redirect-idp")
             XCTAssertEqual(obj.type, "FACEBOOK")
 
-            let publicObj = try XCTUnwrap(IDXClient.Remediation.makeRemediation(client: clientMock, v1: obj))
+            let publicObj = try XCTUnwrap(Remediation.makeRemediation(client: clientMock, v1: obj))
             XCTAssertEqual(publicObj.socialIdp?.redirectUrl, URL(string: "https://example.com/oauth2/avs2s4i2b4Cwi9PiG4k8/v1/authorize?client_id=O0a4ckjhvkcq2B88m54w9&request_uri=urn:okta:repLWTdpRjdldDJWaVNRMnVKY3pBV0pVeDB5IOI3SFJhVmE0UTlzTEwzdzowb2E0Y2V2TzZ3bGNxQzZtdDR3NA"))
             XCTAssertEqual(publicObj.socialIdp?.service, .facebook)
             XCTAssertEqual(publicObj.socialIdp?.idpName, "Facebook IdP")
@@ -612,7 +612,7 @@ class IDXClientV1ResponseTests: XCTestCase {
           }
         }
         """) { (obj) in
-            let publicObj = try XCTUnwrap(IDXClient.Authenticator.makeAuthenticator(client: clientMock,
+            let publicObj = try XCTUnwrap(Authenticator.makeAuthenticator(client: clientMock,
                                                                                     v1: [obj.value],
                                                                                     jsonPaths: [],
                                                                                     in: response))
@@ -648,7 +648,7 @@ class IDXClientV1ResponseTests: XCTestCase {
           }
         }
         """) { (obj) in
-            let publicObj = try XCTUnwrap(IDXClient.Authenticator.makeAuthenticator(client: clientMock,
+            let publicObj = try XCTUnwrap(Authenticator.makeAuthenticator(client: clientMock,
                                                                                     v1: [obj.value],
                                                                                     jsonPaths: [],
                                                                                     in: response))
@@ -664,7 +664,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     func testEnrollPollWithoutRelatedAuthenticators() throws {
         let obj = try decode(type: API.Response.self,
                              Bundle.testResource(fileName: "enroll-poll-response"))
-        let publicObj = try IDXClient.Response(client: clientMock, v1: obj)
+        let publicObj = try Response(client: clientMock, v1: obj)
         let remediation = try XCTUnwrap(publicObj.remediations[.enrollPoll])
         XCTAssertEqual(publicObj.authenticators.current, remediation.authenticators.current)
         
@@ -674,7 +674,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     func testMultipleRelatedAuthenticators() throws {
         let obj = try decode(type: API.Response.self,
                              Bundle.testResource(fileName: "multiple-select-authenticator-authenticate"))
-        let publicObj = try IDXClient.Response(client: clientMock, v1: obj)
+        let publicObj = try Response(client: clientMock, v1: obj)
         let remediation = try XCTUnwrap(publicObj.remediations[.selectAuthenticatorAuthenticate])
         let firstOption = try XCTUnwrap(remediation["authenticator"]?.options?[0])
         let secondOption = try XCTUnwrap(remediation["authenticator"]?.options?[1])
