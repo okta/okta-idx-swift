@@ -211,8 +211,15 @@ extension IDXClient {
     public static func start(with configuration: Configuration,
                              state: String? = nil) async throws -> IDXClient
     {
+        let api = Version.latest.clientImplementation(with: configuration)
+        return try await start(with: api, state: state)
+    }
+
+    static func start(with api: IDXClientAPIImpl,
+                      state: String? = nil) async throws -> IDXClient
+    {
         try await withCheckedThrowingContinuation { continuation in
-            start(with: configuration, state: state) { result in
+            start(with: api, state: state) { result in
                 continuation.resume(with: result)
             }
         }
