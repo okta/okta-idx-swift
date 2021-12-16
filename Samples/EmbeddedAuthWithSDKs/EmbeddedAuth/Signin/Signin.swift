@@ -71,12 +71,10 @@ public class Signin {
         case .skip:
             return "Skip"
             
-        case .selectEnrollProfile: fallthrough
-        case .enrollProfile:
+        case .selectEnrollProfile, .enrollProfile:
             return "Sign Up"
             
-        case .selectIdentify: fallthrough
-        case .identify:
+        case .selectIdentify, .identify:
             return "Sign In"
             
         case .redirectIdp:

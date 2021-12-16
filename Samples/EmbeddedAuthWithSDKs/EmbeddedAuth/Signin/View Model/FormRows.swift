@@ -175,12 +175,10 @@ extension Remediation.Form.Field {
 extension Remediation {
     class func title(for type: Remediation.RemediationType) -> String {
         switch type {
-        case .selectEnrollProfile: fallthrough
-        case .enrollProfile:
+        case .selectEnrollProfile, .enrollProfile:
             return "Sign Up"
             
-        case .selectIdentify: fallthrough
-        case .identify:
+        case .selectIdentify, .identify:
             return "Sign In"
         
         case .challengeAuthenticator:
@@ -195,12 +193,10 @@ extension Remediation {
         case .cancel:
             return "Restart"
             
-        case .enrollPoll: fallthrough
-        case .challengePoll:
+        case .enrollPoll, .challengePoll:
             return "Verify"
             
-        case .unlockAccount: fallthrough
-        case .selectAuthenticatorUnlockAccount:
+        case .unlockAccount, .selectAuthenticatorUnlockAccount:
             return "Unlock Account"
             
         default:
@@ -209,7 +205,7 @@ extension Remediation {
     }
     
     var title: String {
-        return Remediation.title(for: type)
+        Remediation.title(for: type)
     }
 }
 

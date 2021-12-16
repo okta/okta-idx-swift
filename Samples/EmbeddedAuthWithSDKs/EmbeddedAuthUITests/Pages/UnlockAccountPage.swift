@@ -65,9 +65,6 @@ struct UnlockAccountPage {
             app.pickers.firstMatch.pickerWheels.firstMatch.adjust(toPickerWheelValue: "Voice")
         case .email: break
         }
-        
-        // Picker issue
-        Thread.sleep(forTimeInterval: 2)
     }
 
     func unlock(username: String, factor: A18NProfile.MessageType) {
@@ -88,6 +85,9 @@ struct UnlockAccountPage {
                 //       OKTA-453278
                 unlockButton.tap()
                 
+                // Picker issue
+                Thread.sleep(forTimeInterval: 2)
+
                 selectPickerWheel(for: factor)
             }
             
