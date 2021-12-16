@@ -36,8 +36,8 @@ class Scenario {
         
         return Credentials(username: username,
                            password: password,
-                           firstName: "ios",
-                           lastName: "User")
+                           firstName: "Mary",
+                           lastName: "Acme")
     }
     
     private(set) var profile: A18NProfile? {

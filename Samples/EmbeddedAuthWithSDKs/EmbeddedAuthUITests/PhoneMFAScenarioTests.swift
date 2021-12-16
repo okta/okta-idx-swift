@@ -103,7 +103,6 @@ final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
                 factorsPage.selectPickerWheel(.sms)
             }
             
-            XCTAssertTrue(factorsPage.phoneNumberLabel.waitForExistence(timeout: .regular))
             XCTAssertTrue(factorsPage.phoneNumberField.exists)
             
             factorsPage.phoneNumberField.tap()
@@ -113,7 +112,7 @@ final class PhoneMFAEnrollScenarioTests: ScenarioTestCase {
             }
             
             test("AND She selects 'Receive a Code'") {
-                factorsPage.continueButton.tap()
+                factorsPage.continueButton.firstMatch.tap()
             }
         }
         
@@ -131,6 +130,8 @@ final class PhoneMFALoginScenarioTests: ScenarioTestCase {
         
         try? scenario.resetMessages(.sms)
         try scenario.createUser(enroll: [.sms], groups: [.mfa, .phoneEnrollment])
+
+        initialSignInButton.tap()
     }
     
     override func tearDownWithError() throws {

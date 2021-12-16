@@ -95,7 +95,7 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
         fillInPhonePage(phone: "1230871234567")
         
         test("THEN she should see an error message") {
-            XCTAssertTrue(app.tables.staticTexts["Unable to initiate factor enrollment: Invalid Phone Number."].waitForExistence(timeout: .regular))
+            XCTAssertTrue(app.tables.staticTexts["Invalid Phone Number."].waitForExistence(timeout: .regular))
         }
     }
     
@@ -247,6 +247,11 @@ class SelfServiceRegistrationScenarioTests: ScenarioTestCase {
             
             test("WHEN she selects Phone from the list") {
                 factorsPage.phoneLabel.tap()
+                
+                // NOTE: There's currently a bug that prevents the select-authenticator form
+                //       from working when filling out the phone number at that time.
+                //       OKTA-453278
+                factorsPage.continueButton.tap()
                 
                 // Picker issue
                 Thread.sleep(forTimeInterval: 2)

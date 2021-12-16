@@ -21,7 +21,7 @@ struct SignInFormPage {
     
     private let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
     
-    var facebookSignInButton: XCUIElement { app.buttons["Login with Facebook"] }
+    var socialLoginButton: XCUIElement { app.buttons["Social Login"] }
     
     var socialAuthContinueButton: XCUIElement {
         springboard.buttons["Continue"]

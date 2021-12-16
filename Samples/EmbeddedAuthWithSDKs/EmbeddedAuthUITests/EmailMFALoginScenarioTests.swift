@@ -57,11 +57,6 @@ final class EmailMFALoginScenarioTests: ScenarioTestCase {
             test("AND She selects 'Verify'") {
                 codePage.continueButton.tap()
             }
-            
-            test("THEN skips additional authenticators") {
-                let factorPage = FactorsEnrollmentPage(app: app)
-                factorPage.skipButton.tap()
-            }
         }
         
         let userInfoPage = UserInfoPage(app: app)

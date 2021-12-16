@@ -43,7 +43,8 @@ struct UnlockAccountPage {
     
     var phonePicker: XCUIElement { app.pickers.firstMatch }
 
-    var continueButton: XCUIElement { app.buttons["button.Unlock Account"] }
+    var unlockButton: XCUIElement { app.buttons["button.Unlock Account"] }
+    var nextButton: XCUIElement { app.buttons["button.Next"] }
     
     func button(for factor: A18NProfile.MessageType) -> XCUIElement? {
         switch factor {
@@ -59,11 +60,14 @@ struct UnlockAccountPage {
     func selectPickerWheel(for factor: A18NProfile.MessageType) {
         switch factor {
         case .sms:
-            phonePicker.pickerWheels.firstMatch.adjust(toPickerWheelValue: "SMS")
+            app.pickers.firstMatch.pickerWheels.firstMatch.adjust(toPickerWheelValue: "SMS")
         case .voice:
-            phonePicker.pickerWheels.firstMatch.adjust(toPickerWheelValue: "Voice")
+            app.pickers.firstMatch.pickerWheels.firstMatch.adjust(toPickerWheelValue: "Voice")
         case .email: break
         }
+        
+        // Picker issue
+        Thread.sleep(forTimeInterval: 2)
     }
 
     func unlock(username: String, factor: A18NProfile.MessageType) {
@@ -78,11 +82,17 @@ struct UnlockAccountPage {
             
             test("AND selects the \(factor.rawValue) method") {
                 button(for: factor)?.tap()
+                
+                // NOTE: There's currently a bug that prevents the select-authenticator form
+                //       from working when filling out the phone number at that time.
+                //       OKTA-453278
+                unlockButton.tap()
+                
                 selectPickerWheel(for: factor)
             }
             
             test("AND she submits the unlock form") {
-                self.continueButton.tap()
+                nextButton.tap()
             }
         }
     }
