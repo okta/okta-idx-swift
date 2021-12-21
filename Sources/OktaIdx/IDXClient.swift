@@ -19,7 +19,7 @@ import Foundation
 public final class IDXClient: NSObject {
     /// Options to use when initiating an IDXClient.
     public enum Option: String {
-        /// Option used when a client needs to supply its own custom state pvalue when initiating an IDXClient.
+        /// Option used when a client needs to supply its own custom state value when initiating an IDXClient.
         case state
         
         /// Option used when a user is authenticating using a recovery token.
