@@ -35,6 +35,10 @@ extension Remediation {
         /// The array of ordered user-visible fields within this form. Each field may also contain nested forms for collections of related fields.
         @objc public let fields: [Field]
         
+        public static func != (lhs: Form, rhs: Form) -> Bool {
+            lhs.allFields == rhs.allFields
+        }
+
         let allFields: [Field]
 
         init?(fields: [Field]?) {

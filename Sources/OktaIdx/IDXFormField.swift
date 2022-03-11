@@ -112,6 +112,20 @@ extension Remediation.Form {
             return false
         }()
 
+        public static func == (lhs: Field, rhs: Field) -> Bool {
+            lhs.name == rhs.name &&
+            lhs.label == rhs.label &&
+            lhs.type == rhs.type &&
+            lhs.isMutable == rhs.isMutable &&
+            lhs.isRequired == rhs.isRequired &&
+            lhs.isSecret == rhs.isSecret &&
+            lhs.form == rhs.form &&
+            lhs.options == rhs.options &&
+            lhs.isSelectedOption == rhs.isSelectedOption &&
+            (lhs.value == nil && rhs.value == nil ||
+             (lhs.value != nil && rhs.value != nil && lhs.isEqual(rhs)))
+        }
+
         internal init(name: String? = nil,
                       label: String? = nil,
                       type: String? = nil,
