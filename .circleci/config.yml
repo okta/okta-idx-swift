@@ -11,17 +11,26 @@ jobs:
     steps:
       - checkout
       - run: swift build
-  test:
+  unit-test:
+    parameters: 
+      ios-version:
+        type: string
     macos:
       xcode: 13.2.1
     steps:
       - checkout
-      - run: swift test
+      - run: fastlane scan -w okta-idx.xcworkspace -s okta-idx-ios --deployment_target_version << parameters.ios-version >>
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  build-and-test:
+  build:
     jobs:
       - build
-      - test
+  test:
+    jobs:
+      - unit-test:
+        matrix:
+          parameters:
+            ios-version: ["15.4", "14.4", "12.4"]
