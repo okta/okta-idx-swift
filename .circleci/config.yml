@@ -6,6 +6,9 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
+    parameters: 
+      xcode-version:
+        type: string
     macos:
       xcode: 13.2.1
     steps:
@@ -17,10 +20,10 @@ jobs:
         type: string
     macos:
       xcode: 13.2.1
+    parallelism: 4
     steps:
       - checkout
       - run: fastlane scan -w okta-idx.xcworkspace -s okta-idx-ios --deployment_target_version << parameters.ios-version >>
-
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
