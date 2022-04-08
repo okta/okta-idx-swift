@@ -31,6 +31,6 @@ workflows:
   test:
     jobs:
       - unit-test:
-        matrix:
-          parameters:
-            ios-version: ["15.4", "14.4", "12.4"]
+          matrix:
+            parameters:
+              ios-version: ["15.4", "14.4", "12.4"]
