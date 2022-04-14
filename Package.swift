@@ -6,15 +6,21 @@ import PackageDescription
 let package = Package(
     name: "OktaIdx",
     platforms: [
-        .macOS(.v10_10),
+        .macOS(.v10_11),
         .iOS(.v10)
     ],
     products: [
         .library(name: "OktaIdx",
                  targets: [ "OktaIdx" ])
     ],
+    dependencies: [
+        .package(name: "AuthFoundation",
+                 url: "https://github.com/okta/okta-mobile-swift",
+                 branch: "man-OKTA-484828-IDXUpdates")
+    ],
     targets: [
         .target(name: "OktaIdx",
+                dependencies: [ "AuthFoundation" ],
                 exclude: ["Info.plist"]),
         .target(name: "TestCommon",
                 dependencies: [ "OktaIdx" ],

@@ -12,55 +12,30 @@
 
 import Foundation
 
-extension IDXClient.Message {
+extension Response.Message {
     /// Represents a collection of messages.
-    @objc(IDXMessageCollection)
-    public class Collection: NSObject {
+    public class Collection {
         /// Convenience to return the message associated with the given field.
-        @objc(messageForField:)
-        public func message(for field: Remediation.Form.Field) -> IDXClient.Message? {
+        public func message(for field: Remediation.Form.Field) -> Response.Message? {
             return allMessages.first(where: { $0.field == field })
         }
         
         /// Convenience method to return the message for a field with the given name.
-        @objc(messageForFieldNamed:)
-        public func message(for fieldName: String) -> IDXClient.Message? {
+        public func message(for fieldName: String) -> Response.Message? {
             return allMessages.first(where: { $0.field?.name == fieldName })
         }
         
-        @objc public var allMessages: [IDXClient.Message] {
+        public var allMessages: [Response.Message] {
             guard let nestedMessages = nestedMessages else { return messages }
             return messages + nestedMessages.compactMap { $0.object }
         }
         
-        var nestedMessages: [Weak<IDXClient.Message>]?
+        var nestedMessages: [Weak<Response.Message>]?
 
-        let messages: [IDXClient.Message]
-        init(messages: [IDXClient.Message]?, nestedMessages: [IDXClient.Message]? = nil) {
+        let messages: [Response.Message]
+        init(messages: [Response.Message]?, nestedMessages: [Response.Message]? = nil) {
             self.messages = messages ?? []
             self.nestedMessages = nestedMessages?.map { Weak(object: $0) }
-
-            super.init()
-        }
-        
-        public override var description: String {
-            let logger = DebugDescription(self)
-            let components = [logger.address()]
-
-            return logger.brace(components.joined(separator: "; "))
-        }
-        
-        public override var debugDescription: String {
-            let logger = DebugDescription(self)
-            let components = [
-                "\(logger.format(messages.map(\.debugDescription), indent: .zero))"
-            ]
-            
-            return """
-            \(description) {
-            \(logger.format(components, indent: 4))
-            }
-            """
         }
     }
 }

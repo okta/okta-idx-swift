@@ -11,105 +11,68 @@
  */
 
 import Foundation
+import AuthFoundation
 
-extension IDXClient.APIVersion1.TokenRequest: IDXClientAPIRequest {
-    typealias ResponseType = IDXClient.APIVersion1.IonToken
-    
-    init(successResponse option: Remediation) throws {
-        guard let accepts = option.accepts,
-              let acceptType = IDXClient.APIVersion1.AcceptType(rawValue: accepts) else
-        {
-            throw IDXClientError.invalidRequestData
-        }
-        
-        self.init(method: option.method,
-                  href: option.href,
-                  accepts: acceptType,
-                  parameters: try option.form.formValues())
-    }
-    
-    init(issuer url: URL, clientId: String, clientSecret: String?, codeVerifier: String?, grantType: String, code: String) {
-        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
-
-        let path = urlComponents?.path ?? ""
-        urlComponents?.path = path + "/v1/token"
-        
-        let tokenUrl = urlComponents?.url ?? url
-        
-        var parameters = [
-            "client_id": clientId,
-            "grant_type": grantType,
-            grantType: code
-        ]
-        
-        if let clientSecret = clientSecret {
-            parameters["client_secret"] = clientSecret
-        }
-        
-        if let codeVerifier = codeVerifier {
-            parameters["code_verifier"] = codeVerifier
-        }
-        
-        self.init(method: "POST",
-                  href: tokenUrl,
-                  accepts: .formEncoded,
-                  parameters: parameters)
-    }
-    
-    func urlRequest(using configuration: IDXClient.Configuration) -> URLRequest? {
-        let data: Data?
-        do {
-            data = try accepts.encodedData(with: parameters)
-        } catch {
-            return nil
-        }
-
-        var request = URLRequest(url: href)
-        request.httpMethod = method
-        request.httpBody = data
-        request.addValue(accepts.stringValue(), forHTTPHeaderField: "Content-Type")
-        httpHeaders.forEach { (key, value) in
-            if request.allHTTPHeaderFields?[key] == nil {
-                request.setValue(value, forHTTPHeaderField: key)
-            }
-        }
-
-        return request
+extension IDXAuthenticationFlow {
+    struct SuccessResponseTokenRequest {
+        let httpMethod: APIRequestMethod
+        let url: URL
+        let accepts: APIContentType
+        let bodyParameters: [String : Any]
+        let clientId: String
     }
 
-    func send(to session: URLSessionProtocol,
-              using configuration: IDXClient.Configuration,
-              completion: @escaping (Result<ResponseType, IDXClientError>) -> Void)
+    struct RedirectURLTokenRequest {
+        let openIdConfiguration: OpenIdConfiguration
+        let clientId: String
+        let interactionCode: String
+        let pkce: PKCE
+    }
+}
+
+extension IDXAuthenticationFlow.SuccessResponseTokenRequest: OAuth2TokenRequest {
+    init(successResponse option: Remediation,
+         clientId: String,
+         context: IDXAuthenticationFlow.Context) throws
     {
-        guard let request = urlRequest(using: configuration) else {
-            completion(.failure(.cannotCreateRequest))
-            return
+        guard let method = APIRequestMethod(rawValue: option.method),
+              let accepts = APIContentType(rawValue: option.accepts ?? APIContentType.json.rawValue)
+        else {
+            throw IDXAuthenticationFlowError.cannotCreateRequest
         }
         
-        let task = session.dataTaskWithRequest(with: request) { (data, response, error) in
-            guard error == nil else {
-                completion(.failure(.internalError(error!)))
-                return
+        let parameters: [String:Any] = option.form.allFields.reduce(into: [:]) { partialResult, field in
+            guard let name = field.name else { return }
+            switch name {
+            case "client_id":
+                partialResult[name] = clientId
+            case "code_verifier":
+                partialResult[name] = context.pkce.codeVerifier
+            default:
+                guard let value = field.value else { return }
+                partialResult[name] = value
             }
-            
-            guard let data = data else {
-                completion(.failure(.invalidResponseData))
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            let result: ResponseType!
-            do {
-                result = try decoder.decode(ResponseType.self, from: data)
-            } catch {
-                completion(.failure(.internalError(error)))
-                return
-            }
-
-            completion(.success(result))
         }
-        task.resume()
+
+        self.clientId = clientId
+        self.httpMethod = method
+        self.url = option.href
+        self.accepts = accepts
+        self.bodyParameters = parameters
+    }
+}
+
+extension IDXAuthenticationFlow.RedirectURLTokenRequest: OAuth2TokenRequest {
+    var httpMethod: APIRequestMethod { .post }
+    var url: URL { openIdConfiguration.tokenEndpoint }
+    var contentType: APIContentType? { .formEncoded }
+    var acceptsType: APIContentType? { .json }
+    var bodyParameters: [String : Any]? {
+        [
+            "client_id": clientId,
+            "grant_type": "interaction_code",
+            "code": interactionCode,
+            "code_verifier": pkce.codeVerifier
+        ]
     }
 }

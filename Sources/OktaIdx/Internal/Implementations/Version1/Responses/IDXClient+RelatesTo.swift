@@ -104,7 +104,7 @@ extension Remediation: IDXHasRelatedObjects {
         }) ?? []
         
         guard authenticatorObjects.count == calculatedRelatesTo?.count ?? 0 else {
-            throw IDXClientError.missingRelatedObject
+            throw IDXAuthenticationFlowError.missingRelatedObject
         }
         
         // Work-around for the password authenticator not being associated with the identify remediation.
@@ -140,7 +140,7 @@ extension Remediation.Form.Field: IDXHasRelatedObjects {
     func findRelatedObjects(using jsonMapping: [String: IDXHasRelatedObjects]) throws {
         guard let relatesTo = relatesTo else { return }
         guard let mappedAuthenticator = jsonMapping[relatesTo] as? Authenticator else {
-            throw IDXClientError.missingRelatedObject
+            throw IDXAuthenticationFlowError.missingRelatedObject
         }
         authenticator = mappedAuthenticator
     }

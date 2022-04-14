@@ -12,11 +12,4 @@
 
 import Foundation
 
-extension IDXClient {
-    /// The Okta Identity Engine API version to use.
-    @objc(IDXAPIVersion)
-    public enum Version: Int, Codable {
-        /// API version 1.0.0
-        case v1_0_0
-    }
-}
+public let Version = SDKVersion(sdk: "okta-idx-swift", version: "3.0.0")

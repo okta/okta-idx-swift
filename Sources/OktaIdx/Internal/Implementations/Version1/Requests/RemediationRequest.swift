@@ -11,72 +11,33 @@
  */
 
 import Foundation
+import AuthFoundation
 
-extension IDXClient.APIVersion1.RemediationRequest: IDXClientAPIRequest, ReceivesIDXResponse {
-    typealias ResponseType = IDXClient.APIVersion1.IonResponse
+extension IDXAuthenticationFlow {
+    struct RemediationRequest {
+        let httpMethod: APIRequestMethod
+        let url: URL
+        let contentType: APIContentType?
+        let bodyParameters: [String : Any]?
+    }
+}
+
+extension IDXAuthenticationFlow.RemediationRequest: APIRequest, APIRequestBody, ReceivesIDXResponse {
+    typealias ResponseType = IonResponse
     
     init(remediation option: Remediation) throws {
-        guard let accepts = option.accepts,
-              let acceptType = IDXClient.APIVersion1.AcceptType(rawValue: accepts) else
-        {
-            throw IDXClientError.invalidRequestData
+        guard let acceptsString = option.accepts,
+              let accepts = APIContentType(rawValue: acceptsString),
+              let method = APIRequestMethod(rawValue: option.method)
+        else {
+            throw IDXAuthenticationFlowError.invalidRequestData
         }
         
-        self.init(method: option.method,
-                  href: option.href,
-                  accepts: acceptType,
-                  parameters: try option.form.formValues())
+        self.url = option.href
+        self.httpMethod = method
+        self.contentType = accepts
+        self.bodyParameters = try option.form.formValues()
     }
     
-    func urlRequest(using configuration: IDXClient.Configuration) -> URLRequest? {
-        let data: Data?
-        do {
-            data = try accepts.encodedData(with: parameters)
-        } catch {
-            return nil
-        }
-
-        var request = URLRequest(url: href)
-        request.httpMethod = method
-        request.httpBody = data
-        httpHeaders.forEach { (key, value) in
-            request.addValue(value, forHTTPHeaderField: key)
-        }
-        request.setValue(accepts.stringValue(), forHTTPHeaderField: "Content-Type")
-
-        return request
-    }
-
-    func send(to session: URLSessionProtocol,
-              using configuration: IDXClient.Configuration,
-              completion: @escaping (Result<ResponseType, IDXClientError>) -> Void)
-    {
-        guard let request = urlRequest(using: configuration) else {
-            completion(.failure(.cannotCreateRequest))
-            return
-        }
-        
-        let task = session.dataTaskWithRequest(with: request) { (data, response, error) in
-            guard error == nil else {
-                completion(.failure(.internalError(error!)))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(.invalidResponseData))
-                return
-            }
-            
-            let result: ResponseType!
-            do {
-                result = try self.idxResponse(from: data)
-            } catch {
-                completion(.failure(.internalError(error)))
-                return
-            }
-
-            completion(.success(result))
-        }
-        task.resume()
-    }
+    var acceptsType: APIContentType? { .ionJson }
 }

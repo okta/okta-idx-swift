@@ -18,18 +18,25 @@ import XCTest
 #endif
 
 class IDXRemediationParameterTests: XCTestCase {
-    let clientMock = IDXClientAPIMock(context: .init(configuration: .init(issuer: "https://example.com",
-                                                                          clientId: "Bar",
-                                                                          clientSecret: nil,
-                                                                          scopes: ["scope"],
-                                                                          redirectUri: "redirect:/"),
-                                                     state: "state",
-                                                     interactionHandle: "handle",
-                                                     codeVerifier: "verifier"))
+    var client: OAuth2Client!
+    let urlSession = URLSessionMock()
+    var flowMock: IDXAuthenticationFlowMock!
+    
+    override func setUpWithError() throws {
+        let issuer = try XCTUnwrap(URL(string: "https://example.com/oauth2/default"))
+        client = OAuth2Client(baseURL: issuer,
+                              clientId: "clientId",
+                              scopes: "openid profile",
+                              session: urlSession)
+        
+        let context = try IDXAuthenticationFlow.Context(interactionHandle: "handle", state: "state")
+        
+        flowMock = IDXAuthenticationFlowMock(context: context, client: client)
+    }
 
     func testFlatForm() throws {
         let response = try Response.response(
-            client: clientMock,
+            flow: flowMock,
             folderName: "Passcode",
             fileName: "02-introspect-response")
         XCTAssertNotNil(response)
@@ -53,7 +60,7 @@ class IDXRemediationParameterTests: XCTestCase {
     
     func testNestedForm() throws {
         let response = try Response.response(
-            client: clientMock,
+            flow: flowMock,
             folderName: "Passcode",
             fileName: "03-identify-response")
         XCTAssertNotNil(response)
@@ -78,7 +85,7 @@ class IDXRemediationParameterTests: XCTestCase {
 
     func testNestedFormWithUnnamedOption() throws {
         let response = try Response.response(
-            client: clientMock,
+            flow: flowMock,
             folderName: "MFA-Email",
             fileName: "03-identify-response")
         XCTAssertNotNil(response)
@@ -104,7 +111,7 @@ class IDXRemediationParameterTests: XCTestCase {
 
     func testNestedFormWithCustomizedOption() throws {
         let response = try Response.response(
-            client: clientMock,
+            flow: flowMock,
             folderName: "MFA-SOP",
             fileName: "10-credential-enroll")
         XCTAssertNotNil(response)

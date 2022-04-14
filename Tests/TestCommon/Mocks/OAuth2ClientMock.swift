@@ -11,14 +11,3 @@
 //
 
 import Foundation
-
-extension Token.RevokeType {
-    var tokenTypeHint: String {
-        switch self {
-        case .refreshToken:
-            return "refresh_token"
-        case .accessAndRefreshToken:
-            return "access_token"
-        }
-    }
-}
