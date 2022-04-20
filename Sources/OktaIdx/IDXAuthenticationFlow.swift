@@ -256,6 +256,8 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
             case .success(let configuration):
                 let request = RedirectURLTokenRequest(openIdConfiguration: configuration,
                                                       clientId: self.client.configuration.clientId,
+                                                      scope: self.client.configuration.scopes,
+                                                      redirectUri: self.redirectUri.absoluteString,
                                                       interactionCode: interactionCode,
                                                       pkce: context.pkce)
                 self.client.exchange(token: request) { result in

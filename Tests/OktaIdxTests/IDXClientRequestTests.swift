@@ -107,10 +107,95 @@ class IDXClientRequestTests: XCTestCase {
     }
     
     func testRedirectURLTokenRequest() throws {
+        let openIdConfiguration = try OpenIdConfiguration.jsonDecoder.decode(
+            OpenIdConfiguration.self,
+            from: try data(from: .module,
+                           for: "openid-configuration",
+                           in: "SampleResponses"))
+        let pkce = try XCTUnwrap(PKCE())
         
+        let request = IDXAuthenticationFlow.RedirectURLTokenRequest(openIdConfiguration: openIdConfiguration,
+                                                                    clientId: "clientId",
+                                                                    scope: "all",
+                                                                    redirectUri: "redirect:/uri",
+                                                                    interactionCode: "interaction_code",
+                                                                    pkce: pkce)
+        
+        let urlRequest = try request.request(for: client)
+        XCTAssertEqual(urlRequest.httpMethod, "POST")
+        
+        let url = urlRequest.url?.absoluteString
+        XCTAssertEqual(url, "https://example.com/oauth2/v1/token")
+        
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Content-Type"], "application/x-www-form-urlencoded; charset=UTF-8")
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Accept"], "application/json; charset=UTF-8")
+        
+        let data = try XCTUnwrap(urlRequest.httpBody?.urlFormEncoded())
+        XCTAssertEqual(data.keys.sorted(), ["client_id", "code", "code_verifier", "grant_type"])
+        XCTAssertEqual(data["client_id"], "clientId")
+        XCTAssertEqual(data["code"], "interaction_code")
+        XCTAssertEqual(data["code_verifier"], pkce.codeVerifier)
+        XCTAssertEqual(data["grant_type"], "interaction_code")
     }
     
-    func testSuccessResopnseTokenRequest() throws {
+    func testSuccessResponseTokenRequest() throws {
+        let context = try IDXAuthenticationFlow.Context(interactionHandle: "handle", state: "state")
+        let flowMock = IDXAuthenticationFlowMock(context: context, client: client, redirectUri: redirectUri)
+
+        let ion = try IonResponse.jsonDecoder.decode(
+            IonForm.self,
+            from: data(for: """
+                  {
+                    "rel": [
+                      "create-form"
+                    ],
+                    "name": "issue",
+                    "href": "https://example.com/oauth2/v1/token",
+                    "method": "POST",
+                    "value": [
+                      {
+                        "name": "grant_type",
+                        "label": "Grant Type",
+                        "required": true,
+                        "value": "interaction_code"
+                      },
+                      {
+                        "name": "interaction_code",
+                        "label": "Interaction Code",
+                        "required": true,
+                        "value": "the_interaction_code"
+                      },
+                      {
+                        "name": "client_id",
+                        "label": "Client Id",
+                        "required": true,
+                        "value": "clientId"
+                      }
+                    ],
+                    "accepts": "application/x-www-form-urlencoded"
+                  }
+            """))
+        let remediation = try XCTUnwrap(Remediation(flow: flowMock, ion: ion))
         
+        let request = try IDXAuthenticationFlow.SuccessResponseTokenRequest(successResponse: remediation,
+                                                                            clientId: "clientId",
+                                                                            scope: "all",
+                                                                            redirectUri: "redirect:/uri",
+                                                                            context: context)
+        
+        let urlRequest = try request.request(for: client)
+        XCTAssertEqual(urlRequest.httpMethod, "POST")
+
+        let url = urlRequest.url?.absoluteString
+        XCTAssertEqual(url, "https://example.com/oauth2/v1/token")
+
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Content-Type"], "application/x-www-form-urlencoded")
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Accept"], "application/json")
+
+        let data = try XCTUnwrap(urlRequest.httpBody?.urlFormEncoded())
+        XCTAssertEqual(data.keys.sorted(), ["client_id", "grant_type", "interaction_code"])
+        XCTAssertEqual(data["client_id"], "clientId")
+        XCTAssertEqual(data["interaction_code"], "the_interaction_code")
+        XCTAssertEqual(data["grant_type"], "interaction_code")
     }
 }
