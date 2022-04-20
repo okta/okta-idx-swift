@@ -11,71 +11,47 @@
  */
 
 import Foundation
+import AuthFoundation
 
-extension IDXClient.APIVersion1.IntrospectRequest: IDXClientAPIRequest, ReceivesIDXResponse {
-    typealias ResponseType = IDXClient.APIVersion1.IonResponse
-    
-    init(interactionHandle: String) {
-        requestBody = RequestBody(interactionHandle: interactionHandle)
-    }
-    
-    func urlRequest(using configuration:IDXClient.Configuration) -> URLRequest? {
-        guard var urlComponents = URLComponents(string: configuration.issuer) else { return nil }
-        urlComponents.path = "/idp/idx/introspect"
-        
-        guard let url = urlComponents.url else { return nil }
+extension APIContentType {
+    static let ionJson = APIContentType.other("application/ion+json; okta-version=1.0.0")
+}
 
-        let data: Data
-        do {
-            data = try JSONEncoder().encode(requestBody)
-        } catch {
-            return nil
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.httpBody = data
-        httpHeaders.forEach { (key, value) in
-            request.addValue(value, forHTTPHeaderField: key)
-        }
-
-        return request
-    }
-    
-    func send(to session: URLSessionProtocol,
-              using configuration: IDXClient.Configuration,
-              completion: @escaping (Result<ResponseType, IDXClientError>) -> Void)
-    {
-        guard let request = urlRequest(using: configuration) else {
-            completion(.failure(.cannotCreateRequest))
-            return
-        }
-        
-        let task = session.dataTaskWithRequest(with: request) { (data, response, error) in
-            guard error == nil else {
-                completion(.failure(.internalError(error!)))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(.invalidResponseData))
-                return
-            }
-            
-            let result: ResponseType!
-            do {
-                result = try self.idxResponse(from: data)
-            } catch {
-                completion(.failure(.internalError(error)))
-                return
-            }
-
-            completion(.success(result))
-        }
-        task.resume()
-    }
-    
-    struct RequestBody: Codable {
+extension IDXAuthenticationFlow {
+    struct IntrospectRequest {
+        let url: URL
         let interactionHandle: String
+
+        init(baseURL: URL, interactionHandle: String) throws {
+            guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
+                throw IDXAuthenticationFlowError.invalidUrl
+            }
+            
+            components.path = "/idp/idx/introspect"
+            
+            guard let url = components.url else {
+                throw IDXAuthenticationFlowError.invalidUrl
+            }
+            
+            self.url = url
+            self.interactionHandle = interactionHandle
+        }
+    }
+}
+
+extension IDXAuthenticationFlow.IntrospectRequest: APIRequest, APIRequestBody, ReceivesIDXResponse, ReturnsIDXError {
+    typealias ResponseType = IonResponse
+    
+    var httpMethod: APIRequestMethod { .post }
+    var contentType: APIContentType? { .json }
+    var acceptsType: APIContentType? { .ionJson }
+    var bodyParameters: [String : Any]? {
+        [
+            "interactionHandle": interactionHandle
+        ]
+    }
+
+    var codingUserInfo: [CodingUserInfoKey : Any]? {
+        nil
     }
 }
