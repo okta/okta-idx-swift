@@ -23,6 +23,7 @@ protocol IDXAuthenticationFlowAPI: AnyObject {
     func send(error: IDXAuthenticationFlowError, completion: IDXAuthenticationFlow.ResponseResult?)
     func send(error: IDXAuthenticationFlowError, completion: IDXAuthenticationFlow.TokenResult?)
     func redirectResult(for url: URL) -> IDXAuthenticationFlow.RedirectResult
+    func reset()
 }
 
 extension IDXAuthenticationFlow: IDXAuthenticationFlowAPI {}

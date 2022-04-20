@@ -17,6 +17,21 @@ import XCTest
 @testable import TestCommon
 #endif
 
+class MockAccessTokenValidator: AccessTokenValidator {
+    func validate(accessToken: String, idToken: JWT) throws {}
+}
+
+struct MockIDTokenValidator: IDTokenValidator {
+    var issuedAtGraceInterval: TimeInterval = 300
+    func validate(token: JWT, issuer: URL, clientId: String) throws {}
+}
+
+struct MockJWKValidator: JWKValidator {
+    func validate(token: JWT, using keySet: JWKS) throws -> Bool {
+        true
+    }
+}
+
 class ScenarioTests: XCTestCase {
     var issuer: URL!
     var client: OAuth2Client!
@@ -24,6 +39,10 @@ class ScenarioTests: XCTestCase {
     var flow: IDXAuthenticationFlow!
     
     override func setUpWithError() throws {
+        JWK.validator = MockJWKValidator()
+        Token.idTokenValidator = MockIDTokenValidator()
+        Token.accessTokenValidator = MockAccessTokenValidator()
+
         issuer = try XCTUnwrap(URL(string: "https://example.com/oauth2/default"))
 
         client = OAuth2Client(baseURL: issuer,
@@ -33,6 +52,11 @@ class ScenarioTests: XCTestCase {
         let redirectUri = try XCTUnwrap(URL(string: "redirect:/uri"))
         
         flow = IDXAuthenticationFlow(redirectUri: redirectUri, client: client)
+    }
+    
+    override func tearDownWithError() throws {
+        client = nil
+        flow = nil
     }
     
     func testScenario1() throws {
@@ -57,6 +81,12 @@ class ScenarioTests: XCTestCase {
                           data: try data(from: .module,
                                          for: "05-token-response",
                                          in: "SampleResponses/Passcode"))
+        urlSession.expect("https://example.com/oauth2/default/.well-known/openid-configuration",
+                          data: try data(from: .module, for: "openid-configuration", in: "SampleResponses"),
+                          contentType: "application/json")
+        urlSession.expect("https://example.com/oauth2/v1/keys?client_id=0ZczewGCFPlxNYYcLq5i",
+                          data: try data(from: .module, for: "keys", in: "SampleResponses"),
+                          contentType: "application/json")
 
         flow.start { result in
             guard case let Result.success(response) = result else {
@@ -141,6 +171,12 @@ class ScenarioTests: XCTestCase {
                           data: try data(from: .module,
                                          for: "05-token-response",
                                          in: "SampleResponses/Passcode"))
+        urlSession.expect("https://example.com/oauth2/default/.well-known/openid-configuration",
+                          data: try data(from: .module, for: "openid-configuration", in: "SampleResponses"),
+                          contentType: "application/json")
+        urlSession.expect("https://example.com/oauth2/v1/keys?client_id=0ZczewGCFPlxNYYcLq5i",
+                          data: try data(from: .module, for: "keys", in: "SampleResponses"),
+                          contentType: "application/json")
 
         var response = try await flow.start()
         
@@ -410,7 +446,10 @@ class ScenarioTests: XCTestCase {
                           data: try data(from: .module,
                                          for: "03-token-response",
                                          in: "SampleResponses/IdP"))
-        
+        urlSession.expect("https://example.com/oauth2/v1/keys?client_id=0ZczewGCFPlxNYYcLq5i",
+                          data: try data(from: .module, for: "keys", in: "SampleResponses"),
+                          contentType: "application/json")
+
         flow.start { result in
             guard case let Result.success(response) = result else {
                 XCTFail("Received a failure when a success was expected")

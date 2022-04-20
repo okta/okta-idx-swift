@@ -82,14 +82,23 @@ public class Response: NSObject {
             return
         }
         
-        let tokenRequest: IDXAuthenticationFlow.SuccessResponseTokenRequest
         do {
-            tokenRequest = try IDXAuthenticationFlow.SuccessResponseTokenRequest(
+            let tokenRequest = try IDXAuthenticationFlow.SuccessResponseTokenRequest(
                 successResponse: remediation,
                 clientId: flow.client.configuration.clientId,
                 scope: flow.client.configuration.scopes,
                 redirectUri: flow.redirectUri.absoluteString,
                 context: context)
+            flow.client.exchange(token: tokenRequest) { result in
+                self.flow.reset()
+                
+                switch result {
+                case .success(let token):
+                    self.flow.send(response: token.result, completion: completion)
+                case .failure(let error):
+                    self.flow.send(error: .apiError(error), completion: completion)
+                }
+            }
         } catch let error as IDXAuthenticationFlowError {
             flow.send(error: error, completion: completion)
             return
@@ -99,15 +108,6 @@ public class Response: NSObject {
         } catch {
             flow.send(error: .internalError(error), completion: completion)
             return
-        }
-
-        tokenRequest.send(to: flow.client) { result in
-            switch result {
-            case .failure(let error):
-                completion?(.failure(.apiError(error)))
-            case .success(let response):
-                completion?(.success(response.result))
-            }
         }
     }
     

@@ -258,7 +258,7 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
                                                       clientId: self.client.configuration.clientId,
                                                       interactionCode: interactionCode,
                                                       pkce: context.pkce)
-                request.send(to: self.client) { result in
+                self.client.exchange(token: request) { result in
                     switch result {
                     case .success(let token):
                         self.send(response: token.result, completion: completion)
