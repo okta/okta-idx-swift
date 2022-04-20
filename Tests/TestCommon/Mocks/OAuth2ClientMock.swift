@@ -11,19 +11,3 @@
 //
 
 import Foundation
-import OktaIdx
-
-extension Token {
-    func authorize(request: inout URLRequest) {
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-    }
-}
-
-extension IDXClient.Configuration {
-    func url(for path: String) throws -> URL {
-        guard let baseUrl = URL(string: issuer) else {
-            throw SigninError.invalidUrl
-        }
-        return baseUrl.appendingPathComponent(path)
-    }
-}

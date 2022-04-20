@@ -10,17 +10,6 @@
 // See the License for the specific language governing permissions and limitations under the License.
 //
 
-import XCTest
-@testable import OktaIdx
+import Foundation
 
-class IDXFormValueTests: XCTestCase {
-    func testProtocolConformance() throws {
-        _ = Remediation.Form.Field(name: "foo",
-                                                     value: "StateHandle" as AnyObject,
-                                                     visible: true,
-                                                     mutable: true,
-                                                     required: true,
-                                                     secret: false)
-//        XCTAssertEqual(field.value as Equatable, "StateHandle")
-    }
-}
+public let Version = SDKVersion(sdk: "okta-idx-swift", version: "3.0.0")

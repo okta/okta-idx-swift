@@ -13,14 +13,12 @@
 import Foundation
 
 extension Authenticator {
-    @objc(IDXAuthenticatorState)
-    public enum State: Int {
+    public enum State: Comparable {
         case normal, enrolled, authenticating, enrolling, recovery
     }
     
     /// The type of authenticator.
-    @objc(IDXAuthenticatorKind)
-    public enum Kind: Int {
+    public enum Kind {
         case unknown
         case app
         case email
@@ -33,8 +31,7 @@ extension Authenticator {
     }
     
     /// The method, or sub-type, of an authenticator.
-    @objc(IDXAuthenticatorMethod)
-    public enum Method: Int {
+    public enum Method {
         case unknown
         case sms
         case voice

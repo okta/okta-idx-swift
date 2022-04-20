@@ -14,8 +14,7 @@ import Foundation
 
 extension Remediation {
     /// Enumeration describing the possible remedation types. This is expanded from the possible option values that may be present in the `name` property.
-    @objc(IDXRemediationType)
-    public enum RemediationType: Int {
+    public enum RemediationType {
         case unknown
         case identify
         case identifyRecovery

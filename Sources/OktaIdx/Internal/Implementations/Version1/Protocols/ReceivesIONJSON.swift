@@ -11,10 +11,9 @@
  */
 
 import Foundation
+import AuthFoundation
 
-protocol ReceivesIDXResponse {
-    func idxResponse(from data: Data) throws -> IDXClient.APIVersion1.IonResponse
-}
+protocol ReceivesIDXResponse: JSONDecodable {}
 
 extension DateFormatter {
     static let idxDateFormatter: DateFormatter = {
@@ -27,17 +26,15 @@ extension DateFormatter {
     }()
 }
 
-extension JSONDecoder {
-    static let idxResponseDecoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .formatted(DateFormatter.idxDateFormatter)
-        return decoder
-    }()
-}
+let idxResponseDecoder: JSONDecoder = {
+    let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    decoder.dateDecodingStrategy = .formatted(DateFormatter.idxDateFormatter)
+    return decoder
+}()
 
 extension ReceivesIDXResponse {
-    func idxResponse(from data: Data) throws -> IDXClient.APIVersion1.IonResponse {
-        return try JSONDecoder.idxResponseDecoder.decode(IDXClient.APIVersion1.IonResponse.self, from: data)
+    static var jsonDecoder: JSONDecoder {
+        idxResponseDecoder
     }
 }
