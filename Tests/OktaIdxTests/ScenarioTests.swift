@@ -27,7 +27,7 @@ class ScenarioTests: XCTestCase {
         issuer = try XCTUnwrap(URL(string: "https://example.com/oauth2/default"))
 
         client = OAuth2Client(baseURL: issuer,
-                              clientId: "clientId",
+                              clientId: "0ZczewGCFPlxNYYcLq5i",
                               scopes: "openid profile",
                               session: urlSession)
         let redirectUri = try XCTUnwrap(URL(string: "redirect:/uri"))

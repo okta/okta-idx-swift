@@ -71,17 +71,17 @@ class IDXClientRequestTests: XCTestCase {
         let url = urlRequest.url?.absoluteString
         XCTAssertEqual(url, "https://example.com/idp/idx/introspect")
         
-        XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Content-Type"], "application/x-www-form-urlencoded; charset=UTF-8")
+        XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Content-Type"], "application/json; charset=UTF-8")
         XCTAssertEqual(urlRequest.allHTTPHeaderFields?["Accept"], "application/ion+json; okta-version=1.0.0")
         
-        let data = try XCTUnwrap(urlRequest.httpBody?.urlFormEncoded())
-        XCTAssertEqual(data.keys.sorted(), ["interaction_handle"])
-        XCTAssertEqual(data["interaction_handle"], "handle")
+        let data = try XCTUnwrap(urlRequest.httpBody?.jsonEncoded() as? [String: String])
+        XCTAssertEqual(data.keys.sorted(), ["interactionHandle"])
+        XCTAssertEqual(data["interactionHandle"], "handle")
     }
     
     func testRemediationRequest() throws {
         let context = try IDXAuthenticationFlow.Context(interactionHandle: "handle", state: "state")
-        let flowMock = IDXAuthenticationFlowMock(context: context, client: client)
+        let flowMock = IDXAuthenticationFlowMock(context: context, client: client, redirectUri: redirectUri)
         let response = try XCTUnwrap(Response.response(flow: flowMock,
                                                        fileName: "identify-single-form-response"))
         let remediation = try XCTUnwrap(response.remediations[.identify])

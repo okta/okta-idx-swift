@@ -46,11 +46,13 @@ class MockBase {
 
 class IDXAuthenticationFlowMock: MockBase, IDXAuthenticationFlowAPI {
     let client: OAuth2Client
+    let redirectUri: URL
     let context: IDXAuthenticationFlow.Context?
     
-    init(context: IDXAuthenticationFlow.Context, client: OAuth2Client) {
+    init(context: IDXAuthenticationFlow.Context, client: OAuth2Client, redirectUri: URL) {
         self.context = context
         self.client = client
+        self.redirectUri = redirectUri
     }
 
     func send(response: Response, completion: IDXAuthenticationFlow.ResponseResult?) {

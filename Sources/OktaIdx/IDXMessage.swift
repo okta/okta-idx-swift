@@ -14,7 +14,7 @@ import Foundation
 
 extension Response {
     /// Represents messages sent from the server to indicate error or warning conditions related to responses or form values.
-    public final class Message {
+    public final class Message: Equatable, Hashable {
         /// Enumeration describing the type of message.
         public enum Severity {
             case error
@@ -35,6 +35,20 @@ extension Response {
         
         /// The field where this error occurred, or `nil` if this message is not scoped to a particular field.
         weak internal(set) public var field: Remediation.Form.Field?
+        
+        public static func == (lhs: Response.Message, rhs: Response.Message) -> Bool {
+            lhs.type == rhs.type &&
+            lhs.localizationKey == rhs.localizationKey &&
+            lhs.message == rhs.message &&
+            lhs.field === rhs.field
+        }
+        
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(type)
+            hasher.combine(localizationKey)
+            hasher.combine(message)
+            hasher.combine(field?.name)
+        }
         
         internal init(type: String,
                       localizationKey: String?,

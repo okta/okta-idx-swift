@@ -11,6 +11,7 @@
 //
 
 import Foundation
+import AuthFoundation
 
 extension Remediation.Form {
     /// Describes an individual field within a form, used to collect and submit information from the user to proceed through the authentication workflow.
@@ -29,8 +30,8 @@ extension Remediation.Form {
         public let type: String?
         
         /// The value to send, if a default is provided from the Identity Engine.
-        public var value: IDXFormValue? {
-            get { _value as? IDXFormValue }
+        public var value: APIRequestArgument? {
+            get { _value as? APIRequestArgument }
             set {
                 guard isMutable else { return }
                 _value = newValue as AnyObject

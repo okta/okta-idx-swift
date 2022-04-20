@@ -17,9 +17,11 @@ extension IDXAuthenticationFlow {
     struct SuccessResponseTokenRequest {
         let httpMethod: APIRequestMethod
         let url: URL
-        let accepts: APIContentType
-        let bodyParameters: [String : Any]
+        let contentType: APIContentType?
+        let bodyParameters: [String : Any]?
         let clientId: String
+        let scope: String
+        let redirectUri: String
     }
 
     struct RedirectURLTokenRequest {
@@ -30,35 +32,56 @@ extension IDXAuthenticationFlow {
     }
 }
 
-extension IDXAuthenticationFlow.SuccessResponseTokenRequest: OAuth2TokenRequest {
+extension IDXAuthenticationFlow.SuccessResponseTokenRequest: OAuth2TokenRequest, APIRequestBody, APIParsingContext {
     init(successResponse option: Remediation,
          clientId: String,
+         scope: String,
+         redirectUri: String,
          context: IDXAuthenticationFlow.Context) throws
     {
         guard let method = APIRequestMethod(rawValue: option.method),
-              let accepts = APIContentType(rawValue: option.accepts ?? APIContentType.json.rawValue)
+              let accepts = option.accepts
         else {
             throw IDXAuthenticationFlowError.cannotCreateRequest
         }
         
-        let parameters: [String:Any] = option.form.allFields.reduce(into: [:]) { partialResult, field in
+        let parameters: [String:Any] = try option.form.allFields.reduce(into: [:]) { partialResult, field in
             guard let name = field.name else { return }
             switch name {
-            case "client_id":
-                partialResult[name] = clientId
             case "code_verifier":
                 partialResult[name] = context.pkce.codeVerifier
+                
+            case "client_id":
+                guard clientId == field.value as? String else {
+                    throw IDXAuthenticationFlowError.invalidParameter(name: name)
+                }
+                fallthrough
+                
             default:
                 guard let value = field.value else { return }
                 partialResult[name] = value
             }
         }
 
-        self.clientId = clientId
         self.httpMethod = method
         self.url = option.href
-        self.accepts = accepts
+        self.clientId = clientId
+        self.scope = scope
+        self.redirectUri = redirectUri
+        self.contentType = .other(accepts)
         self.bodyParameters = parameters
+    }
+    
+    var acceptsType: APIContentType? { .other("application/json") }
+
+    var codingUserInfo: [CodingUserInfoKey: Any]? {
+        [
+            .clientSettings: [
+                "client_id": clientId,
+                "redirect_uri": redirectUri,
+                "scope": scope
+            ]
+        ]
     }
 }
 

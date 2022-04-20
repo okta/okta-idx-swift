@@ -42,8 +42,6 @@
 		964F745C25A3E5F2003EE300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964F745B25A3E5F2003EE300 /* Assets.xcassets */; };
 		964F745F25A3E5F2003EE300 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964F745D25A3E5F2003EE300 /* LaunchScreen.storyboard */; };
 		964F746A25A3E5F3003EE300 /* EmbeddedAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F746925A3E5F3003EE300 /* EmbeddedAuthTests.swift */; };
-		964F748725A3E602003EE300 /* OktaIdx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964F748625A3E602003EE300 /* OktaIdx.framework */; };
-		964F748825A3E602003EE300 /* OktaIdx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 964F748625A3E602003EE300 /* OktaIdx.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9652D9CA25A9142600927FA5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652D9C925A9142600927FA5 /* UIView+Extensions.swift */; };
 		96576C5025A91EEA00B02E3B /* IDXStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C4F25A91EEA00B02E3B /* IDXStartViewController.swift */; };
 		96576C6225ACC53200B02E3B /* IDXGetTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C6125ACC53200B02E3B /* IDXGetTokenViewController.swift */; };
@@ -53,6 +51,7 @@
 		96576C8725ACFC5900B02E3B /* TokenDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96576C8625ACFC5900B02E3B /* TokenDetailViewController.swift */; };
 		965A112F26547EC1006B784F /* A18NProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A112E26547EC1006B784F /* A18NProfile.swift */; };
 		965A113326547EE9006B784F /* CodeReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A113226547EE9006B784F /* CodeReceiver.swift */; };
+		965F9F11280DD69000B6E34A /* OktaIdx in Frameworks */ = {isa = PBXBuildFile; productRef = 965F9F10280DD69000B6E34A /* OktaIdx */; };
 		9669E16D2748343C00E3057D /* IDXImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9669E16C2748343C00E3057D /* IDXImageTableViewCell.swift */; };
 		96749AF825B8AC3B002849A0 /* ClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749AF725B8AC3B002849A0 /* ClientConfiguration.swift */; };
 		96749B0625B8EAAD002849A0 /* XCTest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749B0525B8EAAD002849A0 /* XCTest+Extensions.swift */; };
@@ -61,8 +60,6 @@
 		9691E6C825AF73D9000CD02C /* IDXToggleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6C725AF73D9000CD02C /* IDXToggleTableViewCell.swift */; };
 		9691E6CE25AF73F0000CD02C /* IDXButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6CD25AF73F0000CD02C /* IDXButtonTableViewCell.swift */; };
 		9691E6D225AF740A000CD02C /* IDXOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691E6D125AF740A000CD02C /* IDXOptionTableViewCell.swift */; };
-		96AA246A2656D29F000649ED /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA24692656D29F000649ED /* UserManager.swift */; };
-		96AA246F2656DD5A000649ED /* IDXClient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA246E2656DD5A000649ED /* IDXClient+Extensions.swift */; };
 		96AA247C2656E2A6000649ED /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA24792656E2A5000649ED /* FooterView.swift */; };
 		96AA247E2656E2A6000649ED /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA247B2656E2A6000649ED /* SignInButton.swift */; };
 		96AA24842656E2AF000649ED /* UIView+IBExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA24822656E2AF000649ED /* UIView+IBExtensions.swift */; };
@@ -114,17 +111,6 @@
 				9611F2CB2672CAEE0013FAE1 /* OktaSdk.framework in CopyFiles */,
 				9611F2D22672CB460013FAE1 /* AnyCodable.framework in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		964F748925A3E602003EE300 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				964F748825A3E602003EE300 /* OktaIdx.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -189,8 +175,6 @@
 		9691E6C725AF73D9000CD02C /* IDXToggleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXToggleTableViewCell.swift; sourceTree = "<group>"; };
 		9691E6CD25AF73F0000CD02C /* IDXButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXButtonTableViewCell.swift; sourceTree = "<group>"; };
 		9691E6D125AF740A000CD02C /* IDXOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXOptionTableViewCell.swift; sourceTree = "<group>"; };
-		96AA24692656D29F000649ED /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		96AA246E2656DD5A000649ED /* IDXClient+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IDXClient+Extensions.swift"; sourceTree = "<group>"; };
 		96AA24792656E2A5000649ED /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		96AA247B2656E2A6000649ED /* SignInButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		96AA24822656E2AF000649ED /* UIView+IBExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBExtensions.swift"; sourceTree = "<group>"; };
@@ -223,7 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				964F748725A3E602003EE300 /* OktaIdx.framework in Frameworks */,
+				965F9F11280DD69000B6E34A /* OktaIdx in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +359,6 @@
 				96576C6D25ACDD6C00B02E3B /* View Controllers */,
 				96576C6C25ACDD5A00B02E3B /* Protocols */,
 				96576C8225ACFBEC00B02E3B /* Signin.swift */,
-				96AA24692656D29F000649ED /* UserManager.swift */,
 				964D59F126580AA600DDBCBB /* SigninCoordinator.swift */,
 			);
 			path = Signin;
@@ -452,7 +435,6 @@
 		96AA246D2656DD4D000649ED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				96AA246E2656DD5A000649ED /* IDXClient+Extensions.swift */,
 				964D59ED2657121000DDBCBB /* Notifications.swift */,
 			);
 			path = Extensions;
@@ -510,7 +492,6 @@
 				964F744B25A3E5F0003EE300 /* Sources */,
 				964F744C25A3E5F0003EE300 /* Frameworks */,
 				964F744D25A3E5F0003EE300 /* Resources */,
-				964F748925A3E602003EE300 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -518,6 +499,7 @@
 			);
 			name = EmbeddedAuth;
 			packageProductDependencies = (
+				965F9F10280DD69000B6E34A /* OktaIdx */,
 			);
 			productName = EmbeddedAuth;
 			productReference = 964F744F25A3E5F0003EE300 /* EmbeddedAuth.app */;
@@ -667,11 +649,9 @@
 				96AA247C2656E2A6000649ED /* FooterView.swift in Sources */,
 				96E0A78D260500080002933C /* IDXSeparatorTableViewCell.swift in Sources */,
 				96E0A791260505F30002933C /* IDXTitleTableViewCell.swift in Sources */,
-				96AA246F2656DD5A000649ED /* IDXClient+Extensions.swift in Sources */,
 				9691E6CE25AF73F0000CD02C /* IDXButtonTableViewCell.swift in Sources */,
 				96576C5025A91EEA00B02E3B /* IDXStartViewController.swift in Sources */,
 				964D5A03265819A900DDBCBB /* ProfileTableViewController.swift in Sources */,
-				96AA246A2656D29F000649ED /* UserManager.swift in Sources */,
 				964F745325A3E5F0003EE300 /* AppDelegate.swift in Sources */,
 				96ADA06725B0F5D5008BF50D /* IDXLabelTableViewCell.swift in Sources */,
 				96ADA06125B0D173008BF50D /* FormRows.swift in Sources */,
@@ -1063,6 +1043,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		965F9F10280DD69000B6E34A /* OktaIdx */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OktaIdx;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 964F744725A3E5F0003EE300 /* Project object */;
 }

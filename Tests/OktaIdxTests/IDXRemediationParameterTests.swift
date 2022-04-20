@@ -24,6 +24,7 @@ class IDXRemediationParameterTests: XCTestCase {
     
     override func setUpWithError() throws {
         let issuer = try XCTUnwrap(URL(string: "https://example.com/oauth2/default"))
+        let redirectUri = try XCTUnwrap(URL(string: "redirect:/uri"))
         client = OAuth2Client(baseURL: issuer,
                               clientId: "clientId",
                               scopes: "openid profile",
@@ -31,7 +32,7 @@ class IDXRemediationParameterTests: XCTestCase {
         
         let context = try IDXAuthenticationFlow.Context(interactionHandle: "handle", state: "state")
         
-        flowMock = IDXAuthenticationFlowMock(context: context, client: client)
+        flowMock = IDXAuthenticationFlowMock(context: context, client: client, redirectUri: redirectUri)
     }
 
     func testFlatForm() throws {

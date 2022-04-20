@@ -22,7 +22,7 @@ extension IDXAuthenticationFlow {
     }
 }
 
-extension IDXAuthenticationFlow.RemediationRequest: APIRequest, APIRequestBody, ReceivesIDXResponse {
+extension IDXAuthenticationFlow.RemediationRequest: APIRequest, APIRequestBody, ReceivesIDXResponse, ReturnsIDXError {
     typealias ResponseType = IonResponse
     
     init(remediation option: Remediation) throws {
@@ -40,4 +40,8 @@ extension IDXAuthenticationFlow.RemediationRequest: APIRequest, APIRequestBody, 
     }
     
     var acceptsType: APIContentType? { .ionJson }
+
+    var codingUserInfo: [CodingUserInfoKey : Any]? {
+        nil
+    }
 }

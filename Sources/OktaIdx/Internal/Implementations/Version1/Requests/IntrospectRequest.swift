@@ -39,15 +39,19 @@ extension IDXAuthenticationFlow {
     }
 }
 
-extension IDXAuthenticationFlow.IntrospectRequest: APIRequest, APIRequestBody, ReceivesIDXResponse {
+extension IDXAuthenticationFlow.IntrospectRequest: APIRequest, APIRequestBody, ReceivesIDXResponse, ReturnsIDXError {
     typealias ResponseType = IonResponse
     
     var httpMethod: APIRequestMethod { .post }
-    var contentType: APIContentType? { .formEncoded }
+    var contentType: APIContentType? { .json }
     var acceptsType: APIContentType? { .ionJson }
     var bodyParameters: [String : Any]? {
         [
-            "interaction_handle": interactionHandle
+            "interactionHandle": interactionHandle
         ]
+    }
+
+    var codingUserInfo: [CodingUserInfoKey : Any]? {
+        nil
     }
 }

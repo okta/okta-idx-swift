@@ -1,0 +1,25 @@
+name: OktaIdx
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  UnitTest:
+    name: Unit Tests on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+    steps:
+    - name: Get swift version
+      run: swift --version
+    - uses: actions/checkout@master
+    - name: Build
+      run: swift build --build-tests
+    - name: Test
+      run: swift test

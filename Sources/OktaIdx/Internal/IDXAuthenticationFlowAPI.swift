@@ -15,6 +15,7 @@ import AuthFoundation
 
 protocol IDXAuthenticationFlowAPI: AnyObject {
     var client: OAuth2Client { get }
+    var redirectUri: URL { get }
     var context: IDXAuthenticationFlow.Context? { get }
 
     func send(response: Response, completion: IDXAuthenticationFlow.ResponseResult?)

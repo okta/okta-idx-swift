@@ -29,7 +29,7 @@ import AuthFoundation
 ///    response.remediations[.identifier]
 ///
 /// Some remediations are represented by subclasses of `Remediation` when specific behaviors or common patterns are available. These represent optional conveniences that simplify access to these types of objects.
-public class Remediation {
+public class Remediation: Equatable, Hashable {
     /// The type of this remediation, which is used for keyed subscripting from a `RemediationCollection`.
     public let type: RemediationType
     
@@ -133,6 +133,28 @@ public class Remediation {
                 }
             }
         }
+    }
+    
+    public static func == (lhs: Remediation, rhs: Remediation) -> Bool {
+        lhs.flow === rhs.flow &&
+        lhs.type == rhs.type &&
+        lhs.name == rhs.name &&
+        lhs.form == rhs.form &&
+        lhs.method == rhs.method &&
+        lhs.href == rhs.href &&
+        lhs.refresh == rhs.refresh &&
+        lhs.relatesTo == rhs.relatesTo
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(type)
+        hasher.combine(name)
+        hasher.combine(method)
+        hasher.combine(href)
+        hasher.combine(accepts)
+        hasher.combine(refresh)
+        hasher.combine(relatesTo)
+        hasher.combine(messages)
     }
 }
 

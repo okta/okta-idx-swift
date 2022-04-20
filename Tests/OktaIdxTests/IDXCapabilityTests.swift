@@ -19,6 +19,7 @@ import XCTest
 
 class IDXCapabilityTests: XCTestCase {
     var client: OAuth2Client!
+    var redirectUri: URL!
     let urlSession = URLSessionMock()
     var flowMock: IDXAuthenticationFlowMock!
     var remediation: Remediation!
@@ -27,6 +28,8 @@ class IDXCapabilityTests: XCTestCase {
 
     override func setUpWithError() throws {
         let issuer = try XCTUnwrap(URL(string: "https://example.com/oauth2/default"))
+        redirectUri = try XCTUnwrap(URL(string: "redirect:/uri"))
+
         client = OAuth2Client(baseURL: issuer,
                               clientId: "clientId",
                               scopes: "openid profile",
@@ -34,7 +37,7 @@ class IDXCapabilityTests: XCTestCase {
         
         let context = try IDXAuthenticationFlow.Context(interactionHandle: "handle", state: "state")
         
-        flowMock = IDXAuthenticationFlowMock(context: context, client: client)
+        flowMock = IDXAuthenticationFlowMock(context: context, client: client, redirectUri: redirectUri)
 
         let fields = try XCTUnwrap(Remediation.Form(fields: []))
         remediation = Remediation(flow: flowMock,

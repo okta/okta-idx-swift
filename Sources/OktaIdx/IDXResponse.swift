@@ -87,6 +87,8 @@ public class Response: NSObject {
             tokenRequest = try IDXAuthenticationFlow.SuccessResponseTokenRequest(
                 successResponse: remediation,
                 clientId: flow.client.configuration.clientId,
+                scope: flow.client.configuration.scopes,
+                redirectUri: flow.redirectUri.absoluteString,
                 context: context)
         } catch let error as IDXAuthenticationFlowError {
             flow.send(error: error, completion: completion)
