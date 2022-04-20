@@ -10,7 +10,7 @@ on:
 
 jobs:
   UnitTest:
-    name: Unit Tests on ${{ matrix.os }}
+    name: Unit Test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
