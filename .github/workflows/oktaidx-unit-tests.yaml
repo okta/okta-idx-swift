@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - master
+      - dev-*
   pull_request:
     branches: 
       - master
+      - dev-*
 
 jobs:
   UnitTest:
@@ -14,7 +16,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest]
+        os: 
+          - macos-latest
     steps:
     - name: Get swift version
       run: swift --version
