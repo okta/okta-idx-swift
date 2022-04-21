@@ -28,4 +28,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Lint code using SwiftLint
-        run: swiftlint lint --reporter github-actions-logging Sources Samples
+        run: swiftlint lint --reporter github-actions-logging Sources
