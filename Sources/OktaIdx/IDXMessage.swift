@@ -34,7 +34,7 @@ extension Response {
         public let message: String
         
         /// The field where this error occurred, or `nil` if this message is not scoped to a particular field.
-        weak internal(set) public var field: Remediation.Form.Field?
+        public internal(set) weak var field: Remediation.Form.Field?
         
         public static func == (lhs: Response.Message, rhs: Response.Message) -> Bool {
             lhs.type == rhs.type &&

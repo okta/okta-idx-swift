@@ -120,18 +120,18 @@ extension Response.Intent {
 extension Capability.SocialIDP.Service {
     public init(string: String) {
         switch string {
-        case "SAML2":        self = .saml         
-        case "GOOGLE":       self = .google       
-        case "FACEBOOK":     self = .facebook     
-        case "LINKEDIN":     self = .linkedin     
-        case "MICROSOFT":    self = .microsoft    
-        case "OIDC":         self = .oidc         
-        case "OKTA":         self = .okta         
-        case "IWA":          self = .iwa          
+        case "SAML2":        self = .saml
+        case "GOOGLE":       self = .google
+        case "FACEBOOK":     self = .facebook
+        case "LINKEDIN":     self = .linkedin
+        case "MICROSOFT":    self = .microsoft
+        case "OIDC":         self = .oidc
+        case "OKTA":         self = .okta
+        case "IWA":          self = .iwa
         case "AgentlessDSSO":self = .agentlessIwa
-        case "X509":         self = .x509         
-        case "APPLE":        self = .apple        
-        case "OIN_SOCIAL":   self = .oinSocial   
+        case "X509":         self = .x509
+        case "APPLE":        self = .apple
+        case "OIN_SOCIAL":   self = .oinSocial
         default:             self = .other
         }
     }

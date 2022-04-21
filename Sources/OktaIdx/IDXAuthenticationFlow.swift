@@ -1,14 +1,14 @@
-/*
- * Copyright (c) 2021-Present, Okta, Inc. and/or its affiliates. All rights reserved.
- * The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
- *
- * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *
- * See the License for the specific language governing permissions and limitations under the License.
- */
+//
+// Copyright (c) 2021-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
+//
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//
+// See the License for the specific language governing permissions and limitations under the License.
+//
 
 import Foundation
 @_exported import AuthFoundation
@@ -45,10 +45,10 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
     public let redirectUri: URL
 
     /// Any additional query string parameters you would like to supply to the authorization server.
-    public let additionalParameters: [String:String]?
+    public let additionalParameters: [String: String]?
 
     /// Indicates whether or not this flow is currently in the process of authenticating a user.
-    private(set) public var isAuthenticating: Bool = false {
+    public private(set) var isAuthenticating: Bool = false {
         didSet {
             guard oldValue != isAuthenticating else {
                 return
@@ -65,7 +65,7 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
     /// The current context for the authentication session.
     ///
     /// This value is used when resuming authentication at a later date or after app launch, and to ensure the final token exchange can be completed.
-    internal(set) public var context: Context?
+    public internal(set) var context: Context?
     
     /// Convenience initializer to construct an authentication flow from variables.
     /// - Parameters:
@@ -77,7 +77,7 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
                             clientId: String,
                             scopes: String,
                             redirectUri: URL,
-                            additionalParameters: [String:String]? = nil)
+                            additionalParameters: [String: String]? = nil)
     {
         self.init(redirectUri: redirectUri,
                   additionalParameters: additionalParameters,
@@ -91,7 +91,7 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
     ///   - configuration: The configuration to use for this authentication flow.
     ///   - client: The `OAuth2Client` to use with this flow.
     public init(redirectUri: URL,
-                additionalParameters: [String:String]? = nil,
+                additionalParameters: [String: String]? = nil,
                 client: OAuth2Client)
     {
         // Ensure this SDK's static version is included in the user agent.
@@ -108,7 +108,7 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
     /// - Parameters:
     ///   - options: Options to include within the OAuth2 transaction.
     ///   - completion: Completion block to be invoked when the session is started.
-    public func start(options: [Option:String]? = nil,
+    public func start(options: [Option: String]? = nil,
                       completion: @escaping ResponseResult)
     {
         if isAuthenticating {
@@ -295,7 +295,7 @@ extension IDXAuthenticationFlow {
     ///   - configuration: Configuration describing the app settings to contact.
     ///   - options: Options to include within the OAuth2 transaction.
     /// - Returns: An IDXClient instance for this session.
-    public func start(options: [Option:String]? = nil) async throws -> Response {
+    public func start(options: [Option: String]? = nil) async throws -> Response {
         try await withCheckedThrowingContinuation { continuation in
             start(options: options) { result in
                 continuation.resume(with: result)
@@ -341,7 +341,7 @@ extension IDXAuthenticationFlow: OAuth2ClientDelegate {
 extension OAuth2Client {
     public func idxFlow(
         redirectUri: URL,
-        additionalParameters: [String:String]? = nil) -> IDXAuthenticationFlow
+        additionalParameters: [String: String]? = nil) -> IDXAuthenticationFlow
     {
         IDXAuthenticationFlow(redirectUri: redirectUri,
                               additionalParameters: additionalParameters,

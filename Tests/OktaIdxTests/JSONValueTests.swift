@@ -20,7 +20,6 @@ class JSONValueTests: XCTestCase {
     func testString() throws {
         let value = JSONValue.string("Test String")
         XCTAssertNotNil(value)
-        XCTAssertEqual(value.debugDescription, "\"Test String\"")
         
         if let stringValue = value.toAnyObject() as? String {
             XCTAssertEqual(stringValue, "Test String")
@@ -37,7 +36,6 @@ class JSONValueTests: XCTestCase {
     func testNumber() throws {
         let value = JSONValue.number(1)
         XCTAssertNotNil(value)
-        XCTAssertEqual(value.debugDescription, "1.0")
         
         if let numberValue = value.toAnyObject() as? NSNumber {
             XCTAssertEqual(numberValue, NSNumber(integerLiteral: 1))
@@ -54,8 +52,6 @@ class JSONValueTests: XCTestCase {
     func testBool() throws {
         let value = JSONValue.bool(true)
         XCTAssertNotNil(value)
-        XCTAssertEqual(value.debugDescription, "true")
-        XCTAssertEqual(JSONValue.bool(false).debugDescription, "false")
 
         if let boolValue = value.toAnyObject() as? NSNumber {
             XCTAssertEqual(boolValue, NSNumber(booleanLiteral: true))
@@ -72,7 +68,6 @@ class JSONValueTests: XCTestCase {
     func testNull() throws {
         let value = JSONValue.null
         XCTAssertNotNil(value)
-        XCTAssertEqual(value.debugDescription, "null")
         
         if let nullValue = value.toAnyObject() as? NSNull {
             XCTAssertEqual(nullValue, NSNull())
@@ -89,12 +84,6 @@ class JSONValueTests: XCTestCase {
     func testArray() throws {
         let value = JSONValue.array([JSONValue.string("foo"), JSONValue.string("bar")])
         XCTAssertNotNil(value)
-        XCTAssertEqual(value.debugDescription, """
-            [
-              "foo",
-              "bar"
-            ]
-            """)
         
         if let arrayValue = value.toAnyObject() as? NSArray {
             XCTAssertEqual(arrayValue, ["foo", "bar"])
@@ -116,15 +105,6 @@ class JSONValueTests: XCTestCase {
                 ])
             ])
         XCTAssertNotNil(value)
-        XCTAssertEqual(value.debugDescription, """
-            {
-              "foo" : {
-                "bar" : [
-                  "woof"
-                ]
-              }
-            }
-            """)
         if let dictValue = value.toAnyObject() as? NSDictionary {
             XCTAssertEqual(dictValue, ["foo": ["bar": ["woof"]]])
         } else {
@@ -141,7 +121,6 @@ class JSONValueTests: XCTestCase {
         let object = URL(string: "https://example.com")!
         let value = JSONValue.object(object)
         XCTAssertNotNil(value)
-        XCTAssertEqual(value.debugDescription, "https://example.com")
 
         if let urlValue = value.toAnyObject() as? URL {
             XCTAssertEqual(urlValue, URL(string: "https://example.com"))

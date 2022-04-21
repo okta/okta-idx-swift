@@ -20,7 +20,11 @@ extension String {
         
         let searchRange = startIndex ..< index(startIndex, offsetBy: mimeLookupUpperBound)
         let mimeRange = range(of: ";base64,", range: searchRange)
+
+        // swiftlint:disable force_unwrapping
         let base64String = String(self[mimeRange!.upperBound ..< endIndex])
+        // swiftlint:enable force_unwrapping
+
         return Data(base64Encoded: base64String, options: .ignoreUnknownCharacters)
     }
 }

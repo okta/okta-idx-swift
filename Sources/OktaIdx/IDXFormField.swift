@@ -19,7 +19,7 @@ extension Remediation.Form {
     /// Nested form values can be accessed through keyed subscripting, for example:
     ///
     ///    credentials.form["passcode"]
-    final public class Field: NSObject {
+    public final class Field: NSObject {
         /// The programmatic name for this form value.
         public let name: String?
         
