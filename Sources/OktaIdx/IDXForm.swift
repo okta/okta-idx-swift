@@ -14,7 +14,7 @@ import Foundation
 
 extension Remediation {
     /// Object that represents a form of fields associated with a remediation.
-    public class Form {
+    public class Form: Equatable, Hashable {
         public subscript(index: Int) -> Field? {
             fields[index]
         }
@@ -33,6 +33,14 @@ extension Remediation {
         
         /// The array of ordered user-visible fields within this form. Each field may also contain nested forms for collections of related fields.
         public let fields: [Field]
+        
+        public static func == (lhs: Remediation.Form, rhs: Remediation.Form) -> Bool {
+            lhs.allFields == rhs.allFields
+        }
+        
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(allFields)
+        }
         
         let allFields: [Field]
 
