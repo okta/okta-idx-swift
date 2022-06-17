@@ -13,7 +13,7 @@ var package = Package(
         .macOS(.v10_11)
     ],
     products: [
-        .library(name: "OktaIdx", targets: [ "OktaIdx" ])
+        .library(name: "OktaIdx", targets: ["OktaIdx"])
     ],
     dependencies: [
         .package(name: "AuthFoundation",
@@ -22,13 +22,13 @@ var package = Package(
     ],
     targets: [
         .target(name: "OktaIdx",
-                dependencies: [ "AuthFoundation" ]),
+                dependencies: ["AuthFoundation"]),
         .target(name: "TestCommon",
-                dependencies: [ "OktaIdx" ],
-                path: "Tests/TestCommon",
-                resources: [ .copy("SampleResponses") ]),
+                dependencies: ["OktaIdx"],
+                path: "Tests/TestCommon"),
         .testTarget(name: "OktaIdxTests",
-                    dependencies: [ "OktaIdx", "TestCommon" ])
+                    dependencies: ["OktaIdx", "TestCommon"],
+                resources: [.copy("SampleResponses")])
     ],
     swiftLanguageVersions: [.v5]
 )

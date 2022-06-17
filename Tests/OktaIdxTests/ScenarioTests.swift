@@ -17,13 +17,13 @@ import XCTest
 @testable import TestCommon
 #endif
 
-class MockAccessTokenValidator: AccessTokenValidator {
-    func validate(accessToken: String, idToken: JWT) throws {}
+class MockAccessTokenValidator: TokenHashValidator {
+    func validate(_ accessToken: String, idToken: JWT) throws {}
 }
 
 struct MockIDTokenValidator: IDTokenValidator {
     var issuedAtGraceInterval: TimeInterval = 300
-    func validate(token: JWT, issuer: URL, clientId: String) throws {}
+    func validate(token: JWT, issuer: URL, clientId: String, context: IDTokenValidatorContext?) throws {}
 }
 
 struct MockJWKValidator: JWKValidator {
