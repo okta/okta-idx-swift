@@ -36,8 +36,10 @@ class IDXMessageCollectionTests: XCTestCase {
     }
 
     func testResponse() throws {
-        let response = try XCTUnwrap(Response.response(flow: flowMock,
-                                                       fileName: "invalid-password-response"))
+        let response = try XCTUnwrap(Response.response(
+            flow: flowMock,
+            data: data(from: .module,
+                       for: "invalid-password-response")))
         XCTAssertEqual(response.messages.count, 0)
         XCTAssertEqual(response.messages.allMessages.count, 1)
         

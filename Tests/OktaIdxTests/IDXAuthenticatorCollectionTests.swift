@@ -36,8 +36,10 @@ class IDXAuthenticatorCollectionTests: XCTestCase {
     }
 
     func testCurrentAuthenticatorWithoutRelatesTo() throws {
-        let response = try XCTUnwrap(Response.response(flow: flowMock,
-                                                       fileName: "identify-single-form-response"))
+        let response = try XCTUnwrap(Response.response(
+            flow: flowMock,
+            data: data(from: .module,
+                       for: "identify-single-form-response")))
         XCTAssertEqual(response.authenticators.count, 1)
         XCTAssertEqual(response.authenticators.first?.type, .password)
         
@@ -47,8 +49,10 @@ class IDXAuthenticatorCollectionTests: XCTestCase {
     }
     
     func testAuthenticatorEnrollmentWithoutId() throws {
-        let response = try XCTUnwrap(Response.response(flow: flowMock,
-                                                       fileName: "account-recovery"))
+        let response = try XCTUnwrap(Response.response(
+            flow: flowMock,
+            data: data(from: .module,
+                       for: "account-recovery")))
         
         let remediation = try XCTUnwrap(response.remediations[.selectAuthenticatorAuthenticate])
         let emailOption = try XCTUnwrap(remediation["authenticator"]?.options?.first)

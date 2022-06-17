@@ -82,8 +82,11 @@ class IDXClientRequestTests: XCTestCase {
     func testRemediationRequest() throws {
         let context = try IDXAuthenticationFlow.Context(interactionHandle: "handle", state: "state")
         let flowMock = IDXAuthenticationFlowMock(context: context, client: client, redirectUri: redirectUri)
-        let response = try XCTUnwrap(Response.response(flow: flowMock,
-                                                       fileName: "identify-single-form-response"))
+        let response = try XCTUnwrap(Response.response(
+            flow: flowMock,
+            data: data(from: .module,
+                       for: "identify-single-form-response")))
+        
         let remediation = try XCTUnwrap(response.remediations[.identify])
         remediation["identifier"]?.value = "user@example.com"
         remediation["credentials.passcode"]?.value = "secret"
@@ -110,8 +113,7 @@ class IDXClientRequestTests: XCTestCase {
         let openIdConfiguration = try OpenIdConfiguration.jsonDecoder.decode(
             OpenIdConfiguration.self,
             from: try data(from: .module,
-                           for: "openid-configuration",
-                           in: "SampleResponses"))
+                           for: "openid-configuration"))
         let pkce = try XCTUnwrap(PKCE())
         
         let request = IDXAuthenticationFlow.RedirectURLTokenRequest(openIdConfiguration: openIdConfiguration,

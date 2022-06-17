@@ -38,8 +38,9 @@ class IDXRemediationParameterTests: XCTestCase {
     func testFlatForm() throws {
         let response = try Response.response(
             flow: flowMock,
-            folderName: "Passcode",
-            fileName: "02-introspect-response")
+            data: data(from: .module,
+                       for: "02-introspect-response",
+                       in: "Passcode"))
         XCTAssertNotNil(response)
                 
         guard let remediationOption = response.remediations["identify"],
@@ -62,8 +63,9 @@ class IDXRemediationParameterTests: XCTestCase {
     func testNestedForm() throws {
         let response = try Response.response(
             flow: flowMock,
-            folderName: "Passcode",
-            fileName: "03-identify-response")
+            data: data(from: .module,
+                       for: "03-identify-response",
+                       in: "Passcode"))
         XCTAssertNotNil(response)
                 
         guard let remediationOption = response.remediations["challenge-authenticator"],
@@ -87,8 +89,9 @@ class IDXRemediationParameterTests: XCTestCase {
     func testNestedFormWithUnnamedOption() throws {
         let response = try Response.response(
             flow: flowMock,
-            folderName: "MFA-Email",
-            fileName: "03-identify-response")
+            data: data(from: .module,
+                       for: "03-identify-response",
+                       in: "MFA-Email"))
         XCTAssertNotNil(response)
                 
         guard let remediationOption = response.remediations["select-authenticator-authenticate"],
@@ -113,8 +116,9 @@ class IDXRemediationParameterTests: XCTestCase {
     func testNestedFormWithCustomizedOption() throws {
         let response = try Response.response(
             flow: flowMock,
-            folderName: "MFA-SOP",
-            fileName: "10-credential-enroll")
+            data: data(from: .module,
+                       for: "10-credential-enroll",
+                       in: "MFA-SOP"))
         XCTAssertNotNil(response)
                 
         guard let remediationOption = response.remediations["select-authenticator-enroll"],

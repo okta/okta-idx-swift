@@ -84,9 +84,16 @@ public extension XCTestCase {
             fileExtension = "json"
         }
         
+        let subdirectory: String
+        if let folder = folder {
+            subdirectory = "SampleResponses/\(folder)"
+        } else {
+            subdirectory = "SampleResponses"
+        }
+        
         guard let url = bundle.url(forResource: file,
                                    withExtension: fileExtension,
-                                   subdirectory: folder)
+                                   subdirectory: subdirectory)
         else {
             throw TestError.noBundleResourceFound
         }

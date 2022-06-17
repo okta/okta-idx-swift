@@ -64,28 +64,28 @@ class ScenarioTests: XCTestCase {
         urlSession.expect("https://example.com/oauth2/default/v1/interact",
                           data: try data(from: .module,
                                          for: "01-interact-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/idp/idx/introspect",
                           data: try data(from: .module,
                                          for: "02-introspect-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/idp/idx/identify",
                           data: try data(from: .module,
                                          for: "03-identify-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/idp/idx/challenge/answer",
                           data: try data(from: .module,
                                          for: "04-challenge-answer-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/oauth2/auszsfkYrgGCTilsV2o4/v1/token",
                           data: try data(from: .module,
                                          for: "05-token-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/oauth2/default/.well-known/openid-configuration",
-                          data: try data(from: .module, for: "openid-configuration", in: "SampleResponses"),
+                          data: try data(from: .module, for: "openid-configuration"),
                           contentType: "application/json")
         urlSession.expect("https://example.com/oauth2/v1/keys?client_id=0ZczewGCFPlxNYYcLq5i",
-                          data: try data(from: .module, for: "keys", in: "SampleResponses"),
+                          data: try data(from: .module, for: "keys"),
                           contentType: "application/json")
 
         flow.start { result in
@@ -154,28 +154,28 @@ class ScenarioTests: XCTestCase {
         urlSession.expect("https://example.com/oauth2/default/v1/interact",
                           data: try data(from: .module,
                                          for: "01-interact-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/idp/idx/introspect",
                           data: try data(from: .module,
                                          for: "02-introspect-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/idp/idx/identify",
                           data: try data(from: .module,
                                          for: "03-identify-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/idp/idx/challenge/answer",
                           data: try data(from: .module,
                                          for: "04-challenge-answer-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/oauth2/auszsfkYrgGCTilsV2o4/v1/token",
                           data: try data(from: .module,
                                          for: "05-token-response",
-                                         in: "SampleResponses/Passcode"))
+                                         in: "Passcode"))
         urlSession.expect("https://example.com/oauth2/default/.well-known/openid-configuration",
-                          data: try data(from: .module, for: "openid-configuration", in: "SampleResponses"),
+                          data: try data(from: .module, for: "openid-configuration"),
                           contentType: "application/json")
         urlSession.expect("https://example.com/oauth2/v1/keys?client_id=0ZczewGCFPlxNYYcLq5i",
-                          data: try data(from: .module, for: "keys", in: "SampleResponses"),
+                          data: try data(from: .module, for: "keys"),
                           contentType: "application/json")
 
         var response = try await flow.start()
@@ -207,19 +207,19 @@ class ScenarioTests: XCTestCase {
         urlSession.expect("https://example.com/oauth2/default/v1/interact",
                           data: try data(from: .module,
                                          for: "01-interact-response",
-                                         in: "SampleResponses/MFA-Email"))
+                                         in: "MFA-Email"))
         urlSession.expect("https://example.com/idp/idx/introspect",
                           data: try data(from: .module,
                                          for: "02-introspect-response",
-                                         in: "SampleResponses/MFA-Email"))
+                                         in: "MFA-Email"))
         urlSession.expect("https://example.com/idp/idx/identify",
                           data: try data(from: .module,
                                          for: "03-identify-response",
-                                         in: "SampleResponses/MFA-Email"))
+                                         in: "MFA-Email"))
         urlSession.expect("https://example.com/idp/idx/challenge",
                           data: try data(from: .module,
                                          for: "04-challenge-authenticator",
-                                         in: "SampleResponses/MFA-Email"))
+                                         in: "MFA-Email"))
 
         flow.start { result in
             guard case let Result.success(response) = result else {
@@ -316,27 +316,27 @@ class ScenarioTests: XCTestCase {
         urlSession.expect("https://example.com/oauth2/default/v1/interact",
                           data: try data(from: .module,
                                          for: "01-interact-response",
-                                         in: "SampleResponses/RestartTransaction"))
+                                         in: "RestartTransaction"))
         urlSession.expect("https://example.com/idp/idx/introspect",
                           data: try data(from: .module,
                                          for: "02-introspect-response",
-                                         in: "SampleResponses/RestartTransaction"))
+                                         in: "RestartTransaction"))
         urlSession.expect("https://example.com/idp/idx/identify",
                           data: try data(from: .module,
                                          for: "03-identify-response",
-                                         in: "SampleResponses/RestartTransaction"))
+                                         in: "RestartTransaction"))
         urlSession.expect("https://example.com/idp/idx/challenge",
                           data: try data(from: .module,
                                          for: "04-challenge-response",
-                                         in: "SampleResponses/RestartTransaction"))
+                                         in: "RestartTransaction"))
         urlSession.expect("https://example.com/idp/idx/challenge/answer",
                           data: try data(from: .module,
                                          for: "05-challenge-answer-response",
-                                         in: "SampleResponses/RestartTransaction"))
+                                         in: "RestartTransaction"))
         urlSession.expect("https://example.com/idp/idx/cancel",
                           data: try data(from: .module,
                                          for: "06-cancel-response",
-                                         in: "SampleResponses/RestartTransaction"))
+                                         in: "RestartTransaction"))
 
         flow.start { result in
             guard case let Result.success(response) = result else {
@@ -433,21 +433,20 @@ class ScenarioTests: XCTestCase {
         urlSession.expect("https://example.com/oauth2/default/v1/interact",
                           data: try data(from: .module,
                                          for: "01-interact-response",
-                                         in: "SampleResponses/IdP"))
+                                         in: "IdP"))
         urlSession.expect("https://example.com/idp/idx/introspect",
                           data: try data(from: .module,
                                          for: "02-introspect-response",
-                                         in: "SampleResponses/IdP"))
+                                         in: "IdP"))
         urlSession.expect("https://example.com/oauth2/default/.well-known/openid-configuration",
                           data: try data(from: .module,
-                                         for: "openid-configuration",
-                                         in: "SampleResponses"))
+                                         for: "openid-configuration"))
         urlSession.expect("https://example.com/oauth2/v1/token",
                           data: try data(from: .module,
                                          for: "03-token-response",
-                                         in: "SampleResponses/IdP"))
+                                         in: "IdP"))
         urlSession.expect("https://example.com/oauth2/v1/keys?client_id=0ZczewGCFPlxNYYcLq5i",
-                          data: try data(from: .module, for: "keys", in: "SampleResponses"),
+                          data: try data(from: .module, for: "keys"),
                           contentType: "application/json")
 
         flow.start { result in
@@ -489,11 +488,11 @@ class ScenarioTests: XCTestCase {
         urlSession.expect("https://example.com/oauth2/default/v1/interact",
                           data: try data(from: .module,
                                          for: "01-interact-response",
-                                         in: "SampleResponses/IdP"))
+                                         in: "IdP"))
         urlSession.expect("https://example.com/idp/idx/introspect",
                           data: try data(from: .module,
                                          for: "02-introspect-response",
-                                         in: "SampleResponses/IdP"))
+                                         in: "IdP"))
 
         flow.start { result in
             guard case let Result.success(response) = result else {

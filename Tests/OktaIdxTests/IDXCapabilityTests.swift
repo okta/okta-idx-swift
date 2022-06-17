@@ -50,10 +50,10 @@ class IDXCapabilityTests: XCTestCase {
                                   relatesTo: nil,
                                   capabilities: [])
         responseData = try data(from: .module,
-                                for: "introspect-response",
-                                in: "SampleResponses")
+                                for: "introspect-response")
         response = try Response.response(flow: flowMock,
-                                         fileName: "introspect-response")
+                                         data: data(from: .module,
+                                                    for: "introspect-response"))
     }
 
     func testProfileCapability() throws {

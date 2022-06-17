@@ -666,8 +666,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     func testEnrollPollWithoutRelatedAuthenticators() throws {
         let obj = try decode(type: IonResponse.self,
                              try data(from: .module,
-                                      for: "enroll-poll-response",
-                                      in: "SampleResponses"))
+                                      for: "enroll-poll-response"))
         let publicObj = try Response(flow: flowMock, ion: obj)
         let remediation = try XCTUnwrap(publicObj.remediations[.enrollPoll])
         XCTAssertEqual(publicObj.authenticators.current, remediation.authenticators.current)
@@ -678,8 +677,7 @@ class IDXClientV1ResponseTests: XCTestCase {
     func testMultipleRelatedAuthenticators() throws {
         let obj = try decode(type: IonResponse.self,
                              try data(from: .module,
-                                      for: "multiple-select-authenticator-authenticate",
-                                      in: "SampleResponses"))
+                                      for: "multiple-select-authenticator-authenticate"))
         let publicObj = try Response(flow: flowMock, ion: obj)
         let remediation = try XCTUnwrap(publicObj.remediations[.selectAuthenticatorAuthenticate])
         let firstOption = try XCTUnwrap(remediation["authenticator"]?.options?[0])
