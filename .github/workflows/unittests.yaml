@@ -67,6 +67,7 @@ jobs:
           -derivedDataPath ../Build/DerivedData \
           -clonedSourcePackagesDirPath ../Build/ClonedSources \
           -resultBundlePath ../TestResults/OktaIdx.xcresult \
+          -workspace OktaIdx.xcworkspace \
           -scheme OktaIdx \
           -sdk iphonesimulator \
           -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
