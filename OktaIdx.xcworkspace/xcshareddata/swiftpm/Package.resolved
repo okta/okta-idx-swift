@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "AuthFoundation",
+        "repositoryURL": "https://github.com/okta/okta-mobile-swift",
+        "state": {
+          "branch": "master",
+          "revision": "de53617576528d08126249e884f1200cafd86ae9",
+          "version": null
+        }
+      },
+      {
         "package": "SwiftDocCPlugin",
         "repositoryURL": "https://github.com/apple/swift-docc-plugin",
         "state": {

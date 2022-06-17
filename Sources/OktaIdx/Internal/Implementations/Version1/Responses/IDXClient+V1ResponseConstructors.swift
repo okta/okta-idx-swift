@@ -1,14 +1,14 @@
-/*
- * Copyright (c) 2021-Present, Okta, Inc. and/or its affiliates. All rights reserved.
- * The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
- *
- * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *
- * See the License for the specific language governing permissions and limitations under the License.
- */
+//
+// Copyright (c) 2021-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
+//
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//
+// See the License for the specific language governing permissions and limitations under the License.
+//
 
 import Foundation
 import AuthFoundation
@@ -137,7 +137,7 @@ extension IonResponse {
 }
 
 extension Capability.PasswordSettings {
-    init?(with settings: [String:JSONValue]?) {
+    init?(with settings: [String: JSONValue]?) {
         guard let settings = settings,
               let complexity = settings["complexity"]?.toAnyObject() as? [String: Any]
         else { return nil }
@@ -155,7 +155,7 @@ extension Capability.PasswordSettings {
 
 extension Authenticator.Collection {
     convenience init(flow: IDXAuthenticationFlowAPI, ion object: IonResponse) throws {
-        let authenticatorMapping: [String:[IonResponse.AuthenticatorMapping]]
+        let authenticatorMapping: [String: [IonResponse.AuthenticatorMapping]]
         authenticatorMapping = object
             .allAuthenticators()
             .reduce(into: [:]) { (result, mapping) in
@@ -311,7 +311,7 @@ extension Capability.OTP {
         
         guard type == .app,
               let contextualData = authenticators.compactMap(\.contextualData).first,
-              let qrcode = contextualData["qrcode"]?.toAnyObject() as? [String:String],
+              let qrcode = contextualData["qrcode"]?.toAnyObject() as? [String: String],
               qrcode["method"] == "embedded",
               let mimeType = qrcode["type"],
               let imageUrlString = qrcode["href"],
@@ -352,7 +352,7 @@ private func methodTypes(from authenticators: [IonAuthenticator]) -> [Authentica
 {
     let methods = authenticators
         .compactMap(\.methods)
-        .reduce(into: [String:String]()) { (partialResult, items: [[String:String]]) in
+        .reduce(into: [String: String]()) { (partialResult, items: [[String: String]]) in
             items.forEach { item in
                 item.forEach { (key: String, value: String) in
                     partialResult[key] = value
@@ -415,11 +415,14 @@ extension Remediation {
                                 createCapabilities: Bool = true) -> Remediation?
     {
         guard let object = object else { return nil }
+
+        // swiftlint:disable force_unwrapping
         let form = Form(fields: object.value?.map({ (value) in
           .init(flow: flow, ion: value)
         })) ?? Form(fields: [])!
         let refresh = (object.refresh != nil) ? Double(object.refresh!) / 1000.0 : nil
-        
+        // swiftlint:enable force_unwrapping
+
         let capabilities: [RemediationCapability?] = createCapabilities ? [
             Capability.SocialIDP(flow: flow, ion: object),
             Capability.Pollable(flow: flow, ion: object)
@@ -443,6 +446,7 @@ extension Remediation {
               }))
         else { return nil }
 
+        // swiftlint:disable force_unwrapping
         self.init(flow: flow,
                   name: object.name,
                   method: object.method,
@@ -452,6 +456,7 @@ extension Remediation {
                   refresh: (object.refresh != nil) ? Double(object.refresh!) / 1000.0 : nil,
                   relatesTo: object.relatesTo,
                   capabilities: [])
+        // swiftlint:enable force_unwrapping
     }
 }
 

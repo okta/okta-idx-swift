@@ -52,7 +52,7 @@ public class Authenticator: Equatable {
          displayName: String?,
          type: String,
          key: String?,
-         methods: [[String:String]]?,
+         methods: [[String: String]]?,
          capabilities: [AuthenticatorCapability])
     {
         self.flow = flow

@@ -66,7 +66,7 @@ public class Remediation: Equatable, Hashable {
     let refresh: TimeInterval?
     let relatesTo: [String]?
     
-    required internal init?(flow: IDXAuthenticationFlowAPI,
+    internal required init?(flow: IDXAuthenticationFlowAPI,
                             name: String,
                             method: String,
                             href: URL,
