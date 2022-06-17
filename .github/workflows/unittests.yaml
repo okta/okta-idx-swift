@@ -49,6 +49,7 @@ jobs:
     env:
       DEVELOPER_DIR: /Applications/Xcode_13.3.app/Contents/Developer
     steps:
+    - uses: actions/checkout@master
     - name: Lint CocoaPods
       run: pod lib lint OktaIdx.podspec
 
