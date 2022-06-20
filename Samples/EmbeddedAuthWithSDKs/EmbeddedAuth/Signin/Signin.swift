@@ -214,7 +214,7 @@ public class Signin {
     internal func success(with token: Token) {
         let credential: Credential
         do {
-            credential = try Credential.with(token: token)
+            credential = try Credential.store(token)
         } catch {
             failure(with: error)
             return

@@ -155,6 +155,7 @@
 		964F747425A3E5F3003EE300 /* PasscodeScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeScenarioTests.swift; sourceTree = "<group>"; };
 		964F747625A3E5F3003EE300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		964F748625A3E602003EE300 /* OktaIdx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaIdx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		964FE4A92860D43A00946727 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = ../Shared/SampleCode.xcconfig; sourceTree = "<group>"; };
 		9652D9C925A9142600927FA5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		96576C4F25A91EEA00B02E3B /* IDXStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXStartViewController.swift; sourceTree = "<group>"; };
 		96576C6125ACC53200B02E3B /* IDXGetTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXGetTokenViewController.swift; sourceTree = "<group>"; };
@@ -183,7 +184,7 @@
 		96ADA06025B0D173008BF50D /* FormRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRows.swift; sourceTree = "<group>"; };
 		96ADA06625B0F5D5008BF50D /* IDXLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXLabelTableViewCell.swift; sourceTree = "<group>"; };
 		96ADA06C25B111AA008BF50D /* IDXMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDXMessageTableViewCell.swift; sourceTree = "<group>"; };
-		96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = TestCredentials.xcconfig; path = ../../../TestCredentials.xcconfig; sourceTree = "<group>"; };
+		96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = TestCredentials.xcconfig; path = ../Shared/TestCredentials.xcconfig; sourceTree = "<group>"; };
 		96C51E9225BA591F007A2519 /* SelfServiceRegistrationScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfServiceRegistrationScenarioTests.swift; sourceTree = "<group>"; };
 		96D82B7E2763D70700F8C622 /* AccountUnlockScenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUnlockScenarioTests.swift; sourceTree = "<group>"; };
 		96D82B802763DF3000F8C622 /* AccountUnlockScenarioValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUnlockScenarioValidator.swift; sourceTree = "<group>"; };
@@ -269,6 +270,8 @@
 				964F747325A3E5F3003EE300 /* EmbeddedAuthUITests */,
 				964F745025A3E5F0003EE300 /* Products */,
 				964F748525A3E602003EE300 /* Frameworks */,
+				964FE4A92860D43A00946727 /* SampleCode.xcconfig */,
+				96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -325,7 +328,6 @@
 				96D82B7E2763D70700F8C622 /* AccountUnlockScenarioTests.swift */,
 				923EF0232677A39E0020011A /* SocialAuthTests.swift */,
 				964F747625A3E5F3003EE300 /* Info.plist */,
-				96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */,
 			);
 			path = EmbeddedAuthUITests;
 			sourceTree = "<group>";
@@ -488,7 +490,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 964F747925A3E5F3003EE300 /* Build configuration list for PBXNativeTarget "EmbeddedAuth" */;
 			buildPhases = (
-				96F8B32C25BB412500DAECDC /* ShellScript */,
 				964F744B25A3E5F0003EE300 /* Sources */,
 				964F744C25A3E5F0003EE300 /* Frameworks */,
 				964F744D25A3E5F0003EE300 /* Resources */,
@@ -615,28 +616,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		96F8B32C25BB412500DAECDC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../TestCredentials.xcconfig.example",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/../TestCredentials.xcconfig",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ ! -f \"$SRCROOT/../../TestCredentials.xcconfig\" ]]; then\n  cp \"$SRCROOT/../../TestCredentials.xcconfig.example\" \"$SRCROOT/../../TestCredentials.xcconfig\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		964F744B25A3E5F0003EE300 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -761,6 +740,7 @@
 /* Begin XCBuildConfiguration section */
 		964F747725A3E5F3003EE300 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 964FE4A92860D43A00946727 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -822,6 +802,7 @@
 		};
 		964F747825A3E5F3003EE300 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 964FE4A92860D43A00946727 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -882,13 +863,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UW6GDZ98ND;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EmbeddedAuth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.okta.EmbeddedAuth;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.okta-sample.EmbeddedAuth${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -902,13 +883,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UW6GDZ98ND;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EmbeddedAuth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.okta.EmbeddedAuth;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.okta-sample.EmbeddedAuth${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -959,6 +940,7 @@
 		};
 		964F748025A3E5F3003EE300 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -982,6 +964,7 @@
 		};
 		964F748125A3E5F3003EE300 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96C51E7E25BA578F007A2519 /* TestCredentials.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
