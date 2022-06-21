@@ -343,6 +343,11 @@ extension IDXAuthenticationFlow: OAuth2ClientDelegate {
 }
 
 extension OAuth2Client {
+    /// Convenience that produces an ``IDXAuthenticationFlow`` from an existing OAuth2Client.
+    /// - Parameters:
+    ///   - redirectUri: Redirect URI the client expects.
+    ///   - additionalParameters: Additional parameters to supply to the authorize endpoint.
+    /// - Returns: Initialized ``IDXAuthenticationFlow`` for this client.
     public func idxFlow(
         redirectUri: URL,
         additionalParameters: [String: String]? = nil) -> IDXAuthenticationFlow

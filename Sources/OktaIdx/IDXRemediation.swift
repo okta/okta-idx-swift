@@ -14,21 +14,6 @@ import Foundation
 import AuthFoundation
 
 /// Describes choices the user can make to proceed through the authentication workflow.
-///
-/// All authentication scenarios, whether they are simple or complex, consist of a series of steps that may be followed, but at some times the user may have a choice in what they use to verify their identity. For example, a user may have multiple choices in verifying their account, such as:
-///
-/// 1. Password
-/// 2. Security Questions
-/// 3. Email verification
-/// 4. Other, customizable, verification steps.
-///
-/// A remediation represents an individual choice a user can make. Each remedation includes details about what form values should be used to collect information from the user, and a description of the resulting request that should be sent to Okta to proceed to the next step.
-///
-/// Nested form values can be accessed through keyed subscripting, for example:
-///
-///    response.remediations[.identifier]
-///
-/// Remediations may contain ``capabilities``which defines additional behaviors or operations that may be performed for some options.
 public class Remediation: Equatable, Hashable {
     /// The type of this remediation, which is used for keyed subscripting from a `RemediationCollection`.
     public let type: RemediationType
