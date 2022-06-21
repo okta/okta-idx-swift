@@ -13,26 +13,28 @@
 import Foundation
 @_exported import AuthFoundation
 
-/// The IDXAuthenticationFlow class is used to define and initiate an authentication workflow utilizing the Okta Identity Engine. Your app can use this to begin a customizable workflow to authenticate and verify the identity of a user using your application.
+/// An authentication flow used to authenticate users using the Okta Identity Engine.
 ///
-/// The `IDXClient.Configuration` class is used to communicate which application, defined within Okta, the user is being authenticated with. From this point a workflow is initiated, consisting of a series of authentication "Remediation" steps. At each step, your application can introspect the `Response` object to determine which UI should be presented to your user to guide them through to login.
+/// This permits a user to be authenticated using a dynamic and customizable workflow that is driven by server-side policy configuration. A user is given choices in how they authenticate, how they verify one or more authentication factors, and can enable self-service registration and authenticator enrollment.
+///
+/// This class is used to communicate which application, defined within Okta, the user is being authenticated with. From this point a workflow is initiated, consisting of a series of authentication ``Remediation`` steps. At each step, your application can introspect the ``Response`` object to determine which UI should be presented to your user to guide them through to login.
 public final class IDXAuthenticationFlow: AuthenticationFlow {
-    /// Options to use when initiating an IDXClient.
+    /// Options to use when initiating an ``IDXAuthenticationFlow``.
     public enum Option: String {
-        /// Option used when a client needs to supply its own custom state value when initiating an IDXClient.
+        /// Option used when a client needs to supply its own custom state value when initiating an authenticaiton flow.
         case state
         
         /// Option used when a user is authenticating using a recovery token.
         case recoveryToken = "recovery_token"
     }
     
-    /// The type used for the completion  handler result from any method that returns an `Response`.
+    /// The type used for the completion  handler result from any method that returns an ``Response``.
     /// - Parameters:
-    ///   - response: The `Response` object that describes the next workflow steps.
+    ///   - response: The ``Response`` object that describes the next workflow steps.
     ///   - error: Describes the error that occurred, or `nil` if the request was successful.
     public typealias ResponseResult = (Result<Response, IDXAuthenticationFlowError>) -> Void
 
-    /// The type used for the completion  handler result from any method that returns an `Token`.
+    /// The type used for the completion  handler result from any method that returns a `Token`.
     /// - Parameters:
     ///   - token: The `Token` object created when the token is successfully exchanged.
     ///   - error: Describes the error that occurred, or `nil` if the request was successful.
@@ -149,9 +151,9 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
     
     /// Resumes the authentication state to identify the available remediation steps.
     ///
-    /// This method is usually performed after an IDXClient is created in `IDXClient.start(with:state:completion:)`, but can also be called at any time to identify what next remediation steps are available to the user.
+    /// This method is usually performed after an ``IDXAuthenticationFlow`` is created in ``start(options:completion:)``, but can also be called at any time to identify what next remediation steps are available to the user.
     /// - Important:
-    /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didReceive:)` methods to process any response or error returned from this call.
+    /// If a completion handler is not provided, you should ensure that you implement the ``IDXAuthenticationFlowDelegate`` methods to process any response or error returned from this call.
     /// - Parameters:
     ///   - completion: Optional completion handler invoked when a response is received.
     public func resume(completion: ResponseResult? = nil) {
@@ -230,7 +232,7 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
     
     /// Exchanges the redirect URL with a token.
     ///
-    /// Once the `redirectResult` method returns `authenticated`, the developer can exchange that redirect URL for a valid token by using this method.
+    /// Once the ``redirectResult(for:)`` method returns ``RedirectResult/authenticated``, the developer can exchange that redirect URL for a valid token by using this method.
     /// - Parameters:
     ///   - url: URL with the app’s custom scheme. The value must match one of the authorized redirect URIs, which are configured in Okta Admin Console.
     ///   - completion: Optional completion handler invoked when a token, or error, is received.
@@ -273,11 +275,13 @@ public final class IDXAuthenticationFlow: AuthenticationFlow {
             }
         }
     }
-
+    
+    /// Cancels the current authentication transaction.
     public func cancel() {
         reset()
     }
     
+    /// Resets the authentication flow to its original state.
     public func reset() {
         context = nil
         isAuthenticating = false
@@ -294,7 +298,7 @@ extension IDXAuthenticationFlow {
     /// - Parameters:
     ///   - configuration: Configuration describing the app settings to contact.
     ///   - options: Options to include within the OAuth2 transaction.
-    /// - Returns: An IDXClient instance for this session.
+    /// - Returns: A ``Response``.
     public func start(options: [Option: String]? = nil) async throws -> Response {
         try await withCheckedThrowingContinuation { continuation in
             start(options: options) { result in
@@ -305,7 +309,7 @@ extension IDXAuthenticationFlow {
 
     /// Resumes the authentication state to identify the available remediation steps.
     ///
-    /// This method is usually performed after an IDXClient is created in ``IDXClient.start(with:state:)``, but can also be called at any time to identify what next remediation steps are available to the user.
+    /// This method can be called at any time to identify what next remediation steps are available to the user.
     /// - Returns: A response showing the user's next steps.
     public func resume() async throws -> Response {
         try await withCheckedThrowingContinuation { continuation in
@@ -317,7 +321,7 @@ extension IDXAuthenticationFlow {
     
     /// Exchanges the redirect URL with a token.
     ///
-    /// Once the `redirectResult` method returns `authenticated`, the developer can exchange that redirect URL for a valid token by using this method.
+    /// Once the ``redirectResult(for:)`` method returns ``RedirectResult/authenticated``, the developer can exchange that redirect URL for a valid token by using this method.
     /// - Parameters:
     ///   - url: URL with the app’s custom scheme. The value must match one of the authorized redirect URIs, which are configured in Okta Admin Console.
     public func exchangeCode(redirect url: URL) async throws -> Token {
@@ -349,7 +353,49 @@ extension OAuth2Client {
     }
 }
 
-/// Delegate protocol that can be used to receive updates from the IDXClient through the process of a user's authentication.
+class Foo: AnyObject, IDXAuthenticationFlowDelegate {
+    func authentication<Flow>(flow: Flow, received response: Response) where Flow : IDXAuthenticationFlow {
+        // If login is successful, immediately exchange it for a token.
+        guard !response.isLoginSuccessful else {
+            response.exchangeCode()
+            return
+        }
+        
+        // Identify the user
+        if let remediation = response.remediations[.identify] {
+            remediation["identifier"]?.value = username
+            remediation["credentials.passcode"]?.value = password
+            remediation.proceed()
+        }
+        
+        // If the password is requested on a separate "page", supply it there.
+        else if let remediation = response.remediations[.challengeAuthenticator],
+                response.authenticators.current?.type == .password
+        {
+            remediation["credentials.passcode"]?.value = password
+            remediation.proceed()
+        }
+        
+        // Handle other scenarios / remediation states here...
+    }
+    
+    func authentication<Flow>(flow: Flow, received token: Token) where Flow : IDXAuthenticationFlow {
+        // Login succeeded, with the given token.
+        do {
+            try Credential.store(token)
+        } catch {
+            // Handle with errors
+        }
+    }
+    
+    func authentication<Flow>(flow: Flow, received error: OAuth2Error) {
+        // Handle the error
+    }
+    
+    
+}
+
+/// Delegate protocol that can be used to receive updates from the ``IDXAuthenticationFlow`` through the process of a user's authentication.
 public protocol IDXAuthenticationFlowDelegate: AuthenticationDelegate {
     /// Called before authentication begins.
     /// - Parameters:
@@ -363,24 +409,24 @@ public protocol IDXAuthenticationFlowDelegate: AuthenticationDelegate {
 
     /// Message sent when an error is received at any point during the authentication process.
     /// - Parameters:
-    ///   - client: IDXClient sending the error.
+    ///   - client: ``IDXAuthenticationFlow`` sending the error.
     ///   - error: The error that was received.
     func authentication<Flow: IDXAuthenticationFlow>(flow: Flow, received error: IDXAuthenticationFlowError)
     
-    /// Informs the delegate when an IDX response is received, either through an `introspect` or `proceed` call.
+    /// Informs the delegate when an IDX response is received, either through an ``IDXAuthenticationFlow/resume()`` or ``Remediation/proceed(completion:)`` call.
     /// - Parameters:
-    ///   - client: IDXClient receiving the response.
+    ///   - client: ``IDXAuthenticationFlow`` receiving the response.
     ///   - response: The response that was received.
     func authentication<Flow: IDXAuthenticationFlow>(flow: Flow, received response: Response)
     
     /// Informs the delegate when authentication is successful, and the token is returned.
     /// - Parameters:
-    ///   - client: IDXClient receiving the token.
-    ///   - token: The IDX token object describing the user's credentials.
+    ///   - client: ``IDXAuthenticationFlow`` receiving the token.
+    ///   - token: The token object describing the user's credentials.
     func authentication<Flow: IDXAuthenticationFlow>(flow: Flow, received token: Token)
 }
 
-/// Errors reported from IDXClient
+/// Errors reported from ``IDXAuthenticationFlow``.
 public enum IDXAuthenticationFlowError: Error {
     case invalidContext
     case invalidFlow

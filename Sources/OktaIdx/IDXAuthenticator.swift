@@ -20,7 +20,7 @@ public class Authenticator: Equatable {
     /// The user-visible name to use for this authenticator enrollment.
     public let displayName: String?
     
-    /// The type of this authenticator, or `unknown` if the type isn't represented by this enumeration.
+    /// The type of this authenticator, or ``Kind/unknown`` if the type isn't represented by this enumeration.
     public let type: Kind
     
     /// The key name for the authenticator
@@ -31,7 +31,8 @@ public class Authenticator: Equatable {
     
     /// Describes the various methods this authenticator can perform.
     public let methods: [Method]?
-
+    
+    /// Set of objects that describe the capabilities this authenticator may have.
     public let capabilities: [AuthenticatorCapability]
     
     public static func == (lhs: Authenticator, rhs: Authenticator) -> Bool {

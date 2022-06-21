@@ -13,7 +13,7 @@
 import Foundation
 
 extension Capability {
-    /// Capability used for being able to "resend".
+    /// Capability used for being able to "resend" a verification code.
     ///
     /// This is typically used by Email and Phone authenticators.
     public struct Resendable: AuthenticatorCapability {

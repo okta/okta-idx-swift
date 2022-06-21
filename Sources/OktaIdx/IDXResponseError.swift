@@ -13,9 +13,15 @@
 import Foundation
 import AuthFoundation
 
+/// Describes an error reported from the server.
 public struct IDXServerError: Error, LocalizedError {
+    /// The description of the error message.
     public let message: String
+    
+    /// The localization key to uniquely identify this message.
     public let localizationKey: String?
+    
+    /// The severity of the error.
     public let severity: Response.Message.Severity
     
     public var errorDescription: String? { message }

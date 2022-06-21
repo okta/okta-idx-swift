@@ -58,7 +58,7 @@ extension Remediation.Form {
         
         /// Allows a developer to set the selected option for a field that contains multiple `options`.
         ///
-        /// This will update the `isSelectedOption` on all relevant fields.
+        /// This will update the ``isSelectedOption`` on all relevant fields.
         public weak var selectedOption: Remediation.Form.Field? {
             didSet {
                 guard let options = options else { return }
@@ -73,7 +73,7 @@ extension Remediation.Form {
         /// Messages reported from the server at the FormValue level should be considered relevant to the individual form field, and as a result should be displayed to the user alongside any UI elements associated with it.
         public let messages: Response.Message.Collection
         
-        /// Relates this field to an authenticator, when a field is used to represent an authenticator. For example, when a field is used within a series of `options` to identify which authenticator to select.
+        /// Relates this field to an authenticator, when a field is used to represent an authenticator. For example, when a field is used within a series of ``options`` to identify which authenticator to select.
         public internal(set) weak var authenticator: Authenticator?
 
         /// Returns the nested `form` field with the given name.
