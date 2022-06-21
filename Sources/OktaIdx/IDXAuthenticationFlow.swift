@@ -353,48 +353,6 @@ extension OAuth2Client {
     }
 }
 
-class Foo: AnyObject, IDXAuthenticationFlowDelegate {
-    func authentication<Flow>(flow: Flow, received response: Response) where Flow : IDXAuthenticationFlow {
-        // If login is successful, immediately exchange it for a token.
-        guard !response.isLoginSuccessful else {
-            response.exchangeCode()
-            return
-        }
-        
-        // Identify the user
-        if let remediation = response.remediations[.identify] {
-            remediation["identifier"]?.value = username
-            remediation["credentials.passcode"]?.value = password
-            remediation.proceed()
-        }
-        
-        // If the password is requested on a separate "page", supply it there.
-        else if let remediation = response.remediations[.challengeAuthenticator],
-                response.authenticators.current?.type == .password
-        {
-            remediation["credentials.passcode"]?.value = password
-            remediation.proceed()
-        }
-        
-        // Handle other scenarios / remediation states here...
-    }
-    
-    func authentication<Flow>(flow: Flow, received token: Token) where Flow : IDXAuthenticationFlow {
-        // Login succeeded, with the given token.
-        do {
-            try Credential.store(token)
-        } catch {
-            // Handle with errors
-        }
-    }
-    
-    func authentication<Flow>(flow: Flow, received error: OAuth2Error) {
-        // Handle the error
-    }
-    
-    
-}
-
 /// Delegate protocol that can be used to receive updates from the ``IDXAuthenticationFlow`` through the process of a user's authentication.
 public protocol IDXAuthenticationFlowDelegate: AuthenticationDelegate {
     /// Called before authentication begins.
