@@ -11,6 +11,7 @@
 //
 
 import Foundation
+import AuthFoundation
 
 extension Authenticator {
     /// Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.
@@ -42,14 +43,12 @@ extension Authenticator {
     
     class WeakCollection: Collection {
         override var allAuthenticators: [Authenticator] {
-            weakAuthenticators.compactMap { $0.object }
+            weakAuthenticators.compactMap { $0.wrappedValue }
         }
         
         let weakAuthenticators: [Weak<Authenticator>]
         override init(authenticators: [Authenticator]?) {
-            weakAuthenticators = authenticators?.map({ (authenticator) in
-                Weak(object: authenticator)
-            }) ?? []
+            weakAuthenticators = authenticators?.compactMap({ Weak($0) }) ?? []
             
             super.init(authenticators: nil)
         }

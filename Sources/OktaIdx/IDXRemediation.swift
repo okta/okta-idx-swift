@@ -13,22 +13,7 @@
 import Foundation
 import AuthFoundation
 
-/// Instances of `Remediation` describe choices the user can make to proceed through the authentication workflow.
-///
-/// Either simple or complex authentication scenarios consist of a set of steps that may be followed, but at some times the user may have a choice in what they use to verify their identity. For example, a user may have multiple choices in verifying their account, such as:
-///
-/// 1. Password
-/// 2. Security Questions
-/// 3. Email verification
-/// 4. Other, customizable, verification steps.
-///
-/// Each of the remediation options includes details about what form values should be collected from the user, and a description of the resulting request that should be sent to Okta to proceed to the next step.
-///
-/// Nested form values can be accessed through keyed subscripting, for example:
-///
-///    response.remediations[.identifier]
-///
-/// Some remediations are represented by subclasses of `Remediation` when specific behaviors or common patterns are available. These represent optional conveniences that simplify access to these types of objects.
+/// Describes choices the user can make to proceed through the authentication workflow.
 public class Remediation: Equatable, Hashable {
     /// The type of this remediation, which is used for keyed subscripting from a `RemediationCollection`.
     public let type: RemediationType
@@ -66,7 +51,7 @@ public class Remediation: Equatable, Hashable {
     let refresh: TimeInterval?
     let relatesTo: [String]?
     
-    required internal init?(flow: IDXAuthenticationFlowAPI,
+    internal required init?(flow: IDXAuthenticationFlowAPI,
                             name: String,
                             method: String,
                             href: URL,
@@ -92,7 +77,7 @@ public class Remediation: Equatable, Hashable {
     ///
     /// This method is used to proceed through the authentication flow, using the data assigned to the nested fields' `value` to make selections.
     /// - Important:
-    /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didReceive:)` methods to process any response or error returned from this call.
+    /// If a completion handler is not provided, you should ensure that you implement the ``IDXAuthenticationFlowDelegate`` methods to process any response or error returned from this call.
     /// - Parameters:
     ///   - completion: Optional completion handler invoked when a response is received.
     public func proceed(completion: IDXAuthenticationFlow.ResponseResult? = nil) {

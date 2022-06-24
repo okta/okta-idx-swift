@@ -13,7 +13,9 @@
 import Foundation
 import AuthFoundation
 
-/// Describes the response from an Okta Identity Engine workflow stage. This is used to determine the current state of the workflow, the set of available remediation steps to proceed through the workflow, actions that can be performed, and other information relevant to the authentication of a user.
+/// Describes the response from an Okta Identity Engine workflow stage.
+///
+/// This is used to determine the current state of the workflow, the set of available ``Remediation`` steps to that can be used to proceed through the workflow, actions that can be performed, and other information relevant to the authentication of a user.
 public class Response: NSObject {
     /// The date at which this stage of the workflow expires, after which the authentication process should be restarted.
     public let expiresAt: Date?
@@ -35,10 +37,10 @@ public class Response: NSObject {
     
     /// The list of messages sent from the server.
     ///
-    /// Messages reported from the server are usually errors, but may include other information relevant to the user. They should be displayed to the user in the context of the remediation form itself.
+    /// ``Message`` objects reported from the server are usually errors, but may include other information relevant to the user. They should be displayed to the user in the context of the remediation form itself.
     public let messages: Response.Message.Collection
     
-    /// Indicates whether or not the user has logged in successfully. If this is `true`, this response object should be exchanged for access tokens utilizing the `exchangeCode` method.
+    /// Indicates whether or not the user has logged in successfully. If this is `true`, this response object should be exchanged for access tokens utilizing the ``exchangeCode(completion:)`` method.
     public let isLoginSuccessful: Bool
     
     /// Indicates whether or not the response can be cancelled.
@@ -47,7 +49,7 @@ public class Response: NSObject {
     /// Cancels the current workflow, and restarts the session.
     ///
     /// - Important:
-    /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didReceive:)` methods to process any response or error returned from this call.
+    /// If a completion handler is not provided, you should ensure that you implement the ``IDXAuthenticationFlowDelegate`` methods to process any response or error returned from this call.
     /// - Parameters:
     ///   - completion: Optional completion handler invoked when the operation is cancelled.
     public func cancel(completion: IDXAuthenticationFlow.ResponseResult? = nil) {
@@ -61,9 +63,9 @@ public class Response: NSObject {
     
     /// Exchanges the successful response with a token.
     ///
-    /// Once the `isLoginSuccessful` property is `true`, the developer can exchange the response for a valid token by using this method.
+    /// Once the ``isLoginSuccessful`` property is `true`, the developer can exchange the response for a valid token by using this method.
     /// - Important:
-    /// If a completion handler is not provided, you should ensure that you implement the `IDXClientDelegate.idx(client:didReceive:)` method to receive the token or to handle any errors.
+    /// If a completion handler is not provided, you should ensure that you implement the ``IDXAuthenticationFlowDelegate`` methods to receive the token or to handle any errors.
     /// - Parameters:
     ///   - completion: Optional completion handler invoked when a token, or error, is received.
     public func exchangeCode(completion: IDXAuthenticationFlow.TokenResult? = nil) {
@@ -153,7 +155,7 @@ extension Response {
 
     /// Exchanges the successful response with a token.
     ///
-    /// Once the `isLoginSuccessful` property is `true`, the developer can exchange the response for a valid token by using this method.
+    /// Once the ``isLoginSuccessful`` property is `true`, the developer can exchange the response for a valid token by using this method.
     public func exchangeCode() async throws -> Token {
         try await withCheckedThrowingContinuation { continuation in
             exchangeCode() { result in

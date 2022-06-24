@@ -26,6 +26,7 @@ extension Response.Message {
             return allMessages.first(where: { $0.field?.name == fieldName })
         }
         
+        /// All messages within this collection, and all nested messages.
         public var allMessages: [Response.Message] {
             return messages + nestedMessages.compactMap { $0 }
         }

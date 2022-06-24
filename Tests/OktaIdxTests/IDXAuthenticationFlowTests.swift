@@ -50,12 +50,10 @@ class IDXAuthenticationFlowTests: XCTestCase {
         
         urlSession.expect("https://example.com/oauth2/default/v1/interact",
                           data: try data(from: .module,
-                                         for: "interact-response",
-                                         in: "SampleResponses"))
+                                         for: "interact-response"))
         urlSession.expect("https://example.com/idp/idx/introspect",
                           data: try data(from: .module,
-                                         for: "introspect-response",
-                                         in: "SampleResponses"))
+                                         for: "introspect-response"))
         
         let wait = expectation(description: "start")
         flow.start { result in
@@ -88,8 +86,7 @@ class IDXAuthenticationFlowTests: XCTestCase {
         
         urlSession.expect("https://example.com/oauth2/default/v1/interact",
                           data: try data(from: .module,
-                                         for: "interact-error-response",
-                                         in: "SampleResponses"),
+                                         for: "interact-error-response"),
                           statusCode: 400)
         
         let wait = expectation(description: "start")

@@ -22,17 +22,8 @@ import FoundationNetworking
 
 extension Response {
     class func response(flow: IDXAuthenticationFlowAPI,
-                        folderName: String? = nil,
-                        fileName: String) throws -> Response
+                        data: Data) throws -> Response
     {
-        let path = Bundle.testResource(folderName: folderName, fileName: fileName)
-        let data: Data!
-        do {
-            data = try Data(contentsOf: path)
-        } catch {
-            throw IDXAuthenticationFlowError.invalidHTTPResponse
-        }
-        
         let response = try IDXAuthenticationFlow.IntrospectRequest.jsonDecoder.decode(IonResponse.self, from: data)
         return try Response(flow: flow, ion: response)
     }

@@ -43,35 +43,6 @@ enum TestError: Error {
     case noBundleResourceFound
 }
 
-//extension XCTestCase {
-//    func data(for json: String) -> Data {
-//        return json.data(using: .utf8)!
-//    }
-//
-//    func data(for file: URL) throws -> Data {
-//        return try Data(contentsOf: file)
-//    }
-//
-//    func decode<T>(type: T.Type, _ file: URL) throws -> T where T : Decodable {
-//        let json = String(data: try data(for: file), encoding: .utf8)
-//        return try decode(type: type, json!)
-//    }
-//
-//    func decode<T>(type: T.Type, _ file: URL, _ test: ((T) throws -> Void)) throws where T : Decodable {
-//        let json = String(data: try data(for: file), encoding: .utf8)
-//        try test(try decode(type: type, json!))
-//    }
-//
-//    func decode<T>(type: T.Type, _ json: String) throws -> T where T : Decodable {
-//        let jsonData = data(for: json)
-//        return try IDXAuthenticationFlow.IntrospectRequest.jsonDecoder.decode(T.self, from: jsonData)
-//    }
-//
-//    func decode<T>(type: T.Type, _ json: String, _ test: ((T) throws -> Void)) throws where T : Decodable {
-//        try test(try decode(type: type, json))
-//    }
-//}
-
 public extension XCTestCase {
     func data(for json: String) -> Data {
         return json.data(using: .utf8)!
@@ -84,9 +55,16 @@ public extension XCTestCase {
             fileExtension = "json"
         }
         
+        let subdirectory: String
+        if let folder = folder {
+            subdirectory = "SampleResponses/\(folder)"
+        } else {
+            subdirectory = "SampleResponses"
+        }
+        
         guard let url = bundle.url(forResource: file,
                                    withExtension: fileExtension,
-                                   subdirectory: folder)
+                                   subdirectory: subdirectory)
         else {
             throw TestError.noBundleResourceFound
         }

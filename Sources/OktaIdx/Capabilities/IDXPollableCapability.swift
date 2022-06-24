@@ -20,7 +20,7 @@ extension Capability {
         
         /// Starts the polling process.
         ///
-        /// The action will be continually polled in the background either until `stopPolling` is called, or when the authenticator has finished. The completion block is invoked once the user has completed the action out-of-band, or when an error is received.
+        /// The action will be continually polled in the background either until ``stopPolling`` is called, or when the authenticator has finished. The completion block is invoked once the user has completed the action out-of-band, or when an error is received.
         /// - Parameter completion: Completion handler when the polling is complete, or `nil` if the developer does not need to handle the response
         public func startPolling(completion: IDXAuthenticationFlow.ResponseResult? = nil) {
             // Stop any previous polling
@@ -77,7 +77,7 @@ extension Capability {
 extension Capability.Pollable {
     /// Starts the polling process asynchronously.
     ///
-    /// The action will be continually polled in the background either until `stopPolling` is called, or when the authenticator has finished.
+    /// The action will be continually polled in the background either until ``stopPolling`` is called, or when the authenticator has finished.
     /// - Returns: The next response after polling completes successfully
     public func startPolling() async throws -> Response {
         try await withCheckedThrowingContinuation { continuation in

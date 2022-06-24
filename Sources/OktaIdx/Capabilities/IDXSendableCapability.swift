@@ -13,7 +13,7 @@
 import Foundation
 
 extension Capability {
-    /// Capability used for being able to "send".
+    /// Capability used for being able to "send" a verification code.
     ///
     /// This is typically used by Email and Phone authenticators.
     public struct Sendable: AuthenticatorCapability {

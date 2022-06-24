@@ -13,6 +13,8 @@
 import Foundation
 
 /// Represents information describing the available authenticators and enrolled authenticators.
+///
+/// Instances of this class are used to identify the type of authenticator, or factor, that is associated with a user. These may be associated with form fields (for example, when selecting an authenticator to verify or to enrol in), with a ``Remediation`` (when challenging an authenticator for a verification code), or with an overall ``Response`` to indicate which authenticators have been enrolled, are being enrolled.
 public class Authenticator: Equatable {
     /// Unique identifier for this enrollment
     public let id: String?
@@ -20,7 +22,7 @@ public class Authenticator: Equatable {
     /// The user-visible name to use for this authenticator enrollment.
     public let displayName: String?
     
-    /// The type of this authenticator, or `unknown` if the type isn't represented by this enumeration.
+    /// The type of this authenticator, or ``Kind/unknown`` if the type isn't represented by this enumeration.
     public let type: Kind
     
     /// The key name for the authenticator
@@ -31,7 +33,8 @@ public class Authenticator: Equatable {
     
     /// Describes the various methods this authenticator can perform.
     public let methods: [Method]?
-
+    
+    /// Set of objects that describe the capabilities this authenticator may have.
     public let capabilities: [AuthenticatorCapability]
     
     public static func == (lhs: Authenticator, rhs: Authenticator) -> Bool {
@@ -52,7 +55,7 @@ public class Authenticator: Equatable {
          displayName: String?,
          type: String,
          key: String?,
-         methods: [[String:String]]?,
+         methods: [[String: String]]?,
          capabilities: [AuthenticatorCapability])
     {
         self.flow = flow
