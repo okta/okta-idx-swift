@@ -37,7 +37,7 @@ public class Signin {
     }
     
     convenience init?() {
-        guard let flow = ClientConfiguration.active?.idxFlow else {
+        guard let flow = ClientConfiguration.active?.flow else {
             return nil
         }
         self.init(using: flow)

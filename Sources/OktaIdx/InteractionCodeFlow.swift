@@ -348,7 +348,7 @@ extension OAuth2Client {
     ///   - redirectUri: Redirect URI the client expects.
     ///   - additionalParameters: Additional parameters to supply to the authorize endpoint.
     /// - Returns: Initialized ``InteractionCodeFlow`` for this client.
-    public func idxFlow(
+    public func interactionCodeFlow(
         redirectUri: URL,
         additionalParameters: [String: String]? = nil) -> InteractionCodeFlow
     {

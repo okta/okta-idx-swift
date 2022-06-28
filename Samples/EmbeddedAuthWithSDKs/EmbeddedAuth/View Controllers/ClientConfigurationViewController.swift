@@ -15,7 +15,7 @@ import UIKit
 import OktaIdx
 
 extension ClientConfiguration {
-    var idxFlow: InteractionCodeFlow {
+    var flow: InteractionCodeFlow {
         InteractionCodeFlow(issuer: issuer,
                             clientId: clientId,
                             scopes: scopes,

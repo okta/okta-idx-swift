@@ -30,7 +30,7 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         
         if let configuration = ClientConfiguration.active {
-            configurationUpdated(configuration.idxFlow)
+            configurationUpdated(configuration.flow)
         }
         
         NotificationCenter.default.addObserver(forName: .configurationChanged, object: nil, queue: .main) { (note) in
