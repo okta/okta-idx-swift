@@ -1,1 +1,254 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"internalError"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Error","preciseIdentifier":"s:s5ErrorP"},{"kind":"text","text":")"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/interactioncodeflowerror\/internalerror(_:)"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalError(_:)","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"No overview available."}],"kind":"symbol","metadata":{"fragments":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"internalError"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Error","preciseIdentifier":"s:s5ErrorP"},{"kind":"text","text":")"}],"title":"InteractionCodeFlowError.internalError(_:)","roleHeading":"Case","role":"symbol","symbolKind":"case","externalID":"s:7OktaIdx24InteractionCodeFlowErrorO08internalF0yACs0F0_pcACmF","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError"]]},"references":{"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow":{"role":"symbol","title":"InteractionCodeFlow","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlow"}],"abstract":[{"type":"text","text":"An authentication flow used to authenticate users using the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlow"}],"url":"\/documentation\/oktaidx\/interactioncodeflow"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/internalError(_:)":{"role":"symbol","title":"InteractionCodeFlowError.internalError(_:)","fragments":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"internalError"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Error","preciseIdentifier":"s:s5ErrorP"},{"kind":"text","text":")"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalError(_:)","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/interactioncodeflowerror\/internalerror(_:)"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError":{"role":"symbol","title":"InteractionCodeFlowError","fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlowError"}],"abstract":[{"type":"text","text":"Errors reported from "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"},{"type":"text","text":"."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlowError"}],"url":"\/documentation\/oktaidx\/interactioncodeflowerror"}}}
+{
+  "abstract" : [
+    {
+      "text" : "No overview available.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalError(_:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx24InteractionCodeFlowErrorO08internalF0yACs0F0_pcACmF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "case"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "internalError"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s5ErrorP",
+        "text" : "Error"
+      },
+      {
+        "kind" : "text",
+        "text" : ")"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Case",
+    "symbolKind" : "case",
+    "title" : "InteractionCodeFlowError.internalError(_:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "case"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "internalError"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s5ErrorP",
+              "text" : "Error"
+            },
+            {
+              "kind" : "text",
+              "text" : ")"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/interactioncodeflowerror\/internalerror(_:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+  "abstract" : [
+    {
+      "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError": {
+  "abstract" : [
+    {
+      "text" : "Errors reported from ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlowError"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlowError"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlowError",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/internalError(_:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "internalError"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s5ErrorP",
+      "text" : "Error"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalError(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InteractionCodeFlowError.internalError(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/internalerror(_:)"
+}
+}
+}

@@ -1,1 +1,483 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"..."},{"kind":"text","text":" "},{"kind":"text","text":"("},{"kind":"internalParam","text":"maximum"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"PartialRangeThrough","preciseIdentifier":"s:s19PartialRangeThroughV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":">"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/authenticator\/state-swift.enum\/'...(_:)-27cmt"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/...(_:)-27cmt","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Inherited from "},{"type":"codeVoice","code":"Comparable....(_:)"},{"type":"text","text":"."}],"kind":"symbol","metadata":{"role":"symbol","title":"...(_:)","roleHeading":"Operator","fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"..."},{"kind":"text","text":" "},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"PartialRangeThrough","preciseIdentifier":"s:s19PartialRangeThroughV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":">"}],"symbolKind":"op","externalID":"s:SLsE3zzzopys19PartialRangeThroughVyxGxFZ::SYNTHESIZED::s:7OktaIdx13AuthenticatorC5StateO","extendedModule":"Swift","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/-Implementations"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/Authenticator/State-swift.enum/-Implementations":{"role":"collectionGroup","title":" Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/authenticator\/state-swift.enum\/-implementations"},"doc://OktaIdx/documentation/OktaIdx/Authenticator/State-swift.enum":{"role":"symbol","title":"Authenticator.State","fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"State"}],"abstract":[{"type":"text","text":"The state this authenticator is currently in."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"State"}],"url":"\/documentation\/oktaidx\/authenticator\/state-swift.enum"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Authenticator/State-swift.enum/...(_:)-27cmt":{"role":"symbol","title":"...(_:)","fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"..."},{"kind":"text","text":" "},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"PartialRangeThrough","preciseIdentifier":"s:s19PartialRangeThroughV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":">"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/...(_:)-27cmt","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/authenticator\/state-swift.enum\/'...(_:)-27cmt"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Returns a partial range up to, and including, its upper bound.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/...(_:)-27cmt"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "Swift",
+    "externalID" : "s:SLsE3zzzopys19PartialRangeThroughVyxGxFZ::SYNTHESIZED::s:7OktaIdx13AuthenticatorC5StateO",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "static"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "..."
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Self"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s19PartialRangeThroughV",
+        "text" : "PartialRangeThrough"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Self"
+      },
+      {
+        "kind" : "text",
+        "text" : ">"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Operator",
+    "symbolKind" : "op",
+    "title" : "...(_:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "static"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "..."
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "maximum"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s19PartialRangeThroughV",
+              "text" : "PartialRangeThrough"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : ">"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The upper bound for the range.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "maximum"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Use the prefix closed range operator (prefix ",
+              "type" : "text"
+            },
+            {
+              "code" : "...",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ") to create a partial",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "range of any type that conforms to the ",
+              "type" : "text"
+            },
+            {
+              "code" : "Comparable",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " protocol. This",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "example creates a ",
+              "type" : "text"
+            },
+            {
+              "code" : "PartialRangeThrough<Double>",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " instance that includes",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "any value less than or equal to ",
+              "type" : "text"
+            },
+            {
+              "code" : "5.0",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "let throughFive = ...5.0",
+            "",
+            "throughFive.contains(4.0)     \/\/ true",
+            "throughFive.contains(5.0)     \/\/ true",
+            "throughFive.contains(6.0)     \/\/ false"
+          ],
+          "syntax" : null,
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "You can use this type of partial range of a collection’s indices to",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "represent the range from the start of the collection up to, and",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "including, the partial range’s upper bound.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "let numbers = [10, 20, 30, 40, 50, 60, 70]",
+            "print(numbers[...3])",
+            "\/\/ Prints \"[10, 20, 30, 40]\""
+          ],
+          "syntax" : null,
+          "type" : "codeListing"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "",
+                  "type" : "text"
+                },
+                {
+                  "code" : "maximum",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " must compare equal to itself (i.e. cannot be NaN).",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "Precondition",
+          "style" : "note",
+          "type" : "aside"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/authenticator\/state-swift.enum\/'...(_:)-27cmt"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/State-swift.enum": {
+  "abstract" : [
+    {
+      "text" : "The state this authenticator is currently in.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "State"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "State"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator.State",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/state-swift.enum"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/State-swift.enum/-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : " Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/state-swift.enum\/-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/State-swift.enum/...(_:)-27cmt": {
+  "abstract" : [
+    {
+      "text" : "Returns a partial range up to, and including, its upper bound.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "..."
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s19PartialRangeThroughV",
+      "text" : "PartialRangeThrough"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/...(_:)-27cmt",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "...(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/state-swift.enum\/'...(_:)-27cmt"
+}
+}
+}

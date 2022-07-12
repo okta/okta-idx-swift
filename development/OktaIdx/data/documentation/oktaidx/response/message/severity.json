@@ -1,1 +1,311 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"Severity"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/response\/message\/severity"],"traits":[{"interfaceLanguage":"swift"}]}],"relationshipsSections":[{"identifiers":["doc:\/\/OktaIdx\/SQ","doc:\/\/OktaIdx\/SH"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Enumeration describing the type of message."}],"kind":"symbol","metadata":{"fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"Severity"}],"title":"Response.Message.Severity","roleHeading":"Enumeration","role":"symbol","symbolKind":"enum","externalID":"s:7OktaIdx8ResponseC7MessageC8SeverityO","modules":[{"name":"OktaIdx"}],"navigatorTitle":[{"kind":"identifier","text":"Severity"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message"]]},"topicSections":[{"title":"Enumeration Cases","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity\/error","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity\/info","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity\/unknown"]},{"title":"Default Implementations","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity\/Equatable-Implementations"],"generated":true}],"references":{"doc://OktaIdx/documentation/OktaIdx/Response/Message/Severity/Equatable-Implementations":{"role":"collectionGroup","title":"Equatable Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity\/Equatable-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/severity\/equatable-implementations"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/SQ":{"type":"unresolvable","title":"Swift.Equatable","identifier":"doc:\/\/OktaIdx\/SQ"},"doc://OktaIdx/documentation/OktaIdx/Response/Message":{"role":"symbol","title":"Response.Message","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Message"}],"abstract":[{"type":"text","text":"Represents messages sent from the server to indicate error or warning conditions related to responses or form values."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Message"}],"url":"\/documentation\/oktaidx\/response\/message"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Severity":{"role":"symbol","title":"Response.Message.Severity","fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"Severity"}],"abstract":[{"type":"text","text":"Enumeration describing the type of message."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Severity"}],"url":"\/documentation\/oktaidx\/response\/message\/severity"},"doc://OktaIdx/SH":{"type":"unresolvable","title":"Swift.Hashable","identifier":"doc:\/\/OktaIdx\/SH"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Severity/error":{"role":"symbol","title":"Response.Message.Severity.error","fragments":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"error"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity\/error","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/severity\/error"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Severity/unknown":{"role":"symbol","title":"Response.Message.Severity.unknown","fragments":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"unknown"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity\/unknown","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/severity\/unknown"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Severity/info":{"role":"symbol","title":"Response.Message.Severity.info","fragments":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"info"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Severity\/info","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/severity\/info"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Enumeration describing the type of message.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx8ResponseC7MessageC8SeverityO",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "enum"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Severity"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Severity"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Enumeration",
+    "symbolKind" : "enum",
+    "title" : "Response.Message.Severity"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "enum"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Severity"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+        "doc:\/\/com.okta.mobile.oktaidx\/SH"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity\/error",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity\/info",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity\/unknown"
+      ],
+      "title" : "Enumeration Cases"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity\/Equatable-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/response\/message\/severity"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/SH": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+  "title" : "Swift.Hashable",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/SQ": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message": {
+  "abstract" : [
+    {
+      "text" : "Represents messages sent from the server to indicate error or warning conditions related to responses or form values.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Message"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Message"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Severity": {
+  "abstract" : [
+    {
+      "text" : "Enumeration describing the type of message.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Severity"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Severity"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message.Severity",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/severity"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Severity/Equatable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity\/Equatable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Equatable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/severity\/equatable-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Severity/error": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "error"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity\/error",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Response.Message.Severity.error",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/severity\/error"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Severity/info": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "info"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity\/info",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Response.Message.Severity.info",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/severity\/info"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Severity/unknown": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "unknown"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Severity\/unknown",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Response.Message.Severity.unknown",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/severity\/unknown"
+}
+}
+}

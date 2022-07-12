@@ -1,1 +1,367 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"TokenResult"},{"kind":"text","text":" = ("},{"kind":"typeIdentifier","text":"Result","preciseIdentifier":"s:s6ResultO"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Token","preciseIdentifier":"s:14AuthFoundation5TokenC"},{"kind":"text","text":", "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError","preciseIdentifier":"s:7OktaIdx24InteractionCodeFlowErrorO","text":"InteractionCodeFlowError"},{"kind":"text","text":">) -> "},{"kind":"typeIdentifier","text":"Void","preciseIdentifier":"s:s4Voida"}],"languages":["swift"],"platforms":["macOS"]}]},{"kind":"parameters","parameters":[{"name":"token","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":"The "},{"type":"codeVoice","code":"Token"},{"type":"text","text":" object created when the token is successfully exchanged."}]}]},{"name":"error","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":"Describes the error that occurred, or "},{"type":"codeVoice","code":"nil"},{"type":"text","text":" if the request was successful."}]}]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/interactioncodeflow\/tokenresult"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/TokenResult","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"The type used for the completion  handler result from any method that returns a "},{"type":"codeVoice","code":"Token"},{"type":"text","text":"."}],"kind":"symbol","metadata":{"fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"TokenResult"}],"title":"InteractionCodeFlow.TokenResult","roleHeading":"Type Alias","role":"symbol","symbolKind":"typealias","externalID":"s:7OktaIdx19InteractionCodeFlowC11TokenResulta","modules":[{"name":"OktaIdx"}],"navigatorTitle":[{"kind":"identifier","text":"TokenResult"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/TokenResult":{"role":"symbol","title":"InteractionCodeFlow.TokenResult","fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"TokenResult"}],"abstract":[{"type":"text","text":"The type used for the completion  handler result from any method that returns a "},{"type":"codeVoice","code":"Token"},{"type":"text","text":"."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/TokenResult","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"TokenResult"}],"url":"\/documentation\/oktaidx\/interactioncodeflow\/tokenresult"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow":{"role":"symbol","title":"InteractionCodeFlow","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlow"}],"abstract":[{"type":"text","text":"An authentication flow used to authenticate users using the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlow"}],"url":"\/documentation\/oktaidx\/interactioncodeflow"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError":{"role":"symbol","title":"InteractionCodeFlowError","fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlowError"}],"abstract":[{"type":"text","text":"Errors reported from "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"},{"type":"text","text":"."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlowError"}],"url":"\/documentation\/oktaidx\/interactioncodeflowerror"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"}}}
+{
+  "abstract" : [
+    {
+      "text" : "The type used for the completion  handler result from any method that returns a ",
+      "type" : "text"
+    },
+    {
+      "code" : "Token",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/TokenResult"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx19InteractionCodeFlowC11TokenResulta",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "typealias"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "TokenResult"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "TokenResult"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Type Alias",
+    "symbolKind" : "typealias",
+    "title" : "InteractionCodeFlow.TokenResult"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "typealias"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "TokenResult"
+            },
+            {
+              "kind" : "text",
+              "text" : " = ("
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s6ResultO",
+              "text" : "Result"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14AuthFoundation5TokenC",
+              "text" : "Token"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx24InteractionCodeFlowErrorO",
+              "text" : "InteractionCodeFlowError"
+            },
+            {
+              "kind" : "text",
+              "text" : ">) -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s4Voida",
+              "text" : "Void"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "Token",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " object created when the token is successfully exchanged.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "token"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "Describes the error that occurred, or ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "nil",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " if the request was successful.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "error"
+        }
+      ]
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/interactioncodeflow\/tokenresult"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Token": {
+  "abstract" : [
+    {
+      "text" : "Token information representing a user’s access to a resource server, including access token, refresh token, and other related information.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Token"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Token"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Token",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/token"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+  "abstract" : [
+    {
+      "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/TokenResult": {
+  "abstract" : [
+    {
+      "text" : "The type used for the completion  handler result from any method that returns a ",
+      "type" : "text"
+    },
+    {
+      "code" : "Token",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TokenResult"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/TokenResult",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TokenResult"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow.TokenResult",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/tokenresult"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError": {
+  "abstract" : [
+    {
+      "text" : "Errors reported from ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlowError"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlowError"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlowError",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror"
+}
+}
+}

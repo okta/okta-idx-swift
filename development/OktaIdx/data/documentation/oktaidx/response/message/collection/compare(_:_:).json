@@ -1,1 +1,554 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"compare"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Comparator"},{"kind":"text","text":">("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"lhs"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Comparator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Compared"},{"kind":"text","text":", "},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"rhs"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Comparator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Compared"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"ComparisonResult","preciseIdentifier":"c:@E@NSComparisonResult"},{"kind":"text","text":" "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Comparator"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","text":"SortComparator","preciseIdentifier":"s:10Foundation14SortComparatorP"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Comparator"},{"kind":"text","text":" == "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Element"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/response\/message\/collection\/compare(_:_:)"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/compare(_:_:)","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Inherited from "},{"type":"codeVoice","code":"Sequence.compare(_:_:)"},{"type":"text","text":"."}],"kind":"symbol","metadata":{"modules":[{"name":"OktaIdx"}],"role":"symbol","title":"compare(_:_:)","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"compare"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Comparator"},{"kind":"text","text":">("},{"kind":"typeIdentifier","text":"Comparator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Compared"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Comparator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Compared"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"ComparisonResult","preciseIdentifier":"c:@E@NSComparisonResult"}],"symbolKind":"method","externalID":"s:ST10FoundationE7compareySo18NSComparisonResultV8ComparedQyd___AFtAA14SortComparatorRd__7ElementQzRsd__lF::SYNTHESIZED::s:7OktaIdx8ResponseC7MessageC10CollectionC","extendedModule":"Swift","platforms":[{"beta":false,"unavailable":false,"name":"iOS","introducedAt":"15.0","deprecated":false},{"beta":false,"unavailable":false,"name":"macOS","introducedAt":"12.0","deprecated":false},{"beta":false,"unavailable":false,"name":"tvOS","introducedAt":"15.0","deprecated":false},{"beta":false,"unavailable":false,"name":"watchOS","introducedAt":"8.0","deprecated":false}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations"]]},"references":{"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection":{"role":"symbol","title":"Response.Message.Collection","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Collection"}],"abstract":[{"type":"text","text":"Represents a collection of messages."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Collection"}],"url":"\/documentation\/oktaidx\/response\/message\/collection"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/compare(_:_:)":{"role":"symbol","title":"compare(_:_:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"compare"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Comparator"},{"kind":"text","text":">("},{"kind":"typeIdentifier","text":"Comparator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Compared"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Comparator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Compared"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"ComparisonResult","preciseIdentifier":"c:@E@NSComparisonResult"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/compare(_:_:)","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/collection\/compare(_:_:)"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Sequence-Implementations":{"role":"collectionGroup","title":"Sequence Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/collection\/sequence-implementations"}}}
+{
+  "abstract" : [
+    {
+      "text" : "If ",
+      "type" : "text"
+    },
+    {
+      "code" : "lhs",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " is ordered before ",
+      "type" : "text"
+    },
+    {
+      "code" : "rhs",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " in the ordering described by the given",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "sequence of ",
+      "type" : "text"
+    },
+    {
+      "code" : "SortComparator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : "s",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/compare(_:_:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "Swift",
+    "externalID" : "s:ST10FoundationE7compareySo18NSComparisonResultV8ComparedQyd___AFtAA14SortComparatorRd__7ElementQzRsd__lF::SYNTHESIZED::s:7OktaIdx8ResponseC7MessageC10CollectionC",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "compare"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "genericParameter",
+        "text" : "Comparator"
+      },
+      {
+        "kind" : "text",
+        "text" : ">("
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Comparator"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Compared"
+      },
+      {
+        "kind" : "text",
+        "text" : ", "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Comparator"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Compared"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "c:@E@NSComparisonResult",
+        "text" : "ComparisonResult"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "platforms" : [
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "15.0",
+        "name" : "iOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "12.0",
+        "name" : "macOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "15.0",
+        "name" : "tvOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "8.0",
+        "name" : "watchOS",
+        "unavailable" : false
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "compare(_:_:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "compare"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "genericParameter",
+              "text" : "Comparator"
+            },
+            {
+              "kind" : "text",
+              "text" : ">("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "_"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "lhs"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Comparator"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Compared"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "_"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "rhs"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Comparator"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Compared"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "c:@E@NSComparisonResult",
+              "text" : "ComparisonResult"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "where"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Comparator"
+            },
+            {
+              "kind" : "text",
+              "text" : " : "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:10Foundation14SortComparatorP",
+              "text" : "SortComparator"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Comparator"
+            },
+            {
+              "kind" : "text",
+              "text" : " == "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Element"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The first element of the sequence of comparators specifies the primary",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "comparator to be used in sorting the sequence’s elements. Any subsequent",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "comparators are used to further refine the order of elements with equal",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "values.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/response\/message\/collection\/compare(_:_:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+  "abstract" : [
+    {
+      "text" : "Represents a collection of messages.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message.Collection",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Sequence-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Sequence Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/sequence-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/compare(_:_:)": {
+  "abstract" : [
+    {
+      "text" : "If ",
+      "type" : "text"
+    },
+    {
+      "code" : "lhs",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " is ordered before ",
+      "type" : "text"
+    },
+    {
+      "code" : "rhs",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " in the ordering described by the given",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "sequence of ",
+      "type" : "text"
+    },
+    {
+      "code" : "SortComparator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : "s",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "compare"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "Comparator"
+    },
+    {
+      "kind" : "text",
+      "text" : ">("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Comparator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Compared"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Comparator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Compared"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@E@NSComparisonResult",
+      "text" : "ComparisonResult"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/compare(_:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "compare(_:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/compare(_:_:)"
+}
+}
+}

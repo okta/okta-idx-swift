@@ -1,1 +1,1024 @@
-{"seeAlsoSections":[{"title":"Essentials","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"],"generated":true}],"schemaVersion":{"major":0,"minor":2,"patch":0},"metadata":{"fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Response"}],"title":"Response","roleHeading":"Class","role":"symbol","symbolKind":"class","externalID":"c:@M@OktaIdx@objc(cs)Response","modules":[{"name":"OktaIdx"}],"navigatorTitle":[{"kind":"identifier","text":"Response"}]},"abstract":[{"type":"text","text":"Describes the response from an Okta Identity Engine workflow stage."}],"sections":[],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","interfaceLanguage":"swift"},"relationshipsSections":[{"identifiers":[],"kind":"relationships","title":"Inherits From","type":"inheritsFrom"},{"identifiers":["doc:\/\/OktaIdx\/objc(pl)NSObject","doc:\/\/OktaIdx\/s7CVarArgP","doc:\/\/OktaIdx\/s28CustomDebugStringConvertibleP","doc:\/\/OktaIdx\/s23CustomStringConvertibleP","doc:\/\/OktaIdx\/SQ","doc:\/\/OktaIdx\/SH"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx"]]},"topicSections":[{"title":"Initializers","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/init()"]},{"title":"Instance Properties","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/app","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/authenticators","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/canCancel","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/expiresAt","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/intent-swift.property","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/isLoginSuccessful","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/messages","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/remediations","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/user-swift.property"]},{"title":"Instance Methods","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/cancel()","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/cancel(completion:)","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode()","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)"]},{"title":"Enumerations","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum"]}],"variants":[{"paths":["\/documentation\/oktaidx\/response"],"traits":[{"interfaceLanguage":"swift"}]}],"kind":"symbol","primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Response"}],"languages":["swift"],"platforms":["macOS"]}]},{"kind":"content","content":[{"anchor":"overview","level":2,"type":"heading","text":"Overview"},{"type":"paragraph","inlineContent":[{"type":"text","text":"This is used to determine the current state of the workflow, the set of available "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"},{"type":"text","text":" steps to that can be used to proceed through the workflow, actions that can be performed, and other information relevant to the authentication of a user."}]}]}],"references":{"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum":{"role":"symbol","title":"Response.Intent","fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"Intent"}],"abstract":[{"type":"text","text":"The intent of the authentication workflow, as returned from the server."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Intent"}],"url":"\/documentation\/oktaidx\/response\/intent-swift.enum"},"doc://OktaIdx/s28CustomDebugStringConvertibleP":{"type":"unresolvable","title":"Swift.CustomDebugStringConvertible","identifier":"doc:\/\/OktaIdx\/s28CustomDebugStringConvertibleP"},"doc://OktaIdx/s23CustomStringConvertibleP":{"type":"unresolvable","title":"Swift.CustomStringConvertible","identifier":"doc:\/\/OktaIdx\/s23CustomStringConvertibleP"},"doc://OktaIdx/documentation/OktaIdx/Response/app":{"role":"symbol","title":"app","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"app"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Application","preciseIdentifier":"s:7OktaIdx8ResponseC11ApplicationV"},{"kind":"text","text":"?"}],"abstract":[{"type":"text","text":"Returns information about the application, if available."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/app","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/app"},"doc://OktaIdx/objc(pl)NSObject":{"type":"unresolvable","title":"ObjectiveC.NSObjectProtocol","identifier":"doc:\/\/OktaIdx\/objc(pl)NSObject"},"doc://OktaIdx/s7CVarArgP":{"type":"unresolvable","title":"Swift.CVarArg","identifier":"doc:\/\/OktaIdx\/s7CVarArgP"},"doc://OktaIdx/documentation/OktaIdx/Response/exchangeCode(completion:)":{"role":"symbol","title":"exchangeCode(completion:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"exchangeCode"},{"kind":"text","text":"("},{"kind":"externalParam","text":"completion"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"InteractionCodeFlow","preciseIdentifier":"s:7OktaIdx19InteractionCodeFlowC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"TokenResult","preciseIdentifier":"s:7OktaIdx19InteractionCodeFlowC11TokenResulta"},{"kind":"text","text":"?)"}],"abstract":[{"type":"text","text":"Exchanges the successful response with a token."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/exchangecode(completion:)"},"doc://OktaIdx/documentation/OktaIdx/Response/intent-swift.property":{"role":"symbol","title":"intent","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"intent"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Intent","preciseIdentifier":"s:7OktaIdx8ResponseC6IntentO"}],"abstract":[{"type":"text","text":"A string describing the intent of the workflow, e.g. “LOGIN”."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/intent-swift.property","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/intent-swift.property"},"doc://OktaIdx/documentation/OktaIdx/Response/cancel()":{"role":"symbol","title":"cancel()","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"cancel"},{"kind":"text","text":"() "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":" -> "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"}],"abstract":[{"type":"text","text":"Cancels the current workflow, and restarts the session."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/cancel()","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/cancel()"},"doc://OktaIdx/documentation/OktaIdx/Response":{"role":"symbol","title":"Response","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Response"}],"abstract":[{"type":"text","text":"Describes the response from an Okta Identity Engine workflow stage."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Response"}],"url":"\/documentation\/oktaidx\/response"},"doc://OktaIdx/documentation/OktaIdx/Response/user-swift.property":{"role":"symbol","title":"user","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"user"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"User","preciseIdentifier":"s:7OktaIdx8ResponseC4UserV"},{"kind":"text","text":"?"}],"abstract":[{"type":"text","text":"Returns information about the user authenticating, if available."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/user-swift.property","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/user-swift.property"},"doc://OktaIdx/documentation/OktaIdx/Response/expiresAt":{"role":"symbol","title":"expiresAt","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"expiresAt"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Date","preciseIdentifier":"s:10Foundation4DateV"},{"kind":"text","text":"?"}],"abstract":[{"type":"text","text":"The date at which this stage of the workflow expires, after which the authentication process should be restarted."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/expiresAt","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/expiresat"},"doc://OktaIdx/documentation/OktaIdx/Remediation":{"role":"symbol","title":"Remediation","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Remediation"}],"abstract":[{"type":"text","text":"Describes choices the user can make to proceed through the authentication workflow."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Remediation"}],"url":"\/documentation\/oktaidx\/remediation"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow":{"role":"symbol","title":"InteractionCodeFlow","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlow"}],"abstract":[{"type":"text","text":"An authentication flow used to authenticate users using the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlow"}],"url":"\/documentation\/oktaidx\/interactioncodeflow"},"doc://OktaIdx/documentation/OktaIdx/Response/cancel(completion:)":{"role":"symbol","title":"cancel(completion:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"cancel"},{"kind":"text","text":"("},{"kind":"externalParam","text":"completion"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"InteractionCodeFlow","preciseIdentifier":"s:7OktaIdx19InteractionCodeFlowC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"ResponseResult","preciseIdentifier":"s:7OktaIdx19InteractionCodeFlowC14ResponseResulta"},{"kind":"text","text":"?)"}],"abstract":[{"type":"text","text":"Cancels the current workflow, and restarts the session."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/cancel(completion:)","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/cancel(completion:)"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Response/canCancel":{"role":"symbol","title":"canCancel","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"canCancel"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Bool","preciseIdentifier":"s:Sb"}],"abstract":[{"type":"text","text":"Indicates whether or not the response can be cancelled."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/canCancel","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/cancancel"},"doc://OktaIdx/SH":{"type":"unresolvable","title":"Swift.Hashable","identifier":"doc:\/\/OktaIdx\/SH"},"doc://OktaIdx/documentation/OktaIdx/Response/messages":{"role":"symbol","title":"messages","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"messages"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Collection","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC"}],"abstract":[{"type":"text","text":"The list of messages sent from the server."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/messages","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/messages"},"doc://OktaIdx/documentation/OktaIdx/Response/authenticators":{"role":"symbol","title":"authenticators","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"authenticators"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Authenticator","preciseIdentifier":"s:7OktaIdx13AuthenticatorC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Collection","preciseIdentifier":"s:7OktaIdx13AuthenticatorC10CollectionC"}],"abstract":[{"type":"text","text":"Contains information about the available authenticators."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/authenticators","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/authenticators"},"doc://OktaIdx/documentation/OktaIdx/Response/exchangeCode()":{"role":"symbol","title":"exchangeCode()","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"exchangeCode"},{"kind":"text","text":"() "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":" -> "},{"kind":"typeIdentifier","text":"Token","preciseIdentifier":"s:14AuthFoundation5TokenC"}],"abstract":[{"type":"text","text":"Exchanges the successful response with a token."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode()","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/exchangecode()"},"doc://OktaIdx/documentation/OktaIdx/Response/isLoginSuccessful":{"role":"symbol","title":"isLoginSuccessful","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"isLoginSuccessful"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Bool","preciseIdentifier":"s:Sb"}],"abstract":[{"type":"text","text":"Indicates whether or not the user has logged in successfully. If this is "},{"type":"codeVoice","code":"true"},{"type":"text","text":", this response object should be exchanged for access tokens utilizing the "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)"},{"type":"text","text":" method."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/isLoginSuccessful","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/isloginsuccessful"},"doc://OktaIdx/documentation/OktaIdx/Response/remediations":{"role":"symbol","title":"remediations","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"remediations"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Collection","preciseIdentifier":"s:7OktaIdx11RemediationC10CollectionC"}],"abstract":[{"type":"text","text":"An object describing the sort of remediation steps available to the user."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/remediations","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/remediations"},"doc://OktaIdx/documentation/OktaIdx/Response/init()":{"role":"symbol","title":"init()","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"()"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/init()","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/init()"},"doc://OktaIdx/SQ":{"type":"unresolvable","title":"Swift.Equatable","identifier":"doc:\/\/OktaIdx\/SQ"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Describes the response from an Okta Identity Engine workflow stage.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "c:@M@OktaIdx@objc(cs)Response",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "class"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Response"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Response"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Class",
+    "symbolKind" : "class",
+    "title" : "Response"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "class"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Response"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "This is used to determine the current state of the workflow, the set of available ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " steps to that can be used to proceed through the workflow, actions that can be performed, and other information relevant to the authentication of a user.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+
+      ],
+      "kind" : "relationships",
+      "title" : "Inherits From",
+      "type" : "inheritsFrom"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/objc(pl)NSObject",
+        "doc:\/\/com.okta.mobile.oktaidx\/s7CVarArgP",
+        "doc:\/\/com.okta.mobile.oktaidx\/s28CustomDebugStringConvertibleP",
+        "doc:\/\/com.okta.mobile.oktaidx\/s23CustomStringConvertibleP",
+        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+        "doc:\/\/com.okta.mobile.oktaidx\/SH"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation"
+      ],
+      "title" : "Essentials"
+    }
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/init()"
+      ],
+      "title" : "Initializers"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/app",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/authenticators",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/canCancel",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/expiresAt",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/intent-swift.property",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/isLoginSuccessful",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/messages",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/remediations",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/user-swift.property"
+      ],
+      "title" : "Instance Properties"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/cancel()",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/cancel(completion:)",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode()",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)"
+      ],
+      "title" : "Instance Methods"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum"
+      ],
+      "title" : "Enumerations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/response"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/SH": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+  "title" : "Swift.Hashable",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/SQ": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+  "abstract" : [
+    {
+      "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+  "abstract" : [
+    {
+      "text" : "Describes choices the user can make to proceed through the authentication workflow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+  "abstract" : [
+    {
+      "text" : "Describes the response from an Okta Identity Engine workflow stage.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum": {
+  "abstract" : [
+    {
+      "text" : "The intent of the authentication workflow, as returned from the server.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Intent"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Intent"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Intent",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/app": {
+  "abstract" : [
+    {
+      "text" : "Returns information about the application, if available.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "app"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC11ApplicationV",
+      "text" : "Application"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/app",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "app",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/app"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/authenticators": {
+  "abstract" : [
+    {
+      "text" : "Contains information about the available authenticators.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authenticators"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/authenticators",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "authenticators",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/authenticators"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/canCancel": {
+  "abstract" : [
+    {
+      "text" : "Indicates whether or not the response can be cancelled.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "canCancel"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/canCancel",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "canCancel",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/cancancel"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/cancel()": {
+  "abstract" : [
+    {
+      "text" : "Cancels the current workflow, and restarts the session.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "cancel"
+    },
+    {
+      "kind" : "text",
+      "text" : "() "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "async"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    },
+    {
+      "kind" : "text",
+      "text" : " -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/cancel()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "cancel()",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/cancel()"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/cancel(completion:)": {
+  "abstract" : [
+    {
+      "text" : "Cancels the current workflow, and restarts the session.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "cancel"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "completion"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC14ResponseResulta",
+      "text" : "ResponseResult"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/cancel(completion:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "cancel(completion:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/cancel(completion:)"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/exchangeCode()": {
+  "abstract" : [
+    {
+      "text" : "Exchanges the successful response with a token.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "exchangeCode"
+    },
+    {
+      "kind" : "text",
+      "text" : "() "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "async"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    },
+    {
+      "kind" : "text",
+      "text" : " -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation5TokenC",
+      "text" : "Token"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "exchangeCode()",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/exchangecode()"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/exchangeCode(completion:)": {
+  "abstract" : [
+    {
+      "text" : "Exchanges the successful response with a token.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "exchangeCode"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "completion"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC11TokenResulta",
+      "text" : "TokenResult"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "exchangeCode(completion:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/exchangecode(completion:)"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/expiresAt": {
+  "abstract" : [
+    {
+      "text" : "The date at which this stage of the workflow expires, after which the authentication process should be restarted.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "expiresAt"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation4DateV",
+      "text" : "Date"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/expiresAt",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "expiresAt",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/expiresat"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/init()": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "()"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/init()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init()",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/init()"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/intent-swift.property": {
+  "abstract" : [
+    {
+      "text" : "A string describing the intent of the workflow, e.g. “LOGIN”.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "intent"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC6IntentO",
+      "text" : "Intent"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/intent-swift.property",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "intent",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/intent-swift.property"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/isLoginSuccessful": {
+  "abstract" : [
+    {
+      "text" : "Indicates whether or not the user has logged in successfully. If this is ",
+      "type" : "text"
+    },
+    {
+      "code" : "true",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ", this response object should be exchanged for access tokens utilizing the ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " method.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "isLoginSuccessful"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/isLoginSuccessful",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "isLoginSuccessful",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/isloginsuccessful"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/messages": {
+  "abstract" : [
+    {
+      "text" : "The list of messages sent from the server.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "messages"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/messages",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "messages",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/messages"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/remediations": {
+  "abstract" : [
+    {
+      "text" : "An object describing the sort of remediation steps available to the user.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "remediations"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC10CollectionC",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/remediations",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "remediations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/remediations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/user-swift.property": {
+  "abstract" : [
+    {
+      "text" : "Returns information about the user authenticating, if available.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "user"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC4UserV",
+      "text" : "User"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/user-swift.property",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "user",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/user-swift.property"
+},
+"doc://com.okta.mobile.oktaidx/objc(pl)NSObject": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/objc(pl)NSObject",
+  "title" : "ObjectiveC.NSObjectProtocol",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/s23CustomStringConvertibleP": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s23CustomStringConvertibleP",
+  "title" : "Swift.CustomStringConvertible",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/s28CustomDebugStringConvertibleP": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s28CustomDebugStringConvertibleP",
+  "title" : "Swift.CustomDebugStringConvertible",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/s7CVarArgP": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s7CVarArgP",
+  "title" : "Swift.CVarArg",
+  "type" : "unresolvable"
+}
+}
+}

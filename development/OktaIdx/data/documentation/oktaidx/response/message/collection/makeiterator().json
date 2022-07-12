@@ -1,1 +1,315 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"makeIterator"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"IndexingIterator","preciseIdentifier":"s:s16IndexingIteratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":">"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/response\/message\/collection\/makeiterator()"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/makeIterator()","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Inherited from "},{"type":"codeVoice","code":"Collection.makeIterator()"},{"type":"text","text":"."}],"kind":"symbol","metadata":{"conformance":{"constraints":[{"type":"codeVoice","code":"Iterator"},{"type":"text","text":" is "},{"type":"codeVoice","code":"IndexingIterator<Self>"},{"type":"text","text":"."}],"availabilityPrefix":[{"type":"text","text":"Available when"}],"conformancePrefix":[{"type":"text","text":"Conforms when"}]},"role":"symbol","title":"makeIterator()","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"makeIterator"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"IndexingIterator","preciseIdentifier":"s:s16IndexingIteratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":">"}],"symbolKind":"method","externalID":"s:Slss16IndexingIteratorVyxG0B0RtzrlE04makeB0ACyF::SYNTHESIZED::s:7OktaIdx8ResponseC7MessageC10CollectionC","extendedModule":"Swift","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/makeIterator()":{"conformance":{"constraints":[{"type":"codeVoice","code":"Iterator"},{"type":"text","text":" is "},{"type":"codeVoice","code":"IndexingIterator<Self>"},{"type":"text","text":"."}],"availabilityPrefix":[{"type":"text","text":"Available when"}],"conformancePrefix":[{"type":"text","text":"Conforms when"}]},"role":"symbol","title":"makeIterator()","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"makeIterator"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"IndexingIterator","preciseIdentifier":"s:s16IndexingIteratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":">"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/makeIterator()","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/collection\/makeiterator()"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection":{"role":"symbol","title":"Response.Message.Collection","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Collection"}],"abstract":[{"type":"text","text":"Represents a collection of messages."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Collection"}],"url":"\/documentation\/oktaidx\/response\/message\/collection"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Collection-Implementations":{"role":"collectionGroup","title":"Collection Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/collection\/collection-implementations"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Returns an iterator over the elements of the collection.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/makeIterator()"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "conformance" : {
+      "availabilityPrefix" : [
+        {
+          "text" : "Available when",
+          "type" : "text"
+        }
+      ],
+      "conformancePrefix" : [
+        {
+          "text" : "Conforms when",
+          "type" : "text"
+        }
+      ],
+      "constraints" : [
+        {
+          "code" : "Iterator",
+          "type" : "codeVoice"
+        },
+        {
+          "text" : " is ",
+          "type" : "text"
+        },
+        {
+          "code" : "IndexingIterator<Self>",
+          "type" : "codeVoice"
+        },
+        {
+          "text" : ".",
+          "type" : "text"
+        }
+      ]
+    },
+    "extendedModule" : "Swift",
+    "externalID" : "s:Slss16IndexingIteratorVyxG0B0RtzrlE04makeB0ACyF::SYNTHESIZED::s:7OktaIdx8ResponseC7MessageC10CollectionC",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "makeIterator"
+      },
+      {
+        "kind" : "text",
+        "text" : "() -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s16IndexingIteratorV",
+        "text" : "IndexingIterator"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Self"
+      },
+      {
+        "kind" : "text",
+        "text" : ">"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "makeIterator()"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "makeIterator"
+            },
+            {
+              "kind" : "text",
+              "text" : "() -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s16IndexingIteratorV",
+              "text" : "IndexingIterator"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : ">"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/response\/message\/collection\/makeiterator()"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+  "abstract" : [
+    {
+      "text" : "Represents a collection of messages.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message.Collection",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Collection-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Collection Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/collection-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/makeIterator()": {
+  "abstract" : [
+    {
+      "text" : "Returns an iterator over the elements of the collection.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Iterator",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "IndexingIterator<Self>",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "makeIterator"
+    },
+    {
+      "kind" : "text",
+      "text" : "() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s16IndexingIteratorV",
+      "text" : "IndexingIterator"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/makeIterator()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "makeIterator()",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/makeiterator()"
+}
+}
+}

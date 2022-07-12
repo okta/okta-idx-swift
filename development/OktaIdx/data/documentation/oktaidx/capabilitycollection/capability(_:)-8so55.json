@@ -1,1 +1,511 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"capability"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"T"},{"kind":"text","text":">("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"type"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":".Type) -> "},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"? "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability","preciseIdentifier":"s:7OktaIdx13IDXCapabilityP","text":"IDXCapability"}],"languages":["swift"],"platforms":["macOS"]}]},{"kind":"parameters","parameters":[{"name":"type","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":"The type of the capability to return."}]}]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/capabilitycollection\/capability(_:)-8so55"],"traits":[{"interfaceLanguage":"swift"}]}],"defaultImplementationsSections":[{"title":"CapabilityCollection Implementations","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection\/capability(_:)-3vnzn"]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection\/capability(_:)-8so55","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Returns the capability defined by the given type, if available in this collection."}],"kind":"symbol","metadata":{"role":"symbol","title":"capability(_:)","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"capability"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"T"},{"kind":"text","text":">("},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":".Type) -> "},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"?"}],"symbolKind":"method","externalID":"s:7OktaIdx20CapabilityCollectionP10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF","required":true,"modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/CapabilityCollection":{"role":"symbol","title":"CapabilityCollection","fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"CapabilityCollection"}],"abstract":[{"type":"text","text":"A collection of capabilities that can be associated with some parent object, such as an "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator"},{"type":"text","text":" or "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"},{"type":"text","text":"."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"CapabilityCollection"}],"url":"\/documentation\/oktaidx\/capabilitycollection"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Remediation":{"role":"symbol","title":"Remediation","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Remediation"}],"abstract":[{"type":"text","text":"Describes choices the user can make to proceed through the authentication workflow."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Remediation"}],"url":"\/documentation\/oktaidx\/remediation"},"doc://OktaIdx/documentation/OktaIdx/CapabilityCollection/capability(_:)-3vnzn":{"role":"symbol","title":"capability(_:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"capability"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"T"},{"kind":"text","text":">("},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":".Type) -> "},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"?"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection\/capability(_:)-3vnzn","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/capabilitycollection\/capability(_:)-3vnzn"},"doc://OktaIdx/documentation/OktaIdx/IDXCapability":{"role":"symbol","title":"IDXCapability","fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"IDXCapability"}],"abstract":[{"type":"text","text":"A generic protocol used to identify objects that describe a capability."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"IDXCapability"}],"url":"\/documentation\/oktaidx\/idxcapability"},"doc://OktaIdx/documentation/OktaIdx/Authenticator":{"role":"symbol","title":"Authenticator","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Authenticator"}],"abstract":[{"type":"text","text":"Represents information describing the available authenticators and enrolled authenticators."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Authenticator"}],"url":"\/documentation\/oktaidx\/authenticator"},"doc://OktaIdx/documentation/OktaIdx/CapabilityCollection/capability(_:)-8so55":{"defaultImplementations":1,"role":"symbol","title":"capability(_:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"capability"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"T"},{"kind":"text","text":">("},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":".Type) -> "},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"?"}],"abstract":[{"type":"text","text":"Returns the capability defined by the given type, if available in this collection."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection\/capability(_:)-8so55","kind":"symbol","required":true,"type":"topic","url":"\/documentation\/oktaidx\/capabilitycollection\/capability(_:)-8so55"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Returns the capability defined by the given type, if available in this collection.",
+      "type" : "text"
+    }
+  ],
+  "defaultImplementationsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection\/capability(_:)-3vnzn"
+      ],
+      "title" : "CapabilityCollection Implementations"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection\/capability(_:)-8so55"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx20CapabilityCollectionP10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "capability"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "genericParameter",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ">("
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionP10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ".Type) -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionP10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : "?"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "required" : true,
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "capability(_:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "capability"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "genericParameter",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ">("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "_"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "type"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionP10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ".Type) -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionP10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : "? "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "where"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : " : "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx13IDXCapabilityP",
+              "text" : "IDXCapability"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The type of the capability to return.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "type"
+        }
+      ]
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/capabilitycollection\/capability(_:)-8so55"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator": {
+  "abstract" : [
+    {
+      "text" : "Represents information describing the available authenticators and enrolled authenticators.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Authenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Authenticator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/CapabilityCollection": {
+  "abstract" : [
+    {
+      "text" : "A collection of capabilities that can be associated with some parent object, such as an ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " or ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "CapabilityCollection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CapabilityCollection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CapabilityCollection",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capabilitycollection"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/CapabilityCollection/capability(_:)-3vnzn": {
+  "abstract" : [
+    {
+      "text" : "Returns the capability defined by the given type, if available in this collection.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionPAAE10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ".Type) -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionPAAE10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection\/capability(_:)-3vnzn",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "capability(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capabilitycollection\/capability(_:)-3vnzn"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/CapabilityCollection/capability(_:)-8so55": {
+  "abstract" : [
+    {
+      "text" : "Returns the capability defined by the given type, if available in this collection.",
+      "type" : "text"
+    }
+  ],
+  "defaultImplementations" : 1,
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionP10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ".Type) -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionP10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection\/capability(_:)-8so55",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "capability(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capabilitycollection\/capability(_:)-8so55"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXCapability": {
+  "abstract" : [
+    {
+      "text" : "A generic protocol used to identify objects that describe a capability.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IDXCapability"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IDXCapability"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IDXCapability",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/idxcapability"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+  "abstract" : [
+    {
+      "text" : "Describes choices the user can make to proceed through the authentication workflow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation"
+}
+}
+}

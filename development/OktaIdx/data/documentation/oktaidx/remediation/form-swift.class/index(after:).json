@@ -1,1 +1,437 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"index"},{"kind":"text","text":"("},{"kind":"externalParam","text":"after"},{"kind":"text","text":" "},{"kind":"internalParam","text":"i"},{"kind":"text","text":": "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC","text":"Remediation"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC","text":"Form"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Index","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC5Indexa","text":"Index"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC","text":"Remediation"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC","text":"Form"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Index","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC5Indexa","text":"Index"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/remediation\/form-swift.class\/index(after:)"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/index(after:)","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Inherited from "},{"type":"codeVoice","code":"Collection.index(after:)"},{"type":"text","text":"."}],"kind":"symbol","metadata":{"role":"symbol","title":"index(after:)","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"index"},{"kind":"text","text":"("},{"kind":"externalParam","text":"after"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Form","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Index","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC5Indexa"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Form","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Index","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC5Indexa"}],"symbolKind":"method","externalID":"s:7OktaIdx11RemediationC4FormC5index5afterS2i_tF","extendedModule":"OktaIdx","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Collection-Implementations"]]},"references":{"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/index(after:)":{"role":"symbol","title":"index(after:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"index"},{"kind":"text","text":"("},{"kind":"externalParam","text":"after"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Form","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Index","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC5Indexa"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Form","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Index","preciseIdentifier":"s:7OktaIdx11RemediationC4FormC5Indexa"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/index(after:)","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/remediation\/form-swift.class\/index(after:)"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Index":{"role":"symbol","title":"Remediation.Form.Index","fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"Index"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Index","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Index"}],"url":"\/documentation\/oktaidx\/remediation\/form-swift.class\/index"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class":{"role":"symbol","title":"Remediation.Form","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Form"}],"abstract":[{"type":"text","text":"Object that represents a form of fields associated with a remediation."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Form"}],"url":"\/documentation\/oktaidx\/remediation\/form-swift.class"},"doc://OktaIdx/documentation/OktaIdx/Remediation":{"role":"symbol","title":"Remediation","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Remediation"}],"abstract":[{"type":"text","text":"Describes choices the user can make to proceed through the authentication workflow."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Remediation"}],"url":"\/documentation\/oktaidx\/remediation"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Collection-Implementations":{"role":"collectionGroup","title":"Collection Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Collection-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/remediation\/form-swift.class\/collection-implementations"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Returns the position immediately after the given index.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Collection-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/index(after:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "OktaIdx",
+    "externalID" : "s:7OktaIdx11RemediationC4FormC5index5afterS2i_tF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "index"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "after"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5Indexa",
+        "text" : "Index"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5Indexa",
+        "text" : "Index"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "index(after:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "index"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "after"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "i"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Index",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5Indexa",
+              "text" : "Index"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Index",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5Indexa",
+              "text" : "Index"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The index value immediately after ",
+              "type" : "text"
+            },
+            {
+              "code" : "i",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "A valid index of the collection. ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "i",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " must be less than",
+                  "type" : "text"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "endIndex",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : ".",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "i"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The successor of an index must be well defined. For an index ",
+              "type" : "text"
+            },
+            {
+              "code" : "i",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " into a",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "collection ",
+              "type" : "text"
+            },
+            {
+              "code" : "c",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ", calling ",
+              "type" : "text"
+            },
+            {
+              "code" : "c.index(after: i)",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " returns the same index every",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "time.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/remediation\/form-swift.class\/index(after:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class": {
+  "abstract" : [
+    {
+      "text" : "Object that represents a form of fields associated with a remediation.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Form"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Form"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation.Form",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Collection-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Collection-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Collection Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/collection-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Index": {
+  "abstract" : [
+    {
+      "text" : "A type that represents a position in the collection.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Index"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Index",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Index"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation.Form.Index",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/index"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/index(after:)": {
+  "abstract" : [
+    {
+      "text" : "Returns the position immediately after the given index.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "index"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "after"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5Indexa",
+      "text" : "Index"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5Indexa",
+      "text" : "Index"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/index(after:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "index(after:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/index(after:)"
+}
+}
+}

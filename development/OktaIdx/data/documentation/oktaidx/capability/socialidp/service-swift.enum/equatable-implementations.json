@@ -1,1 +1,204 @@
-{"variants":[{"paths":["\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/equatable-implementations"],"traits":[{"interfaceLanguage":"swift"}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/Equatable-Implementations","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"No overview available."}],"kind":"article","metadata":{"modules":[{"name":"OktaIdx"}],"role":"collectionGroup","title":"Equatable Implementations"},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum"]]},"topicSections":[{"title":"Operators","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/!=(_:_:)"],"generated":true}],"references":{"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP":{"role":"symbol","title":"Capability.SocialIDP","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"SocialIDP"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"SocialIDP"}],"url":"\/documentation\/oktaidx\/capability\/socialidp"},"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/!=(_:_:)":{"role":"symbol","title":"!=(_:_:)","fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"!="},{"kind":"text","text":" "},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Bool","preciseIdentifier":"s:Sb"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/!=(_:_:)","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/!=(_:_:)"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum":{"role":"symbol","title":"Capability.SocialIDP.Service","fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"Service"}],"abstract":[{"type":"text","text":"The list of services that are possible within a social authentication workflow."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Service"}],"url":"\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum"}}}
+{
+  "abstract" : [
+    {
+      "text" : "No overview available.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/Equatable-Implementations"
+  },
+  "kind" : "article",
+  "metadata" : {
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "collectionGroup",
+    "title" : "Equatable Implementations"
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/!=(_:_:)"
+      ],
+      "title" : "Operators"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/equatable-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "SocialIDP"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "SocialIDP"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Capability.SocialIDP",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/socialidp"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum": {
+  "abstract" : [
+    {
+      "text" : "The list of services that are possible within a social authentication workflow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Service"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Service"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Capability.SocialIDP.Service",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/!=(_:_:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "!="
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/!=(_:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "!=(_:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/!=(_:_:)"
+}
+}
+}

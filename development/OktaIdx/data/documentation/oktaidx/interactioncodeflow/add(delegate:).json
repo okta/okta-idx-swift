@@ -1,1 +1,269 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"add"},{"kind":"text","text":"("},{"kind":"externalParam","text":"delegate"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Delegate"},{"kind":"text","text":")"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/interactioncodeflow\/add(delegate:)"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/add(delegate:)","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Inherited from "},{"type":"codeVoice","code":"UsesDelegateCollection.add(delegate:)"},{"type":"text","text":"."}],"kind":"symbol","metadata":{"role":"symbol","title":"add(delegate:)","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"add"},{"kind":"text","text":"("},{"kind":"externalParam","text":"delegate"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Delegate"},{"kind":"text","text":")"}],"symbolKind":"method","externalID":"s:14AuthFoundation22UsesDelegateCollectionPAAE3add8delegatey0D0Qz_tF::SYNTHESIZED::s:7OktaIdx19InteractionCodeFlowC","extendedModule":"AuthFoundation","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/UsesDelegateCollection-Implementations"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/add(delegate:)":{"role":"symbol","title":"add(delegate:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"add"},{"kind":"text","text":"("},{"kind":"externalParam","text":"delegate"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Delegate"},{"kind":"text","text":")"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/add(delegate:)","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/interactioncodeflow\/add(delegate:)"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow":{"role":"symbol","title":"InteractionCodeFlow","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlow"}],"abstract":[{"type":"text","text":"An authentication flow used to authenticate users using the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlow"}],"url":"\/documentation\/oktaidx\/interactioncodeflow"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/UsesDelegateCollection-Implementations":{"role":"collectionGroup","title":"UsesDelegateCollection Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/UsesDelegateCollection-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/interactioncodeflow\/usesdelegatecollection-implementations"}}}
+{
+  "abstract" : [
+    {
+      "text" : "No overview available.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/UsesDelegateCollection-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/add(delegate:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "AuthFoundation",
+    "externalID" : "s:14AuthFoundation22UsesDelegateCollectionPAAE3add8delegatey0D0Qz_tF::SYNTHESIZED::s:7OktaIdx19InteractionCodeFlowC",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "add"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "delegate"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Self"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Delegate"
+      },
+      {
+        "kind" : "text",
+        "text" : ")"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "add(delegate:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "add"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "delegate"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Delegate"
+            },
+            {
+              "kind" : "text",
+              "text" : ")"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/interactioncodeflow\/add(delegate:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+  "abstract" : [
+    {
+      "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/UsesDelegateCollection-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/UsesDelegateCollection-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "UsesDelegateCollection Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/usesdelegatecollection-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/add(delegate:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "add"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "delegate"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Delegate"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/add(delegate:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "add(delegate:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/add(delegate:)"
+}
+}
+}

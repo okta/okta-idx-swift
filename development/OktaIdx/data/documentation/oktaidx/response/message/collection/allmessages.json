@@ -1,1 +1,319 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"allMessages"},{"kind":"text","text":": ["},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response","text":"Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC","text":"Message"},{"kind":"text","text":"] { "},{"kind":"keyword","text":"get"},{"kind":"text","text":" }"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/response\/message\/collection\/allmessages"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/allMessages","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"All messages within this collection, and all nested messages."}],"kind":"symbol","metadata":{"fragments":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"allMessages"},{"kind":"text","text":": ["},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC"},{"kind":"text","text":"]"}],"title":"allMessages","roleHeading":"Instance Property","role":"symbol","symbolKind":"property","externalID":"s:7OktaIdx8ResponseC7MessageC10CollectionC11allMessagesSayAEGvp","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/Response/Message":{"role":"symbol","title":"Response.Message","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Message"}],"abstract":[{"type":"text","text":"Represents messages sent from the server to indicate error or warning conditions related to responses or form values."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Message"}],"url":"\/documentation\/oktaidx\/response\/message"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/allMessages":{"role":"symbol","title":"allMessages","fragments":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"allMessages"},{"kind":"text","text":": ["},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC"},{"kind":"text","text":"]"}],"abstract":[{"type":"text","text":"All messages within this collection, and all nested messages."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/allMessages","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/collection\/allmessages"},"doc://OktaIdx/documentation/OktaIdx/Response":{"role":"symbol","title":"Response","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Response"}],"abstract":[{"type":"text","text":"Describes the response from an Okta Identity Engine workflow stage."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Response"}],"url":"\/documentation\/oktaidx\/response"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection":{"role":"symbol","title":"Response.Message.Collection","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Collection"}],"abstract":[{"type":"text","text":"Represents a collection of messages."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Collection"}],"url":"\/documentation\/oktaidx\/response\/message\/collection"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"}}}
+{
+  "abstract" : [
+    {
+      "text" : "All messages within this collection, and all nested messages.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/allMessages"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx8ResponseC7MessageC10CollectionC11allMessagesSayAEGvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "allMessages"
+      },
+      {
+        "kind" : "text",
+        "text" : ": ["
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+        "text" : "Response"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+        "text" : "Message"
+      },
+      {
+        "kind" : "text",
+        "text" : "]"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "allMessages"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "allMessages"
+            },
+            {
+              "kind" : "text",
+              "text" : ": ["
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+              "text" : "Response"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+              "text" : "Message"
+            },
+            {
+              "kind" : "text",
+              "text" : "] { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/response\/message\/collection\/allmessages"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+  "abstract" : [
+    {
+      "text" : "Describes the response from an Okta Identity Engine workflow stage.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message": {
+  "abstract" : [
+    {
+      "text" : "Represents messages sent from the server to indicate error or warning conditions related to responses or form values.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Message"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Message"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+  "abstract" : [
+    {
+      "text" : "Represents a collection of messages.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message.Collection",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/allMessages": {
+  "abstract" : [
+    {
+      "text" : "All messages within this collection, and all nested messages.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "allMessages"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "]"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/allMessages",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "allMessages",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/allmessages"
+}
+}
+}

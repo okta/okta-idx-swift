@@ -1,1 +1,253 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"interactionHandle"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/interactioncodeflow\/context-swift.struct\/interactionhandle"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct\/interactionHandle","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"The interaction handle returned from the "},{"type":"codeVoice","code":"interact"},{"type":"text","text":" response from the server."}],"kind":"symbol","metadata":{"fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"interactionHandle"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"}],"title":"interactionHandle","roleHeading":"Instance Property","role":"symbol","symbolKind":"property","externalID":"s:7OktaIdx19InteractionCodeFlowC7ContextV17interactionHandleSSvp","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct"]]},"references":{"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/Context-swift.struct":{"role":"symbol","title":"InteractionCodeFlow.Context","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"Context"}],"abstract":[{"type":"text","text":"Object that defines the context for the current authentication session, which is required when a session needs to be resumed."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Context"}],"url":"\/documentation\/oktaidx\/interactioncodeflow\/context-swift.struct"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow":{"role":"symbol","title":"InteractionCodeFlow","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlow"}],"abstract":[{"type":"text","text":"An authentication flow used to authenticate users using the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlow"}],"url":"\/documentation\/oktaidx\/interactioncodeflow"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/Context-swift.struct/interactionHandle":{"role":"symbol","title":"interactionHandle","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"interactionHandle"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"}],"abstract":[{"type":"text","text":"The interaction handle returned from the "},{"type":"codeVoice","code":"interact"},{"type":"text","text":" response from the server."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct\/interactionHandle","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/interactioncodeflow\/context-swift.struct\/interactionhandle"}}}
+{
+  "abstract" : [
+    {
+      "text" : "The interaction handle returned from the ",
+      "type" : "text"
+    },
+    {
+      "code" : "interact",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " response from the server.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct\/interactionHandle"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx19InteractionCodeFlowC7ContextV17interactionHandleSSvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "let"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "interactionHandle"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "interactionHandle"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "let"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "interactionHandle"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/interactioncodeflow\/context-swift.struct\/interactionhandle"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+  "abstract" : [
+    {
+      "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Context-swift.struct": {
+  "abstract" : [
+    {
+      "text" : "Object that defines the context for the current authentication session, which is required when a session needs to be resumed.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Context"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Context"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow.Context",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/context-swift.struct"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Context-swift.struct/interactionHandle": {
+  "abstract" : [
+    {
+      "text" : "The interaction handle returned from the ",
+      "type" : "text"
+    },
+    {
+      "code" : "interact",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " response from the server.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "interactionHandle"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct\/interactionHandle",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "interactionHandle",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/context-swift.struct\/interactionhandle"
+}
+}
+}

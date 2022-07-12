@@ -1,1 +1,341 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Collection"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/remediation\/collection"],"traits":[{"interfaceLanguage":"swift"}]}],"relationshipsSections":[{"identifiers":["doc:\/\/OktaIdx\/Sl","doc:\/\/OktaIdx\/ST"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Represents a collection of remediation options."}],"kind":"symbol","metadata":{"navigatorTitle":[{"kind":"identifier","text":"Collection"}],"role":"symbol","title":"Remediation.Collection","roleHeading":"Class","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Collection"}],"symbolKind":"class","externalID":"s:7OktaIdx11RemediationC10CollectionC","extendedModule":"OktaIdx","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"]]},"topicSections":[{"title":"Subscripts","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/subscript(_:)-319h","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/subscript(_:)-56ryu"]},{"title":"Default Implementations","identifiers":["doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations"],"generated":true}],"references":{"doc://OktaIdx/documentation/OktaIdx/Remediation":{"role":"symbol","title":"Remediation","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Remediation"}],"abstract":[{"type":"text","text":"Describes choices the user can make to proceed through the authentication workflow."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Remediation"}],"url":"\/documentation\/oktaidx\/remediation"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/subscript(_:)-56ryu":{"role":"symbol","title":"subscript(_:)","fragments":[{"kind":"keyword","text":"subscript"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"RemediationType","preciseIdentifier":"s:7OktaIdx11RemediationC0C4TypeO"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC"},{"kind":"text","text":"?"}],"abstract":[{"type":"text","text":"Returns a remediation based on its type."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/subscript(_:)-56ryu","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/remediation\/collection\/subscript(_:)-56ryu"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/subscript(_:)-319h":{"role":"symbol","title":"subscript(_:)","fragments":[{"kind":"keyword","text":"subscript"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Remediation","preciseIdentifier":"s:7OktaIdx11RemediationC"},{"kind":"text","text":"?"}],"abstract":[{"type":"text","text":"Returns a remediation based on its string name."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/subscript(_:)-319h","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/remediation\/collection\/subscript(_:)-319h"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/Sequence-Implementations":{"role":"collectionGroup","title":"Sequence Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/remediation\/collection\/sequence-implementations"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection":{"role":"symbol","title":"Remediation.Collection","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Collection"}],"abstract":[{"type":"text","text":"Represents a collection of remediation options."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Collection"}],"url":"\/documentation\/oktaidx\/remediation\/collection"},"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/Collection-Implementations":{"role":"collectionGroup","title":"Collection Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/remediation\/collection\/collection-implementations"},"doc://OktaIdx/Sl":{"type":"unresolvable","title":"Swift.Collection","identifier":"doc:\/\/OktaIdx\/Sl"},"doc://OktaIdx/ST":{"type":"unresolvable","title":"Swift.Sequence","identifier":"doc:\/\/OktaIdx\/ST"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Represents a collection of remediation options.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "OktaIdx",
+    "externalID" : "s:7OktaIdx11RemediationC10CollectionC",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "class"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Collection"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Collection"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Class",
+    "symbolKind" : "class",
+    "title" : "Remediation.Collection"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "class"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Collection"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/Sl",
+        "doc:\/\/com.okta.mobile.oktaidx\/ST"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/subscript(_:)-319h",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/subscript(_:)-56ryu"
+      ],
+      "title" : "Subscripts"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/remediation\/collection"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/ST": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/ST",
+  "title" : "Swift.Sequence",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/Sl": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/Sl",
+  "title" : "Swift.Collection",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+  "abstract" : [
+    {
+      "text" : "Describes choices the user can make to proceed through the authentication workflow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection": {
+  "abstract" : [
+    {
+      "text" : "Represents a collection of remediation options.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation.Collection",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/collection"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/Collection-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Collection Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/collection\/collection-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/Sequence-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Sequence Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/collection\/sequence-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/subscript(_:)-319h": {
+  "abstract" : [
+    {
+      "text" : "Returns a remediation based on its string name.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "subscript"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/subscript(_:)-319h",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "subscript(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/collection\/subscript(_:)-319h"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/subscript(_:)-56ryu": {
+  "abstract" : [
+    {
+      "text" : "Returns a remediation based on its type.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "subscript"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC0C4TypeO",
+      "text" : "RemediationType"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/subscript(_:)-56ryu",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "subscript(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/collection\/subscript(_:)-56ryu"
+}
+}
+}

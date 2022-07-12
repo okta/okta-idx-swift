@@ -1,1 +1,249 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"app"},{"kind":"text","text":": "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response","text":"Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application","preciseIdentifier":"s:7OktaIdx8ResponseC11ApplicationV","text":"Application"},{"kind":"text","text":"?"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/response\/app"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/app","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Returns information about the application, if available."}],"kind":"symbol","metadata":{"fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"app"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Application","preciseIdentifier":"s:7OktaIdx8ResponseC11ApplicationV"},{"kind":"text","text":"?"}],"title":"app","roleHeading":"Instance Property","role":"symbol","symbolKind":"property","externalID":"s:7OktaIdx8ResponseC3appAC11ApplicationVSgvp","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/Response/Application":{"role":"symbol","title":"Response.Application","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"Application"}],"abstract":[{"type":"text","text":"Provides information about the client application being authenticated against."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Application"}],"url":"\/documentation\/oktaidx\/response\/application"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Response":{"role":"symbol","title":"Response","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Response"}],"abstract":[{"type":"text","text":"Describes the response from an Okta Identity Engine workflow stage."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Response"}],"url":"\/documentation\/oktaidx\/response"},"doc://OktaIdx/documentation/OktaIdx/Response/app":{"role":"symbol","title":"app","fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"app"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Application","preciseIdentifier":"s:7OktaIdx8ResponseC11ApplicationV"},{"kind":"text","text":"?"}],"abstract":[{"type":"text","text":"Returns information about the application, if available."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/app","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/app"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Returns information about the application, if available.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/app"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx8ResponseC3appAC11ApplicationVSgvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "let"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "app"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx8ResponseC11ApplicationV",
+        "text" : "Application"
+      },
+      {
+        "kind" : "text",
+        "text" : "?"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "app"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "let"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "app"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx8ResponseC11ApplicationV",
+              "text" : "Application"
+            },
+            {
+              "kind" : "text",
+              "text" : "?"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/response\/app"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+  "abstract" : [
+    {
+      "text" : "Describes the response from an Okta Identity Engine workflow stage.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Application": {
+  "abstract" : [
+    {
+      "text" : "Provides information about the client application being authenticated against.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Application"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Application"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Application",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/application"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/app": {
+  "abstract" : [
+    {
+      "text" : "Returns information about the application, if available.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "app"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC11ApplicationV",
+      "text" : "Application"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/app",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "app",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/app"
+}
+}
+}

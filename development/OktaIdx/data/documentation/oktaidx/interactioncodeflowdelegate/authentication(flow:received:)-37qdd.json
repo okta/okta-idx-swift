@@ -1,1 +1,612 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"authentication"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Flow"},{"kind":"text","text":">("},{"kind":"externalParam","text":"flow"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Flow"},{"kind":"text","text":", "},{"kind":"externalParam","text":"received"},{"kind":"text","text":" "},{"kind":"internalParam","text":"response"},{"kind":"text","text":": "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response","text":"Response"},{"kind":"text","text":") "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Flow"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","preciseIdentifier":"s:7OktaIdx19InteractionCodeFlowC","text":"InteractionCodeFlow"}],"languages":["swift"],"platforms":["macOS"]}]},{"kind":"parameters","parameters":[{"name":"client","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":""},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"},{"type":"text","text":" receiving the response."}]}]},{"name":"response","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":"The response that was received."}]}]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/interactioncodeflowdelegate\/authentication(flow:received:)-37qdd"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate\/authentication(flow:received:)-37qdd","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Informs the delegate when an IDX response is received, either through an "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume()"},{"type":"text","text":" or "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)"},{"type":"text","text":" call."}],"kind":"symbol","metadata":{"role":"symbol","title":"authentication(flow:received:)","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"authentication"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Flow"},{"kind":"text","text":">("},{"kind":"externalParam","text":"flow"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Flow"},{"kind":"text","text":", "},{"kind":"externalParam","text":"received"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":")"}],"symbolKind":"method","externalID":"s:7OktaIdx27InteractionCodeFlowDelegateP14authentication4flow8receivedyqd___AA8ResponseCtAA0cdE0CRbd__lF","required":true,"modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/Remediation/proceed(completion:)":{"role":"symbol","title":"proceed(completion:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"proceed"},{"kind":"text","text":"("},{"kind":"externalParam","text":"completion"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"InteractionCodeFlow","preciseIdentifier":"s:7OktaIdx19InteractionCodeFlowC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"ResponseResult","preciseIdentifier":"s:7OktaIdx19InteractionCodeFlowC14ResponseResulta"},{"kind":"text","text":"?)"}],"abstract":[{"type":"text","text":"Executes the remediation option and proceeds through the workflow using the supplied form parameters."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/remediation\/proceed(completion:)"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Response":{"role":"symbol","title":"Response","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Response"}],"abstract":[{"type":"text","text":"Describes the response from an Okta Identity Engine workflow stage."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Response"}],"url":"\/documentation\/oktaidx\/response"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowDelegate/authentication(flow:received:)-37qdd":{"role":"symbol","title":"authentication(flow:received:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"authentication"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Flow"},{"kind":"text","text":">("},{"kind":"externalParam","text":"flow"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Flow"},{"kind":"text","text":", "},{"kind":"externalParam","text":"received"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":")"}],"abstract":[{"type":"text","text":"Informs the delegate when an IDX response is received, either through an "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume()"},{"type":"text","text":" or "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)"},{"type":"text","text":" call."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate\/authentication(flow:received:)-37qdd","kind":"symbol","required":true,"type":"topic","url":"\/documentation\/oktaidx\/interactioncodeflowdelegate\/authentication(flow:received:)-37qdd"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/resume()":{"role":"symbol","title":"resume()","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"resume"},{"kind":"text","text":"() "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":" -> "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"}],"abstract":[{"type":"text","text":"Resumes the authentication state to identify the available remediation steps."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume()","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/interactioncodeflow\/resume()"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow":{"role":"symbol","title":"InteractionCodeFlow","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlow"}],"abstract":[{"type":"text","text":"An authentication flow used to authenticate users using the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlow"}],"url":"\/documentation\/oktaidx\/interactioncodeflow"},"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowDelegate":{"role":"symbol","title":"InteractionCodeFlowDelegate","fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"InteractionCodeFlowDelegate"}],"abstract":[{"type":"text","text":"Delegate protocol that can be used to receive updates from the "},{"type":"reference","isActive":true,"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"},{"type":"text","text":" through the process of a user’s authentication."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"InteractionCodeFlowDelegate"}],"url":"\/documentation\/oktaidx\/interactioncodeflowdelegate"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Informs the delegate when an IDX response is received, either through an ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume()",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " or ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " call.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate\/authentication(flow:received:)-37qdd"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx27InteractionCodeFlowDelegateP14authentication4flow8receivedyqd___AA8ResponseCtAA0cdE0CRbd__lF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "authentication"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "genericParameter",
+        "text" : "Flow"
+      },
+      {
+        "kind" : "text",
+        "text" : ">("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "flow"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx27InteractionCodeFlowDelegateP14authentication4flow8receivedyqd___AA8ResponseCtAA0cdE0CRbd__lF0E0L_qd__mfp",
+        "text" : "Flow"
+      },
+      {
+        "kind" : "text",
+        "text" : ", "
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "received"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+        "text" : "Response"
+      },
+      {
+        "kind" : "text",
+        "text" : ")"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "required" : true,
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "authentication(flow:received:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "authentication"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "genericParameter",
+              "text" : "Flow"
+            },
+            {
+              "kind" : "text",
+              "text" : ">("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "flow"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx27InteractionCodeFlowDelegateP14authentication4flow8receivedyqd___AA8ResponseCtAA0cdE0CRbd__lF0E0L_qd__mfp",
+              "text" : "Flow"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "received"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "response"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+              "text" : "Response"
+            },
+            {
+              "kind" : "text",
+              "text" : ") "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "where"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Flow"
+            },
+            {
+              "kind" : "text",
+              "text" : " : "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+              "text" : "InteractionCodeFlow"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "",
+                  "type" : "text"
+                },
+                {
+                  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+                  "isActive" : true,
+                  "type" : "reference"
+                },
+                {
+                  "text" : " receiving the response.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "client"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The response that was received.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "response"
+        }
+      ]
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/interactioncodeflowdelegate\/authentication(flow:received:)-37qdd"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+  "abstract" : [
+    {
+      "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/resume()": {
+  "abstract" : [
+    {
+      "text" : "Resumes the authentication state to identify the available remediation steps.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "resume"
+    },
+    {
+      "kind" : "text",
+      "text" : "() "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "async"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    },
+    {
+      "kind" : "text",
+      "text" : " -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "resume()",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/resume()"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowDelegate": {
+  "abstract" : [
+    {
+      "text" : "Delegate protocol that can be used to receive updates from the ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " through the process of a user’s authentication.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlowDelegate"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlowDelegate"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlowDelegate",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowdelegate"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowDelegate/authentication(flow:received:)-37qdd": {
+  "abstract" : [
+    {
+      "text" : "Informs the delegate when an IDX response is received, either through an ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume()",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " or ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " call.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authentication"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "Flow"
+    },
+    {
+      "kind" : "text",
+      "text" : ">("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "flow"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx27InteractionCodeFlowDelegateP14authentication4flow8receivedyqd___AA8ResponseCtAA0cdE0CRbd__lF0E0L_qd__mfp",
+      "text" : "Flow"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "received"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate\/authentication(flow:received:)-37qdd",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "authentication(flow:received:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowdelegate\/authentication(flow:received:)-37qdd"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/proceed(completion:)": {
+  "abstract" : [
+    {
+      "text" : "Executes the remediation option and proceeds through the workflow using the supplied form parameters.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "proceed"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "completion"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC14ResponseResulta",
+      "text" : "ResponseResult"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "proceed(completion:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/proceed(completion:)"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+  "abstract" : [
+    {
+      "text" : "Describes the response from an Okta Identity Engine workflow stage.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response"
+}
+}
+}

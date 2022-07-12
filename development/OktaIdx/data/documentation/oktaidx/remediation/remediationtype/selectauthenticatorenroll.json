@@ -1,1 +1,218 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"selectAuthenticatorEnroll"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/remediation\/remediationtype\/selectauthenticatorenroll"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorEnroll","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Used to prompt a user for a list of authenticators, giving them a choice as to which authenticator they would like to enroll in."}],"kind":"symbol","metadata":{"fragments":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"selectAuthenticatorEnroll"}],"title":"Remediation.RemediationType.selectAuthenticatorEnroll","roleHeading":"Case","role":"symbol","symbolKind":"case","externalID":"s:7OktaIdx11RemediationC0C4TypeO25selectAuthenticatorEnrollyA2EmF","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/Remediation":{"role":"symbol","title":"Remediation","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Remediation"}],"abstract":[{"type":"text","text":"Describes choices the user can make to proceed through the authentication workflow."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Remediation"}],"url":"\/documentation\/oktaidx\/remediation"},"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/selectAuthenticatorEnroll":{"role":"symbol","title":"Remediation.RemediationType.selectAuthenticatorEnroll","fragments":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"selectAuthenticatorEnroll"}],"abstract":[{"type":"text","text":"Used to prompt a user for a list of authenticators, giving them a choice as to which authenticator they would like to enroll in."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorEnroll","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/remediation\/remediationtype\/selectauthenticatorenroll"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType":{"role":"symbol","title":"Remediation.RemediationType","fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"RemediationType"}],"abstract":[{"type":"text","text":"Enumeration describing the possible remedation types. This is expanded from the possible option values that may be present in the "},{"type":"codeVoice","code":"name"},{"type":"text","text":" property."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"RemediationType"}],"url":"\/documentation\/oktaidx\/remediation\/remediationtype"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Used to prompt a user for a list of authenticators, giving them a choice as to which authenticator they would like to enroll in.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/RemediationType"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorEnroll"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx11RemediationC0C4TypeO25selectAuthenticatorEnrollyA2EmF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "case"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "selectAuthenticatorEnroll"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Case",
+    "symbolKind" : "case",
+    "title" : "Remediation.RemediationType.selectAuthenticatorEnroll"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "case"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "selectAuthenticatorEnroll"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/remediation\/remediationtype\/selectauthenticatorenroll"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+  "abstract" : [
+    {
+      "text" : "Describes choices the user can make to proceed through the authentication workflow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/RemediationType": {
+  "abstract" : [
+    {
+      "text" : "Enumeration describing the possible remedation types. This is expanded from the possible option values that may be present in the ",
+      "type" : "text"
+    },
+    {
+      "code" : "name",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " property.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RemediationType"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/RemediationType",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RemediationType"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/RemediationType/selectAuthenticatorEnroll": {
+  "abstract" : [
+    {
+      "text" : "Used to prompt a user for a list of authenticators, giving them a choice as to which authenticator they would like to enroll in.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "selectAuthenticatorEnroll"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorEnroll",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.selectAuthenticatorEnroll",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/selectauthenticatorenroll"
+}
+}
+}

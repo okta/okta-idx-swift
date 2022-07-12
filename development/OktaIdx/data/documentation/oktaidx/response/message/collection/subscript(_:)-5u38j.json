@@ -1,1 +1,437 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"subscript"},{"kind":"text","text":"("},{"kind":"internalParam","text":"index"},{"kind":"text","text":": "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response","text":"Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC","text":"Message"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC","text":"Collection"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Index","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa","text":"Index"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response","text":"Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC","text":"Message"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC","text":"Collection"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Element","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC7Elementa","text":"Element"},{"kind":"text","text":" { "},{"kind":"keyword","text":"get"},{"kind":"text","text":" }"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)-5u38j"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-5u38j","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Inherited from "},{"type":"codeVoice","code":"Collection.subscript(_:)"},{"type":"text","text":"."}],"kind":"symbol","metadata":{"role":"symbol","title":"subscript(_:)","roleHeading":"Instance Subscript","fragments":[{"kind":"keyword","text":"subscript"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Collection","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Index","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Collection","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Element","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC7Elementa"}],"symbolKind":"subscript","externalID":"s:7OktaIdx8ResponseC7MessageC10CollectionCyAESicip","extendedModule":"OktaIdx","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/subscript(_:)-5u38j":{"role":"symbol","title":"subscript(_:)","fragments":[{"kind":"keyword","text":"subscript"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Collection","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Index","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Response","preciseIdentifier":"c:@M@OktaIdx@objc(cs)Response"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Message","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Collection","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Element","preciseIdentifier":"s:7OktaIdx8ResponseC7MessageC10CollectionC7Elementa"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-5u38j","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)-5u38j"},"doc://OktaIdx/documentation/OktaIdx/Response":{"role":"symbol","title":"Response","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Response"}],"abstract":[{"type":"text","text":"Describes the response from an Okta Identity Engine workflow stage."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Response"}],"url":"\/documentation\/oktaidx\/response"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Index":{"role":"symbol","title":"Response.Message.Collection.Index","fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"Index"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Index","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Index"}],"url":"\/documentation\/oktaidx\/response\/message\/collection\/index"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Collection-Implementations":{"role":"collectionGroup","title":"Collection Implementations","abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations","kind":"article","type":"topic","url":"\/documentation\/oktaidx\/response\/message\/collection\/collection-implementations"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection":{"role":"symbol","title":"Response.Message.Collection","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Collection"}],"abstract":[{"type":"text","text":"Represents a collection of messages."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Collection"}],"url":"\/documentation\/oktaidx\/response\/message\/collection"},"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Element":{"role":"symbol","title":"Response.Message.Collection.Element","fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"Element"}],"abstract":[],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Element","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Element"}],"url":"\/documentation\/oktaidx\/response\/message\/collection\/element"},"doc://OktaIdx/documentation/OktaIdx/Response/Message":{"role":"symbol","title":"Response.Message","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Message"}],"abstract":[{"type":"text","text":"Represents messages sent from the server to indicate error or warning conditions related to responses or form values."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Message"}],"url":"\/documentation\/oktaidx\/response\/message"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Accesses the element at the specified position.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-5u38j"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "OktaIdx",
+    "externalID" : "s:7OktaIdx8ResponseC7MessageC10CollectionCyAESicip",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "subscript"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
+        "text" : "Index"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC7Elementa",
+        "text" : "Element"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Subscript",
+    "symbolKind" : "subscript",
+    "title" : "subscript(_:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "subscript"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "index"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Index",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
+              "text" : "Index"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Element",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC7Elementa",
+              "text" : "Element"
+            },
+            {
+              "kind" : "text",
+              "text" : " { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The position of the element to access. ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "position",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "text" : "must be a valid index of the collection that is not equal to the",
+                  "type" : "text"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "endIndex",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " property.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "position"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The following example accesses an element of an array through its",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "subscript to print its value:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "var streets = [\"Adams\", \"Bryant\", \"Channing\", \"Douglas\", \"Evarts\"]",
+            "print(streets[1])",
+            "\/\/ Prints \"Bryant\""
+          ],
+          "syntax" : null,
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "You can subscript a collection with any valid index other than the",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "collection’s end index. The end index refers to the position one past",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "the last element of a collection, so it doesn’t correspond with an",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "element.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "O(1)",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "Complexity",
+          "style" : "note",
+          "type" : "aside"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)-5u38j"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+  "abstract" : [
+    {
+      "text" : "Represents a collection of messages.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message.Collection",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Collection-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Collection Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/collection-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Element": {
+  "abstract" : [
+    {
+      "text" : "A type representing the sequence’s elements.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Element"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Element",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Element"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message.Collection.Element",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/element"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Index": {
+  "abstract" : [
+    {
+      "text" : "A type that represents a position in the collection.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Index"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Index",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Index"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.Message.Collection.Index",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/index"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/subscript(_:)-5u38j": {
+  "abstract" : [
+    {
+      "text" : "Accesses the element at the specified position.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "subscript"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
+      "text" : "Index"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC7Elementa",
+      "text" : "Element"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-5u38j",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "subscript(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)-5u38j"
+}
+}
+}

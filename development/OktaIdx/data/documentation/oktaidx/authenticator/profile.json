@@ -1,1 +1,348 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"profile"},{"kind":"text","text":": "},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability","preciseIdentifier":"s:7OktaIdx10CapabilityV","text":"Capability"},{"kind":"text","text":"."},{"kind":"typeIdentifier","identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Profile","preciseIdentifier":"s:7OktaIdx10CapabilityV7ProfileV","text":"Profile"},{"kind":"text","text":"? { "},{"kind":"keyword","text":"get"},{"kind":"text","text":" }"}],"languages":["swift"],"platforms":["macOS"]}]},{"kind":"content","content":[{"anchor":"discussion","level":2,"type":"heading","text":"Discussion"},{"type":"paragraph","inlineContent":[{"type":"text","text":"If no profile information is associated with this authenticator, or is unavailable at this time, the value will be "},{"type":"codeVoice","code":"nil"},{"type":"text","text":"."}]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/oktaidx\/authenticator\/profile"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/profile","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Exposes profile information that may be associated with the user account, or this authenticator."}],"kind":"symbol","metadata":{"role":"symbol","title":"profile","roleHeading":"Instance Property","fragments":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"profile"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Capability","preciseIdentifier":"s:7OktaIdx10CapabilityV"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Profile","preciseIdentifier":"s:7OktaIdx10CapabilityV7ProfileV"},{"kind":"text","text":"?"}],"symbolKind":"property","externalID":"s:7OktaIdx13AuthenticatorC7profileAA10CapabilityV7ProfileVSgvp","extendedModule":"OktaIdx","modules":[{"name":"OktaIdx"}]},"hierarchy":{"paths":[["doc:\/\/OktaIdx\/documentation\/OktaIdx","doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator"]]},"references":{"doc://OktaIdx/documentation/OktaIdx/Authenticator/profile":{"role":"symbol","title":"profile","fragments":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"profile"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Capability","preciseIdentifier":"s:7OktaIdx10CapabilityV"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"Profile","preciseIdentifier":"s:7OktaIdx10CapabilityV7ProfileV"},{"kind":"text","text":"?"}],"abstract":[{"type":"text","text":"Exposes profile information that may be associated with the user account, or this authenticator."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/profile","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx\/authenticator\/profile"},"doc://OktaIdx/documentation/OktaIdx/Capability":{"role":"symbol","title":"Capability","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"Capability"}],"abstract":[{"type":"text","text":"Abstractly describes the types of operations, metadata, or additional information that can be associated with IDX remediations or authenticators."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Capability"}],"url":"\/documentation\/oktaidx\/capability"},"doc://OktaIdx/documentation/OktaIdx/Capability/Profile":{"role":"symbol","title":"Capability.Profile","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"Profile"}],"abstract":[{"type":"text","text":"Capability when an authenticator or rememediation contains related profile information."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Profile","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Profile"}],"url":"\/documentation\/oktaidx\/capability\/profile"},"doc://OktaIdx/documentation/OktaIdx":{"role":"collection","title":"OktaIdx","abstract":[{"type":"text","text":"Authenticate users using policy-driven native authentication with the Okta Identity Engine."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx","kind":"symbol","type":"topic","url":"\/documentation\/oktaidx"},"doc://OktaIdx/documentation/OktaIdx/Authenticator":{"role":"symbol","title":"Authenticator","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"Authenticator"}],"abstract":[{"type":"text","text":"Represents information describing the available authenticators and enrolled authenticators."}],"identifier":"doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Authenticator"}],"url":"\/documentation\/oktaidx\/authenticator"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Exposes profile information that may be associated with the user account, or this authenticator.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/profile"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "OktaIdx",
+    "externalID" : "s:7OktaIdx13AuthenticatorC7profileAA10CapabilityV7ProfileVSgvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "profile"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+        "text" : "Capability"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx10CapabilityV7ProfileV",
+        "text" : "Profile"
+      },
+      {
+        "kind" : "text",
+        "text" : "?"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "profile"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "profile"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+              "text" : "Capability"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Profile",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx10CapabilityV7ProfileV",
+              "text" : "Profile"
+            },
+            {
+              "kind" : "text",
+              "text" : "? { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "If no profile information is associated with this authenticator, or is unavailable at this time, the value will be ",
+              "type" : "text"
+            },
+            {
+              "code" : "nil",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/authenticator\/profile"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator": {
+  "abstract" : [
+    {
+      "text" : "Represents information describing the available authenticators and enrolled authenticators.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Authenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Authenticator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/profile": {
+  "abstract" : [
+    {
+      "text" : "Exposes profile information that may be associated with the user account, or this authenticator.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "profile"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV7ProfileV",
+      "text" : "Profile"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/profile",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "profile",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/profile"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability": {
+  "abstract" : [
+    {
+      "text" : "Abstractly describes the types of operations, metadata, or additional information that can be associated with IDX remediations or authenticators.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Capability"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Capability"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Capability",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Profile": {
+  "abstract" : [
+    {
+      "text" : "Capability when an authenticator or rememediation contains related profile information.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Profile"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Profile",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Profile"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Capability.Profile",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/profile"
+}
+}
+}
