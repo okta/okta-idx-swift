@@ -57,7 +57,7 @@ jobs:
 
         $(xcrun --find docc) process-archive transform-for-static-hosting \
             OktaIdx.doccarchive \
-            --hosting-base-path okta-mobile-swift/$VERSION/oktaidx \
+            --hosting-base-path okta-idx-swift/$VERSION/oktaidx \
             --output-path docs/$VERSION/oktaidx
         sed -I -e "s#<head>#<head><meta http-equiv='refresh' content='0;url=./documentation/oktaidx/'>#" \
             docs/$VERSION/oktaidx/index.html
