@@ -1,0 +1,9 @@
+{
+  "bundleDisplayName" : "OktaIdx",
+  "bundleIdentifier" : "com.okta.mobile.oktaidx",
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 1,
+    "patch" : 0
+  }
+}
