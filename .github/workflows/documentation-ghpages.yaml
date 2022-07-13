@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    branches:
-      - master
+    tags:
+      - '*'
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_13.3.app/Contents/Developer
@@ -35,13 +34,12 @@ jobs:
             -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build/symbol-graphs
     - name: Generate Documentation
       run: |
-        #set +e
-        #VERSION=$(git describe --tags 2>/dev/null)
-        #if [[ $? -ne 0 ]]; then
-        #    VERSION=development
-        #fi
-        #set -e
-        VERSION=3.0.0
+        set +e
+        VERSION=$(git describe --tags 2>/dev/null)
+        if [[ $? -ne 0 ]]; then
+            VERSION=development
+        fi
+        set -e
 
         export DOCC_JSON_PRETTYPRINT=YES
 
