@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_13.3.app/Contents/Developer
@@ -32,12 +35,13 @@ jobs:
             -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build/symbol-graphs
     - name: Generate Documentation
       run: |
-        set +e
-        VERSION=$(git describe --tags 2>/dev/null)
-        if [[ $? -ne 0 ]]; then
-            VERSION=development
-        fi
-        set -e
+        #set +e
+        #VERSION=$(git describe --tags 2>/dev/null)
+        #if [[ $? -ne 0 ]]; then
+        #    VERSION=development
+        #fi
+        #set -e
+        VERSION=3.0.0
 
         export DOCC_JSON_PRETTYPRINT=YES
 
@@ -63,4 +67,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
-        keep_files: false
+        keep_files: true
