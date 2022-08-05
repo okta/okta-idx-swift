@@ -104,13 +104,42 @@
           "type" : "paragraph"
         },
         {
-          "inlineContent" : [
+          "code" : [
+            "remediation.form[\"identifier\"]"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "content" : [
             {
-              "text" : "credentials.form[“passcode”]",
-              "type" : "text"
+              "inlineContent" : [
+                {
+                  "text" : "This keyed subscripting is made available through the parent ",
+                  "type" : "text"
+                },
+                {
+                  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+                  "isActive" : true,
+                  "type" : "reference"
+                },
+                {
+                  "text" : " object. So the above example is equally expressed as the following:",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            },
+            {
+              "code" : [
+                "remediation[\"identifier\"]"
+              ],
+              "syntax" : "swift",
+              "type" : "codeListing"
             }
           ],
-          "type" : "paragraph"
+          "style" : "note",
+          "type" : "aside"
         }
       ],
       "kind" : "content"
@@ -225,6 +254,40 @@
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+  "abstract" : [
+    {
+      "text" : "Describes choices the user can make to proceed through the authentication workflow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class": {
   "abstract" : [

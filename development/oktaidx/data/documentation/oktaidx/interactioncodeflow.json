@@ -190,6 +190,8 @@
     },
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init()",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(plist:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(redirectUri:additionalParameters:client:)"
       ],
       "title" : "Initializers"
@@ -1047,6 +1049,42 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/exchangecode(redirect:completion:)"
 },
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init()": {
+  "abstract" : [
+    {
+      "text" : "Initializer that uses the configuration defined within the application’s ",
+      "type" : "text"
+    },
+    {
+      "code" : "Okta.plist",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " file.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "() "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init()",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init()"
+},
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init(issuer:clientId:scopes:redirectUri:additionalParameters:)": {
   "abstract" : [
     {
@@ -1164,6 +1202,51 @@
   "title" : "init(issuer:clientId:scopes:redirectUri:additionalParameters:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init(issuer:clientid:scopes:redirecturi:additionalparameters:)"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init(plist:)": {
+  "abstract" : [
+    {
+      "text" : "Initializer that uses the configuration defined within the given file URL.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "plist"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation3URLV",
+      "text" : "URL"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(plist:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(plist:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init(plist:)"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init(redirectUri:additionalParameters:client:)": {
   "abstract" : [
