@@ -117,6 +117,8 @@
     {
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/audience",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationContext",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationMethods-8d0og",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/claims",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/customClaims",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/expirationTime",
@@ -478,6 +480,88 @@
   "title" : "audience",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwt\/audience"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/authenticationContext": {
+  "abstract" : [
+    {
+      "text" : "The authentication context class reference.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authenticationContext"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationContext",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "authenticationContext",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwt\/authenticationcontext"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/authenticationMethods-8d0og": {
+  "abstract" : [
+    {
+      "text" : "The array of authentication methods.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authenticationMethods"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "]?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationMethods-8d0og",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "authenticationMethods",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwt\/authenticationmethods-8d0og"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/claims": {
   "abstract" : [

@@ -133,6 +133,7 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/address",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/allClaims-4c54a",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/authTime",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/authenticationClass",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/authenticationMethods",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/birthdate",
@@ -345,6 +346,47 @@
   "title" : "allClaims",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/hasclaims\/allclaims-4c54a"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/HasClaims/authTime": {
+  "abstract" : [
+    {
+      "text" : "The date at which authentication occurred.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authTime"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation4DateV",
+      "text" : "Date"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/authTime",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "authTime",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/hasclaims\/authtime"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/HasClaims/authenticationClass": {
   "abstract" : [

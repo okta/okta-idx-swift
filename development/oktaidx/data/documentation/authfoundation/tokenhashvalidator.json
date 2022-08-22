@@ -133,7 +133,7 @@
             {
               "inlineContent" : [
                 {
-                  "text" : "A default implementation will atuomatically be used if this value is not changed.",
+                  "text" : "A default implementation will automatically be used if this value is not changed.",
                   "type" : "text"
                 }
               ],

@@ -184,7 +184,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may occur with parsing or validating JWT tokens.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

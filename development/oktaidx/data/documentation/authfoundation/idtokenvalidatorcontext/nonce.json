@@ -1,7 +1,15 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "The ",
+      "type" : "text"
+    },
+    {
+      "code" : "nonce",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " value used when beginning the authentication process.",
       "type" : "text"
     }
   ],
@@ -143,7 +151,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IDTokenValidatorContext": {
   "abstract" : [
-
+    {
+      "text" : "Protocol used to supply contextual information to a validator.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -174,7 +185,18 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IDTokenValidatorContext/nonce": {
   "abstract" : [
-
+    {
+      "text" : "The ",
+      "type" : "text"
+    },
+    {
+      "code" : "nonce",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " value used when beginning the authentication process.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

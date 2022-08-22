@@ -41,8 +41,9 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/address",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/allClaims",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authTime",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationClass",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationMethods",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationMethods-1cr91",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/birthdate",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/email",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/emailVerified",
@@ -245,6 +246,47 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwt\/allclaims"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/authTime": {
+  "abstract" : [
+    {
+      "text" : "The date at which authentication occurred.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authTime"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation4DateV",
+      "text" : "Date"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authTime",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "authTime",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwt\/authtime"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/authenticationClass": {
   "abstract" : [
     {
@@ -286,7 +328,7 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwt\/authenticationclass"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/authenticationMethods": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/authenticationMethods-1cr91": {
   "abstract" : [
     {
       "text" : "The list of authentication methods included in this token.",
@@ -320,12 +362,12 @@
       "text" : "]?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationMethods",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationMethods-1cr91",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "authenticationMethods",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/jwt\/authenticationmethods"
+  "url" : "\/documentation\/authfoundation\/jwt\/authenticationmethods-1cr91"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/birthdate": {
   "abstract" : [

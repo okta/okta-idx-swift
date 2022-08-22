@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "Errors that may occur when interacting with OAuth2 endpoints.",
       "type" : "text"
     }
   ],
@@ -105,6 +105,7 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/error(_:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/invalidUrl",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingClientConfiguration",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingLocationHeader",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingToken(type:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/network(error:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/oauth2Error(code:description:)",
@@ -153,7 +154,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error": {
   "abstract" : [
-
+    {
+      "text" : "Errors that may occur when interacting with OAuth2 endpoints.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -316,6 +320,31 @@
   "title" : "OAuth2Error.missingClientConfiguration",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2error\/missingclientconfiguration"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingLocationHeader": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "missingLocationHeader"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingLocationHeader",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "OAuth2Error.missingLocationHeader",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2error\/missinglocationheader"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingToken(type:)": {
   "abstract" : [

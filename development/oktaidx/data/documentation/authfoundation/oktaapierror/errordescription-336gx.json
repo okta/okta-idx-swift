@@ -142,7 +142,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may be reported from an Okta API endpoint.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

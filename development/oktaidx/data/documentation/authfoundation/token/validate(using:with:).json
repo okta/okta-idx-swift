@@ -238,7 +238,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IDTokenValidatorContext": {
   "abstract" : [
-
+    {
+      "text" : "Protocol used to supply contextual information to a validator.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

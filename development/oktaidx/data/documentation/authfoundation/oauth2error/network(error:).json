@@ -151,7 +151,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientError": {
   "abstract" : [
-
+    {
+      "text" : "Errors that may occur at the API or network level.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -182,7 +185,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error": {
   "abstract" : [
-
+    {
+      "text" : "Errors that may occur when interacting with OAuth2 endpoints.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

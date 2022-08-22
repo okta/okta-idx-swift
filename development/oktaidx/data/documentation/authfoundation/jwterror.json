@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "Describes errors that may occur with parsing or validating JWT tokens.",
       "type" : "text"
     }
   ],
@@ -105,12 +105,15 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/badTokenStructure",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/cannotCreateKey(code:description:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/cannotGenerateHash",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/exceedsMaxAge",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/expired",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidAudience",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidAuthenticationTime",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidBase64Encoding",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidIssuer",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidKey",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidSigningAlgorithm",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidSubject",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/issuedAtTimeExceedsGraceInterval",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/issuerRequiresHTTPS",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/nonceMismatch",
@@ -167,7 +170,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may occur with parsing or validating JWT tokens.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -342,6 +348,31 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwterror\/cannotgeneratehash"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/exceedsMaxAge": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "exceedsMaxAge"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/exceedsMaxAge",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTError.exceedsMaxAge",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwterror\/exceedsmaxage"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/expired": {
   "abstract" : [
 
@@ -391,6 +422,31 @@
   "title" : "JWTError.invalidAudience",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwterror\/invalidaudience"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidAuthenticationTime": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "invalidAuthenticationTime"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidAuthenticationTime",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTError.invalidAuthenticationTime",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwterror\/invalidauthenticationtime"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidBase64Encoding": {
   "abstract" : [
@@ -491,6 +547,31 @@
   "title" : "JWTError.invalidSigningAlgorithm",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwterror\/invalidsigningalgorithm"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidSubject": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "invalidSubject"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError\/invalidSubject",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTError.invalidSubject",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwterror\/invalidsubject"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/issuedAtTimeExceedsGraceInterval": {
   "abstract" : [

@@ -150,7 +150,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/TokenError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may occur when working with tokens.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

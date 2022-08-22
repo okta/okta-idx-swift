@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "Describes errors that may be reported from an Okta API endpoint.",
       "type" : "text"
     }
   ],
@@ -163,7 +163,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may be reported from an Okta API endpoint.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -216,7 +219,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError/causes": {
   "abstract" : [
-
+    {
+      "text" : "Further information about what caused this error.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -254,7 +260,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError/code": {
   "abstract" : [
-
+    {
+      "text" : "An Okta code for this type of error.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -329,7 +338,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError/id": {
   "abstract" : [
-
+    {
+      "text" : "A unique identifier for this error. This can be used by Okta Support to help with troubleshooting.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -408,7 +420,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError/link": {
   "abstract" : [
-
+    {
+      "text" : "An Okta code for this type of error",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -442,7 +457,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError/summary": {
   "abstract" : [
-
+    {
+      "text" : "A short description of what caused this error. Sometimes this contains dynamically-generated information about your specific error.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

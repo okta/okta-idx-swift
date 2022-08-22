@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "Describes errors reported from an OAuth2 server.",
       "type" : "text"
     }
   ],
@@ -108,11 +108,17 @@
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/code",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/code-swift.property",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/description",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/errorDescription-2n95u"
       ],
       "title" : "Instance Properties"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum"
+      ],
+      "title" : "Enumerations"
     },
     {
       "generated" : true,
@@ -160,7 +166,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors reported from an OAuth2 server.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -189,6 +198,40 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2servererror"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum": {
+  "abstract" : [
+    {
+      "text" : "Possible  OAuth 2.0 server error code",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Code"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Code"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "OAuth2ServerError.Code",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Error-Implementations": {
   "abstract" : [
 
@@ -211,9 +254,12 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2servererror\/localizederror-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/code": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/code-swift.property": {
   "abstract" : [
-
+    {
+      "text" : "Error code.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -234,20 +280,23 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
+      "preciseIdentifier" : "s:14AuthFoundation17OAuth2ServerErrorV4CodeO",
+      "text" : "Code"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/code",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/code-swift.property",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "code",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code"
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.property"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/description": {
   "abstract" : [
-
+    {
+      "text" : "Error message, or description.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

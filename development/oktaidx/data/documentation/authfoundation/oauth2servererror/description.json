@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "Error message, or description.",
       "type" : "text"
     }
   ],
@@ -126,7 +126,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors reported from an OAuth2 server.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -157,7 +160,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/description": {
   "abstract" : [
-
+    {
+      "text" : "Error message, or description.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

@@ -143,7 +143,6 @@
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/AuthenticationFlow\/cancel()",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/AuthenticationFlow\/reset()"
       ],
       "title" : "Instance Methods"
@@ -207,39 +206,6 @@
   "title" : "AuthenticationFlow",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/authenticationflow"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/AuthenticationFlow/cancel()": {
-  "abstract" : [
-    {
-      "text" : "Cancels the authentication session.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "cancel"
-    },
-    {
-      "kind" : "text",
-      "text" : "()"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/AuthenticationFlow\/cancel()",
-  "kind" : "symbol",
-  "required" : true,
-  "role" : "symbol",
-  "title" : "cancel()",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/authenticationflow\/cancel()"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/AuthenticationFlow/isAuthenticating": {
   "abstract" : [

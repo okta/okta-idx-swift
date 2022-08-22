@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "Protocol used to supply contextual information to a validator.",
       "type" : "text"
     }
   ],
@@ -76,6 +76,35 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/IDTokenValidator",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " can use this information to enable or disable certain verification checks.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -89,6 +118,7 @@
   "topicSections" : [
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/IDTokenValidatorContext\/maxAge",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/IDTokenValidatorContext\/nonce"
       ],
       "title" : "Instance Properties"
@@ -119,9 +149,46 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IDTokenValidator": {
+  "abstract" : [
+    {
+      "text" : "Protocol used to implement OpenID token validation.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IDTokenValidator"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/IDTokenValidator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IDTokenValidator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IDTokenValidator",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/idtokenvalidator"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IDTokenValidatorContext": {
   "abstract" : [
-
+    {
+      "text" : "Protocol used to supply contextual information to a validator.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -150,9 +217,62 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/idtokenvalidatorcontext"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IDTokenValidatorContext/maxAge": {
+  "abstract" : [
+    {
+      "text" : "The maximum age the token should support when authenticating.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "maxAge"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@T@NSTimeInterval",
+      "text" : "TimeInterval"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/IDTokenValidatorContext\/maxAge",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "maxAge",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/idtokenvalidatorcontext\/maxage"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IDTokenValidatorContext/nonce": {
   "abstract" : [
-
+    {
+      "text" : "The ",
+      "type" : "text"
+    },
+    {
+      "code" : "nonce",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " value used when beginning the authentication process.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

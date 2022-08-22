@@ -150,7 +150,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/KeychainError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may occur when interacting with the keychain.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

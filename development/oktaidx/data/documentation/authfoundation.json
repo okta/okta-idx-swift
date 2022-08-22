@@ -298,7 +298,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientError": {
   "abstract" : [
-
+    {
+      "text" : "Errors that may occur at the API or network level.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -1306,7 +1309,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IDTokenValidatorContext": {
   "abstract" : [
-
+    {
+      "text" : "Protocol used to supply contextual information to a validator.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -1504,7 +1510,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may occur with parsing or validating JWT tokens.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -1600,7 +1609,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/KeychainError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may occur when interacting with the keychain.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -1760,7 +1772,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error": {
   "abstract" : [
-
+    {
+      "text" : "Errors that may occur when interacting with OAuth2 endpoints.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -1791,7 +1806,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors reported from an OAuth2 server.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -1865,7 +1883,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may be reported from an Okta API endpoint.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -2159,7 +2180,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/TokenError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may occur when working with tokens.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

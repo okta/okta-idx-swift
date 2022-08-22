@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "A unique identifier for this error. This can be used by Okta Support to help with troubleshooting.",
       "type" : "text"
     }
   ],
@@ -126,7 +126,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may be reported from an Okta API endpoint.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -157,7 +160,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError/id": {
   "abstract" : [
-
+    {
+      "text" : "A unique identifier for this error. This can be used by Okta Support to help with troubleshooting.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

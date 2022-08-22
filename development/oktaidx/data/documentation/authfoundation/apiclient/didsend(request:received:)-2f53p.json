@@ -8,8 +8,8 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-7fkxl",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-88sth"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-88sth",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-7fkxl"
       ],
       "title" : "APIClient Implementations"
     }
@@ -448,7 +448,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientError": {
   "abstract" : [
-
+    {
+      "text" : "Errors that may occur at the API or network level.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

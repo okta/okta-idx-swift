@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "Further information about what caused this error.",
       "type" : "text"
     }
   ],
@@ -134,7 +134,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError": {
   "abstract" : [
-
+    {
+      "text" : "Describes errors that may be reported from an Okta API endpoint.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -165,7 +168,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OktaAPIError/causes": {
   "abstract" : [
-
+    {
+      "text" : "Further information about what caused this error.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

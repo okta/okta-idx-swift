@@ -348,7 +348,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientError": {
   "abstract" : [
-
+    {
+      "text" : "Errors that may occur at the API or network level.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
