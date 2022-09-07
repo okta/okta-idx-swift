@@ -31,14 +31,14 @@ public struct IDXClient {
                  renamed: "start(options:completion:)",
                  message: "IDXClient replaced with InteractionCodeFlow")
     public static func start(with configuration: Any,
-                             options: [Option:String]? = nil,
+                             options: [Option: String]? = nil,
                              completion: @escaping (Result<IDXClient, Error>) -> Void) {}
     
     @available (*, unavailable,
                  renamed: "start(options:completion:)",
                  message: "IDXClient replaced with InteractionCodeFlow")
     public static func start(with configuration: Configuration,
-                             options: [String:String]? = nil,
+                             options: [String: String]? = nil,
                              completion: @escaping (_ client: IDXClient?, _ error: Error?) -> Void) {}
     
     @available (*, unavailable)
