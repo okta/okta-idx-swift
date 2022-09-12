@@ -41,6 +41,7 @@
     {
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation"
       ],
@@ -77,6 +78,7 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/RemediationCapability",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/NumberChallenge",
@@ -93,28 +95,22 @@
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError"
       ],
-      "title" : "Protocols"
+      "title" : "Errors"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXClient"
       ],
-      "title" : "Structures"
+      "title" : "Deprecations"
     },
     {
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Version"
       ],
       "title" : "Variables"
-    },
-    {
-      "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError"
-      ],
-      "title" : "Enumerations"
     }
   ],
   "variants" : [
@@ -771,6 +767,38 @@
   "title" : "IDXCapability",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxcapability"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXClient": {
+  "abstract" : [
+
+  ],
+  "deprecated" : true,
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IDXClient"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXClient",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IDXClient"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IDXClient",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/idxclient"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError": {
   "abstract" : [

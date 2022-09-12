@@ -105,6 +105,7 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/RemediationCapability",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/NumberChallenge",
