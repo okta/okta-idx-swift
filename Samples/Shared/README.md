@@ -8,7 +8,7 @@ The `Shared` folder contains property lists and configuration files that are use
 There are different types of content:
 
 - **Okta.plist:** A property list that contains the configuration for the Okta org Application Integration that's used by the app.
-- **TestCredentials.xcconfig:** A file that defines the configuration for the Okta org Application Integration used that's used for testing.
+- **TestConfiguration.xcconfig:** A file that defines the configuration for the Okta org Application Integration used that's used for testing.
 
 ## Okta Property List
 
@@ -24,7 +24,7 @@ Update the values for the keys in the file to configure the connection to your O
 
 Any other keys and values that you add to the plist are passed to the `additionalParameters` argument of the initializer.
 
-## TestCredentials File
+## TestConfiguration File
 
 Update the for the constants in the file to configure the connection to your Okta Org Application Integration for your tests.
 
