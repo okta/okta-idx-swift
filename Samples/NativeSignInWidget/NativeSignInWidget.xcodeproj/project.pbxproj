@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96EDB2AD28E3CE000060B8D4 /* NativeSignInWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EDB2AC28E3CE000060B8D4 /* NativeSignInWidgetApp.swift */; };
+		96EDB2AF28E3CE000060B8D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EDB2AE28E3CE000060B8D4 /* ContentView.swift */; };
+		96EDB2B128E3CE010060B8D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96EDB2B028E3CE010060B8D4 /* Assets.xcassets */; };
+		96EDB2B528E3CE010060B8D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96EDB2B428E3CE010060B8D4 /* Preview Assets.xcassets */; };
+		96EDB2F228E50A3D0060B8D4 /* NativeAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F128E50A3D0060B8D4 /* NativeAuthentication */; };
+		96EDB2F428E50A3D0060B8D4 /* NativeAuthenticationUI in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F328E50A3D0060B8D4 /* NativeAuthenticationUI */; };
+		96EDB2F628E50A3D0060B8D4 /* OktaIdx in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F528E50A3D0060B8D4 /* OktaIdx */; };
+		96EDB2F928E50A590060B8D4 /* AuthFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F828E50A590060B8D4 /* AuthFoundation */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		96EDB2A928E3CE000060B8D4 /* NativeSignInWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeSignInWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96EDB2AC28E3CE000060B8D4 /* NativeSignInWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeSignInWidgetApp.swift; sourceTree = "<group>"; };
+		96EDB2AE28E3CE000060B8D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		96EDB2B028E3CE010060B8D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96EDB2B228E3CE010060B8D4 /* NativeSignInWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeSignInWidget.entitlements; sourceTree = "<group>"; };
+		96EDB2B428E3CE010060B8D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96EDB2A628E3CE000060B8D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96EDB2F628E50A3D0060B8D4 /* OktaIdx in Frameworks */,
+				96EDB2F228E50A3D0060B8D4 /* NativeAuthentication in Frameworks */,
+				96EDB2F428E50A3D0060B8D4 /* NativeAuthenticationUI in Frameworks */,
+				96EDB2F928E50A590060B8D4 /* AuthFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96EDB2A028E3CE000060B8D4 = {
+			isa = PBXGroup;
+			children = (
+				96EDB2AB28E3CE000060B8D4 /* NativeSignInWidget */,
+				96EDB2AA28E3CE000060B8D4 /* Products */,
+				96EDB2F028E50A3D0060B8D4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		96EDB2AA28E3CE000060B8D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96EDB2A928E3CE000060B8D4 /* NativeSignInWidget.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96EDB2AB28E3CE000060B8D4 /* NativeSignInWidget */ = {
+			isa = PBXGroup;
+			children = (
+				96EDB2AC28E3CE000060B8D4 /* NativeSignInWidgetApp.swift */,
+				96EDB2AE28E3CE000060B8D4 /* ContentView.swift */,
+				96EDB2B028E3CE010060B8D4 /* Assets.xcassets */,
+				96EDB2B228E3CE010060B8D4 /* NativeSignInWidget.entitlements */,
+				96EDB2B328E3CE010060B8D4 /* Preview Content */,
+			);
+			path = NativeSignInWidget;
+			sourceTree = "<group>";
+		};
+		96EDB2B328E3CE010060B8D4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				96EDB2B428E3CE010060B8D4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		96EDB2F028E50A3D0060B8D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96EDB2A828E3CE000060B8D4 /* NativeSignInWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96EDB2B828E3CE010060B8D4 /* Build configuration list for PBXNativeTarget "NativeSignInWidget" */;
+			buildPhases = (
+				96EDB2A528E3CE000060B8D4 /* Sources */,
+				96EDB2A628E3CE000060B8D4 /* Frameworks */,
+				96EDB2A728E3CE000060B8D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NativeSignInWidget;
+			packageProductDependencies = (
+				96EDB2F128E50A3D0060B8D4 /* NativeAuthentication */,
+				96EDB2F328E50A3D0060B8D4 /* NativeAuthenticationUI */,
+				96EDB2F528E50A3D0060B8D4 /* OktaIdx */,
+				96EDB2F828E50A590060B8D4 /* AuthFoundation */,
+			);
+			productName = NativeSignInWidget;
+			productReference = 96EDB2A928E3CE000060B8D4 /* NativeSignInWidget.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96EDB2A128E3CE000060B8D4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					96EDB2A828E3CE000060B8D4 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 96EDB2A428E3CE000060B8D4 /* Build configuration list for PBXProject "NativeSignInWidget" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96EDB2A028E3CE000060B8D4;
+			packageReferences = (
+				96EDB2F728E50A590060B8D4 /* XCRemoteSwiftPackageReference "okta-mobile-swift" */,
+			);
+			productRefGroup = 96EDB2AA28E3CE000060B8D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96EDB2A828E3CE000060B8D4 /* NativeSignInWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96EDB2A728E3CE000060B8D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96EDB2B528E3CE010060B8D4 /* Preview Assets.xcassets in Resources */,
+				96EDB2B128E3CE010060B8D4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96EDB2A528E3CE000060B8D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96EDB2AF28E3CE000060B8D4 /* ContentView.swift in Sources */,
+				96EDB2AD28E3CE000060B8D4 /* NativeSignInWidgetApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		96EDB2B628E3CE010060B8D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96EDB2B728E3CE010060B8D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		96EDB2B928E3CE010060B8D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NativeSignInWidget/NativeSignInWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NativeSignInWidget/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.okta-sample.NativeSignInWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96EDB2BA28E3CE010060B8D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NativeSignInWidget/NativeSignInWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NativeSignInWidget/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.okta-sample.NativeSignInWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96EDB2A428E3CE000060B8D4 /* Build configuration list for PBXProject "NativeSignInWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96EDB2B628E3CE010060B8D4 /* Debug */,
+				96EDB2B728E3CE010060B8D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96EDB2B828E3CE010060B8D4 /* Build configuration list for PBXNativeTarget "NativeSignInWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96EDB2B928E3CE010060B8D4 /* Debug */,
+				96EDB2BA28E3CE010060B8D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96EDB2F728E50A590060B8D4 /* XCRemoteSwiftPackageReference "okta-mobile-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/okta/okta-mobile-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96EDB2F128E50A3D0060B8D4 /* NativeAuthentication */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NativeAuthentication;
+		};
+		96EDB2F328E50A3D0060B8D4 /* NativeAuthenticationUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NativeAuthenticationUI;
+		};
+		96EDB2F528E50A3D0060B8D4 /* OktaIdx */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OktaIdx;
+		};
+		96EDB2F828E50A590060B8D4 /* AuthFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96EDB2F728E50A590060B8D4 /* XCRemoteSwiftPackageReference "okta-mobile-swift" */;
+			productName = AuthFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 96EDB2A128E3CE000060B8D4 /* Project object */;
+}

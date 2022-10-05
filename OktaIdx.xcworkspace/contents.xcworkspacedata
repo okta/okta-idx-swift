@@ -8,6 +8,9 @@
       location = "container:"
       name = "Samples">
       <FileRef
+         location = "group:Samples/NativeSignInWidget/NativeSignInWidget.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Samples/EmbeddedAuthWithSDKs/EmbeddedAuth.xcodeproj">
       </FileRef>
       <Group

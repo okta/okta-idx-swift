@@ -10,10 +10,13 @@ var package = Package(
         .iOS(.v9),
         .tvOS(.v9),
         .watchOS(.v7),
-        .macOS(.v10_11)
+        .macOS(.v10_11),
+        .macCatalyst(.v13)
     ],
     products: [
-        .library(name: "OktaIdx", targets: ["OktaIdx"])
+        .library(name: "OktaIdx", targets: ["OktaIdx"]),
+        .library(name: "NativeAuthentication", targets: ["NativeAuthentication"]),
+        .library(name: "NativeAuthenticationUI", targets: ["NativeAuthenticationUI"])
     ],
     dependencies: [
         .package(name: "AuthFoundation",
@@ -22,12 +25,29 @@ var package = Package(
     ],
     targets: [
         .target(name: "OktaIdx",
-                dependencies: ["AuthFoundation"]),
+                dependencies: [
+                    .product(name: "AuthFoundation", package: "AuthFoundation")
+                ]),
+        .target(name: "NativeAuthentication",
+                dependencies: [
+                    .target(name: "OktaIdx")
+                ]),
+        .target(name: "NativeAuthenticationUI",
+                dependencies: [
+                    .target(name: "NativeAuthentication")
+                ])
+    ] + [
         .target(name: "TestCommon",
                 dependencies: ["OktaIdx"],
                 path: "Tests/TestCommon"),
         .testTarget(name: "OktaIdxTests",
                     dependencies: ["OktaIdx", "TestCommon"],
+                resources: [.copy("SampleResponses")]),
+        .testTarget(name: "NativeAuthenticationTests",
+                    dependencies: ["NativeAuthentication", "TestCommon"],
+                resources: [.copy("SampleResponses")]),
+        .testTarget(name: "NativeAuthenticationUITests",
+                    dependencies: ["NativeAuthenticationUI", "TestCommon"],
                 resources: [.copy("SampleResponses")])
     ],
     swiftLanguageVersions: [.v5]
