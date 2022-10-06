@@ -126,9 +126,6 @@ struct ContentView: View {
 //
 //    let provider: Provider
 //}
-//
-//struct SignUpAction: InputAction {
-//}
 
 struct SignInView: View {
     let transformer: InputFormTransformer

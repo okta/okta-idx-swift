@@ -30,17 +30,6 @@ public struct InputSection: Section, Identifiable {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct AnySection: Identifiable {
-    public let id: String
-    public let section: any Section
-
-    public init(_ section: any Section) {
-        self.section = section
-        self.id = section.id
-    }
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension Collection where Element == any Action {
     public func with<T: Action>(type: T.Type) -> [T] {
         compactMap({ $0 as? T })
@@ -90,7 +79,7 @@ public struct InputForm {
                     id: "ssr",
                     components: [],
                     actions: [
-                        SignUpAction(id: "ssr")
+                        ContinueAction(id: "ssr", intent: .signUp, label: "Sign up")
                     ])
             ])
     }()

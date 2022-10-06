@@ -16,14 +16,3 @@ import Foundation
 public protocol Component: Identifiable {
     var id: String { get }
 }
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct AnyComponent: Identifiable {
-    public let id: String
-    public let component: any Component
-
-    public init(_ component: any Component) {
-        self.component = component
-        self.id = component.id
-    }
-}
