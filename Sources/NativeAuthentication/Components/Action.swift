@@ -15,6 +15,7 @@ import Foundation
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public protocol Action: Component {
     var id: String { get }
+    var action: () -> Void { get }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
@@ -39,6 +40,14 @@ public struct ContinueAction: Action {
     public let id: String
     public let intent: Intent
     public let label: String
+    public let action: () -> Void
+    
+    public init(id: String, intent: Intent, label: String, action: @escaping () -> Void) {
+        self.id = id
+        self.intent = intent
+        self.label = label
+        self.action = action
+    }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
@@ -49,9 +58,22 @@ public struct SocialLoginAction: Action {
     
     public let id: String
     public let provider: Provider
+    public let action: () -> Void
+    
+    public init(id: String, provider: Provider, action: @escaping () -> Void) {
+        self.id = id
+        self.provider = provider
+        self.action = action
+    }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct RecoverAction: Action {
     public let id: String
+    public let action: () -> Void
+    
+    public init(id: String, action: @escaping () -> Void) {
+        self.id = id
+        self.action = action
+    }
 }

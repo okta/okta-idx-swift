@@ -18,12 +18,11 @@ struct ContentView: View {
     @State var username: String = ""
     @State var password: String = ""
     @State var rememberMe: Bool = false
+    var inputTransformer = InputFormRenderer(form: .loading)
     
     var body: some View {
         HStack(spacing: 50.0) {
-            InputForm.default
-//            SignInView(transformer: InputFormTransformer(form: .default))
-//                .frame(maxWidth: .infinity)
+            inputTransformer
             
             VStack(spacing: 12.0) {
                 Text("Sign In")
@@ -92,46 +91,6 @@ struct ContentView: View {
             .padding(.horizontal, 32.0)
             .frame(maxWidth: .infinity)
         }.frame(maxWidth: .infinity)
-    }
-}
-
-//protocol InputField {
-//}
-//
-//struct StringInputField: InputField {
-//    let label: String
-//    let name: String
-//    let isSecure: Bool
-//
-//    @State var value: String = ""
-//}
-
-//protocol InputAction {
-//}
-//
-//struct ContinueAction: InputAction {
-//    enum Intent {
-//        case signIn
-//        case signUp
-//        case restart
-//    }
-//
-//    let intent: Intent
-//}
-//
-//struct SocialLoginAction: InputAction {
-//    enum Provider {
-//        case apple
-//    }
-//
-//    let provider: Provider
-//}
-
-struct SignInView: View {
-    let transformer: InputFormTransformer
-
-    var body: some View {
-        transformer.body()
     }
 }
 
