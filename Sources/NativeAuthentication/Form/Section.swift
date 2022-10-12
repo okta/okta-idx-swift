@@ -13,11 +13,11 @@
 import Foundation
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public protocol Section: Identifiable {
+public protocol SignInSection: Identifiable {
     static var type: SectionType { get }
 
     var id: String { get }
-    var components: [any Component] { get }
+    var components: [any SignInComponent] { get }
 }
 
 public enum SectionType {
@@ -25,17 +25,17 @@ public enum SectionType {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct HeaderSection: Section, Identifiable {
+public struct HeaderSection: SignInSection, Identifiable {
     public static let type = SectionType.header
     
     public let id: String
-    public let components: [any Component]
+    public let components: [any SignInComponent]
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct InputSection: Section, Identifiable {
+public struct InputSection: SignInSection, Identifiable {
     public static let type = SectionType.body
     
     public let id: String
-    public let components: [any Component]
+    public let components: [any SignInComponent]
 }

@@ -13,23 +13,23 @@
 import Foundation
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct InputForm {
+public struct SignInForm {
     public enum Intent {
         case signIn, empty, loading
     }
     
     public let intent: Intent
-    public let sections: [any Section]
+    public let sections: [any SignInSection]
 
-    public static let empty = InputForm(intent: .empty, sections: [])
-    public static let loading = InputForm(intent: .loading, sections: [
+    public static let empty = SignInForm(intent: .empty, sections: [])
+    public static let loading = SignInForm(intent: .loading, sections: [
         HeaderSection(id: "loading", components: [
             Loading(id: "loadingIndicator")
         ])
     ])
     
-    public static let `default`: InputForm = {
-        InputForm(
+    public static let `default`: SignInForm = {
+        SignInForm(
             intent: .signIn,
             sections: [
                 HeaderSection(id: "header", components: [

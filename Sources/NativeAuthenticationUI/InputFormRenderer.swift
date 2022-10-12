@@ -22,18 +22,18 @@ import AuthenticationServices
 public protocol ComponentViewTransformer {
     associatedtype ComponentView: View
     
-    func view(for component: some Component) -> ComponentView
+    func view(for component: some SignInComponent) -> ComponentView
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 protocol ComponentView {
-    func body(in form: InputForm, section: some NativeAuthentication.Section) -> AnyView
-    func shouldDisplay(in form: InputForm, section: some NativeAuthentication.Section) -> Bool
+    func body(in form: SignInForm, section: some SignInSection) -> AnyView
+    func shouldDisplay(in form: SignInForm, section: some SignInSection) -> Bool
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension ComponentView {
-    func shouldDisplay(in form: InputForm, section: some NativeAuthentication.Section) -> Bool {
+    func shouldDisplay(in form: SignInForm, section: some SignInSection) -> Bool {
         true
     }
 }
@@ -42,12 +42,12 @@ extension ComponentView {
 protocol SectionView {
     associatedtype Body: View
     
-    func body(in form: InputForm) -> Body
+    func body(in form: SignInForm) -> Body
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension FormLabel: ComponentView {
-    public func body(in form: InputForm, section: some NativeAuthentication.Section) -> AnyView  {
+    public func body(in form: SignInForm, section: some SignInSection) -> AnyView  {
         let result: any View
         switch style {
         case .heading:
@@ -69,7 +69,7 @@ extension FormLabel: ComponentView {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension Loading: ComponentView {
-    public func body(in form: InputForm, section: some NativeAuthentication.Section) -> AnyView  {
+    public func body(in form: SignInForm, section: some SignInSection) -> AnyView  {
         let result: any View
         if #available(iOS 14.0, *) {
             if let text = text {
@@ -89,7 +89,7 @@ extension Loading: ComponentView {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension StringInputField: ComponentView {
-    func body(in form: InputForm, section: some NativeAuthentication.Section) -> AnyView {
+    func body(in form: SignInForm, section: some SignInSection) -> AnyView {
         let result: any View
         result = VStack(spacing: 12.0) {
             HStack {
@@ -119,7 +119,7 @@ extension StringInputField: ComponentView {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension ContinueAction: ComponentView {
-    func body(in form: NativeAuthentication.InputForm, section: some NativeAuthentication.Section) -> AnyView {
+    func body(in form: SignInForm, section: some SignInSection) -> AnyView {
         let result: any View
         switch intent {
         case .signIn:
@@ -184,7 +184,7 @@ extension ContinueAction: ComponentView {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension SocialLoginAction: ComponentView {
-    func body(in form: NativeAuthentication.InputForm, section: some NativeAuthentication.Section) -> AnyView {
+    func body(in form: SignInForm, section: some SignInSection) -> AnyView {
         let result: any View
         switch provider {
         case .apple:
@@ -211,7 +211,7 @@ extension SocialLoginAction: ComponentView {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension RecoverAction: ComponentView {
-    func body(in form: NativeAuthentication.InputForm, section: some NativeAuthentication.Section) -> AnyView {
+    func body(in form: SignInForm, section: some SignInSection) -> AnyView {
         AnyView(Button {
             self.action()
         } label: {
@@ -221,7 +221,7 @@ extension RecoverAction: ComponentView {
         })
     }
     
-    func shouldDisplay(in form: InputForm, section: some NativeAuthentication.Section) -> Bool {
+    func shouldDisplay(in form: SignInForm, section: some SignInSection) -> Bool {
         guard let inputSection = section as? InputSection else {
             return true
         }
@@ -236,9 +236,9 @@ extension RecoverAction: ComponentView {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct AnyComponent: Identifiable {
     public var id: String { component.id }
-    public let component: any Component
+    public let component: any SignInComponent
 
-    public init(_ component: any Component) {
+    public init(_ component: any SignInComponent) {
         self.component = component
     }
 }
@@ -246,9 +246,9 @@ public struct AnyComponent: Identifiable {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct AnySection: Identifiable {
     public let id: String
-    public let section: any NativeAuthentication.Section
+    public let section: any SignInSection
 
-    public init(_ section: any NativeAuthentication.Section) {
+    public init(_ section: any SignInSection) {
         self.section = section
         self.id = section.id
     }
@@ -256,21 +256,21 @@ public struct AnySection: Identifiable {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public protocol InputFormTransformerDataSource {
-    func view(for form: InputForm,
+    func view(for form: SignInForm,
               @ViewBuilder content: () -> some View) -> any View
-    func view(for form: InputForm,
-              section: any NativeAuthentication.Section,
+    func view(for form: SignInForm,
+              section: any SignInSection,
               @ViewBuilder content: () -> some View) -> any View
-    func view(in form: InputForm,
-              section: any NativeAuthentication.Section,
-              component: any Component) -> any View
+    func view(in form: SignInForm,
+              section: any SignInSection,
+              component: any SignInComponent) -> any View
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct DefaultInputTransformerDataSource: InputFormTransformerDataSource {
     public init() {}
     
-    public func view(for form: NativeAuthentication.InputForm,
+    public func view(for form: SignInForm,
                      content: () -> some View) -> any View
     {
         VStack(content: content)
@@ -278,8 +278,8 @@ public struct DefaultInputTransformerDataSource: InputFormTransformerDataSource 
             .frame(maxWidth: .infinity)
     }
 
-    public func view(for form: NativeAuthentication.InputForm,
-                     section: any NativeAuthentication.Section,
+    public func view(for form: SignInForm,
+                     section: any SignInSection,
                      content: () -> some View) -> any View
     {
         if let section = section as? any View {
@@ -315,9 +315,9 @@ public struct DefaultInputTransformerDataSource: InputFormTransformerDataSource 
         }
     }
     
-    public func view(in form: NativeAuthentication.InputForm,
-                     section: any NativeAuthentication.Section,
-                     component: any NativeAuthentication.Component) -> any View
+    public func view(in form: SignInForm,
+                     section: any SignInSection,
+                     component: any SignInComponent) -> any View
     {
         if let component = component as? any View {
             return component
@@ -336,44 +336,30 @@ public struct DefaultInputTransformerDataSource: InputFormTransformerDataSource 
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension AuthenticationClient {
-    public func rendererView(dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) -> InputFormRenderer {
-        var result = InputFormRenderer(dataSource: dataSource)
-        add(delegate: result)
-        return result
-    }
-}
-
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct InputFormRenderer: View {
-    @State public var form: InputForm = .loading
+    @ObservedObject var auth: NativeAuthentication
     
     private let dataSource: any InputFormTransformerDataSource
 
-    public init(dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) {
+    public init(auth: NativeAuthentication, dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) {
+        self.auth = auth
         self.dataSource = dataSource
     }
     
     public var body: some View {
-        AnyView(dataSource.view(for: form) {
-            ForEach(self.form.sections.map({ AnySection($0) })) { section in
-                AnyView(self.dataSource.view(for: self.form,
+        AnyView(dataSource.view(for: auth.form) {
+            ForEach(self.auth.form.sections.map({ AnySection($0) })) { section in
+                AnyView(self.dataSource.view(for: self.auth.form,
                                              section: section.section,
                                              content: {
                     ForEach(section.section.components.map({ AnyComponent($0) })) { component in
-                        AnyView(self.dataSource.view(in: self.form,
+                        AnyView(self.dataSource.view(in: self.auth.form,
                                                      section: section.section,
                                                      component: component.component))
                     }
                 }))
             }
         })
-    }
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension InputFormRenderer: AuthenticationClientDelegate {
-    public func authentication(client: AuthenticationClient, updated form: InputForm) {
-        self.form = form
     }
 }

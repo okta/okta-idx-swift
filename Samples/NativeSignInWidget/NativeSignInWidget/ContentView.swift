@@ -20,88 +20,20 @@ struct ContentView: View {
     @State var password: String = ""
     @State var rememberMe: Bool = false
     
-    let client: AuthenticationClient
-    @State var renderer: InputFormRenderer
+    let auth: NativeAuthentication
     
     var body: some View {
-        HStack(spacing: 50.0) {
-            renderer.onAppear {
+        auth.rendererView()
+            .onAppear {
                 Task {
                     do {
-                        try await client.start()
+                        try await auth.client.start()
                     } catch {
                         print(error)
                     }
                 }
             }
-            
-            VStack(spacing: 12.0) {
-                Text("Sign In")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .padding(.bottom)
-                
-                HStack {
-                    Image(systemName: "at")
-                    TextField("Username", text: $username)
-                }
-                Divider()
-                
-                HStack {
-                    Image(systemName: "lock")
-                    SecureField("Password", text: $password)
-                    Button {
-                        // DO nothing
-                    } label: {
-                        Text("Forgot?")
-                            .font(.footnote)
-                            .bold()
-                    }
-                }
-                Divider()
-                
-                Button {
-                    // Do nothing
-                } label: {
-                    Text("Sign in")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 3.0)
-                }
-                .padding(.top)
-                .buttonStyle(.borderedProminent)
-                
-                HStack {
-                    VStack {
-                        Divider()
-                    }
-                    Text("Or sign in with")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .frame(maxWidth: .infinity)
-                    VStack {
-                        Divider()
-                    }
-                }.padding(.vertical)
-                
-                SignInWithAppleButton { request in
-                    // Do nothing
-                } onCompletion: { result in
-                    // Do nothing
-                }.frame(maxHeight: 50)
-                
-                HStack {
-                    Text("New to Example?")
-                    Button {
-                        // DO nothing
-                    } label: {
-                        Text("Sign up")
-                            .bold()
-                    }
-                }.padding()
-            }
-            .padding(.horizontal, 32.0)
             .frame(maxWidth: .infinity)
-        }.frame(maxWidth: .infinity)
     }
 }
 

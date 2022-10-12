@@ -13,7 +13,7 @@
 import Foundation
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct Loading: Component {
+public struct Loading: SignInComponent {
     public var id: String
     public var text: String?
     

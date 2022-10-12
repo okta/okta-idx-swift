@@ -13,12 +13,12 @@
 import Foundation
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension Collection where Element == any Component {
-    public func with<T: Component>(type: T.Type) -> [T] {
+extension Collection where Element == any SignInComponent {
+    public func with<T: SignInComponent>(type: T.Type) -> [T] {
         compactMap({ $0 as? T })
     }
 
-    public func first<T: Component>(type: T.Type) -> T? {
+    public func first<T: SignInComponent>(type: T.Type) -> T? {
         first(where: { $0 is T }) as? T
     }
 }

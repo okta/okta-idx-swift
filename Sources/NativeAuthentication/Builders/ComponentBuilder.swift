@@ -19,11 +19,11 @@ public struct ComponentBuilder {
         .init(id: UUID().uuidString)
     }
     
-    public static func buildBlock<Content>(_ content: Content) -> Content where Content : Component {
+    public static func buildBlock<Content>(_ content: Content) -> Content where Content : SignInComponent {
         content
     }
     
-    public static func buildIf<Content>(_ content: Content?) -> Content? where Content : Component {
+    public static func buildIf<Content>(_ content: Content?) -> Content? where Content : SignInComponent {
         content
     }
     

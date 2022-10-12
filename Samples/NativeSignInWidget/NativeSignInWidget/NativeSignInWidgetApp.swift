@@ -16,11 +16,11 @@ import NativeAuthenticationUI
 
 @main
 struct NativeSignInWidgetApp: App {
-    let client = AuthenticationClient(provider: try! DynamicAuthenticationProvider())
+    let nativeAuth = NativeAuthentication(provider: try! DynamicAuthenticationProvider())
     
     var body: some Scene {
         WindowGroup {
-            ContentView(client: client, renderer: client.rendererView())
+            ContentView(auth: nativeAuth)
         }
     }
 }
