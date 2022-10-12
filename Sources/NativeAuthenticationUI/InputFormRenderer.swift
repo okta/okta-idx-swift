@@ -13,7 +13,6 @@
 import SwiftUI
 import NativeAuthentication
 import AuthFoundation
-import OktaIdx
 
 #if canImport(AuthenticationServices)
 import AuthenticationServices
@@ -337,12 +336,21 @@ public struct DefaultInputTransformerDataSource: InputFormTransformerDataSource 
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension AuthenticationClient {
+    public func rendererView(dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) -> InputFormRenderer {
+        var result = InputFormRenderer(dataSource: dataSource)
+        add(delegate: result)
+        return result
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct InputFormRenderer: View {
-    public var form: InputForm
+    @State public var form: InputForm = .loading
+    
     private let dataSource: any InputFormTransformerDataSource
 
-    public init(form: InputForm, dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) {
-        self.form = form
+    public init(dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) {
         self.dataSource = dataSource
     }
     
@@ -360,5 +368,12 @@ public struct InputFormRenderer: View {
                 }))
             }
         })
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension InputFormRenderer: AuthenticationClientDelegate {
+    public func authentication(client: AuthenticationClient, updated form: InputForm) {
+        self.form = form
     }
 }

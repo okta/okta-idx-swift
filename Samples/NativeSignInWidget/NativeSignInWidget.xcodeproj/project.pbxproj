@@ -15,6 +15,8 @@
 		96EDB2F428E50A3D0060B8D4 /* NativeAuthenticationUI in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F328E50A3D0060B8D4 /* NativeAuthenticationUI */; };
 		96EDB2F628E50A3D0060B8D4 /* OktaIdx in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F528E50A3D0060B8D4 /* OktaIdx */; };
 		96EDB2F928E50A590060B8D4 /* AuthFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F828E50A590060B8D4 /* AuthFoundation */; };
+		96FB0B9828F6014D00FA3FEA /* DynamicAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 96FB0B9728F6014D00FA3FEA /* DynamicAuthentication */; };
+		96FB0B9A28F6058800FA3FEA /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FB0B9928F6058800FA3FEA /* Okta.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		96EDB2B028E3CE010060B8D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96EDB2B228E3CE010060B8D4 /* NativeSignInWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeSignInWidget.entitlements; sourceTree = "<group>"; };
 		96EDB2B428E3CE010060B8D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		96FB0B9928F6058800FA3FEA /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Okta.plist; path = ../../Shared/Okta.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FB0B9828F6014D00FA3FEA /* DynamicAuthentication in Frameworks */,
 				96EDB2F628E50A3D0060B8D4 /* OktaIdx in Frameworks */,
 				96EDB2F228E50A3D0060B8D4 /* NativeAuthentication in Frameworks */,
 				96EDB2F428E50A3D0060B8D4 /* NativeAuthenticationUI in Frameworks */,
@@ -61,6 +65,7 @@
 		96EDB2AB28E3CE000060B8D4 /* NativeSignInWidget */ = {
 			isa = PBXGroup;
 			children = (
+				96FB0B9928F6058800FA3FEA /* Okta.plist */,
 				96EDB2AC28E3CE000060B8D4 /* NativeSignInWidgetApp.swift */,
 				96EDB2AE28E3CE000060B8D4 /* ContentView.swift */,
 				96EDB2B028E3CE010060B8D4 /* Assets.xcassets */,
@@ -106,6 +111,7 @@
 				96EDB2F328E50A3D0060B8D4 /* NativeAuthenticationUI */,
 				96EDB2F528E50A3D0060B8D4 /* OktaIdx */,
 				96EDB2F828E50A590060B8D4 /* AuthFoundation */,
+				96FB0B9728F6014D00FA3FEA /* DynamicAuthentication */,
 			);
 			productName = NativeSignInWidget;
 			productReference = 96EDB2A928E3CE000060B8D4 /* NativeSignInWidget.app */;
@@ -153,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96EDB2B528E3CE010060B8D4 /* Preview Assets.xcassets in Resources */,
+				96FB0B9A28F6058800FA3FEA /* Okta.plist in Resources */,
 				96EDB2B128E3CE010060B8D4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +411,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 96EDB2F728E50A590060B8D4 /* XCRemoteSwiftPackageReference "okta-mobile-swift" */;
 			productName = AuthFoundation;
+		};
+		96FB0B9728F6014D00FA3FEA /* DynamicAuthentication */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DynamicAuthentication;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

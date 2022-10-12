@@ -12,12 +12,13 @@
 
 import Foundation
 
-//public struct OptionGroup: Component {
-////    public typealias Content = [Option]
-//
-//    public var content: [Option]
-//    
-////    init(@ComponentBuilder content: () -> [Content]) {
-////        self.content = content()
-////    }
-//}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension Collection where Element == any Component {
+    public func with<T: Component>(type: T.Type) -> [T] {
+        compactMap({ $0 as? T })
+    }
+
+    public func first<T: Component>(type: T.Type) -> T? {
+        first(where: { $0 is T }) as? T
+    }
+}

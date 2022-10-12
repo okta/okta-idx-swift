@@ -11,12 +11,16 @@
 //
 
 import SwiftUI
+import DynamicAuthentication
+import NativeAuthenticationUI
 
 @main
 struct NativeSignInWidgetApp: App {
+    let client = AuthenticationClient(provider: try! DynamicAuthenticationProvider())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(client: client, renderer: client.rendererView())
         }
     }
 }

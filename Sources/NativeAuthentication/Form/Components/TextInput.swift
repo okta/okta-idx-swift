@@ -12,12 +12,27 @@
 
 import Foundation
 
-//extension Never {
-//    public typealias Content = Never
-//    public var content: Never {
-//        fatalError()
-//    }
-//}
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
 
-//extension Never: Component {
-//}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public protocol InputField: Component, Identifiable {
+    var id: String { get }
+    var label: String { get }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct StringInputField: InputField {
+    public var id: String
+    public var label: String
+    public var isSecure: Bool
+    
+    @State public var value: String {
+        didSet {
+            // Do something with it
+        }
+    }
+    
+//    let field: Remediation.Form.Field
+}

@@ -11,29 +11,31 @@
 //
 
 import Foundation
-import OktaIdx
-
-#if canImport(SwiftUI)
-import SwiftUI
-#endif
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public protocol InputField: Component, Identifiable {
+public protocol Section: Identifiable {
+    static var type: SectionType { get }
+
     var id: String { get }
-    var label: String { get }
+    var components: [any Component] { get }
+}
+
+public enum SectionType {
+    case header, body, footer
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct StringInputField: InputField {
-    public var id: String
-    public var label: String
-    public var isSecure: Bool
+public struct HeaderSection: Section, Identifiable {
+    public static let type = SectionType.header
     
-    @State public var value: String {
-        didSet {
-            // Do something with it
-        }
-    }
+    public let id: String
+    public let components: [any Component]
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct InputSection: Section, Identifiable {
+    public static let type = SectionType.body
     
-//    let field: Remediation.Form.Field
+    public let id: String
+    public let components: [any Component]
 }

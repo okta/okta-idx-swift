@@ -11,6 +11,7 @@
 //
 
 import OktaIdx
+import NativeAuthentication
 
 //enum ResponseTransformerError: Error {
 //    case cannotGenerateForm

@@ -15,6 +15,7 @@ var package = Package(
     ],
     products: [
         .library(name: "OktaIdx", targets: ["OktaIdx"]),
+        .library(name: "DynamicAuthentication", targets: ["DynamicAuthentication"]),
         .library(name: "NativeAuthentication", targets: ["NativeAuthentication"]),
         .library(name: "NativeAuthenticationUI", targets: ["NativeAuthenticationUI"])
     ],
@@ -28,9 +29,14 @@ var package = Package(
                 dependencies: [
                     .product(name: "AuthFoundation", package: "AuthFoundation")
                 ]),
+        .target(name: "DynamicAuthentication",
+                dependencies: [
+                    .target(name: "OktaIdx"),
+                    .target(name: "NativeAuthentication")
+                ]),
         .target(name: "NativeAuthentication",
                 dependencies: [
-                    .target(name: "OktaIdx")
+                    .product(name: "AuthFoundation", package: "AuthFoundation")
                 ]),
         .target(name: "NativeAuthenticationUI",
                 dependencies: [

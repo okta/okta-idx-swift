@@ -13,16 +13,27 @@
 import SwiftUI
 import AuthenticationServices
 import NativeAuthenticationUI
+import DynamicAuthentication
 
 struct ContentView: View {
     @State var username: String = ""
     @State var password: String = ""
     @State var rememberMe: Bool = false
-    var inputTransformer = InputFormRenderer(form: .loading)
+    
+    let client: AuthenticationClient
+    @State var renderer: InputFormRenderer
     
     var body: some View {
         HStack(spacing: 50.0) {
-            inputTransformer
+            renderer.onAppear {
+                Task {
+                    do {
+                        try await client.start()
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
             
             VStack(spacing: 12.0) {
                 Text("Sign In")
@@ -94,9 +105,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        .previewInterfaceOrientation(.landscapeRight)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//        .previewInterfaceOrientation(.landscapeRight)
+//    }
+//}
