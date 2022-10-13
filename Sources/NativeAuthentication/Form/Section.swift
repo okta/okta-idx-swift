@@ -30,6 +30,11 @@ public struct HeaderSection: SignInSection, Identifiable {
     
     public let id: String
     public let components: [any SignInComponent]
+    
+    public init(id: String, components: [any SignInComponent]) {
+        self.id = id
+        self.components = components
+    }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
@@ -38,4 +43,9 @@ public struct InputSection: SignInSection, Identifiable {
     
     public let id: String
     public let components: [any SignInComponent]
+    
+    public init(id: String, components: [any SignInComponent]) {
+        self.id = id
+        self.components = components
+    }
 }

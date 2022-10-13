@@ -12,76 +12,128 @@
 
 import OktaIdx
 import NativeAuthentication
+import Foundation
 
-//enum ResponseTransformerError: Error {
-//    case cannotGenerateForm
-//    case cannotGenerateSection
-//}
-//
-//class ResponseTransformer {
-//    func form(from response: Response) throws -> FormLayout {
-//        try response.form()
-//    }
-//}
-//
-//extension Response {
-//    func form() throws -> FormLayout {
-//        let sections: [FormLayout.Section] = try remediations.compactMap { [weak self] remediation in
-//            try remediation.section(from: self)
-//        }
-//        
-//        return FormLayout(response: self,
-//                          sections: sections)
-//    }
-//}
-//
-//extension Remediation {
-//    func section(from response: Response?) throws -> FormLayout.Section? {
-//        guard let response = response else { return nil }
-//        
-//        let fields: [FormLayout.Field] = try form.fields.compactMap { [weak self] field in
-//            try field.field(from: response, remediation: self)
-//        }.reduce([], +)
-//
-//        return .init(remediation: self,
-//                     fields: fields,
-//                     actions: [])
-//    }
-//}
-//
-//extension Remediation.Form.Field {
-//    func field(from response: Response?, remediation: Remediation?) throws -> [FormLayout.Field]? {
-//        guard let response = response,
-//              let remediation = remediation
-//        else {
-//            return nil
-//        }
-//        
-//        return nil
-//    }
-//}
+public protocol ResponseTransformer {
+    func signInForm(for response: Response) -> SignInForm
+    func signInForm(for error: Error) -> SignInForm
+}
 
-//extension Remediation.Form.Field {
-//    func remediationRow(parent: Form.Field? = nil, delegate: AnyObject & SigninRowDelegate) -> [Row] {
-//        if !isMutable {
-//            if label != nil {
-//                // Fields that are not "visible" don't mean they shouldn't be displayed, just that they
-//                return [Row(kind: .label(field: self),
-//                            parent: parent,
-//                            delegate: delegate)]
-//            } else {
-//                return []
-//            }
-//        }
-//
-//        var rows: [Row] = []
-//
-//        switch type {
-//        case "boolean":
+public struct DefaultResponseTransformer: ResponseTransformer {
+    public init() {}
+    
+    public func signInForm(for response: Response) -> SignInForm {
+        do {
+            return try response.form()
+        } catch {
+            return signInForm(for: error)
+        }
+    }
+    
+    public func signInForm(for error: Error) -> SignInForm {
+        SignInForm(intent: .empty, sections: [
+            HeaderSection(id: "error", components: [
+                FormLabel(id: "errorMessage", text: "Error loading the page", style: .description),
+                FormLabel(id: "errorDescription", text: error.localizedDescription, style: .caption),
+            ])
+        ])
+    }
+
+}
+
+extension Response {
+    func form() throws -> SignInForm {
+        var sections: [any SignInSection] = try remediations.compactMap { [weak self] remediation in
+            try remediation.section(from: self)
+        }
+        
+        sections.insert(HeaderSection(id: "title", components: [
+            FormLabel(id: "titleLabel", text: "Sign in", style: .heading)
+        ]), at: 0)
+        
+        return SignInForm(intent: .signIn,
+                          sections: sections)
+    }
+}
+
+extension Remediation {
+    func section(from response: Response?) throws -> (any SignInSection)? {
+        guard let response = response else { return nil }
+        
+        var components: [any SignInComponent] = form.fields.compactMap { field in
+            field.remediationRow(from: response, remediation: self)
+        }.reduce([], +)
+        
+        switch type {
+        case .cancel:
+            components.append(ContinueAction(id: "\(name).continue",
+                                             intent: .restart,
+                                             label: "Restart") {
+                print("Triggered \(self.name)")
+            })
+
+        default:
+            components.append(ContinueAction(id: "\(name).continue",
+                                             intent: .signIn,
+                                             label: "Sign in") {
+                Task {
+                    do {
+                        try await self.proceed()
+                    } catch {
+                        print(error)
+                    }
+                }
+            })
+        }
+        
+        return InputSection(id: name, components: components)
+    }
+}
+
+extension Remediation.Form.Field {
+    func id(remediation: Remediation, ancestors: [Remediation.Form.Field]) -> String {
+        var ancestors = ancestors
+        ancestors.append(self)
+        
+        var result = remediation.name
+        for (index, field) in ancestors.enumerated() {
+            if let name = field.name {
+                result += ".\(name)"
+            } else if index > 0,
+                      let options = ancestors[index - 1].options,
+                      let currentIndex = options.firstIndex(of: field)
+            {
+                result += "[\(currentIndex)]"
+            }
+        }
+        
+        return result
+    }
+
+    func remediationRow(from response: Response,
+                        remediation: Remediation,
+                        ancestors: [Remediation.Form.Field] = []) -> [any SignInComponent]
+    {
+        if !isMutable {
+            if label != nil {
+                // Fields that are not "visible" don't mean they shouldn't be displayed, just that they
+                return [
+                    FormLabel(id: id(remediation: remediation, ancestors: ancestors),
+                              text: label ?? "")
+                ]
+            } else {
+                return []
+            }
+        }
+
+        var rows: [any SignInComponent] = []
+
+        switch type {
+        case "boolean": break
 //            rows.append(Row(kind: .toggle(field: self),
 //                            parent: parent,
 //                            delegate: delegate))
-//        case "object":
+        case "object":
 //            if let options = options {
 //                options.forEach { option in
 //                    rows.append(Row(kind: .option(field: self, option: option),
@@ -95,37 +147,43 @@ import NativeAuthentication
 //                        })
 //                    }
 //                }
-//            } else if let form = form {
-//                rows.append(contentsOf: form.flatMap { nested in
-//                    nested.remediationRow(parent: self, delegate: delegate)
-//                })
-//            }
-//
-//        default:
-//            if let options = options {
+//            } else
+        if let form = form {
+                rows.append(contentsOf: form.flatMap { nested in
+                    nested.remediationRow(from: response,
+                                          remediation: remediation,
+                                          ancestors: ancestors + [self])
+                })
+            }
+
+        default:
+            if let options = options {
 //                rows.append(Row(kind: .select(field: self, values: options),
 //                                parent: parent,
 //                                delegate: delegate))
-//            } else if let form = form {
-//                rows.append(contentsOf: form.flatMap { formValue in
-//                    formValue.remediationRow(parent: self, delegate: delegate)
-//                })
-//            } else {
-//                rows.append(Row(kind: .text(field: self),
-//                                parent: parent,
-//                                delegate: delegate))
-//            }
-//        }
-//
-//        self.messages.forEach { message in
-//            rows.append(Row(kind: .message(style: .message(message: message)),
-//                            parent: parent,
-//                            delegate: delegate))
-//        }
-//
-//        return rows
-//    }
-//}
+            } else if let form = form {
+                rows.append(contentsOf: form.flatMap { nested in
+                    nested.remediationRow(from: response,
+                                          remediation: remediation,
+                                          ancestors: ancestors + [self])
+                })
+            } else {
+                rows.append(StringInputField(id: id(remediation: remediation, ancestors: ancestors),
+                                             label: label ?? "",
+                                             isSecure: isSecret,
+                                             value: value?.stringValue ?? ""))
+            }
+        }
+
+        self.messages.forEach { message in
+            rows.append(FormLabel(id: UUID().uuidString,
+                                  text: message.message,
+                                  style: .caption))
+        }
+
+        return rows
+    }
+}
 
     /*
 public protocol ComponentTransformer {

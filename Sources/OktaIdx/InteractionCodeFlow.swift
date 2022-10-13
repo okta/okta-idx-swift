@@ -350,7 +350,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
 }
 
 #if swift(>=5.5.1) && !os(Linux)
-@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension InteractionCodeFlow {
     /// Starts a new authentication session using the given configuration values. If the client is able to successfully interact with Okta Identity Engine, a new client instance is returned to the caller.
     /// - Parameters:

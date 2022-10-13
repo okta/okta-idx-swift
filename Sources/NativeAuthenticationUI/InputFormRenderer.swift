@@ -93,9 +93,9 @@ extension StringInputField: ComponentView {
         let result: any View
         result = VStack(spacing: 12.0) {
             HStack {
-                if isSecure {
+                if isSecure && id.hasSuffix("passcode") {
                     Image(systemName: "lock")
-                } else if id == "identifier" {
+                } else if id.hasSuffix("identifier") {
                     Image(systemName: "at")
                 }
                 TextField(label, text: Binding<String>(
@@ -273,9 +273,11 @@ public struct DefaultInputTransformerDataSource: InputFormTransformerDataSource 
     public func view(for form: SignInForm,
                      content: () -> some View) -> any View
     {
-        VStack(content: content)
-            .padding(.horizontal, 32.0)
-            .frame(maxWidth: .infinity)
+        ScrollView(.vertical) {
+            VStack(content: content)
+                .padding(.horizontal, 32.0)
+                .frame(maxWidth: .infinity)
+        }.compatibility.withKeyboardBehavior(mode: .interactively)
     }
 
     public func view(for form: SignInForm,

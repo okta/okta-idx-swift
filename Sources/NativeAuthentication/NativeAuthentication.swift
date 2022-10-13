@@ -2,16 +2,21 @@ import Foundation
 
 @_exported import AuthFoundation
 
-public protocol AuthenticationProvider {
+public protocol AuthenticationProviderDelegate {
+    func authentication(provider: any AuthenticationProvider, updated form: SignInForm)
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public protocol AuthenticationProvider: UsesDelegateCollection where Delegate == AuthenticationProviderDelegate {
+    func start() async
+}
+
 public protocol AuthenticationClientDelegate {
     func authentication(client: AuthenticationClient, updated form: SignInForm)
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public class AuthenticationClient: UsesDelegateCollection {
+    public typealias Delegate = AuthenticationClientDelegate
+
     let provider: any AuthenticationProvider
     public private(set) var form: SignInForm {
         didSet {
@@ -24,19 +29,21 @@ public class AuthenticationClient: UsesDelegateCollection {
     public init(provider: any AuthenticationProvider) {
         self.form = .empty
         self.provider = provider
+        self.provider.add(delegate: self)
     }
     
     @MainActor
-    public func start() async throws {
-        self.form = .loading
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.form = SignInForm.default
-        }
+    public func start() async {
+        await provider.start()
+    }
+    
+    func send(form: SignInForm) {
+        delegateCollection.invoke({ $0.authentication(client: self, updated: form) })
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension AuthenticationClient: UsesDelegateCollection {
-    public typealias Delegate = AuthenticationClientDelegate
+extension AuthenticationClient: AuthenticationProviderDelegate {
+    public func authentication(provider: any AuthenticationProvider, updated form: SignInForm) {
+        send(form: form)
+    }
 }

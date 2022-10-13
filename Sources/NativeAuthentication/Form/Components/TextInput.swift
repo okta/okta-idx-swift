@@ -28,11 +28,12 @@ public struct StringInputField: InputField {
     public var label: String
     public var isSecure: Bool
     
-    @State public var value: String {
-        didSet {
-            // Do something with it
-        }
-    }
+    @State public var value: String
     
-//    let field: Remediation.Form.Field
+    public init(id: String, label: String, isSecure: Bool, value: String) {
+        self.id = id
+        self.label = label
+        self.isSecure = isSecure
+        self.value = value
+    }
 }

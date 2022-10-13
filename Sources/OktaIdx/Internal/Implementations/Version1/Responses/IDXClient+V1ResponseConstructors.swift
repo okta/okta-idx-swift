@@ -499,7 +499,7 @@ extension Remediation.Form.Field {
         self.init(name: object.name,
                   label: object.label,
                   type: object.type,
-                  value: object.value?.toAnyObject(),
+                  value: object.value?.toAnyObject() as? APIRequestArgument,
                   visible: visible,
                   mutable: object.mutable ?? true,
                   required: object.required ?? false,

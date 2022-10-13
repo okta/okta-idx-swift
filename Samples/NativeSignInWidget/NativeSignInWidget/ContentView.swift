@@ -26,11 +26,7 @@ struct ContentView: View {
         auth.rendererView()
             .onAppear {
                 Task {
-                    do {
-                        try await auth.client.start()
-                    } catch {
-                        print(error)
-                    }
+                    await auth.client.start()
                 }
             }
             .frame(maxWidth: .infinity)

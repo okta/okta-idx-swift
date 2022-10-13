@@ -12,13 +12,11 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public protocol Action: SignInComponent {
     var id: String { get }
     var action: () -> Void { get }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct AnyAction: Identifiable {
     public let id: String
     public let action: any Action
@@ -29,7 +27,6 @@ public struct AnyAction: Identifiable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct ContinueAction: Action {
     public enum Intent {
         case signIn
@@ -50,7 +47,6 @@ public struct ContinueAction: Action {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct SocialLoginAction: Action {
     public enum Provider {
         case apple
@@ -67,7 +63,6 @@ public struct SocialLoginAction: Action {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct RecoverAction: Action {
     public let id: String
     public let action: () -> Void

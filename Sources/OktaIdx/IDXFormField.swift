@@ -37,13 +37,7 @@ extension Remediation.Form {
         public let type: String?
         
         /// The value to send, if a default is provided from the Identity Engine.
-        public var value: APIRequestArgument? {
-            get { _value as? APIRequestArgument }
-            set {
-                guard isMutable else { return }
-                _value = newValue as AnyObject
-            }
-        }
+        @Published public var value: APIRequestArgument?
         
         /// Indicates whether or not the form value is read-only.
         public let isMutable: Bool
@@ -90,7 +84,6 @@ extension Remediation.Form {
         
         let isVisible: Bool
         let relatesTo: String?
-        var _value: AnyObject?
         lazy var hasVisibleFields: Bool = {
             if isVisible {
                 return true
@@ -114,7 +107,7 @@ extension Remediation.Form {
         internal init(name: String? = nil,
                       label: String? = nil,
                       type: String? = nil,
-                      value: AnyObject? = nil,
+                      value: APIRequestArgument? = nil,
                       visible: Bool,
                       mutable: Bool,
                       required: Bool,
@@ -127,7 +120,7 @@ extension Remediation.Form {
             self.name = name
             self.label = label
             self.type = type
-            self._value = value
+            self.value = value
             self.isVisible = visible
             self.isMutable = mutable
             self.isRequired = required

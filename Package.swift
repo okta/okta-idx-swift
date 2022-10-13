@@ -7,10 +7,10 @@ var package = Package(
     name: "OktaIdx",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v9),
-        .tvOS(.v9),
+        .iOS(.v13),
+        .tvOS(.v13),
         .watchOS(.v7),
-        .macOS(.v10_11),
+        .macOS(.v10_15),
         .macCatalyst(.v13)
     ],
     products: [

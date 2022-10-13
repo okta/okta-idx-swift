@@ -20,6 +20,11 @@ public struct SignInForm {
     
     public let intent: Intent
     public let sections: [any SignInSection]
+    
+    public init(intent: Intent, sections: [any SignInSection]) {
+        self.intent = intent
+        self.sections = sections
+    }
 
     public static let empty = SignInForm(intent: .empty, sections: [])
     public static let loading = SignInForm(intent: .loading, sections: [
@@ -27,43 +32,4 @@ public struct SignInForm {
             Loading(id: "loadingIndicator")
         ])
     ])
-    
-    public static let `default`: SignInForm = {
-        SignInForm(
-            intent: .signIn,
-            sections: [
-                HeaderSection(id: "header", components: [
-                    FormLabel(id: "Foo", text: "Sign In", style: .heading)
-                ]),
-                
-                InputSection(
-                    id: "identify",
-                    components: [
-                        StringInputField(id: "identifier", label: "Username", isSecure: false, value: ""),
-                        StringInputField(id: "credential.passcode", label: "Password", isSecure: true, value: ""),
-                        ContinueAction(id: "identifier.action", intent: .signIn, label: "Sign in") {
-                            print("Continue")
-                        },
-                        RecoverAction(id: "recover") {
-                            print("Recover")
-                        }
-                    ]),
-
-                InputSection(
-                    id: "idp",
-                    components: [
-                        SocialLoginAction(id: "idp", provider: .apple) {
-                            print("IDP")
-                        }
-                    ]),
-
-                InputSection(
-                    id: "ssr",
-                    components: [
-                        ContinueAction(id: "ssr", intent: .signUp, label: "Sign up") {
-                            print("Sign up")
-                        }
-                    ])
-            ])
-    }()
 }
