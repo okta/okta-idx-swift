@@ -26,7 +26,11 @@ extension Remediation.Form {
     /// > ```swift
     /// > remediation["identifier"]
     /// > ```
-    public final class Field: NSObject {
+    public final class Field: ObservableObject, Equatable {
+        public static func == (lhs: Remediation.Form.Field, rhs: Remediation.Form.Field) -> Bool {
+            lhs === rhs
+        }
+        
         /// The programmatic name for this form value.
         public let name: String?
         
@@ -130,8 +134,6 @@ extension Remediation.Form {
             self.options = options
             self.messages = messages
             self.isSelectedOption = false
-            
-            super.init()
         }
     }
     

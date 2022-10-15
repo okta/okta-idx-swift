@@ -18,6 +18,7 @@ public protocol SignInSection: Identifiable {
 
     var id: String { get }
     var components: [any SignInComponent] { get }
+    var action: ((_ component: any SignInComponent) -> Void)? { get }
 }
 
 public enum SectionType {
@@ -30,10 +31,12 @@ public struct HeaderSection: SignInSection, Identifiable {
     
     public let id: String
     public let components: [any SignInComponent]
+    public let action: ((any SignInComponent) -> Void)?
     
-    public init(id: String, components: [any SignInComponent]) {
+    public init(id: String, components: [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
         self.id = id
         self.components = components
+        self.action = action
     }
 }
 
@@ -43,9 +46,11 @@ public struct InputSection: SignInSection, Identifiable {
     
     public let id: String
     public let components: [any SignInComponent]
-    
-    public init(id: String, components: [any SignInComponent]) {
+    public let action: ((any SignInComponent) -> Void)?
+
+    public init(id: String, components: [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
         self.id = id
         self.components = components
+        self.action = action
     }
 }

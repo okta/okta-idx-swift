@@ -12,6 +12,23 @@
 
 import Foundation
 
+public protocol SignInValueBacking: AnyObject {
+    var backingValue: Any { get set }
+}
+
+public class SignInValue<ValueType>: ObservableObject {
+    let backing: any SignInValueBacking
+    
+    public var value: ValueType {
+        get { backing.backingValue as! ValueType }
+        set { backing.backingValue = newValue }
+    }
+    
+    public init(_ backing: any SignInValueBacking) {
+        self.backing = backing
+    }
+}
+
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct SignInForm {
     public enum Intent {

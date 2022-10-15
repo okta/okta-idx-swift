@@ -15,22 +15,37 @@ import NativeAuthentication
 import Foundation
 
 public protocol ResponseTransformer {
-    func signInForm(for response: Response) -> SignInForm
-    func signInForm(for error: Error) -> SignInForm
+    var loading: SignInForm { get }
+    var success: SignInForm { get }
+    func form(for response: Response) -> SignInForm
+    func form(for error: Error) -> SignInForm
 }
 
 public struct DefaultResponseTransformer: ResponseTransformer {
     public init() {}
     
-    public func signInForm(for response: Response) -> SignInForm {
+    public let loading: SignInForm = SignInForm(intent: .loading, sections: [
+        HeaderSection(id: "loading", components: [
+            Loading(id: "loadingIndicator")
+        ])
+    ])
+    
+    public let success: SignInForm = SignInForm(intent: .loading, sections: [
+        HeaderSection(id: "title", components: [
+            FormLabel(id: "titleLabel", text: "Signing in", style: .heading),
+            Loading(id: "loadingIndicator")
+        ])
+    ])
+    
+    public func form(for response: Response) -> SignInForm {
         do {
             return try response.form()
         } catch {
-            return signInForm(for: error)
+            return form(for: error)
         }
     }
     
-    public func signInForm(for error: Error) -> SignInForm {
+    public func form(for error: Error) -> SignInForm {
         SignInForm(intent: .empty, sections: [
             HeaderSection(id: "error", components: [
                 FormLabel(id: "errorMessage", text: "Error loading the page", style: .description),
@@ -38,13 +53,20 @@ public struct DefaultResponseTransformer: ResponseTransformer {
             ])
         ])
     }
-
 }
 
 extension Response {
     func form() throws -> SignInForm {
         var sections: [any SignInSection] = try remediations.compactMap { [weak self] remediation in
             try remediation.section(from: self)
+        }
+        
+        if messages.count > 0 {
+            sections.insert(HeaderSection(id: "errors", components: messages.map({ message in
+                FormLabel(id: UUID().uuidString,
+                          text: message.message,
+                          style: .caption)
+            })), at: 0)
         }
         
         sections.insert(HeaderSection(id: "title", components: [
@@ -63,6 +85,12 @@ extension Remediation {
         var components: [any SignInComponent] = form.fields.compactMap { field in
             field.remediationRow(from: response, remediation: self)
         }.reduce([], +)
+                
+        self.messages.forEach { message in
+            components.append(FormLabel(id: UUID().uuidString,
+                                        text: message.message,
+                                        style: .caption))
+        }
         
         switch type {
         case .cancel:
@@ -71,22 +99,30 @@ extension Remediation {
                                              label: "Restart") {
                 print("Triggered \(self.name)")
             })
+            
+        case .redirectIdp:
+            guard let socialIdp = socialIdp else { break }
+            switch socialIdp.service {
+            case .apple:
+                components.append(SocialLoginAction(id: "\(name).continue",
+                                                    provider: .apple) {
+                    print("Social login triggered")
+                })
+
+            default: break
+            }
 
         default:
             components.append(ContinueAction(id: "\(name).continue",
                                              intent: .signIn,
                                              label: "Sign in") {
-                Task {
-                    do {
-                        try await self.proceed()
-                    } catch {
-                        print(error)
-                    }
-                }
+                self.proceed()
             })
         }
         
-        return InputSection(id: name, components: components)
+        return InputSection(id: name, components: components) { component in
+            print("Triggered section action")
+        }
     }
 }
 
@@ -168,10 +204,19 @@ extension Remediation.Form.Field {
                                           ancestors: ancestors + [self])
                 })
             } else {
+                let style: StringInputField.InputStyle
+                if name == "identifier" {
+                    style = .email
+                } else if isSecret {
+                    style = .password
+                } else {
+                    style = .generic
+                }
                 rows.append(StringInputField(id: id(remediation: remediation, ancestors: ancestors),
                                              label: label ?? "",
                                              isSecure: isSecret,
-                                             value: value?.stringValue ?? ""))
+                                             inputStyle: style,
+                                             value: SignInValue(self)))
             }
         }
 
@@ -184,106 +229,3 @@ extension Remediation.Form.Field {
         return rows
     }
 }
-
-    /*
-public protocol ComponentTransformer {
-    func transform(_ response: Response) throws -> any Component
-    func transform(_ remediation: Remediation) throws -> any Component
-    func transform(_ form: Remediation.Form) throws -> any Component
-    func transform(_ field: Remediation.Form.Field) throws -> any Component
-}
-
-struct DefaultTransformer: ComponentTransformer {
-    func transform(_ remediation: Remediation) throws -> (any Component)? {
-        switch remediation.type {
-        case .identify:
-            return Group {
-                Label("Sign in")
-                    .style(.heading)
-                for field in remediation.form.fields {
-                    TextInput(
-                }
-            }
-            
-//        case .identifyRecovery:
-//            <#code#>
-//        case .selectIdentify:
-//            <#code#>
-//        case .selectEnrollProfile:
-//            <#code#>
-//        case .cancel:
-//            <#code#>
-//        case .sendChallenge:
-//            <#code#>
-//        case .resendChallenge:
-//            <#code#>
-//        case .selectAuthenticatorAuthenticate:
-//            <#code#>
-//        case .selectAuthenticatorUnlockAccount:
-//            <#code#>
-//        case .selectAuthenticatorEnroll:
-//            <#code#>
-//        case .selectEnrollmentChannel:
-//            <#code#>
-//        case .authenticatorVerificationData:
-//            <#code#>
-//        case .authenticatorEnrollmentData:
-//            <#code#>
-//        case .enrollmentChannelData:
-//            <#code#>
-//        case .challengeAuthenticator:
-//            <#code#>
-//        case .enrollPoll:
-//            <#code#>
-//        case .enrollAuthenticator:
-//            <#code#>
-//        case .reenrollAuthenticator:
-//            <#code#>
-//        case .reenrollAuthenticatorWarning:
-//            <#code#>
-//        case .resetAuthenticator:
-//            <#code#>
-//        case .enrollProfile:
-//            <#code#>
-//        case .unlockAccount:
-//            <#code#>
-//        case .deviceChallengePoll:
-//            <#code#>
-//        case .deviceAppleSsoExtension:
-//            <#code#>
-//        case .launchAuthenticator:
-//            <#code#>
-//        case .redirectIdp:
-//            <#code#>
-//        case .cancelTransaction:
-//            <#code#>
-//        case .skip:
-//            <#code#>
-//        case .challengePoll:
-//            <#code#>
-//        case .cancelPolling:
-//            <#code#>
-//        case .consent:
-//            <#code#>
-//        case .adminConsent:
-//            <#code#>
-//        case .emailChallengeConsent:
-//            <#code#>
-//        case .requestActivationEmail:
-//            <#code#>
-//        case .userCode:
-//            <#code#>
-//        case .poll:
-//            <#code#>
-//        case .recover:
-//            <#code#>
-//        case .send:
-//            <#code#>
-//        case .resend:
-//            <#code#>
-        default:
-            return nil
-        }
-    }
-}
-*/

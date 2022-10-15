@@ -17,6 +17,7 @@
 		96EDB2F928E50A590060B8D4 /* AuthFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F828E50A590060B8D4 /* AuthFoundation */; };
 		96FB0B9828F6014D00FA3FEA /* DynamicAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 96FB0B9728F6014D00FA3FEA /* DynamicAuthentication */; };
 		96FB0B9A28F6058800FA3FEA /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FB0B9928F6058800FA3FEA /* Okta.plist */; };
+		96FB0B9C28FA34FB00FA3FEA /* okta-mobile-swift in Resources */ = {isa = PBXBuildFile; fileRef = 96FB0B9B28FA34FB00FA3FEA /* okta-mobile-swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		96EDB2B228E3CE010060B8D4 /* NativeSignInWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeSignInWidget.entitlements; sourceTree = "<group>"; };
 		96EDB2B428E3CE010060B8D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		96FB0B9928F6058800FA3FEA /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Okta.plist; path = ../../Shared/Okta.plist; sourceTree = "<group>"; };
+		96FB0B9B28FA34FB00FA3FEA /* okta-mobile-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "okta-mobile-swift"; path = "../../../okta-mobile-swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		96EDB2F028E50A3D0060B8D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96FB0B9B28FA34FB00FA3FEA /* okta-mobile-swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				96EDB2B528E3CE010060B8D4 /* Preview Assets.xcassets in Resources */,
 				96FB0B9A28F6058800FA3FEA /* Okta.plist in Resources */,
 				96EDB2B128E3CE010060B8D4 /* Assets.xcassets in Resources */,
+				96FB0B9C28FA34FB00FA3FEA /* okta-mobile-swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

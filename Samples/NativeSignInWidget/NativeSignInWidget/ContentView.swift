@@ -16,10 +16,6 @@ import NativeAuthenticationUI
 import DynamicAuthentication
 
 struct ContentView: View {
-    @State var username: String = ""
-    @State var password: String = ""
-    @State var rememberMe: Bool = false
-    
     let auth: NativeAuthentication
     
     var body: some View {
@@ -32,10 +28,3 @@ struct ContentView: View {
             .frame(maxWidth: .infinity)
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//        .previewInterfaceOrientation(.landscapeRight)
-//    }
-//}

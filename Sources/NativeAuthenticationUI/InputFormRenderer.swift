@@ -87,9 +87,33 @@ extension Loading: ComponentView {
     }
 }
 
+
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension StringInputField: ComponentView {
     func body(in form: SignInForm, section: some SignInSection) -> AnyView {
+        let keyboardType: UIKeyboardType
+        let capitalization: Compatibility.TextInputAutocapitalizationMode?
+        let autocorrectionDisabled: Bool
+        
+        switch inputStyle {
+        case .email:
+            keyboardType = .emailAddress
+            capitalization = .never
+            autocorrectionDisabled = true
+        case .password:
+            keyboardType = .default
+            capitalization = .never
+            autocorrectionDisabled = true
+        case .generic:
+            keyboardType = .default
+            capitalization = nil
+            autocorrectionDisabled = false
+        case .name:
+            keyboardType = .asciiCapable
+            capitalization = .words
+            autocorrectionDisabled = false
+        }
+        
         let result: any View
         result = VStack(spacing: 12.0) {
             HStack {
@@ -98,16 +122,27 @@ extension StringInputField: ComponentView {
                 } else if id.hasSuffix("identifier") {
                     Image(systemName: "at")
                 }
-                TextField(label, text: Binding<String>(
-                    get: { value },
-                    set: { value = $0 }
-                ))
                 
-                if isSecure,
-                   let inputSection = section as? InputSection,
-                   let recoverAction = inputSection.components.first(type: RecoverAction.self)
-                {
-                    recoverAction.body(in: form, section: inputSection)
+                if isSecure {
+                    SecureField(label, text: $value.value) {
+                        section.action?(self)
+                    }
+                    .keyboardType(keyboardType)
+                    .autocorrectionDisabled(autocorrectionDisabled)
+                    .compatibility.textInputAutocapitalization(capitalization)
+
+                    if let inputSection = section as? InputSection,
+                       let recoverAction = inputSection.components.first(type: RecoverAction.self)
+                    {
+                        recoverAction.body(in: form, section: inputSection)
+                    }
+                } else {
+                    TextField(label, text: $value.value) {
+                        section.action?(self)
+                    }
+                    .keyboardType(keyboardType)
+                    .autocorrectionDisabled(autocorrectionDisabled)
+                    .compatibility.textInputAutocapitalization(capitalization)
                 }
             }
             Divider()
@@ -157,7 +192,7 @@ extension ContinueAction: ComponentView {
 
         case .restart:
             if #available(iOS 15.0, *) {
-                result = Button {
+                result = Button(role: .cancel) {
                     self.action()
                 } label: {
                     Text("Restart")
@@ -165,7 +200,7 @@ extension ContinueAction: ComponentView {
                         .padding(.vertical, 3.0)
                 }
                 .padding(.top)
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
             } else {
                 result = Button {
                     self.action()
@@ -277,7 +312,7 @@ public struct DefaultInputTransformerDataSource: InputFormTransformerDataSource 
             VStack(content: content)
                 .padding(.horizontal, 32.0)
                 .frame(maxWidth: .infinity)
-        }.compatibility.withKeyboardBehavior(mode: .interactively)
+        }.compatibility.scrollDismissesKeyboard(.interactively)
     }
 
     public func view(for form: SignInForm,
@@ -362,6 +397,6 @@ public struct InputFormRenderer: View {
                     }
                 }))
             }
-        })
+        }).animation(Animation.default.speed(1))
     }
 }

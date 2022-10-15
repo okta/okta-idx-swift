@@ -60,7 +60,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     
     public func start() async {
         do {
-            try await flow.start()
+            _ = try await flow.start()
         } catch {
             send(error)
         }
@@ -71,17 +71,17 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     }
 
     func send(_ response: Response) {
-        send(responseTransformer.signInForm(for: response))
+        send(responseTransformer.form(for: response))
     }
 
     func send(_ error: Error) {
-        send(responseTransformer.signInForm(for: error))
+        send(responseTransformer.form(for: error))
     }
 }
 
 extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     public func authenticationStarted<Flow>(flow: Flow) {
-        send(SignInForm.loading)
+        send(responseTransformer.loading)
     }
     
     public func authenticationFinished<Flow>(flow: Flow) {
@@ -102,7 +102,11 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     }
     
     public func authentication<Flow>(flow: Flow, received response: Response) where Flow : InteractionCodeFlow {
-        send(response)
+        if response.isLoginSuccessful {
+            send(responseTransformer.success)
+        } else {
+            send(response)
+        }
     }
     
     public func authentication<Flow>(flow: Flow, received token: Token) where Flow : InteractionCodeFlow {
@@ -110,5 +114,15 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     
     public func authentication<Flow>(flow: Flow, received error: OAuth2Error) {
         send(error)
+    }
+}
+
+extension Remediation.Form.Field: SignInValueBacking {
+    public var backingValue: Any {
+        get { value ?? "" }
+        set {
+            guard let newValue = newValue as? APIRequestArgument else { return }
+            value = newValue
+        }
     }
 }

@@ -27,13 +27,19 @@ public struct StringInputField: InputField {
     public var id: String
     public var label: String
     public var isSecure: Bool
+    public var inputStyle: InputStyle
     
-    @State public var value: String
+    @ObservedObject public var value: SignInValue<String>
     
-    public init(id: String, label: String, isSecure: Bool, value: String) {
+    public enum InputStyle {
+        case email, name, password, generic
+    }
+    
+    public init(id: String, label: String, isSecure: Bool, inputStyle: InputStyle = .generic, value: SignInValue<String>) {
         self.id = id
         self.label = label
         self.isSecure = isSecure
+        self.inputStyle = inputStyle
         self.value = value
     }
 }
