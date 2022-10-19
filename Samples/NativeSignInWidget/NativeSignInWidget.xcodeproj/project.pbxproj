@@ -17,7 +17,6 @@
 		96EDB2F928E50A590060B8D4 /* AuthFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 96EDB2F828E50A590060B8D4 /* AuthFoundation */; };
 		96FB0B9828F6014D00FA3FEA /* DynamicAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 96FB0B9728F6014D00FA3FEA /* DynamicAuthentication */; };
 		96FB0B9A28F6058800FA3FEA /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FB0B9928F6058800FA3FEA /* Okta.plist */; };
-		96FB0B9C28FA34FB00FA3FEA /* okta-mobile-swift in Resources */ = {isa = PBXBuildFile; fileRef = 96FB0B9B28FA34FB00FA3FEA /* okta-mobile-swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,9 @@
 		96EDB2B228E3CE010060B8D4 /* NativeSignInWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeSignInWidget.entitlements; sourceTree = "<group>"; };
 		96EDB2B428E3CE010060B8D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		96FB0B9928F6058800FA3FEA /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Okta.plist; path = ../../Shared/Okta.plist; sourceTree = "<group>"; };
-		96FB0B9B28FA34FB00FA3FEA /* okta-mobile-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "okta-mobile-swift"; path = "../../../okta-mobile-swift"; sourceTree = "<group>"; };
+		96FB0B9D28FE253800FA3FEA /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = ../Shared/SampleCode.xcconfig; sourceTree = "<group>"; };
+		96FB0B9E28FE253800FA3FEA /* TestConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = TestConfiguration.xcconfig; path = ../Shared/TestConfiguration.xcconfig; sourceTree = "<group>"; };
+		96FB0B9F28FE2E8A00FA3FEA /* okta-mobile-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "okta-mobile-swift"; path = "../../../okta-mobile-swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +54,8 @@
 				96EDB2AB28E3CE000060B8D4 /* NativeSignInWidget */,
 				96EDB2AA28E3CE000060B8D4 /* Products */,
 				96EDB2F028E50A3D0060B8D4 /* Frameworks */,
+				96FB0B9D28FE253800FA3FEA /* SampleCode.xcconfig */,
+				96FB0B9E28FE253800FA3FEA /* TestConfiguration.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,7 +91,7 @@
 		96EDB2F028E50A3D0060B8D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96FB0B9B28FA34FB00FA3FEA /* okta-mobile-swift */,
+				96FB0B9F28FE2E8A00FA3FEA /* okta-mobile-swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,7 +167,6 @@
 				96EDB2B528E3CE010060B8D4 /* Preview Assets.xcassets in Resources */,
 				96FB0B9A28F6058800FA3FEA /* Okta.plist in Resources */,
 				96EDB2B128E3CE010060B8D4 /* Assets.xcassets in Resources */,
-				96FB0B9C28FA34FB00FA3FEA /* okta-mobile-swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +187,7 @@
 /* Begin XCBuildConfiguration section */
 		96EDB2B628E3CE010060B8D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96FB0B9D28FE253800FA3FEA /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -243,6 +246,7 @@
 		};
 		96EDB2B728E3CE010060B8D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96FB0B9D28FE253800FA3FEA /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -294,6 +298,7 @@
 		};
 		96EDB2B928E3CE010060B8D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96FB0B9E28FE253800FA3FEA /* TestConfiguration.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +306,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeSignInWidget/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -318,7 +324,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.okta-sample.NativeSignInWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.okta-sample.NativeSignInWidget$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -330,6 +336,7 @@
 		};
 		96EDB2BA28E3CE010060B8D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96FB0B9E28FE253800FA3FEA /* TestConfiguration.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -337,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeSignInWidget/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -354,7 +362,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.okta-sample.NativeSignInWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.okta-sample.NativeSignInWidget$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

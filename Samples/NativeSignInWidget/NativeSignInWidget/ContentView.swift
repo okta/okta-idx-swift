@@ -19,12 +19,71 @@ struct ContentView: View {
     let auth: NativeAuthentication
     
     var body: some View {
-        auth.rendererView()
-            .onAppear {
-                Task {
-                    await auth.client.start()
+        if let credential = Credential.default,
+           let token = credential.token.idToken
+        {
+            Form {
+                Section(header: Text("Profile")) {
+                    HStack {
+                        Text("Given name")
+                        Spacer()
+                        Text(token.givenName ?? "N/A")
+                    }
+                    HStack {
+                        Text("Family name")
+                        Spacer()
+                        Text(token.familyName ?? "N/A")
+                    }
+                    HStack {
+                        Text("Locale")
+                        Spacer()
+                        Text(token.userLocale?.identifier ?? "N/A")
+                    }
+                    HStack {
+                        Text("Timezone")
+                        Spacer()
+                        Text(token.timeZone?.identifier ?? "N/A")
+                    }
+                }
+                Section(header: Text("Details")) {
+                    HStack {
+                        Text("Username")
+                        Spacer()
+                        Text(token.preferredUsername ?? "N/A")
+                    }
+                    HStack {
+                        Text("User ID")
+                        Spacer()
+                        Text(token.subject ?? "N/A")
+                    }
+                    HStack {
+                        Text("Created at")
+                        Spacer()
+                        Text(token.issuedAt?.coordinated ?? Date(), style: .relative)
+                    }
+                    Button(action: {
+                        Task {
+                            try? await credential.refreshIfNeeded()
+                        }
+                    }) {
+                        Text("Refresh")
+                    }
+                }
+                Section {
+                    Button(role: .destructive, action: {
+                        Task {
+                            try? await credential.revoke()
+                        }
+                    }) {
+                        Text("Sign Out")
+                    }
                 }
             }
+        } else {
+            auth.rendererView() { token in
+                try? Credential.store(token)
+            }
             .frame(maxWidth: .infinity)
+        }
     }
 }

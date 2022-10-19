@@ -21,7 +21,8 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     
     public let flow: InteractionCodeFlow
     public let responseTransformer: any ResponseTransformer
-    
+    private var completion: ((Token) -> Void)?
+
     public init(flow: InteractionCodeFlow,
                 responseTransformer: any ResponseTransformer = DefaultResponseTransformer())
     {
@@ -58,9 +59,14 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
                   responseTransformer: responseTransformer)
     }
     
-    public func start() async {
+    public func signIn(_ completion: @escaping (Token) -> Void) async {
+        self.completion = completion
         do {
-            _ = try await flow.start()
+            if flow.isAuthenticating {
+                _ = try await flow.resume()
+            } else {
+                _ = try await flow.start()
+            }
         } catch {
             send(error)
         }
@@ -68,6 +74,10 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     
     func send(_ form: SignInForm) {
         delegateCollection.invoke({ $0.authentication(provider: self, updated: form) })
+    }
+
+    func send(_ token: Token) {
+        delegateCollection.invoke({ $0.authentication(provider: self, finished: token) })
     }
 
     func send(_ response: Response) {
@@ -88,6 +98,7 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     }
     
     public func authentication<Flow>(flow: Flow, received token: Token) {
+        completion?(token)
     }
     
     public func authenticationStarted<Flow>(flow: Flow) where Flow : InteractionCodeFlow {
@@ -104,12 +115,14 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     public func authentication<Flow>(flow: Flow, received response: Response) where Flow : InteractionCodeFlow {
         if response.isLoginSuccessful {
             send(responseTransformer.success)
+            response.exchangeCode()
         } else {
             send(response)
         }
     }
     
     public func authentication<Flow>(flow: Flow, received token: Token) where Flow : InteractionCodeFlow {
+        send(token)
     }
     
     public func authentication<Flow>(flow: Flow, received error: OAuth2Error) {

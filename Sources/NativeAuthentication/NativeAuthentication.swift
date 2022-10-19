@@ -4,14 +4,16 @@ import Foundation
 
 public protocol AuthenticationProviderDelegate {
     func authentication(provider: any AuthenticationProvider, updated form: SignInForm)
+    func authentication(provider: any AuthenticationProvider, finished token: Token)
 }
 
 public protocol AuthenticationProvider: UsesDelegateCollection where Delegate == AuthenticationProviderDelegate {
-    func start() async
+    func signIn(_ completion: @escaping (_ token: Token) -> Void) async
 }
 
 public protocol AuthenticationClientDelegate {
     func authentication(client: AuthenticationClient, updated form: SignInForm)
+    func authentication(client: AuthenticationClient, finished token: Token)
 }
 
 public class AuthenticationClient: UsesDelegateCollection {
@@ -33,17 +35,25 @@ public class AuthenticationClient: UsesDelegateCollection {
     }
     
     @MainActor
-    public func start() async {
-        await provider.start()
+    public func signIn(_  completion: @escaping (_ token: Token) -> Void) async {
+        await provider.signIn(completion)
     }
     
-    func send(form: SignInForm) {
+    func send(_ form: SignInForm) {
         delegateCollection.invoke({ $0.authentication(client: self, updated: form) })
+    }
+
+    func send(_ token: Token) {
+        delegateCollection.invoke({ $0.authentication(client: self, finished: token) })
     }
 }
 
 extension AuthenticationClient: AuthenticationProviderDelegate {
+    public func authentication(provider: any AuthenticationProvider, finished token: Token) {
+        send(token)
+    }
+    
     public func authentication(provider: any AuthenticationProvider, updated form: SignInForm) {
-        send(form: form)
+        send(form)
     }
 }

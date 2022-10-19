@@ -43,17 +43,17 @@ var package = Package(
                     .target(name: "NativeAuthentication")
                 ])
     ] + [
-        .target(name: "TestCommon",
+        .target(name: "IDXTestCommon",
                 dependencies: ["OktaIdx"],
                 path: "Tests/TestCommon"),
         .testTarget(name: "OktaIdxTests",
-                    dependencies: ["OktaIdx", "TestCommon"],
+                    dependencies: ["OktaIdx", "IDXTestCommon"],
                 resources: [.copy("SampleResponses")]),
         .testTarget(name: "NativeAuthenticationTests",
-                    dependencies: ["NativeAuthentication", "TestCommon"],
+                    dependencies: ["NativeAuthentication", "IDXTestCommon"],
                 resources: [.copy("SampleResponses")]),
         .testTarget(name: "NativeAuthenticationUITests",
-                    dependencies: ["NativeAuthenticationUI", "TestCommon"],
+                    dependencies: ["NativeAuthenticationUI", "IDXTestCommon"],
                 resources: [.copy("SampleResponses")])
     ],
     swiftLanguageVersions: [.v5]

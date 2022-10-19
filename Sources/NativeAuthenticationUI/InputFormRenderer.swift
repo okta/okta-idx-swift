@@ -94,22 +94,27 @@ extension StringInputField: ComponentView {
         let keyboardType: UIKeyboardType
         let capitalization: Compatibility.TextInputAutocapitalizationMode?
         let autocorrectionDisabled: Bool
+        let contentType: UITextContentType?
         
         switch inputStyle {
         case .email:
             keyboardType = .emailAddress
+            contentType = .username
             capitalization = .never
             autocorrectionDisabled = true
         case .password:
             keyboardType = .default
+            contentType = .password
             capitalization = .never
             autocorrectionDisabled = true
         case .generic:
             keyboardType = .default
+            contentType = nil
             capitalization = nil
             autocorrectionDisabled = false
         case .name:
             keyboardType = .asciiCapable
+            contentType = .name
             capitalization = .words
             autocorrectionDisabled = false
         }
@@ -128,6 +133,7 @@ extension StringInputField: ComponentView {
                         section.action?(self)
                     }
                     .keyboardType(keyboardType)
+                    .textContentType(contentType)
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
 
@@ -141,6 +147,7 @@ extension StringInputField: ComponentView {
                         section.action?(self)
                     }
                     .keyboardType(keyboardType)
+                    .textContentType(contentType)
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
                 }
@@ -373,15 +380,16 @@ public struct DefaultInputTransformerDataSource: InputFormTransformerDataSource 
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct InputFormRenderer: View {
     @ObservedObject var auth: NativeAuthentication
     
     private let dataSource: any InputFormTransformerDataSource
+    private let completion: (Token) -> Void
 
-    public init(auth: NativeAuthentication, dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) {
+    public init(auth: NativeAuthentication, dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource(), completion: @escaping (Token) -> Void) {
         self.auth = auth
         self.dataSource = dataSource
+        self.completion = completion
     }
     
     public var body: some View {
@@ -397,6 +405,12 @@ public struct InputFormRenderer: View {
                     }
                 }))
             }
-        }).animation(Animation.default.speed(1))
+        })
+        .onAppear {
+            Task {
+                await auth.client.signIn(completion)
+            }
+        }
+        .animation(Animation.default.speed(1))
     }
 }

@@ -26,7 +26,7 @@ extension Remediation.Form {
     /// > ```swift
     /// > remediation["identifier"]
     /// > ```
-    public final class Field: ObservableObject, Equatable {
+    public final class Field: ObservableObject, Equatable, Hashable {
         public static func == (lhs: Remediation.Form.Field, rhs: Remediation.Form.Field) -> Bool {
             lhs === rhs
         }
@@ -86,6 +86,19 @@ extension Remediation.Form {
             form?[name]
         }
         
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(name)
+            hasher.combine(label)
+            hasher.combine(type)
+            hasher.combine(isMutable)
+            hasher.combine(isRequired)
+            hasher.combine(isSecret)
+            hasher.combine(form)
+            hasher.combine(options)
+            hasher.combine(isVisible)
+            hasher.combine(relatesTo)
+        }
+
         let isVisible: Bool
         let relatesTo: String?
         lazy var hasVisibleFields: Bool = {
