@@ -16,7 +16,7 @@ public protocol AuthenticationClientDelegate {
     func authentication(client: AuthenticationClient, finished token: Token)
 }
 
-public class AuthenticationClient: UsesDelegateCollection {
+public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
     public typealias Delegate = AuthenticationClientDelegate
 
     let provider: any AuthenticationProvider

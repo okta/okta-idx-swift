@@ -21,7 +21,7 @@ public protocol ResponseTransformer {
     func form(for error: Error) -> SignInForm
 }
 
-public struct DefaultResponseTransformer: ResponseTransformer {
+public class DefaultResponseTransformer: ResponseTransformer {
     public init() {}
     
     public let loading: SignInForm = SignInForm(intent: .loading, sections: [
