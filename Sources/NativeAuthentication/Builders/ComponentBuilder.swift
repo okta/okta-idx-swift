@@ -14,6 +14,10 @@ import Foundation
 
 @resultBuilder
 public struct ComponentBuilder {
+    public static func buildBlock(_ components: any SignInComponent...) -> [any SignInComponent] {
+        components
+    }
+
     public static func buildBlock() -> Empty {
         .init(id: UUID().uuidString)
     }

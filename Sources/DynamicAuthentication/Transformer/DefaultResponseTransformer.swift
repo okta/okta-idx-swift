@@ -14,28 +14,21 @@ import OktaIdx
 import NativeAuthentication
 import Foundation
 
-public protocol ResponseTransformer {
-    var loading: SignInForm { get }
-    var success: SignInForm { get }
-    func form(for response: Response) -> SignInForm
-    func form(for error: Error) -> SignInForm
-}
-
 public class DefaultResponseTransformer: ResponseTransformer {
     public init() {}
     
-    public let loading: SignInForm = SignInForm(intent: .loading, sections: [
-        HeaderSection(id: "loading", components: [
+    public let loading: SignInForm = SignInForm(intent: .loading) {
+        HeaderSection(id: "loading") {
             Loading(id: "loadingIndicator")
-        ])
-    ])
+        }
+    }
     
-    public let success: SignInForm = SignInForm(intent: .loading, sections: [
-        HeaderSection(id: "title", components: [
-            FormLabel(id: "titleLabel", text: "Signing in", style: .heading),
+    public let success: SignInForm = SignInForm(intent: .loading) {
+        HeaderSection(id: "title") {
+            FormLabel(id: "titleLabel", text: "Signing in", style: .heading)
             Loading(id: "loadingIndicator")
-        ])
-    ])
+        }
+    }
     
     public func form(for response: Response) -> SignInForm {
         do {
@@ -46,12 +39,12 @@ public class DefaultResponseTransformer: ResponseTransformer {
     }
     
     public func form(for error: Error) -> SignInForm {
-        SignInForm(intent: .empty, sections: [
-            HeaderSection(id: "error", components: [
-                FormLabel(id: "errorMessage", text: "Error loading the page", style: .description),
-                FormLabel(id: "errorDescription", text: error.localizedDescription, style: .caption),
-            ])
-        ])
+        SignInForm(intent: .empty) {
+            HeaderSection(id: "error") {
+                FormLabel(id: "errorMessage", text: "Error loading the page", style: .description)
+                FormLabel(id: "errorDescription", text: error.localizedDescription, style: .error)
+            }
+        }
     }
 }
 
@@ -65,13 +58,13 @@ extension Response {
             sections.insert(HeaderSection(id: "errors", components: messages.map({ message in
                 FormLabel(id: UUID().uuidString,
                           text: message.message,
-                          style: .caption)
+                          style: .error)
             })), at: 0)
         }
         
-        sections.insert(HeaderSection(id: "title", components: [
+        sections.insert(HeaderSection(id: "title") {
             FormLabel(id: "titleLabel", text: "Sign in", style: .heading)
-        ]), at: 0)
+        }, at: 0)
         
         return SignInForm(intent: .signIn,
                           sections: sections)
@@ -92,16 +85,19 @@ extension Remediation {
                                         style: .caption))
         }
         
+        var id = name
         switch type {
         case .cancel:
             components.append(ContinueAction(id: "\(name).continue",
                                              intent: .restart,
                                              label: "Restart") {
-                print("Triggered \(self.name)")
+                self.proceed()
             })
             
         case .redirectIdp:
             guard let socialIdp = socialIdp else { break }
+            id = "\(name).\(socialIdp.idpName)"
+            
             switch socialIdp.service {
             case .apple:
                 components.append(SocialLoginAction(id: "\(name).continue",
@@ -111,16 +107,37 @@ extension Remediation {
 
             default: break
             }
-
-        default:
+            
+        case .selectEnrollProfile:
             components.append(ContinueAction(id: "\(name).continue",
+                                             intent: .signUp,
+                                             label: "Sign up") {
+                self.proceed()
+            })
+
+        case .identify:
+            components.append(ContinueAction(id: "\(name).signIn",
                                              intent: .signIn,
                                              label: "Sign in") {
                 self.proceed()
             })
+
+        case .selectIdentify:
+            components.append(ContinueAction(id: "\(name).signIn",
+                                             intent: .signIn,
+                                             label: "Sign in with a username") {
+                self.proceed()
+            })
+
+        default:
+            components.append(ContinueAction(id: "\(name).continue",
+                                             intent: .continue,
+                                             label: "Continue") {
+                self.proceed()
+            })
         }
         
-        return InputSection(id: name, components: components) { component in
+        return InputSection(id: id, components: components) { component in
             print("Triggered section action")
         }
     }
@@ -223,7 +240,7 @@ extension Remediation.Form.Field {
         self.messages.forEach { message in
             rows.append(FormLabel(id: UUID().uuidString,
                                   text: message.message,
-                                  style: .caption))
+                                  style: .error))
         }
 
         return rows

@@ -11,20 +11,12 @@
 //
 
 import Foundation
+import OktaIdx
+import NativeAuthentication
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct FormLabel: SignInComponent {
-    public var id: String
-    public var text: String
-    public var style: Style
-    
-    public enum Style {
-        case caption, description, heading, error
-    }
-    
-    public init(id: String, text: String = "", style: Style = .caption) {
-        self.id = id
-        self.text = text
-        self.style = style
-    }
+public protocol ResponseTransformer {
+    var loading: SignInForm { get }
+    var success: SignInForm { get }
+    func form(for response: Response) -> SignInForm
+    func form(for error: Error) -> SignInForm
 }

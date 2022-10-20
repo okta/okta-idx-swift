@@ -33,6 +33,10 @@ public struct HeaderSection: SignInSection, Identifiable {
     public let components: [any SignInComponent]
     public let action: ((any SignInComponent) -> Void)?
     
+    public init(id: String, @ComponentBuilder components: () -> [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
+        self.init(id: id, components: components(), action: action)
+    }
+
     public init(id: String, components: [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
         self.id = id
         self.components = components
@@ -47,6 +51,10 @@ public struct InputSection: SignInSection, Identifiable {
     public let id: String
     public let components: [any SignInComponent]
     public let action: ((any SignInComponent) -> Void)?
+
+    public init(id: String, @ComponentBuilder components: () -> [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
+        self.init(id: id, components: components(), action: action)
+    }
 
     public init(id: String, components: [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
         self.id = id

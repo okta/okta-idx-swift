@@ -18,12 +18,12 @@ extension ContinueAction: ComponentView {
     func body(in form: SignInForm, section: some SignInSection) -> AnyView {
         let result: any View
         switch intent {
-        case .signIn:
+        case .signIn, .continue:
             if #available(iOS 15.0, *) {
                 result = Button {
                     self.action()
                 } label: {
-                    Text("Sign in")
+                    Text(label)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 3.0)
                 }
@@ -33,7 +33,7 @@ extension ContinueAction: ComponentView {
                 result = Button {
                     self.action()
                 } label: {
-                    Text("Sign in")
+                    Text(label)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 3.0)
                 }
@@ -46,7 +46,7 @@ extension ContinueAction: ComponentView {
                 Button {
                     self.action()
                 } label: {
-                    Text("Sign up")
+                    Text(label)
                         .bold()
                 }
             }.padding()
@@ -56,7 +56,7 @@ extension ContinueAction: ComponentView {
                 result = Button(role: .cancel) {
                     self.action()
                 } label: {
-                    Text("Restart")
+                    Text(label)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 3.0)
                 }
@@ -66,7 +66,7 @@ extension ContinueAction: ComponentView {
                 result = Button {
                     self.action()
                 } label: {
-                    Text("Restart")
+                    Text(label)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 3.0)
                 }
@@ -75,5 +75,16 @@ extension ContinueAction: ComponentView {
         }
         
         return AnyView(result)
+    }
+    
+    func shouldDisplay(in form: SignInForm, section: some SignInSection) -> Bool {
+        // Don't show the "restart" button when we're on the identify screen
+        if intent == .restart,
+           form.sections.contains(where: { $0.id == "identify" })
+        {
+            return false
+        }
+        
+        return true
     }
 }

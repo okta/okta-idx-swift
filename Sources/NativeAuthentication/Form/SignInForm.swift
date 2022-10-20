@@ -38,15 +38,19 @@ public struct SignInForm {
     public let intent: Intent
     public let sections: [any SignInSection]
     
+    public init(intent: Intent, @SectionBuilder content: () -> [any SignInSection]) {
+        self.init(intent: intent, sections: content())
+    }
+
     public init(intent: Intent, sections: [any SignInSection]) {
         self.intent = intent
         self.sections = sections
     }
 
-    public static let empty = SignInForm(intent: .empty, sections: [])
-    public static let loading = SignInForm(intent: .loading, sections: [
-        HeaderSection(id: "loading", components: [
+    public static let empty = SignInForm(intent: .empty) {}
+    public static let loading = SignInForm(intent: .loading) {
+        HeaderSection(id: "loading") {
             Loading(id: "loadingIndicator")
-        ])
-    ])
+        }
+    }
 }

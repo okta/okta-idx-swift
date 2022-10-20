@@ -12,19 +12,12 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct FormLabel: SignInComponent {
-    public var id: String
-    public var text: String
-    public var style: Style
-    
-    public enum Style {
-        case caption, description, heading, error
-    }
-    
-    public init(id: String, text: String = "", style: Style = .caption) {
-        self.id = id
-        self.text = text
-        self.style = style
+public struct AnyAction: Identifiable {
+    public let id: String
+    public let action: any Action
+
+    public init(_ action: any Action) {
+        self.action = action
+        self.id = action.id
     }
 }

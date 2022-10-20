@@ -26,11 +26,14 @@ public final class NativeAuthentication: ObservableObject {
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension NativeAuthentication: AuthenticationClientDelegate {
     public func authentication(client: AuthenticationClient, finished token: Token) {
-        self.token = token
+        Task { @MainActor in
+            self.token = token
+        }
     }
     
     public func authentication(client: AuthenticationClient, updated form: SignInForm) {
         Task { @MainActor in
+            print(form)
             self.form = form
         }
     }

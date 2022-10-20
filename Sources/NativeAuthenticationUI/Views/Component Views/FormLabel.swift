@@ -29,6 +29,10 @@ extension FormLabel: ComponentView {
         case .description:
             result = Text(text)
                 .font(.body)
+        case .error:
+            result = Text(text)
+                .font(.caption)
+                .foregroundColor(.red)
         }
         
         return AnyView(result)
