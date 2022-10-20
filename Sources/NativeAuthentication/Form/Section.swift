@@ -13,50 +13,22 @@
 import Foundation
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public protocol SignInSection: Identifiable {
-    static var type: SectionType { get }
+public struct SignInSection: Identifiable {
+    public enum SectionType {
+        case header, body, footer
+    }
 
-    var id: String { get }
-    var components: [any SignInComponent] { get }
-    var action: ((_ component: any SignInComponent) -> Void)? { get }
-}
-
-public enum SectionType {
-    case header, body, footer
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct HeaderSection: SignInSection, Identifiable {
-    public static let type = SectionType.header
-    
+    public let type: SectionType
     public let id: String
     public let components: [any SignInComponent]
-    public let action: ((any SignInComponent) -> Void)?
-    
-    public init(id: String, @ComponentBuilder components: () -> [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
-        self.init(id: id, components: components(), action: action)
+    public let action: ((_ component: any SignInComponent) -> Void)?
+
+    public init(_ type: SectionType, id: String, @ComponentBuilder components: () -> [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
+        self.init(type, id: id, components: components(), action: action)
     }
 
-    public init(id: String, components: [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
-        self.id = id
-        self.components = components
-        self.action = action
-    }
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct InputSection: SignInSection, Identifiable {
-    public static let type = SectionType.body
-    
-    public let id: String
-    public let components: [any SignInComponent]
-    public let action: ((any SignInComponent) -> Void)?
-
-    public init(id: String, @ComponentBuilder components: () -> [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
-        self.init(id: id, components: components(), action: action)
-    }
-
-    public init(id: String, components: [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
+    public init(_ type: SectionType, id: String, components: [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
+        self.type = type
         self.id = id
         self.components = components
         self.action = action

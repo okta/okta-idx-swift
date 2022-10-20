@@ -36,20 +36,20 @@ public struct SignInForm {
     }
     
     public let intent: Intent
-    public let sections: [any SignInSection]
+    public let sections: [SignInSection]
     
-    public init(intent: Intent, @SectionBuilder content: () -> [any SignInSection]) {
+    public init(intent: Intent, @SectionBuilder content: () -> [SignInSection]) {
         self.init(intent: intent, sections: content())
     }
 
-    public init(intent: Intent, sections: [any SignInSection]) {
+    public init(intent: Intent, sections: [SignInSection]) {
         self.intent = intent
         self.sections = sections
     }
 
     public static let empty = SignInForm(intent: .empty) {}
     public static let loading = SignInForm(intent: .loading) {
-        HeaderSection(id: "loading") {
+        SignInSection(.header, id: "loading") {
             Loading(id: "loadingIndicator")
         }
     }

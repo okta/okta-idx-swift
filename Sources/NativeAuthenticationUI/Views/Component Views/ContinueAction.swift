@@ -15,7 +15,7 @@ import NativeAuthentication
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension ContinueAction: ComponentView {
-    func body(in form: SignInForm, section: some SignInSection) -> AnyView {
+    func body(in form: SignInForm, section: SignInSection) -> AnyView {
         let result: any View
         switch intent {
         case .signIn, .continue:
@@ -77,7 +77,7 @@ extension ContinueAction: ComponentView {
         return AnyView(result)
     }
     
-    func shouldDisplay(in form: SignInForm, section: some SignInSection) -> Bool {
+    func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool {
         // Don't show the "restart" button when we're on the identify screen
         if intent == .restart,
            form.sections.contains(where: { $0.id == "identify" })

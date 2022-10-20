@@ -14,16 +14,18 @@ import Foundation
 
 public struct SocialLoginAction: Action {
     public enum Provider {
-        case apple
+        case okta, apple, google, facebook, linkedin, microsoft, other(_ name: String)
     }
     
     public let id: String
     public let provider: Provider
+    public let label: String
     public let action: () -> Void
     
-    public init(id: String, provider: Provider, action: @escaping () -> Void) {
+    public init(id: String, provider: Provider, label: String, action: @escaping () -> Void) {
         self.id = id
         self.provider = provider
+        self.label = label
         self.action = action
     }
 }

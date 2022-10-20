@@ -14,7 +14,7 @@ import Foundation
 
 @resultBuilder
 public struct SectionBuilder {
-    public static func buildBlock(_ sections: any SignInSection...) -> [any SignInSection] {
+    public static func buildBlock(_ sections: SignInSection...) -> [SignInSection] {
         sections
     }
 }

@@ -18,13 +18,13 @@ public class DefaultResponseTransformer: ResponseTransformer {
     public init() {}
     
     public let loading: SignInForm = SignInForm(intent: .loading) {
-        HeaderSection(id: "loading") {
+        SignInSection(.header, id: "loading") {
             Loading(id: "loadingIndicator")
         }
     }
     
     public let success: SignInForm = SignInForm(intent: .loading) {
-        HeaderSection(id: "title") {
+        SignInSection(.header, id: "title") {
             FormLabel(id: "titleLabel", text: "Signing in", style: .heading)
             Loading(id: "loadingIndicator")
         }
@@ -40,7 +40,7 @@ public class DefaultResponseTransformer: ResponseTransformer {
     
     public func form(for error: Error) -> SignInForm {
         SignInForm(intent: .empty) {
-            HeaderSection(id: "error") {
+            SignInSection(.header, id: "error") {
                 FormLabel(id: "errorMessage", text: "Error loading the page", style: .description)
                 FormLabel(id: "errorDescription", text: error.localizedDescription, style: .error)
             }
@@ -50,29 +50,87 @@ public class DefaultResponseTransformer: ResponseTransformer {
 
 extension Response {
     func form() throws -> SignInForm {
-        var sections: [any SignInSection] = try remediations.compactMap { [weak self] remediation in
+        var sections: [SignInSection] = try remediations.compactMap { [weak self] remediation in
             try remediation.section(from: self)
         }
         
         if messages.count > 0 {
-            sections.insert(HeaderSection(id: "errors", components: messages.map({ message in
+            sections.insert(SignInSection(.header, id: "errors", components: messages.map({ message in
                 FormLabel(id: UUID().uuidString,
                           text: message.message,
                           style: .error)
             })), at: 0)
         }
         
-        sections.insert(HeaderSection(id: "title") {
+        sections.insert(SignInSection(.header, id: "title") {
             FormLabel(id: "titleLabel", text: "Sign in", style: .heading)
         }, at: 0)
+        
+        // Coalesce all redirect-idp actions together
+        let idpComponents = sections
+            .filter({ $0.id.hasPrefix("redirect-idp") })
+            .compactMap({ $0.components }).reduce([], +)
+
+        if !idpComponents.isEmpty,
+           let firstIndex = sections.firstIndex(where: { $0.id.hasPrefix("redirect-idp") })
+        {
+            sections.removeAll(where: { $0.id.hasPrefix("redirect-idp") })
+            
+            let newSection = SignInSection(.body, id: "redirect-idp", components: idpComponents)
+            sections.insert(newSection, at: firstIndex)
+        }
         
         return SignInForm(intent: .signIn,
                           sections: sections)
     }
 }
 
+extension Capability.SocialIDP {
+    var provider: SocialLoginAction.Provider? {
+        switch service {
+        case .apple:
+            return .apple
+        case .okta:
+            return .okta
+        case .facebook:
+            return .facebook
+        case .google:
+            return .google
+        case .linkedin:
+            return .linkedin
+        case .microsoft:
+            return .microsoft
+        case .oidc:
+            return .other(idpName)
+        default:
+            return nil
+        }
+    }
+    
+    var label: String? {
+        switch service {
+        case .apple:
+            return "Sign in with Apple"
+        case .okta:
+            return "Sign in with Okta"
+        case .facebook:
+            return "Sign in with Facebook"
+        case .google:
+            return "Sign in with Google"
+        case .linkedin:
+            return "Sign in with Linkedin"
+        case .microsoft:
+            return "Sign in with Microsoft"
+        case .oidc:
+            return "Sign in with \(idpName)"
+        default:
+            return nil
+        }
+    }
+}
+
 extension Remediation {
-    func section(from response: Response?) throws -> (any SignInSection)? {
+    func section(from response: Response?) throws -> SignInSection? {
         guard let response = response else { return nil }
         
         var components: [any SignInComponent] = form.fields.compactMap { field in
@@ -98,14 +156,14 @@ extension Remediation {
             guard let socialIdp = socialIdp else { break }
             id = "\(name).\(socialIdp.idpName)"
             
-            switch socialIdp.service {
-            case .apple:
-                components.append(SocialLoginAction(id: "\(name).continue",
-                                                    provider: .apple) {
+            if let provider = socialIdp.provider,
+               let label = socialIdp.label
+            {
+                components.append(SocialLoginAction(id: "\(id).continue",
+                                                    provider: provider,
+                                                    label: label) {
                     print("Social login triggered")
                 })
-
-            default: break
             }
             
         case .selectEnrollProfile:
@@ -136,8 +194,8 @@ extension Remediation {
                 self.proceed()
             })
         }
-        
-        return InputSection(id: id, components: components) { component in
+
+        return SignInSection(.body, id: id, components: components) { component in
             print("Triggered section action")
         }
     }
@@ -222,17 +280,43 @@ extension Remediation.Form.Field {
                 })
             } else {
                 let style: StringInputField.InputStyle
-                if name == "identifier" {
+                let contentType: StringInputField.ContentType
+                
+                switch name {
+                case "identifier":
                     style = .email
-                } else if isSecret {
-                    style = .password
-                } else {
+                    contentType = .username
+                case "email":
+                    style = .email
+                    contentType = .emailAddress
+                case "passcode":
+                    if let authenticator = authenticator ?? response.authenticators.current {
+                        style = .password
+
+                        switch authenticator.type {
+                        case .password:
+                            contentType = .password
+                        default:
+                            contentType = .oneTimeCode
+                        }
+                    } else {
+                        style = .password
+                        contentType = .generic
+                    }
+                default:
                     style = .generic
+                    contentType = .generic
                 }
+
+//                if isSecret {
+//                    style = .password
+//                }
+
                 rows.append(StringInputField(id: id(remediation: remediation, ancestors: ancestors),
                                              label: label ?? "",
                                              isSecure: isSecret,
                                              inputStyle: style,
+                                             contentType: contentType,
                                              value: SignInValue(self)))
             }
         }

@@ -28,6 +28,7 @@ public struct StringInputField: InputField {
     public var label: String
     public var isSecure: Bool
     public var inputStyle: InputStyle
+    public var contentType: ContentType
     
     @ObservedObject public var value: SignInValue<String>
     
@@ -35,11 +36,16 @@ public struct StringInputField: InputField {
         case email, name, password, generic
     }
     
-    public init(id: String, label: String, isSecure: Bool, inputStyle: InputStyle = .generic, value: SignInValue<String>) {
+    public enum ContentType {
+        case name, firstName, middleName, lastName, telephoneNumber, emailAddress, username, password, newPassword, oneTimeCode, generic
+    }
+    
+    public init(id: String, label: String, isSecure: Bool, inputStyle: InputStyle = .generic, contentType: ContentType = .generic, value: SignInValue<String>) {
         self.id = id
         self.label = label
         self.isSecure = isSecure
         self.inputStyle = inputStyle
+        self.contentType = contentType
         self.value = value
     }
 }

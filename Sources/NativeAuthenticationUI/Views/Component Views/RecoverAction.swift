@@ -15,7 +15,7 @@ import NativeAuthentication
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension RecoverAction: ComponentView {
-    func body(in form: SignInForm, section: some SignInSection) -> AnyView {
+    func body(in form: SignInForm, section: SignInSection) -> AnyView {
         AnyView(Button {
             self.action()
         } label: {
@@ -25,14 +25,15 @@ extension RecoverAction: ComponentView {
         })
     }
     
-    func shouldDisplay(in form: SignInForm, section: some SignInSection) -> Bool {
-        guard let inputSection = section as? InputSection else {
+    func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool {
+        switch section.type {
+        case .body:
+            return section.components
+                .compactMap({ $0 as? StringInputField })
+                .filter({ $0.isSecure })
+                .isEmpty
+        default:
             return true
         }
-        
-        return inputSection.components
-            .compactMap({ $0 as? StringInputField })
-            .filter({ $0.isSecure })
-            .isEmpty
     }
 }

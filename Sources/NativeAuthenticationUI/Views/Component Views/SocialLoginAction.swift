@@ -19,7 +19,7 @@ import AuthenticationServices
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension SocialLoginAction: ComponentView {
-    func body(in form: SignInForm, section: some SignInSection) -> AnyView {
+    func body(in form: SignInForm, section: SignInSection) -> AnyView {
         let result: any View
         switch provider {
         case .apple:
@@ -36,8 +36,29 @@ extension SocialLoginAction: ComponentView {
 #else
                 fallthrough
 #endif
+            
         default:
-            result = EmptyView()
+            if #available(iOS 15.0, *) {
+                result = Button {
+                    self.action()
+                } label: {
+                    Text(label)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 3.0)
+                }
+                .padding(.top)
+                .buttonStyle(.borderedProminent)
+            } else {
+                result = Button {
+                    self.action()
+                } label: {
+                    Text(label)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 3.0)
+                }
+                .padding(.top)
+            }
+
         }
         
         return AnyView(result)

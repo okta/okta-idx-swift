@@ -13,33 +13,57 @@
 import SwiftUI
 import NativeAuthentication
 
+extension StringInputField.ContentType {
+    var type: UITextContentType? {
+        switch self {
+        case .name:
+            return .name
+        case .firstName:
+            return .givenName
+        case .middleName:
+            return .middleName
+        case .lastName:
+            return .familyName
+        case .telephoneNumber:
+            return .telephoneNumber
+        case .emailAddress:
+            return .emailAddress
+        case .username:
+            return .username
+        case .password:
+            return .password
+        case .newPassword:
+            return .newPassword
+        case .oneTimeCode:
+            return .oneTimeCode
+        case .generic:
+            return nil
+        }
+    }
+}
+
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension StringInputField: ComponentView {
-    func body(in form: SignInForm, section: some SignInSection) -> AnyView {
+    func body(in form: SignInForm, section: SignInSection) -> AnyView {
         let keyboardType: UIKeyboardType
         let capitalization: Compatibility.TextInputAutocapitalizationMode?
         let autocorrectionDisabled: Bool
-        let contentType: UITextContentType?
         
         switch inputStyle {
         case .email:
             keyboardType = .emailAddress
-            contentType = .username
             capitalization = .never
             autocorrectionDisabled = true
         case .password:
             keyboardType = .default
-            contentType = .password
             capitalization = .never
             autocorrectionDisabled = true
         case .generic:
             keyboardType = .default
-            contentType = nil
             capitalization = nil
             autocorrectionDisabled = false
         case .name:
             keyboardType = .asciiCapable
-            contentType = .name
             capitalization = .words
             autocorrectionDisabled = false
         }
@@ -58,21 +82,21 @@ extension StringInputField: ComponentView {
                         section.action?(self)
                     }
                     .keyboardType(keyboardType)
-                    .textContentType(contentType)
+                    .textContentType(contentType.type)
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
 
-                    if let inputSection = section as? InputSection,
-                       let recoverAction = inputSection.components.first(type: RecoverAction.self)
+                    if section.type == .body,
+                       let recoverAction = section.components.first(type: RecoverAction.self)
                     {
-                        recoverAction.body(in: form, section: inputSection)
+                        recoverAction.body(in: form, section: section)
                     }
                 } else {
                     TextField(label, text: $value.value) {
                         section.action?(self)
                     }
                     .keyboardType(keyboardType)
-                    .textContentType(contentType)
+                    .textContentType(contentType.type)
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
                 }

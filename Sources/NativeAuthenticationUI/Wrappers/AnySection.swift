@@ -16,9 +16,9 @@ import NativeAuthentication
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct AnySection: Identifiable {
     public let id: String
-    public let section: any SignInSection
+    public let section: SignInSection
 
-    public init(_ section: any SignInSection) {
+    public init(_ section: SignInSection) {
         self.section = section
         self.id = section.id
     }

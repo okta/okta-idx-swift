@@ -16,13 +16,13 @@ import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 protocol ComponentView {
-    func body(in form: SignInForm, section: some SignInSection) -> AnyView
-    func shouldDisplay(in form: SignInForm, section: some SignInSection) -> Bool
+    func body(in form: SignInForm, section: SignInSection) -> AnyView
+    func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension ComponentView {
-    func shouldDisplay(in form: SignInForm, section: some SignInSection) -> Bool {
+    func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool {
         true
     }
 }

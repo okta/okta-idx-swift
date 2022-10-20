@@ -18,10 +18,10 @@ public protocol InputFormTransformerDataSource {
     func view(for form: SignInForm,
               @ViewBuilder content: () -> some View) -> any View
     func view(for form: SignInForm,
-              section: any SignInSection,
+              section: SignInSection,
               @ViewBuilder content: () -> some View) -> any View
     func view(in form: SignInForm,
-              section: any SignInSection,
+              section: SignInSection,
               component: any SignInComponent) -> any View
 }
 

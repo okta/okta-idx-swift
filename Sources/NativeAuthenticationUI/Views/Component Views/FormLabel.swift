@@ -15,7 +15,7 @@ import NativeAuthentication
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension FormLabel: ComponentView {
-    public func body(in form: SignInForm, section: some SignInSection) -> AnyView  {
+    public func body(in form: SignInForm, section: SignInSection) -> AnyView  {
         let result: any View
         switch style {
         case .heading:
