@@ -16,7 +16,11 @@ import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 protocol ComponentView {
-    func body(in form: SignInForm, section: SignInSection) -> AnyView
+    associatedtype Body: View
+    
+    @ViewBuilder
+    func body(in form: SignInForm, section: SignInSection) -> Body
+    
     func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool
 }
 

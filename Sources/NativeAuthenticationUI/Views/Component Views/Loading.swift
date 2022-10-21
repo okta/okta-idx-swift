@@ -15,20 +15,18 @@ import NativeAuthentication
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension Loading: ComponentView {
-    public func body(in form: SignInForm, section: SignInSection) -> AnyView  {
-        let result: any View
+    @ViewBuilder
+    public func body(in form: SignInForm, section: SignInSection) -> some View  {
         if #available(iOS 14.0, *) {
             if let text = text {
-                result = ProgressView {
+                ProgressView {
                     Text(text)
                 }
             } else {
-                result = ProgressView()
+                ProgressView()
             }
         } else {
-            result = EmptyView()
+            Text("Loading...")
         }
-        
-        return AnyView(result)
     }
 }

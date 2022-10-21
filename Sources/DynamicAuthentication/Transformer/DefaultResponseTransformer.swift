@@ -308,10 +308,6 @@ extension Remediation.Form.Field {
                     contentType = .generic
                 }
 
-//                if isSecret {
-//                    style = .password
-//                }
-
                 rows.append(StringInputField(id: id(remediation: remediation, ancestors: ancestors),
                                              label: label ?? "",
                                              isSecure: isSecret,

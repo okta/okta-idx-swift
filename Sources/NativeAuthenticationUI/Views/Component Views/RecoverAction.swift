@@ -15,14 +15,15 @@ import NativeAuthentication
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension RecoverAction: ComponentView {
-    func body(in form: SignInForm, section: SignInSection) -> AnyView {
-        AnyView(Button {
+    @ViewBuilder
+    func body(in form: SignInForm, section: SignInSection) -> some View {
+        Button {
             self.action()
         } label: {
             Text("Forgot?")
                 .font(.footnote)
                 .bold()
-        })
+        }
     }
     
     func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool {

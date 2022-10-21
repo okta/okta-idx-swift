@@ -44,32 +44,43 @@ extension StringInputField.ContentType {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension StringInputField: ComponentView {
-    func body(in form: SignInForm, section: SignInSection) -> AnyView {
-        let keyboardType: UIKeyboardType
-        let capitalization: Compatibility.TextInputAutocapitalizationMode?
-        let autocorrectionDisabled: Bool
-        
+    var keyboardType: UIKeyboardType {
         switch inputStyle {
         case .email:
-            keyboardType = .emailAddress
-            capitalization = .never
-            autocorrectionDisabled = true
-        case .password:
-            keyboardType = .default
-            capitalization = .never
-            autocorrectionDisabled = true
-        case .generic:
-            keyboardType = .default
-            capitalization = nil
-            autocorrectionDisabled = false
+            return .emailAddress
         case .name:
-            keyboardType = .asciiCapable
-            capitalization = .words
-            autocorrectionDisabled = false
+            return .asciiCapable
+        case .password, .generic:
+            return .default
         }
-        
-        let result: any View
-        result = VStack(spacing: 12.0) {
+    }
+    
+    var capitalization: Compatibility.TextInputAutocapitalizationMode? {
+        switch inputStyle {
+        case .email:
+            return .never
+        case .password:
+            return .never
+        case .name:
+            return .words
+        case .generic:
+            return nil
+        }
+    }
+    
+    var autocorrectionDisabled: Bool {
+        switch inputStyle {
+        case .email, .password:
+            return true
+        case .generic, .name:
+            return false
+        }
+
+    }
+    
+    @ViewBuilder
+    func body(in form: SignInForm, section: SignInSection) -> some View {
+        VStack(spacing: 12.0) {
             HStack {
                 if isSecure && id.hasSuffix("passcode") {
                     Image(systemName: "lock")
@@ -103,7 +114,5 @@ extension StringInputField: ComponentView {
             }
             Divider()
         }
-
-        return AnyView(result)
     }
 }

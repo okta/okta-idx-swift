@@ -15,12 +15,12 @@ import NativeAuthentication
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension ContinueAction: ComponentView {
-    func body(in form: SignInForm, section: SignInSection) -> AnyView {
-        let result: any View
+    @ViewBuilder
+    func body(in form: SignInForm, section: SignInSection) -> some View {
         switch intent {
         case .signIn, .continue:
             if #available(iOS 15.0, *) {
-                result = Button {
+                Button {
                     self.action()
                 } label: {
                     Text(label)
@@ -30,7 +30,7 @@ extension ContinueAction: ComponentView {
                 .padding(.top)
                 .buttonStyle(.borderedProminent)
             } else {
-                result = Button {
+                Button {
                     self.action()
                 } label: {
                     Text(label)
@@ -41,7 +41,7 @@ extension ContinueAction: ComponentView {
             }
             
         case .signUp:
-            result = HStack {
+            HStack {
                 Text("New to Example?")
                 Button {
                     self.action()
@@ -53,7 +53,7 @@ extension ContinueAction: ComponentView {
 
         case .restart:
             if #available(iOS 15.0, *) {
-                result = Button(role: .cancel) {
+                Button(role: .cancel) {
                     self.action()
                 } label: {
                     Text(label)
@@ -63,7 +63,7 @@ extension ContinueAction: ComponentView {
                 .padding(.top)
                 .buttonStyle(.bordered)
             } else {
-                result = Button {
+                Button {
                     self.action()
                 } label: {
                     Text(label)
@@ -73,8 +73,6 @@ extension ContinueAction: ComponentView {
                 .padding(.top)
             }
         }
-        
-        return AnyView(result)
     }
     
     func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool {

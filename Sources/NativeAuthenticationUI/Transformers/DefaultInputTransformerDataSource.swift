@@ -72,7 +72,7 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
             return component
         }
         
-        else if let component = component as? ComponentView,
+        else if let component = component as? (any ComponentView),
                   component.shouldDisplay(in: form, section: section)
         {
             return component.body(in: form, section: section)
