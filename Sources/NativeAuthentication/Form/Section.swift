@@ -18,10 +18,10 @@ public struct SignInSection: Identifiable {
         case header, body, footer
     }
 
-    public let type: SectionType
-    public let id: String
-    public let components: [any SignInComponent]
-    public let action: ((_ component: any SignInComponent) -> Void)?
+    public var type: SectionType
+    public var id: String
+    public var components: [any SignInComponent]
+    public var action: ((_ component: any SignInComponent) -> Void)?
 
     public init(_ type: SectionType, id: String, @ComponentBuilder components: () -> [any SignInComponent], action: ((any SignInComponent) -> Void)? = nil) {
         self.init(type, id: id, components: components(), action: action)

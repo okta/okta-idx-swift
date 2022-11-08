@@ -15,6 +15,9 @@ import NativeAuthentication
 import Foundation
 
 public class DefaultResponseTransformer: ResponseTransformer {
+    public private(set) var currentResponse: Response?
+    public private(set) var currentForm: SignInForm?
+
     public init() {}
     
     public let loading: SignInForm = SignInForm(intent: .loading) {
@@ -31,27 +34,92 @@ public class DefaultResponseTransformer: ResponseTransformer {
     }
     
     public func form(for response: Response) -> SignInForm {
+        currentResponse = response
+        let result: SignInForm
+        
         do {
-            return try response.form()
+            result = try response.form(previous: currentForm)
         } catch {
-            return form(for: error)
+            result = self.form(for: error)
         }
+        
+        currentForm = result
+        return result
     }
     
     public func form(for error: Error) -> SignInForm {
-        SignInForm(intent: .empty) {
-            SignInSection(.header, id: "error") {
-                FormLabel(id: "errorMessage", text: "Error loading the page", style: .description)
-                FormLabel(id: "errorDescription", text: error.localizedDescription, style: .error)
+        var form = currentForm ?? SignInForm(intent: .empty) {}
+        
+        var messageSection: SignInSection
+        if let section = form.sections.with(id: "title") {
+            messageSection = section
+        } else {
+            messageSection = SignInSection(.header, id: "title") {
+                FormLabel(id: "titleLabel", text: "Error signing in", style: .heading)
+            }
+            form.sections.insert(messageSection, at: 0)
+        }
+        
+        var message = error.localizedDescription
+        var componentIdentifier = "title.titleLabel"
+        
+        if let error = error as? InteractionCodeFlowError {
+            switch error {
+            case .invalidParameter(name: let name),
+                    .invalidParameterValue(name: let name, type: _):
+                switch name {
+                case "identifier":
+                    message = "The username is incorrect"
+                    
+                default: break
+                }
+                
+            case .missingRequiredParameter(name: let name):
+                switch name {
+                case "identifier":
+                    message = "Please provide a username"
+                default: break
+                }
+            default: break
             }
         }
+        
+        if var errorLabel: FormLabel = messageSection.components.with(id: "errorDescription") {
+            errorLabel.text = message
+        } else {
+            messageSection.components.append(FormLabel(id: "errorDescription",
+                                                       text: message,
+                                                       style: .error))
+        }
+        
+        if let headerIndex = form.sections.firstIndex(where: { $0.id == messageSection.id }) {
+            form.sections[headerIndex] = messageSection
+        }
+        
+        currentForm = form
+        return form
+    }
+}
+
+extension SignInForm {
+    func value(for fieldName: String?, in sectionName: String?) -> SignInValue<String>? {
+        guard let fieldName = fieldName,
+              let sectionName = sectionName,
+              let component: StringInputField = sections
+            .first(where: { $0.id == fieldName })?
+            .component(with: sectionName)
+        else {
+            return nil
+        }
+        
+        return component.value
     }
 }
 
 extension Response {
-    func form() throws -> SignInForm {
+    func form(previous: SignInForm?) throws -> SignInForm {
         var sections: [SignInSection] = try remediations.compactMap { [weak self] remediation in
-            try remediation.section(from: self)
+            try remediation.section(from: self, previous: previous)
         }
         
         if messages.count > 0 {
@@ -130,11 +198,11 @@ extension Capability.SocialIDP {
 }
 
 extension Remediation {
-    func section(from response: Response?) throws -> SignInSection? {
+    func section(from response: Response?, previous: SignInForm?) throws -> SignInSection? {
         guard let response = response else { return nil }
         
         var components: [any SignInComponent] = form.fields.compactMap { field in
-            field.remediationRow(from: response, remediation: self)
+            field.remediationRow(from: response, remediation: self, previous: previous)
         }.reduce([], +)
                 
         self.messages.forEach { message in
@@ -223,6 +291,7 @@ extension Remediation.Form.Field {
 
     func remediationRow(from response: Response,
                         remediation: Remediation,
+                        previous: SignInForm?,
                         ancestors: [Remediation.Form.Field] = []) -> [any SignInComponent]
     {
         if !isMutable {
@@ -263,6 +332,7 @@ extension Remediation.Form.Field {
                 rows.append(contentsOf: form.flatMap { nested in
                     nested.remediationRow(from: response,
                                           remediation: remediation,
+                                          previous: previous,
                                           ancestors: ancestors + [self])
                 })
             }
@@ -276,6 +346,7 @@ extension Remediation.Form.Field {
                 rows.append(contentsOf: form.flatMap { nested in
                     nested.remediationRow(from: response,
                                           remediation: remediation,
+                                          previous: previous,
                                           ancestors: ancestors + [self])
                 })
             } else {
@@ -313,7 +384,7 @@ extension Remediation.Form.Field {
                                              isSecure: isSecret,
                                              inputStyle: style,
                                              contentType: contentType,
-                                             value: SignInValue(self)))
+                                             value: previous?.value(for: remediation.name, in: name) ?? SignInValue(self)))
             }
         }
 

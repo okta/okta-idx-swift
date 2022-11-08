@@ -35,8 +35,8 @@ public struct SignInForm {
         case signIn, empty, loading
     }
     
-    public let intent: Intent
-    public let sections: [SignInSection]
+    public var intent: Intent
+    public var sections: [SignInSection]
     
     public init(intent: Intent, @SectionBuilder content: () -> [SignInSection]) {
         self.init(intent: intent, sections: content())

@@ -16,8 +16,31 @@ extension Collection where Element == any SignInComponent {
     public func with<T: SignInComponent>(type: T.Type) -> [T] {
         compactMap({ $0 as? T })
     }
-
+    
     public func first<T: SignInComponent>(type: T.Type) -> T? {
         first(where: { $0 is T }) as? T
+    }
+    
+    public func with<T: SignInComponent>(id: String) -> T? {
+        with(type: T.self).first(where: { $0.id == id })
+    }
+}
+
+extension Collection where Element == SignInSection {
+    public func with(id: String) -> Element? {
+        first(where: { $0.id == id })
+    }
+    
+    public func containing(id: String) -> SignInSection? {
+        first(where: { $0.components.contains { $0.id == id }})
+    }
+}
+
+extension SignInSection {
+    public func component<T: SignInComponent>(with id: String) -> T? {
+        components.first { component in
+            component is T && (component.id == self.id + "." + id ||
+                               component.id == id)
+        } as? T
     }
 }

@@ -19,6 +19,7 @@ import OktaIdx
 public final class DynamicAuthenticationProvider: AuthenticationProvider {
     public let delegateCollection = DelegateCollection<AuthenticationProviderDelegate>()
     
+    public private(set) var currentForm: SignInForm?
     public let flow: InteractionCodeFlow
     public let responseTransformer: any ResponseTransformer
     private var completion: ((Token) -> Void)?
@@ -32,8 +33,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         flow.add(delegate: self)
     }
     
-    public convenience init(responseTransformer: any ResponseTransformer = DefaultResponseTransformer()) throws
-    {
+    public convenience init(responseTransformer: any ResponseTransformer = DefaultResponseTransformer()) throws {
         self.init(flow: try InteractionCodeFlow(), responseTransformer: responseTransformer)
     }
     
@@ -73,6 +73,8 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     }
     
     func send(_ form: SignInForm) {
+        currentForm = form
+        
         delegateCollection.invoke({ $0.authentication(provider: self, updated: form) })
     }
 
