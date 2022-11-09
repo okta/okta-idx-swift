@@ -11,24 +11,6 @@
 //
 
 import Foundation
-
-public protocol SignInValueBacking: AnyObject {
-    var backingValue: Any { get set }
-}
-
-public class SignInValue<ValueType>: ObservableObject {
-    let backing: any SignInValueBacking
-    
-    public var value: ValueType {
-        get { backing.backingValue as! ValueType }
-        set { backing.backingValue = newValue }
-    }
-    
-    public init(_ backing: any SignInValueBacking) {
-        self.backing = backing
-    }
-}
-
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct SignInForm {
     public enum Intent {
@@ -36,20 +18,16 @@ public struct SignInForm {
     }
     
     public var intent: Intent
-    public var sections: [SignInSection]
+    public var sections: [any SignInSection]
     
-    public init(intent: Intent, @SectionBuilder content: () -> [SignInSection]) {
-        self.init(intent: intent, sections: content())
-    }
-
-    public init(intent: Intent, sections: [SignInSection]) {
+    public init(intent: Intent, @ArrayBuilder<any SignInSection> content: () -> [any SignInSection]) {
         self.intent = intent
-        self.sections = sections
+        self.sections = content()
     }
 
     public static let empty = SignInForm(intent: .empty) {}
     public static let loading = SignInForm(intent: .loading) {
-        SignInSection(.header, id: "loading") {
+        HeaderSection(id: "loading") {
             Loading(id: "loadingIndicator")
         }
     }

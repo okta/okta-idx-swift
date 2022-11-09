@@ -21,13 +21,13 @@ public class DefaultResponseTransformer: ResponseTransformer {
     public init() {}
     
     public let loading: SignInForm = SignInForm(intent: .loading) {
-        SignInSection(.header, id: "loading") {
+        HeaderSection(id: "loading") {
             Loading(id: "loadingIndicator")
         }
     }
     
     public let success: SignInForm = SignInForm(intent: .loading) {
-        SignInSection(.header, id: "title") {
+        HeaderSection(id: "title") {
             FormLabel(id: "titleLabel", text: "Signing in", style: .heading)
             Loading(id: "loadingIndicator")
         }
@@ -50,11 +50,11 @@ public class DefaultResponseTransformer: ResponseTransformer {
     public func form(for error: Error) -> SignInForm {
         var form = currentForm ?? SignInForm(intent: .empty) {}
         
-        var messageSection: SignInSection
+        var messageSection: any SignInSection
         if let section = form.sections.with(id: "title") {
             messageSection = section
         } else {
-            messageSection = SignInSection(.header, id: "title") {
+            messageSection = HeaderSection(id: "title") {
                 FormLabel(id: "titleLabel", text: "Error signing in", style: .heading)
             }
             form.sections.insert(messageSection, at: 0)
@@ -118,38 +118,50 @@ extension SignInForm {
 
 extension Response {
     func form(previous: SignInForm?) throws -> SignInForm {
-        var sections: [SignInSection] = try remediations.compactMap { [weak self] remediation in
+        var sections: [any SignInSection] = try remediations.compactMap { [weak self] remediation in
             try remediation.section(from: self, previous: previous)
         }
         
         if messages.count > 0 {
-            sections.insert(SignInSection(.header, id: "errors", components: messages.map({ message in
+            let components = messages.map({ message in
                 FormLabel(id: UUID().uuidString,
                           text: message.message,
                           style: .error)
-            })), at: 0)
+            })
+            sections.insert(HeaderSection(id: "errors") {
+                components
+            }, at: 0)
         }
         
-        sections.insert(SignInSection(.header, id: "title") {
+        sections.insert(HeaderSection(id: "title") {
             FormLabel(id: "titleLabel", text: "Sign in", style: .heading)
         }, at: 0)
         
         // Coalesce all redirect-idp actions together
         let idpComponents = sections
-            .filter({ $0.id.hasPrefix("redirect-idp") })
+            .filter({ section in
+                guard let id = section.id else { return false }
+                return id.hasPrefix("redirect-idp")
+            })
             .compactMap({ $0.components }).reduce([], +)
 
         if !idpComponents.isEmpty,
-           let firstIndex = sections.firstIndex(where: { $0.id.hasPrefix("redirect-idp") })
+           let firstIndex = sections.firstIndex(where: { section in
+               guard let id = section.id else { return false }
+               return id.hasPrefix("redirect-idp")
+           })
         {
-            sections.removeAll(where: { $0.id.hasPrefix("redirect-idp") })
+            sections.removeAll(where: { section in
+                guard let id = section.id else { return false }
+                return id.hasPrefix("redirect-idp")
+            })
             
-            let newSection = SignInSection(.body, id: "redirect-idp", components: idpComponents)
-            sections.insert(newSection, at: firstIndex)
+            sections.insert(BodySection {
+                idpComponents
+            }.id("redirect-idp"), at: firstIndex)
         }
         
-        return SignInForm(intent: .signIn,
-                          sections: sections)
+        return SignInForm(intent: .signIn) { sections }
     }
 }
 
@@ -198,7 +210,7 @@ extension Capability.SocialIDP {
 }
 
 extension Remediation {
-    func section(from response: Response?, previous: SignInForm?) throws -> SignInSection? {
+    func section(from response: Response?, previous: SignInForm?) throws -> (any SignInSection)? {
         guard let response = response else { return nil }
         
         var components: [any SignInComponent] = form.fields.compactMap { field in
@@ -263,9 +275,12 @@ extension Remediation {
             })
         }
 
-        return SignInSection(.body, id: id, components: components) { component in
-            print("Triggered section action")
+        return BodySection(id: id) {
+            components
         }
+        /* { component in
+            print("Triggered section action")
+        }*/
     }
 }
 

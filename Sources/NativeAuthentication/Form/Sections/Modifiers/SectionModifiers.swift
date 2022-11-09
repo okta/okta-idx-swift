@@ -12,15 +12,24 @@
 
 import Foundation
 
-//public struct Group<Item>: Component where Item : Component {
-//    public typealias Content = Never
-//
-//    public var content: Never { builder() }
-//
-//    private let builder: () -> Item
-//    public init(@ComponentBuilder content: @escaping () -> Item) {
-//        self.builder = content
-//    }
-//}
-//
+extension SignInSection {
+    public func id(_ id: String) -> Self {
+        var result = self
+        result.id = id
+        return result
+    }
+    
+    public func components(@ArrayBuilder<any SignInComponent> _ components: () -> [any SignInComponent]) -> Self {
+        var result = self
+        result.components = components()
+        return result
+    }
+}
 
+extension Actionable {
+    public func action(_ action: @escaping (_ component: any SignInComponent) -> Void) -> Self {
+        var result = self
+        result.action = action
+        return result
+    }
+}

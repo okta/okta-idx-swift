@@ -28,21 +28,21 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
     }
 
     public func view(for form: SignInForm,
-                     section: SignInSection,
+                     section: any SignInSection,
                      content: () -> some View) -> any View
     {
         if let section = section as? any View {
             return section
         }
         
-        else if section.type == .header {
+        else if section is HeaderSection {
             return VStack(content: content)
                 .padding(.bottom, 12.0)
         }
         
-        else if section.type == .body {
+        else if section is BodySection {
             return VStack(spacing: 12.0) {
-                if section.id == "idp" {
+                if section.id == "redirect-idp" {
                     HStack {
                         VStack {
                             Divider()
@@ -65,7 +65,7 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
     }
     
     public func view(in form: SignInForm,
-                     section: SignInSection,
+                     section: any SignInSection,
                      component: any SignInComponent) -> any View
     {
         if let component = component as? any View {

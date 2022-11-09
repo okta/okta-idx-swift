@@ -79,7 +79,7 @@ extension StringInputField: ComponentView {
     }
     
     @ViewBuilder
-    func body(in form: SignInForm, section: SignInSection) -> some View {
+    func body(in form: SignInForm, section: any SignInSection) -> some View {
         VStack(spacing: 12.0) {
             HStack {
                 if isSecure && id.hasSuffix("passcode") {
@@ -90,21 +90,21 @@ extension StringInputField: ComponentView {
                 
                 if isSecure {
                     SecureField(label, text: $value.value) {
-                        section.action?(self)
+//                        section.action?(self)
                     }
                     .keyboardType(keyboardType)
                     .textContentType(contentType.type)
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
 
-                    if section.type == .body,
+                    if let section = section as? BodySection,
                        let recoverAction = section.components.first(type: RecoverAction.self)
                     {
                         recoverAction.body(in: form, section: section)
                     }
                 } else {
                     TextField(label, text: $value.value) {
-                        section.action?(self)
+//                        section.action?(self)
                     }
                     .keyboardType(keyboardType)
                     .textContentType(contentType.type)

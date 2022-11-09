@@ -19,14 +19,14 @@ protocol ComponentView {
     associatedtype Body: View
     
     @ViewBuilder
-    func body(in form: SignInForm, section: SignInSection) -> Body
+    func body(in form: SignInForm, section: any SignInSection) -> Body
     
-    func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool
+    func shouldDisplay(in form: SignInForm, section: any SignInSection) -> Bool
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension ComponentView {
-    func shouldDisplay(in form: SignInForm, section: SignInSection) -> Bool {
+    func shouldDisplay(in form: SignInForm, section: any SignInSection) -> Bool {
         true
     }
 }

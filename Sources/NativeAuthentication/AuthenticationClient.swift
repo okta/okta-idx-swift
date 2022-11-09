@@ -1,16 +1,5 @@
 import Foundation
 
-@_exported import AuthFoundation
-
-public protocol AuthenticationProviderDelegate {
-    func authentication(provider: any AuthenticationProvider, updated form: SignInForm)
-    func authentication(provider: any AuthenticationProvider, finished token: Token)
-}
-
-public protocol AuthenticationProvider: UsesDelegateCollection where Delegate == AuthenticationProviderDelegate {
-    func signIn(_ completion: @escaping (_ token: Token) -> Void) async
-}
-
 public protocol AuthenticationClientDelegate {
     func authentication(client: AuthenticationClient, updated form: SignInForm)
     func authentication(client: AuthenticationClient, finished token: Token)
@@ -35,7 +24,7 @@ public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
     }
     
     @MainActor
-    public func signIn(_  completion: @escaping (_ token: Token) -> Void) async {
+    public func signIn(_ completion: @escaping (_ token: Token) -> Void) async {
         await provider.signIn(completion)
     }
     

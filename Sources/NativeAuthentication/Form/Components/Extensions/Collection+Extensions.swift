@@ -26,12 +26,12 @@ extension Collection where Element == any SignInComponent {
     }
 }
 
-extension Collection where Element == SignInSection {
+extension Collection where Element == any SignInSection {
     public func with(id: String) -> Element? {
         first(where: { $0.id == id })
     }
     
-    public func containing(id: String) -> SignInSection? {
+    public func containing(id: String) -> (any SignInSection)? {
         first(where: { $0.components.contains { $0.id == id }})
     }
 }
@@ -39,8 +39,9 @@ extension Collection where Element == SignInSection {
 extension SignInSection {
     public func component<T: SignInComponent>(with id: String) -> T? {
         components.first { component in
-            component is T && (component.id == self.id + "." + id ||
-                               component.id == id)
+            guard component is T else { return false }
+            return (component.id == (self.id ?? "") + "." + id ||
+                    component.id == id)
         } as? T
     }
 }

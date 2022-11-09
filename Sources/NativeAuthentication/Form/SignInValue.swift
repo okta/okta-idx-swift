@@ -12,10 +12,19 @@
 
 import Foundation
 
-@resultBuilder
-public struct SectionBuilder {
-    public static func buildBlock(_ sections: SignInSection...) -> [SignInSection] {
-        sections
-    }
+public protocol SignInValueBacking: AnyObject {
+    var backingValue: Any { get set }
 }
 
+public class SignInValue<ValueType>: ObservableObject {
+    let backing: any SignInValueBacking
+    
+    public var value: ValueType {
+        get { backing.backingValue as! ValueType }
+        set { backing.backingValue = newValue }
+    }
+    
+    public init(_ backing: any SignInValueBacking) {
+        self.backing = backing
+    }
+}

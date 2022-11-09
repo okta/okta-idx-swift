@@ -20,7 +20,7 @@ import AuthenticationServices
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension SocialLoginAction: ComponentView {
     @ViewBuilder
-    func body(in form: SignInForm, section: SignInSection) -> some View {
+    func body(in form: SignInForm, section: any SignInSection) -> some View {
         switch provider {
         case .apple:
 #if canImport(AuthenticationServices)
