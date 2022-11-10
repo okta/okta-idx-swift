@@ -13,8 +13,6 @@
 import Foundation
 
 public protocol SignInSection: Identifiable {
-    static var type: SectionType { get }
-    
     var id: String? { get set }
     var components: [any SignInComponent] { get set }
 }
@@ -23,14 +21,8 @@ public protocol Actionable {
     var action: ((_ component: any SignInComponent) -> Void)? { get set }
 }
 
-public enum SectionType {
-    case header, divider, body, footer
-}
-
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct HeaderSection: SignInSection, Identifiable {
-    public static let type = SectionType.header
-    
     public var id: String?
     public var components: [any SignInComponent]
     
@@ -41,13 +33,7 @@ public struct HeaderSection: SignInSection, Identifiable {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct BodySection: SignInSection, Identifiable {
-    public static let type = SectionType.body
-    
-    public enum Option {
-        case identifyUser, registerUser
-    }
-    
+public struct GenericSection: SignInSection, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
     
@@ -58,9 +44,25 @@ public struct BodySection: SignInSection, Identifiable {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct IdentifyUserSection: SignInSection, Identifiable {
-    public static let type = SectionType.body
+public struct MakeSelection: SignInSection, Actionable, Identifiable {
+    public enum Selection {
+        case enrollProfile, identify
+    }
     
+    public var id: String?
+    public var selection: Selection
+    public var components: [any SignInComponent]
+    public var action: ((_ component: any SignInComponent) -> Void)?
+
+    public init(id: String? = nil, selection: Selection, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+        self.id = id
+        self.selection = selection
+        self.components = components()
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct IdentifyUser: SignInSection, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
     
@@ -71,9 +73,54 @@ public struct IdentifyUserSection: SignInSection, Identifiable {
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct RegisterUserSection: SignInSection, Actionable, Identifiable {
-    public static let type = SectionType.body
+public struct RegisterUser: SignInSection, Actionable, Identifiable {
+    public var id: String?
+    public var components: [any SignInComponent]
+    public var action: ((_ component: any SignInComponent) -> Void)?
+
+    public init(id: String? = nil, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+        self.id = id
+        self.components = components()
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct SelectAuthenticator: SignInSection, Actionable, Identifiable {
+    public enum Intent {
+        case authenticate, enroll, recover
+    }
     
+    public var intent: Intent
+    public var id: String?
+    public var components: [any SignInComponent]
+    public var action: ((_ component: any SignInComponent) -> Void)?
+
+    public init(id: String? = nil, intent: Intent, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+        self.id = id
+        self.intent = intent
+        self.components = components()
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct RedirectIDP: SignInSection, Identifiable {
+    public enum Provider {
+        case okta, apple, google, facebook, linkedin, microsoft, other(_ name: String)
+    }
+
+    public var id: String?
+    public let providers: [Provider]
+    public var components: [any SignInComponent]
+    
+    public init(id: String? = nil, providers: [Provider], @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+        self.id = id
+        self.providers = providers
+        self.components = components()
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct RestartSignIn: SignInSection, Actionable, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
     public var action: ((_ component: any SignInComponent) -> Void)?

@@ -138,27 +138,24 @@ extension Response {
         }, at: 0)
         
         // Coalesce all redirect-idp actions together
-        let idpComponents = sections
-            .filter({ section in
-                guard let id = section.id else { return false }
-                return id.hasPrefix("redirect-idp")
-            })
-            .compactMap({ $0.components }).reduce([], +)
+        let idpSections: [RedirectIDP] = sections
+            .compactMap({ $0 as? RedirectIDP })
+
+        let idpProviders = idpSections
+            .map({ $0.providers })
+            .reduce([], +)
+
+        let idpComponents = idpSections
+            .compactMap({ $0.components })
+            .reduce([], +)
 
         if !idpComponents.isEmpty,
-           let firstIndex = sections.firstIndex(where: { section in
-               guard let id = section.id else { return false }
-               return id.hasPrefix("redirect-idp")
-           })
+           let firstIndex = sections.firstIndex(where: { $0 is RedirectIDP })
         {
-            sections.removeAll(where: { section in
-                guard let id = section.id else { return false }
-                return id.hasPrefix("redirect-idp")
-            })
-            
-            sections.insert(BodySection {
+            sections.removeAll(where: { $0 is RedirectIDP })
+            sections.insert(RedirectIDP(id: "redirect-idp", providers: idpProviders) {
                 idpComponents
-            }.id("redirect-idp"), at: firstIndex)
+            }, at: firstIndex)
         }
         
         return SignInForm(intent: .signIn) { sections }
@@ -166,7 +163,7 @@ extension Response {
 }
 
 extension Capability.SocialIDP {
-    var provider: SocialLoginAction.Provider? {
+    var provider: RedirectIDP.Provider? {
         switch service {
         case .apple:
             return .apple
@@ -210,6 +207,68 @@ extension Capability.SocialIDP {
 }
 
 extension Remediation {
+    func action() -> (any Action)? {
+        switch type {
+        case .cancel:
+            return ContinueAction(id: "\(name).continue",
+                                  intent: .restart,
+                                  label: "Restart") {
+                self.proceed()
+            }
+            
+        case .redirectIdp:
+            guard let socialIdp = socialIdp,
+                  let provider = socialIdp.provider,
+                  let label = socialIdp.label
+            else {
+                return nil
+            }
+            
+            return SocialLoginAction(id: "\(name).\(socialIdp.idpName).continue",
+                                     provider: provider,
+                                     label: label) {
+                print("Social login triggered")
+            }
+            
+        case .selectEnrollProfile:
+            return ContinueAction(id: "\(name).continue",
+                                  intent: .signUp,
+                                  label: "Sign up") {
+                self.proceed()
+            }
+            
+        case .identify:
+            return ContinueAction(id: "\(name).signIn",
+                                  intent: .signIn,
+                                  label: "Sign in") {
+                self.proceed()
+            }
+            
+        case .selectIdentify:
+            return ContinueAction(id: "\(name).signIn",
+                                  intent: .signIn,
+                                  label: "Sign in with a username") {
+                self.proceed()
+            }
+            
+        case .selectAuthenticatorAuthenticate,
+                .selectAuthenticatorEnroll,
+                .selectAuthenticatorUnlockAccount:
+            return ContinueAction(id: "\(name).signIn",
+                                  intent: .continue,
+                                  label: "Select authenticator method") {
+                self.proceed()
+            }
+            
+        default:
+            return ContinueAction(id: "\(name).continue",
+                                  intent: .continue,
+                                  label: "Continue") {
+                self.proceed()
+            }
+        }
+    }
+
     func section(from response: Response?, previous: SignInForm?) throws -> (any SignInSection)? {
         guard let response = response else { return nil }
         
@@ -223,64 +282,77 @@ extension Remediation {
                                         style: .caption))
         }
         
-        var id = name
+        if let actionComponent = action() {
+            components.append(actionComponent)
+        }
+        
+        let result: any SignInSection
+        
         switch type {
         case .cancel:
-            components.append(ContinueAction(id: "\(name).continue",
-                                             intent: .restart,
-                                             label: "Restart") {
+            result = RestartSignIn {
+                components
+            }.action { component in
                 self.proceed()
-            })
+            }
             
         case .redirectIdp:
-            guard let socialIdp = socialIdp else { break }
-            id = "\(name).\(socialIdp.idpName)"
+            guard let socialIdp = socialIdp,
+                  let provider = socialIdp.provider
+            else {
+                return nil
+            }
             
-            if let provider = socialIdp.provider,
-               let label = socialIdp.label
-            {
-                components.append(SocialLoginAction(id: "\(id).continue",
-                                                    provider: provider,
-                                                    label: label) {
-                    print("Social login triggered")
-                })
+            result = RedirectIDP(providers: [provider]) {
+                components
             }
             
         case .selectEnrollProfile:
-            components.append(ContinueAction(id: "\(name).continue",
-                                             intent: .signUp,
-                                             label: "Sign up") {
+            result = MakeSelection(selection: .enrollProfile) {
+                components
+            }.action { component in
                 self.proceed()
-            })
+            }
 
         case .identify:
-            components.append(ContinueAction(id: "\(name).signIn",
-                                             intent: .signIn,
-                                             label: "Sign in") {
-                self.proceed()
-            })
+            result = IdentifyUser {
+                components
+            }
 
+        case .enrollProfile:
+            result = RegisterUser {
+                components
+            }
+            
         case .selectIdentify:
-            components.append(ContinueAction(id: "\(name).signIn",
-                                             intent: .signIn,
-                                             label: "Sign in with a username") {
+            result = MakeSelection(selection: .identify) {
+                components
+            }.action { component in
                 self.proceed()
-            })
+            }
+
+        case .selectAuthenticatorAuthenticate:
+            result = SelectAuthenticator(intent: .authenticate) {
+                components
+            }
+
+        case .selectAuthenticatorEnroll:
+            result = SelectAuthenticator(intent: .enroll) {
+                components
+            }
+
+        case .selectAuthenticatorUnlockAccount:
+            result = SelectAuthenticator(intent: .recover) {
+                components
+            }
 
         default:
-            components.append(ContinueAction(id: "\(name).continue",
-                                             intent: .continue,
-                                             label: "Continue") {
-                self.proceed()
-            })
+            result = GenericSection {
+                components
+            }
         }
-
-        return BodySection(id: id) {
-            components
-        }
-        /* { component in
-            print("Triggered section action")
-        }*/
+        
+        return result.id(name)
     }
 }
 
@@ -328,22 +400,21 @@ extension Remediation.Form.Field {
 //            rows.append(Row(kind: .toggle(field: self),
 //                            parent: parent,
 //                            delegate: delegate))
+            
         case "object":
-//            if let options = options {
-//                options.forEach { option in
-//                    rows.append(Row(kind: .option(field: self, option: option),
-//                                    parent: parent,
-//                                    delegate: delegate))
-//                    if option.isSelectedOption,
-//                       let form = option.form
-//                    {
-//                        rows.append(contentsOf: form.flatMap { nested in
-//                            nested.remediationRow(delegate: delegate)
-//                        })
-//                    }
-//                }
-//            } else
-        if let form = form {
+            if let options = options {
+                options.forEach { field in
+                    guard let label = field.label else { return }
+                    let id = remediation.name + "." + label
+
+                    let choice = Choice(id: id,
+                                        title: field.label ?? "",
+                                        caption: field.authenticator?.capability(Capability.Profile.self)?.values.first?.value)
+                    rows.append(choice)
+                }
+            }
+            
+            else if let form = form {
                 rows.append(contentsOf: form.flatMap { nested in
                     nested.remediationRow(from: response,
                                           remediation: remediation,
@@ -357,6 +428,7 @@ extension Remediation.Form.Field {
 //                rows.append(Row(kind: .select(field: self, values: options),
 //                                parent: parent,
 //                                delegate: delegate))
+                print("What do I do?")
             } else if let form = form {
                 rows.append(contentsOf: form.flatMap { nested in
                     nested.remediationRow(from: response,

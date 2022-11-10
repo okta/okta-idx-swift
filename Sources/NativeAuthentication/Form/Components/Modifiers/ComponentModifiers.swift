@@ -31,21 +31,21 @@ import Foundation
 //        return result
 //    }
 //}
-//
-//extension Label {
-//    public func style(_ style: Label.Style) -> Label {
-//        var result = self
-//        result.style = style
-//        return result
-//    }
-//
-//    public func text(_ text: String) -> Label {
-//        var result = self
-//        result.text = text
-//        return result
-//    }
-//}
-//
+
+extension FormLabel {
+    public func style(_ style: FormLabel.Style) -> Self {
+        var result = self
+        result.style = style
+        return result
+    }
+
+    public func text(_ text: String) -> Self {
+        var result = self
+        result.text = text
+        return result
+    }
+}
+
 //extension Action {
 //    public func text(_ text: String) -> Action {
 //        var result = self

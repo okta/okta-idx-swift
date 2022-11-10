@@ -10,18 +10,17 @@
 // See the License for the specific language governing permissions and limitations under the License.
 //
 
-import Foundation
+import SwiftUI
+import NativeAuthentication
 
-public struct SocialLoginAction: Action {
-    public let id: String
-    public let provider: RedirectIDP.Provider
-    public let label: String
-    public let action: () -> Void
-    
-    public init(id: String, provider: RedirectIDP.Provider, label: String, action: @escaping () -> Void) {
-        self.id = id
-        self.provider = provider
-        self.label = label
-        self.action = action
-    }
-}
+//@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+//extension ChoiceGroup: ComponentView {
+//    @ViewBuilder
+//    public func body(in form: SignInForm, section: any SignInSection) -> some View  {
+//        VStack(spacing: 8) {
+//            ForEach(choices) { choice in
+//                choice.body(in: form, section: section)
+//            }
+//        }
+//    }
+//}

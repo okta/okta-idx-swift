@@ -97,7 +97,7 @@ extension StringInputField: ComponentView {
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
 
-                    if let section = section as? BodySection,
+                    if let section = section as? GenericSection,
                        let recoverAction = section.components.first(type: RecoverAction.self)
                     {
                         recoverAction.body(in: form, section: section)

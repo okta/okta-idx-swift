@@ -74,15 +74,4 @@ extension ContinueAction: ComponentView {
             }
         }
     }
-    
-    func shouldDisplay(in form: SignInForm, section: any SignInSection) -> Bool {
-        // Don't show the "restart" button when we're on the identify screen
-        if intent == .restart,
-           form.sections.contains(where: { $0.id == "identify" })
-        {
-            return false
-        }
-        
-        return true
-    }
 }

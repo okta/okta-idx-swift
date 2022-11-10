@@ -33,3 +33,19 @@ extension Actionable {
         return result
     }
 }
+
+extension SelectAuthenticator {
+    public func intent(_ intent: SelectAuthenticator.Intent) -> Self {
+        var result = self
+        result.intent = intent
+        return result
+    }
+}
+
+extension MakeSelection {
+    public func selection(_ selection: MakeSelection.Selection) -> Self {
+        var result = self
+        result.selection = selection
+        return result
+    }
+}

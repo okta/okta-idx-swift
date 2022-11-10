@@ -35,32 +35,40 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
             return section
         }
         
+        else if section is RestartSignIn,
+                form.sections.contains(where: { $0 is IdentifyUser })
+        {
+            return EmptyView()
+        }
+        
         else if section is HeaderSection {
             return VStack(content: content)
                 .padding(.bottom, 12.0)
         }
         
-        else if section is BodySection {
+        else if section is RedirectIDP {
             return VStack(spacing: 12.0) {
-                if section.id == "redirect-idp" {
-                    HStack {
-                        VStack {
-                            Divider()
-                        }
-                        Text("Or sign in with")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .frame(maxWidth: .infinity)
-                        VStack {
-                            Divider()
-                        }
-                    }.padding(.bottom, 12.0)
-                }
-
+                HStack {
+                    VStack {
+                        Divider()
+                    }
+                    Text("Or sign in with")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity)
+                    VStack {
+                        Divider()
+                    }
+                }.padding(.bottom, 12.0)
+                
                 content()
             }.padding(.bottom, 12.0)
-        } else {
-            return EmptyView()
+        }
+        
+        else {
+            return VStack(spacing: 12.0) {
+                content()
+            }.padding(.bottom, 12.0)
         }
     }
     

@@ -10,30 +10,17 @@
 // See the License for the specific language governing permissions and limitations under the License.
 //
 
-import SwiftUI
-import NativeAuthentication
+import Foundation
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension RecoverAction: ComponentView {
-    @ViewBuilder
-    func body(in form: SignInForm, section: any SignInSection) -> some View {
-        Button {
-            self.action()
-        } label: {
-            Text("Forgot?")
-                .font(.footnote)
-                .bold()
-        }
-    }
-    
-    func shouldDisplay(in form: SignInForm, section: any SignInSection) -> Bool {
-        if let section = section as? GenericSection {
-            return section.components
-                .compactMap({ $0 as? StringInputField })
-                .filter({ $0.isSecure })
-                .isEmpty
-        } else {
-            return true
-        }
+public struct Choice: SignInComponent {
+    public var id: String
+    public var title: String?
+    public var caption: String?
+
+    public init(id: String, title: String? = nil, caption: String? = nil) {
+        self.id = id
+        self.title = title
+        self.caption = caption
     }
 }
