@@ -7,8 +7,10 @@ public final class NativeAuthentication: ObservableObject {
     @Published public private(set) var token: Token?
     
     public let client: AuthenticationClient
+    private let initialForm: SignInForm
     
     public init(client: AuthenticationClient, initialForm: SignInForm = .empty) {
+        self.initialForm = initialForm
         self.form = initialForm
         self.client = client
         client.add(delegate: self)
@@ -20,6 +22,16 @@ public final class NativeAuthentication: ObservableObject {
     
     public func rendererView(dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource(), completion: @escaping (Token) -> Void) -> InputFormRenderer {
         .init(auth: self, dataSource: dataSource, completion: completion)
+    }
+    
+    public func reset() {
+        let storage = HTTPCookieStorage.shared
+        if let cookie = storage.cookies?.filter({ $0.name == "idx"}).first {
+            storage.deleteCookie(cookie)
+        }
+
+        form = initialForm
+        token = nil
     }
 }
 

@@ -16,11 +16,9 @@ import NativeAuthenticationUI
 
 @main
 struct NativeSignInWidgetApp: App {
-    let nativeAuth = NativeAuthentication(provider: try! DynamicAuthenticationProvider())
-    
     var body: some Scene {
         WindowGroup {
-            ContentView(auth: nativeAuth)
+            AppView()
         }
     }
 }
