@@ -162,6 +162,49 @@ extension Response {
     }
 }
 
+extension OktaIdx.Authenticator {
+    var authenticatorModel: (any NativeAuthentication.Authenticator)? {
+        guard let displayName = displayName else {
+            return nil
+        }
+        
+        switch type {
+        case .email:
+            var result = EmailAuthenticator(name: displayName)
+                .profile(capability(Capability.Profile.self)?.values["email"])
+            
+            if let sendable = capability(Capability.Sendable.self) {
+                result.send = {
+                    sendable.send()
+                }
+            }
+
+            if let resendable = capability(Capability.Resendable.self) {
+                result.resend = {
+                    resendable.resend()
+                }
+            }
+            
+            if let pollable = capability(Capability.Pollable.self) {
+                result.startPolling = {
+                    pollable.startPolling()
+                }
+                
+                result.stopPolling = {
+                    pollable.stopPolling()
+                }
+            }
+            
+            return result
+            
+        default:
+            return nil
+        }
+    }
+}
+
+//extension Authenticator
+
 extension Capability.SocialIDP {
     var provider: RedirectIDP.Provider? {
         switch service {
@@ -345,6 +388,12 @@ extension Remediation {
             result = SelectAuthenticator(intent: .recover) {
                 components
             }
+            
+        case .challengeAuthenticator:
+            guard let authenticator = authenticators.current?.authenticatorModel else { fallthrough }
+            result = ChallengeAuthenticator(authenticator: authenticator) {
+                components
+            }
 
         default:
             result = GenericSection {
@@ -404,13 +453,24 @@ extension Remediation.Form.Field {
         case "object":
             if let options = options {
                 options.forEach { field in
-                    guard let label = field.label else { return }
+                    guard let label = field.label,
+                          let authenticator = field.authenticator,
+                          let authenticatorModel = authenticator.authenticatorModel
+                    else {
+                        return
+                    }
+                    
                     let id = remediation.name + "." + label
-
-                    let choice = Choice(id: id,
-                                        title: field.label ?? "",
-                                        caption: field.authenticator?.capability(Capability.Profile.self)?.values.first?.value)
-                    rows.append(choice)
+                    rows.append(AuthenticatorOption(
+                        id: id,
+                        authenticator: authenticatorModel)
+                        .name(authenticator.type.rawValue)
+                        .label(label)
+                        .isCurrentOption(response.authenticators.current == authenticator)
+                        .action { component in
+                            self.selectedOption = field
+                            remediation.proceed()
+                        })
                 }
             }
             

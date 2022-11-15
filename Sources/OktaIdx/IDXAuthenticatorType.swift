@@ -19,7 +19,7 @@ extension Authenticator {
     }
     
     /// The type of authenticator.
-    public enum Kind {
+    public enum Kind: String {
         case unknown
         case app
         case email

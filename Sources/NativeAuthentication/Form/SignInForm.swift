@@ -14,7 +14,7 @@ import Foundation
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct SignInForm {
     public enum Intent {
-        case signIn, empty, loading
+        case signIn, empty, loading, success, custom
     }
     
     public var intent: Intent

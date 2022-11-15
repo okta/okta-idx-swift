@@ -21,7 +21,28 @@ public protocol Actionable {
     var action: ((_ component: any SignInComponent) -> Void)? { get set }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public protocol Authenticator {
+    var name: String { get set }
+    var displayName: String? { get set }
+    var profile: String? { get set }
+}
+
+public struct EmailAuthenticator: Authenticator {
+    public var name: String
+    public var displayName: String?
+    public var profile: String?
+    
+    public var send: (() -> Void)?
+    public var resend: (() -> Void)?
+    public var startPolling: (() -> Void)?
+    public var stopPolling: (() -> Void)?
+
+    public init(name: String) {
+        self.name = name
+    }
+}
+
+//@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct HeaderSection: SignInSection, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
@@ -98,6 +119,20 @@ public struct SelectAuthenticator: SignInSection, Actionable, Identifiable {
     public init(id: String? = nil, intent: Intent, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
         self.id = id
         self.intent = intent
+        self.components = components()
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct ChallengeAuthenticator: SignInSection, Actionable, Identifiable {
+    public var id: String?
+    public var authenticator: any Authenticator
+    public var components: [any SignInComponent]
+    public var action: ((_ component: any SignInComponent) -> Void)?
+
+    public init(id: String? = nil, authenticator: any Authenticator, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+        self.id = id
+        self.authenticator = authenticator
         self.components = components()
     }
 }

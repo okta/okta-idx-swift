@@ -24,4 +24,3 @@ public protocol InputFormTransformerDataSource {
               section: any SignInSection,
               component: any SignInComponent) -> any View
 }
-

@@ -46,6 +46,46 @@ extension FormLabel {
     }
 }
 
+extension AuthenticatorOption {
+    public func authenticator(_ authenticator: any Authenticator) -> Self {
+        var result = self
+        result.authenticator = authenticator
+        return result
+    }
+
+    public func name(_ name: String?) -> Self {
+        var result = self
+        result.name = name
+        return result
+    }
+
+    public func label(_ label: String?) -> Self {
+        var result = self
+        result.label = label
+        return result
+    }
+
+    public func isCurrentOption(_ option: Bool) -> Self {
+        var result = self
+        result.isCurrentOption = option
+        return result
+    }
+}
+
+extension Authenticator {
+    public func profile(_ profile: String?) -> Self {
+        var result = self
+        result.profile = profile
+        return result
+    }
+    
+    public func displayName(_ displayName: String?) -> Self {
+        var result = self
+        result.displayName = displayName
+        return result
+    }
+}
+
 //extension Action {
 //    public func text(_ text: String) -> Action {
 //        var result = self

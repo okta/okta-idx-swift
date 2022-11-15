@@ -13,14 +13,16 @@
 import Foundation
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct Choice: SignInComponent {
+public struct AuthenticatorOption: SignInComponent, Actionable {
     public var id: String
-    public var title: String?
-    public var caption: String?
-
-    public init(id: String, title: String? = nil, caption: String? = nil) {
+    public var name: String?
+    public var label: String?
+    public var authenticator: any Authenticator
+    public var action: ((any SignInComponent) -> Void)?
+    public var isCurrentOption: Bool = false
+    
+    public init(id: String, authenticator: any Authenticator) {
         self.id = id
-        self.title = title
-        self.caption = caption
+        self.authenticator = authenticator
     }
 }
