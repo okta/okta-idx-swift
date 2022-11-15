@@ -19,5 +19,5 @@ public protocol AuthenticationProviderDelegate {
 }
 
 public protocol AuthenticationProvider: UsesDelegateCollection where Delegate == AuthenticationProviderDelegate {
-    func signIn(_ completion: @escaping (_ token: Token) -> Void) async
+    func signIn() async
 }

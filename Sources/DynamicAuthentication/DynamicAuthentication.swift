@@ -22,7 +22,6 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     public private(set) var currentForm: SignInForm?
     public let flow: InteractionCodeFlow
     public let responseTransformer: any ResponseTransformer
-    private var completion: ((Token) -> Void)?
 
     public init(flow: InteractionCodeFlow,
                 responseTransformer: any ResponseTransformer = DefaultResponseTransformer())
@@ -59,8 +58,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
                   responseTransformer: responseTransformer)
     }
     
-    public func signIn(_ completion: @escaping (Token) -> Void) async {
-        self.completion = completion
+    public func signIn() async {
         do {
             if flow.isAuthenticating {
                 _ = try await flow.resume()
@@ -100,7 +98,6 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     }
     
     public func authentication<Flow>(flow: Flow, received token: Token) {
-        completion?(token)
     }
     
     public func authenticationStarted<Flow>(flow: Flow) where Flow : InteractionCodeFlow {

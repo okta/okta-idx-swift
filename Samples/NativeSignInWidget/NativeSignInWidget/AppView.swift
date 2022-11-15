@@ -55,9 +55,7 @@ struct AppView: View {
         if let credential = viewModel.credential {
             MainView(credential: credential)
         } else {
-            viewModel.nativeAuth.rendererView() { token in
-                print("Woohoo")
-            }
+            viewModel.nativeAuth.rendererView()
             .frame(maxWidth: .infinity)
         }
     }

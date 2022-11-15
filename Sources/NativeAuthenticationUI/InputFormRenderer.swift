@@ -19,12 +19,10 @@ public struct InputFormRenderer: View {
     @ObservedObject var auth: NativeAuthentication
     
     private let dataSource: any InputFormTransformerDataSource
-    private let completion: (Token) -> Void
 
-    public init(auth: NativeAuthentication, dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource(), completion: @escaping (Token) -> Void) {
+    public init(auth: NativeAuthentication, dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) {
         self.auth = auth
         self.dataSource = dataSource
-        self.completion = completion
     }
     
     public var body: some View {
@@ -43,7 +41,7 @@ public struct InputFormRenderer: View {
         })
         .onAppear {
             Task {
-                await auth.client.signIn(completion)
+                await auth.client.signIn()
             }
         }
         .animation(Animation.default.speed(1))

@@ -24,8 +24,8 @@ public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
     }
     
     @MainActor
-    public func signIn(_ completion: @escaping (_ token: Token) -> Void) async {
-        await provider.signIn(completion)
+    public func signIn() async {
+        await provider.signIn()
     }
     
     func send(_ form: SignInForm) {

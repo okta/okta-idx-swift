@@ -20,8 +20,8 @@ public final class NativeAuthentication: ObservableObject {
         self.init(client: AuthenticationClient(provider: provider), initialForm: initialForm)
     }
     
-    public func rendererView(dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource(), completion: @escaping (Token) -> Void) -> InputFormRenderer {
-        .init(auth: self, dataSource: dataSource, completion: completion)
+    public func rendererView(dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) -> InputFormRenderer {
+        .init(auth: self, dataSource: dataSource)
     }
     
     public func reset() {
