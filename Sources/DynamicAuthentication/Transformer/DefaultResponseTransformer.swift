@@ -395,6 +395,11 @@ extension Remediation {
                 components
             }
 
+        case .authenticatorVerificationData:
+            // TODO: Support this more later
+            print("Skipping \(self)")
+            return nil
+            
         default:
             result = GenericSection {
                 components
