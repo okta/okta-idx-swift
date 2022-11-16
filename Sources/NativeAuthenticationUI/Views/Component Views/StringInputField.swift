@@ -97,7 +97,7 @@ extension StringInputField: ComponentView {
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
 
-                    if let section = section as? GenericSection,
+                    if let section = section as? IdentifyUser,
                        let recoverAction = section.components.first(type: RecoverAction.self)
                     {
                         recoverAction.body(in: form, section: section)
@@ -116,3 +116,51 @@ extension StringInputField: ComponentView {
         }
     }
 }
+
+#if DEBUG
+struct StringInputField_Previews: PreviewProvider {
+    class StringBacking: SignInValueBacking {
+        var backingValue: Any
+        
+        init(_ backingValue: String = "") {
+            self.backingValue = backingValue
+        }
+    }
+    
+    static var previews: some View {
+        let section = GenericSection {[
+            RecoverAction(id: "recover", action: {})
+        ]}
+        let form = SignInForm(intent: .custom) {
+            section
+        }
+        
+        VStack(spacing: 20) {
+            StringInputField(id: "username",
+                             label: "Username",
+                             isSecure: false,
+                             inputStyle: .email,
+                             contentType: .username,
+                             value: SignInValue(StringBacking()))
+                .body(in: form, section: section)
+
+            StringInputField(id: "password",
+                             label: "Password",
+                             isSecure: true,
+                             inputStyle: .password,
+                             contentType: .password,
+                             value: SignInValue(StringBacking()))
+                .body(in: form, section: section)
+
+            StringInputField(id: "newPassword",
+                             label: "New Password",
+                             isSecure: true,
+                             inputStyle: .password,
+                             contentType: .newPassword,
+                             value: SignInValue(StringBacking()))
+                .body(in: form, section: section)
+        }
+        .padding(20)
+    }
+}
+#endif

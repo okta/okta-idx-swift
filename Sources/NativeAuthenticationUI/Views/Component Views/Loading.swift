@@ -30,3 +30,22 @@ extension Loading: ComponentView {
         }
     }
 }
+
+#if DEBUG
+struct Loading_Previews: PreviewProvider {
+    static var previews: some View {
+        let section = GenericSection {[]}
+        let form = SignInForm(intent: .custom) {
+            section
+        }
+        
+        VStack(spacing: 20) {
+            Loading(id: "text", text: "Loading ...")
+                .body(in: form, section: section)
+            Loading(id: "plain")
+                .body(in: form, section: section)
+        }
+        .padding(20)
+    }
+}
+#endif

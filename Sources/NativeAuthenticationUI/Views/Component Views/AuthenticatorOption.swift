@@ -17,12 +17,7 @@ import NativeAuthentication
 extension AuthenticatorOption: ComponentView {
     @ViewBuilder
     public func body(in form: SignInForm, section: any SignInSection) -> some View {
-        HStack(alignment: .center, spacing: 24) {
-            if isCurrentOption {
-                Image(systemName: "checkmark")
-                    .frame(width: 48, height: 48)
-            }
-            
+        HStack(alignment: .firstTextBaseline) {
             switch name {
             case "email":
                 Image(systemName: "envelope.circle")
@@ -53,6 +48,11 @@ extension AuthenticatorOption: ComponentView {
                 }
             }
             
+            if isCurrentOption {
+                Image(systemName: "checkmark")
+                    .frame(width: 48, height: 48)
+            }
+            
             if let action = action {
                 Button("Select") {
                     action(self)
@@ -62,3 +62,49 @@ extension AuthenticatorOption: ComponentView {
     }
 }
 
+#if DEBUG
+struct AuthenticatorOption_Previews: PreviewProvider {
+    static var previews: some View {
+        let section = GenericSection {[]}
+        let form = SignInForm(intent: .custom) {
+            section
+        }
+        
+        VStack(alignment: .leading, spacing: 20) {
+            AuthenticatorOption(id: "email",
+                                authenticator: EmailAuthenticator(name: "email")
+                .profile("j***@ex***ple.com"))
+            .name("email")
+            .label("Email")
+            .isCurrentOption(false)
+            .action({ _ in })
+            .body(in: form, section: section)
+
+            AuthenticatorOption(id: "email",
+                                authenticator: EmailAuthenticator(name: "email")
+                .profile("+1 (555) ###-##78"))
+            .name("phone")
+            .label("Phone")
+            .isCurrentOption(true)
+            .action({ _ in })
+            .body(in: form, section: section)
+
+            AuthenticatorOption(id: "password",
+                                authenticator: EmailAuthenticator(name: "password"))
+            .name("password")
+            .label("Password")
+            .action({ _ in })
+            .body(in: form, section: section)
+
+            AuthenticatorOption(id: "securityQuestion",
+                                authenticator: EmailAuthenticator(name: "securityQuestion")
+                .profile("What's your favorite food?"))
+            .name("securityQuestion")
+            .label("Security Question")
+            .action({ _ in })
+            .body(in: form, section: section)
+        }
+        .padding(20)
+    }
+}
+#endif

@@ -325,6 +325,16 @@ extension Remediation {
                                         style: .caption))
         }
         
+        authenticators
+            .compactMap { authenticator in
+                authenticator.capability(Capability.Recoverable.self)
+            }
+            .forEach { recoverable in
+                components.append(RecoverAction(id: "\(name).recover") {
+                    recoverable.recover()
+                })
+            }
+        
         if let actionComponent = action() {
             components.append(actionComponent)
         }

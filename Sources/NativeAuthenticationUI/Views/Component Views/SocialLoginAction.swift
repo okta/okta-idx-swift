@@ -61,3 +61,24 @@ extension SocialLoginAction: ComponentView {
         }
     }
 }
+
+#if DEBUG
+struct SocialLoginAction_Previews: PreviewProvider {
+    static var previews: some View {
+        let section = GenericSection {[]}
+        let form = SignInForm(intent: .custom) {
+            section
+        }
+        
+        VStack(spacing: 20) {
+            SocialLoginAction(id: "apple", provider: .apple, label: "Sign in with Apple") {}
+                .body(in: form, section: section)
+            SocialLoginAction(id: "facebook", provider: .facebook, label: "Sign in with Facebook") {}
+                .body(in: form, section: section)
+            SocialLoginAction(id: "google", provider: .google, label: "Sign in with Google") {}
+                .body(in: form, section: section)
+        }
+        .padding(20)
+    }
+}
+#endif

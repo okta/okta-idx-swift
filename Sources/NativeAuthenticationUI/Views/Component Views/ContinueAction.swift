@@ -75,3 +75,26 @@ extension ContinueAction: ComponentView {
         }
     }
 }
+
+#if DEBUG
+struct ContinueAction_Previews: PreviewProvider {
+    static var previews: some View {
+        let section = GenericSection {[]}
+        let form = SignInForm(intent: .custom) {
+            section
+        }
+        
+        VStack(spacing: 20) {
+            ContinueAction(id: "continue", intent: .continue, label: "Continue", action: {})
+                .body(in: form, section: section)
+            ContinueAction(id: "signIn", intent: .signIn, label: "Sign in", action: {})
+                .body(in: form, section: section)
+            ContinueAction(id: "signUp", intent: .signUp, label: "Register", action: {})
+                .body(in: form, section: section)
+            ContinueAction(id: "restart", intent: .restart, label: "Restart", action: {})
+                .body(in: form, section: section)
+        }
+        .padding(20)
+    }
+}
+#endif

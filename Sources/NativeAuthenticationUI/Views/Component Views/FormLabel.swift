@@ -37,3 +37,22 @@ extension FormLabel: ComponentView {
     }
 }
 
+#if DEBUG
+struct FormLabel_Previews: PreviewProvider {
+    static var previews: some View {
+        let section = GenericSection {[]}
+        let form = SignInForm(intent: .custom) {
+            section
+        }
+        
+        FormLabel(id: "heading", text: "Sign in", style: .heading)
+            .body(in: form, section: section)
+        FormLabel(id: "caption", text: "This is a caption", style: .caption)
+            .body(in: form, section: section)
+        FormLabel(id: "description", text: "This is a description", style: .description)
+            .body(in: form, section: section)
+        FormLabel(id: "error", text: "This is an error", style: .error)
+            .body(in: form, section: section)
+    }
+}
+#endif

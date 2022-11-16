@@ -27,7 +27,7 @@ extension RecoverAction: ComponentView {
     }
     
     func shouldDisplay(in form: SignInForm, section: any SignInSection) -> Bool {
-        if let section = section as? GenericSection {
+        if let section = section as? IdentifyUser {
             return section.components
                 .compactMap({ $0 as? StringInputField })
                 .filter({ $0.isSecure })
@@ -37,3 +37,20 @@ extension RecoverAction: ComponentView {
         }
     }
 }
+
+#if DEBUG
+struct RecoverAction_Previews: PreviewProvider {
+    static var previews: some View {
+        let section = GenericSection {[]}
+        let form = SignInForm(intent: .custom) {
+            section
+        }
+        
+        VStack(spacing: 20) {
+            RecoverAction(id: "recoverPlain", action: {})
+                .body(in: form, section: section)
+        }
+        .padding(20)
+    }
+}
+#endif
