@@ -22,6 +22,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     public private(set) var currentForm: SignInForm?
     public let flow: InteractionCodeFlow
     public let responseTransformer: any ResponseTransformer
+    internal private(set) var expirationTimer: DispatchSourceTimer?
 
     public init(flow: InteractionCodeFlow,
                 responseTransformer: any ResponseTransformer = DefaultResponseTransformer())
@@ -67,6 +68,32 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
             }
         } catch {
             send(error)
+        }
+    }
+    
+    func resetExpiration(date: Date) {
+        expirationTimer?.cancel()
+
+        let interval = max(0.0, date.coordinated.timeIntervalSinceNow)
+        let timerSource = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
+        timerSource.schedule(deadline: .now() + interval,
+                             repeating: .never)
+        timerSource.setEventHandler { [weak self] in
+            guard let self = self else { return }
+            self.restart()
+        }
+        timerSource.resume()
+
+        expirationTimer = timerSource
+    }
+    
+    func restart() {
+        expirationTimer?.cancel()
+        expirationTimer = nil
+        flow.cancel()
+        
+        Task {
+            try await flow.start()
         }
     }
     
@@ -116,6 +143,10 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
             send(responseTransformer.success)
             response.exchangeCode()
         } else {
+            if let expirationDate = response.expiresAt {
+                resetExpiration(date: expirationDate)
+            }
+            
             send(response)
         }
     }
