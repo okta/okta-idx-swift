@@ -102,7 +102,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
         self.client = client
         self.redirectUri = redirectUri
         self.additionalParameters = additionalParameters
-        
+
         client.add(delegate: self)
     }
     
@@ -311,6 +311,23 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     }
 
     // MARK: Private properties / methods
+    private(set) lazy var deviceTokenCookie: HTTPCookie? = {
+        guard let deviceToken = InteractionCodeFlow.deviceIdentifier,
+              let host = client.baseURL.host
+        else {
+            return nil
+        }
+        
+        return HTTPCookie(properties: [
+            .name: "DT",
+            .value: deviceToken,
+            .domain: host,
+            .path: "/",
+            .secure: "TRUE",
+            .expires: Date.distantFuture,
+        ])
+    }()
+    
     public let delegateCollection = DelegateCollection<InteractionCodeFlowDelegate>()
 }
 
@@ -362,7 +379,31 @@ extension InteractionCodeFlow: UsesDelegateCollection {
 }
 
 extension InteractionCodeFlow: OAuth2ClientDelegate {
-    
+    public func api(client: APIClient, willSend request: inout URLRequest) {
+        guard let url = request.url else {
+            return
+        }
+        
+        let storage = client.session.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
+        var cookies = storage.cookies(for: url) ?? []
+        
+        // Remove any previous `idx` cookies that might have leaked from other sessions, only
+        // if we are starting a new authentication.
+        cookies.removeAll { cookie in
+            cookie.name == "idx"
+        }
+        
+        // Add the device token cookie, if it's present
+        if let deviceTokenCookie = deviceTokenCookie {
+            cookies.insert(deviceTokenCookie, at: 0)
+        }
+        
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers.merge(HTTPCookie.requestHeaderFields(with: cookies)) { old, new in
+            new
+        }
+        request.allHTTPHeaderFields = headers
+    }
 }
 
 extension OAuth2Client {
