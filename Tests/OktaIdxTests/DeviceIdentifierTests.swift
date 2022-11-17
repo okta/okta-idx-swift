@@ -17,6 +17,10 @@ import XCTest
 import UIKit
 #endif
 
+#if canImport(WatchKit)
+import WatchKit
+#endif
+
 final class DeviceIdentifierTests: XCTestCase {
     #if canImport(UIKit) && (os(iOS) || os(macOS) || os(tvOS))
     func testSystemDeviceIdentifier() throws {

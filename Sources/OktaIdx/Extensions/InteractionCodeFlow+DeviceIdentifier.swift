@@ -15,7 +15,9 @@ import AuthFoundation
 
 #if canImport(UIKit)
 import UIKit
-#elseif canImport(WatchKit)
+#endif
+
+#if canImport(WatchKit)
 import WatchKit
 #endif
 
@@ -29,7 +31,7 @@ extension InteractionCodeFlow {
         if let uuid = UIDevice.current.identifierForVendor {
             return uuid
         }
-        #elseif canImport(WatchKit)
+        #elseif os(watchOS)
         if let uuid = WKInterfaceDevice.current().identifierForVendor {
             return uuid
         }
