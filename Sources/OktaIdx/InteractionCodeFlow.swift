@@ -289,6 +289,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
                     switch result {
                     case .success(let token):
                         self.send(response: token.result, completion: completion)
+                        self.reset()
                     case .failure(let error):
                         self.send(error: .apiError(error), completion: completion)
                     }
@@ -308,6 +309,13 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     public func reset() {
         context = nil
         isAuthenticating = false
+
+        // Remove any previous `idx` cookies that might have leaked from other sessions, only
+        // if we are starting a new authentication.
+        let storage = client.session.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
+        storage.cookies(for: client.baseURL)?
+            .filter({ $0.name == "idx" })
+            .forEach({ storage.deleteCookie($0) })
     }
 
     // MARK: Private properties / methods
@@ -380,23 +388,15 @@ extension InteractionCodeFlow: UsesDelegateCollection {
 
 extension InteractionCodeFlow: OAuth2ClientDelegate {
     public func api(client: APIClient, willSend request: inout URLRequest) {
-        guard let url = request.url else {
+        guard let url = request.url,
+              let deviceTokenCookie = deviceTokenCookie
+        else {
             return
         }
         
         let storage = client.session.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
-        var cookies = storage.cookies(for: url) ?? []
-        
-        // Remove any previous `idx` cookies that might have leaked from other sessions, only
-        // if we are starting a new authentication.
-        cookies.removeAll { cookie in
-            cookie.name == "idx"
-        }
-        
-        // Add the device token cookie, if it's present
-        if let deviceTokenCookie = deviceTokenCookie {
-            cookies.insert(deviceTokenCookie, at: 0)
-        }
+        var cookies = storage.cookies(for: url) ?? []        
+        cookies.insert(deviceTokenCookie, at: 0)
         
         var headers = request.allHTTPHeaderFields ?? [:]
         headers.merge(HTTPCookie.requestHeaderFields(with: cookies)) { old, new in
