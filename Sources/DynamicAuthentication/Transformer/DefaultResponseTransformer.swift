@@ -460,7 +460,8 @@ extension Remediation.Form.Field {
         var rows: [any SignInComponent] = []
 
         switch type {
-        case "boolean": break
+        case "boolean": 
+            value = true
 //            rows.append(Row(kind: .toggle(field: self),
 //                            parent: parent,
 //                            delegate: delegate))

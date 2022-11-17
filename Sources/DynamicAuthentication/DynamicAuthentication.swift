@@ -17,9 +17,26 @@ import OktaIdx
 @_exported import NativeAuthentication
 
 public final class DynamicAuthenticationProvider: AuthenticationProvider {
+    struct State {
+        let form: SignInForm
+        let response: Response?
+        let error: Error?
+        
+        init(form: SignInForm, response: Response? = nil, error: Error? = nil) {
+            self.form = form
+            self.response = response
+            self.error = error
+        }
+    }
+    
     public let delegateCollection = DelegateCollection<AuthenticationProviderDelegate>()
     
-    public private(set) var currentForm: SignInForm?
+    private(set) var state: State {
+        didSet {
+            delegateCollection.invoke({ $0.authentication(provider: self, updated: state.form) })
+        }
+    }
+    
     public let flow: InteractionCodeFlow
     public let responseTransformer: any ResponseTransformer
     internal private(set) var expirationTimer: DispatchSourceTimer?
@@ -29,6 +46,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     {
         self.flow = flow
         self.responseTransformer = responseTransformer
+        self.state = .init(form: .empty)
 
         flow.add(delegate: self)
     }
@@ -97,28 +115,33 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         }
     }
     
-    func send(_ form: SignInForm) {
-        currentForm = form
-        
-        delegateCollection.invoke({ $0.authentication(provider: self, updated: form) })
-    }
-
     func send(_ token: Token) {
         delegateCollection.invoke({ $0.authentication(provider: self, finished: token) })
     }
 
     func send(_ response: Response) {
-        send(responseTransformer.form(for: response))
+        // Stop polling the previous response
+        state.response?.stopPolling()
+        
+        let form = responseTransformer.form(for: response)
+        state = .init(form: form, response: response)
+        
+        // Start polling the new response
+        state.response?.startPolling()
     }
 
     func send(_ error: Error) {
-        send(responseTransformer.form(for: error))
+        let form = responseTransformer.form(for: error)
+        state = .init(form: form, response: state.response, error: error)
     }
 }
 
 extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     public func authenticationStarted<Flow>(flow: Flow) {
-        send(responseTransformer.loading)
+        state = .init(form: responseTransformer.loading)
+        
+        let storage = HTTPCookieStorage.shared
+        print(storage)
     }
     
     public func authenticationFinished<Flow>(flow: Flow) {
@@ -128,7 +151,7 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     }
     
     public func authenticationStarted<Flow>(flow: Flow) where Flow : InteractionCodeFlow {
-        send(SignInForm.loading)
+        state = .init(form: SignInForm.loading)
     }
     
     public func authenticationFinished<Flow>(flow: Flow) where Flow : InteractionCodeFlow {
@@ -140,7 +163,7 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     
     public func authentication<Flow>(flow: Flow, received response: Response) where Flow : InteractionCodeFlow {
         if response.isLoginSuccessful {
-            send(responseTransformer.success)
+            state = .init(form: responseTransformer.success)
             response.exchangeCode()
         } else {
             if let expirationDate = response.expiresAt {
@@ -166,6 +189,26 @@ extension Remediation.Form.Field: SignInValueBacking {
         set {
             guard let newValue = newValue as? APIRequestArgument else { return }
             value = newValue
+        }
+    }
+}
+
+extension Response {
+    var allPollable: [Capability.Pollable] {
+        authenticators.compactMap { authenticator in
+            authenticator.capability(Capability.Pollable.self)
+        }
+    }
+
+    func startPolling() {
+        allPollable.forEach { pollable in
+            pollable.startPolling()
+        }
+    }
+    
+    func stopPolling() {
+        allPollable.forEach { pollable in
+            pollable.stopPolling()
         }
     }
 }
