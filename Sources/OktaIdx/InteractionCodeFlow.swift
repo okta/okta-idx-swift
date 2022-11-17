@@ -395,7 +395,7 @@ extension InteractionCodeFlow: OAuth2ClientDelegate {
         }
         
         let storage = client.session.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
-        var cookies = storage.cookies(for: url) ?? []        
+        var cookies = storage.cookies(for: url) ?? []
         cookies.insert(deviceTokenCookie, at: 0)
         
         var headers = request.allHTTPHeaderFields ?? [:]
