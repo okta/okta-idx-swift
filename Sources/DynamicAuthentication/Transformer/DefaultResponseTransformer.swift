@@ -101,21 +101,6 @@ public class DefaultResponseTransformer: ResponseTransformer {
     }
 }
 
-extension SignInForm {
-    func value(for fieldName: String?, in sectionName: String?) -> SignInValue<String>? {
-        guard let fieldName = fieldName,
-              let sectionName = sectionName,
-              let component: StringInputField = sections
-            .first(where: { $0.id == fieldName })?
-            .component(with: sectionName)
-        else {
-            return nil
-        }
-        
-        return component.value
-    }
-}
-
 extension Response {
     func form(previous: SignInForm?) throws -> SignInForm {
         var sections: [any SignInSection] = try remediations.compactMap { [weak self] remediation in
@@ -460,12 +445,26 @@ extension Remediation.Form.Field {
         var rows: [any SignInComponent] = []
 
         switch type {
-        case "boolean": 
-            value = true
-//            rows.append(Row(kind: .toggle(field: self),
-//                            parent: parent,
-//                            delegate: delegate))
-            
+        case "boolean":
+            let previousField: BooleanOption? = previous?
+                .sections
+                .with(id: remediation.name)?
+                .component(with: name)
+
+            // Set a sensible default so things don't crash
+            if value == nil {
+                switch name {
+                case "rememberMe":
+                    value = true
+                default:
+                    value = false
+                }
+            }
+
+            rows.append(BooleanOption(id: id(remediation: remediation, ancestors: ancestors),
+                                      label: label ?? "",
+                                      value: previousField?.value ?? SignInValue(self)))
+
         case "object":
             if let options = options {
                 options.forEach { field in
@@ -542,12 +541,17 @@ extension Remediation.Form.Field {
                     contentType = .generic
                 }
 
+                let previousField: StringInputField? = previous?
+                    .sections
+                    .with(id: remediation.name)?
+                    .component(with: name)
+
                 rows.append(StringInputField(id: id(remediation: remediation, ancestors: ancestors),
                                              label: label ?? "",
                                              isSecure: isSecret,
                                              inputStyle: style,
                                              contentType: contentType,
-                                             value: previous?.value(for: remediation.name, in: name) ?? SignInValue(self)))
+                                             value: previousField?.value ?? SignInValue(self)))
             }
         }
 

@@ -17,20 +17,26 @@ import SwiftUI
 #endif
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public protocol InputField: SignInComponent, Identifiable {
+public protocol InputField<Value>: SignInComponent, Identifiable {
+    associatedtype Value
+    
     var id: String { get }
     var label: String { get }
+    var value: SignInValue<Value> { get }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct StringInputField: InputField {
+    public typealias Value = String
+    
     public var id: String
     public var label: String
     public var isSecure: Bool
     public var inputStyle: InputStyle
     public var contentType: ContentType
     
-    @ObservedObject public var value: SignInValue<String>
+    @ObservedObject
+    public var value: SignInValue<String>
     
     public enum InputStyle {
         case email, name, password, generic

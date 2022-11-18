@@ -37,8 +37,10 @@ extension Collection where Element == any SignInSection {
 }
 
 extension SignInSection {
-    public func component<T: SignInComponent>(with id: String) -> T? {
-        components.first { component in
+    public func component<T: SignInComponent>(with id: String?) -> T? {
+        guard let id = id else { return nil }
+
+        return components.first { component in
             guard component is T else { return false }
             return (component.id == (self.id ?? "") + "." + id ||
                     component.id == id)

@@ -58,6 +58,11 @@ struct MainView: View {
                     Spacer()
                     Text(credential.token.idToken?.issuedAt?.coordinated ?? Date(), style: .relative)
                 }
+                HStack {
+                    Text("Expires in")
+                    Spacer()
+                    Text(credential.token.idToken?.expirationTime?.coordinated ?? Date(), style: .relative)
+                }
                 Button(action: {
                     Task {
                         try? await credential.refreshIfNeeded()
