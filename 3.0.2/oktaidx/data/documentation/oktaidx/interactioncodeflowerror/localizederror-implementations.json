@@ -1,0 +1,362 @@
+{
+  "abstract" : [
+    {
+      "text" : "No overview available.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/LocalizedError-Implementations"
+  },
+  "kind" : "article",
+  "metadata" : {
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "collectionGroup",
+    "title" : "LocalizedError Implementations"
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/errorDescription-1d6kr",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/errorDescription-4luqr",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/failureReason",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/helpAnchor",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/recoverySuggestion"
+      ],
+      "title" : "Instance Properties"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/interactioncodeflowerror\/localizederror-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+  "abstract" : [
+    {
+      "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlow"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError": {
+  "abstract" : [
+    {
+      "text" : "Errors reported from ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlowError"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InteractionCodeFlowError"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InteractionCodeFlowError",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/errorDescription-1d6kr": {
+  "abstract" : [
+    {
+      "text" : "A localized message describing what error occurred.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "errorDescription"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/errorDescription-1d6kr",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "errorDescription",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/errordescription-1d6kr"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/errorDescription-4luqr": {
+  "abstract" : [
+    {
+      "text" : "A localized message describing what error occurred.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "errorDescription"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/errorDescription-4luqr",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "errorDescription",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/errordescription-4luqr"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/failureReason": {
+  "abstract" : [
+    {
+      "text" : "A localized message describing the reason for the failure.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "failureReason"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/failureReason",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "failureReason",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/failurereason"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/helpAnchor": {
+  "abstract" : [
+    {
+      "text" : "A localized message providing “help” text if the user requests help.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "helpAnchor"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/helpAnchor",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "helpAnchor",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/helpanchor"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/recoverySuggestion": {
+  "abstract" : [
+    {
+      "text" : "A localized message describing how one might recover from the failure.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "recoverySuggestion"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/recoverySuggestion",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "recoverySuggestion",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/recoverysuggestion"
+}
+}
+}
