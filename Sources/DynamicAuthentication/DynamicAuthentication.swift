@@ -40,7 +40,8 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     public let flow: InteractionCodeFlow
     public let responseTransformer: any ResponseTransformer
     internal private(set) var expirationTimer: DispatchSourceTimer?
-
+    internal private(set) var restartCause: Error?
+    
     public init(flow: InteractionCodeFlow,
                 responseTransformer: any ResponseTransformer = DefaultResponseTransformer())
     {
@@ -105,10 +106,11 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         expirationTimer = timerSource
     }
     
-    func restart() {
+    func restart(with error: Error? = nil) {
         expirationTimer?.cancel()
         expirationTimer = nil
         flow.cancel()
+        restartCause = error
         
         Task {
             try await flow.start()
@@ -123,15 +125,20 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         // Stop polling the previous response
         state.response?.stopPolling()
         
-        let form = responseTransformer.form(for: response)
+        let form = responseTransformer.form(for: response, in: self)
         state = .init(form: form, response: response)
         
         // Start polling the new response
         state.response?.startPolling()
+        
+        if let error = restartCause {
+            send(error)
+            restartCause = nil
+        }
     }
 
     func send(_ error: Error) {
-        let form = responseTransformer.form(for: error)
+        let form = responseTransformer.form(for: error, in: self)
         state = .init(form: form, response: state.response, error: error)
     }
 }

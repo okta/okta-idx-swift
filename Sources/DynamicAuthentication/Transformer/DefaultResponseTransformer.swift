@@ -14,6 +14,20 @@ import OktaIdx
 import NativeAuthentication
 import Foundation
 
+public enum ResponseError: Error, LocalizedError {
+    case message(_ message: String, localizationKey: String?)
+    case terminal
+    
+    public var errorDescription: String? {
+        switch self {
+        case .message(let message, localizationKey: let localizationKey):
+            return message
+        case .terminal:
+            return "Cannot continue"
+        }
+    }
+}
+
 public class DefaultResponseTransformer: ResponseTransformer {
     public private(set) var currentResponse: Response?
     public private(set) var currentForm: SignInForm?
@@ -33,21 +47,27 @@ public class DefaultResponseTransformer: ResponseTransformer {
         }
     }
     
-    public func form(for response: Response) -> SignInForm {
+    public func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm {
+        guard !response.remediations.isEmpty else {
+            let error = response.errors.first ?? ResponseError.terminal
+            provider.restart(with: error)
+            return .loading
+        }
+        
         currentResponse = response
         let result: SignInForm
         
         do {
             result = try response.form(previous: currentForm)
         } catch {
-            result = self.form(for: error)
+            result = self.form(for: error, in: provider)
         }
         
         currentForm = result
         return result
     }
     
-    public func form(for error: Error) -> SignInForm {
+    public func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm {
         var form = currentForm ?? SignInForm(intent: .empty) {}
         
         var messageSection: any SignInSection
@@ -161,6 +181,13 @@ extension Response {
 
         return SignInForm(intent: .signIn) { sections }
     }
+    
+    var errors: [Error] {
+        messages
+            .filter { $0.type == .error }
+            .map { ResponseError.message($0.message,
+                                         localizationKey: $0.localizationKey) }
+    }
 }
 
 extension OktaIdx.Authenticator {
@@ -203,8 +230,6 @@ extension OktaIdx.Authenticator {
         }
     }
 }
-
-//extension Authenticator
 
 extension Capability.SocialIDP {
     var provider: RedirectIDP.Provider? {

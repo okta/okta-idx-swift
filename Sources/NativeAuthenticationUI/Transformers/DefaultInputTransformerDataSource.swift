@@ -17,16 +17,30 @@ import NativeAuthentication
 public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
     public init() {}
     
+    func separate(sections: [any SignInSection]) -> (HeaderSection?, [any SignInSection]) {
+        let header = sections.compactMap({ $0 as? HeaderSection }).first
+        let sections = sections.filter({ !($0 is HeaderSection) })
+        return (header, sections)
+    }
+    
     public func view(for form: SignInForm,
                      content: ([any SignInSection]) -> some View) -> any View
     {
-        ScrollView(.vertical) {
-            VStack {
-                content(form.sections)
+        let (header, sections) = separate(sections: form.sections)
+        
+        return VStack(spacing: 12.0) {
+            if let header = header {
+                content([header])
             }
-            .padding(.horizontal, 32.0)
-            .frame(maxWidth: .infinity)
-        }.compatibility.scrollDismissesKeyboard(.interactively)
+            
+            ScrollView(.vertical) {
+                VStack {
+                    content(sections)
+                }
+                .padding(.horizontal, 32.0)
+                .frame(maxWidth: .infinity)
+            }.compatibility.scrollDismissesKeyboard(.interactively)
+        }
     }
 
     public func view(for form: SignInForm,
@@ -51,7 +65,7 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
                     content(section.rightComponents)
                 }.frame(alignment: .trailing)
             }
-            .padding(12.0)
+            .padding(.horizontal, 12.0)
             .frame(maxWidth: .infinity)
         }
         
