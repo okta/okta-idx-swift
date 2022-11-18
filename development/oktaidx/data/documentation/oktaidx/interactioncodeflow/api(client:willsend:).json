@@ -20,8 +20,8 @@
   },
   "kind" : "symbol",
   "metadata" : {
-    "extendedModule" : "AuthFoundation",
-    "externalID" : "s:14AuthFoundation17APIClientDelegatePAAE3api6client8willSendyAA0C0_p_0B010URLRequestVztF::SYNTHESIZED::s:7OktaIdx19InteractionCodeFlowC",
+    "extendedModule" : "OktaIdx",
+    "externalID" : "s:7OktaIdx19InteractionCodeFlowC3api6client8willSendy14AuthFoundation9APIClient_p_0K010URLRequestVztF",
     "fragments" : [
       {
         "kind" : "keyword",
