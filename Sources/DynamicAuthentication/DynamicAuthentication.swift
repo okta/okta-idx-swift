@@ -16,6 +16,24 @@ import OktaIdx
 
 @_exported import NativeAuthentication
 
+public enum DynamicAuthenticationError: Error, LocalizedError {
+    case message(_ message: String, localizationKey: String?)
+    case terminal
+    case invalidIdpRedirect
+    
+    public var errorDescription: String? {
+        switch self {
+        case .message(let message, localizationKey: let localizationKey):
+            return message
+        case .terminal:
+            return "Cannot continue"
+        case .invalidIdpRedirect:
+            return "An error occurred when signing in with an IDP"
+        }
+    }
+}
+
+
 public final class DynamicAuthenticationProvider: AuthenticationProvider {
     struct State {
         let form: SignInForm
@@ -33,7 +51,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     
     private(set) var state: State {
         didSet {
-            delegateCollection.invoke({ $0.authentication(provider: self, updated: state.form) })
+            delegateCollection.invoke { $0.authentication(provider: self, updated: state.form) }
         }
     }
     
@@ -88,6 +106,28 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         } catch {
             send(error)
         }
+    }
+    
+    public func idp(_ idp: RedirectIDP.Provider, finished callbackURL: URL) {
+        switch flow.redirectResult(for: callbackURL) {
+        case .authenticated:
+            flow.exchangeCode(redirect: callbackURL)
+            
+        case .remediationRequired:
+            flow.resume()
+            
+        case .invalidRedirectUrl: fallthrough
+        case .invalidContext:
+            send(DynamicAuthenticationError.invalidIdpRedirect)
+        }
+    }
+    
+    public func idp(_ idp: RedirectIDP.Provider, error: Error) {
+        send(error)
+    }
+    
+    func redirectIdp(provider: RedirectIDP.Provider, url: URL, callback scheme: String) {
+        delegateCollection.invoke { $0.authentication(provider: self, idp: provider, redirectTo: url, callback: scheme) }
     }
     
     func resetExpiration(date: Date) {

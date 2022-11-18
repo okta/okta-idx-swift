@@ -3,6 +3,11 @@ import Foundation
 public protocol AuthenticationClientDelegate {
     func authentication(client: AuthenticationClient, updated form: SignInForm)
     func authentication(client: AuthenticationClient, finished token: Token)
+    func authentication(client: AuthenticationClient, idp provider: RedirectIDP.Provider, redirectTo url: URL, callback scheme: String)
+}
+
+public enum AuthenticationClientError: Error {
+    case idpRedirect
 }
 
 public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
@@ -28,21 +33,25 @@ public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
         await provider.signIn()
     }
     
-    func send(_ form: SignInForm) {
-        delegateCollection.invoke({ $0.authentication(client: self, updated: form) })
+    public func idp(_ idp: RedirectIDP.Provider, finished callbackURL: URL) {
+        
     }
 
-    func send(_ token: Token) {
-        delegateCollection.invoke({ $0.authentication(client: self, finished: token) })
+    public func idp(_ idp: RedirectIDP.Provider, error: Error) {
+        
     }
 }
 
 extension AuthenticationClient: AuthenticationProviderDelegate {
     public func authentication(provider: any AuthenticationProvider, finished token: Token) {
-        send(token)
+        delegateCollection.invoke { $0.authentication(client: self, finished: token) }
     }
     
     public func authentication(provider: any AuthenticationProvider, updated form: SignInForm) {
-        send(form)
+        delegateCollection.invoke { $0.authentication(client: self, updated: form) }
+    }
+    
+    public func authentication(provider: any AuthenticationProvider, idp: RedirectIDP.Provider, redirectTo url: URL, callback scheme: String) {
+        delegateCollection.invoke { $0.authentication(client: self, idp: idp, redirectTo: url, callback: scheme) }
     }
 }

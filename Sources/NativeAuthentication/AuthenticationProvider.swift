@@ -16,8 +16,11 @@ import Foundation
 public protocol AuthenticationProviderDelegate {
     func authentication(provider: any AuthenticationProvider, updated form: SignInForm)
     func authentication(provider: any AuthenticationProvider, finished token: Token)
+    func authentication(provider: any AuthenticationProvider, idp: RedirectIDP.Provider, redirectTo url: URL, callback scheme: String)
 }
 
 public protocol AuthenticationProvider: UsesDelegateCollection where Delegate == AuthenticationProviderDelegate {
     func signIn() async
+    func idp(_ idp: RedirectIDP.Provider, finished callbackURL: URL)
+    func idp(_ idp: RedirectIDP.Provider, error: Error)
 }

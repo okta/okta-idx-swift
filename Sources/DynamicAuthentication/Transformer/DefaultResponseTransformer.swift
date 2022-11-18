@@ -14,20 +14,6 @@ import OktaIdx
 import NativeAuthentication
 import Foundation
 
-public enum ResponseError: Error, LocalizedError {
-    case message(_ message: String, localizationKey: String?)
-    case terminal
-    
-    public var errorDescription: String? {
-        switch self {
-        case .message(let message, localizationKey: let localizationKey):
-            return message
-        case .terminal:
-            return "Cannot continue"
-        }
-    }
-}
-
 public class DefaultResponseTransformer: ResponseTransformer {
     public private(set) var currentResponse: Response?
     public private(set) var currentForm: SignInForm?
@@ -49,7 +35,7 @@ public class DefaultResponseTransformer: ResponseTransformer {
     
     public func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm {
         guard !response.remediations.isEmpty else {
-            let error = response.errors.first ?? ResponseError.terminal
+            let error = response.errors.first ?? DynamicAuthenticationError.terminal
             provider.restart(with: error)
             return .loading
         }
@@ -58,7 +44,7 @@ public class DefaultResponseTransformer: ResponseTransformer {
         let result: SignInForm
         
         do {
-            result = try response.form(previous: currentForm)
+            result = try response.form(previous: currentForm, in: provider)
         } catch {
             result = self.form(for: error, in: provider)
         }
@@ -122,9 +108,9 @@ public class DefaultResponseTransformer: ResponseTransformer {
 }
 
 extension Response {
-    func form(previous: SignInForm?) throws -> SignInForm {
+    func form(previous: SignInForm?, in provider: DynamicAuthenticationProvider) throws -> SignInForm {
         var sections: [any SignInSection] = try remediations.compactMap { [weak self] remediation in
-            try remediation.section(from: self, previous: previous)
+            try remediation.section(from: self, previous: previous, in: provider)
         }
         
         if messages.count > 0 {
@@ -185,7 +171,7 @@ extension Response {
     var errors: [Error] {
         messages
             .filter { $0.type == .error }
-            .map { ResponseError.message($0.message,
+            .map { DynamicAuthenticationError.message($0.message,
                                          localizationKey: $0.localizationKey) }
     }
 }
@@ -276,7 +262,7 @@ extension Capability.SocialIDP {
 }
 
 extension Remediation {
-    func action() -> (any Action)? {
+    func action(in provider: DynamicAuthenticationProvider) -> (any Action)? {
         switch type {
         case .cancel:
             return ContinueAction(id: "\(name).continue",
@@ -287,16 +273,19 @@ extension Remediation {
             
         case .redirectIdp:
             guard let socialIdp = socialIdp,
-                  let provider = socialIdp.provider,
-                  let label = socialIdp.label
+                  let redirectProvider = socialIdp.provider,
+                  let label = socialIdp.label,
+                  let scheme = provider.flow.client.baseURL.scheme
             else {
                 return nil
             }
             
             return SocialLoginAction(id: "\(name).\(socialIdp.idpName).continue",
-                                     provider: provider,
+                                     provider: redirectProvider,
                                      label: label) {
-                print("Social login triggered")
+                provider.redirectIdp(provider: redirectProvider,
+                                     url: socialIdp.redirectUrl,
+                                     callback: scheme)
             }
             
         case .selectEnrollProfile:
@@ -338,7 +327,7 @@ extension Remediation {
         }
     }
 
-    func section(from response: Response?, previous: SignInForm?) throws -> (any SignInSection)? {
+    func section(from response: Response?, previous: SignInForm?, in provider: DynamicAuthenticationProvider) throws -> (any SignInSection)? {
         guard let response = response else { return nil }
         
         var components: [any SignInComponent] = form.fields.compactMap { field in
@@ -361,7 +350,7 @@ extension Remediation {
                 })
             }
         
-        if let actionComponent = action() {
+        if let actionComponent = action(in: provider) {
             components.append(actionComponent)
         }
         
