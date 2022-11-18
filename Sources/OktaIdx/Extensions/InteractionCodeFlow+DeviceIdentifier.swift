@@ -17,7 +17,7 @@ import AuthFoundation
 import UIKit
 #endif
 
-#if canImport(WatchKit)
+#if os(watchOS)
 import WatchKit
 #endif
 
@@ -66,6 +66,8 @@ extension InteractionCodeFlow {
         #endif
     }
     
+    /// Unique identifier for this device, encoded to limit the character count. This is used within
+    /// an outgoing Cookie named `dt` to enable "Remember this device" trust options within OIE.
     static var deviceIdentifier: String? {
         guard var identifier = systemDeviceIdentifier ?? keychainDeviceIdentifier
         else {

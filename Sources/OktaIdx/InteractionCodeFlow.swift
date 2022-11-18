@@ -310,8 +310,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
         context = nil
         isAuthenticating = false
 
-        // Remove any previous `idx` cookies that might have leaked from other sessions, only
-        // if we are starting a new authentication.
+        // Remove any previous `idx` cookies so it won't leak into other sessions.
         let storage = client.session.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
         storage.cookies(for: client.baseURL)?
             .filter({ $0.name == "idx" })
