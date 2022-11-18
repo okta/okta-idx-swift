@@ -118,9 +118,9 @@ extension Response {
             }, at: 0)
         }
         
-        sections.insert(HeaderSection(id: "title") {
+        var headerSection = HeaderSection(id: "title") {
             FormLabel(id: "titleLabel", text: "Sign in", style: .heading)
-        }, at: 0)
+        }
         
         // Coalesce all redirect-idp actions together
         let idpSections: [RedirectIDP] = sections
@@ -143,6 +143,22 @@ extension Response {
             }, at: firstIndex)
         }
         
+        if let index = sections.firstIndex(where: { $0.id == "select-identify" }),
+           let action: ContinueAction = sections[index].component(with: "signIn")
+        {
+            headerSection.leftComponents.append(action)
+            sections.remove(at: index)
+        }
+        
+        if let index = sections.firstIndex(where: { $0.id == "cancel" }),
+           let action: ContinueAction = sections[index].component(with: "continue")
+        {
+            headerSection.rightComponents.append(action)
+            sections.remove(at: index)
+        }
+        
+        sections.insert(headerSection, at: 0)
+
         return SignInForm(intent: .signIn) { sections }
     }
 }
@@ -274,7 +290,7 @@ extension Remediation {
             
         case .selectIdentify:
             return ContinueAction(id: "\(name).signIn",
-                                  intent: .signIn,
+                                  intent: .back,
                                   label: "Sign in with a username") {
                 self.proceed()
             }

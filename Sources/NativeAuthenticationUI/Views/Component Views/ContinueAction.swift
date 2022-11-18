@@ -51,28 +51,40 @@ extension ContinueAction: ComponentView {
                 }
             }.padding()
 
+        case .back:
+            Button {
+                self.action()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .font(.title)
+            }
+
         case .restart:
             if #available(iOS 15.0, *) {
                 Button(role: .cancel) {
                     self.action()
                 } label: {
                     Text(label)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 3.0)
                 }
-                .padding(.top)
-                .buttonStyle(.bordered)
             } else {
                 Button {
                     self.action()
                 } label: {
                     Text(label)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 3.0)
                 }
-                .padding(.top)
             }
         }
+    }
+    
+    func shouldDisplay(in form: SignInForm, section: any SignInSection) -> Bool {
+        if intent == .restart,
+           section is HeaderSection,
+           form.sections.contains(where: { $0 is IdentifyUser })
+        {
+            return false
+        }
+        
+        return true
     }
 }
 
@@ -92,6 +104,8 @@ struct ContinueAction_Previews: PreviewProvider {
             ContinueAction(id: "signUp", intent: .signUp, label: "Register", action: {})
                 .body(in: form, section: section)
             ContinueAction(id: "restart", intent: .restart, label: "Restart", action: {})
+                .body(in: form, section: section)
+            ContinueAction(id: "back", intent: .back, label: "Go back", action: {})
                 .body(in: form, section: section)
         }
         .padding(20)

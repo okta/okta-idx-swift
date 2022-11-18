@@ -42,18 +42,18 @@ public struct EmailAuthenticator: Authenticator {
     }
 }
 
-//@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct HeaderSection: SignInSection, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
-    
+    public var leftComponents: [any SignInComponent] = []
+    public var rightComponents: [any SignInComponent] = []
+
     public init(id: String? = nil, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
         self.id = id
         self.components = components()
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct GenericSection: SignInSection, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
@@ -64,7 +64,6 @@ public struct GenericSection: SignInSection, Identifiable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct MakeSelection: SignInSection, Actionable, Identifiable {
     public enum Selection {
         case enrollProfile, identify
@@ -82,7 +81,6 @@ public struct MakeSelection: SignInSection, Actionable, Identifiable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct IdentifyUser: SignInSection, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
@@ -93,7 +91,6 @@ public struct IdentifyUser: SignInSection, Identifiable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct RegisterUser: SignInSection, Actionable, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
@@ -105,7 +102,6 @@ public struct RegisterUser: SignInSection, Actionable, Identifiable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct SelectAuthenticator: SignInSection, Actionable, Identifiable {
     public enum Intent {
         case authenticate, enroll, recover
@@ -123,7 +119,6 @@ public struct SelectAuthenticator: SignInSection, Actionable, Identifiable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct ChallengeAuthenticator: SignInSection, Actionable, Identifiable {
     public var id: String?
     public var authenticator: any Authenticator
@@ -137,7 +132,6 @@ public struct ChallengeAuthenticator: SignInSection, Actionable, Identifiable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct RedirectIDP: SignInSection, Identifiable {
     public enum Provider {
         case okta, apple, google, facebook, linkedin, microsoft, other(_ name: String)
@@ -154,7 +148,6 @@ public struct RedirectIDP: SignInSection, Identifiable {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct RestartSignIn: SignInSection, Actionable, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]

@@ -18,6 +18,7 @@ public struct ContinueAction: Action {
         case signUp
         case `continue`
         case restart
+        case back
     }
     
     public let id: String

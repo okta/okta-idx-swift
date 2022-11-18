@@ -16,10 +16,10 @@ import NativeAuthentication
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public protocol InputFormTransformerDataSource {
     func view(for form: SignInForm,
-              @ViewBuilder content: () -> some View) -> any View
+              @ViewBuilder content: ([any SignInSection]) -> some View) -> any View
     func view(for form: SignInForm,
               section: any SignInSection,
-              @ViewBuilder content: () -> some View) -> any View
+              @ViewBuilder content: ([any SignInComponent]) -> some View) -> any View
     func view(in form: SignInForm,
               section: any SignInSection,
               component: any SignInComponent) -> any View

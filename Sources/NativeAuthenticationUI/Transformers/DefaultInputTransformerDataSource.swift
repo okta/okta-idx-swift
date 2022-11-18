@@ -18,32 +18,41 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
     public init() {}
     
     public func view(for form: SignInForm,
-                     content: () -> some View) -> any View
+                     content: ([any SignInSection]) -> some View) -> any View
     {
         ScrollView(.vertical) {
-            VStack(content: content)
-                .padding(.horizontal, 32.0)
-                .frame(maxWidth: .infinity)
+            VStack {
+                content(form.sections)
+            }
+            .padding(.horizontal, 32.0)
+            .frame(maxWidth: .infinity)
         }.compatibility.scrollDismissesKeyboard(.interactively)
     }
 
     public func view(for form: SignInForm,
                      section: any SignInSection,
-                     content: () -> some View) -> any View
+                     content: ([any SignInComponent]) -> some View) -> any View
     {
         if let section = section as? any View {
             return section
         }
         
-        else if section is RestartSignIn,
-                form.sections.contains(where: { $0 is IdentifyUser })
-        {
-            return EmptyView()
-        }
-        
-        else if section is HeaderSection {
-            return VStack(content: content)
-                .padding(.bottom, 12.0)
+        else if let section = section as? HeaderSection {
+            return HStack(alignment: .center) {
+                HStack(alignment: .center, spacing: 8) {
+                    content(section.leftComponents)
+                }.frame(alignment: .leading)
+                
+                VStack(alignment: .center, spacing: 8) {
+                    content(section.components)
+                }.frame(maxWidth: .infinity, alignment: .center)
+                
+                HStack(alignment: .center, spacing: 8) {
+                    content(section.rightComponents)
+                }.frame(alignment: .trailing)
+            }
+            .padding(12.0)
+            .frame(maxWidth: .infinity)
         }
         
         else if section is RedirectIDP {
@@ -61,13 +70,13 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
                     }
                 }.padding(.bottom, 12.0)
                 
-                content()
+                content(section.components)
             }.padding(.bottom, 12.0)
         }
         
         else {
             return VStack(spacing: 12.0) {
-                content()
+                content(section.components)
             }.padding(.bottom, 12.0)
         }
     }

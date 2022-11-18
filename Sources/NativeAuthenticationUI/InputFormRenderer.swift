@@ -26,12 +26,12 @@ public struct InputFormRenderer: View {
     }
     
     public var body: some View {
-        AnyView(dataSource.view(for: auth.form) {
-            ForEach(self.auth.form.sections.map({ AnySection($0) })) { section in
+        AnyView(dataSource.view(for: auth.form) { sections in
+            ForEach(sections.map({ AnySection($0) })) { section in
                 AnyView(self.dataSource.view(for: self.auth.form,
                                              section: section.section,
-                                             content: {
-                    ForEach(section.section.components.map({ AnyComponent($0) })) { component in
+                                             content: { components in
+                    ForEach(components.map({ AnyComponent($0) })) { component in
                         AnyView(self.dataSource.view(in: self.auth.form,
                                                      section: section.section,
                                                      component: component.component))

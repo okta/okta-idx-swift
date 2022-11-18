@@ -45,9 +45,9 @@ struct BooleanOption_Previews: PreviewProvider {
         
         VStack(spacing: 20) {
             BooleanOption(id: "rememberMe",
-                             label: "Remember me",
-                             value: SignInValue(BooleanBacking()))
-                .body(in: form, section: section)
+                          label: "Remember me",
+                          value: SignInValue(BooleanBacking()))
+            .body(in: form, section: section)
         }
         .padding(20)
     }
