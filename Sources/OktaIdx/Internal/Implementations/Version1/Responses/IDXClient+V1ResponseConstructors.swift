@@ -422,14 +422,15 @@ extension Authenticator {
         ]
         
         return Authenticator(flow: flow,
-                                       v1JsonPaths: jsonPaths,
-                                       state: state,
-                                       id: first.id,
-                                       displayName: first.displayName,
-                                       type: first.type,
-                                       key: key,
-                                       methods: methods,
-                                       capabilities: capabilities.compactMap { $0 })
+                             v1JsonPaths: jsonPaths,
+                             state: state,
+                             id: first.id,
+                             displayName: first.displayName,
+                             allowedFor: first.allowedFor,
+                             type: first.type,
+                             key: key,
+                             methods: methods,
+                             capabilities: capabilities.compactMap { $0 })
     }
 }
 

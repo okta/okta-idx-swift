@@ -178,13 +178,15 @@ extension Response {
 
 extension OktaIdx.Authenticator {
     var authenticatorModel: (any NativeAuthentication.Authenticator)? {
-        guard let displayName = displayName else {
+        guard let id = id,
+              let displayName = displayName
+        else {
             return nil
         }
         
         switch type {
         case .email:
-            var result = EmailAuthenticator(name: displayName)
+            var result = EmailAuthenticator(id: id, name: displayName)
                 .profile(capability(Capability.Profile.self)?.values["email"])
             
             if let sendable = capability(Capability.Sendable.self) {
@@ -317,7 +319,28 @@ extension Remediation {
                                   label: "Select authenticator method") {
                 self.proceed()
             }
+
+        case .challengeAuthenticator:
+            return ContinueAction(id: "\(name).continue",
+                                  intent: .continue,
+                                  label: "Verify") {
+                self.proceed()
+            }
+
+        case .authenticatorVerificationData:
+            let label: String
+            if let authenticatorLabel = form["authenticator"]?.label {
+                label = "Verify using \(authenticatorLabel)"
+            } else {
+                label = "Verify account"
+            }
             
+            return ContinueAction(id: "\(name).continue",
+                                  intent: .continue,
+                                  label: label) {
+                self.proceed()
+            }
+
         default:
             return ContinueAction(id: "\(name).continue",
                                   intent: .continue,
@@ -415,15 +438,32 @@ extension Remediation {
             }
             
         case .challengeAuthenticator:
-            guard let authenticator = authenticators.current?.authenticatorModel else { fallthrough }
+            guard let authenticator = authenticators.current?.authenticatorModel else { return nil }
             result = ChallengeAuthenticator(authenticator: authenticator) {
                 components
             }
 
         case .authenticatorVerificationData:
-            // TODO: Support this more later
-            print("Skipping \(self)")
-            return nil
+            guard let authenticator = authenticators.current,
+                  let authenticatorModel = authenticator.authenticatorModel
+            else { return nil }
+
+            if let methodType = form["authenticator.methodType"],
+               let methodOptions = methodType.options
+            {
+                switch methodOptions.count {
+                case 0:
+                    return nil
+                case 1:
+                    methodType.selectedOption = methodOptions.first
+                default:
+                    print("Give the user an option")
+                }
+            }
+            
+            result = UseAuthenticator(authenticator: authenticatorModel) {
+                components
+            }
             
         default:
             result = GenericSection {

@@ -16,11 +16,22 @@ import Foundation
 ///
 /// Instances of this class are used to identify the type of authenticator, or factor, that is associated with a user. These may be associated with form fields (for example, when selecting an authenticator to verify or to enrol in), with a ``Remediation`` (when challenging an authenticator for a verification code), or with an overall ``Response`` to indicate which authenticators have been enrolled, are being enrolled.
 public class Authenticator: Equatable {
+    /// Describes the goal of authentication using this factor.
+    public enum Goal: String {
+        case any
+        case sso
+        case recovery
+        case none
+    }
+    
     /// Unique identifier for this enrollment
     public let id: String?
     
     /// The user-visible name to use for this authenticator enrollment.
     public let displayName: String?
+    
+    /// Describes the use-case this authentication is allowed to be used for, e.g. `sso`, `recovery`, etc.
+    public let allowedFor: Goal?
     
     /// The type of this authenticator, or ``Kind/unknown`` if the type isn't represented by this enumeration.
     public let type: Kind
@@ -40,6 +51,7 @@ public class Authenticator: Equatable {
     public static func == (lhs: Authenticator, rhs: Authenticator) -> Bool {
         lhs.id == rhs.id &&
         lhs.displayName == rhs.displayName &&
+        lhs.allowedFor == rhs.allowedFor &&
         lhs.type == rhs.type &&
         lhs.key == rhs.key &&
         lhs.state == rhs.state &&
@@ -53,6 +65,7 @@ public class Authenticator: Equatable {
          state: State,
          id: String?,
          displayName: String?,
+         allowedFor: String?,
          type: String,
          key: String?,
          methods: [[String: String]]?,
@@ -70,5 +83,11 @@ public class Authenticator: Equatable {
             return Method(string: type)
         }
         self.capabilities = capabilities
+        
+        if let allowedFor = allowedFor {
+            self.allowedFor = Goal(rawValue: allowedFor)
+        } else {
+            self.allowedFor = nil
+        }
     }
 }

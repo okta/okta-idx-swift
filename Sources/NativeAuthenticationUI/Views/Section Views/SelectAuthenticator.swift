@@ -1,0 +1,40 @@
+//
+// Copyright (c) 2022-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
+//
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//
+// See the License for the specific language governing permissions and limitations under the License.
+//
+
+import SwiftUI
+import NativeAuthentication
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension SelectAuthenticator: SectionView {
+    func shouldDisplay(in form: SignInForm) -> Bool {
+        let choices = components.compactMap({ $0 as? AuthenticatorOption })
+        
+        // Don't display the selector if no choices are present
+        guard !choices.isEmpty else { return false }
+        
+        // If we don't have an associated "HasAuthenticator", we should always show the selector.
+        guard let authenticatorSection = form.sections.compactMap({ $0 as? any HasAuthenticator }).first
+        else {
+            return true
+        }
+
+        // Don't show the selector if the "HasAuthenticator" is displaying the same choice.
+        if choices.count == 1,
+           let lhs = choices.first?.authenticator,
+           lhs.id == authenticatorSection.authenticator.id
+        {
+            return false
+        }
+        
+        return true
+    }
+}

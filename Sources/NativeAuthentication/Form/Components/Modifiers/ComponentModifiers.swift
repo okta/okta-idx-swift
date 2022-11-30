@@ -32,6 +32,17 @@ import Foundation
 //    }
 //}
 
+extension StringInputField {
+    public func length(_ dimension: Length, amount: Int?) -> Self {
+        var result = self
+        switch dimension {
+        case .minimum: result.minimumLength = amount
+        case .maximum: result.maximumLength = amount
+        }
+        return result
+    }
+}
+
 extension FormLabel {
     public func style(_ style: FormLabel.Style) -> Self {
         var result = self

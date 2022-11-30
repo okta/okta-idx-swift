@@ -14,13 +14,24 @@ import SwiftUI
 import NativeAuthentication
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public protocol InputFormTransformerDataSource {
-    func view(for form: SignInForm,
-              @ViewBuilder renderer: ([any SignInSection]) -> some View) -> any View
-    func view(for form: SignInForm,
-              section: any SignInSection,
-              @ViewBuilder renderer: ([any SignInComponent]) -> some View) -> any View
-    func view(in form: SignInForm,
-              section: any SignInSection,
-              component: any SignInComponent) -> any View
+extension RedirectIDP: SectionView {
+    @ViewBuilder
+    func body(in form: SignInForm, @ViewBuilder renderer: ([any SignInComponent]) -> some View) -> any View {
+        VStack(spacing: 12.0) {
+            HStack {
+                VStack {
+                    Divider()
+                }
+                Text("Or sign in with")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                    .frame(maxWidth: .infinity)
+                VStack {
+                    Divider()
+                }
+            }.padding(.bottom, 12.0)
+            
+            renderer(components)
+        }.padding(.bottom, 12.0)
+    }
 }

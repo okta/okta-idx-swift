@@ -24,18 +24,18 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
     }
     
     public func view(for form: SignInForm,
-                     content: ([any SignInSection]) -> some View) -> any View
+                     renderer: ([any SignInSection]) -> some View) -> any View
     {
         let (header, sections) = separate(sections: form.sections)
         
         return VStack(spacing: 12.0) {
             if let header = header {
-                content([header])
+                renderer([header])
             }
             
             ScrollView(.vertical) {
                 VStack {
-                    content(sections)
+                    renderer(sections)
                 }
                 .padding(.horizontal, 32.0)
                 .frame(maxWidth: .infinity)
@@ -45,53 +45,20 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
 
     public func view(for form: SignInForm,
                      section: any SignInSection,
-                     content: ([any SignInComponent]) -> some View) -> any View
+                     renderer: ([any SignInComponent]) -> some View) -> any View
     {
         if let section = section as? any View {
             return section
         }
         
-        else if let section = section as? HeaderSection {
-            return HStack(alignment: .center) {
-                HStack(alignment: .center, spacing: 8) {
-                    content(section.leftComponents)
-                }.frame(alignment: .leading)
-                
-                VStack(alignment: .center, spacing: 8) {
-                    content(section.components)
-                }.frame(maxWidth: .infinity, alignment: .center)
-                
-                HStack(alignment: .center, spacing: 8) {
-                    content(section.rightComponents)
-                }.frame(alignment: .trailing)
-            }
-            .padding(.horizontal, 12.0)
-            .frame(maxWidth: .infinity)
-        }
-        
-        else if section is RedirectIDP {
-            return VStack(spacing: 12.0) {
-                HStack {
-                    VStack {
-                        Divider()
-                    }
-                    Text("Or sign in with")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .frame(maxWidth: .infinity)
-                    VStack {
-                        Divider()
-                    }
-                }.padding(.bottom, 12.0)
-                
-                content(section.components)
-            }.padding(.bottom, 12.0)
+        else if let sectionView = section as? (any SectionView),
+                sectionView.shouldDisplay(in: form)
+        {
+            return sectionView.body(in: form, renderer: renderer)
         }
         
         else {
-            return VStack(spacing: 12.0) {
-                content(section.components)
-            }.padding(.bottom, 12.0)
+            return EmptyView()
         }
     }
     

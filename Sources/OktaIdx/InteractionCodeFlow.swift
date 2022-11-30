@@ -318,6 +318,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     /// Resets the authentication flow to its original state.
     public func reset() {
         context = nil
+        options = nil
         isAuthenticating = false
         options = nil
 

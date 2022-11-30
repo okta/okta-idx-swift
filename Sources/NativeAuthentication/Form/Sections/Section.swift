@@ -22,12 +22,26 @@ public protocol Actionable {
 }
 
 public protocol Authenticator {
+    var id: String { get set }
     var name: String { get set }
     var displayName: String? { get set }
     var profile: String? { get set }
+    
+//    func isEqual(_ authenticator: any Authenticator) -> Bool
+}
+
+//extension Authenticator {
+//    public func isEqual(_ authenticator: any Authenticator) -> Bool {
+//        id == authenticator.id
+//    }
+//}
+
+public protocol HasAuthenticator {
+    var authenticator: any Authenticator { get set }
 }
 
 public struct EmailAuthenticator: Authenticator {
+    public var id: String
     public var name: String
     public var displayName: String?
     public var profile: String?
@@ -37,7 +51,8 @@ public struct EmailAuthenticator: Authenticator {
     public var startPolling: (() -> Void)?
     public var stopPolling: (() -> Void)?
 
-    public init(name: String) {
+    public init(id: String, name: String) {
+        self.id = id
         self.name = name
     }
 }
@@ -102,6 +117,19 @@ public struct RegisterUser: SignInSection, Actionable, Identifiable {
     }
 }
 
+public struct UseAuthenticator: SignInSection, Actionable, HasAuthenticator, Identifiable {
+    public var id: String?
+    public var components: [any SignInComponent]
+    public var action: ((_ component: any SignInComponent) -> Void)?
+    public var authenticator: any Authenticator
+
+    public init(id: String? = nil, authenticator: any Authenticator, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+        self.id = id
+        self.authenticator = authenticator
+        self.components = components()
+    }
+}
+
 public struct SelectAuthenticator: SignInSection, Actionable, Identifiable {
     public enum Intent {
         case authenticate, enroll, recover
@@ -119,7 +147,7 @@ public struct SelectAuthenticator: SignInSection, Actionable, Identifiable {
     }
 }
 
-public struct ChallengeAuthenticator: SignInSection, Actionable, Identifiable {
+public struct ChallengeAuthenticator: SignInSection, Actionable, HasAuthenticator, Identifiable {
     public var id: String?
     public var authenticator: any Authenticator
     public var components: [any SignInComponent]

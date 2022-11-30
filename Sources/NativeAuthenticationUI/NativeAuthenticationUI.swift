@@ -8,8 +8,9 @@ public final class NativeAuthentication: ObservableObject {
     @Published public private(set) var token: Token?
     
     public let client: AuthenticationClient
+    public weak var presentationContextProvider: (any ASWebAuthenticationPresentationContextProviding)?
+
     private let initialForm: SignInForm
-    private weak var presentationContextProvider: ASWebAuthenticationPresentationContextProviding?
     private var webAuthSession: ASWebAuthenticationSession?
 
     public init(client: AuthenticationClient, initialForm: SignInForm = .empty) {

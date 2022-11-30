@@ -90,6 +90,7 @@ struct IonApp: Decodable, ReceivesIDXResponse {
 
 struct IonAuthenticator: Decodable, IDXIONRelatable, ReceivesIDXResponse {
     let displayName: String?
+    let allowedFor: String?
     let id: String?
     let type: String
     let key: String?

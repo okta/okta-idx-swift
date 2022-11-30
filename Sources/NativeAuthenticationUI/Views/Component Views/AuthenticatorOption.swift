@@ -72,7 +72,7 @@ struct AuthenticatorOption_Previews: PreviewProvider {
         
         VStack(alignment: .leading, spacing: 20) {
             AuthenticatorOption(id: "email",
-                                authenticator: EmailAuthenticator(name: "email")
+                                authenticator: EmailAuthenticator(id: "1", name: "email")
                 .profile("j***@ex***ple.com"))
             .name("email")
             .label("Email")
@@ -81,7 +81,7 @@ struct AuthenticatorOption_Previews: PreviewProvider {
             .body(in: form, section: section)
 
             AuthenticatorOption(id: "email",
-                                authenticator: EmailAuthenticator(name: "email")
+                                authenticator: EmailAuthenticator(id: "1", name: "email")
                 .profile("+1 (555) ###-##78"))
             .name("phone")
             .label("Phone")
@@ -90,14 +90,14 @@ struct AuthenticatorOption_Previews: PreviewProvider {
             .body(in: form, section: section)
 
             AuthenticatorOption(id: "password",
-                                authenticator: EmailAuthenticator(name: "password"))
+                                authenticator: EmailAuthenticator(id: "1", name: "password"))
             .name("password")
             .label("Password")
             .action({ _ in })
             .body(in: form, section: section)
 
             AuthenticatorOption(id: "securityQuestion",
-                                authenticator: EmailAuthenticator(name: "securityQuestion")
+                                authenticator: EmailAuthenticator(id: "1", name: "securityQuestion")
                 .profile("What's your favorite food?"))
             .name("securityQuestion")
             .label("Security Question")

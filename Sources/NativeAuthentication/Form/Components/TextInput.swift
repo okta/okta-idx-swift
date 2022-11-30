@@ -29,12 +29,17 @@ public protocol InputField<Value>: SignInComponent, Identifiable {
 public struct StringInputField: InputField {
     public typealias Value = String
     
+    public enum Length { case minimum, maximum }
+
     public var id: String
     public var label: String
     public var isSecure: Bool
     public var inputStyle: InputStyle
     public var contentType: ContentType
-    
+    public var minimumLength: Int?
+    public var maximumLength: Int?
+    public var required: Bool = false
+
     @ObservedObject
     public var value: SignInValue<String>
     
@@ -52,6 +57,25 @@ public struct StringInputField: InputField {
         self.isSecure = isSecure
         self.inputStyle = inputStyle
         self.contentType = contentType
+        self.value = value
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct OneTimeCodeField: InputField {
+    public typealias Value = String
+    
+    public var id: String
+    public var label: String
+    public var isSecure: Bool
+    
+    @ObservedObject
+    public var value: SignInValue<String>
+    
+    public init(id: String, label: String, isSecure: Bool, value: SignInValue<String>) {
+        self.id = id
+        self.label = label
+        self.isSecure = isSecure
         self.value = value
     }
 }

@@ -14,9 +14,10 @@ import SwiftUI
 import Combine
 import DynamicAuthentication
 import NativeAuthenticationUI
+import AuthenticationServices
 
 struct AppView: View {
-    final class ViewModel: ObservableObject {
+    final class ViewModel: NSObject, ObservableObject, ASWebAuthenticationPresentationContextProviding {
         @Published var credential: Credential?
         @Published var nativeAuth: NativeAuthentication
         
@@ -27,6 +28,7 @@ struct AppView: View {
             self.credential = Credential.default
             self.nativeAuth = nativeAuth
             self.defaultCredentialCancellable = nil
+            super.init()
             
             self.nativeAuthTokenCancellable = nativeAuth.$token.sink { token in
                 guard let token = token else { return }
@@ -41,6 +43,12 @@ struct AppView: View {
                     self.credential = nil
                 }
             }
+            
+            self.nativeAuth.presentationContextProvider = self
+        }
+        
+        func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+            return ASPresentationAnchor()
         }
     }
 
