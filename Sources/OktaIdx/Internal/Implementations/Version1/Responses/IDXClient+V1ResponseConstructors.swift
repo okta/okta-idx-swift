@@ -63,7 +63,7 @@ extension Response.User {
 }
 
 extension Response.User.Profile {
-    internal init?(ion object: [String:String]?) {
+    internal init?(ion object: [String: String]?) {
         guard let object = object else { return nil }
 
         var timeZone: TimeZone?
