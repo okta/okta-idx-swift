@@ -102,7 +102,15 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/id"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/Profile-swift.struct"
+      ],
+      "title" : "Structures"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/id",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/profile-swift.property",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/username"
       ],
       "title" : "Instance Properties"
     }
@@ -305,6 +313,40 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/user-swift.struct"
 },
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct/Profile-swift.struct": {
+  "abstract" : [
+    {
+      "text" : "Optional profile information that describes the user.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Profile"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/Profile-swift.struct",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Profile"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response.User.Profile",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/user-swift.struct\/profile-swift.struct"
+},
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct/id": {
   "abstract" : [
     {
@@ -341,6 +383,88 @@
   "title" : "id",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/user-swift.struct\/id"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct/profile-swift.property": {
+  "abstract" : [
+    {
+      "text" : "Profile information for this user.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "profile"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC4UserV7ProfileV",
+      "text" : "Profile"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/profile-swift.property",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "profile",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/user-swift.struct\/profile-swift.property"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct/username": {
+  "abstract" : [
+    {
+      "text" : "Username for this user.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "username"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/username",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "username",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response\/user-swift.struct\/username"
 }
 }
 }
