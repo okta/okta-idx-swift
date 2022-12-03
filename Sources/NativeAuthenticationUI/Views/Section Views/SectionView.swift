@@ -13,7 +13,7 @@
 import NativeAuthentication
 import SwiftUI
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 protocol SectionView {
     func body(in form: SignInForm,
               @ViewBuilder
@@ -22,14 +22,14 @@ protocol SectionView {
     func shouldDisplay(in form: SignInForm) -> Bool
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension SectionView {
     func shouldDisplay(in form: SignInForm) -> Bool {
         true
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension SectionView where Self: SignInSection {
     func body(in form: SignInForm,
               @ViewBuilder
@@ -45,5 +45,5 @@ extension GenericSection: SectionView {}
 extension MakeSelection: SectionView {}
 extension IdentifyUser: SectionView {}
 extension RegisterUser: SectionView {}
-extension ChallengeAuthenticator: SectionView {}
 extension RestartSignIn: SectionView {}
+extension ErrorSection: SectionView {}

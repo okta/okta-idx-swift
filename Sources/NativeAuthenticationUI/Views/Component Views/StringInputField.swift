@@ -14,6 +14,7 @@ import SwiftUI
 import NativeAuthentication
 
 extension StringInputField.ContentType {
+    #if os(iOS)
     var type: UITextContentType? {
         switch self {
         case .name:
@@ -40,10 +41,12 @@ extension StringInputField.ContentType {
             return nil
         }
     }
+    #endif
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension StringInputField: ComponentView {
+    #if os(iOS)
     var keyboardType: UIKeyboardType {
         switch inputStyle {
         case .email:
@@ -54,7 +57,8 @@ extension StringInputField: ComponentView {
             return .default
         }
     }
-    
+    #endif
+
     var capitalization: Compatibility.TextInputAutocapitalizationMode? {
         switch inputStyle {
         case .email:
@@ -82,6 +86,7 @@ extension StringInputField: ComponentView {
     func body(in form: SignInForm, section: any SignInSection) -> some View {
         VStack(spacing: 12.0) {
             HStack {
+                
                 if isSecure && id.hasSuffix("passcode") {
                     Image(systemName: "lock")
                 } else if id.hasSuffix("identifier") {
@@ -92,8 +97,10 @@ extension StringInputField: ComponentView {
                     SecureField(label, text: $value.value) {
 //                        section.action?(self)
                     }
+                    #if os(iOS)
                     .keyboardType(keyboardType)
                     .textContentType(contentType.type)
+                    #endif
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
 
@@ -106,8 +113,10 @@ extension StringInputField: ComponentView {
                     TextField(label, text: $value.value) {
 //                        section.action?(self)
                     }
+                    #if os(iOS)
                     .keyboardType(keyboardType)
                     .textContentType(contentType.type)
+                    #endif
                     .autocorrectionDisabled(autocorrectionDisabled)
                     .compatibility.textInputAutocapitalization(capitalization)
                 }
@@ -118,6 +127,7 @@ extension StringInputField: ComponentView {
 }
 
 #if DEBUG
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 struct StringInputField_Previews: PreviewProvider {
     class StringBacking: SignInValueBacking {
         var backingValue: Any

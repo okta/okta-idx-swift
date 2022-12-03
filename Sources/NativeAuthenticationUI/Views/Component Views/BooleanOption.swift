@@ -14,7 +14,7 @@ import Foundation
 import NativeAuthentication
 import SwiftUI
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension BooleanOption: ComponentView {
     @ViewBuilder
     func body(in form: SignInForm, section: any SignInSection) -> some View {
@@ -28,6 +28,7 @@ extension BooleanOption: ComponentView {
 }
 
 #if DEBUG
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 struct BooleanOption_Previews: PreviewProvider {
     class BooleanBacking: SignInValueBacking {
         var backingValue: Any

@@ -13,7 +13,7 @@
 import SwiftUI
 import NativeAuthentication
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension RedirectIDP: SectionView {
     @ViewBuilder
     func body(in form: SignInForm, @ViewBuilder renderer: ([any SignInComponent]) -> some View) -> any View {

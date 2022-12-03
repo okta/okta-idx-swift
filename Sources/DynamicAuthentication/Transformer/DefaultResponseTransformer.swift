@@ -56,16 +56,6 @@ public class DefaultResponseTransformer: ResponseTransformer {
     public func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm {
         var form = currentForm ?? SignInForm(intent: .empty) {}
         
-        var messageSection: any SignInSection
-        if let section = form.sections.with(id: "title") {
-            messageSection = section
-        } else {
-            messageSection = HeaderSection(id: "title") {
-                FormLabel(id: "titleLabel", text: "Error signing in", style: .heading)
-            }
-            form.sections.insert(messageSection, at: 0)
-        }
-        
         var message = error.localizedDescription
         var componentIdentifier = "title.titleLabel"
         
@@ -90,17 +80,35 @@ public class DefaultResponseTransformer: ResponseTransformer {
             }
         }
         
-        if var errorLabel: FormLabel = messageSection.components.with(id: "errorDescription") {
-            errorLabel.text = message
+        let headerIndex = form.sections.firstIndex(where: { $0 is HeaderSection })
+
+        var messageSection: ErrorSection
+        if let index = form.sections.index(of: "errors"),
+           let section = form.sections[index] as? ErrorSection
+        {
+            messageSection = section
+            form.sections.remove(at: index)
         } else {
-            messageSection.components.append(FormLabel(id: "errorDescription",
-                                                       text: message,
-                                                       style: .error))
+            messageSection = ErrorSection(id: "errors") {
+                if headerIndex == nil {
+                    FormLabel(id: "titleLabel", text: "Error signing in", style: .heading)
+                }
+            }
         }
+
+        messageSection.components.append(
+            FormLabel(id: "errorDescription",
+                      text: message,
+                      style: .error)
+        )
         
-        if let headerIndex = form.sections.firstIndex(where: { $0.id == messageSection.id }) {
-            form.sections[headerIndex] = messageSection
+        var sections = form.sections
+        if let headerIndex = headerIndex {
+            sections.insert(messageSection, at: headerIndex + 1)
+        } else {
+            sections.insert(messageSection, at: 0)
         }
+        form.sections = sections
         
         currentForm = form
         return form
@@ -113,22 +121,43 @@ extension Response {
             try remediation.section(from: self, previous: previous, in: provider)
         }
         
+        var headerSection = HeaderSection(id: "title") {
+            FormLabel(id: "titleLabel", text: "Sign in", style: .heading)
+        }
+        
+        updateMessages(&sections)
+        updateIDPSection(&sections)
+        updateAuthenticatorSections(&sections)
+        updateBackButton(&sections, header: &headerSection)
+        updateRestartButton(&sections, header: &headerSection)
+
+        sections.insert(headerSection, at: 0)
+
+        return SignInForm(intent: .signIn) { sections }
+    }
+    
+    var errors: [Error] {
+        messages
+            .filter { $0.type == .error }
+            .map { DynamicAuthenticationError.message($0.message,
+                                         localizationKey: $0.localizationKey) }
+    }
+    
+    func updateMessages(_ sections: inout [any SignInSection]) {
         if messages.count > 0 {
             let components = messages.map({ message in
                 FormLabel(id: UUID().uuidString,
                           text: message.message,
                           style: .error)
             })
-            sections.insert(HeaderSection(id: "errors") {
+            sections.insert(ErrorSection(id: "errors") {
                 components
             }, at: 0)
         }
-        
-        var headerSection = HeaderSection(id: "title") {
-            FormLabel(id: "titleLabel", text: "Sign in", style: .heading)
-        }
-        
-        // Coalesce all redirect-idp actions together
+    }
+    
+    // Coalesce all redirect-idp actions together
+    func updateIDPSection(_ sections: inout [any SignInSection]) {
         let idpSections: [RedirectIDP] = sections
             .compactMap({ $0 as? RedirectIDP })
 
@@ -148,31 +177,57 @@ extension Response {
                 idpComponents
             }, at: firstIndex)
         }
-        
-        if let index = sections.firstIndex(where: { $0.id == "select-identify" }),
-           let action: ContinueAction = sections[index].component(with: "signIn")
-        {
-            headerSection.leftComponents.append(action)
-            sections.remove(at: index)
-        }
-        
-        if let index = sections.firstIndex(where: { $0.id == "cancel" }),
-           let action: ContinueAction = sections[index].component(with: "continue")
-        {
-            headerSection.rightComponents.append(action)
-            sections.remove(at: index)
-        }
-        
-        sections.insert(headerSection, at: 0)
-
-        return SignInForm(intent: .signIn) { sections }
     }
     
-    var errors: [Error] {
-        messages
-            .filter { $0.type == .error }
-            .map { DynamicAuthenticationError.message($0.message,
-                                         localizationKey: $0.localizationKey) }
+    func updateBackButton(_ sections: inout [any SignInSection], header headerSection: inout HeaderSection) {
+        guard let index = sections.firstIndex(where: { $0.id == "select-identify" }),
+           let action: ContinueAction = sections[index].component(with: "signIn")
+        else {
+            return
+        }
+
+        headerSection.leftComponents.append(action)
+        sections.remove(at: index)
+    }
+    
+    // Add the "Restart" button when appropriate
+    func updateRestartButton(_ sections: inout [any SignInSection], header headerSection: inout HeaderSection) {
+        guard let index = sections.firstIndex(where: { $0.id == "cancel" }),
+           let action: ContinueAction = sections[index].component(with: "continue")
+        else {
+            return
+        }
+
+        headerSection.rightComponents.append(action)
+        sections.remove(at: index)
+    }
+    
+    func updateAuthenticatorSections(_ sections: inout [any SignInSection]) {
+        guard let useSection = sections.compactMap({ $0 as? HasAuthenticator }).first,
+              var selectSection = sections.of(type: SelectAuthenticator.self).first
+        else {
+            return
+        }
+
+        let authenticatorOptions = selectSection.components.of(type: AuthenticatorOption.self)
+
+        // If only one authenticator is present, don't show the select-authenticator.
+        if authenticatorOptions.count == 1,
+           let index = sections.firstIndex(where: { $0 is SelectAuthenticator })
+        {
+            sections.remove(at: index)
+        }
+        
+        // Remove the current authenticator option from the list
+        else if let sectionIndex = sections.firstIndex(where: { $0 is SelectAuthenticator }),
+                let componentIdx = selectSection.components.firstIndex(where: { component in
+                    guard let component = component as? AuthenticatorOption else { return false }
+                    return component.authenticator.id == useSection.authenticator.id
+                })
+        {
+            selectSection.components.remove(at: componentIdx)
+            sections[sectionIndex] = selectSection
+        }
     }
 }
 
@@ -213,6 +268,24 @@ extension OktaIdx.Authenticator {
             
             return result
             
+        case .phone:
+            var result = PhoneAuthenticator(id: id, name: displayName)
+                .profile(capability(Capability.Profile.self)?.values["phoneNumber"])
+            
+            if let sendable = capability(Capability.Sendable.self) {
+                result.send = {
+                    sendable.send()
+                }
+            }
+
+            if let resendable = capability(Capability.Resendable.self) {
+                result.resend = {
+                    resendable.resend()
+                }
+            }
+            
+            return result
+
         default:
             return nil
         }
@@ -314,11 +387,7 @@ extension Remediation {
         case .selectAuthenticatorAuthenticate,
                 .selectAuthenticatorEnroll,
                 .selectAuthenticatorUnlockAccount:
-            return ContinueAction(id: "\(name).signIn",
-                                  intent: .continue,
-                                  label: "Select authenticator method") {
-                self.proceed()
-            }
+            return nil
 
         case .challengeAuthenticator:
             return ContinueAction(id: "\(name).continue",
@@ -356,12 +425,14 @@ extension Remediation {
         var components: [any SignInComponent] = form.fields.compactMap { field in
             field.remediationRow(from: response, remediation: self, previous: previous)
         }.reduce([], +)
-                
-        self.messages.forEach { message in
-            components.append(FormLabel(id: UUID().uuidString,
-                                        text: message.message,
-                                        style: .caption))
-        }
+         
+        let messageLabels: [any SignInComponent] = messages.compactMap({ message in
+            guard message.field == nil else { return nil }
+            return FormLabel(id: UUID().uuidString,
+                             text: message.message,
+                             style: .caption)
+        })
+        components.append(contentsOf: messageLabels)
         
         authenticators
             .compactMap { authenticator in
@@ -611,17 +682,21 @@ extension Remediation.Form.Field {
                     contentType = .generic
                 }
 
-                let previousField: StringInputField? = previous?
+                // Carry the previous value over when the form hasn't changed.
+                if let previousField: StringInputField = previous?
                     .sections
                     .with(id: remediation.name)?
                     .component(with: name)
-
+                {
+                    value = previousField.value.value
+                }
+                
                 rows.append(StringInputField(id: id(remediation: remediation, ancestors: ancestors),
                                              label: label ?? "",
                                              isSecure: isSecret,
                                              inputStyle: style,
                                              contentType: contentType,
-                                             value: previousField?.value ?? SignInValue(self)))
+                                             value: SignInValue(self)))
             }
         }
 

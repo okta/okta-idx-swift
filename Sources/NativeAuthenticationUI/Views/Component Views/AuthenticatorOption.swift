@@ -13,7 +13,7 @@
 import SwiftUI
 import NativeAuthentication
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension AuthenticatorOption: ComponentView {
     @ViewBuilder
     public func body(in form: SignInForm, section: any SignInSection) -> some View {
@@ -63,6 +63,7 @@ extension AuthenticatorOption: ComponentView {
 }
 
 #if DEBUG
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 struct AuthenticatorOption_Previews: PreviewProvider {
     static var previews: some View {
         let section = GenericSection {[]}

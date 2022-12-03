@@ -17,13 +17,13 @@ import NativeAuthentication
 import AuthenticationServices
 #endif
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension SocialLoginAction: ComponentView {
     @ViewBuilder
     func body(in form: SignInForm, section: any SignInSection) -> some View {
         switch provider {
         case .apple:
-#if canImport(AuthenticationServices)
+#if canImport(AuthenticationServices) && os(iOS)
                 if #available(iOS 14.0, *) {
                     SignInWithAppleButton { request in
                         // Do nothing
@@ -34,11 +34,11 @@ extension SocialLoginAction: ComponentView {
                     EmptyView()
                 }
 #else
-                fallthrough
+                EmptyView()
 #endif
             
         default:
-            if #available(iOS 15.0, *) {
+            if #available(iOS 15.0, macOS 12.0, *) {
                 Button {
                     self.action()
                 } label: {
@@ -63,6 +63,7 @@ extension SocialLoginAction: ComponentView {
 }
 
 #if DEBUG
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 struct SocialLoginAction_Previews: PreviewProvider {
     static var previews: some View {
         let section = GenericSection {[]}

@@ -26,15 +26,7 @@ public protocol Authenticator {
     var name: String { get set }
     var displayName: String? { get set }
     var profile: String? { get set }
-    
-//    func isEqual(_ authenticator: any Authenticator) -> Bool
 }
-
-//extension Authenticator {
-//    public func isEqual(_ authenticator: any Authenticator) -> Bool {
-//        id == authenticator.id
-//    }
-//}
 
 public protocol HasAuthenticator {
     var authenticator: any Authenticator { get set }
@@ -57,12 +49,37 @@ public struct EmailAuthenticator: Authenticator {
     }
 }
 
+public struct PhoneAuthenticator: Authenticator {
+    public var id: String
+    public var name: String
+    public var displayName: String?
+    public var profile: String?
+    
+    public var send: (() -> Void)?
+    public var resend: (() -> Void)?
+
+    public init(id: String, name: String) {
+        self.id = id
+        self.name = name
+    }
+}
+
 public struct HeaderSection: SignInSection, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]
     public var leftComponents: [any SignInComponent] = []
     public var rightComponents: [any SignInComponent] = []
 
+    public init(id: String? = nil, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+        self.id = id
+        self.components = components()
+    }
+}
+
+public struct ErrorSection: SignInSection, Identifiable {
+    public var id: String?
+    public var components: [any SignInComponent]
+    
     public init(id: String? = nil, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
         self.id = id
         self.components = components()

@@ -14,26 +14,25 @@ import SwiftUI
 import NativeAuthentication
 
 @available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
-extension SelectAuthenticator: SectionView {
+extension ChallengeAuthenticator: SectionView {
     @ViewBuilder
     func body(in form: SignInForm, @ViewBuilder renderer: ([any SignInComponent]) -> some View) -> any View {
-        let currentAuthenticator = form.sections.compactMap({ $0 as? any HasAuthenticator }).first
-
         VStack(spacing: 12.0) {
-            HStack {
-                VStack {
-                    Divider()
+            Text("Verify with your \(authenticator.name.lowercased())")
+                .font(.headline)
+                .fontWeight(.bold)
+            
+            if let profile = authenticator.profile {
+                HStack {
+                    Image(systemName: "person.circle")
+                    Text(profile)
+                        .font(.subheadline)
                 }
-                Text("Or select another security method")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .frame(maxWidth: .infinity)
-                VStack {
-                    Divider()
-                }
+
+                Text("We sent a verification code to \(profile). Click the verification link in your email to continue or enter the code below.")
+            } else {
+                Text("We sent you a verification code. Please check your \(authenticator.name.lowercased()) and the code below.")
             }
-            .padding(.bottom, 12.0)
-            .padding(.top, 24.0)
             
             renderer(components)
         }.padding(.bottom, 12.0)

@@ -26,12 +26,12 @@ struct Compatibility {
     }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension View {
     var compatibility: Compatibility.Modifier<Self> { .init(content: self) }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension Compatibility.Modifier where Content: View {
     func scrollDismissesKeyboard(_ mode: Compatibility.KeyboardDismissMode) -> some View {
         if #available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *) {
@@ -53,6 +53,7 @@ extension Compatibility.Modifier where Content: View {
     }
     
     func textInputAutocapitalization(_ mode: Compatibility.TextInputAutocapitalizationMode?) -> some View {
+        #if os(iOS) || os(tvOS) || os(watchOS)
         if #available(iOS 15.0, tvOS 15.0, watchOS 8.0, *) {
             let capitalizationMode: TextInputAutocapitalization?
             switch mode {
@@ -71,5 +72,8 @@ extension Compatibility.Modifier where Content: View {
         } else {
             return content
         }
+        #else
+        return content
+        #endif
     }
 }

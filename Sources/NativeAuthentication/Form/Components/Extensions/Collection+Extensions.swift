@@ -13,7 +13,7 @@
 import Foundation
 
 extension Collection where Element == any SignInComponent {
-    public func with<T: SignInComponent>(type: T.Type) -> [T] {
+    public func of<T: SignInComponent>(type: T.Type) -> [T] {
         compactMap({ $0 as? T })
     }
     
@@ -22,11 +22,19 @@ extension Collection where Element == any SignInComponent {
     }
     
     public func with<T: SignInComponent>(id: String) -> T? {
-        with(type: T.self).first(where: { $0.id == id })
+        of(type: T.self).first(where: { $0.id == id })
     }
 }
 
 extension Collection where Element == any SignInSection {
+    public func of<T: SignInSection>(type: T.Type) -> [T] {
+        compactMap({ $0 as? T })
+    }
+    
+    public func index(of id: String) -> Self.Index? {
+        firstIndex(where: { $0.id == id })
+    }
+    
     public func with(id: String) -> Element? {
         first(where: { $0.id == id })
     }

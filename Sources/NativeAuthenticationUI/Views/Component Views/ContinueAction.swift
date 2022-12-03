@@ -13,13 +13,13 @@
 import SwiftUI
 import NativeAuthentication
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension ContinueAction: ComponentView {
     @ViewBuilder
     func body(in form: SignInForm, section: any SignInSection) -> some View {
         switch intent {
         case .signIn, .continue:
-            if #available(iOS 15.0, *) {
+            if #available(iOS 15.0, macOS 12.0, *) {
                 Button {
                     self.action()
                 } label: {
@@ -60,7 +60,7 @@ extension ContinueAction: ComponentView {
             }
 
         case .restart:
-            if #available(iOS 15.0, *) {
+            if #available(iOS 15.0, macOS 12.0, *) {
                 Button(role: .cancel) {
                     self.action()
                 } label: {
@@ -89,6 +89,7 @@ extension ContinueAction: ComponentView {
 }
 
 #if DEBUG
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 struct ContinueAction_Previews: PreviewProvider {
     static var previews: some View {
         let section = GenericSection {[]}
