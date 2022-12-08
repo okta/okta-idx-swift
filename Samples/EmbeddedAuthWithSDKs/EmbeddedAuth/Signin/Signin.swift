@@ -61,6 +61,8 @@ public class Signin {
         viewController.present(navigationController, animated: true, completion: nil)
     }
     
+    /// Attempts to authorize the provided magic link, verifying the state matches the current session.
+    /// - Parameter url: The magic link to authorize.
     public func authorize(magicLink url: URL) {
         guard let controller = navigationController?.topViewController as? IDXRemediationTableViewController else {
             return

@@ -67,6 +67,7 @@ class SigninCoordinator {
         }
     }
     
+    /// Digs through the view hierarchy to find the current sign-in controller, if present.
     var signInViewController: (UIViewController & IDXSigninController)? {
         guard var viewController = onboardingWindow?.rootViewController else {
             return nil
@@ -87,6 +88,7 @@ class SigninCoordinator {
         return viewController as? (UIViewController & IDXSigninController)
     }
     
+    /// Handles an inbound email magic link.
     func handle(magicLink url: URL) {
         signInViewController?.signin?.authorize(magicLink: url)
     }

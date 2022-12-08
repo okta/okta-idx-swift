@@ -60,9 +60,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        for url in URLContexts.map({ $0.url }) {
-            SigninCoordinator.shared.handle(magicLink: url)
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let url = userActivity.webpageURL
+        else {
+            return
         }
+        
+        SigninCoordinator.shared.handle(magicLink: url)
     }
 }
