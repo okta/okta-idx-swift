@@ -39,9 +39,11 @@ class ProfileTableViewController: UITableViewController {
     var credential: Credential? {
         didSet {
             if let credential = credential {
-                credential.userInfo { _ in
-                    DispatchQueue.main.async {
-                        self.configure(credential)
+                credential.refreshIfNeeded { _ in
+                    credential.userInfo { _ in
+                        DispatchQueue.main.async {
+                            self.configure(credential)
+                        }
                     }
                 }
             }

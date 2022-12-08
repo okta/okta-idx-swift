@@ -66,4 +66,28 @@ class SigninCoordinator {
             self.onboardingWindow = nil
         }
     }
+    
+    var signInViewController: (UIViewController & IDXSigninController)? {
+        guard var viewController = onboardingWindow?.rootViewController else {
+            return nil
+        }
+
+        while !(viewController is IDXSigninController) {
+            if let navigationContoller = viewController as? UINavigationController,
+               let topController = navigationContoller.topViewController
+            {
+                viewController = topController
+            }
+            
+            else if let presentedController = viewController.presentedViewController {
+                viewController = presentedController
+            }
+        }
+        
+        return viewController as? (UIViewController & IDXSigninController)
+    }
+    
+    func handle(magicLink url: URL) {
+        signInViewController?.signin?.authorize(magicLink: url)
+    }
 }
