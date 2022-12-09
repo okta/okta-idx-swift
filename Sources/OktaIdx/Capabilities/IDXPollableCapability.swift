@@ -35,9 +35,8 @@ extension Capability {
                     // we can safely ignore it.
                     if case let .apiError(apiError) = error,
                        case let .serverError(serverError) = apiError,
-                       let serverError = serverError as? NSError,
-                       serverError.domain == NSURLErrorDomain,
-                       serverError.code == NSURLErrorNetworkConnectionLost
+                       (serverError as NSError).domain == NSURLErrorDomain,
+                       (serverError as NSError).code == NSURLErrorNetworkConnectionLost
                     {
                         return nil
                     }
