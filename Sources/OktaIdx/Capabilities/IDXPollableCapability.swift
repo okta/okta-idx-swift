@@ -31,6 +31,17 @@ extension Capability {
             handler.start { result in
                 switch result {
                 case .failure(let error):
+                    // When the error is a "Network Connection Lost" error,
+                    // we can safely ignore it.
+                    if case let .apiError(apiError) = error,
+                       case let .serverError(serverError) = apiError,
+                       let serverError = serverError as? NSError,
+                       serverError.domain == NSURLErrorDomain,
+                       serverError.code == NSURLErrorNetworkConnectionLost
+                    {
+                        return nil
+                    }
+                    
                     completion?(.failure(error))
                     return nil
                     

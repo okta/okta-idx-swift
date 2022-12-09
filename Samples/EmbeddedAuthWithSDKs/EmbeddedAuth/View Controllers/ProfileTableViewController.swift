@@ -121,7 +121,7 @@ class ProfileTableViewController: UITableViewController {
         }
     }
     
-    func signout() {
+    func signout(_ sender: UIView?) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(.init(title: "Clear tokens", style: .default, handler: { _ in
             do {
@@ -144,6 +144,7 @@ class ProfileTableViewController: UITableViewController {
             })
         }))
         alert.addAction(.init(title: "Cancel", style: .cancel))
+        alert.popoverPresentationController?.sourceView = sender
 
         present(alert, animated: true)
     }
@@ -188,7 +189,7 @@ class ProfileTableViewController: UITableViewController {
 
         switch row.id {
         case "signout":
-            signout()
+            signout(tableView.cellForRow(at: indexPath))
 
         case "refresh":
             refresh()
