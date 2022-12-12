@@ -68,7 +68,7 @@ class SigninCoordinator {
     }
     
     /// Digs through the view hierarchy to find the current sign-in controller, if present.
-    var signInViewController: (UIViewController & IDXSigninController)? {
+    private var signInViewController: (UIViewController & IDXSigninController)? {
         guard var viewController = onboardingWindow?.rootViewController else {
             return nil
         }
