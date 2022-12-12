@@ -20,20 +20,26 @@ extension SelectAuthenticator: SectionView {
         let currentAuthenticator = form.sections.compactMap({ $0 as? any HasAuthenticator }).first
 
         VStack(spacing: 12.0) {
-            HStack {
-                VStack {
-                    Divider()
+            if let currentAuthenticator = currentAuthenticator {
+                HStack {
+                    VStack {
+                        Divider()
+                    }
+                    Text("Or select another security method")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity)
+                    VStack {
+                        Divider()
+                    }
                 }
-                Text("Or select another security method")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .frame(maxWidth: .infinity)
-                VStack {
-                    Divider()
-                }
+                .padding(.bottom, 12.0)
+                .padding(.top, 24.0)
+            } else {
+                Text("Verify it's you with a security method")
+                    .fontWeight(.bold)
+                Text("Select from the following options")
             }
-            .padding(.bottom, 12.0)
-            .padding(.top, 24.0)
             
             renderer(components)
         }.padding(.bottom, 12.0)

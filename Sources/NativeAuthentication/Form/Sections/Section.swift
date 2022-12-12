@@ -64,6 +64,21 @@ public struct PhoneAuthenticator: Authenticator {
     }
 }
 
+public struct PasswordAuthenticator: Authenticator {
+    public var id: String
+    public var name: String
+    public var displayName: String?
+    public var profile: String?
+    
+    public var send: (() -> Void)?
+    public var resend: (() -> Void)?
+
+    public init(id: String, name: String) {
+        self.id = id
+        self.name = name
+    }
+}
+
 public struct HeaderSection: SignInSection, Identifiable {
     public var id: String?
     public var components: [any SignInComponent]

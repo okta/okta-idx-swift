@@ -217,7 +217,9 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
                 resetExpiration(date: expirationDate)
             }
             
-            send(response)
+            if responseTransformer.shouldUpdateForm(for: response) {
+                send(response)
+            }
         }
     }
     

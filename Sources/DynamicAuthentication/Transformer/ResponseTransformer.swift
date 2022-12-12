@@ -17,6 +17,7 @@ import NativeAuthentication
 public protocol ResponseTransformer {
     var loading: SignInForm { get }
     var success: SignInForm { get }
+    func shouldUpdateForm(for response: Response) -> Bool
     func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm
     func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm
 }

@@ -53,6 +53,37 @@ public class DefaultResponseTransformer: ResponseTransformer {
         return result
     }
     
+    public func shouldUpdateForm(for response: Response) -> Bool {
+        // Auto-enrollment handling
+        if let remediation = response.remediations[.selectAuthenticatorEnroll] ?? response.remediations[.selectAuthenticatorAuthenticate] ?? response.remediations[.selectAuthenticatorUnlockAccount],
+           let authenticatorField = remediation["authenticator"],
+           let options = authenticatorField.options,
+           response.remediations[.skip] == nil
+        {
+            // Automatically follow when there's only one option
+            if options.count == 1,
+               let option = options.first,
+               response.authenticators.current != option.authenticator
+            {
+                authenticatorField.selectedOption = option
+                remediation.proceed()
+                return false
+            }
+            
+            // Automatically enroll the password when it's one of the options while enrolling
+            else if let passwordOption = options.first(where: { $0.authenticator?.type == .password }),
+                    remediation.type == .selectAuthenticatorEnroll,
+                    response.authenticators.current != passwordOption.authenticator
+            {
+                authenticatorField.selectedOption = passwordOption
+                remediation.proceed()
+                return false
+            }
+        }
+        
+        return true
+    }
+
     public func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm {
         var form = currentForm ?? SignInForm(intent: .empty) {}
         
@@ -286,6 +317,10 @@ extension OktaIdx.Authenticator {
             
             return result
 
+        case .password:
+            var result = PasswordAuthenticator(id: id, name: displayName)
+            return result
+            
         default:
             return nil
         }
@@ -350,7 +385,7 @@ extension Remediation {
             guard let socialIdp = socialIdp,
                   let redirectProvider = socialIdp.provider,
                   let label = socialIdp.label,
-                  let scheme = provider.flow.client.baseURL.scheme
+                  let scheme = provider.flow.redirectUri.scheme
             else {
                 return nil
             }

@@ -46,14 +46,16 @@ struct FormLabel_Previews: PreviewProvider {
             section
         }
         
-        FormLabel(id: "heading", text: "Sign in", style: .heading)
-            .body(in: form, section: section)
-        FormLabel(id: "caption", text: "This is a caption", style: .caption)
-            .body(in: form, section: section)
-        FormLabel(id: "description", text: "This is a description", style: .description)
-            .body(in: form, section: section)
-        FormLabel(id: "error", text: "This is an error", style: .error)
-            .body(in: form, section: section)
+        VStack(spacing: 15) {
+            FormLabel(id: "heading", text: "Sign in", style: .heading)
+                .body(in: form, section: section)
+            FormLabel(id: "caption", text: "This is a caption", style: .caption)
+                .body(in: form, section: section)
+            FormLabel(id: "description", text: "This is a description", style: .description)
+                .body(in: form, section: section)
+            FormLabel(id: "error", text: "This is an error", style: .error)
+                .body(in: form, section: section)
+        }
     }
 }
 #endif

@@ -34,11 +34,11 @@ public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
     }
     
     public func idp(_ idp: RedirectIDP.Provider, finished callbackURL: URL) {
-        
+        provider.idp(idp, finished: callbackURL)
     }
 
     public func idp(_ idp: RedirectIDP.Provider, error: Error) {
-        
+        provider.idp(idp, error: error)
     }
 }
 
