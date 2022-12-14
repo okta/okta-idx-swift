@@ -11,14 +11,20 @@
 //
 
 import Foundation
-import OktaIdx
-import NativeAuthentication
 
-public protocol ResponseTransformer {
-    var loading: SignInForm { get }
-    var success: SignInForm { get }
-    
-    func shouldUpdateForm(for response: Response) -> Bool
-    func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm
-    func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm
+extension Authenticator {
+    /// Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.
+    public class Challenge {
+        public enum Method: String {
+            case universalLink = "UNIVERSAL_LINK"
+        }
+        
+        /// The current authenticator, if one is actively being enrolled or authenticated.
+        public let href: URL
+        
+        init?(href: URL?) {
+            guard let href = href else { return nil }
+            self.href = href
+        }
+    }
 }

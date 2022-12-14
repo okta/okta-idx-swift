@@ -13,7 +13,7 @@
 import Foundation
 
 extension Capability {
-    public struct SocialIDP: RemediationCapability {
+    public struct SocialIDP: RemediationCapability, AuthenticatorCapability {
         /// The unique identifier for this social IDP.
         public let id: String
         

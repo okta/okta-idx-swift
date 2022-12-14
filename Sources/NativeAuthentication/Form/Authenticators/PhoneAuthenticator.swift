@@ -11,14 +11,18 @@
 //
 
 import Foundation
-import OktaIdx
-import NativeAuthentication
 
-public protocol ResponseTransformer {
-    var loading: SignInForm { get }
-    var success: SignInForm { get }
+public struct PhoneAuthenticator: Authenticator {
+    public var id: String
+    public var name: String
+    public var displayName: String?
+    public var profile: String?
     
-    func shouldUpdateForm(for response: Response) -> Bool
-    func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm
-    func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm
+    public var send: (() -> Void)?
+    public var resend: (() -> Void)?
+
+    public init(id: String, name: String) {
+        self.id = id
+        self.name = name
+    }
 }

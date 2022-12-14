@@ -11,14 +11,16 @@
 //
 
 import Foundation
-import OktaIdx
-import NativeAuthentication
 
-public protocol ResponseTransformer {
-    var loading: SignInForm { get }
-    var success: SignInForm { get }
-    
-    func shouldUpdateForm(for response: Response) -> Bool
-    func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm
-    func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm
+public struct UseAuthenticator: SignInSection, Actionable, HasAuthenticator, Identifiable {
+    public var id: String?
+    public var components: [any SignInComponent]
+    public var action: ((_ component: any SignInComponent) -> Void)?
+    public var authenticator: any Authenticator
+
+    public init(id: String? = nil, authenticator: any Authenticator, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+        self.id = id
+        self.authenticator = authenticator
+        self.components = components()
+    }
 }

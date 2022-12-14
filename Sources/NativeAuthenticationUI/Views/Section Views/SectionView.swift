@@ -43,7 +43,6 @@ extension SectionView where Self: SignInSection {
 
 extension GenericSection: SectionView {}
 extension MakeSelection: SectionView {}
-extension IdentifyUser: SectionView {}
 extension RegisterUser: SectionView {}
 extension RestartSignIn: SectionView {}
 extension ErrorSection: SectionView {}

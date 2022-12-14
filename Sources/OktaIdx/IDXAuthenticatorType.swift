@@ -15,7 +15,7 @@ import Foundation
 extension Authenticator {
     /// The state this authenticator is currently in.
     public enum State: Comparable {
-        case normal, enrolled, authenticating, enrolling, recovery
+        case normal, enrolled, authenticating, enrolling, recovery, challenge
     }
     
     /// The type of authenticator.

@@ -14,6 +14,12 @@ import OktaIdx
 import NativeAuthentication
 import Foundation
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
 public class DefaultResponseTransformer: ResponseTransformer {
     public private(set) var currentResponse: Response?
     public private(set) var currentForm: SignInForm?
@@ -150,6 +156,21 @@ extension Response {
     func form(previous: SignInForm?, in provider: DynamicAuthenticationProvider) throws -> SignInForm {
         var sections: [any SignInSection] = try remediations.compactMap { [weak self] remediation in
             try remediation.section(from: self, previous: previous, in: provider)
+        }
+        
+        if let challengeAuthenticator = authenticators.challenge,
+           challengeAuthenticator.type == .device,
+           let idpCapability = challengeAuthenticator.capability(Capability.SocialIDP.self)
+        {
+            sections.insert(GenericSection(id: "AuthenticatorChallenge") {
+                SocialLoginAction(id: "continue", provider: .okta, label: "Sign in with Okta FastPass") {
+                    #if canImport(UIKit)
+                    UIApplication.shared.open(idpCapability.redirectUrl)
+                    #elseif canImport(AppKit)
+                    NSWorkspace.shared.open(idpCapability.redirectUrl)
+                    #endif
+                }
+            }, at: 0)
         }
         
         var headerSection = HeaderSection(id: "title") {

@@ -26,6 +26,10 @@ extension Authenticator {
             allAuthenticators.filter { $0.state == .enrolled }
         }
         
+        public var challenge: Authenticator? {
+            allAuthenticators.first { $0.state == .challenge }
+        }
+        
         /// Access authenticators based on their type.
         public subscript(type: Authenticator.Kind) -> Authenticator? {
             allAuthenticators.first(where: { $0.type == type })

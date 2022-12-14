@@ -12,6 +12,14 @@
 
 import Foundation
 
+extension SignInForm {
+    public func theme(_ theme: Theme?) -> Self {
+        var result = self
+        result.theme = theme
+        return result
+    }
+}
+
 extension SignInSection {
     public func id(_ id: String) -> Self {
         var result = self
@@ -22,6 +30,20 @@ extension SignInSection {
     public func components(@ArrayBuilder<any SignInComponent> _ components: () -> [any SignInComponent]) -> Self {
         var result = self
         result.components = components()
+        return result
+    }
+}
+
+extension HeaderSection {
+    public func leftComponents(@ArrayBuilder<any SignInComponent> _ components: () -> [any SignInComponent]) -> Self {
+        var result = self
+        result.leftComponents = components()
+        return result
+    }
+
+    public func rightComponents(@ArrayBuilder<any SignInComponent> _ components: () -> [any SignInComponent]) -> Self {
+        var result = self
+        result.rightComponents = components()
         return result
     }
 }

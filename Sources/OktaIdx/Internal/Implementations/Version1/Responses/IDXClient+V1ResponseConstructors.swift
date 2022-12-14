@@ -189,7 +189,7 @@ extension Authenticator.Collection {
                 result[authenticatorType] = collection
             }
         
-        let authenticators: [Authenticator] = try authenticatorMapping
+        var authenticators: [Authenticator] = try authenticatorMapping
             .values
             .compactMap({ (mappingArray) in
                 return try Authenticator.makeAuthenticator(flow: flow,
@@ -197,6 +197,23 @@ extension Authenticator.Collection {
                                                                      jsonPaths: mappingArray.map(\.jsonPath),
                                                                      in: object)
             })
+        
+        if let challenge = object.authenticatorChallenge {
+            authenticators.append(.init(flow: flow,
+                                        v1JsonPaths: [],
+                                        state: .challenge,
+                                        id: nil,
+                                        displayName: nil,
+                                        allowedFor: nil,
+                                        type: "device",
+                                        key: nil,
+                                        methods: nil,
+                                        capabilities: [Capability.SocialIDP(redirectUrl: challenge.value.href,
+                                                                            id: challenge.value.challengeMethod,
+                                                                            idpName: challenge.value.challengeMethod,
+                                                                            idpType: challenge.value.challengeMethod,
+                                                                            service: .okta)]))
+        }
         
         self.init(authenticators: authenticators)
     }

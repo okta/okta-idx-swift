@@ -52,6 +52,7 @@ final class IonResponse: Decodable, JSONDecodable {
     let remediation: IonCollection<IonForm>?
     let messages: IonCollection<IonMessage>?
     let authenticators: IonCollection<IonAuthenticator>?
+    let authenticatorChallenge: IonObject<IonAuthenticatorChallenge>?
     let authenticatorEnrollments: IonCollection<IonAuthenticator>?
     let currentAuthenticatorEnrollment: IonObject<IonAuthenticator>?
     let currentAuthenticator: IonObject<IonAuthenticator>?
@@ -198,6 +199,11 @@ struct IonMessage: Codable, ReceivesIDXResponse {
         i18n = try container.decodeIfPresent(IonLocalization.self, forKey: .i18n)
         message = try container.decode(String.self, forKey: .message)
     }
+}
+
+struct IonAuthenticatorChallenge: Codable, ReceivesIDXResponse {
+    let challengeMethod: String
+    let href: URL
 }
 
 /// Internal OIE API v1.0.0 token response.

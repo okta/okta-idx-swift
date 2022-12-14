@@ -57,17 +57,33 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     
     public let flow: InteractionCodeFlow
     public let responseTransformer: any ResponseTransformer
+    public private(set) var theme: SignInForm.Theme?
+    
     internal private(set) var expirationTimer: DispatchSourceTimer?
     internal private(set) var restartCause: Error?
     
     public init(flow: InteractionCodeFlow,
+                theme: SignInForm.Theme? = nil,
                 responseTransformer: any ResponseTransformer = DefaultResponseTransformer())
     {
         self.flow = flow
+        self.theme = theme
         self.responseTransformer = responseTransformer
         self.state = .init(form: .empty)
 
         flow.add(delegate: self)
+        
+        if theme == nil {
+            Task {
+                if let theme = await self.loadTheme() {
+                    self.theme = theme
+                    
+                    self.state = .init(form: self.state.form.theme(theme),
+                                       response: self.state.response,
+                                       error: self.state.error)
+                }
+            }
+        }
     }
     
     public convenience init(responseTransformer: any ResponseTransformer = DefaultResponseTransformer()) throws {
@@ -94,6 +110,33 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
                               redirectUri: redirectUri,
                              additionalParameters: additionalParameters),
                   responseTransformer: responseTransformer)
+    }
+    
+    func loadTheme() async -> SignInForm.Theme? {
+        guard var components = URLComponents(url: flow.client.baseURL, resolvingAgainstBaseURL: true) else {
+            return nil
+        }
+        
+        components.path = "/.well-known/logo"
+        guard let url = components.url else {
+            return nil
+        }
+        
+        let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
+        return await withCheckedContinuation { continuation in
+            let task = flow.client.session.dataTaskWithRequest(request) { data, _, error in
+                guard let data = data,
+                      error == nil
+                else {
+                    continuation.resume(returning: nil)
+                    return
+                }
+                
+                continuation.resume(returning: .init(logo: data))
+            }
+            
+            task.resume()
+        }
     }
     
     public func signIn() async {
@@ -165,7 +208,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         // Stop polling the previous response
         state.response?.stopPolling()
         
-        let form = responseTransformer.form(for: response, in: self)
+        let form = responseTransformer.form(for: response, in: self).theme(theme)
         state = .init(form: form, response: response)
         
         // Start polling the new response
@@ -178,17 +221,14 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     }
 
     func send(_ error: Error) {
-        let form = responseTransformer.form(for: error, in: self)
+        let form = responseTransformer.form(for: error, in: self).theme(theme)
         state = .init(form: form, response: state.response, error: error)
     }
 }
 
 extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     public func authenticationStarted<Flow>(flow: Flow) {
-        state = .init(form: responseTransformer.loading)
-        
-        let storage = HTTPCookieStorage.shared
-        print(storage)
+        state = .init(form: responseTransformer.loading.theme(theme))
     }
     
     public func authenticationFinished<Flow>(flow: Flow) {
@@ -198,7 +238,7 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     }
     
     public func authenticationStarted<Flow>(flow: Flow) where Flow : InteractionCodeFlow {
-        state = .init(form: SignInForm.loading)
+        state = .init(form: SignInForm.loading.theme(theme))
     }
     
     public func authenticationFinished<Flow>(flow: Flow) where Flow : InteractionCodeFlow {
@@ -210,7 +250,7 @@ extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
     
     public func authentication<Flow>(flow: Flow, received response: Response) where Flow : InteractionCodeFlow {
         if response.isLoginSuccessful {
-            state = .init(form: responseTransformer.success)
+            state = .init(form: responseTransformer.success.theme(theme))
             response.exchangeCode()
         } else {
             if let expirationDate = response.expiresAt {

@@ -17,11 +17,52 @@ import NativeAuthentication
 import AuthenticationServices
 #endif
 
+struct SocialIDPLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack(alignment: .center, spacing: 8) {
+            configuration.icon
+            configuration.title
+        }.frame(maxWidth: .infinity)
+            .padding(.vertical, 4)
+    }
+}
+
 @available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension SocialLoginAction: ComponentView {
     @ViewBuilder
     func body(in form: SignInForm, section: any SignInSection) -> some View {
         switch provider {
+        case .okta:
+            if #available(iOS 15.0, macOS 12.0, *) {
+                Button {
+                    self.action()
+                } label: {
+                    Label {
+                        Text(label)
+                            .padding(.vertical, 3.0)
+                            .foregroundColor(Color.primary)
+                    } icon: {
+                        Image(decorative: "okta_verify", bundle: .module)
+                            .aspectRatio(1.0, contentMode: .fit)
+                    }
+                }
+                .labelStyle(SocialIDPLabelStyle())
+                .buttonStyle(.bordered)
+            } else {
+                Button {
+                    self.action()
+                } label: {
+                    HStack {
+                        Image(decorative: "okta_verify")
+                        Text(label)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 3.0)
+                            .foregroundColor(Color.primary)
+                    }
+                }
+                .padding(.top)
+            }
+
         case .apple:
 #if canImport(AuthenticationServices) && os(iOS)
                 if #available(iOS 14.0, *) {
@@ -47,6 +88,7 @@ extension SocialLoginAction: ComponentView {
                         .padding(.vertical, 3.0)
                 }
                 .padding(.top)
+                .labelStyle(SocialIDPLabelStyle())
                 .buttonStyle(.borderedProminent)
             } else {
                 Button {
@@ -72,6 +114,8 @@ struct SocialLoginAction_Previews: PreviewProvider {
         }
         
         VStack(spacing: 20) {
+            SocialLoginAction(id: "okta", provider: .okta, label: "Sign in with Okta FastPass") {}
+                .body(in: form, section: section)
             SocialLoginAction(id: "apple", provider: .apple, label: "Sign in with Apple") {}
                 .body(in: form, section: section)
             SocialLoginAction(id: "facebook", provider: .facebook, label: "Sign in with Facebook") {}

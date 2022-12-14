@@ -10,15 +10,15 @@
 // See the License for the specific language governing permissions and limitations under the License.
 //
 
-import Foundation
-import OktaIdx
+import SwiftUI
 import NativeAuthentication
 
-public protocol ResponseTransformer {
-    var loading: SignInForm { get }
-    var success: SignInForm { get }
-    
-    func shouldUpdateForm(for response: Response) -> Bool
-    func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm
-    func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
+extension IdentifyUser: SectionView {
+    @ViewBuilder
+    func body(in form: SignInForm, @ViewBuilder renderer: ([any SignInComponent]) -> some View) -> any View {
+        VStack(spacing: 12.0) {
+            renderer(components)
+        }.padding(.vertical, 12.0)
+    }
 }

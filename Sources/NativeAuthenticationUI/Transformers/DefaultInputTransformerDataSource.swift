@@ -35,6 +35,10 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
             
             ScrollView(.vertical) {
                 VStack {
+                    if let logo = form.theme?.logoImage {
+                        Image(uiImage: logo)
+                        Divider().padding(.vertical, 16)
+                    }
                     renderer(sections)
                 }
                 .padding(.horizontal, 32.0)
