@@ -14,10 +14,11 @@ import SwiftUI
 import NativeAuthentication
 import AuthFoundation
 
-@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 14.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 public struct InputFormRenderer: View {
     @ObservedObject var auth: NativeAuthentication
-    
+    @Environment(\.scenePhase) var scenePhase
+
     private let dataSource: any InputFormTransformerDataSource
 
     public init(auth: NativeAuthentication, dataSource: any InputFormTransformerDataSource = DefaultInputTransformerDataSource()) {
@@ -41,6 +42,18 @@ public struct InputFormRenderer: View {
         .onAppear {
             Task {
                 await auth.client.signIn()
+            }
+        }
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+            case .background:
+                print("App is in background")
+            case .active:
+                print("App is Active")
+            case .inactive:
+                print("App is Inactive")
+            @unknown default:
+                print("New App state not yet introduced")
             }
         }
         .animation(Animation.default.speed(1))

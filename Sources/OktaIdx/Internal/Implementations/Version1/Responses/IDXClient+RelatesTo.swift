@@ -95,6 +95,8 @@ extension Remediation: IDXHasRelatedObjects {
         switch type {
         case .enrollPoll:
             calculatedRelatesTo = ["$.currentAuthenticator"]
+        case .challengePoll:
+            calculatedRelatesTo = ["$.authenticatorChallenge"]
         default: break
         }
         

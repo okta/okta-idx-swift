@@ -158,21 +158,6 @@ extension Response {
             try remediation.section(from: self, previous: previous, in: provider)
         }
         
-        if let challengeAuthenticator = authenticators.challenge,
-           challengeAuthenticator.type == .device,
-           let idpCapability = challengeAuthenticator.capability(Capability.SocialIDP.self)
-        {
-            sections.insert(GenericSection(id: "AuthenticatorChallenge") {
-                SocialLoginAction(id: "continue", provider: .okta, label: "Sign in with Okta FastPass") {
-                    #if canImport(UIKit)
-                    UIApplication.shared.open(idpCapability.redirectUrl)
-                    #elseif canImport(AppKit)
-                    NSWorkspace.shared.open(idpCapability.redirectUrl)
-                    #endif
-                }
-            }, at: 0)
-        }
-        
         var headerSection = HeaderSection(id: "title") {
             FormLabel(id: "titleLabel", text: "Sign in", style: .heading)
         }
@@ -285,7 +270,7 @@ extension Response {
 
 extension OktaIdx.Authenticator {
     var authenticatorModel: (any NativeAuthentication.Authenticator)? {
-        guard let id = id,
+        guard let id = id ?? key,
               let displayName = displayName
         else {
             return nil
@@ -340,6 +325,20 @@ extension OktaIdx.Authenticator {
 
         case .password:
             var result = PasswordAuthenticator(id: id, name: displayName)
+            return result
+            
+        case .device:
+            var result = DeviceAuthenticator(id: id, name: displayName)
+            
+            if let pollable = capability(Capability.Pollable.self) {
+                result.startPolling = {
+                    pollable.startPolling()
+                }
+                
+                result.stopPolling = {
+                    pollable.stopPolling()
+                }
+            }
             return result
             
         default:
@@ -464,6 +463,22 @@ extension Remediation {
                                   intent: .continue,
                                   label: label) {
                 self.proceed()
+            }
+            
+        case .challengePoll:
+            guard let challengeAuthenticator = authenticators.challenge,
+               challengeAuthenticator.type == .device,
+               let idpCapability = challengeAuthenticator.capability(Capability.SocialIDP.self)
+            else {
+                return nil
+            }
+            
+            return SocialLoginAction(id: "continue", provider: .okta, label: "Sign in with Okta FastPass") {
+                #if canImport(UIKit)
+                UIApplication.shared.open(idpCapability.redirectUrl)
+                #elseif canImport(AppKit)
+                NSWorkspace.shared.open(idpCapability.redirectUrl)
+                #endif
             }
 
         default:
@@ -592,6 +607,12 @@ extension Remediation {
                 components
             }
             
+        case .challengePoll:
+            guard let authenticator = authenticators.challenge?.authenticatorModel else { return nil }
+            result = ChallengeDevice(authenticator: authenticator) {
+                components
+            }
+            
         default:
             result = GenericSection {
                 components
@@ -697,10 +718,28 @@ extension Remediation.Form.Field {
 
         default:
             if let options = options {
-//                rows.append(Row(kind: .select(field: self, values: options),
-//                                parent: parent,
-//                                delegate: delegate))
-                print("What do I do?")
+                guard options.count > 1 else {
+                    selectedOption = options.first
+                    break
+                }
+                
+                let id = id(remediation: remediation, ancestors: ancestors)
+                rows.append(ChoiceGroup(id: id) {
+                    options.enumerated().compactMap { (index, option) in
+                        guard let label = option.label else { return nil }
+                        return ChoiceOption(id: "\(id).\(index)",
+                                            name: option.name,
+                                            label: label)
+                        .action({ [weak self] choiceOption in
+                            guard let self = self else { return }
+                            self.selectedOption = option
+//                            choices.forEach { option in
+//                                option.isSelected = false
+//                            }
+//                            choiceOption.isSelected = true
+                        })
+                    }
+                })
             } else if let form = form {
                 rows.append(contentsOf: form.flatMap { nested in
                     nested.remediationRow(from: response,

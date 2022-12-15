@@ -38,3 +38,47 @@ extension ChallengeAuthenticator: SectionView {
         }.padding(.bottom, 12.0)
     }
 }
+
+struct ChallengeAuthenticatorView<Content: View>: View {
+    let authenticator: any Authenticator
+    let content: () -> Content
+    
+    init(authenticator: any Authenticator, @ViewBuilder content: @escaping () -> Content) {
+        self.authenticator = authenticator
+        self.content = content
+    }
+
+    var body: some View {
+        VStack(spacing: 12.0) {
+            Text("Verify with your \(authenticator.name.lowercased())")
+                .font(.headline)
+                .fontWeight(.bold)
+            
+            if let profile = authenticator.profile {
+                HStack {
+                    Image(systemName: "person.circle")
+                    Text(profile)
+                        .font(.subheadline)
+                }
+
+                Text("We sent a verification code to \(profile). Click the verification link in your email to continue or enter the code below.")
+            } else {
+                Text("We sent you a verification code. Please check your \(authenticator.name.lowercased()) and the code below.")
+            }
+            
+            content()
+        }.padding(.bottom, 12.0)
+    }
+}
+
+#if DEBUG
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
+struct ChallengeAuthenticatorView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChallengeAuthenticatorView(authenticator: EmailAuthenticator(id: "email", name: "Email")
+            .profile("mike@*****ur.com")
+            .displayName("Email")) {
+            }
+    }
+}
+#endif

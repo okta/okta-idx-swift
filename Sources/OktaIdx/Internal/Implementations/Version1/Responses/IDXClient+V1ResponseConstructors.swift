@@ -200,10 +200,10 @@ extension Authenticator.Collection {
         
         if let challenge = object.authenticatorChallenge {
             authenticators.append(.init(flow: flow,
-                                        v1JsonPaths: [],
+                                        v1JsonPaths: ["$.authenticatorChallenge"],
                                         state: .challenge,
-                                        id: nil,
-                                        displayName: nil,
+                                        id: "okta_verify",
+                                        displayName: "Okta Verify",
                                         allowedFor: nil,
                                         type: "device",
                                         key: nil,
@@ -231,6 +231,45 @@ extension Remediation.Collection {
 
         if let successResponse = Remediation.makeRemediation(flow: flow, ion: object?.successWithInteractionCode) {
             remediations.append(successResponse)
+        }
+        
+        // If
+        if let stateHandle = object?.stateHandle,
+           let challenge = object?.authenticatorChallenge,
+           var urlComponents = URLComponents(url: flow.client.baseURL, resolvingAgainstBaseURL: true)
+        {
+            urlComponents.path = "/idp/idx/challenge/poll"
+            
+            if let url = urlComponents.url,
+               let form = Remediation.Form(fields: [
+                .init(name: "stateHandle",
+                      value: stateHandle,
+                      visible: false,
+                      mutable: false,
+                      required: true,
+                      secret: true)
+               ]),
+               let pollAction = Remediation(flow: flow,
+                                             name: "challenge-poll",
+                                             method: "POST",
+                                             href: url,
+                                             accepts: "application/json; okta-version=1.0.0",
+                                             form: form,
+                                             capabilities: []),
+               let remediation = Remediation(flow: flow,
+                                             name: "challenge-poll",
+                                             method: "POST",
+                                             href: url,
+                                             accepts: "application/json; okta-version=1.0.0",
+                                             form: form,
+                                             capabilities: [
+                                                Capability.Pollable(flow: flow,
+                                                                    authenticatorType: .device,
+                                                                    remediation: pollAction)
+                                             ])
+            {
+                remediations.insert(remediation, at: 0)
+            }
         }
         
         self.init(remediations: remediations)
