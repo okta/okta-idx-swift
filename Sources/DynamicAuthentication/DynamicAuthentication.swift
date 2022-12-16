@@ -61,6 +61,11 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     
     internal private(set) var expirationTimer: DispatchSourceTimer?
     internal private(set) var restartCause: Error?
+    internal private(set) var needsIntrospect: Bool = false
+    
+    func setNeedsIntrospect() {
+        needsIntrospect = true
+    }
     
     public init(flow: InteractionCodeFlow,
                 theme: SignInForm.Theme? = nil,
@@ -110,6 +115,13 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
                               redirectUri: redirectUri,
                              additionalParameters: additionalParameters),
                   responseTransformer: responseTransformer)
+    }
+    
+    public func transitioned(to state: AuthenticationClient.UIState) {
+        if state == .foreground && needsIntrospect {
+            needsIntrospect = false
+            flow.resume()
+        }
     }
     
     func loadTheme() async -> SignInForm.Theme? {

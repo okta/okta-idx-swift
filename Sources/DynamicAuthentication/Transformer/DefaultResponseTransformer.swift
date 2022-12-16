@@ -475,10 +475,19 @@ extension Remediation {
             
             return SocialLoginAction(id: "continue", provider: .okta, label: "Sign in with Okta FastPass") {
                 #if canImport(UIKit)
-                UIApplication.shared.open(idpCapability.redirectUrl)
+                UIApplication.shared.open(idpCapability.redirectUrl) { result in
+                    guard result else { return }
+
+                    provider.setNeedsIntrospect()
+                }
                 #elseif canImport(AppKit)
-                NSWorkspace.shared.open(idpCapability.redirectUrl)
+                NSWorkspace.shared.open(idpCapability.redirectUrl) { result in
+                    guard result else { return }
+
+                    provider.setNeedsIntrospect()
+                }
                 #endif
+                
             }
 
         default:

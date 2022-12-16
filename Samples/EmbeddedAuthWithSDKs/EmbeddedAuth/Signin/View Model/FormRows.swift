@@ -199,6 +199,9 @@ extension Remediation {
         case .unlockAccount, .selectAuthenticatorUnlockAccount:
             return "Unlock Account"
             
+        case .deviceAppleSsoExtension:
+            return "Sign in with Okta Verify"
+            
         default:
             return "Next"
         }

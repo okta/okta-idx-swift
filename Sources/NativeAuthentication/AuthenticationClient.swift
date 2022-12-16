@@ -12,6 +12,11 @@ public enum AuthenticationClientError: Error {
 
 public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
     public typealias Delegate = AuthenticationClientDelegate
+    
+    public enum UIState {
+        case foreground
+        case background
+    }
 
     let provider: any AuthenticationProvider
     public private(set) var form: SignInForm {
@@ -21,8 +26,16 @@ public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
     }
 
     public let delegateCollection = DelegateCollection<AuthenticationClientDelegate>()
-
+    public private(set) var uiState: UIState {
+        didSet {
+            guard oldValue != uiState else { return }
+            
+            provider.transitioned(to: uiState)
+        }
+    }
+    
     public init(provider: any AuthenticationProvider) {
+        self.uiState = .foreground
         self.form = .empty
         self.provider = provider
         self.provider.add(delegate: self)
@@ -31,6 +44,10 @@ public class AuthenticationClient: UsesDelegateCollection, ObservableObject {
     @MainActor
     public func signIn() async {
         await provider.signIn()
+    }
+    
+    public func transitioned(to state: UIState) {
+        uiState = state
     }
     
     public func idp(_ idp: RedirectIDP.Provider, finished callbackURL: URL) {

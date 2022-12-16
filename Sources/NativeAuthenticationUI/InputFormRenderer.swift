@@ -48,8 +48,11 @@ public struct InputFormRenderer: View {
             switch phase {
             case .background:
                 print("App is in background")
+                auth.client.transitioned(to: .background)
             case .active:
                 print("App is Active")
+                auth.client.transitioned(to: .foreground)
+
             case .inactive:
                 print("App is Inactive")
             @unknown default:
