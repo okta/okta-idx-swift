@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Exchanges the redirect URL with a token.",
+      "text" : "The options used when starting an authentication flow.",
       "type" : "text"
     }
   ],
@@ -15,15 +15,15 @@
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/exchangeCode(redirect:completion:)"
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/options"
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:7OktaIdx19InteractionCodeFlowC08exchangeD08redirect10completiony10Foundation3URLV_ys6ResultOy04AuthI05TokenCAA0cdE5ErrorOGcSgtF",
+    "externalID" : "s:7OktaIdx19InteractionCodeFlowC7optionsSDyAC6OptionOypGSgvp",
     "fragments" : [
       {
         "kind" : "keyword",
-        "text" : "func"
+        "text" : "var"
       },
       {
         "kind" : "text",
@@ -31,45 +31,28 @@
       },
       {
         "kind" : "identifier",
-        "text" : "exchangeCode"
+        "text" : "options"
       },
       {
         "kind" : "text",
-        "text" : "("
-      },
-      {
-        "kind" : "externalParam",
-        "text" : "redirect"
-      },
-      {
-        "kind" : "text",
-        "text" : ": "
+        "text" : ": ["
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:10Foundation3URLV",
-        "text" : "URL"
+        "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC6OptionO",
+        "text" : "Option"
       },
       {
         "kind" : "text",
-        "text" : ", "
+        "text" : " : "
       },
       {
-        "kind" : "externalParam",
-        "text" : "completion"
-      },
-      {
-        "kind" : "text",
-        "text" : ": "
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC11TokenResulta",
-        "text" : "TokenResult"
+        "kind" : "keyword",
+        "text" : "Any"
       },
       {
         "kind" : "text",
-        "text" : "?)"
+        "text" : "]?"
       }
     ],
     "modules" : [
@@ -78,9 +61,9 @@
       }
     ],
     "role" : "symbol",
-    "roleHeading" : "Instance Method",
-    "symbolKind" : "method",
-    "title" : "exchangeCode(redirect:completion:)"
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "options"
   },
   "primaryContentSections" : [
     {
@@ -95,7 +78,7 @@
           "tokens" : [
             {
               "kind" : "keyword",
-              "text" : "func"
+              "text" : "var"
             },
             {
               "kind" : "text",
@@ -103,92 +86,34 @@
             },
             {
               "kind" : "identifier",
-              "text" : "exchangeCode"
+              "text" : "options"
             },
             {
               "kind" : "text",
-              "text" : "("
+              "text" : ": ["
             },
             {
-              "kind" : "externalParam",
-              "text" : "redirect"
-            },
-            {
-              "kind" : "text",
-              "text" : " "
-            },
-            {
-              "kind" : "internalParam",
-              "text" : "url"
-            },
-            {
-              "kind" : "text",
-              "text" : ": "
-            },
-            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option",
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:10Foundation3URLV",
-              "text" : "URL"
+              "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC6OptionO",
+              "text" : "Option"
             },
             {
               "kind" : "text",
-              "text" : ", "
+              "text" : " : "
             },
             {
-              "kind" : "externalParam",
-              "text" : "completion"
-            },
-            {
-              "kind" : "text",
-              "text" : ": "
-            },
-            {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/TokenResult",
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC11TokenResulta",
-              "text" : "TokenResult"
+              "kind" : "keyword",
+              "text" : "Any"
             },
             {
               "kind" : "text",
-              "text" : "? = nil)"
+              "text" : "]? { get }"
             }
           ]
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "URL with the app’s custom scheme. The value must match one of the authorized redirect URIs, which are configured in Okta Admin Console.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "url"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "Optional completion handler invoked when a token, or error, is received.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "completion"
-        }
-      ]
     },
     {
       "content" : [
@@ -201,25 +126,34 @@
         {
           "inlineContent" : [
             {
-              "text" : "Once the ",
+              "text" : "This is updated when the ",
               "type" : "text"
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/redirectResult(for:)",
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:completion:)",
               "isActive" : true,
               "type" : "reference"
             },
             {
-              "text" : " method returns ",
+              "text" : " (or ",
               "type" : "text"
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/authenticated",
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:)",
               "isActive" : true,
               "type" : "reference"
             },
             {
-              "text" : ", the developer can exchange that redirect URL for a valid token by using this method.",
+              "text" : ") method is invoked, and is cleared when ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/reset()",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " is called.",
               "type" : "text"
             }
           ],
@@ -237,20 +171,10 @@
   "sections" : [
 
   ],
-  "seeAlsoSections" : [
-    {
-      "generated" : true,
-      "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:completion:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume(completion:)"
-      ],
-      "title" : "Completion Block Functions"
-    }
-  ],
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/oktaidx\/interactioncodeflow\/exchangecode(redirect:completion:)"
+        "\/documentation\/oktaidx\/interactioncodeflow\/options"
       ],
       "traits" : [
         {
@@ -309,43 +233,16 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/authenticated": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Option": {
   "abstract" : [
     {
-      "text" : "Redirect URL contains Authorization Code.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "case"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "authenticated"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/authenticated",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "InteractionCodeFlow.RedirectResult.authenticated",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/redirectresult\/authenticated"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/TokenResult": {
-  "abstract" : [
-    {
-      "text" : "The type used for the completion  handler result from any method that returns a ",
+      "text" : "Options to use when initiating an ",
       "type" : "text"
     },
     {
-      "code" : "Token",
-      "type" : "codeVoice"
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "isActive" : true,
+      "type" : "reference"
     },
     {
       "text" : ".",
@@ -355,7 +252,7 @@
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "typealias"
+      "text" : "enum"
     },
     {
       "kind" : "text",
@@ -363,21 +260,21 @@
     },
     {
       "kind" : "identifier",
-      "text" : "TokenResult"
+      "text" : "Option"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/TokenResult",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "TokenResult"
+      "text" : "Option"
     }
   ],
   "role" : "symbol",
-  "title" : "InteractionCodeFlow.TokenResult",
+  "title" : "InteractionCodeFlow.Option",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/tokenresult"
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/option"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/context-swift.property": {
   "abstract" : [
@@ -420,17 +317,17 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/context-swift.property"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/exchangeCode(redirect:completion:)": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/options": {
   "abstract" : [
     {
-      "text" : "Exchanges the redirect URL with a token.",
+      "text" : "The options used when starting an authentication flow.",
       "type" : "text"
     }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "func"
+      "text" : "var"
     },
     {
       "kind" : "text",
@@ -438,58 +335,41 @@
     },
     {
       "kind" : "identifier",
-      "text" : "exchangeCode"
+      "text" : "options"
     },
     {
       "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "redirect"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
+      "text" : ": ["
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation3URLV",
-      "text" : "URL"
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC6OptionO",
+      "text" : "Option"
     },
     {
       "kind" : "text",
-      "text" : ", "
+      "text" : " : "
     },
     {
-      "kind" : "externalParam",
-      "text" : "completion"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC11TokenResulta",
-      "text" : "TokenResult"
+      "kind" : "keyword",
+      "text" : "Any"
     },
     {
       "kind" : "text",
-      "text" : "?)"
+      "text" : "]?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/exchangeCode(redirect:completion:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/options",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "exchangeCode(redirect:completion:)",
+  "title" : "options",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/exchangecode(redirect:completion:)"
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/options"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/redirectResult(for:)": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/reset()": {
   "abstract" : [
     {
-      "text" : "Evaluates the given redirect URL to determine what next steps can be performed. This is usually used when receiving a redirection from an IDP authentication flow.",
+      "text" : "Resets the authentication flow to its original state.",
       "type" : "text"
     }
   ],
@@ -504,46 +384,24 @@
     },
     {
       "kind" : "identifier",
-      "text" : "redirectResult"
+      "text" : "reset"
     },
     {
       "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "for"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation3URLV",
-      "text" : "URL"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC14RedirectResultO",
-      "text" : "RedirectResult"
+      "text" : "()"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/redirectResult(for:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/reset()",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "redirectResult(for:)",
+  "title" : "reset()",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/redirectresult(for:)"
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/reset()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/resume(completion:)": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/start(options:)": {
   "abstract" : [
     {
-      "text" : "Resumes the authentication state to identify the available remediation steps.",
+      "text" : "Starts a new authentication session using the given configuration values. If the client is able to successfully interact with Okta Identity Engine, a new client instance is returned to the caller.",
       "type" : "text"
     }
   ],
@@ -558,7 +416,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : "resume"
+      "text" : "start"
     },
     {
       "kind" : "text",
@@ -566,28 +424,57 @@
     },
     {
       "kind" : "externalParam",
-      "text" : "completion"
+      "text" : "options"
     },
     {
       "kind" : "text",
-      "text" : ": "
+      "text" : ": ["
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC14ResponseResulta",
-      "text" : "ResponseResult"
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC6OptionO",
+      "text" : "Option"
     },
     {
       "kind" : "text",
-      "text" : "?)"
+      "text" : " : "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "Any"
+    },
+    {
+      "kind" : "text",
+      "text" : "]?) "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "async"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    },
+    {
+      "kind" : "text",
+      "text" : " -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume(completion:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "resume(completion:)",
+  "title" : "start(options:)",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/resume(completion:)"
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/start(options:)"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/start(options:completion:)": {
   "abstract" : [

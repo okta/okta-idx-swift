@@ -727,9 +727,8 @@
       "text" : " : "
     },
     {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
+      "kind" : "keyword",
+      "text" : "Any"
     },
     {
       "kind" : "text",

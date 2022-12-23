@@ -37,7 +37,7 @@
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:7OktaIdx19InteractionCodeFlowC5start7options10completionySDyAC6OptionOSSGSg_ys6ResultOyAA8ResponseCAA0cdE5ErrorOGctF",
+    "externalID" : "s:7OktaIdx19InteractionCodeFlowC5start7options10completionySDyAC6OptionOypGSg_ys6ResultOyAA8ResponseCAA0cdE5ErrorOGctF",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -73,9 +73,8 @@
         "text" : " : "
       },
       {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:SS",
-        "text" : "String"
+        "kind" : "keyword",
+        "text" : "Any"
       },
       {
         "kind" : "text",
@@ -155,9 +154,8 @@
               "text" : " : "
             },
             {
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:SS",
-              "text" : "String"
+              "kind" : "keyword",
+              "text" : "Any"
             },
             {
               "kind" : "text",
@@ -610,9 +608,8 @@
       "text" : " : "
     },
     {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
+      "kind" : "keyword",
+      "text" : "Any"
     },
     {
       "kind" : "text",

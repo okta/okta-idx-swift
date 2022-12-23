@@ -20,7 +20,7 @@
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "OktaIdx",
-    "externalID" : "s:7OktaIdx19InteractionCodeFlowC5start7optionsAA8ResponseCSDyAC6OptionOSSGSg_tYaKF",
+    "externalID" : "s:7OktaIdx19InteractionCodeFlowC5start7optionsAA8ResponseCSDyAC6OptionOypGSg_tYaKF",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -56,9 +56,8 @@
         "text" : " : "
       },
       {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:SS",
-        "text" : "String"
+        "kind" : "keyword",
+        "text" : "Any"
       },
       {
         "kind" : "text",
@@ -165,9 +164,8 @@
               "text" : " : "
             },
             {
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:SS",
-              "text" : "String"
+              "kind" : "keyword",
+              "text" : "Any"
             },
             {
               "kind" : "text",
@@ -670,9 +668,8 @@
       "text" : " : "
     },
     {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
+      "kind" : "keyword",
+      "text" : "Any"
     },
     {
       "kind" : "text",

@@ -204,6 +204,7 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/delegateCollection",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/isAuthenticating",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/options",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/redirectUri"
       ],
       "title" : "Instance Properties"
@@ -1370,6 +1371,55 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/isauthenticating"
 },
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/options": {
+  "abstract" : [
+    {
+      "text" : "The options used when starting an authentication flow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "options"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC6OptionO",
+      "text" : "Option"
+    },
+    {
+      "kind" : "text",
+      "text" : " : "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "Any"
+    },
+    {
+      "kind" : "text",
+      "text" : "]?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/options",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "options",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/options"
+},
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/redirectResult(for:)": {
   "abstract" : [
     {
@@ -1637,9 +1687,8 @@
       "text" : " : "
     },
     {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
+      "kind" : "keyword",
+      "text" : "Any"
     },
     {
       "kind" : "text",
@@ -1734,9 +1783,8 @@
       "text" : " : "
     },
     {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
+      "kind" : "keyword",
+      "text" : "Any"
     },
     {
       "kind" : "text",

@@ -111,6 +111,7 @@
   "topicSections" : [
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option\/omitDeviceToken",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option\/recoveryToken",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option\/state"
       ],
@@ -313,6 +314,34 @@
   "title" : "init(rawValue:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/option\/init(rawvalue:)"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Option/omitDeviceToken": {
+  "abstract" : [
+    {
+      "text" : "Option indicating whether or not a device identifier should be sent on API requests, which enables the device to be remembered.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "omitDeviceToken"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option\/omitDeviceToken",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InteractionCodeFlow.Option.omitDeviceToken",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/option\/omitdevicetoken"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Option/recoveryToken": {
   "abstract" : [
