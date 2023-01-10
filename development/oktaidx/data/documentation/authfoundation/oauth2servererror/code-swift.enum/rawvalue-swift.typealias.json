@@ -1,7 +1,15 @@
 {
   "abstract" : [
     {
-      "text" : "Creates a new instance with the specified raw value.",
+      "text" : "The raw type that can be used to represent all values of the conforming",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "type.",
       "type" : "text"
     }
   ],
@@ -17,37 +25,24 @@
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/init(rawValue:)"
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/RawValue-swift.typealias"
   },
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "AuthFoundation",
-    "externalID" : "s:14AuthFoundation17OAuth2ServerErrorV4CodeO8rawValueAESgSS_tcfc",
+    "externalID" : "s:14AuthFoundation17OAuth2ServerErrorV4CodeO8RawValuea",
     "fragments" : [
       {
+        "kind" : "keyword",
+        "text" : "typealias"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
         "kind" : "identifier",
-        "text" : "init"
-      },
-      {
-        "kind" : "text",
-        "text" : "?("
-      },
-      {
-        "kind" : "externalParam",
-        "text" : "rawValue"
-      },
-      {
-        "kind" : "text",
-        "text" : ": "
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:SS",
-        "text" : "String"
-      },
-      {
-        "kind" : "text",
-        "text" : ")"
+        "text" : "RawValue"
       }
     ],
     "modules" : [
@@ -55,10 +50,16 @@
         "name" : "AuthFoundation"
       }
     ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "RawValue"
+      }
+    ],
     "role" : "symbol",
-    "roleHeading" : "Initializer",
-    "symbolKind" : "init",
-    "title" : "init(rawValue:)"
+    "roleHeading" : "Type Alias",
+    "symbolKind" : "typealias",
+    "title" : "OAuth2ServerError.Code.RawValue"
   },
   "primaryContentSections" : [
     {
@@ -73,52 +74,29 @@
           "tokens" : [
             {
               "kind" : "keyword",
-              "text" : "init"
+              "text" : "typealias"
             },
             {
               "kind" : "text",
-              "text" : "?("
+              "text" : " "
             },
             {
-              "kind" : "externalParam",
-              "text" : "rawValue"
+              "kind" : "identifier",
+              "text" : "RawValue"
             },
             {
               "kind" : "text",
-              "text" : ": "
+              "text" : " = "
             },
             {
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:SS",
               "text" : "String"
-            },
-            {
-              "kind" : "text",
-              "text" : ")"
             }
           ]
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "The raw value to use for the new instance.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "rawValue"
-        }
-      ]
     },
     {
       "content" : [
@@ -131,7 +109,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "If there is no value of the type that corresponds with the specified raw",
+              "text" : "Every distinct value of the conforming type has a corresponding unique",
               "type" : "text"
             },
             {
@@ -139,34 +117,31 @@
               "type" : "text"
             },
             {
-              "text" : "value, this initializer returns ",
+              "text" : "value of the ",
               "type" : "text"
             },
             {
-              "code" : "nil",
+              "code" : "RawValue",
               "type" : "codeVoice"
             },
             {
-              "text" : ". For example:",
+              "text" : " type, but there may be values of the ",
+              "type" : "text"
+            },
+            {
+              "code" : "RawValue",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "type that don’t have a corresponding value of the conforming type.",
               "type" : "text"
             }
           ],
           "type" : "paragraph"
-        },
-        {
-          "code" : [
-            "enum PaperSize: String {",
-            "    case A4, A5, Letter, Legal",
-            "}",
-            "",
-            "print(PaperSize(rawValue: \"Legal\"))",
-            "\/\/ Prints \"Optional(\"PaperSize.Legal\")\"",
-            "",
-            "print(PaperSize(rawValue: \"Tabloid\"))",
-            "\/\/ Prints \"nil\""
-          ],
-          "syntax" : null,
-          "type" : "codeListing"
         }
       ],
       "kind" : "content"
@@ -183,7 +158,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/init(rawvalue:)"
+        "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/rawvalue-swift.typealias"
       ],
       "traits" : [
         {
@@ -284,46 +259,47 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/rawrepresentable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/init(rawValue:)": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/RawValue-swift.typealias": {
   "abstract" : [
     {
-      "text" : "Creates a new instance with the specified raw value.",
+      "text" : "The raw type that can be used to represent all values of the conforming",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "type.",
       "type" : "text"
     }
   ],
   "fragments" : [
     {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
       "kind" : "identifier",
-      "text" : "init"
-    },
-    {
-      "kind" : "text",
-      "text" : "?("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "rawValue"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
-    },
-    {
-      "kind" : "text",
-      "text" : ")"
+      "text" : "RawValue"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/init(rawValue:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/RawValue-swift.typealias",
   "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RawValue"
+    }
+  ],
   "role" : "symbol",
-  "title" : "init(rawValue:)",
+  "title" : "OAuth2ServerError.Code.RawValue",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/init(rawvalue:)"
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/rawvalue-swift.typealias"
 }
 }
 }

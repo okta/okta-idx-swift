@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Creates a new instance with the specified raw value.",
+      "text" : "The corresponding value of the raw type.",
       "type" : "text"
     }
   ],
@@ -17,23 +17,23 @@
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/init(rawValue:)"
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/rawValue-swift.property"
   },
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "AuthFoundation",
-    "externalID" : "s:14AuthFoundation17OAuth2ServerErrorV4CodeO8rawValueAESgSS_tcfc",
+    "externalID" : "s:14AuthFoundation17OAuth2ServerErrorV4CodeO8rawValueSSvp",
     "fragments" : [
       {
-        "kind" : "identifier",
-        "text" : "init"
+        "kind" : "keyword",
+        "text" : "var"
       },
       {
         "kind" : "text",
-        "text" : "?("
+        "text" : " "
       },
       {
-        "kind" : "externalParam",
+        "kind" : "identifier",
         "text" : "rawValue"
       },
       {
@@ -44,10 +44,6 @@
         "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:SS",
         "text" : "String"
-      },
-      {
-        "kind" : "text",
-        "text" : ")"
       }
     ],
     "modules" : [
@@ -56,9 +52,9 @@
       }
     ],
     "role" : "symbol",
-    "roleHeading" : "Initializer",
-    "symbolKind" : "init",
-    "title" : "init(rawValue:)"
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "rawValue"
   },
   "primaryContentSections" : [
     {
@@ -73,14 +69,14 @@
           "tokens" : [
             {
               "kind" : "keyword",
-              "text" : "init"
+              "text" : "var"
             },
             {
               "kind" : "text",
-              "text" : "?("
+              "text" : " "
             },
             {
-              "kind" : "externalParam",
+              "kind" : "identifier",
               "text" : "rawValue"
             },
             {
@@ -94,31 +90,20 @@
             },
             {
               "kind" : "text",
-              "text" : ")"
+              "text" : " { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
             }
           ]
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "The raw value to use for the new instance.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "rawValue"
-        }
-      ]
     },
     {
       "content" : [
@@ -131,7 +116,15 @@
         {
           "inlineContent" : [
             {
-              "text" : "If there is no value of the type that corresponds with the specified raw",
+              "text" : "A new instance initialized with ",
+              "type" : "text"
+            },
+            {
+              "code" : "rawValue",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " will be equivalent to this",
               "type" : "text"
             },
             {
@@ -139,15 +132,7 @@
               "type" : "text"
             },
             {
-              "text" : "value, this initializer returns ",
-              "type" : "text"
-            },
-            {
-              "code" : "nil",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ". For example:",
+              "text" : "instance. For example:",
               "type" : "text"
             }
           ],
@@ -159,11 +144,12 @@
             "    case A4, A5, Letter, Legal",
             "}",
             "",
-            "print(PaperSize(rawValue: \"Legal\"))",
-            "\/\/ Prints \"Optional(\"PaperSize.Legal\")\"",
+            "let selectedSize = PaperSize.Letter",
+            "print(selectedSize.rawValue)",
+            "\/\/ Prints \"Letter\"",
             "",
-            "print(PaperSize(rawValue: \"Tabloid\"))",
-            "\/\/ Prints \"nil\""
+            "print(selectedSize == PaperSize(rawValue: selectedSize.rawValue)!)",
+            "\/\/ Prints \"true\""
           ],
           "syntax" : null,
           "type" : "codeListing"
@@ -183,7 +169,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/init(rawvalue:)"
+        "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/rawvalue-swift.property"
       ],
       "traits" : [
         {
@@ -284,24 +270,24 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/rawrepresentable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/init(rawValue:)": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/rawValue-swift.property": {
   "abstract" : [
     {
-      "text" : "Creates a new instance with the specified raw value.",
+      "text" : "The corresponding value of the raw type.",
       "type" : "text"
     }
   ],
   "fragments" : [
     {
-      "kind" : "identifier",
-      "text" : "init"
+      "kind" : "keyword",
+      "text" : "var"
     },
     {
       "kind" : "text",
-      "text" : "?("
+      "text" : " "
     },
     {
-      "kind" : "externalParam",
+      "kind" : "identifier",
       "text" : "rawValue"
     },
     {
@@ -312,18 +298,14 @@
       "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:SS",
       "text" : "String"
-    },
-    {
-      "kind" : "text",
-      "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/init(rawValue:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/rawValue-swift.property",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "init(rawValue:)",
+  "title" : "rawValue",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/init(rawvalue:)"
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/rawvalue-swift.property"
 }
 }
 }

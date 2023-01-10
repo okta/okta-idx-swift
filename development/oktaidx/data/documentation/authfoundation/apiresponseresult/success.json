@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Indicates the APIRequest should not be retried.",
+      "text" : "Indicates the request was successful.",
       "type" : "text"
     }
   ],
@@ -9,17 +9,17 @@
     "paths" : [
       [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRetry"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponseResult"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRetry\/doNotRetry"
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponseResult\/success"
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:14AuthFoundation8APIRetryO10doNotRetryyA2CmF",
+    "externalID" : "s:14AuthFoundation17APIResponseResultO7successyA2CmF",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -31,7 +31,7 @@
       },
       {
         "kind" : "identifier",
-        "text" : "doNotRetry"
+        "text" : "success"
       }
     ],
     "modules" : [
@@ -42,7 +42,7 @@
     "role" : "symbol",
     "roleHeading" : "Case",
     "symbolKind" : "case",
-    "title" : "APIRetry.doNotRetry"
+    "title" : "APIResponseResult.success"
   },
   "primaryContentSections" : [
     {
@@ -65,7 +65,7 @@
             },
             {
               "kind" : "identifier",
-              "text" : "doNotRetry"
+              "text" : "success"
             }
           ]
         }
@@ -84,7 +84,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/authfoundation\/apiretry\/donotretry"
+        "\/documentation\/authfoundation\/apiresponseresult\/success"
       ],
       "traits" : [
         {
@@ -106,10 +106,10 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRetry": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIResponseResult": {
   "abstract" : [
     {
-      "text" : "List of retry options",
+      "text" : "Defines the possible results for an API request.",
       "type" : "text"
     }
   ],
@@ -124,26 +124,26 @@
     },
     {
       "kind" : "identifier",
-      "text" : "APIRetry"
+      "text" : "APIResponseResult"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRetry",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponseResult",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "APIRetry"
+      "text" : "APIResponseResult"
     }
   ],
   "role" : "symbol",
-  "title" : "APIRetry",
+  "title" : "APIResponseResult",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiretry"
+  "url" : "\/documentation\/authfoundation\/apiresponseresult"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRetry/doNotRetry": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIResponseResult/success": {
   "abstract" : [
     {
-      "text" : "Indicates the APIRequest should not be retried.",
+      "text" : "Indicates the request was successful.",
       "type" : "text"
     }
   ],
@@ -158,15 +158,15 @@
     },
     {
       "kind" : "identifier",
-      "text" : "doNotRetry"
+      "text" : "success"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRetry\/doNotRetry",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponseResult\/success",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "APIRetry.doNotRetry",
+  "title" : "APIResponseResult.success",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiretry\/donotretry"
+  "url" : "\/documentation\/authfoundation\/apiresponseresult\/success"
 }
 }
 }

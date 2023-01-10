@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "The APIRequest should be retried, up to the given maximum number of times.",
+      "text" : "The actual HTTP status code for the result.",
       "type" : "text"
     }
   ],
@@ -9,21 +9,21 @@
     "paths" : [
       [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRetry"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponse"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRetry\/retry(maximumCount:)"
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponse\/statusCode"
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:14AuthFoundation8APIRetryO5retryyACSi_tcACmF",
+    "externalID" : "s:14AuthFoundation11APIResponseV10statusCodeSivp",
     "fragments" : [
       {
         "kind" : "keyword",
-        "text" : "case"
+        "text" : "let"
       },
       {
         "kind" : "text",
@@ -31,15 +31,7 @@
       },
       {
         "kind" : "identifier",
-        "text" : "retry"
-      },
-      {
-        "kind" : "text",
-        "text" : "("
-      },
-      {
-        "kind" : "externalParam",
-        "text" : "maximumCount"
+        "text" : "statusCode"
       },
       {
         "kind" : "text",
@@ -49,10 +41,6 @@
         "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:Si",
         "text" : "Int"
-      },
-      {
-        "kind" : "text",
-        "text" : ")"
       }
     ],
     "modules" : [
@@ -61,9 +49,9 @@
       }
     ],
     "role" : "symbol",
-    "roleHeading" : "Case",
-    "symbolKind" : "case",
-    "title" : "APIRetry.retry(maximumCount:)"
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "statusCode"
   },
   "primaryContentSections" : [
     {
@@ -78,7 +66,7 @@
           "tokens" : [
             {
               "kind" : "keyword",
-              "text" : "case"
+              "text" : "let"
             },
             {
               "kind" : "text",
@@ -86,15 +74,7 @@
             },
             {
               "kind" : "identifier",
-              "text" : "retry"
-            },
-            {
-              "kind" : "text",
-              "text" : "("
-            },
-            {
-              "kind" : "externalParam",
-              "text" : "maximumCount"
+              "text" : "statusCode"
             },
             {
               "kind" : "text",
@@ -104,10 +84,6 @@
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:Si",
               "text" : "Int"
-            },
-            {
-              "kind" : "text",
-              "text" : ")"
             }
           ]
         }
@@ -126,7 +102,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/authfoundation\/apiretry\/retry(maximumcount:)"
+        "\/documentation\/authfoundation\/apiresponse\/statuscode"
       ],
       "traits" : [
         {
@@ -148,17 +124,17 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRetry": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIResponse": {
   "abstract" : [
     {
-      "text" : "List of retry options",
+      "text" : "Describes a response from an Okta request, which includes the supplied result, and other associated response metadata.",
       "type" : "text"
     }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "enum"
+      "text" : "struct"
     },
     {
       "kind" : "text",
@@ -166,33 +142,33 @@
     },
     {
       "kind" : "identifier",
-      "text" : "APIRetry"
+      "text" : "APIResponse"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRetry",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponse",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "APIRetry"
+      "text" : "APIResponse"
     }
   ],
   "role" : "symbol",
-  "title" : "APIRetry",
+  "title" : "APIResponse",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiretry"
+  "url" : "\/documentation\/authfoundation\/apiresponse"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRetry/retry(maximumCount:)": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIResponse/statusCode": {
   "abstract" : [
     {
-      "text" : "The APIRequest should be retried, up to the given maximum number of times.",
+      "text" : "The actual HTTP status code for the result.",
       "type" : "text"
     }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "case"
+      "text" : "let"
     },
     {
       "kind" : "text",
@@ -200,15 +176,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : "retry"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "maximumCount"
+      "text" : "statusCode"
     },
     {
       "kind" : "text",
@@ -218,18 +186,14 @@
       "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:Si",
       "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRetry\/retry(maximumCount:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponse\/statusCode",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "APIRetry.retry(maximumCount:)",
+  "title" : "statusCode",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiretry\/retry(maximumcount:)"
+  "url" : "\/documentation\/authfoundation\/apiresponse\/statuscode"
 }
 }
 }
