@@ -32,7 +32,11 @@ struct AppView: View {
             
             self.nativeAuthTokenCancellable = nativeAuth.$token.sink { token in
                 guard let token = token else { return }
-                self.credential = try? Credential.store(token)
+                do {
+                    self.credential = try Credential.store(token)
+                } catch {
+                    print(error)
+                }
             }
 
             self.defaultCredentialCancellable = NotificationCenter.default.addObserver(forName: .defaultCredentialChanged,

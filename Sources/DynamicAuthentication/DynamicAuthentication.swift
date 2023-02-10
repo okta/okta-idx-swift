@@ -163,7 +163,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
             if flow.isAuthenticating {
                 _ = try await flow.resume()
             } else {
-                _ = try await flow.start(options: [.includeDeviceToken: false])
+                _ = try await flow.start(options: [.omitDeviceToken: true])
             }
         } catch {
             send(error)
