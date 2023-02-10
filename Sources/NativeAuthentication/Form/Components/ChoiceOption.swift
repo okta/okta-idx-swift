@@ -26,6 +26,7 @@ public struct ChoiceOption: SignInComponent, Actionable {
     public var id: String
     public var name: String?
     public var label: String
+    public var isSelected: Bool = false
     public var action: ((any SignInComponent) -> Void)?
     
     public init(id: String, name: String? = nil, label: String) {

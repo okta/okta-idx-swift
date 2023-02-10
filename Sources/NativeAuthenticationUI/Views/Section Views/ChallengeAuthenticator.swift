@@ -30,8 +30,6 @@ extension ChallengeAuthenticator: SectionView {
                 }
 
                 Text("We sent a verification code to \(profile). Click the verification link in your email to continue or enter the code below.")
-            } else {
-                Text("We sent you a verification code. Please check your \(authenticator.name.lowercased()) and the code below.")
             }
             
             renderer(components)
@@ -39,6 +37,7 @@ extension ChallengeAuthenticator: SectionView {
     }
 }
 
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 struct ChallengeAuthenticatorView<Content: View>: View {
     let authenticator: any Authenticator
     let content: () -> Content

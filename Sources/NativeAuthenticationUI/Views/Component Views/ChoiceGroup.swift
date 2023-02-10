@@ -29,14 +29,18 @@ extension ChoiceGroup: ComponentView {
 extension ChoiceOption: ComponentView {
     @ViewBuilder
     public func body(in form: SignInForm, section: any SignInSection) -> some View  {
-        HStack(alignment: .center) {
-//            if isSelected {
-//                Image(systemName: "circle.fill")
-//            } else {
-                Image(systemName: "circle")
-//            }
-            
-            Text(label)
-        }.padding(.vertical)
+        Button {
+            self.action?(self)
+        } label: {
+            HStack(alignment: .center) {
+                if self.isSelected {
+                    Image(systemName: "circle.fill")
+                } else {
+                    Image(systemName: "circle")
+                }
+                
+                Text(label)
+            }.padding(.vertical)
+        }
     }
 }

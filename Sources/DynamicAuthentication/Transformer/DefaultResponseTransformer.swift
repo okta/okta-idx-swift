@@ -60,8 +60,14 @@ public class DefaultResponseTransformer: ResponseTransformer {
     }
     
     public func shouldUpdateForm(for response: Response) -> Bool {
+        // Only update the form when the response has changed.
+        // This is necessary for polling to prevent unnecessary UI updates.
+        if currentResponse == response {
+            return false
+        }
+        
         // Auto-enrollment handling
-        if let remediation = response.remediations[.selectAuthenticatorEnroll] ?? response.remediations[.selectAuthenticatorAuthenticate] ?? response.remediations[.selectAuthenticatorUnlockAccount],
+        if let remediation = response.remediations.selectAuthenticator,
            let authenticatorField = remediation["authenticator"],
            let options = authenticatorField.options,
            response.remediations[.skip] == nil
@@ -341,6 +347,20 @@ extension OktaIdx.Authenticator {
             }
             return result
             
+        case .app:
+            var result = AppAuthenticator(id: id, name: displayName)
+            
+            if let pollable = capability(Capability.Pollable.self) {
+                result.startPolling = {
+                    pollable.startPolling()
+                }
+                
+                result.stopPolling = {
+                    pollable.stopPolling()
+                }
+            }
+            return result
+            
         default:
             return nil
         }
@@ -466,30 +486,32 @@ extension Remediation {
             }
             
         case .challengePoll:
-            guard let challengeAuthenticator = authenticators.challenge,
+            // Check if this is a sign-in with Okta identify remediation
+            if let challengeAuthenticator = authenticators.challenge,
                challengeAuthenticator.type == .device,
                let idpCapability = challengeAuthenticator.capability(Capability.SocialIDP.self)
+            {
+                return SocialLoginAction(id: "continue", provider: .okta, label: "Sign in with Okta FastPass") {
+                    #if canImport(UIKit)
+                    UIApplication.shared.open(idpCapability.redirectUrl) { result in
+                        guard result else { return }
+                        
+                        provider.setNeedsIntrospect()
+                    }
+                    #elseif canImport(AppKit)
+                    let configuration = NSWorkspace.OpenConfiguration()
+                    NSWorkspace.shared.open(idpCapability.redirectUrl, configuration: configuration) { application, error in
+                        guard error == nil else { return }
+                        
+                        provider.setNeedsIntrospect()
+                    }
+                    #endif
+                }
+            }
+            
             else {
                 return nil
             }
-            
-            return SocialLoginAction(id: "continue", provider: .okta, label: "Sign in with Okta FastPass") {
-                #if canImport(UIKit)
-                UIApplication.shared.open(idpCapability.redirectUrl) { result in
-                    guard result else { return }
-
-                    provider.setNeedsIntrospect()
-                }
-                #elseif canImport(AppKit)
-                NSWorkspace.shared.open(idpCapability.redirectUrl) { result in
-                    guard result else { return }
-
-                    provider.setNeedsIntrospect()
-                }
-                #endif
-                
-            }
-
         default:
             return ContinueAction(id: "\(name).continue",
                                   intent: .continue,
@@ -503,7 +525,10 @@ extension Remediation {
         guard let response = response else { return nil }
         
         var components: [any SignInComponent] = form.fields.compactMap { field in
-            field.remediationRow(from: response, remediation: self, previous: previous)
+            field.remediationRow(from: response,
+                                 remediation: self,
+                                 in: provider,
+                                 previous: previous)
         }.reduce([], +)
          
         let messageLabels: [any SignInComponent] = messages.compactMap({ message in
@@ -589,9 +614,17 @@ extension Remediation {
             }
             
         case .challengeAuthenticator:
-            guard let authenticator = authenticators.current?.authenticatorModel else { return nil }
-            result = ChallengeAuthenticator(authenticator: authenticator) {
+            guard let authenticator = authenticators.current,
+                  let authenticatorModel = authenticator.authenticatorModel
+            else {
+                return nil
+            }
+            
+            result = ChallengeAuthenticator(authenticator: authenticatorModel) {
                 components
+
+                choiceGroupForAdditionalMethods(in: response,
+                                                authenticator: authenticator)
             }
 
         case .authenticatorVerificationData:
@@ -617,9 +650,14 @@ extension Remediation {
             }
             
         case .challengePoll:
-            guard let authenticator = authenticators.challenge?.authenticatorModel else { return nil }
-            result = ChallengeDevice(authenticator: authenticator) {
-                components
+            guard let authenticator = authenticators.current
+            else { return nil }
+
+            result = GenericSection {
+                Loading(id: "\(name).loading")
+
+                choiceGroupForAdditionalMethods(in: response,
+                                                authenticator: authenticator)
             }
             
         default:
@@ -629,6 +667,50 @@ extension Remediation {
         }
         
         return result.id(name)
+    }
+    
+    /// When an authenticator may have multiple methods, this adds a ChoiceGroup allowing a user to select a different method after selecting an authenticator.
+    ///
+    /// This is often used when verifying using Okta Verify (code vs push) or a Phone authenticator (sms vs voice). At the time of challenging an authenticator, a user may wish to select a different method to verify their current factor. If the given authenticator supports multiple methods, this will return the necessary components to render additional options for the user.
+    /// - Parameters:
+    ///   - response: The current response.
+    ///   - authenticator: The authenticator the UI is being generated for.
+    /// - Returns: Array of ``SignInComponent``s, or an empty array.
+    func choiceGroupForAdditionalMethods(in response: Response, authenticator: OktaIdx.Authenticator) -> [any SignInComponent] {
+        var components = [any SignInComponent]()
+        
+        // Find other authenticator methods when others are available (e.g. Email or Okta Verify)
+        if let selectAuthenticator = response.remediations.selectAuthenticator,
+           let authenticatorField = selectAuthenticator.form["authenticator"],
+           let selectOption = authenticatorField.options?.first(where: { $0.authenticator?.id == authenticator.id }),
+           let methodTypeField = selectOption.form?["methodType"],
+           let methodOptions = methodTypeField.options,
+           methodOptions.count > 1
+        {
+            components.append(ChoiceGroup(id: "\(name).otherMethods") {
+                methodOptions.enumerated().compactMap { (index, option) in
+                    guard let label = option.label,
+                          let methods = authenticator.methods,
+                          let valueString = option.value as? String
+                    else { return nil }
+                    
+                    let method = Authenticator.Method(string: valueString)
+                    let isSelected = methods.contains(method)
+                    
+                    return ChoiceOption(id: "\(name).otherMethods.\(index)",
+                                        name: option.name,
+                                        label: label)
+                    .isSelected(isSelected)
+                    .action({ choiceOption in
+                        authenticatorField.selectedOption = selectOption
+                        methodTypeField.selectedOption = option
+                        selectAuthenticator.proceed()
+                    })
+                }
+            })
+        }
+        
+        return components
     }
 }
 
@@ -654,6 +736,7 @@ extension Remediation.Form.Field {
 
     func remediationRow(from response: Response,
                         remediation: Remediation,
+                        in provider: DynamicAuthenticationProvider,
                         previous: SignInForm?,
                         ancestors: [Remediation.Form.Field] = []) -> [any SignInComponent]
     {
@@ -720,6 +803,7 @@ extension Remediation.Form.Field {
                 rows.append(contentsOf: form.flatMap { nested in
                     nested.remediationRow(from: response,
                                           remediation: remediation,
+                                          in: provider,
                                           previous: previous,
                                           ancestors: ancestors + [self])
                 })
@@ -739,20 +823,29 @@ extension Remediation.Form.Field {
                         return ChoiceOption(id: "\(id).\(index)",
                                             name: option.name,
                                             label: label)
+                        .isSelected(option.isSelectedOption)
                         .action({ [weak self] choiceOption in
                             guard let self = self else { return }
                             self.selectedOption = option
-//                            choices.forEach { option in
-//                                option.isSelected = false
-//                            }
-//                            choiceOption.isSelected = true
+                            provider.reload()
                         })
                     }
                 })
+                
+                if let selectedForm = selectedOption?.form {
+                    var components: [any SignInComponent] = selectedForm.fields.compactMap { field in
+                        field.remediationRow(from: response,
+                                             remediation: remediation,
+                                             in: provider,
+                                             previous: previous)
+                    }.reduce([], +)
+                    rows.append(contentsOf: components)
+                }
             } else if let form = form {
                 rows.append(contentsOf: form.flatMap { nested in
                     nested.remediationRow(from: response,
                                           remediation: remediation,
+                                          in: provider,
                                           previous: previous,
                                           ancestors: ancestors + [self])
                 })

@@ -16,7 +16,7 @@ import AuthFoundation
 /// Describes the response from an Okta Identity Engine workflow stage.
 ///
 /// This is used to determine the current state of the workflow, the set of available ``Remediation`` steps to that can be used to proceed through the workflow, actions that can be performed, and other information relevant to the authentication of a user.
-public class Response: NSObject {
+public class Response: Equatable {
     /// The date at which this stage of the workflow expires, after which the authentication process should be restarted.
     public let expiresAt: Date?
     
@@ -137,8 +137,17 @@ public class Response: NSObject {
         self.app = app
         self.user = user
         self.canCancel = (remediations[.cancel] != nil)
-        
-        super.init()
+    }
+    
+    public static func == (lhs: Response, rhs: Response) -> Bool {
+        lhs.flow === rhs.flow &&
+        lhs.intent == rhs.intent &&
+        lhs.authenticators == rhs.authenticators &&
+        lhs.remediations == rhs.remediations &&
+        lhs.successRemediationOption == rhs.successRemediationOption &&
+        lhs.messages == rhs.messages &&
+        lhs.app == rhs.app &&
+        lhs.user == rhs.user
     }
 }
 

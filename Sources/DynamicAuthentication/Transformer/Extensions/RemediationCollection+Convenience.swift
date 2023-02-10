@@ -11,20 +11,13 @@
 //
 
 import Foundation
+import OktaIdx
 
-public protocol SignInValueBacking: AnyObject {
-    var backingValue: Any { get set }
-}
-
-public class SignInValue<ValueType: Equatable>: ObservableObject {
-    let backing: any SignInValueBacking
-    
-    public var value: ValueType {
-        get { backing.backingValue as! ValueType }
-        set { backing.backingValue = newValue }
-    }
-    
-    public init(_ backing: any SignInValueBacking) {
-        self.backing = backing
+extension Remediation.Collection {
+    /// Convenience that will return any remediation that involves selecting an authenticator.
+    var selectAuthenticator: Remediation? {
+        self[.selectAuthenticatorAuthenticate] ??
+        self[.selectAuthenticatorEnroll] ??
+        self[.selectAuthenticatorUnlockAccount]
     }
 }

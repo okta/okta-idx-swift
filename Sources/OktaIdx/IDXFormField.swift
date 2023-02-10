@@ -27,10 +27,6 @@ extension Remediation.Form {
     /// > remediation["identifier"]
     /// > ```
     public final class Field: ObservableObject, Equatable, Hashable {
-        public static func == (lhs: Remediation.Form.Field, rhs: Remediation.Form.Field) -> Bool {
-            lhs === rhs
-        }
-        
         /// The programmatic name for this form value.
         public let name: String?
         
@@ -99,6 +95,15 @@ extension Remediation.Form {
             hasher.combine(relatesTo)
         }
 
+        public static func == (lhs: Remediation.Form.Field, rhs: Remediation.Form.Field) -> Bool {
+            lhs.name == rhs.name &&
+            lhs.label == rhs.label &&
+            lhs.type == rhs.type &&
+            lhs.form == rhs.form &&
+            lhs.options == rhs.options &&
+            lhs.relatesTo == rhs.relatesTo
+        }
+        
         let isVisible: Bool
         let relatesTo: String?
         lazy var hasVisibleFields: Bool = {

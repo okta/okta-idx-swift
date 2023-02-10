@@ -12,19 +12,17 @@
 
 import Foundation
 
-public protocol SignInValueBacking: AnyObject {
-    var backingValue: Any { get set }
-}
+public struct AppAuthenticator: Authenticator {
+    public var id: String
+    public var name: String
+    public var displayName: String?
+    public var profile: String?
+    
+    public var startPolling: (() -> Void)?
+    public var stopPolling: (() -> Void)?
 
-public class SignInValue<ValueType: Equatable>: ObservableObject {
-    let backing: any SignInValueBacking
-    
-    public var value: ValueType {
-        get { backing.backingValue as! ValueType }
-        set { backing.backingValue = newValue }
-    }
-    
-    public init(_ backing: any SignInValueBacking) {
-        self.backing = backing
+    public init(id: String, name: String) {
+        self.id = id
+        self.name = name
     }
 }

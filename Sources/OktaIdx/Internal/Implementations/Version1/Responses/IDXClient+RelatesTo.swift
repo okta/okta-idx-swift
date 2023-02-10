@@ -91,21 +91,23 @@ extension Remediation: IDXHasRelatedObjects {
     func findRelatedObjects(using jsonMapping: [String: IDXHasRelatedObjects]) throws {
         // Work around defects where some remediations don't
         // properly relate to their corresponding authenticator.
-        var calculatedRelatesTo = relatesTo
-        switch type {
-        case .enrollPoll:
-            calculatedRelatesTo = ["$.currentAuthenticator"]
-        case .challengePoll:
-            calculatedRelatesTo = ["$.authenticatorChallenge"]
-        default: break
+        var calculatedRelatesTo = relatesTo ?? []
+        if calculatedRelatesTo.count == 0 {
+            switch type {
+            case .enrollPoll:
+                calculatedRelatesTo = ["$.currentAuthenticator"]
+            case .challengePoll:
+                calculatedRelatesTo = ["$.authenticatorChallenge"]
+            default: break
+            }
         }
         
-        var authenticatorObjects = calculatedRelatesTo?.compactMap({ (jsonPath) -> Authenticator? in
+        var authenticatorObjects = calculatedRelatesTo.compactMap({ (jsonPath) -> Authenticator? in
             guard let authenticator = jsonMapping[jsonPath] as? Authenticator else { return nil }
             return authenticator
-        }) ?? []
+        })
         
-        guard authenticatorObjects.count == calculatedRelatesTo?.count ?? 0 else {
+        guard authenticatorObjects.count == calculatedRelatesTo.count else {
             #if DEBUG_RELATES_TO
             throw InteractionCodeFlowError.missingRelatedObject
             #else

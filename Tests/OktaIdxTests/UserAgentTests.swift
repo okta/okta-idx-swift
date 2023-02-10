@@ -12,7 +12,7 @@
 
 import XCTest
 @testable import OktaIdx
-@testable import TestCommon
+@testable import IDXTestCommon
 
 class UserAgentTests: XCTestCase {
     var regex: NSRegularExpression!

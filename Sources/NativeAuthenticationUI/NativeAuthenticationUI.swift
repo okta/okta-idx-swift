@@ -44,6 +44,7 @@ extension NativeAuthentication: AuthenticationClientDelegate {
     public func authentication(client: AuthenticationClient, finished token: Token) {
         Task { @MainActor in
             self.token = token
+            self.reset()
         }
     }
     

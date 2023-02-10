@@ -32,6 +32,7 @@ import Foundation
 //    }
 //}
 
+@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
 extension StringInputField {
     public func length(_ dimension: Length, amount: Int?) -> Self {
         var result = self
@@ -79,6 +80,14 @@ extension AuthenticatorOption {
     public func isCurrentOption(_ option: Bool) -> Self {
         var result = self
         result.isCurrentOption = option
+        return result
+    }
+}
+
+extension ChoiceOption {
+    public func isSelected(_ option: Bool) -> Self {
+        var result = self
+        result.isSelected = option
         return result
     }
 }

@@ -17,7 +17,7 @@ import SwiftUI
 #endif
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public protocol InputField<Value>: SignInComponent, Identifiable {
+public protocol InputField<Value>: SignInComponent, Identifiable where Value: Equatable {
     associatedtype Value
     
     var id: String { get }
@@ -51,7 +51,7 @@ public struct StringInputField: InputField {
         case name, firstName, middleName, lastName, telephoneNumber, emailAddress, username, password, newPassword, oneTimeCode, generic
     }
     
-    public init(id: String, label: String, isSecure: Bool, inputStyle: InputStyle = .generic, contentType: ContentType = .generic, value: SignInValue<String>) {
+    public init(id: String, label: String, isSecure: Bool, inputStyle: InputStyle = .generic, contentType: ContentType = .generic, value: SignInValue<Value>) {
         self.id = id
         self.label = label
         self.isSecure = isSecure

@@ -14,7 +14,7 @@ import Foundation
 
 extension Remediation {
     /// Represents a collection of remediation options.
-    public class Collection {
+    public class Collection: Equatable {
         /// Returns a remediation based on its string name.
         public subscript(name: String) -> Remediation? {
             remediations.first { $0.name == name }
@@ -29,6 +29,10 @@ extension Remediation {
         
         init(remediations: [Remediation]?) {
             self.remediations = remediations ?? []
+        }
+        
+        public static func == (lhs: Remediation.Collection, rhs: Remediation.Collection) -> Bool {
+            lhs.remediations == rhs.remediations
         }
     }
 }

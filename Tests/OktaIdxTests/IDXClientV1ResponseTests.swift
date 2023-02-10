@@ -14,7 +14,7 @@ import XCTest
 @testable import OktaIdx
 
 #if SWIFT_PACKAGE
-@testable import TestCommon
+@testable import IDXTestCommon
 #endif
 
 class IDXClientV1ResponseTests: XCTestCase {
@@ -747,5 +747,20 @@ class IDXClientV1ResponseTests: XCTestCase {
         XCTAssertNotEqual(firstAuthenticator, secondAuthenticator)
         XCTAssertEqual(firstAuthenticator.profile?["email"], "t***l@mailinator.com")
         XCTAssertEqual(secondAuthenticator.profile?["email"], "e***t@okta.com")
+    }
+    
+    func testCurrentRemediationAuthenticators() throws {
+        let obj = try decode(type: IonResponse.self,
+                             try data(from: .module,
+                                      for: "challenge-poll-ov-response"))
+        let publicObj = try Response(flow: flowMock, ion: obj)
+        let challengePoll = try XCTUnwrap(publicObj.remediations[.challengePoll])
+
+        let currentRootAuthenticator = try XCTUnwrap(publicObj.authenticators.current)
+        XCTAssertEqual(currentRootAuthenticator.displayName, "Okta Verify")
+        
+        XCTAssertEqual(challengePoll.authenticators.count, 1)
+        let currentRemediationAuthenticator = try XCTUnwrap(challengePoll.authenticators.current)
+        XCTAssertEqual(currentRootAuthenticator.id, currentRemediationAuthenticator.id)
     }
 }

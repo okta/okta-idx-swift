@@ -15,7 +15,7 @@ import AuthFoundation
 
 extension Authenticator {
     /// Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.
-    public class Collection {
+    public class Collection: Equatable {
         /// The current authenticator, if one is actively being enrolled or authenticated.
         public var current: Authenticator? {
             allAuthenticators.first { $0.state == .authenticating || $0.state == .enrolling }
@@ -42,6 +42,10 @@ extension Authenticator {
         let authenticators: [Authenticator]
         init(authenticators: [Authenticator]?) {
             self.authenticators = authenticators ?? []
+        }
+
+        public static func == (lhs: Authenticator.Collection, rhs: Authenticator.Collection) -> Bool {
+            lhs.authenticators == rhs.authenticators
         }
     }
     

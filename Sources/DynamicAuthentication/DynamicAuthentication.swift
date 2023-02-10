@@ -124,6 +124,13 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         }
     }
     
+    public func reload() {
+        guard let response = state.response else { return }
+        state = .init(form: responseTransformer.form(for: response, in: self),
+                      response: state.response,
+                      error: state.error)
+    }
+    
     func loadTheme() async -> SignInForm.Theme? {
         guard var components = URLComponents(url: flow.client.baseURL, resolvingAgainstBaseURL: true) else {
             return nil
@@ -296,9 +303,15 @@ extension Remediation.Form.Field: SignInValueBacking {
 
 extension Response {
     var allPollable: [Capability.Pollable] {
-        authenticators.compactMap { authenticator in
+        let pollableAuthenticators = authenticators.compactMap { authenticator in
             authenticator.capability(Capability.Pollable.self)
         }
+        
+        let pollableRemediations = remediations.compactMap { remediation in
+            remediation.capability(Capability.Pollable.self)
+        }
+        
+        return pollableRemediations + pollableAuthenticators
     }
 
     func startPolling() {

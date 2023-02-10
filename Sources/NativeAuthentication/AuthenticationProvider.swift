@@ -22,6 +22,7 @@ public protocol AuthenticationProviderDelegate {
 public protocol AuthenticationProvider: UsesDelegateCollection where Delegate == AuthenticationProviderDelegate {
     func signIn() async
     func transitioned(to state: AuthenticationClient.UIState)
+    func reload()
     func idp(_ idp: RedirectIDP.Provider, finished callbackURL: URL)
     func idp(_ idp: RedirectIDP.Provider, error: Error)
 }

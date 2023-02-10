@@ -13,12 +13,12 @@
 import SwiftUI
 import NativeAuthentication
 
-@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
-extension ChallengeDevice: SectionView {
-    @ViewBuilder
-    func body(in form: SignInForm, @ViewBuilder renderer: ([any SignInComponent]) -> some View) -> any View {
-        VStack(spacing: 12.0) {            
-            renderer(components)
-        }.padding(.bottom, 12.0)
-    }
-}
+//@available(iOS 13.0, macOS 11.0, tvOS 13.0, watchOS 6.0, *)
+//extension ChallengeDevice: SectionView {
+//    @ViewBuilder
+//    func body(in form: SignInForm, @ViewBuilder renderer: ([any SignInComponent]) -> some View) -> any View {
+//        VStack(spacing: 12.0) {            
+//            renderer(components)
+//        }.padding(.bottom, 12.0)
+//    }
+//}

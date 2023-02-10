@@ -14,7 +14,7 @@ import Foundation
 
 // swiftlint:disable cyclomatic_complexity
 extension Authenticator.Kind {
-    internal init(string value: String) {
+    public init(string value: String) {
         switch value {
         case "app":               self = .app
         case "email":             self = .email
@@ -30,7 +30,7 @@ extension Authenticator.Kind {
 }
 
 extension Authenticator.Method {
-    internal init(string value: String) {
+    public init(string value: String) {
         switch value {
         case "sms":               self = .sms
         case "voice":             self = .voice

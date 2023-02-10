@@ -36,7 +36,12 @@ public class DefaultInputTransformerDataSource: InputFormTransformerDataSource {
             ScrollView(.vertical) {
                 VStack {
                     if let logo = form.theme?.logoImage {
+                        #if canImport(UIKit)
                         Image(uiImage: logo)
+                        #elseif canImport(AppKit)
+                        Image(nsImage: logo)
+                        #endif
+
                         Divider().padding(.vertical, 16)
                     }
                     renderer(sections)

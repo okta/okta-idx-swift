@@ -19,7 +19,7 @@ class IDXExtractFormValueTests: XCTestCase {
     func testPlainDefaultValues() throws {
         let form = try XCTUnwrap(Form(fields: [
             Form.Field(name: "stateHandle",
-                       value: "abcEasyAs123" as AnyObject,
+                       value: "abcEasyAs123",
                        visible: false,
                        mutable: false,
                        required: true,
@@ -34,7 +34,7 @@ class IDXExtractFormValueTests: XCTestCase {
     func testPlainWithAdditiveValues() throws {
         let form = try XCTUnwrap(Form(fields: [
             Form.Field(name: "stateHandle",
-                      value: "abcEasyAs123" as AnyObject,
+                      value: "abcEasyAs123",
                       visible: false,
                       mutable: false,
                       required: true,
@@ -56,7 +56,7 @@ class IDXExtractFormValueTests: XCTestCase {
     func testNestedWithRootDefaults() throws {
         let form = try XCTUnwrap(Form(fields: [
             Form.Field(name: "stateHandle",
-                      value: "abcEasyAs123" as AnyObject,
+                      value: "abcEasyAs123",
                       visible: false,
                       mutable: false,
                       required: true,
@@ -91,13 +91,13 @@ class IDXExtractFormValueTests: XCTestCase {
                                    secret: true,
                                    form: Form(fields: [
                                     Form.Field(name: "id",
-                                              value: "idvalue" as AnyObject,
+                                              value: "idvalue",
                                               visible: true,
                                               mutable: false,
                                               required: true,
                                               secret: false),
                                     Form.Field(name: "methodType",
-                                              value: "security_question" as AnyObject,
+                                              value: "security_question",
                                               visible: true,
                                               mutable: false,
                                               required: false,
@@ -105,7 +105,7 @@ class IDXExtractFormValueTests: XCTestCase {
                                    ]))
         let form = try XCTUnwrap(Form(fields: [
             Form.Field(name: "stateHandle",
-                      value: "abcEasyAs123" as AnyObject,
+                      value: "abcEasyAs123",
                       visible: false,
                       mutable: false,
                       required: true,
@@ -130,13 +130,13 @@ class IDXExtractFormValueTests: XCTestCase {
 
     func testNestedWithNestedDefaultsAndValues() throws {
         let smsOption = Form.Field(label: "SMS",
-                                   value: "sms" as AnyObject,
+                                   value: "sms",
                                    visible: true,
                                    mutable: true,
                                    required: false,
                                    secret: false)
         let voiceOption = Form.Field(label: "Voice call",
-                                     value: "voice" as AnyObject,
+                                     value: "voice",
                                      visible: true,
                                      mutable: true,
                                      required: false,
@@ -148,7 +148,7 @@ class IDXExtractFormValueTests: XCTestCase {
                                     secret: true,
                                     form: Form(fields: [
                                         Form.Field(name: "id",
-                                                   value: "idvalue" as AnyObject,
+                                                   value: "idvalue",
                                                    visible: true,
                                                    mutable: false,
                                                    required: true,
@@ -169,7 +169,7 @@ class IDXExtractFormValueTests: XCTestCase {
                                     ]))
         let form = try XCTUnwrap(Form(fields: [
             Form.Field(name: "stateHandle",
-                      value: "abcEasyAs123" as AnyObject,
+                      value: "abcEasyAs123",
                       visible: false,
                       mutable: false,
                       required: true,

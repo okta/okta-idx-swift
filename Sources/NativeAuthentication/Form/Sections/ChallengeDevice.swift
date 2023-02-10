@@ -12,15 +12,15 @@
 
 import Foundation
 
-public struct ChallengeDevice: SignInSection, Actionable, HasAuthenticator, Identifiable {
-    public var id: String?
-    public var authenticator: any Authenticator
-    public var components: [any SignInComponent]
-    public var action: ((_ component: any SignInComponent) -> Void)?
-
-    public init(id: String? = nil, authenticator: any Authenticator, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
-        self.id = id
-        self.authenticator = authenticator
-        self.components = components()
-    }
-}
+//public struct ChallengeDevice: SignInSection, Actionable, HasAuthenticator, Identifiable {
+//    public var id: String?
+//    public var authenticator: any Authenticator
+//    public var components: [any SignInComponent]
+//    public var action: ((_ component: any SignInComponent) -> Void)?
+//
+//    public init(id: String? = nil, authenticator: any Authenticator, @ArrayBuilder<any SignInComponent> components: () -> [any SignInComponent]) {
+//        self.id = id
+//        self.authenticator = authenticator
+//        self.components = components()
+//    }
+//}
