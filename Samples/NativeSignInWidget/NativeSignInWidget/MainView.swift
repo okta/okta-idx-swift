@@ -13,7 +13,6 @@
 import SwiftUI
 import AuthenticationServices
 import NativeAuthenticationUI
-import DynamicAuthentication
 
 struct MainView: View {
     let credential: Credential

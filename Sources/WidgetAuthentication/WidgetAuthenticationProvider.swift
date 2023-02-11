@@ -16,7 +16,7 @@ import OktaIdx
 
 @_exported import NativeAuthentication
 
-public enum DynamicAuthenticationError: Error, LocalizedError {
+public enum WidgetAuthenticationError: Error, LocalizedError {
     case message(_ message: String, localizationKey: String?)
     case terminal
     case invalidIdpRedirect
@@ -34,7 +34,7 @@ public enum DynamicAuthenticationError: Error, LocalizedError {
 }
 
 
-public final class DynamicAuthenticationProvider: AuthenticationProvider {
+public final class WidgetAuthenticationProvider: AuthenticationProvider {
     struct State {
         let form: SignInForm
         let response: Response?
@@ -67,9 +67,15 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         needsIntrospect = true
     }
     
-    public init(flow: InteractionCodeFlow,
-                theme: SignInForm.Theme? = nil,
-                responseTransformer: any ResponseTransformer = DefaultResponseTransformer())
+    public convenience init(flow: InteractionCodeFlow,
+                            theme: SignInForm.Theme? = nil)
+    {
+        self.init(flow: flow, theme: theme, responseTransformer: DefaultResponseTransformer())
+    }
+    
+    required init(flow: InteractionCodeFlow,
+                  theme: SignInForm.Theme? = nil,
+                  responseTransformer: any ResponseTransformer)
     {
         self.flow = flow
         self.theme = theme
@@ -91,30 +97,25 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
         }
     }
     
-    public convenience init(responseTransformer: any ResponseTransformer = DefaultResponseTransformer()) throws {
-        self.init(flow: try InteractionCodeFlow(), responseTransformer: responseTransformer)
+    public convenience init() throws {
+        self.init(flow: try InteractionCodeFlow())
     }
     
-    public convenience init(plist fileURL: URL,
-                            responseTransformer: any ResponseTransformer = DefaultResponseTransformer()) throws
-    {
-        try self.init(flow: .init(plist: fileURL),
-                      responseTransformer: responseTransformer)
+    public convenience init(plist fileURL: URL) throws {
+        try self.init(flow: .init(plist: fileURL))
     }
     
     public convenience init(issuer: URL,
                             clientId: String,
                             scopes: String,
                             redirectUri: URL,
-                            additionalParameters: [String: String]? = nil,
-                            responseTransformer: any ResponseTransformer = DefaultResponseTransformer())
+                            additionalParameters: [String: String]? = nil)
     {
         self.init(flow: .init(issuer: issuer,
                               clientId: clientId,
                               scopes: scopes,
                               redirectUri: redirectUri,
-                             additionalParameters: additionalParameters),
-                  responseTransformer: responseTransformer)
+                             additionalParameters: additionalParameters))
     }
     
     public func transitioned(to state: AuthenticationClient.UIState) {
@@ -180,7 +181,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
             
         case .invalidRedirectUrl: fallthrough
         case .invalidContext:
-            send(DynamicAuthenticationError.invalidIdpRedirect)
+            send(WidgetAuthenticationError.invalidIdpRedirect)
         }
     }
     
@@ -245,7 +246,7 @@ public final class DynamicAuthenticationProvider: AuthenticationProvider {
     }
 }
 
-extension DynamicAuthenticationProvider: InteractionCodeFlowDelegate {
+extension WidgetAuthenticationProvider: InteractionCodeFlowDelegate {
     public func authenticationStarted<Flow>(flow: Flow) {
         state = .init(form: responseTransformer.loading.theme(theme))
     }

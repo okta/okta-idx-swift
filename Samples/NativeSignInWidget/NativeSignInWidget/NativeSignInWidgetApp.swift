@@ -11,7 +11,6 @@
 //
 
 import SwiftUI
-import DynamicAuthentication
 import NativeAuthenticationUI
 
 @main

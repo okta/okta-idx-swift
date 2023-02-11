@@ -17,7 +17,7 @@ public protocol SignInValueBacking: AnyObject {
 }
 
 public class SignInValue<ValueType: Equatable>: ObservableObject {
-    let backing: any SignInValueBacking
+    private let backing: any SignInValueBacking
     
     public var value: ValueType {
         get { backing.backingValue as! ValueType }

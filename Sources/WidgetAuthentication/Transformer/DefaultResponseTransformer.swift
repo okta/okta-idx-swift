@@ -20,28 +20,28 @@ import UIKit
 import AppKit
 #endif
 
-public class DefaultResponseTransformer: ResponseTransformer {
-    public private(set) var currentResponse: Response?
-    public private(set) var currentForm: SignInForm?
+class DefaultResponseTransformer: ResponseTransformer {
+    private(set) var currentResponse: Response?
+    private(set) var currentForm: SignInForm?
 
-    public init() {}
+    init() {}
     
-    public let loading: SignInForm = SignInForm(intent: .loading) {
+    let loading: SignInForm = SignInForm(intent: .loading) {
         HeaderSection(id: "loading") {
             Loading(id: "loadingIndicator")
         }
     }
     
-    public let success: SignInForm = SignInForm(intent: .loading) {
+    let success: SignInForm = SignInForm(intent: .loading) {
         HeaderSection(id: "title") {
             FormLabel(id: "titleLabel", text: "Signing in", style: .heading)
             Loading(id: "loadingIndicator")
         }
     }
     
-    public func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm {
+    func form(for response: Response, in provider: WidgetAuthenticationProvider) -> SignInForm {
         guard !response.remediations.isEmpty else {
-            let error = response.errors.first ?? DynamicAuthenticationError.terminal
+            let error = response.errors.first ?? WidgetAuthenticationError.terminal
             provider.restart(with: error)
             return .loading
         }
@@ -59,7 +59,7 @@ public class DefaultResponseTransformer: ResponseTransformer {
         return result
     }
     
-    public func shouldUpdateForm(for response: Response) -> Bool {
+    func shouldUpdateForm(for response: Response) -> Bool {
         // Only update the form when the response has changed.
         // This is necessary for polling to prevent unnecessary UI updates.
         if currentResponse == response {
@@ -96,7 +96,7 @@ public class DefaultResponseTransformer: ResponseTransformer {
         return true
     }
 
-    public func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm {
+    func form(for error: Error, in provider: WidgetAuthenticationProvider) -> SignInForm {
         var form = currentForm ?? SignInForm(intent: .empty) {}
         
         var message = error.localizedDescription
@@ -159,7 +159,7 @@ public class DefaultResponseTransformer: ResponseTransformer {
 }
 
 extension Response {
-    func form(previous: SignInForm?, in provider: DynamicAuthenticationProvider) throws -> SignInForm {
+    func form(previous: SignInForm?, in provider: WidgetAuthenticationProvider) throws -> SignInForm {
         var sections: [any SignInSection] = try remediations.compactMap { [weak self] remediation in
             try remediation.section(from: self, previous: previous, in: provider)
         }
@@ -182,7 +182,7 @@ extension Response {
     var errors: [Error] {
         messages
             .filter { $0.type == .error }
-            .map { DynamicAuthenticationError.message($0.message,
+            .map { WidgetAuthenticationError.message($0.message,
                                          localizationKey: $0.localizationKey) }
     }
     
@@ -412,7 +412,7 @@ extension Capability.SocialIDP {
 }
 
 extension Remediation {
-    func action(in provider: DynamicAuthenticationProvider) -> (any Action)? {
+    func action(in provider: WidgetAuthenticationProvider) -> (any Action)? {
         switch type {
         case .cancel:
             return ContinueAction(id: "\(name).continue",
@@ -521,7 +521,7 @@ extension Remediation {
         }
     }
 
-    func section(from response: Response?, previous: SignInForm?, in provider: DynamicAuthenticationProvider) throws -> (any SignInSection)? {
+    func section(from response: Response?, previous: SignInForm?, in provider: WidgetAuthenticationProvider) throws -> (any SignInSection)? {
         guard let response = response else { return nil }
         
         var components: [any SignInComponent] = form.fields.compactMap { field in
@@ -736,7 +736,7 @@ extension Remediation.Form.Field {
 
     func remediationRow(from response: Response,
                         remediation: Remediation,
-                        in provider: DynamicAuthenticationProvider,
+                        in provider: WidgetAuthenticationProvider,
                         previous: SignInForm?,
                         ancestors: [Remediation.Form.Field] = []) -> [any SignInComponent]
     {

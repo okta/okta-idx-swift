@@ -12,7 +12,7 @@
 
 import SwiftUI
 import Combine
-import DynamicAuthentication
+import WidgetAuthentication
 import NativeAuthenticationUI
 import AuthenticationServices
 
@@ -24,7 +24,7 @@ struct AppView: View {
         private var nativeAuthTokenCancellable: AnyCancellable?
         private var defaultCredentialCancellable: (any NSObjectProtocol)?
 
-        init(nativeAuth: NativeAuthentication = NativeAuthentication(provider: try! DynamicAuthenticationProvider())) {
+        init(nativeAuth: NativeAuthentication = NativeAuthentication(provider: try! WidgetAuthenticationProvider())) {
             self.credential = Credential.default
             self.nativeAuth = nativeAuth
             self.defaultCredentialCancellable = nil

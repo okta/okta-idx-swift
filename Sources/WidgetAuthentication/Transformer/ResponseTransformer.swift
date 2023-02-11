@@ -19,6 +19,6 @@ public protocol ResponseTransformer {
     var success: SignInForm { get }
     
     func shouldUpdateForm(for response: Response) -> Bool
-    func form(for response: Response, in provider: DynamicAuthenticationProvider) -> SignInForm
-    func form(for error: Error, in provider: DynamicAuthenticationProvider) -> SignInForm
+    func form(for response: Response, in provider: WidgetAuthenticationProvider) -> SignInForm
+    func form(for error: Error, in provider: WidgetAuthenticationProvider) -> SignInForm
 }
