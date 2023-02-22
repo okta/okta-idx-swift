@@ -5,13 +5,13 @@
       location = "group:">
    </FileRef>
    <Group
-      location = "container:"
+      location = "container:Samples"
       name = "Samples">
       <FileRef
-         location = "group:Samples/EmbeddedAuthWithSDKs/EmbeddedAuth.xcodeproj">
+         location = "group:EmbeddedAuthWithSDKs/EmbeddedAuth.xcodeproj">
       </FileRef>
       <Group
-         location = "group:Samples/Signin Samples"
+         location = "group:Signin Samples"
          name = "Signin Samples">
          <FileRef
             location = "group:BasicLogin.swift">
@@ -23,5 +23,8 @@
             location = "group:MultifactorLogin.swift">
          </FileRef>
       </Group>
+      <FileRef
+         location = "group:Sample Playground.playground">
+      </FileRef>
    </Group>
 </Workspace>
