@@ -263,7 +263,7 @@
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Option": {
   "abstract" : [
     {
-      "text" : "Options to use when initiating an ",
+      "text" : "Options to use when initiating a ",
       "type" : "text"
     },
     {
@@ -272,7 +272,7 @@
       "type" : "reference"
     },
     {
-      "text" : ".",
+      "text" : " sign in flow.",
       "type" : "text"
     }
   ],

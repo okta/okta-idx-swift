@@ -72,6 +72,39 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "This option should be used when you ",
+              "type" : "text"
+            },
+            {
+              "inlineContent" : [
+                {
+                  "text" : "do not want",
+                  "type" : "text"
+                }
+              ],
+              "type" : "emphasis"
+            },
+            {
+              "text" : " the device to be remembered by Okta.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -147,7 +180,7 @@
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Option": {
   "abstract" : [
     {
-      "text" : "Options to use when initiating an ",
+      "text" : "Options to use when initiating a ",
       "type" : "text"
     },
     {
@@ -156,7 +189,7 @@
       "type" : "reference"
     },
     {
-      "text" : ".",
+      "text" : " sign in flow.",
       "type" : "text"
     }
   ],

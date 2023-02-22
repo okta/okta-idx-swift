@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Options to use when initiating an ",
+      "text" : "Options to use when initiating a ",
       "type" : "text"
     },
     {
@@ -10,7 +10,7 @@
       "type" : "reference"
     },
     {
-      "text" : ".",
+      "text" : " sign in flow.",
       "type" : "text"
     }
   ],
@@ -86,6 +86,26 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "These options enable you to customize certain attributes used during the beginning of a session.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "relationshipsSections" : [
@@ -212,7 +232,7 @@
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Option": {
   "abstract" : [
     {
-      "text" : "Options to use when initiating an ",
+      "text" : "Options to use when initiating a ",
       "type" : "text"
     },
     {
@@ -221,7 +241,7 @@
       "type" : "reference"
     },
     {
-      "text" : ".",
+      "text" : " sign in flow.",
       "type" : "text"
     }
   ],
