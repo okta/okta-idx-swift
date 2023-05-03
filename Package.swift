@@ -13,7 +13,8 @@ var package = Package(
         .macOS(.v10_11)
     ],
     products: [
-        .library(name: "OktaIdx", targets: ["OktaIdx"])
+        .library(name: "OktaIdx", targets: ["OktaIdx"]),
+        .library(name: "WebAuthN", targets: ["WebAuthN"])
     ],
     dependencies: [
         .package(name: "AuthFoundation",
@@ -22,13 +23,16 @@ var package = Package(
     ],
     targets: [
         .target(name: "OktaIdx",
-                dependencies: ["AuthFoundation"]),
+                dependencies: ["AuthFoundation", "WebAuthN"]),
+        .target(name: "WebAuthN"),
         .target(name: "TestCommon",
-                dependencies: ["OktaIdx"],
                 path: "Tests/TestCommon"),
         .testTarget(name: "OktaIdxTests",
                     dependencies: ["OktaIdx", "TestCommon"],
-                resources: [.copy("SampleResponses")])
+                resources: [.copy("SampleResponses")]),
+        .testTarget(name: "WebAuthNTests",
+                    dependencies: ["WebAuthN", "TestCommon"],
+                    resources: [.copy("SampleResponses")])
     ],
     swiftLanguageVersions: [.v5]
 )

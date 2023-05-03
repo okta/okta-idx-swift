@@ -12,7 +12,6 @@
 
 import Foundation
 import XCTest
-@testable import OktaIdx
 
 extension Data {
     func urlFormEncoded() -> [String:String?]? {
@@ -86,16 +85,8 @@ public extension XCTestCase {
         try test(try decode(type: type, json))
     }
 
-    func decode<T>(type: T.Type, _ json: String) throws -> T where T : Decodable & JSONDecodable {
-        try decode(type: type, json.data(using: .utf8)!)
-    }
-
     func decode<T>(type: T.Type, _ json: String) throws -> T where T : Decodable {
         try decode(type: type, json.data(using: .utf8)!)
-    }
-
-    func decode<T>(type: T.Type, _ json: Data) throws -> T where T : Decodable & JSONDecodable {
-        try decode(type: type, decoder: T.jsonDecoder, json)
     }
 
     func decode<T>(type: T.Type, _ json: Data) throws -> T where T : Decodable {
@@ -119,21 +110,20 @@ enum TestDataSource {
 
 protocol TestResponse {
     static func data(from source: TestDataSource) throws -> Self
+    static var jsonDecoder: JSONDecoder { get }
 }
 
 extension TestResponse where Self : Decodable {
-    static func data(from source: TestDataSource) throws -> Self {
+    static func data(for theClass: AnyClass, from source: TestDataSource) throws -> Self {
         switch source {
         case .file(let name, let folder):
-            let fileUrl = Bundle.testResource(folderName: folder, fileName: name)
+            let fileUrl = Bundle.testResource(for: theClass, folderName: folder, fileName: name)
             return try data(from: .url(fileUrl))
         case .url(let url):
             return try data(from: .json(try String(contentsOf: url)))
         case .json(let json):
             let data = json.data(using: .utf8)!
-            return try InteractionCodeFlow.IntrospectRequest.jsonDecoder.decode(Self.self, from: data)
+            return try jsonDecoder.decode(Self.self, from: data)
         }
     }
 }
-
-extension IonResponse: TestResponse {}

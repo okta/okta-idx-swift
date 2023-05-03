@@ -748,4 +748,67 @@ class IDXClientV1ResponseTests: XCTestCase {
         XCTAssertEqual(firstAuthenticator.profile?["email"], "t***l@mailinator.com")
         XCTAssertEqual(secondAuthenticator.profile?["email"], "e***t@okta.com")
     }
+    
+    func testWebAuthNAuthenticator() throws {
+        let obj = try decode(type: IonObject<IonAuthenticator>.self, """
+        {
+           "type": "object",
+           "value": {
+              "contextualData": {
+                 "activationData": {
+                    "attestation": "direct",
+                    "authenticatorSelection": {
+                       "requireResidentKey": false,
+                       "userVerification": "preferred"
+                    },
+                    "challenge": "juOAXSl9SGM5GldwuCJuJcLcwM7FAEkU",
+                    "excludeCredentials": [],
+                    "pubKeyCredParams": [
+                       {
+                          "alg": -7,
+                          "type": "public-key"
+                       },
+                       {
+                          "alg": -257,
+                          "type": "public-key"
+                       }
+                    ],
+                    "rp": {
+                       "name": "example"
+                    },
+                    "u2fParams": {
+                       "appid": "https://example.com"
+                    },
+                    "user": {
+                       "displayName": "Example User",
+                       "id": "0ZczewGCFPlxNYYcLq5i",
+                       "name": "user@example.com"
+                    }
+                 }
+              },
+              "displayName": "Security Key or Biometric",
+              "id": "aut19bovxaxS4RczZ0g6",
+              "key": "webauthn",
+              "methods": [
+                 {
+                    "type": "webauthn"
+                 }
+              ],
+              "type": "security_key"
+           }
+        }
+
+        """)
+        
+        let publicObj = try XCTUnwrap(Authenticator.makeAuthenticator(flow: flowMock,
+                                                                      ion: [obj.value],
+                                                                      jsonPaths: [],
+                                                                      in: response))
+        XCTAssertEqual(publicObj.type, .app)
+        let otp = try XCTUnwrap(publicObj.otp)
+        
+        XCTAssertEqual(otp.sharedSecret, "64UBAAAM6GGG4AD")
+        XCTAssertEqual(otp.mimeType, "image/png")
+        XCTAssertNotNil(otp.image)
+    }
 }

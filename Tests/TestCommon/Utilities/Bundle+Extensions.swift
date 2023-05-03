@@ -13,10 +13,10 @@
 import Foundation
 
 extension Bundle {
-    static var resourcesPath: URL {
-        let bundle = Bundle(for: URLSessionMock.self)
+    static func resourcesPath(for theClass: AnyClass) -> URL {
+        let bundle = Bundle(for: theClass)
         #if SWIFT_PACKAGE
-        let bundleName = "OktaIdx_TestCommon"
+        let bundleName = "\(bundle.bundleIdentifier)_TestCommon"
         #else
         let bundleName = "TestCommon"
         #endif
@@ -43,8 +43,8 @@ extension Bundle {
         return path
     }
     
-    static func testResource(folderName: String? = nil, fileName: String) -> URL {
-        var path = resourcesPath
+    static func testResource(for theClass: AnyClass, folderName: String? = nil, fileName: String) -> URL {
+        var path = resourcesPath(for: theClass)
         
         path.appendPathComponent("SampleResponses")
         if let folderName = folderName {
