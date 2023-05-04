@@ -1,9 +1,12 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  PublicKeyCredentialCreationOptions.swift
-//  Okta Verify
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Michael Biviano on 10/6/22.
-//  Copyright © 2022 Okta. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
@@ -13,16 +16,16 @@ import Foundation
  
  - Note: [W3C Reccomendation](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions)
  */
-struct PublicKeyCredentialCreationOptions: Codable {
-    var rp: PublicKeyCredentialRpEntity
-    let user: PublicKeyCredentialUserEntity
-    let challenge: [UInt8]
-    let pubKeyCredParams: [PublicKeyCredentialParameters]
-    let timeout: UInt64?
-    let excludeCredentials: [PublicKeyCredentialDescriptor]
-    let authenticatorSelection: AuthenticatorSelectionCriteria
-    let attestation: AttestationConveyancePreference
-    let extensions: AuthenticationExtensionsClientInputs?
+public struct PublicKeyCredentialCreationOptions: Codable {
+    public internal(set) var rp: PublicKeyCredentialRpEntity
+    public let user: PublicKeyCredentialUserEntity
+    public let challenge: [UInt8]
+    public let pubKeyCredParams: [PublicKeyCredentialParameters]
+    public let timeout: UInt64?
+    public let excludeCredentials: [PublicKeyCredentialDescriptor]
+    public let authenticatorSelection: AuthenticatorSelectionCriteria
+    public let attestation: AttestationConveyancePreference
+    public let extensions: AuthenticationExtensionsClientInputs?
     
     enum CodingKeys: String, CodingKey {
         case rp
@@ -36,7 +39,7 @@ struct PublicKeyCredentialCreationOptions: Codable {
         case extensions
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         rp = try values.decode(PublicKeyCredentialRpEntity.self, forKey: .rp)

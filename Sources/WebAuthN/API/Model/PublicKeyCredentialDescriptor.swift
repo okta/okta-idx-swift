@@ -1,9 +1,12 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  PublicKeyCredentialDescriptor.swift
-//  Okta Verify
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Michael Biviano on 10/6/22.
-//  Copyright © 2022 Okta. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
@@ -13,11 +16,11 @@ import Foundation
  
  - Note: [W3C Reccomendation](https://www.w3.org/TR/webauthn/#dictionary-credential-descriptor)
  */
-struct PublicKeyCredentialDescriptor: Codable {
+public struct PublicKeyCredentialDescriptor: Codable {
     /// This member contains the credential ID of the public key credential the caller is referring to.
-    let id: [UInt8]
+    public let id: [UInt8]
     /// This member contains the type of the public key credential the caller is referring to.
-    let type: PublicKeyCredentialType
+    public let type: PublicKeyCredentialType
     /// This OPTIONAL member contains a hint as to how the client might communicate with the managing authenticator of the public key credential the caller is referring to. The values SHOULD be members of AuthenticatorTransport but client platforms MUST ignore unknown values.
-    let transports: [AuthenticatorTransport]
+    public let transports: [AuthenticatorTransport]
 }

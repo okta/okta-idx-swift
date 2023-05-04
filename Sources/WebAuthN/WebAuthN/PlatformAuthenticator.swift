@@ -1,14 +1,19 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  PlatformAuthenticator.swift
-//  Okta Verify
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Michael Biviano on 10/6/22.
-//  Copyright © 2022 Okta. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
 import CryptoKit
+import OrderedCollections
 
+@available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
 final class PlatformAuthenticator {
     private let supportedCredTypesAndPubKeyAlgs = [PublicKeyCredentialParameters(alg: .es256, type: .publicKey)]
     private let credentialStorage: CredentialStorageProtocol?
@@ -29,6 +34,7 @@ final class PlatformAuthenticator {
 
  // MARK: - AuthenticatorProtocol
 
+@available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
 extension PlatformAuthenticator: AuthenticatorProtocol {
     func lookupCredentialSource(credentialID: [UInt8]) -> PublicKeyCredentialSource? {
         
@@ -45,7 +51,7 @@ extension PlatformAuthenticator: AuthenticatorProtocol {
                         credTypesAndPubKeyAlgs:[PublicKeyCredentialParameters],
                         excludeCredentialDescriptorList: [PublicKeyCredentialDescriptor],
                         enterpriseAttestationPossible: Bool,
-                        extensions: SimpleOrderedDictionary<String>) -> Result<AttestationObject, WebAuthnError> {
+                        extensions: OrderedDictionary<String, Any>) -> Result<AttestationObject, WebAuthnError> {
         
         // [6.3.2.1]
         // All supplied parameters are syntactically well-formed and of the correct length
@@ -106,7 +112,7 @@ extension PlatformAuthenticator: AuthenticatorProtocol {
         // All potential errors handled
         
         // [6.3.2.9]
-        let processedExtensions = SimpleOrderedDictionary<String>()
+        let processedExtensions = OrderedDictionary<String, Any>()
         
         // [6.3.2.10]
         let signatureCount: UInt32 = 0
@@ -141,9 +147,9 @@ extension PlatformAuthenticator: AuthenticatorProtocol {
             return .failure(.unknownError)
         }
         
-        let attestationStatement = SimpleOrderedDictionary<String>()
-        attestationStatement.addInt("alg", Int64(credTypesAndPubKeyAlg.alg.rawValue))
-        attestationStatement.addBytes("sig", Array(signature.derRepresentation))
+        var attestationStatement = OrderedDictionary<String, Any>()
+        attestationStatement["alg"] = Int64(credTypesAndPubKeyAlg.alg.rawValue)
+        attestationStatement["sig"] = Array(signature.derRepresentation)
         
         let attestationObject = AttestationObject(fmt: "packed", authData: authenticatorData, attStmt: attestationStatement)
         return .success(attestationObject)
@@ -154,7 +160,7 @@ extension PlatformAuthenticator: AuthenticatorProtocol {
                       allowCredentialDescriptorList: [PublicKeyCredentialDescriptor]?,
                       requireUserPresence: Bool,
                       requireUserVerification: Bool,
-                      extensions: SimpleOrderedDictionary<String>) -> Result<AssertionObject, WebAuthnError> {
+                      extensions: OrderedDictionary<String, Any>) -> Result<AssertionObject, WebAuthnError> {
         
         // [6.3.3.1]
         // All supplied parameters are syntactically well-formed and of the correct length
@@ -190,7 +196,7 @@ extension PlatformAuthenticator: AuthenticatorProtocol {
         let selectedCredential = credentialOptions.first!
         
         // [6.3.3.8]
-        let processedExtensions = SimpleOrderedDictionary<String>()
+        let processedExtensions = OrderedDictionary<String, Any>()
         
         // [6.3.3.9]
         var signatureCount = credentialStorage?.lookupCredentialSourceSignCount(credentialID: selectedCredential.credentialID) ?? 0

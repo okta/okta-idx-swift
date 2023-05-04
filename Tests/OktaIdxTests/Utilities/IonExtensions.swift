@@ -11,10 +11,15 @@
 //
 
 import Foundation
+@testable import OktaIdx
 @testable import TestCommon
 
 extension IonResponse: TestResponse {
-    static var jsonDecoder: JSONDecoder {
+    public static func data(from source: TestCommon.TestDataSource) throws -> Self {
+        try data(for: InteractionCodeFlowMock.self, from: source)
+    }
+    
+    public static var jsonDecoder: JSONDecoder {
         InteractionCodeFlow.IntrospectRequest.jsonDecoder
     }
 }

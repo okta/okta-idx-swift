@@ -1,28 +1,31 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  Base64.swift
-//  WebAuthnKit
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Lyo Kato on 2018/11/20.
-//  Copyright © 2018 Lyo Kato. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
 
-public class Base64 {
+class Base64 {
     
-    public static func encodeBase64(_ bytes: [UInt8]) -> String {
+    static func encodeBase64(_ bytes: [UInt8]) -> String {
         return encodeBase64(Data(bytes))
     }
     
-    public static func encodeBase64(_ data: Data) -> String {
+    static func encodeBase64(_ data: Data) -> String {
         return data.base64EncodedString()
     }
 
-    public static func encodeBase64URL(_ bytes: [UInt8]) -> String {
+    static func encodeBase64URL(_ bytes: [UInt8]) -> String {
         return encodeBase64URL(Data(bytes))
     }
 
-    public static func encodeBase64URL(_ data: Data) -> String {
+    static func encodeBase64URL(_ data: Data) -> String {
         return data.base64EncodedString()
             .replacingOccurrences(of: "+", with: "-")
             .replacingOccurrences(of: "/", with: "_")

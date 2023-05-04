@@ -86,6 +86,33 @@ public class Remediation: Equatable, Hashable {
             return
         }
         
+        if let webAuthN = authenticators.compactMap({ $0.capability(Capability.WebAuthN.self) }).first {
+            switch type {
+            case .enrollAuthenticator:
+                if #available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *),
+                   let credentialField = form.allFields.first(where: { $0.name == "credentials" }),
+                   let attestationField = credentialField.form?.allFields.first(where: { $0.name == "attestation" }),
+                   let clientDataField = credentialField.form?.allFields.first(where: { $0.name == "clientData" })
+                {
+                    do {
+                        let (attestation, credentialData) = try webAuthN.enroll()
+                        attestationField.value = attestation.base64EncodedString()
+                        clientDataField.value = credentialData.base64EncodedString()
+                    } catch {
+                        flow.send(error: .internalError(error), completion: completion)
+                        return
+                    }
+                    
+                } else {
+                    flow.send(error: .cannotCreateRequest, completion: completion)
+                    return
+                }
+                
+            case .challengeAuthenticator: break
+            default: break
+            }
+        }
+        
         let request: InteractionCodeFlow.RemediationRequest
         do {
             request = try InteractionCodeFlow.RemediationRequest(remediation: self)

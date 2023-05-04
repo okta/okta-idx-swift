@@ -1,12 +1,16 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  CBOR.swift
-//  WebAuthnKit
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Lyo Kato on 2018/11/20.
-//  Copyright © 2018 Lyo Kato. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
+import OrderedCollections
 
 internal class CBORBits {
     public static let falseBits:           UInt8 = 0xf4
@@ -26,74 +30,74 @@ internal class CBORBits {
     public static let breakBits:           UInt8 = 0xff
 }
 
-public enum CBORError : Error {
+enum CBORError : Error {
     case readError
 }
 
-internal class SimpleOrderedDictionary<T1: Hashable> {
-    
-    var list = [(T1, Any)]()
-    
-    public var count: Int {
-        get {
-            return self.list.count
-        }
-    }
-    
-    public var isEmpty: Bool {
-        get {
-            return self.list.isEmpty
-        }
-    }
-    
-    public static func fromDictionary(_ dict: Dictionary<T1, Any>) -> SimpleOrderedDictionary<T1> {
-        let dic = SimpleOrderedDictionary<T1>()
-        for (key, value) in dict {
-           dic.add(key, value)
-        }
-        return dic
-    }
-    
-    init() {
-        
-    }
-    
-    public func addString(_ k: T1, _ v: String) {
-        self.add(k, v)
-    }
-    
-    public func addBytes(_ k: T1, _ v: [UInt8]) {
-        self.add(k, v)
-    }
-    
-    public func addStringKeyMap(_ k: T1, _ v: SimpleOrderedDictionary<String>) {
-        self.add(k, v)
-    }
-    
-    public func addIntKeyMap(_ k: T1, _ v: SimpleOrderedDictionary<Int>) {
-        self.add(k, v)
-    }
-    
-    public func addArray(_ k: T1, _ v: [Any]) {
-        self.add(k, v)
-    }
-    
-    public func addInt(_ k: T1, _ v: Int64) {
-        self.add(k, v)
-    }
-    
-    private func add(_ k: T1, _ v: Any) {
-       self.list.append((k, v))
-    }
-    
-    public func get(_ k: T1) -> Optional<Any> {
-        return self.list.first { $0.0 == k } 
-    }
-    
-    public func entries() -> [(T1, Any)] {
-        return self.list
-    }
-}
+//internal class SimpleOrderedDictionary<T1: Hashable> {
+//    
+//    var list = [(T1, Any)]()
+//    
+//    public var count: Int {
+//        get {
+//            return self.list.count
+//        }
+//    }
+//    
+//    public var isEmpty: Bool {
+//        get {
+//            return self.list.isEmpty
+//        }
+//    }
+//    
+//    public static func fromDictionary(_ dict: Dictionary<T1, Any>) -> SimpleOrderedDictionary<T1> {
+//        let dic = SimpleOrderedDictionary<T1>()
+//        for (key, value) in dict {
+//           dic.add(key, value)
+//        }
+//        return dic
+//    }
+//    
+//    init() {
+//        
+//    }
+//    
+//    public func addString(_ k: T1, _ v: String) {
+//        self.add(k, v)
+//    }
+//    
+//    public func addBytes(_ k: T1, _ v: [UInt8]) {
+//        self.add(k, v)
+//    }
+//    
+//    public func addStringKeyMap(_ k: T1, _ v: SimpleOrderedDictionary<String>) {
+//        self.add(k, v)
+//    }
+//    
+//    public func addIntKeyMap(_ k: T1, _ v: SimpleOrderedDictionary<Int>) {
+//        self.add(k, v)
+//    }
+//    
+//    public func addArray(_ k: T1, _ v: [Any]) {
+//        self.add(k, v)
+//    }
+//    
+//    public func addInt(_ k: T1, _ v: Int64) {
+//        self.add(k, v)
+//    }
+//    
+//    private func add(_ k: T1, _ v: Any) {
+//       self.list.append((k, v))
+//    }
+//    
+//    public func get(_ k: T1) -> Optional<Any> {
+//        return self.list.first { $0.0 == k } 
+//    }
+//    
+//    public func entries() -> [(T1, Any)] {
+//        return self.list
+//    }
+//}
 
 internal class CBORReader {
 
@@ -558,11 +562,11 @@ internal class CBORWriter {
     }
 
     // for Attestation Object
-    public func putStringKeyMap(_ values: SimpleOrderedDictionary<String>) -> CBORWriter {
+    public func putStringKeyMap(_ values: OrderedDictionary<String, Any>) -> CBORWriter {
         var bytes = composePositive(UInt64(values.count))
         bytes[0] = bytes[0] | CBORBits.mapHeader
         self.result.append(contentsOf: bytes)
-        for (key, value) in values.entries() {
+        for (key, value) in values.elements {
             _ = self.putString(key)
             if value is Int64 {
                 _ = self.putNumber(value as! Int64)
@@ -576,8 +580,8 @@ internal class CBORWriter {
                 _ = self.putDouble(value as! Double)
             } else if value is Bool {
                 _ = self.putBool(value as! Bool)
-            } else if value is SimpleOrderedDictionary<String> {
-                _ = self.putStringKeyMap(value as! SimpleOrderedDictionary<String>)
+            } else if let value = value as? OrderedDictionary<String, Any> {
+                _ = self.putStringKeyMap(value)
             } else if value is [Any] {
                 _ = self.putArray(value as! [Any])
             } else {
@@ -588,11 +592,11 @@ internal class CBORWriter {
     }
 
     // for COSE_Key format
-    public func putIntKeyMap(_ values: SimpleOrderedDictionary<Int>) -> CBORWriter {
+    public func putIntKeyMap(_ values: OrderedDictionary<Int, Any>) -> CBORWriter {
         var bytes = composePositive(UInt64(values.count))
         bytes[0] = bytes[0] | CBORBits.mapHeader
         self.result.append(contentsOf: bytes)
-        for (key, value) in values.entries() {
+        for (key, value) in values.elements {
             _ = self.putNumber(Int64(key))
             if value is Int64 {
                 _ = self.putNumber(value as! Int64)

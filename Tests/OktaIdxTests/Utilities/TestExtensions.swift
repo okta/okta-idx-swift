@@ -10,8 +10,9 @@
 // See the License for the specific language governing permissions and limitations under the License.
 //
 
-import Foundation
 import XCTest
+@testable import OktaIdx
+@testable import TestCommon
 
 public extension XCTestCase {
     func decode<T>(type: T.Type, _ json: String) throws -> T where T : Decodable & JSONDecodable {
@@ -25,6 +26,6 @@ public extension XCTestCase {
 
 extension TestResponse where Self : Decodable {
     static func data(from source: TestDataSource) throws -> Self {
-        data(for: URLSessionMock.self, from: source)
+        try data(for: URLSessionMock.self, from: source)
     }
 }

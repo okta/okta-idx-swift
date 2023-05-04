@@ -1,12 +1,16 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  COSE.swift
-//  WebAuthnKit
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Lyo Kato on 2018/11/20.
-//  Copyright © 2018 Lyo Kato. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
+import OrderedCollections
 
 internal struct COSEKeyFieldType {
     static let kty:    Int =  1
@@ -130,7 +134,7 @@ internal class COSEKeyParser {
 
 }
 
-public protocol COSEKey {
+protocol COSEKey {
     func toBytes() -> [UInt8]
 }
 
@@ -142,11 +146,11 @@ internal struct COSEKeyRSA : COSEKey {
 
     public func toBytes() -> [UInt8] {
 
-        let dic = SimpleOrderedDictionary<Int>()
-        dic.addInt(COSEKeyFieldType.kty, Int64(COSEKeyType.rsa))
-        dic.addInt(COSEKeyFieldType.alg, Int64(self.alg))
-        dic.addBytes(COSEKeyFieldType.n, self.n)
-        dic.addBytes(COSEKeyFieldType.e, self.e)
+        var dic = OrderedDictionary<Int, Any>()
+        dic[COSEKeyFieldType.kty] = Int64(COSEKeyType.rsa)
+        dic[COSEKeyFieldType.alg] = Int64(self.alg)
+        dic[COSEKeyFieldType.n] = self.n
+        dic[COSEKeyFieldType.e] = self.e
 
         return CBORWriter()
             .putIntKeyMap(dic)
@@ -164,12 +168,12 @@ internal struct COSEKeyEC2 : COSEKey {
 
     public func toBytes() -> [UInt8] {
 
-        let dic = SimpleOrderedDictionary<Int>()
-        dic.addInt(COSEKeyFieldType.kty, Int64(COSEKeyType.ec2))
-        dic.addInt(COSEKeyFieldType.alg, Int64(self.alg))
-        dic.addInt(COSEKeyFieldType.crv, Int64(self.crv))
-        dic.addBytes(COSEKeyFieldType.xCoord, self.xCoord)
-        dic.addBytes(COSEKeyFieldType.yCoord, self.yCoord)
+        var dic = OrderedDictionary<Int, Any>()
+        dic[COSEKeyFieldType.kty] = Int64(COSEKeyType.ec2)
+        dic[COSEKeyFieldType.alg] = Int64(self.alg)
+        dic[COSEKeyFieldType.crv] = Int64(self.crv)
+        dic[COSEKeyFieldType.xCoord] = self.xCoord
+        dic[COSEKeyFieldType.yCoord] = self.yCoord
         
         return CBORWriter()
             .putIntKeyMap(dic)

@@ -12,6 +12,7 @@
 
 import Foundation
 import AuthFoundation
+import WebAuthN
 
 extension Response {
     internal convenience init(flow: InteractionCodeFlowAPI, ion response: IonResponse) throws {
@@ -322,6 +323,32 @@ extension Capability.PasswordSettings {
     }
 }
 
+extension Capability.WebAuthN {
+    init?(flow: InteractionCodeFlowAPI, ion authenticators: [IonAuthenticator]) {
+        let methods = methodTypes(from: authenticators)
+        guard methods.contains(.webAuthN) else {
+            return nil
+        }
+        
+        let encoder = JSONEncoder()
+        let decoder = JSONDecoder()
+        let activationData: CredentialCreationOptions?
+        
+        if let activationValue = authenticators
+            .compactMap({ $0.contextualData?["activationData"] as? JSONValue })
+            .first,
+           let data = try? encoder.encode(activationValue),
+           let publicKey = try? decoder.decode(PublicKeyCredentialCreationOptions.self, from: data)
+        {
+            activationData = CredentialCreationOptions(publicKey: publicKey)
+        } else {
+            activationData = nil
+        }
+        
+        self.init(activationData: activationData, origin: flow.client.baseURL)
+    }
+}
+
 extension Capability.OTP {
     init?(flow: InteractionCodeFlowAPI, ion authenticators: [IonAuthenticator]) {
         let methods = methodTypes(from: authenticators)
@@ -418,6 +445,7 @@ extension Authenticator {
             Capability.Recoverable(flow: flow, ion: authenticators),
             Capability.PasswordSettings(flow: flow, ion: authenticators),
             Capability.NumberChallenge(flow: flow, ion: authenticators),
+            Capability.WebAuthN(flow: flow, ion: authenticators),
             Capability.OTP(flow: flow, ion: authenticators)
         ]
         

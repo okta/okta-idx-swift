@@ -19,12 +19,16 @@ var package = Package(
     dependencies: [
         .package(name: "AuthFoundation",
                  url: "https://github.com/okta/okta-mobile-swift",
-                 from: "1.2.0")
+                 from: "1.2.0"),
+        .package(name: "OrderedCollections",
+                 url: "https://github.com/apple/swift-collections",
+                 from: "1.0.4")
     ],
     targets: [
         .target(name: "OktaIdx",
                 dependencies: ["AuthFoundation", "WebAuthN"]),
-        .target(name: "WebAuthN"),
+        .target(name: "WebAuthN",
+                dependencies: ["OrderedCollections"]),
         .target(name: "TestCommon",
                 path: "Tests/TestCommon"),
         .testTarget(name: "OktaIdxTests",

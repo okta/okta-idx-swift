@@ -34,6 +34,7 @@ public class Signin {
     init(using flow: InteractionCodeFlow) {
         self.flow = flow
         self.storyboard = UIStoryboard(name: "IDXSignin", bundle: Bundle(for: type(of: self)))
+        self.flow.client.add(delegate: self)
     }
     
     convenience init?() {
@@ -263,6 +264,23 @@ public class Signin {
                         completion(.success(credential))
                     }
                 }
+            }
+        }
+    }
+}
+
+extension Signin: OAuth2ClientDelegate {
+    public func api(client: APIClient, willSend request: inout URLRequest) {
+        print("Request: \(request.httpMethod!) \(request.url!)")
+        if let data = request.httpBody {
+            if let contentType = request.allHTTPHeaderFields?["Content-Type"],
+               contentType.contains("json"),
+               let jsonData = try? JSONSerialization.jsonObject(with: data),
+               let jsonString = try? JSONSerialization.data(withJSONObject: jsonData, options: .prettyPrinted)
+            {
+                print(jsonString)
+            } else if let string = String(data: data, encoding: .utf8) {
+                print(string)
             }
         }
     }

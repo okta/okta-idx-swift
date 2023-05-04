@@ -1,9 +1,12 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  AuthenticatorSelectionCriteria.swift
-//  Okta Verify
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Michael Biviano on 10/6/22.
-//  Copyright © 2022 Okta. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
@@ -13,13 +16,13 @@ import Foundation
  
  - Note: [W3C Reccomendation](https://www.w3.org/TR/webauthn/#dictionary-authenticatorSelection)
  */
-struct AuthenticatorSelectionCriteria: Codable {
+public struct AuthenticatorSelectionCriteria: Codable {
     /// If this member is present, eligible authenticators are filtered to only authenticators attached with the specified Authenticator Attachment
-    let authenticatorAttachment: String?
+    public let authenticatorAttachment: String?
     /// This member is retained for backwards compatibility with WebAuthn Level 1 and, for historical reasons, its naming retains the deprecated “resident” terminology for discoverable credentials
-    let requireResidentKey: Bool
+    public let requireResidentKey: Bool
     /// Specifies the extent to which the Relying Party desires to create a client-side discoverable credential.
-    let residentKey: String?
+    public let residentKey: String?
     /// This member describes the Relying Party's requirements regarding user verification for the create() operation.
-    let userVerification: UserVerificationRequirement
+    public let userVerification: UserVerificationRequirement
 }

@@ -1,16 +1,25 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  WebAuthnClient.swift
-//  Okta Verify
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Michael Biviano on 10/6/22.
-//  Copyright © 2022 Okta. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
 import CryptoKit
+import OrderedCollections
 
-final class WebAuthnClient {
+@available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
+public final class WebAuthnClient {
     private let authenticator: AuthenticatorProtocol
+    
+    public convenience init() {
+        self.init(authenticator: PlatformAuthenticator(credentialStorage: KeychainCredentialStorage()))
+    }
     
     init(authenticator: AuthenticatorProtocol) {
         self.authenticator = authenticator
@@ -19,6 +28,7 @@ final class WebAuthnClient {
 
 // MARK: - ClientProtocol
 
+@available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
 extension WebAuthnClient: ClientProtocol {
     private enum Constants {
         /**
@@ -42,7 +52,7 @@ extension WebAuthnClient: ClientProtocol {
     }
     
     // swiftlint:disable cyclomatic_complexity
-    func create(origin: String, options: CredentialCreationOptions, sameOriginWithAncestors: Bool) -> Result<CredentialCreationData, WebAuthnError> {
+    public func create(origin: String, options: CredentialCreationOptions, sameOriginWithAncestors: Bool) -> Result<CredentialCreationData, WebAuthnError> {
         // [5.1.3.1]
         // options.publicKey is a non-optional value
         
@@ -80,7 +90,7 @@ extension WebAuthnClient: ClientProtocol {
         }
         
         // [5.1.3.8]
-        if options.rp.id != effectiveDomain {
+        if options.rp.id != effectiveDomain || !effectiveDomain.hasPrefix("\(options.rp.id)."){
             return .failure(.securityError)
         } else {
             options.rp.id = effectiveDomain
@@ -104,7 +114,7 @@ extension WebAuthnClient: ClientProtocol {
         // [5.1.3.11]
         // Extensions are currently not supported
         // let clientExtensions = SimpleOrderedDictionary<String>()
-        let authenticatorExtensions = SimpleOrderedDictionary<String>()
+        let authenticatorExtensions = OrderedDictionary<String, Any>()
         
         // [5.1.3.12]
         // Extensions currently not supported
@@ -149,7 +159,7 @@ extension WebAuthnClient: ClientProtocol {
         }
     }
     
-    func get(origin: String, options: CredentialRequestOptions, sameOriginWithAncestors: Bool) -> Result<AssertionCreationData, WebAuthnError> {
+    public func get(origin: String, options: CredentialRequestOptions, sameOriginWithAncestors: Bool) -> Result<AssertionCreationData, WebAuthnError> {
         // [5.1.4.1]
         // options.publicKey is a non-optional value
         
@@ -190,7 +200,7 @@ extension WebAuthnClient: ClientProtocol {
         // [5.1.4.7]
         // Extensions are currently not supported
         // let clientExtensions = SimpleOrderedDictionary<String>()
-        let authenticatorExtensions = SimpleOrderedDictionary<String>()
+        let authenticatorExtensions = OrderedDictionary<String, Any>()
         
         // [5.1.4.8]
         // Extensions are currently not supported

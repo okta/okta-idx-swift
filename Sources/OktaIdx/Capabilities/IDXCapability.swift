@@ -77,6 +77,9 @@ extension Authenticator: CapabilityCollection {
     /// Exposes data assocated with one-time-password authenticator enrollment handling.
     public var otp: Capability.OTP? { capability(Capability.OTP.self) }
 
+    /// Exposes the WebAuthN FIDO data necessary for fulofilling a WebAuthN challenge.
+    public var webAuthN: Capability.WebAuthN? { capability(Capability.WebAuthN.self) }
+
     /// Exposes information related to multiple-choice number challenges.
     public var numberChallenge: Capability.NumberChallenge? { capability(Capability.NumberChallenge.self) }
 }

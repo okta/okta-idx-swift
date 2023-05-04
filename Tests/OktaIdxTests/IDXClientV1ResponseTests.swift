@@ -797,18 +797,15 @@ class IDXClientV1ResponseTests: XCTestCase {
               "type": "security_key"
            }
         }
-
         """)
         
         let publicObj = try XCTUnwrap(Authenticator.makeAuthenticator(flow: flowMock,
                                                                       ion: [obj.value],
                                                                       jsonPaths: [],
                                                                       in: response))
-        XCTAssertEqual(publicObj.type, .app)
-        let otp = try XCTUnwrap(publicObj.otp)
-        
-        XCTAssertEqual(otp.sharedSecret, "64UBAAAM6GGG4AD")
-        XCTAssertEqual(otp.mimeType, "image/png")
-        XCTAssertNotNil(otp.image)
+        XCTAssertEqual(publicObj.type, .securityKey)
+        let webauthn = try XCTUnwrap(publicObj.webAuthN)
+
+        XCTAssertEqual(webauthn.activationData?.publicKey.user.displayName, "Example User")
     }
 }

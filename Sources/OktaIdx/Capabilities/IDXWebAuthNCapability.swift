@@ -11,26 +11,32 @@
 //
 
 import Foundation
+import WebAuthN
 
 extension Capability {
     /// Capability to recover an account.
     public struct WebAuthN: AuthenticatorCapability {
-//        /// Mime type for the associated QR code image data.
-//        public let relyingParty: PublicKeyCredentialRpEntity
-//        
-//        /// The data contents for the QR code image.
-//        public let imageData: Data
-//        
-//        /// For OTP providers that support it, the shared secret supplied along with the QR code.
-//        public let sharedSecret: String?
+        public let activationData: CredentialCreationOptions?
+        
+        @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
+        func enroll() throws -> (Data, Data) {
+            guard let activationData = activationData else {
+                throw WebAuthnError.unknownError
+            }
+            
+            let client = WebAuthnClient()
+            switch client.create(origin: activationData.publicKey.rp.id,
+                                 options: activationData,
+                                 sameOriginWithAncestors: true)
+            {
+            case .success(let data):
+                return (Data(data.attestationObjectResult.toBytes() ?? []),
+                        data.clientDataJSONResult)
+            case .failure(let error):
+                throw error
+            }
+        }
+        
+        let origin: URL
     }
-}
-
-protocol PublicKeyCredentialEntity {
-    var name: String { get }
-}
-
-struct PublicKeyCredentialRpEntity: Codable, PublicKeyCredentialEntity {
-    let id: String?
-    let name: String
 }

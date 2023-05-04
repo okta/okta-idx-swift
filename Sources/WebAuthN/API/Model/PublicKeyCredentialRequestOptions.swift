@@ -1,9 +1,12 @@
+// Copyright (c) 2023-Present, Okta, Inc. and/or its affiliates. All rights reserved.
+// The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
 //
-//  PublicKeyCredentialRequestOptions.swift
-//  Okta Verify
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
-//  Created by Michael Biviano on 10/12/22.
-//  Copyright © 2022 Okta. All rights reserved.
+// See the License for the specific language governing permissions and limitations under the License.
 //
 
 import Foundation
@@ -13,13 +16,13 @@ import Foundation
  
  - Note: [W3C Reccomendation](https://www.w3.org/TR/webauthn/#dictionary-assertion-options)
  */
-struct PublicKeyCredentialRequestOptions: Codable {
-    let allowCredentials: [PublicKeyCredentialDescriptor]?
-    let challenge: [UInt8]
-    let extensions: AuthenticationExtensionsClientInputs?
-    var rpID: String?
-    let timeout: UInt64?
-    let userVerification: UserVerificationRequirement?
+public struct PublicKeyCredentialRequestOptions: Codable {
+    public let allowCredentials: [PublicKeyCredentialDescriptor]?
+    public let challenge: [UInt8]
+    public let extensions: AuthenticationExtensionsClientInputs?
+    public internal(set) var rpID: String?
+    public let timeout: UInt64?
+    public let userVerification: UserVerificationRequirement?
     
     enum CodingKeys: String, CodingKey {
         case allowCredentials
@@ -30,7 +33,7 @@ struct PublicKeyCredentialRequestOptions: Codable {
         case userVerification
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         allowCredentials = values.contains(.allowCredentials) ? try values.decode([PublicKeyCredentialDescriptor].self, forKey: .allowCredentials) : nil
