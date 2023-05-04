@@ -90,7 +90,7 @@ extension WebAuthnClient: ClientProtocol {
         }
         
         // [5.1.3.8]
-        if options.rp.id != effectiveDomain || !effectiveDomain.hasPrefix("\(options.rp.id)."){
+        if options.rp.id != effectiveDomain && !effectiveDomain.hasPrefix("\(options.rp.id)."){
             return .failure(.securityError)
         } else {
             options.rp.id = effectiveDomain

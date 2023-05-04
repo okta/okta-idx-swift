@@ -25,7 +25,7 @@ extension Capability {
             }
             
             let client = WebAuthnClient()
-            switch client.create(origin: activationData.publicKey.rp.id,
+            switch client.create(origin: origin.absoluteString,
                                  options: activationData,
                                  sameOriginWithAncestors: true)
             {

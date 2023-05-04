@@ -85,7 +85,7 @@ extension PlatformAuthenticator: AuthenticatorProtocol {
         // [6.3.2.7.1]
         guard let accessControl = SecAccessControlCreateWithFlags(nil,
                                                                   kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
-                                                                  [.privateKeyUsage, .userPresence],
+                                                                  [.privateKeyUsage /*, .userPresence*/],
                                                                   nil),
               let privateKey = try? SecureEnclave.P256.Signing.PrivateKey(accessControl: accessControl) else {
             return .failure(.unknownError)
