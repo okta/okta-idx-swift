@@ -386,7 +386,7 @@ extension Signin.Row {
             
         case .button(remediationOption: let option):
             if let cell = cell as? IDXButtonTableViewCell {
-                cell.style = .remediation(type: option.type)
+                cell.style = .remediation(type: option.type, authenticatorType: option.authenticators.first?.type)
                 cell.buttonView.setTitle(signin?.buttonTitle(for: option), for: .normal)
                 cell.update = { (sender, _) in
                     delegate?.buttonSelected(remediationOption: option, sender: sender)

@@ -86,12 +86,13 @@ public class Remediation: Equatable, Hashable {
             return
         }
         
-        if let webAuthN = authenticators.compactMap({ $0.capability(Capability.WebAuthN.self) }).first {
+        if #available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *),
+           let webAuthN = authenticators.compactMap({ $0.capability(Capability.WebAuthN.self) }).first,
+           let credentialField = form.allFields.first(where: { $0.name == "credentials" })
+        {
             switch type {
             case .enrollAuthenticator:
-                if #available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *),
-                   let credentialField = form.allFields.first(where: { $0.name == "credentials" }),
-                   let attestationField = credentialField.form?.allFields.first(where: { $0.name == "attestation" }),
+                if let attestationField = credentialField.form?.allFields.first(where: { $0.name == "attestation" }),
                    let clientDataField = credentialField.form?.allFields.first(where: { $0.name == "clientData" })
                 {
                     do {
@@ -102,13 +103,29 @@ public class Remediation: Equatable, Hashable {
                         flow.send(error: .internalError(error), completion: completion)
                         return
                     }
-                    
                 } else {
                     flow.send(error: .cannotCreateRequest, completion: completion)
                     return
                 }
                 
-            case .challengeAuthenticator: break
+            case .challengeAuthenticator:
+                if let authenticatorDataField = credentialField.form?.allFields.first(where: { $0.name == "authenticatorData" }),
+                   let clientDataField = credentialField.form?.allFields.first(where: { $0.name == "clientData" }),
+                   let signatureDataField = credentialField.form?.allFields.first(where: { $0.name == "signatureData" })
+                {
+                    do {
+                        let (authenticatorData, clientData, signatureData) = try webAuthN.verify()
+                        authenticatorDataField.value = authenticatorData.base64EncodedString()
+                        clientDataField.value = clientData.base64EncodedString()
+                        signatureDataField.value = signatureData.base64EncodedString()
+                    } catch {
+                        flow.send(error: .internalError(error), completion: completion)
+                        return
+                    }
+                } else {
+                    flow.send(error: .cannotCreateRequest, completion: completion)
+                    return
+                }
             default: break
             }
         }

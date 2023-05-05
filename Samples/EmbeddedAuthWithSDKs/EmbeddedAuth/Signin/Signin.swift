@@ -121,7 +121,7 @@ public class Signin {
                 return "Social Login"
             }
             
-        case .selectAuthenticatorAuthenticate:
+        case .selectAuthenticatorAuthenticate, .selectAuthenticatorEnroll:
             return "Choose"
             
         case .launchAuthenticator:
@@ -133,6 +133,22 @@ public class Signin {
         case .unlockAccount:
             return "Unlock Account"
             
+        case .challengeAuthenticator:
+            switch option.authenticators.first?.type {
+            case .securityKey:
+                return "Sign In"
+            default:
+                return "Continue"
+            }
+
+        case .enrollAuthenticator:
+            switch option.authenticators.first?.type {
+            case .securityKey:
+                return "Set Up"
+            default:
+                return "Continue"
+            }
+
         default:
             return "Continue"
         }

@@ -345,7 +345,22 @@ extension Capability.WebAuthN {
             activationData = nil
         }
         
-        self.init(activationData: activationData, origin: flow.client.baseURL)
+        let requestData: CredentialRequestOptions?
+        if let challengeValue = authenticators
+            .compactMap({ $0.contextualData?["challengeData"] as? JSONValue })
+            .first,
+           let data = try? encoder.encode(challengeValue),
+           let publicKey = try? decoder.decode(PublicKeyCredentialRequestOptions.self, from: data)
+        {
+            requestData = CredentialRequestOptions(publicKey: publicKey)
+        } else {
+            requestData = nil
+        }
+
+        
+        self.init(activationData: activationData,
+                  requestData: requestData,
+                  origin: flow.client.baseURL)
     }
 }
 

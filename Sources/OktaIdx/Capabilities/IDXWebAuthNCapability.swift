@@ -17,7 +17,8 @@ extension Capability {
     /// Capability to recover an account.
     public struct WebAuthN: AuthenticatorCapability {
         public let activationData: CredentialCreationOptions?
-        
+        public let requestData: CredentialRequestOptions?
+
         @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
         func enroll() throws -> (Data, Data) {
             guard let activationData = activationData else {
@@ -37,6 +38,25 @@ extension Capability {
             }
         }
         
+        @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
+        func verify() throws -> (Data, Data, Data) {
+            guard let requestData = requestData else {
+                throw WebAuthnError.unknownError
+            }
+            
+            let client = WebAuthnClient()
+            switch client.get(origin: origin.absoluteString,
+                              options: requestData,
+                              sameOriginWithAncestors: true)
+            {
+            case .success(let data):
+                return (data.authenticatorDataResult,
+                        data.clientDataJSONResult,
+                        data.signatureResult)
+            case .failure(let error):
+                throw error
+            }
+        }
         let origin: URL
     }
 }

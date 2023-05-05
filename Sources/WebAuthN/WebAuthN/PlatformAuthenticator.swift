@@ -83,9 +83,16 @@ extension PlatformAuthenticator: AuthenticatorProtocol {
         // User verificaation and presence has already been confirmed with creation of LAContext
         
         // [6.3.2.7.1]
+        let aclFlags: SecAccessControlCreateFlags
+        #if targetEnvironment(simulator)
+        aclFlags = [.privateKeyUsage]
+        #else
+        aclFlags = [.privateKeyUsage, .biometryCurrentSet]
+        #endif
+        
         guard let accessControl = SecAccessControlCreateWithFlags(nil,
                                                                   kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
-                                                                  [.privateKeyUsage /*, .userPresence*/],
+                                                                  aclFlags,
                                                                   nil),
               let privateKey = try? SecureEnclave.P256.Signing.PrivateKey(accessControl: accessControl) else {
             return .failure(.unknownError)

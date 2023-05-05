@@ -13,4 +13,8 @@ import Foundation
 
 public struct CredentialRequestOptions {
     public let publicKey: PublicKeyCredentialRequestOptions
+    
+    public init(publicKey: PublicKeyCredentialRequestOptions) {
+        self.publicKey = publicKey
+    }
 }
