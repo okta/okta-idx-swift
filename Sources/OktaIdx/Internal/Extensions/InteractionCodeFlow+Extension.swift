@@ -25,7 +25,7 @@ extension InteractionCodeFlow {
     func send(response: Response, completion: ResponseResult?) {
         let delegateCollection = delegateCollection
         queue.async {
-            self.currentResponse = response
+            self.response = response
             delegateCollection.invoke { $0.authentication(flow: self, received: response) }
             completion?(.success(response))
         }

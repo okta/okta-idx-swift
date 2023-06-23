@@ -77,7 +77,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     public internal(set) var context: Context?
     
     @Published
-    public internal(set) var currentResponse: Response?
+    public internal(set) var response: Response?
     
     /// The options used when starting an authentication flow.
     ///
