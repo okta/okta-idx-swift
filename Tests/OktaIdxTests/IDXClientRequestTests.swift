@@ -180,8 +180,7 @@ class IDXClientRequestTests: XCTestCase {
         let remediation = try XCTUnwrap(Remediation(flow: flowMock, ion: ion))
         
         let request = try InteractionCodeFlow.SuccessResponseTokenRequest(successResponse: remediation,
-                                                                          clientId: "clientId",
-                                                                          scope: "all",
+                                                                          clientConfiguration: client.configuration,
                                                                           redirectUri: "redirect:/uri",
                                                                           context: context)
         

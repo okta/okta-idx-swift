@@ -19,12 +19,10 @@ extension InteractionCodeFlow {
         let url: URL
         let contentType: APIContentType?
         let bodyParameters: [String: Any]?
-        let clientId: String
-        let scope: String
+        let clientConfiguration: OAuth2Client.Configuration
         let redirectUri: String
         init(successResponse option: Remediation,
-             clientId: String,
-             scope: String,
+             clientConfiguration: OAuth2Client.Configuration,
              redirectUri: String,
              context: InteractionCodeFlow.Context) throws
         {
@@ -34,14 +32,14 @@ extension InteractionCodeFlow {
                 throw InteractionCodeFlowError.cannotCreateRequest
             }
             
-            let parameters: [String: Any] = try option.form.allFields.reduce(into: [:]) { partialResult, field in
+            var parameters: [String: Any] = try option.form.allFields.reduce(into: [:]) { partialResult, field in
                 guard let name = field.name else { return }
                 switch name {
                 case "code_verifier":
                     partialResult[name] = context.pkce.codeVerifier
                     
                 case "client_id":
-                    guard clientId == field.value as? String else {
+                    guard clientConfiguration.clientId == field.value as? String else {
                         throw InteractionCodeFlowError.invalidParameter(name: name)
                     }
                     fallthrough
@@ -51,12 +49,14 @@ extension InteractionCodeFlow {
                     partialResult[name] = value
                 }
             }
+            if let authParameters = clientConfiguration.authentication.additionalParameters {
+                parameters.merge(authParameters, uniquingKeysWith: { $1 })
+            }
 
             self.httpMethod = method
             self.url = option.href
-            self.clientId = clientId
-            self.scope = scope
             self.redirectUri = redirectUri
+            self.clientConfiguration = clientConfiguration
             self.contentType = .other(accepts)
             self.bodyParameters = parameters
         }
@@ -66,9 +66,9 @@ extension InteractionCodeFlow {
         var codingUserInfo: [CodingUserInfoKey: Any]? {
             [
                 .clientSettings: [
-                    "client_id": clientId,
+                    "client_id": clientConfiguration.clientId,
                     "redirect_uri": redirectUri,
-                    "scope": scope
+                    "scope": clientConfiguration.scopes
                 ]
             ]
         }
@@ -85,6 +85,7 @@ extension InteractionCodeFlow {
 }
 
 extension InteractionCodeFlow.SuccessResponseTokenRequest: OAuth2TokenRequest, APIRequestBody, APIParsingContext {
+    var clientId: String { clientConfiguration.clientId }
 }
 
 extension InteractionCodeFlow.RedirectURLTokenRequest: OAuth2TokenRequest, APIRequestBody, APIParsingContext {

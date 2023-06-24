@@ -87,8 +87,7 @@ public class Response: NSObject {
         do {
             let tokenRequest = try InteractionCodeFlow.SuccessResponseTokenRequest(
                 successResponse: remediation,
-                clientId: flow.client.configuration.clientId,
-                scope: flow.client.configuration.scopes,
+                clientConfiguration: flow.client.configuration,
                 redirectUri: flow.redirectUri.absoluteString,
                 context: context)
             flow.client.exchange(token: tokenRequest) { result in
