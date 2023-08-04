@@ -108,11 +108,12 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/invalidUrl",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingClientConfiguration",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingLocationHeader",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingOAuth2ResponseKey(_:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingOpenIdConfiguration(attribute:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingToken(type:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/multiple(errors:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/network(error:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/oauth2Error(code:description:)",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/oauth2Error(code:description:additionalKeys:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/signatureInvalid"
       ],
       "title" : "Enumeration Cases"
@@ -422,6 +423,44 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2error\/missinglocationheader"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingOAuth2ResponseKey(_:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "missingOAuth2ResponseKey"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/missingOAuth2ResponseKey(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "OAuth2Error.missingOAuth2ResponseKey(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2error\/missingoauth2responsekey(_:)"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingOpenIdConfiguration(attribute:)": {
   "abstract" : [
 
@@ -615,7 +654,7 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2error\/network(error:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/oauth2Error(code:description:)": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/oauth2Error(code:description:additionalKeys:)": {
   "abstract" : [
 
   ],
@@ -668,15 +707,41 @@
     },
     {
       "kind" : "text",
-      "text" : "?)"
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "additionalKeys"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : " : "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "]?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/oauth2Error(code:description:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error\/oauth2Error(code:description:additionalKeys:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "OAuth2Error.oauth2Error(code:description:)",
+  "title" : "OAuth2Error.oauth2Error(code:description:additionalKeys:)",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/oauth2error\/oauth2error(code:description:)"
+  "url" : "\/documentation\/authfoundation\/oauth2error\/oauth2error(code:description:additionalkeys:)"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/signatureInvalid": {
   "abstract" : [

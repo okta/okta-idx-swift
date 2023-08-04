@@ -105,12 +105,17 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/accessDenied",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/authorizationPending",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/directAuthAuthorizationPending",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/expiredToken",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidChallengeTypesSupported",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidClient",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidGrant",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidOTP",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidRequest",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidScope",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidToken",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/mfaRequired",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/oobRejected",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/other(code:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/serverError",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/slowDown",
@@ -316,9 +321,45 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/authorizationpending"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/expiredToken": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/directAuthAuthorizationPending": {
   "abstract" : [
 
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "directAuthAuthorizationPending"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/directAuthAuthorizationPending",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "OAuth2ServerError.Code.directAuthAuthorizationPending",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/directauthauthorizationpending"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/expiredToken": {
+  "abstract" : [
+    {
+      "text" : "The ",
+      "type" : "text"
+    },
+    {
+      "code" : "device_code",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " has expired, and the device authorization session has concluded.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -340,6 +381,31 @@
   "title" : "OAuth2ServerError.Code.expiredToken",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/expiredtoken"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/invalidChallengeTypesSupported": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "invalidChallengeTypesSupported"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidChallengeTypesSupported",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "OAuth2ServerError.Code.invalidChallengeTypesSupported",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/invalidchallengetypessupported"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/invalidClient": {
   "abstract" : [
@@ -396,6 +462,31 @@
   "title" : "OAuth2ServerError.Code.invalidGrant",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/invalidgrant"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/invalidOTP": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "invalidOTP"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/invalidOTP",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "OAuth2ServerError.Code.invalidOTP",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/invalidotp"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/invalidRequest": {
   "abstract" : [
@@ -480,6 +571,56 @@
   "title" : "OAuth2ServerError.Code.invalidToken",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/invalidtoken"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/mfaRequired": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "mfaRequired"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/mfaRequired",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "OAuth2ServerError.Code.mfaRequired",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/mfarequired"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/oobRejected": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "oobRejected"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum\/oobRejected",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "OAuth2ServerError.Code.oobRejected",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2servererror\/code-swift.enum\/oobrejected"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2ServerError/Code-swift.enum/other(code:)": {
   "abstract" : [

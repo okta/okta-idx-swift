@@ -142,14 +142,14 @@
             {
               "inlineContent" : [
                 {
-                  "text" : "Base URL representing the Okta domain to use.",
+                  "text" : "The pre-formed configuration for this client.",
                   "type" : "text"
                 }
               ],
               "type" : "paragraph"
             }
           ],
-          "name" : "baseURL"
+          "name" : "configuration"
         },
         {
           "content" : [

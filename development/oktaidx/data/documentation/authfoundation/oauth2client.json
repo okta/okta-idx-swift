@@ -121,8 +121,8 @@
     {
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(_:session:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(baseURL:clientId:scopes:session:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(domain:clientId:scopes:session:)"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(baseURL:clientId:scopes:authentication:session:)",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(domain:clientId:scopes:authentication:session:)"
       ],
       "title" : "Initializers"
     },
@@ -156,6 +156,7 @@
     },
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/ClientAuthentication",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/PropertyListConfigurationError"
       ],
       "title" : "Enumerations"
@@ -306,6 +307,40 @@
   "title" : "APIClient Implementations",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2client\/apiclient-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/ClientAuthentication": {
+  "abstract" : [
+    {
+      "text" : "Defines the types of authentication the client may use when interacting with the authorization server.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClientAuthentication"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/ClientAuthentication",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ClientAuthentication"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "OAuth2Client.ClientAuthentication",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2client\/clientauthentication"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/Configuration-swift.class": {
   "abstract" : [
@@ -681,7 +716,7 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2client\/init(_:session:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/init(baseURL:clientId:scopes:session:)": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/init(baseURL:clientId:scopes:authentication:session:)": {
   "abstract" : [
     {
       "text" : "Constructs an OAuth2Client for the given domain.",
@@ -750,6 +785,23 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "authentication"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC0D14AuthenticationO",
+      "text" : "ClientAuthentication"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "session"
     },
     {
@@ -766,14 +818,14 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(baseURL:clientId:scopes:session:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(baseURL:clientId:scopes:authentication:session:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "init(baseURL:clientId:scopes:session:)",
+  "title" : "init(baseURL:clientId:scopes:authentication:session:)",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/oauth2client\/init(baseurl:clientid:scopes:session:)"
+  "url" : "\/documentation\/authfoundation\/oauth2client\/init(baseurl:clientid:scopes:authentication:session:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/init(domain:clientId:scopes:session:)": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/init(domain:clientId:scopes:authentication:session:)": {
   "abstract" : [
     {
       "text" : "Constructs an OAuth2Client for the given domain.",
@@ -842,6 +894,23 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "authentication"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC0D14AuthenticationO",
+      "text" : "ClientAuthentication"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "session"
     },
     {
@@ -862,12 +931,12 @@
       "text" : "throws"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(domain:clientId:scopes:session:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/init(domain:clientId:scopes:authentication:session:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "init(domain:clientId:scopes:session:)",
+  "title" : "init(domain:clientId:scopes:authentication:session:)",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/oauth2client\/init(domain:clientid:scopes:session:)"
+  "url" : "\/documentation\/authfoundation\/oauth2client\/init(domain:clientid:scopes:authentication:session:)"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/interactionCodeFlow(redirectUri:additionalParameters:)": {
   "abstract" : [

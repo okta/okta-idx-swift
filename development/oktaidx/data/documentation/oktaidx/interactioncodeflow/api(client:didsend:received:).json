@@ -21,7 +21,7 @@
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "AuthFoundation",
-    "externalID" : "s:14AuthFoundation17APIClientDelegatePAAE3api6client7didSend8receivedyAA0C0_p_0B010URLRequestVAA0C5ErrorOtF::SYNTHESIZED::s:7OktaIdx19InteractionCodeFlowC",
+    "externalID" : "s:14AuthFoundation17APIClientDelegatePAAE3api6client7didSend8receivedyAA0C0_p_0B010URLRequestVSo17NSHTTPURLResponseCtF::SYNTHESIZED::s:7OktaIdx19InteractionCodeFlowC",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -83,8 +83,8 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation14APIClientErrorO",
-        "text" : "APIClientError"
+        "preciseIdentifier" : "c:objc(cs)NSHTTPURLResponse",
+        "text" : "HTTPURLResponse"
       },
       {
         "kind" : "text",
@@ -181,17 +181,16 @@
             },
             {
               "kind" : "internalParam",
-              "text" : "error"
+              "text" : "response"
             },
             {
               "kind" : "text",
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientError",
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation14APIClientErrorO",
-              "text" : "APIClientError"
+              "preciseIdentifier" : "c:objc(cs)NSHTTPURLResponse",
+              "text" : "HTTPURLResponse"
             },
             {
               "kind" : "text",
@@ -258,40 +257,6 @@
   "title" : "APIClient",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/apiclient"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientError": {
-  "abstract" : [
-    {
-      "text" : "Errors that may occur at the API or network level.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "enum"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "APIClientError"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientError",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "APIClientError"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "APIClientError",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiclienterror"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
   "abstract" : [
@@ -417,8 +382,8 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14APIClientErrorO",
-      "text" : "APIClientError"
+      "preciseIdentifier" : "c:objc(cs)NSHTTPURLResponse",
+      "text" : "HTTPURLResponse"
     },
     {
       "kind" : "text",

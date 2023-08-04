@@ -51,7 +51,8 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/decode(_:from:userInfo:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/didSend(request:received:)-2abw8",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/didSend(request:received:)-9p2t5",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/didSend(request:received:)-8no60",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/didSend(request:received:requestId:rateLimit:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/error(from:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/send(_:parsing:completion:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/shouldRetry(request:rateLimit:)",
@@ -427,7 +428,73 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2client\/didsend(request:received:)-2abw8"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/didSend(request:received:)-9p2t5": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/didSend(request:received:)-8no60": {
+  "abstract" : [
+    {
+      "text" : "Invoked when a request receives an HTTP response.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "didSend"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "request"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation10URLRequestV",
+      "text" : "URLRequest"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "received"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)NSHTTPURLResponse",
+      "text" : "HTTPURLResponse"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/didSend(request:received:)-8no60",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "didSend(request:received:)",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2client\/didsend(request:received:)-8no60"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/didSend(request:received:requestId:rateLimit:)": {
   "abstract" : [
     {
       "text" : "Invoked when a request fails.",
@@ -483,15 +550,49 @@
     },
     {
       "kind" : "text",
-      "text" : ")"
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "requestId"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "rateLimit"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12APIRateLimitV",
+      "text" : "APIRateLimit"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/didSend(request:received:)-9p2t5",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/didSend(request:received:requestId:rateLimit:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "didSend(request:received:)",
+  "title" : "didSend(request:received:requestId:rateLimit:)",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/oauth2client\/didsend(request:received:)-9p2t5"
+  "url" : "\/documentation\/authfoundation\/oauth2client\/didsend(request:received:requestid:ratelimit:)"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/error(from:)": {
   "abstract" : [

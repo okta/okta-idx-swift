@@ -112,8 +112,9 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-75hyt",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-4ob1d",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-8l08k",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:requestId:rateLimit:)-4mdur",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:shouldRetry:)-1f8ai",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:willSend:)-9p8jr"
       ],
@@ -179,10 +180,10 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/apiclientdelegate"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientDelegate/api(client:didSend:received:)-75hyt": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientDelegate/api(client:didSend:received:)-4ob1d": {
   "abstract" : [
     {
-      "text" : "Invoked when a request fails.",
+      "text" : "Invoked when a request returns a successful response.",
       "type" : "text"
     }
   ],
@@ -248,21 +249,21 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14APIClientErrorO",
-      "text" : "APIClientError"
+      "preciseIdentifier" : "c:objc(cs)NSHTTPURLResponse",
+      "text" : "HTTPURLResponse"
     },
     {
       "kind" : "text",
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-75hyt",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-4ob1d",
   "kind" : "symbol",
   "required" : true,
   "role" : "symbol",
   "title" : "api(client:didSend:received:)",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiclientdelegate\/api(client:didsend:received:)-75hyt"
+  "url" : "\/documentation\/authfoundation\/apiclientdelegate\/api(client:didsend:received:)-4ob1d"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientDelegate/api(client:didSend:received:)-8l08k": {
   "abstract" : [
@@ -365,6 +366,125 @@
   "title" : "api(client:didSend:received:)",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/apiclientdelegate\/api(client:didsend:received:)-8l08k"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientDelegate/api(client:didSend:received:requestId:rateLimit:)-4mdur": {
+  "abstract" : [
+    {
+      "text" : "Invoked when a request fails.",
+      "type" : "text"
+    }
+  ],
+  "defaultImplementations" : 1,
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "api"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "client"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation9APIClientP",
+      "text" : "APIClient"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "didSend"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation10URLRequestV",
+      "text" : "URLRequest"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "received"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation14APIClientErrorO",
+      "text" : "APIClientError"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "requestId"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "rateLimit"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12APIRateLimitV",
+      "text" : "APIRateLimit"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:requestId:rateLimit:)-4mdur",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "api(client:didSend:received:requestId:rateLimit:)",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/apiclientdelegate\/api(client:didsend:received:requestid:ratelimit:)-4mdur"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientDelegate/api(client:shouldRetry:)-1f8ai": {
   "abstract" : [

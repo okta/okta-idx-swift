@@ -106,7 +106,11 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/authorizationCode",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/deviceCode",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/implicit",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/oob",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/oobMFA",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/other(_:)",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/otp",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/otpMFA",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/password",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/refreshToken",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/tokenExchange"
@@ -300,6 +304,56 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/granttype\/implicit"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/GrantType/oob": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "oob"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/oob",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "GrantType.oob",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/granttype\/oob"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/GrantType/oobMFA": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "oobMFA"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/oobMFA",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "GrantType.oobMFA",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/granttype\/oobmfa"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/GrantType/other(_:)": {
   "abstract" : [
 
@@ -337,6 +391,56 @@
   "title" : "GrantType.other(_:)",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/granttype\/other(_:)"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/GrantType/otp": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "otp"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/otp",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "GrantType.otp",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/granttype\/otp"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/GrantType/otpMFA": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "otpMFA"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/otpMFA",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "GrantType.otpMFA",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/granttype\/otpmfa"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/GrantType/password": {
   "abstract" : [

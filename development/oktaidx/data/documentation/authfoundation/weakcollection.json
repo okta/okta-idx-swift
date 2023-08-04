@@ -151,20 +151,11 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:Sq",
-              "text" : "Optional"
-            },
-            {
-              "kind" : "text",
-              "text" : "<"
-            },
-            {
-              "kind" : "typeIdentifier",
               "text" : "Element"
             },
             {
               "kind" : "text",
-              "text" : ">"
+              "text" : "?"
             }
           ]
         }

@@ -107,7 +107,7 @@
             },
             {
               "kind" : "internalParam",
-              "text" : "i"
+              "text" : "index"
             },
             {
               "kind" : "text",

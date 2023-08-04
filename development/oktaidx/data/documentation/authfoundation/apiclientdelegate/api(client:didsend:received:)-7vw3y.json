@@ -10,7 +10,7 @@
       [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-75hyt"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-4ob1d"
       ],
       [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation",
@@ -364,10 +364,10 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/apiclientdelegate"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientDelegate/api(client:didSend:received:)-75hyt": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientDelegate/api(client:didSend:received:)-4ob1d": {
   "abstract" : [
     {
-      "text" : "Invoked when a request fails.",
+      "text" : "Invoked when a request returns a successful response.",
       "type" : "text"
     }
   ],
@@ -433,21 +433,21 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14APIClientErrorO",
-      "text" : "APIClientError"
+      "preciseIdentifier" : "c:objc(cs)NSHTTPURLResponse",
+      "text" : "HTTPURLResponse"
     },
     {
       "kind" : "text",
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-75hyt",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:didSend:received:)-4ob1d",
   "kind" : "symbol",
   "required" : true,
   "role" : "symbol",
   "title" : "api(client:didSend:received:)",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiclientdelegate\/api(client:didsend:received:)-75hyt"
+  "url" : "\/documentation\/authfoundation\/apiclientdelegate\/api(client:didsend:received:)-4ob1d"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientDelegate/api(client:didSend:received:)-7vw3y": {
   "abstract" : [

@@ -105,6 +105,7 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/PropertyListConfigurationError\/cannotParsePropertyList(_:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/PropertyListConfigurationError\/defaultPropertyListNotFound",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/PropertyListConfigurationError\/invalidConfiguration(name:value:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/PropertyListConfigurationError\/invalidPropertyList(url:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/PropertyListConfigurationError\/missingConfigurationValues"
       ],
@@ -298,6 +299,69 @@
   "title" : "OAuth2Client.PropertyListConfigurationError.defaultPropertyListNotFound",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/oauth2client\/propertylistconfigurationerror\/defaultpropertylistnotfound"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/PropertyListConfigurationError/invalidConfiguration(name:value:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "invalidConfiguration"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "name"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "value"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/PropertyListConfigurationError\/invalidConfiguration(name:value:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "OAuth2Client.PropertyListConfigurationError.invalidConfiguration(name:value:)",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/oauth2client\/propertylistconfigurationerror\/invalidconfiguration(name:value:)"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client/PropertyListConfigurationError/invalidPropertyList(url:)": {
   "abstract" : [
