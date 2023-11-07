@@ -409,6 +409,7 @@ extension Authenticator {
         let state = response.authenticatorState(for: authenticators, in: jsonPaths)
         let key = authenticators.compactMap(\.key).first
         let methods = authenticators.compactMap(\.methods).first
+        let contextualData = first.contextualData
 
         let capabilities: [AuthenticatorCapability?] = [
             Capability.Profile(flow: flow, ion: authenticators),
@@ -429,7 +430,9 @@ extension Authenticator {
                                        type: first.type,
                                        key: key,
                                        methods: methods,
-                                       capabilities: capabilities.compactMap { $0 })
+                                       capabilities: capabilities.compactMap { $0 },
+                                       contextualData: contextualData,
+                                       stateHandle: response.stateHandle)
     }
 }
 
