@@ -352,6 +352,28 @@ extension Capability.OTP {
     }
 }
 
+extension Capability.Duo {
+    init?(flow: InteractionCodeFlowAPI, ion authenticators: [IonAuthenticator]) {
+        let methods = methodTypes(from: authenticators)
+        guard methods.contains(.duo) else {
+            return nil
+        }
+
+        guard let typeName = authenticators.first?.type else { return nil }
+        let type = Authenticator.Kind(string: typeName)
+
+        guard type == .app,
+              let contextualData = authenticators.compactMap(\.contextualData).first,
+              let host = contextualData["host"]?.stringValue(),
+              let signedToken = contextualData["signedToken"]?.stringValue(),
+              let script = contextualData["script"]?.stringValue()
+        else {
+            return nil
+        }
+        self.init(host: host, signedToken: signedToken, script: script)
+    }
+}
+
 extension Capability.SocialIDP {
     init?(flow: InteractionCodeFlowAPI, ion object: IonForm) {
         let type = Remediation.RemediationType(string: object.name)
@@ -419,7 +441,8 @@ extension Authenticator {
             Capability.Recoverable(flow: flow, ion: authenticators),
             Capability.PasswordSettings(flow: flow, ion: authenticators),
             Capability.NumberChallenge(flow: flow, ion: authenticators),
-            Capability.OTP(flow: flow, ion: authenticators)
+            Capability.OTP(flow: flow, ion: authenticators),
+            Capability.Duo(flow: flow, ion: authenticators)
         ]
         
         return Authenticator(flow: flow,
@@ -430,8 +453,7 @@ extension Authenticator {
                                        type: first.type,
                                        key: key,
                                        methods: methods,
-                                       capabilities: capabilities.compactMap { $0 },
-                                       contextualData: contextualData)
+                                       capabilities: capabilities.compactMap { $0 })
     }
 }
 
