@@ -40,9 +40,6 @@ public class Authenticator: Equatable {
     // Contextual data for authenticator, necessary for some type of MFAs like Duo
     public let contextualData: [String: Any]?
 
-    // A token for keeping tracking of the current authentication process, required for Duo 
-    public let stateHandle: String?
-
     public static func == (lhs: Authenticator, rhs: Authenticator) -> Bool {
         lhs.id == rhs.id &&
         lhs.displayName == rhs.displayName &&
@@ -63,8 +60,7 @@ public class Authenticator: Equatable {
          key: String?,
          methods: [[String: String]]?,
          capabilities: [AuthenticatorCapability],
-         contextualData:  [String: JSONValue]?,
-         stateHandle: String?)
+         contextualData:  [String: JSONValue]?)
     {
         self.flow = flow
         self.jsonPaths = v1JsonPaths
@@ -81,6 +77,5 @@ public class Authenticator: Equatable {
         self.contextualData = contextualData?.reduce(into: [String: AnyObject]()) {
             $0[$1.key] = $1.value.toAnyObject()
         }
-        self.stateHandle = stateHandle
     }
 }

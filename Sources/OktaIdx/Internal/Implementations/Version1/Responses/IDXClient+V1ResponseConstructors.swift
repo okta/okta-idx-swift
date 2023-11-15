@@ -431,8 +431,7 @@ extension Authenticator {
                                        key: key,
                                        methods: methods,
                                        capabilities: capabilities.compactMap { $0 },
-                                       contextualData: contextualData,
-                                       stateHandle: response.stateHandle)
+                                       contextualData: contextualData)
     }
 }
 
