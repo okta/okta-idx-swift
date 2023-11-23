@@ -33,7 +33,7 @@ extension Remediation {
         
         /// The array of ordered user-visible fields within this form. Each field may also contain nested forms for collections of related fields.
         public let fields: [Field]
-        public let hiddenFields: [Field]
+        let hiddenFields: [Field]
         let allFields: [Field]
 
         init?(fields: [Field]?) {

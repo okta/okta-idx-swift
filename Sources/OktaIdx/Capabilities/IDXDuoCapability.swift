@@ -9,9 +9,11 @@ import Foundation
 
 extension Capability {
     /// Capability to access data related to Duo
-    public struct Duo: AuthenticatorCapability {
+    public struct Duo: AuthenticatorCapability,RemediationCapability {
         public let host: String
         public let signedToken: String
         public let script: String
+        
+        let answerField: Remediation.Form.Field?
     }
 }

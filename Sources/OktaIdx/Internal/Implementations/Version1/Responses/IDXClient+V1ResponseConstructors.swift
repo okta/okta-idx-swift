@@ -370,7 +370,21 @@ extension Capability.Duo {
         else {
             return nil
         }
-        self.init(host: host, signedToken: signedToken, script: script)
+        self.init(host: host, signedToken: signedToken, script: script, answerField: nil)
+    }
+    
+    init?(form: Remediation.Form, object: IonForm) {
+        let type = Remediation.RemediationType(string: object.name)
+        guard type == .challengeAuthenticator else { // TODO: Find more ways to check this is Duo
+            return nil
+        }
+
+        let field = form.hiddenFields.first
+        self.init(host: "", signedToken: "", script: "", answerField: field)
+    }
+    
+    func send(signature data:String) {
+        answerField?.value = data
     }
 }
 
@@ -472,7 +486,8 @@ extension Remediation {
 
         let capabilities: [RemediationCapability?] = createCapabilities ? [
             Capability.SocialIDP(flow: flow, ion: object),
-            Capability.Pollable(flow: flow, ion: object)
+            Capability.Pollable(flow: flow, ion: object),
+            Capability.Duo(form: form, object: object)
         ] : []
         
         return Remediation(flow: flow,
