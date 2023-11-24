@@ -9,7 +9,7 @@ import Foundation
 
 extension Capability {
     /// Capability to access data related to Duo
-    public struct Duo: AuthenticatorCapability {
+    public class Duo: AuthenticatorCapability {
         public let host: String
         public let signedToken: String
         public let script: String
@@ -26,6 +26,13 @@ extension Capability {
             }
             
             signatureField.value = signatureData
+        }
+        
+        init(host: String, signedToken: String, script: String, signatureData: String? = nil) {
+            self.host = host
+            self.signedToken = signedToken
+            self.script = script
+            self.signatureData = signatureData
         }
     }
 }

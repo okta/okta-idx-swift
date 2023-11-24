@@ -353,7 +353,7 @@ extension Capability.OTP {
 }
 
 extension Capability.Duo {
-    init?(flow: InteractionCodeFlowAPI, ion authenticators: [IonAuthenticator]) {
+    convenience init?(flow: InteractionCodeFlowAPI, ion authenticators: [IonAuthenticator]) {
         // Exit early if none of the authenticators have a "duo" method
         let methods = methodTypes(from: authenticators)
         guard methods.contains(.duo) else {
