@@ -9,11 +9,30 @@ import Foundation
 
 extension Capability {
     /// Capability to access data related to Duo
-    public struct Duo: AuthenticatorCapability,RemediationCapability {
+    public class Duo: AuthenticatorCapability {
         public let host: String
         public let signedToken: String
         public let script: String
+        public var signatureData: String?
         
-        let answerField: Remediation.Form.Field?
+        public func willProceed(to remediation: Remediation) {
+            guard remediation.authenticators.contains(where: {
+                $0.type == .app && $0.methods?.contains(.duo) ?? false
+            }),
+                  let credentialsField = remediation.form["credentials"],
+                  let signatureField = credentialsField.form?.allFields.first(where: { $0.name == "signatureData" })
+            else {
+                return
+            }
+            
+            signatureField.value = signatureData
+        }
+        
+        init(host: String, signedToken: String, script: String, signatureData: String? = nil) {
+            self.host = host
+            self.signedToken = signedToken
+            self.script = script
+            self.signatureData = signatureData
+        }
     }
 }

@@ -13,7 +13,11 @@
 import Foundation
 
 /// A generic protocol used to identify objects that describe a capability.
-public protocol IDXCapability {}
+public protocol IDXCapability {
+    /// Message sent to capabilities when the response it's contained within will proceed through a remediation.
+    /// - Parameter remediation: Remediation being invoked.
+    func willProceed(to remediation: Remediation)
+}
 
 /// Defines type conformance for capabilities that can be used with Authenticators.
 public protocol AuthenticatorCapability: IDXCapability {}

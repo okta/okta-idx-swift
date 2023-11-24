@@ -193,9 +193,9 @@ extension Authenticator.Collection {
             .values
             .compactMap({ (mappingArray) in
                 return try Authenticator.makeAuthenticator(flow: flow,
-                                                                     ion: mappingArray.map(\.authenticator),
-                                                                     jsonPaths: mappingArray.map(\.jsonPath),
-                                                                     in: object)
+                                                           ion: mappingArray.map(\.authenticator),
+                                                           jsonPaths: mappingArray.map(\.jsonPath),
+                                                           in: object)
             })
         
         self.init(authenticators: authenticators)
@@ -275,8 +275,8 @@ extension Capability.Pollable {
             return nil
         }
         guard let remediation = Remediation.makeRemediation(flow: flow,
-                                                                      ion: form,
-                                                                      createCapabilities: false)
+                                                            ion: form,
+                                                            createCapabilities: false)
         else {
             return nil
         }
@@ -353,38 +353,25 @@ extension Capability.OTP {
 }
 
 extension Capability.Duo {
-    init?(flow: InteractionCodeFlowAPI, ion authenticators: [IonAuthenticator]) {
+    convenience init?(flow: InteractionCodeFlowAPI, ion authenticators: [IonAuthenticator]) {
+        // Exit early if none of the authenticators have a "duo" method
         let methods = methodTypes(from: authenticators)
         guard methods.contains(.duo) else {
             return nil
         }
 
-        guard let typeName = authenticators.first?.type else { return nil }
-        let type = Authenticator.Kind(string: typeName)
-
-        guard type == .app,
-              let contextualData = authenticators.compactMap(\.contextualData).first,
+        // Extract the duo authenticator data
+        let duoAuthenticators = authenticators.filter({ $0.type == "app" && $0.key == "duo" })
+        guard let authenticator = duoAuthenticators.first(where: { $0.contextualData != nil }),
+              let contextualData = authenticator.contextualData,
               let host = contextualData["host"]?.stringValue(),
               let signedToken = contextualData["signedToken"]?.stringValue(),
               let script = contextualData["script"]?.stringValue()
         else {
             return nil
         }
-        self.init(host: host, signedToken: signedToken, script: script, answerField: nil)
-    }
-    
-    init?(form: Remediation.Form, object: IonForm) {
-        let type = Remediation.RemediationType(string: object.name)
-        guard type == .challengeAuthenticator else { // TODO: Find more ways to check this is Duo
-            return nil
-        }
-
-        let field = form.hiddenFields.first
-        self.init(host: "", signedToken: "", script: "", answerField: field)
-    }
-    
-    func send(signature data:String) {
-        answerField?.value = data
+        
+        self.init(host: host, signedToken: signedToken, script: script)
     }
 }
 
@@ -459,14 +446,14 @@ extension Authenticator {
         ]
         
         return Authenticator(flow: flow,
-                                       v1JsonPaths: jsonPaths,
-                                       state: state,
-                                       id: first.id,
-                                       displayName: first.displayName,
-                                       type: first.type,
-                                       key: key,
-                                       methods: methods,
-                                       capabilities: capabilities.compactMap { $0 })
+                             v1JsonPaths: jsonPaths,
+                             state: state,
+                             id: first.id,
+                             displayName: first.displayName,
+                             type: first.type,
+                             key: key,
+                             methods: methods,
+                             capabilities: capabilities.compactMap { $0 })
     }
 }
 
@@ -486,8 +473,7 @@ extension Remediation {
 
         let capabilities: [RemediationCapability?] = createCapabilities ? [
             Capability.SocialIDP(flow: flow, ion: object),
-            Capability.Pollable(flow: flow, ion: object),
-            Capability.Duo(form: form, object: object)
+            Capability.Pollable(flow: flow, ion: object)
         ] : []
         
         return Remediation(flow: flow,
