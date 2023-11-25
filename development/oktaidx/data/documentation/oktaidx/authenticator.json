@@ -158,6 +158,7 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/capabilities",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/displayName",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/duo",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/id",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/key",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/methods",
@@ -581,6 +582,56 @@
   "title" : "displayName",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/displayname"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/duo": {
+  "abstract" : [
+    {
+      "text" : "Exposes data assocated with duo authenticator challenge.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "duo"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV3DuoC",
+      "text" : "Duo"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/duo",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "duo",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/duo"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/id": {
   "abstract" : [

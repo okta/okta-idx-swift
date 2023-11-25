@@ -134,6 +134,13 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()"
       ],
       "title" : "Instance Methods"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations"
+      ],
+      "title" : "Default Implementations"
     }
   ],
   "variants" : [
@@ -401,6 +408,17 @@
   "title" : "Capability.Pollable",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/IDXCapability-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "IDXCapability Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/pollable\/idxcapability-implementations"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/isPolling": {
   "abstract" : [

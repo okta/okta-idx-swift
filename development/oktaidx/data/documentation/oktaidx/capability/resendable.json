@@ -146,6 +146,13 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable\/resend(completion:)"
       ],
       "title" : "Instance Methods"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable\/IDXCapability-Implementations"
+      ],
+      "title" : "Default Implementations"
     }
   ],
   "variants" : [
@@ -515,6 +522,17 @@
   "title" : "Capability.Resendable",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/resendable"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Resendable/IDXCapability-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable\/IDXCapability-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "IDXCapability Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/resendable\/idxcapability-implementations"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Resendable/resend()": {
   "abstract" : [

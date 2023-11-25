@@ -128,6 +128,13 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/OTP\/sharedSecret"
       ],
       "title" : "Instance Properties"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/OTP\/IDXCapability-Implementations"
+      ],
+      "title" : "Default Implementations"
     }
   ],
   "variants" : [
@@ -327,6 +334,17 @@
   "title" : "Capability.OTP",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/otp"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/OTP/IDXCapability-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/OTP\/IDXCapability-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "IDXCapability Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/otp\/idxcapability-implementations"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/OTP/image": {
   "abstract" : [

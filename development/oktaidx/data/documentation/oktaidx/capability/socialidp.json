@@ -134,6 +134,13 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum"
       ],
       "title" : "Enumerations"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/IDXCapability-Implementations"
+      ],
+      "title" : "Default Implementations"
     }
   ],
   "variants" : [
@@ -568,6 +575,17 @@
   "title" : "Capability.SocialIDP",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/IDXCapability-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/IDXCapability-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "IDXCapability Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/socialidp\/idxcapability-implementations"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum": {
   "abstract" : [

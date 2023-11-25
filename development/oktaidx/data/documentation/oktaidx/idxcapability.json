@@ -90,6 +90,7 @@
     },
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/NumberChallenge",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/OTP",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/PasswordSettings",
@@ -132,6 +133,14 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/OTP"
       ],
       "title" : "Using Capabilities"
+    }
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6dgot"
+      ],
+      "title" : "Instance Methods"
     }
   ],
   "variants" : [
@@ -263,6 +272,40 @@
   "title" : "Capability",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo": {
+  "abstract" : [
+    {
+      "text" : "Capability to access data related to Duo",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Duo"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Duo"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Capability.Duo",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/duo"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/NumberChallenge": {
   "abstract" : [
@@ -652,6 +695,57 @@
   "title" : "IDXCapability",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxcapability"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXCapability/willProceed(to:)-6dgot": {
+  "abstract" : [
+    {
+      "text" : "Message sent to capabilities when the response it’s contained within will proceed through a remediation.",
+      "type" : "text"
+    }
+  ],
+  "defaultImplementations" : 1,
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "willProceed"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "to"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6dgot",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "willProceed(to:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/idxcapability\/willproceed(to:)-6dgot"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
   "abstract" : [

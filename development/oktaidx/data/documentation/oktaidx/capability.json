@@ -340,6 +340,14 @@
       "title" : "Using Capabilities"
     }
   ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo"
+      ],
+      "title" : "Classes"
+    }
+  ],
   "variants" : [
     {
       "paths" : [
@@ -469,6 +477,40 @@
   "title" : "Capability",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo": {
+  "abstract" : [
+    {
+      "text" : "Capability to access data related to Duo",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Duo"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Duo"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Capability.Duo",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/duo"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/NumberChallenge": {
   "abstract" : [

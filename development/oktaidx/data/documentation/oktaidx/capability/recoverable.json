@@ -126,6 +126,13 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Recoverable\/recover(completion:)"
       ],
       "title" : "Instance Methods"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Recoverable\/IDXCapability-Implementations"
+      ],
+      "title" : "Default Implementations"
     }
   ],
   "variants" : [
@@ -461,6 +468,17 @@
   "title" : "Capability.Recoverable",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/recoverable"
+},
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Recoverable/IDXCapability-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Recoverable\/IDXCapability-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "IDXCapability Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capability\/recoverable\/idxcapability-implementations"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Recoverable/recover()": {
   "abstract" : [
