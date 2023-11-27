@@ -246,7 +246,6 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/authenticators",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/capabilities",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/duo",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/form-swift.property",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/messages",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/name",
@@ -771,64 +770,6 @@
   "title" : "capabilities",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/capabilities"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/duo": {
-  "abstract" : [
-    {
-      "text" : "This value will only be present for Duo MFA,  otherwise will be ",
-      "type" : "text"
-    },
-    {
-      "code" : "nil",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ".",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "duo"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
-      "text" : "Capability"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx10CapabilityV3DuoC",
-      "text" : "Duo"
-    },
-    {
-      "kind" : "text",
-      "text" : "?"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/duo",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "duo",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/remediation\/duo"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/form-swift.property": {
   "abstract" : [
