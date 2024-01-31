@@ -71,7 +71,7 @@ class PollingHandler {
                     self.isPolling = false
                     
                 case .continue(using: let nextPollingOption):
-                    if let nextPollingOption {
+                    if let nextPollingOption = nextPollingOption {
                         self.pollOption = nextPollingOption
                     }
                     self.nextPoll(completion: completion)
