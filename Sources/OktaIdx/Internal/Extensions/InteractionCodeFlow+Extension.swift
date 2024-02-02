@@ -15,22 +15,36 @@ import AuthFoundation
 
 extension InteractionCodeFlow {
     func send(error: InteractionCodeFlowError, completion: ResponseResult?) {
-        delegateCollection.invoke { $0.authentication(flow: self, received: error) }
-        completion?(.failure(error))
+        let delegateCollection = delegateCollection
+        queue.async {
+            delegateCollection.invoke { $0.authentication(flow: self, received: error) }
+            completion?(.failure(error))
+        }
     }
 
     func send(response: Response, completion: ResponseResult?) {
-        delegateCollection.invoke { $0.authentication(flow: self, received: response) }
-        completion?(.success(response))
+        let delegateCollection = delegateCollection
+        queue.async {
+            self.response = response
+            delegateCollection.invoke { $0.authentication(flow: self, received: response) }
+            completion?(.success(response))
+        }
     }
 
     func send(error: InteractionCodeFlowError, completion: TokenResult?) {
-        delegateCollection.invoke { $0.authentication(flow: self, received: error) }
-        completion?(.failure(error))
+        let delegateCollection = delegateCollection
+        queue.async {
+            delegateCollection.invoke { $0.authentication(flow: self, received: error) }
+            completion?(.failure(error))
+            
+        }
     }
 
     func send(response: Token, completion: TokenResult?) {
-        delegateCollection.invoke { $0.authentication(flow: self, received: response) }
-        completion?(.success(response))
+        let delegateCollection = delegateCollection
+        queue.async {
+            delegateCollection.invoke { $0.authentication(flow: self, received: response) }
+            completion?(.success(response))
+        }
     }
 }

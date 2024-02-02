@@ -18,7 +18,7 @@ import Foundation
 /// This permits a user to be authenticated using a dynamic and customizable workflow that is driven by server-side policy configuration. A user is given choices in how they authenticate, how they verify one or more authentication factors, and can enable self-service registration and authenticator enrollment.
 ///
 /// This class is used to communicate which application, defined within Okta, the user is being authenticated with. From this point a workflow is initiated, consisting of a series of authentication ``Remediation`` steps. At each step, your application can introspect the ``Response`` object to determine which UI should be presented to your user to guide them through to login.
-public final class InteractionCodeFlow: AuthenticationFlow {
+public final class InteractionCodeFlow: ObservableObject, AuthenticationFlow {
     /// Options to use when initiating a ``InteractionCodeFlow`` sign in flow.
     ///
     /// These options enable you to customize certain attributes used during the beginning of a session.
@@ -76,11 +76,17 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     /// This value is used when resuming authentication at a later date or after app launch, and to ensure the final token exchange can be completed.
     public internal(set) var context: Context?
     
+    @Published
+    public internal(set) var response: Response?
+    
     /// The options used when starting an authentication flow.
     ///
     /// This is updated when the ``start(options:completion:)`` (or ``start(options:)``) method is invoked, and is cleared when ``reset()`` is called.
     public internal(set) var options: [Option: Any]?
 
+    @ThreadSafe
+    public var queue: DispatchQueue = .main
+    
     /// Convenience initializer to construct an authentication flow from variables.
     /// - Parameters:
     ///   - issuer: The issuer URL.
