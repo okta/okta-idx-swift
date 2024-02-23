@@ -53,6 +53,8 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     /// The application's redirect URI.
     public let redirectUri: URL
 
+    public let deviceIdentifier: String?
+
     /// Any additional query string parameters you would like to supply to the authorization server.
     public let additionalParameters: [String: String]?
 
@@ -91,10 +93,12 @@ public final class InteractionCodeFlow: AuthenticationFlow {
                             clientId: String,
                             scopes: String,
                             redirectUri: URL,
-                            additionalParameters: [String: String]? = nil)
+                            additionalParameters: [String: String]? = nil,
+                            deviceIdentifier: String? = nil)
     {
         self.init(redirectUri: redirectUri,
                   additionalParameters: additionalParameters,
+                  deviceIdentifier: deviceIdentifier,
                   client: OAuth2Client(baseURL: issuer,
                                        clientId: clientId,
                                        scopes: scopes))
@@ -106,6 +110,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     ///   - client: The `OAuth2Client` to use with this flow.
     public init(redirectUri: URL,
                 additionalParameters: [String: String]? = nil,
+                deviceIdentifier: String? = nil,
                 client: OAuth2Client)
     {
         // Ensure this SDK's static version is included in the user agent.
@@ -114,7 +119,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
         self.client = client
         self.redirectUri = redirectUri
         self.additionalParameters = additionalParameters
-
+        self.deviceIdentifier = deviceIdentifier
         client.add(delegate: self)
     }
     
@@ -334,7 +339,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
 
     // MARK: Private properties / methods
     private(set) lazy var deviceTokenCookie: HTTPCookie? = {
-        guard let deviceToken = InteractionCodeFlow.deviceIdentifier,
+        guard let deviceToken = deviceIdentifier ?? InteractionCodeFlow.deviceIdentifier,
               let host = client.baseURL.host
         else {
             return nil
