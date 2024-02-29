@@ -53,7 +53,10 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     /// The application's redirect URI.
     public let redirectUri: URL
 
-    public let deviceIdentifier: String?
+    /// The UUID to use to identify this device when using "Remeber This Device".
+    ///
+    /// If this value is not supplied to the initializer, a default may be automatically generated at runtime.
+    public let deviceIdentifier: UUID?
 
     /// Any additional query string parameters you would like to supply to the authorization server.
     public let additionalParameters: [String: String]?
@@ -89,12 +92,14 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     ///   - clientId: The client ID
     ///   - scopes: The scopes to request
     ///   - redirectUri: The redirect URI for the client.
+    ///   - additionalParameters: Optional parameters to include on the authorize URI.
+    ///   - deviceIdentifier: Optional UUID to use to identify this device when using "Remeber This Device".
     public convenience init(issuer: URL,
                             clientId: String,
                             scopes: String,
                             redirectUri: URL,
                             additionalParameters: [String: String]? = nil,
-                            deviceIdentifier: String? = nil)
+                            deviceIdentifier: UUID? = nil)
     {
         self.init(redirectUri: redirectUri,
                   additionalParameters: additionalParameters,
@@ -107,10 +112,12 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     /// Initializer to construct an authentication flow from a pre-defined configuration and client.
     /// - Parameters:
     ///   - configuration: The configuration to use for this authentication flow.
+    ///   - additionalParameters: Optional parameters to include on the authorize URI.
+    ///   - deviceIdentifier: Optional UUID to use to identify this device when using "Remeber This Device".
     ///   - client: The `OAuth2Client` to use with this flow.
     public init(redirectUri: URL,
                 additionalParameters: [String: String]? = nil,
-                deviceIdentifier: String? = nil,
+                deviceIdentifier: UUID? = nil,
                 client: OAuth2Client)
     {
         // Ensure this SDK's static version is included in the user agent.
@@ -339,7 +346,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
 
     // MARK: Private properties / methods
     private(set) lazy var deviceTokenCookie: HTTPCookie? = {
-        guard let deviceToken = deviceIdentifier ?? InteractionCodeFlow.deviceIdentifier,
+        guard let deviceToken = deviceIdentifierString,
               let host = client.baseURL.host
         else {
             return nil
