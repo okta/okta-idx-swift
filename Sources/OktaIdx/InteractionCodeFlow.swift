@@ -53,7 +53,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     /// The application's redirect URI.
     public let redirectUri: URL
 
-    public let deviceIdentifier: String?
+    public let deviceIdentifier: UUID?
 
     /// Any additional query string parameters you would like to supply to the authorization server.
     public let additionalParameters: [String: String]?
@@ -94,7 +94,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
                             scopes: String,
                             redirectUri: URL,
                             additionalParameters: [String: String]? = nil,
-                            deviceIdentifier: String? = nil)
+                            deviceIdentifier: UUID? = nil)
     {
         self.init(redirectUri: redirectUri,
                   additionalParameters: additionalParameters,
@@ -110,7 +110,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
     ///   - client: The `OAuth2Client` to use with this flow.
     public init(redirectUri: URL,
                 additionalParameters: [String: String]? = nil,
-                deviceIdentifier: String? = nil,
+                deviceIdentifier: UUID? = nil,
                 client: OAuth2Client)
     {
         // Ensure this SDK's static version is included in the user agent.
@@ -339,7 +339,7 @@ public final class InteractionCodeFlow: AuthenticationFlow {
 
     // MARK: Private properties / methods
     private(set) lazy var deviceTokenCookie: HTTPCookie? = {
-        guard let deviceToken = deviceIdentifier ?? InteractionCodeFlow.deviceIdentifier,
+        guard let deviceToken = deviceIdentifier?.uuidString ?? InteractionCodeFlow.deviceIdentifier,
               let host = client.baseURL.host
         else {
             return nil
