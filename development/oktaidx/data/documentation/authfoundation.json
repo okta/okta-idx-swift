@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -31,7 +25,7 @@
   },
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -99,7 +93,6 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OktaAPIError",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OpenIdConfiguration",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/PKCE",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ThreadSafe",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/TokenInfo",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Weak",
@@ -124,6 +117,8 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Claim",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/CredentialError",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValue",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValueError",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTError",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/KeychainError",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error",
@@ -494,7 +489,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -1477,6 +1472,87 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jsondecodable"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONValue": {
+  "abstract" : [
+    {
+      "text" : "Represent mixed JSON values as instances of ",
+      "type" : "text"
+    },
+    {
+      "code" : "Any",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ". This is used to expose API response values to Swift native types",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "where Swift enums are not supported.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JSONValue"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValue",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JSONValue"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JSONValue",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jsonvalue"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONValueError": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JSONValueError"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValueError",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JSONValueError"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JSONValueError",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jsonvalueerror"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWK": {
   "abstract" : [
     {
@@ -2152,40 +2228,6 @@
   "title" : "SDKVersionMigrator",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/sdkversionmigrator"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/ThreadSafe": {
-  "abstract" : [
-    {
-      "text" : "Property wrapper that implements thread-safe locking for wrapped property values.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "ThreadSafe"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ThreadSafe",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "ThreadSafe"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "ThreadSafe",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/threadsafe"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/TimeCoordinator": {
   "abstract" : [

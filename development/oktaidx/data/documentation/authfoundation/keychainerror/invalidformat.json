@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "The returned keychain item is in an invalid format.",
       "type" : "text"
     }
   ],
@@ -36,7 +36,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -75,7 +75,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -142,7 +142,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/KeychainError/invalidFormat": {
   "abstract" : [
-
+    {
+      "text" : "The returned keychain item is in an invalid format.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

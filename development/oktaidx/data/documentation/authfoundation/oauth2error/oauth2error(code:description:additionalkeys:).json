@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "An OAuth2 server error was reported, with the given values.",
       "type" : "text"
     }
   ],
@@ -100,7 +100,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -203,7 +203,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -270,7 +270,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/oauth2Error(code:description:additionalKeys:)": {
   "abstract" : [
-
+    {
+      "text" : "An OAuth2 server error was reported, with the given values.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

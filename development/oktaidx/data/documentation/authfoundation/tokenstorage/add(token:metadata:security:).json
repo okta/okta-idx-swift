@@ -113,7 +113,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -279,6 +279,7 @@
               "type" : "paragraph"
             }
           ],
+          "name" : "Note",
           "style" : "note",
           "type" : "aside"
         }
@@ -288,7 +289,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -457,7 +458,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/TokenError/duplicateTokenAdded": {
   "abstract" : [
-
+    {
+      "text" : "Could not add a new token, since a duplicate was found.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

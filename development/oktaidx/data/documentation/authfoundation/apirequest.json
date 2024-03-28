@@ -35,7 +35,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -91,7 +91,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -263,7 +263,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -306,7 +306,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -349,7 +349,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 3,
+  "defaultImplementations" : 6,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -400,7 +400,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -448,7 +448,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -491,7 +491,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -543,7 +543,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -582,7 +582,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -634,7 +634,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -707,7 +707,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -786,7 +786,14 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation10APIRequestP12ResponseTypeQa",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "text" : "ResponseType"
     },
     {
@@ -818,7 +825,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -898,7 +905,14 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation10APIRequestP12ResponseTypeQa",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "text" : "ResponseType"
     },
     {
@@ -939,7 +953,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",

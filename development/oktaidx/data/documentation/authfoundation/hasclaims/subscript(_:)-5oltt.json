@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -55,7 +49,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPAAEyqd__SgAA5ClaimOcluip1TL_qd__mfp",
         "text" : "T"
       },
       {
@@ -65,7 +58,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -120,7 +113,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPAAEyqd__SgAA5ClaimOcluip1TL_qd__mfp",
               "text" : "T"
             },
             {
@@ -143,7 +135,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -249,7 +241,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 2,
+  "defaultImplementations" : 4,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -278,7 +270,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPyqd__SgAA5ClaimOcluip1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -301,7 +292,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 2,
+  "defaultImplementations" : 4,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -330,7 +321,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPyqd__SgSScluip1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -378,7 +368,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPAAEyqd__SgAA5ClaimOcluip1TL_qd__mfp",
       "text" : "T"
     },
     {

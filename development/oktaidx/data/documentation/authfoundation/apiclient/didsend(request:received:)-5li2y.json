@@ -8,9 +8,12 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-7fkxl",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-88sth",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-1c12k"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-1c12k",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-7fkxl",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-1c12k",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-88sth",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/didSend(request:received:)-7fkxl"
       ],
       "title" : "APIClient Implementations"
     }
@@ -91,7 +94,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation9APIClientP7didSend7request8receivedy0B010URLRequestV_AA11APIResponseVyqd__GtSeRd__lF1TL_qd__mfp",
         "text" : "T"
       },
       {
@@ -101,7 +103,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -190,7 +192,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation9APIClientP7didSend7request8receivedy0B010URLRequestV_AA11APIResponseVyqd__GtSeRd__lF1TL_qd__mfp",
               "text" : "T"
             },
             {
@@ -226,7 +227,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -361,7 +362,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 3,
+  "defaultImplementations" : 6,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -423,7 +424,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9APIClientP7didSend7request8receivedy0B010URLRequestV_AA11APIResponseVyqd__GtSeRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -567,7 +567,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9APIClientPAAE7didSend7request8receivedy0B010URLRequestV_AA11APIResponseVyqd__GtSeRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {

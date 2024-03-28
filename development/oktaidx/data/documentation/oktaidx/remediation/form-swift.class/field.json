@@ -138,6 +138,7 @@
               "type" : "codeListing"
             }
           ],
+          "name" : "Note",
           "style" : "note",
           "type" : "aside"
         }
@@ -148,7 +149,7 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-
+        "doc:\/\/com.okta.mobile.oktaidx\/objc(cs)NSObject"
       ],
       "kind" : "relationships",
       "title" : "Inherits From",
@@ -170,7 +171,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -186,12 +187,6 @@
     }
   ],
   "topicSections" : [
-    {
-      "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field\/init()"
-      ],
-      "title" : "Initializers"
-    },
     {
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field\/authenticator",
@@ -456,27 +451,6 @@
   "title" : "form",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/field\/form"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Field/init()": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "identifier",
-      "text" : "init"
-    },
-    {
-      "kind" : "text",
-      "text" : "()"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field\/init()",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "init()",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/field\/init()"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Field/isMutable": {
   "abstract" : [
@@ -1028,6 +1002,11 @@
   "title" : "value",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/field\/value"
+},
+"doc://com.okta.mobile.oktaidx/objc(cs)NSObject": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/objc(cs)NSObject",
+  "title" : "ObjectiveC.NSObject",
+  "type" : "unresolvable"
 },
 "doc://com.okta.mobile.oktaidx/objc(pl)NSObject": {
   "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/objc(pl)NSObject",

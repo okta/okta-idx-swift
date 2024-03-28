@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -35,7 +29,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -99,7 +93,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -280,7 +274,7 @@
   "abstract" : [
 
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -308,7 +302,14 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation22UsesDelegateCollectionP0D0Qa",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "text" : "Delegate"
     },
     {
@@ -356,7 +357,14 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation22UsesDelegateCollectionP0D0Qa",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "text" : "Delegate"
     },
     {
@@ -376,7 +384,7 @@
   "abstract" : [
 
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -404,7 +412,14 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation22UsesDelegateCollectionP0D0Qa",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "text" : "Delegate"
     },
     {

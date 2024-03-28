@@ -22,6 +22,14 @@
     "externalID" : "s:14AuthFoundation12OAuth2ClientC7baseURL8clientId6scopes14authentication7sessionAC0B00F0V_S2SAC0D14AuthenticationOAA18URLSessionProtocol_pSgtcfc",
     "fragments" : [
       {
+        "kind" : "keyword",
+        "text" : "convenience"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
         "kind" : "identifier",
         "text" : "init"
       },
@@ -90,6 +98,15 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+        "text" : "OAuth2Client"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC0D14AuthenticationO",
         "text" : "ClientAuthentication"
       },
@@ -117,7 +134,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -210,6 +227,16 @@
             {
               "kind" : "text",
               "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+              "text" : "OAuth2Client"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
             },
             {
               "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/ClientAuthentication",
@@ -330,7 +357,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -438,6 +465,14 @@
   ],
   "fragments" : [
     {
+      "kind" : "keyword",
+      "text" : "convenience"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
       "kind" : "identifier",
       "text" : "init"
     },
@@ -503,6 +538,15 @@
     {
       "kind" : "text",
       "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+      "text" : "OAuth2Client"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

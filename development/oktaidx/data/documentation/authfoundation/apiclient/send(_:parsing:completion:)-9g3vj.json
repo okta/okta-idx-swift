@@ -101,7 +101,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation9APIClientPAAE4send_7parsing10completiony0B010URLRequestV_AA17APIParsingContext_pSgys6ResultOyAA11APIResponseVyqd__GAA0C5ErrorOGctSeRd__lF1TL_qd__mfp",
         "text" : "T"
       },
       {
@@ -129,7 +128,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -232,7 +231,7 @@
               "text" : ": "
             },
             {
-              "kind" : "attribute",
+              "kind" : "keyword",
               "text" : "@escaping"
             },
             {
@@ -260,7 +259,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation9APIClientPAAE4send_7parsing10completiony0B010URLRequestV_AA17APIParsingContext_pSgys6ResultOyAA11APIResponseVyqd__GAA0C5ErrorOGctSeRd__lF1TL_qd__mfp",
               "text" : "T"
             },
             {
@@ -315,7 +313,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -387,7 +385,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -467,7 +465,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9APIClientP4send_7parsing10completiony0B010URLRequestV_AA17APIParsingContext_pSgys6ResultOyAA11APIResponseVyqd__GAA0C5ErrorOGctSeRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -587,7 +584,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9APIClientPAAE4send_7parsing10completiony0B010URLRequestV_AA17APIParsingContext_pSgys6ResultOyAA11APIResponseVyqd__GAA0C5ErrorOGctSeRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {

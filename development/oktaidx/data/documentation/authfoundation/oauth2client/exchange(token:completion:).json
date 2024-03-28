@@ -55,7 +55,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC8exchange5token10completionyx_ys6ResultOyAA11APIResponseVyAA5TokenCGAA14APIClientErrorOGctAA0cJ7RequestRzlF1TL_xmfp",
         "text" : "T"
       },
       {
@@ -118,7 +117,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -179,7 +178,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC8exchange5token10completionyx_ys6ResultOyAA11APIResponseVyAA5TokenCGAA14APIClientErrorOGctAA0cJ7RequestRzlF1TL_xmfp",
               "text" : "T"
             },
             {
@@ -195,7 +193,7 @@
               "text" : ": "
             },
             {
-              "kind" : "attribute",
+              "kind" : "keyword",
               "text" : "@escaping"
             },
             {
@@ -309,7 +307,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -552,7 +550,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC8exchange5token10completionyx_ys6ResultOyAA11APIResponseVyAA5TokenCGAA14APIClientErrorOGctAA0cJ7RequestRzlF1TL_xmfp",
       "text" : "T"
     },
     {

@@ -155,7 +155,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -352,6 +352,7 @@
               "type" : "paragraph"
             }
           ],
+          "name" : "Important",
           "style" : "important",
           "type" : "aside"
         }
@@ -361,7 +362,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [

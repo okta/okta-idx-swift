@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "This token was issued at a time that exceeds the allowed grace interval.",
       "type" : "text"
     }
   ],
@@ -36,7 +36,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -75,7 +75,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -142,7 +142,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/issuedAtTimeExceedsGraceInterval": {
   "abstract" : [
-
+    {
+      "text" : "This token was issued at a time that exceeds the allowed grace interval.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

@@ -1,0 +1,367 @@
+{
+  "abstract" : [
+    {
+      "text" : "A textual representation of this instance, suitable for debugging.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValue",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValue\/CustomDebugStringConvertible-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValue\/debugDescription"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "AuthFoundation",
+    "externalID" : "s:14AuthFoundation9JSONValueO16debugDescriptionSSvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "debugDescription"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "debugDescription"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "debugDescription"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
+            },
+            {
+              "kind" : "text",
+              "text" : " { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Calling this property directly is discouraged. Instead, convert an",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "instance of any type to a string by using the ",
+              "type" : "text"
+            },
+            {
+              "code" : "String(reflecting:)",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "initializer. This initializer works with any type, and uses the custom",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "code" : "debugDescription",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " property for types that conform to",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "code" : "CustomDebugStringConvertible",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ":",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "struct Point: CustomDebugStringConvertible {",
+            "    let x: Int, y: Int",
+            "",
+            "    var debugDescription: String {",
+            "        return \"(\\(x), \\(y))\"",
+            "    }",
+            "}",
+            "",
+            "let p = Point(x: 21, y: 30)",
+            "let s = String(reflecting: p)",
+            "print(s)",
+            "\/\/ Prints \"(21, 30)\""
+          ],
+          "syntax" : null,
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The conversion of ",
+              "type" : "text"
+            },
+            {
+              "code" : "p",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " to a string in the assignment to ",
+              "type" : "text"
+            },
+            {
+              "code" : "s",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " uses the",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "code" : "Point",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " type’s ",
+              "type" : "text"
+            },
+            {
+              "code" : "debugDescription",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " property.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/authfoundation\/jsonvalue\/debugdescription"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "AuthFoundation",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONValue": {
+  "abstract" : [
+    {
+      "text" : "Represent mixed JSON values as instances of ",
+      "type" : "text"
+    },
+    {
+      "code" : "Any",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ". This is used to expose API response values to Swift native types",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "where Swift enums are not supported.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JSONValue"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValue",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JSONValue"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JSONValue",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jsonvalue"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONValue/CustomDebugStringConvertible-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValue\/CustomDebugStringConvertible-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "CustomDebugStringConvertible Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jsonvalue\/customdebugstringconvertible-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONValue/debugDescription": {
+  "abstract" : [
+    {
+      "text" : "A textual representation of this instance, suitable for debugging.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "debugDescription"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONValue\/debugDescription",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "debugDescription",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jsonvalue\/debugdescription"
+}
+}
+}

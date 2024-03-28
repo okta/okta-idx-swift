@@ -35,7 +35,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -99,7 +99,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -545,6 +545,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+      "text" : "OAuth2Client"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC13ConfigurationC",
       "text" : "Configuration"
     }
@@ -598,7 +607,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC8exchange5token10completionyx_ys6ResultOyAA11APIResponseVyAA5TokenCGAA14APIClientErrorOGctAA0cJ7RequestRzlF1TL_xmfp",
       "text" : "T"
     },
     {
@@ -684,6 +692,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+      "text" : "OAuth2Client"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC13ConfigurationC",
       "text" : "Configuration"
     },
@@ -724,6 +741,14 @@
     }
   ],
   "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "convenience"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
     {
       "kind" : "identifier",
       "text" : "init"
@@ -793,6 +818,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+      "text" : "OAuth2Client"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC0D14AuthenticationO",
       "text" : "ClientAuthentication"
     },
@@ -833,6 +867,14 @@
     }
   ],
   "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "convenience"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
     {
       "kind" : "identifier",
       "text" : "init"
@@ -899,6 +941,15 @@
     {
       "kind" : "text",
       "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+      "text" : "OAuth2Client"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

@@ -47,6 +47,15 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14AuthFoundation4JWKSV",
+        "text" : "JWKS"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:14AuthFoundation4JWKSV5Indexa",
         "text" : "Index"
       },
@@ -56,13 +65,22 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14AuthFoundation4JWKSV",
+        "text" : "JWKS"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:14AuthFoundation4JWKSV5Indexa",
         "text" : "Index"
       }
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -114,6 +132,16 @@
               "text" : ": "
             },
             {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWKS",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14AuthFoundation4JWKSV",
+              "text" : "JWKS"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
               "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWKS\/Index",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation4JWKSV5Indexa",
@@ -122,6 +150,16 @@
             {
               "kind" : "text",
               "text" : ") -> "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWKS",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14AuthFoundation4JWKSV",
+              "text" : "JWKS"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
             },
             {
               "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWKS\/Index",
@@ -264,7 +302,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -397,12 +435,30 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation4JWKSV",
+      "text" : "JWKS"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:14AuthFoundation4JWKSV5Indexa",
       "text" : "Index"
     },
     {
       "kind" : "text",
       "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation4JWKSV",
+      "text" : "JWKS"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

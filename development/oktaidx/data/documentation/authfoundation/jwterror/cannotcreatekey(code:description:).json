@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "Cannot create a public key with the information supplied from the server.",
       "type" : "text"
     }
   ],
@@ -74,7 +74,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -151,7 +151,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -218,7 +218,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/cannotCreateKey(code:description:)": {
   "abstract" : [
-
+    {
+      "text" : "Cannot create a public key with the information supplied from the server.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

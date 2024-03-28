@@ -55,7 +55,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation22AuthenticationDelegateP14authentication4flow8receivedyqd___AA5TokenCtlF4FlowL_qd__mfp",
         "text" : "Flow"
       },
       {
@@ -82,7 +81,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -136,7 +135,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation22AuthenticationDelegateP14authentication4flow8receivedyqd___AA5TokenCtlF4FlowL_qd__mfp",
               "text" : "Flow"
             },
             {
@@ -177,7 +175,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -284,7 +282,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation22AuthenticationDelegateP14authentication4flow8receivedyqd___AA5TokenCtlF4FlowL_qd__mfp",
       "text" : "Flow"
     },
     {

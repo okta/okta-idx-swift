@@ -36,7 +36,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -81,7 +81,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -431,6 +431,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation8KeychainV",
+      "text" : "Keychain"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:14AuthFoundation8KeychainV4ItemV",
       "text" : "Item"
     }
@@ -565,6 +574,24 @@
     {
       "kind" : "text",
       "text" : " -> ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation8KeychainV",
+      "text" : "Keychain"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation8KeychainV6SearchV",
+      "text" : "Search"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

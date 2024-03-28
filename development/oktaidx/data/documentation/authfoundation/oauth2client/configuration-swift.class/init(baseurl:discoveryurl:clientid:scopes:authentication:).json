@@ -108,6 +108,15 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+        "text" : "OAuth2Client"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC0D14AuthenticationO",
         "text" : "ClientAuthentication"
       },
@@ -118,7 +127,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -220,6 +229,16 @@
             {
               "kind" : "text",
               "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+              "text" : "OAuth2Client"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
             },
             {
               "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/ClientAuthentication",
@@ -330,7 +349,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -563,6 +582,15 @@
     {
       "kind" : "text",
       "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
+      "text" : "OAuth2Client"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

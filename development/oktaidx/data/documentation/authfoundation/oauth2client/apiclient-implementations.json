@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -29,7 +23,7 @@
   },
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -59,18 +53,6 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client\/willSend(request:)"
       ],
       "title" : "Instance Methods"
-    }
-  ],
-  "variants" : [
-    {
-      "paths" : [
-        "\/documentation\/authfoundation\/oauth2client\/apiclient-implementations"
-      ],
-      "traits" : [
-        {
-          "interfaceLanguage" : "swift"
-        }
-      ]
     }
   ]
 , 
@@ -275,7 +257,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC6decode_4from8userInfoxxm_0B04DataVSDys010CodingUserH3KeyVypGSgtKSeRzlF1TL_xmfp",
       "text" : "T"
     },
     {
@@ -334,7 +315,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC6decode_4from8userInfoxxm_0B04DataVSDys010CodingUserH3KeyVypGSgtKSeRzlF1TL_xmfp",
       "text" : "T"
     }
   ],
@@ -413,7 +393,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC7didSend7request8receivedy0B010URLRequestV_AA11APIResponseVyxGtSeRzlF1TL_xmfp",
       "text" : "T"
     },
     {
@@ -779,7 +758,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9APIClientPAAE4send_7parsing10completiony0B010URLRequestV_AA17APIParsingContext_pSgys6ResultOyAA11APIResponseVyqd__GAA0C5ErrorOGctSeRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {

@@ -31,7 +31,7 @@
   },
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -102,13 +102,7 @@
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXClient"
-      ],
-      "title" : "Deprecations"
-    },
-    {
-      "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Version"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Version-10mzp"
       ],
       "title" : "Variables"
     }
@@ -768,38 +762,6 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxcapability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXClient": {
-  "abstract" : [
-
-  ],
-  "deprecated" : true,
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "IDXClient"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXClient",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "IDXClient"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "IDXClient",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/idxclient"
-},
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError": {
   "abstract" : [
     {
@@ -1260,7 +1222,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/user-swift.struct"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Version": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Version-10mzp": {
   "abstract" : [
 
   ],
@@ -1287,12 +1249,12 @@
       "text" : "SDKVersion"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Version",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Version-10mzp",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Version",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/version"
+  "url" : "\/documentation\/oktaidx\/version-10mzp"
 }
 }
 }

@@ -47,7 +47,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation9APIClientP6decode_4from8userInfoqd__qd__m_0B04DataVSDys010CodingUserG3KeyVypGSgtKSeRd__lF1TL_qd__mfp",
         "text" : "T"
       },
       {
@@ -106,13 +105,12 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation9APIClientP6decode_4from8userInfoqd__qd__m_0B04DataVSDys010CodingUserG3KeyVypGSgtKSeRd__lF1TL_qd__mfp",
         "text" : "T"
       }
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -174,7 +172,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation9APIClientP6decode_4from8userInfoqd__qd__m_0B04DataVSDys010CodingUserG3KeyVypGSgtKSeRd__lF1TL_qd__mfp",
               "text" : "T"
             },
             {
@@ -241,7 +238,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation9APIClientP6decode_4from8userInfoqd__qd__m_0B04DataVSDys010CodingUserG3KeyVypGSgtKSeRd__lF1TL_qd__mfp",
               "text" : "T"
             },
             {
@@ -317,7 +313,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -416,7 +412,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9APIClientP6decode_4from8userInfoqd__qd__m_0B04DataVSDys010CodingUserG3KeyVypGSgtKSeRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -475,7 +470,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9APIClientP6decode_4from8userInfoqd__qd__m_0B04DataVSDys010CodingUserG3KeyVypGSgtKSeRd__lF1TL_qd__mfp",
       "text" : "T"
     }
   ],

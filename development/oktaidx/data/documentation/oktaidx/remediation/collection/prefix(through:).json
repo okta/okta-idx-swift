@@ -182,15 +182,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "A subsequence up to, and including, the ",
-              "type" : "text"
-            },
-            {
-              "code" : "end",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " position.",
+              "text" : "A subsequence up to, and including, the given position.",
               "type" : "text"
             }
           ],
@@ -219,7 +211,7 @@
                   "type" : "text"
                 },
                 {
-                  "code" : "end",
+                  "code" : "position",
                   "type" : "codeVoice"
                 },
                 {
@@ -246,7 +238,7 @@
               "type" : "paragraph"
             }
           ],
-          "name" : "end"
+          "name" : "position"
         }
       ]
     },
@@ -274,15 +266,23 @@
               "type" : "emphasis"
             },
             {
-              "text" : " the element at the position ",
+              "text" : " the element at the position",
               "type" : "text"
             },
             {
-              "code" : "end",
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "specified by the ",
+              "type" : "text"
+            },
+            {
+              "code" : "through",
               "type" : "codeVoice"
             },
             {
-              "text" : ".",
+              "text" : " parameter.",
               "type" : "text"
             },
             {
@@ -404,7 +404,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [

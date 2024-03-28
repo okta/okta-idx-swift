@@ -8,6 +8,7 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ClientDelegate\/oauth(client:didRefresh:replacedWith:)-91fzt",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ClientDelegate\/oauth(client:didRefresh:replacedWith:)-91fzt"
       ],
       "title" : "OAuth2ClientDelegate Implementations"
@@ -99,7 +100,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -213,7 +214,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -328,7 +329,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",

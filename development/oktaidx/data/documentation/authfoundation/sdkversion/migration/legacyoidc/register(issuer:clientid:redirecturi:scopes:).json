@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "Registers the legacy OIDC migration using the supplied configuration values.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -118,8 +112,11 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
+    ],
+    "platforms" : [
+
     ],
     "role" : "symbol",
     "roleHeading" : "Type Method",
@@ -233,72 +230,11 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "Issuer URL for your client.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "issuer"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "Client ID for your application.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "clientId"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "The Redirect URI for your client.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "redirectUri"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "The scopes configured for your client.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "scopes"
-        }
-      ]
     }
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -438,11 +374,9 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/SDKVersion/Migration/LegacyOIDC/register(issuer:clientId:redirectUri:scopes:)": {
   "abstract" : [
-    {
-      "text" : "Registers the legacy OIDC migration using the supplied configuration values.",
-      "type" : "text"
-    }
+
   ],
+  "deprecated" : true,
   "fragments" : [
     {
       "kind" : "keyword",

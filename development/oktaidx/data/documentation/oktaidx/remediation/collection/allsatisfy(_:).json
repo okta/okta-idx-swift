@@ -317,6 +317,23 @@
           "type" : "codeListing"
         },
         {
+          "inlineContent" : [
+            {
+              "text" : "If the sequence is empty, this method returns ",
+              "type" : "text"
+            },
+            {
+              "code" : "true",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
           "content" : [
             {
               "inlineContent" : [
@@ -364,7 +381,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [

@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -30,7 +24,7 @@
   },
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -50,18 +44,6 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option\/hash(into:)"
       ],
       "title" : "Instance Methods"
-    }
-  ],
-  "variants" : [
-    {
-      "paths" : [
-        "\/documentation\/oktaidx\/interactioncodeflow\/option\/rawrepresentable-implementations"
-      ],
-      "traits" : [
-        {
-          "interfaceLanguage" : "swift"
-        }
-      ]
     }
   ]
 , 

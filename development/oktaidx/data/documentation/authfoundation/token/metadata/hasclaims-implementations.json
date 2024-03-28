@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -30,7 +24,7 @@
   },
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -77,18 +71,6 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token\/Metadata\/subscript(_:)-3573v"
       ],
       "title" : "Subscripts"
-    }
-  ],
-  "variants" : [
-    {
-      "paths" : [
-        "\/documentation\/authfoundation\/token\/metadata\/hasclaims-implementations"
-      ],
-      "traits" : [
-        {
-          "interfaceLanguage" : "swift"
-        }
-      ]
     }
   ]
 , 

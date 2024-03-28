@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -29,7 +23,7 @@
   },
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -44,18 +38,6 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/isValid"
       ],
       "title" : "Instance Properties"
-    }
-  ],
-  "variants" : [
-    {
-      "paths" : [
-        "\/documentation\/authfoundation\/jwt\/expires-implementations"
-      ],
-      "traits" : [
-        {
-          "interfaceLanguage" : "swift"
-        }
-      ]
     }
   ]
 , 

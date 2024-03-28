@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -35,7 +29,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -94,7 +88,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -113,7 +107,9 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/otpMFA",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/password",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/refreshToken",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/tokenExchange"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/tokenExchange",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/webAuthn",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/webAuthnMFA"
       ],
       "title" : "Enumeration Cases"
     },
@@ -516,6 +512,56 @@
   "title" : "GrantType.tokenExchange",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/granttype\/tokenexchange"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/GrantType/webAuthn": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "webAuthn"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/webAuthn",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "GrantType.webAuthn",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/granttype\/webauthn"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/GrantType/webAuthnMFA": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "webAuthnMFA"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/GrantType\/webAuthnMFA",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "GrantType.webAuthnMFA",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/granttype\/webauthnmfa"
 }
 }
 }

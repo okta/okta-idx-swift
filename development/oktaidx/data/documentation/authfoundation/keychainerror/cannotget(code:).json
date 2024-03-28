@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "No overview available.",
+      "text" : "There was a failure getting a keychain item.",
       "type" : "text"
     }
   ],
@@ -57,7 +57,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -117,7 +117,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -184,7 +184,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/KeychainError/cannotGet(code:)": {
   "abstract" : [
-
+    {
+      "text" : "There was a failure getting a keychain item.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

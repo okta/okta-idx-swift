@@ -39,13 +39,22 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14AuthFoundation17OAuth2ServerErrorV",
+        "text" : "OAuth2ServerError"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:14AuthFoundation17OAuth2ServerErrorV4CodeO",
         "text" : "Code"
       }
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -81,6 +90,16 @@
               "text" : ": "
             },
             {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14AuthFoundation17OAuth2ServerErrorV",
+              "text" : "OAuth2ServerError"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
               "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2ServerError\/Code-swift.enum",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation17OAuth2ServerErrorV4CodeO",
@@ -94,7 +113,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -216,6 +235,15 @@
     {
       "kind" : "text",
       "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation17OAuth2ServerErrorV",
+      "text" : "OAuth2ServerError"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

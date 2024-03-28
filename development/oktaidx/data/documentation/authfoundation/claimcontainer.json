@@ -35,7 +35,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -107,6 +107,7 @@
               "type" : "paragraph"
             }
           ],
+          "name" : "Note",
           "style" : "note",
           "type" : "aside"
         }
@@ -136,7 +137,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -440,7 +441,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14ClaimContainerPAAE5value_3forqd__Sgqd__m_SStlF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -466,7 +466,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14ClaimContainerPAAE5value_3forqd__Sgqd__m_SStlF1TL_qd__mfp",
       "text" : "T"
     },
     {

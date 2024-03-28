@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -29,7 +23,7 @@
   },
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -43,18 +37,6 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/WeakCollection\/==(_:_:)"
       ],
       "title" : "Operators"
-    }
-  ],
-  "variants" : [
-    {
-      "paths" : [
-        "\/documentation\/authfoundation\/weakcollection\/equatable-implementations"
-      ],
-      "traits" : [
-        {
-          "interfaceLanguage" : "swift"
-        }
-      ]
     }
   ]
 , 
@@ -293,7 +275,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Collectxmfp",
       "text" : "Collect"
     },
     {
@@ -302,7 +283,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Elementq_mfp",
       "text" : "Element"
     },
     {
@@ -320,7 +300,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Collectxmfp",
       "text" : "Collect"
     },
     {
@@ -329,7 +308,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Elementq_mfp",
       "text" : "Element"
     },
     {

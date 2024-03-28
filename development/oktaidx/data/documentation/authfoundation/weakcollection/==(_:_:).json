@@ -142,7 +142,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Collectxmfp",
         "text" : "Collect"
       },
       {
@@ -151,7 +150,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Elementq_mfp",
         "text" : "Element"
       },
       {
@@ -169,7 +167,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Collectxmfp",
         "text" : "Collect"
       },
       {
@@ -178,7 +175,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Elementq_mfp",
         "text" : "Element"
       },
       {
@@ -193,7 +189,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -260,7 +256,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Collectxmfp",
               "text" : "Collect"
             },
             {
@@ -269,7 +264,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Elementq_mfp",
               "text" : "Element"
             },
             {
@@ -296,7 +290,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Collectxmfp",
               "text" : "Collect"
             },
             {
@@ -305,7 +298,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Elementq_mfp",
               "text" : "Element"
             },
             {
@@ -422,7 +414,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -614,7 +606,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Collectxmfp",
       "text" : "Collect"
     },
     {
@@ -623,7 +614,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Elementq_mfp",
       "text" : "Element"
     },
     {
@@ -641,7 +631,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Collectxmfp",
       "text" : "Collect"
     },
     {
@@ -650,7 +639,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation14WeakCollectionVAASQRzSHR_rlE7Elementq_mfp",
       "text" : "Element"
     },
     {

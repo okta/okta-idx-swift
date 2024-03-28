@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "No overview available.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -35,7 +29,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -100,7 +94,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -202,7 +196,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation18DelegateCollectionC1Dxmfp",
       "text" : "D"
     },
     {
@@ -248,7 +241,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation18DelegateCollectionC1Dxmfp",
       "text" : "D"
     },
     {
@@ -257,7 +249,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation18DelegateCollectionC4callySayqd__Gqd__xXElF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -266,7 +257,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation18DelegateCollectionC4callySayqd__Gqd__xXElF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -325,7 +315,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation18DelegateCollectionC1Dxmfp",
       "text" : "D"
     },
     {
@@ -372,7 +361,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation18DelegateCollectionC1Dxmfp",
       "text" : "D"
     },
     {

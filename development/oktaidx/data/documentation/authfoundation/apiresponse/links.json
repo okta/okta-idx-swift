@@ -39,6 +39,23 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14AuthFoundation11APIResponseV",
+        "text" : "APIResponse"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ">."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:14AuthFoundation11APIResponseV4LinkO",
         "text" : "Link"
       },
@@ -58,7 +75,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -94,6 +111,24 @@
               "text" : ": ["
             },
             {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponse",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14AuthFoundation11APIResponseV",
+              "text" : "APIResponse"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ">."
+            },
+            {
               "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIResponse\/Link",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation11APIResponseV4LinkO",
@@ -120,7 +155,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -242,6 +277,23 @@
     {
       "kind" : "text",
       "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation11APIResponseV",
+      "text" : "APIResponse"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">."
     },
     {
       "kind" : "typeIdentifier",

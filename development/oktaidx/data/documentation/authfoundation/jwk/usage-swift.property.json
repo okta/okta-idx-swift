@@ -39,13 +39,22 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14AuthFoundation3JWKV",
+        "text" : "JWK"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:14AuthFoundation3JWKV5UsageO",
         "text" : "Usage"
       }
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -81,6 +90,16 @@
               "text" : ": "
             },
             {
+              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWK",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14AuthFoundation3JWKV",
+              "text" : "JWK"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
               "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWK\/Usage-swift.enum",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation3JWKV5UsageO",
@@ -94,7 +113,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -216,6 +235,15 @@
     {
       "kind" : "text",
       "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation3JWKV",
+      "text" : "JWK"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

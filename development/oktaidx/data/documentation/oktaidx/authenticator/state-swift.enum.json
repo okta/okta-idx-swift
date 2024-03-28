@@ -93,7 +93,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -125,8 +125,6 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/-Implementations",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/-Implementations",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/Comparable-Implementations",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/Equatable-Implementations"
       ],
@@ -345,17 +343,6 @@
   "title" : "Authenticator.State",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/state-swift.enum"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/State-swift.enum/-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum\/-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : " Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/authenticator\/state-swift.enum\/-implementations"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/State-swift.enum/Comparable-Implementations": {
   "abstract" : [

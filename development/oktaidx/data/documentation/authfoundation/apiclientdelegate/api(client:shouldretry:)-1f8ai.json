@@ -8,6 +8,7 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:shouldRetry:)-6w2a8",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientDelegate\/api(client:shouldRetry:)-6w2a8"
       ],
       "title" : "APIClientDelegate Implementations"
@@ -87,7 +88,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -180,7 +181,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -286,7 +287,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",

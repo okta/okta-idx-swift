@@ -8,8 +8,10 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/subscript(_:)-36se2",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/subscript(_:)-5oltt",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/subscript(_:)-36se2"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/subscript(_:)-36se2",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/subscript(_:)-5oltt"
       ],
       "title" : "HasClaims Implementations"
     }
@@ -57,7 +59,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPyqd__SgSScluip1TL_qd__mfp",
         "text" : "T"
       },
       {
@@ -67,7 +68,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -122,7 +123,6 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPyqd__SgSScluip1TL_qd__mfp",
               "text" : "T"
             },
             {
@@ -145,7 +145,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -242,7 +242,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPAAEyqd__SgSScluip1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -264,7 +263,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 2,
+  "defaultImplementations" : 4,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -293,7 +292,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPyqd__SgSScluip1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -341,7 +339,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation9HasClaimsPAAEyqd__SgAA5ClaimOcluip1TL_qd__mfp",
       "text" : "T"
     },
     {

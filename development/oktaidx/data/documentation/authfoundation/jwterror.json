@@ -35,7 +35,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -93,7 +93,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -237,7 +237,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/badTokenStructure": {
   "abstract" : [
-
+    {
+      "text" : "The token is not structured correctly.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -262,7 +265,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/cannotCreateKey(code:description:)": {
   "abstract" : [
-
+    {
+      "text" : "Cannot create a public key with the information supplied from the server.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -325,7 +331,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/cannotGenerateHash": {
   "abstract" : [
-
+    {
+      "text" : "Cannot generate hash signature.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -350,7 +359,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/exceedsMaxAge": {
   "abstract" : [
-
+    {
+      "text" : "The given token exceeds the supplied maximum age.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -375,7 +387,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/expired": {
   "abstract" : [
-
+    {
+      "text" : "The token has expired.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -400,7 +415,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidAudience": {
   "abstract" : [
-
+    {
+      "text" : "The token’s audience does not match.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -425,7 +443,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidAuthenticationTime": {
   "abstract" : [
-
+    {
+      "text" : "The token’s authentication time is missing or is invalid.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -450,7 +471,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidBase64Encoding": {
   "abstract" : [
-
+    {
+      "text" : "The token is invalid (incorrect Base64 encoding).",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -475,7 +499,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidIssuer": {
   "abstract" : [
-
+    {
+      "text" : "The token’s issuer is either not well-formed, or does not match.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -500,7 +527,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidKey": {
   "abstract" : [
-
+    {
+      "text" : "Invalid key data.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -525,7 +555,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidSigningAlgorithm": {
   "abstract" : [
-
+    {
+      "text" : "The token’s signing algorithm is invalid or unsupported.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -550,7 +583,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/invalidSubject": {
   "abstract" : [
-
+    {
+      "text" : "The token’s subject is missing or is invalid.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -575,7 +611,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/issuedAtTimeExceedsGraceInterval": {
   "abstract" : [
-
+    {
+      "text" : "This token was issued at a time that exceeds the allowed grace interval.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -600,7 +639,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/issuerRequiresHTTPS": {
   "abstract" : [
-
+    {
+      "text" : "Token issuer addresses must use HTTPS.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -625,7 +667,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/nonceMismatch": {
   "abstract" : [
-
+    {
+      "text" : "The nonce value does not match the value expected.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -650,7 +695,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/signatureInvalid": {
   "abstract" : [
-
+    {
+      "text" : "Token signature is invalid.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -675,7 +723,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/signatureVerificationUnavailable": {
   "abstract" : [
-
+    {
+      "text" : "Signature verification is unavailable on this platform, e.g. Linux.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -700,7 +751,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTError/unsupportedAlgorithm(_:)": {
   "abstract" : [
-
+    {
+      "text" : "The indicated signing algorithm is unsupported.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

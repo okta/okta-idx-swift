@@ -8,9 +8,12 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/body()-8cybb",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/body()-2spui",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/body()-8cybb",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/body()-6rb14",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/body()-8cybb"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/body()-6rb14",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/body()-2spui"
       ],
       "title" : "APIRequest Implementations"
     }
@@ -67,7 +70,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -156,7 +159,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -228,7 +231,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 3,
+  "defaultImplementations" : 6,
   "fragments" : [
     {
       "kind" : "keyword",

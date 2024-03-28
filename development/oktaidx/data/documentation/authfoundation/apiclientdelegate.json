@@ -35,7 +35,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -103,7 +103,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -187,7 +187,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 2,
+  "defaultImplementations" : 4,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -272,7 +272,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 2,
+  "defaultImplementations" : 4,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -351,7 +351,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation17APIClientDelegateP3api6client7didSend8receivedyAA0C0_p_0B010URLRequestVAA11APIResponseVyqd__GtSeRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -374,7 +373,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -493,7 +492,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",
@@ -566,7 +565,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",

@@ -110,7 +110,7 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-
+        "doc:\/\/com.okta.mobile.oktaidx\/objc(cs)NSObject"
       ],
       "kind" : "relationships",
       "title" : "Inherits From",
@@ -132,7 +132,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -150,12 +150,6 @@
     }
   ],
   "topicSections" : [
-    {
-      "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/init()"
-      ],
-      "title" : "Initializers"
-    },
     {
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/app",
@@ -790,27 +784,6 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/expiresat"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/init()": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "identifier",
-      "text" : "init"
-    },
-    {
-      "kind" : "text",
-      "text" : "()"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/init()",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "init()",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/response\/init()"
-},
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/intent-swift.property": {
   "abstract" : [
     {
@@ -1043,6 +1016,11 @@
   "title" : "user",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/user-swift.property"
+},
+"doc://com.okta.mobile.oktaidx/objc(cs)NSObject": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/objc(cs)NSObject",
+  "title" : "ObjectiveC.NSObject",
+  "type" : "unresolvable"
 },
 "doc://com.okta.mobile.oktaidx/objc(pl)NSObject": {
   "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/objc(pl)NSObject",

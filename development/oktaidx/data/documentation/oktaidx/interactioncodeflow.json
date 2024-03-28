@@ -148,7 +148,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -168,7 +168,6 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(issuer:clientId:scopes:redirectUri:additionalParameters:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume()",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/exchangeCode(redirect:)"
@@ -192,8 +191,9 @@
     {
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init()",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(issuer:clientId:scopes:redirectUri:additionalParameters:deviceIdentifier:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(plist:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(redirectUri:additionalParameters:client:)"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(redirectUri:additionalParameters:deviceIdentifier:client:)"
       ],
       "title" : "Initializers"
     },
@@ -203,6 +203,7 @@
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/client",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/delegateCollection",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/deviceIdentifier",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/isAuthenticating",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/options",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/redirectUri"
@@ -915,6 +916,47 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/delegatecollection"
 },
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/deviceIdentifier": {
+  "abstract" : [
+    {
+      "text" : "The UUID to use to identify this device when using “Remeber This Device”.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "deviceIdentifier"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation4UUIDV",
+      "text" : "UUID"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/deviceIdentifier",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "deviceIdentifier",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/deviceidentifier"
+},
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/exchangeCode(redirect:)": {
   "abstract" : [
     {
@@ -1087,7 +1129,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init(issuer:clientId:scopes:redirectUri:additionalParameters:)": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init(issuer:clientId:scopes:redirectUri:additionalParameters:deviceIdentifier:)": {
   "abstract" : [
     {
       "text" : "Convenience initializer to construct an authentication flow from variables.",
@@ -1195,15 +1237,32 @@
     },
     {
       "kind" : "text",
-      "text" : "]?)"
+      "text" : "]?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "deviceIdentifier"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation4UUIDV",
+      "text" : "UUID"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(issuer:clientId:scopes:redirectUri:additionalParameters:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(issuer:clientId:scopes:redirectUri:additionalParameters:deviceIdentifier:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "init(issuer:clientId:scopes:redirectUri:additionalParameters:)",
+  "title" : "init(issuer:clientId:scopes:redirectUri:additionalParameters:deviceIdentifier:)",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init(issuer:clientid:scopes:redirecturi:additionalparameters:)"
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init(issuer:clientid:scopes:redirecturi:additionalparameters:deviceidentifier:)"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init(plist:)": {
   "abstract" : [
@@ -1250,7 +1309,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init(plist:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init(redirectUri:additionalParameters:client:)": {
+"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init(redirectUri:additionalParameters:deviceIdentifier:client:)": {
   "abstract" : [
     {
       "text" : "Initializer to construct an authentication flow from a pre-defined configuration and client.",
@@ -1311,6 +1370,23 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "deviceIdentifier"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation4UUIDV",
+      "text" : "UUID"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "client"
     },
     {
@@ -1327,12 +1403,12 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(redirectUri:additionalParameters:client:)",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init(redirectUri:additionalParameters:deviceIdentifier:client:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "init(redirectUri:additionalParameters:client:)",
+  "title" : "init(redirectUri:additionalParameters:deviceIdentifier:client:)",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init(redirecturi:additionalparameters:client:)"
+  "url" : "\/documentation\/oktaidx\/interactioncodeflow\/init(redirecturi:additionalparameters:deviceidentifier:client:)"
 },
 "doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/isAuthenticating": {
   "abstract" : [

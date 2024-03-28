@@ -8,6 +8,7 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/additionalHttpHeaders-77qac",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient\/additionalHttpHeaders-77qac"
       ],
       "title" : "APIClient Implementations"
@@ -66,7 +67,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -136,7 +137,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -258,7 +259,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",

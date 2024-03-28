@@ -8,6 +8,7 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/CredentialDataSource\/urlSession(for:)-9ehm3",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/CredentialDataSource\/urlSession(for:)-9ehm3"
       ],
       "title" : "CredentialDataSource Implementations"
@@ -70,7 +71,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "required" : true,
@@ -174,7 +175,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -289,7 +290,7 @@
       "type" : "text"
     }
   ],
-  "defaultImplementations" : 1,
+  "defaultImplementations" : 2,
   "fragments" : [
     {
       "kind" : "keyword",

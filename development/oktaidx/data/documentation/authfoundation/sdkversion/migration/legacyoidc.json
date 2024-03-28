@@ -46,7 +46,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -150,7 +150,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -172,6 +172,7 @@
     {
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/SDKVersion\/Migration\/LegacyOIDC\/register()",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/SDKVersion\/Migration\/LegacyOIDC\/register(clientId:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/SDKVersion\/Migration\/LegacyOIDC\/register(issuer:clientId:redirectUri:scopes:)",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/SDKVersion\/Migration\/LegacyOIDC\/register(plist:)"
       ],
@@ -435,13 +436,68 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/sdkversion\/migration\/legacyoidc\/register()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/SDKVersion/Migration/LegacyOIDC/register(issuer:clientId:redirectUri:scopes:)": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/SDKVersion/Migration/LegacyOIDC/register(clientId:)": {
   "abstract" : [
     {
       "text" : "Registers the legacy OIDC migration using the supplied configuration values.",
       "type" : "text"
     }
   ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "register"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "clientId"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/SDKVersion\/Migration\/LegacyOIDC\/register(clientId:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "register(clientId:)",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/sdkversion\/migration\/legacyoidc\/register(clientid:)"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/SDKVersion/Migration/LegacyOIDC/register(issuer:clientId:redirectUri:scopes:)": {
+  "abstract" : [
+
+  ],
+  "deprecated" : true,
   "fragments" : [
     {
       "kind" : "keyword",

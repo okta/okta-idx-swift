@@ -35,7 +35,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "navigatorTitle" : [
@@ -93,7 +93,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -162,6 +162,40 @@
   "title" : "AuthFoundation",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientError": {
+  "abstract" : [
+    {
+      "text" : "Errors that may occur at the API or network level.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "APIClientError"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientError",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "APIClientError"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "APIClientError",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/apiclienterror"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error": {
   "abstract" : [
@@ -232,7 +266,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/cannotComposeUrl": {
   "abstract" : [
-
+    {
+      "text" : "Cannot compose a URL to authenticate with.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -257,7 +294,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/cannotRevoke(type:)": {
   "abstract" : [
-
+    {
+      "text" : "Cannot revoke the given token type.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -312,7 +352,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/error(_:)": {
   "abstract" : [
-
+    {
+      "text" : "The given nested error was thrown.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -350,7 +393,18 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/invalidUrl": {
   "abstract" : [
-
+    {
+      "text" : "Could not create an invalid URL. This typically means the string passed to ",
+      "type" : "text"
+    },
+    {
+      "code" : "URL",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " was malformed.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -375,7 +429,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingClientConfiguration": {
   "abstract" : [
-
+    {
+      "text" : "Cannot perform an operation since the token is missing its client configuration.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -400,7 +457,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingLocationHeader": {
   "abstract" : [
-
+    {
+      "text" : "Missing location header for token redirect.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -425,7 +485,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingOAuth2ResponseKey(_:)": {
   "abstract" : [
-
+    {
+      "text" : "Missing the given required response key in the OAuth2 redirect.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -463,7 +526,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingOpenIdConfiguration(attribute:)": {
   "abstract" : [
-
+    {
+      "text" : "The given OpenID configuration attribute is missing.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -509,7 +575,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/missingToken(type:)": {
   "abstract" : [
-
+    {
+      "text" : "The given token type is missing.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -564,7 +633,19 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/multiple(errors:)": {
   "abstract" : [
-
+    {
+      "text" : "Multiple nested ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Error",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " errors were reported.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -610,7 +691,19 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/network(error:)": {
   "abstract" : [
-
+    {
+      "text" : "A network error was encountered, encapsulating a ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientError",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " type describing the underlying error.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -656,7 +749,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/oauth2Error(code:description:additionalKeys:)": {
   "abstract" : [
-
+    {
+      "text" : "An OAuth2 server error was reported, with the given values.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -745,7 +841,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Error/signatureInvalid": {
   "abstract" : [
-
+    {
+      "text" : "Could not verify the token’s signature.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

@@ -110,7 +110,7 @@
     ],
     "modules" : [
       {
-        "name" : "AuthFoundation"
+        "name" : "OktaIdx"
       }
     ],
     "role" : "symbol",
@@ -172,7 +172,7 @@
               "text" : ": "
             },
             {
-              "kind" : "attribute",
+              "kind" : "keyword",
               "text" : "@escaping"
             },
             {
@@ -258,7 +258,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
