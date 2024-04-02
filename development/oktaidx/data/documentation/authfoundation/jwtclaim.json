@@ -1,0 +1,2654 @@
+{
+  "abstract" : [
+    {
+      "text" : "List of registered and public claims.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:14AuthFoundation8JWTClaimO",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "enum"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "JWTClaim"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "JWTClaim"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Enumeration",
+    "symbolKind" : "enum",
+    "title" : "JWTClaim"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "enum"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "JWTClaim"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/IsClaim",
+        "doc:\/\/com.okta.mobile.oktaidx\/Se",
+        "doc:\/\/com.okta.mobile.oktaidx\/SE",
+        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+        "doc:\/\/com.okta.mobile.oktaidx\/SY"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/accessTokenHash",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/aceProfile",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/actor",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/address",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/attestationLevel",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/audience",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authContextClassReference",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authMethodsReference",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authTime",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authorizedActor",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authorizedParty",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/birthdate",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/clientId",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/clientNonce",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/codeHash",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/confirmation",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/custom(_:)",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/destinationIdentity",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/divertedTarget",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/email",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/emailVerified",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/entitlements",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/events",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/expirationTime",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/expiresIn",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/familyName",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/gender",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/givenName",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/groups",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/identityProvider",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/isPrivateEmail",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/issuedAt",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/issuer",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/jcardData",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/jwtId",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/locale",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/maxAPIRequestCount",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/mediaKeyFingerprint",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/middleName",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/name",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/nickname",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/nonce",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/nonceSupported",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/notBefore",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/originalPassport",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/originatingId",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/originatingIdentity",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/phoneNumber",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/phoneNumberVerified",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/picture",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/preferredUsername",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/profile",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/realUserStatus",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/resourcePriorityHeader",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/roles",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/scope",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sessionId",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipCSeqNum",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipCallId",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipDate",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipFromTag",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipPriorityHeader",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipViaBranch",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/subject",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/subjectPublicKey",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/timeOfEvent",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/tokenIntrospection",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/transactionId",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/transferSubject",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/updatedAt",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/userId",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/vectorOfTrust",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/vectorOfTrustMark",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/verifiableCredential",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/verifiablePresentation",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/version",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/website",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/zoneinfo"
+      ],
+      "title" : "Enumeration Cases"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/ClaimConvertable-Implementations",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/Equatable-Implementations",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/RawRepresentable-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/authfoundation\/jwtclaim"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.okta.mobile.oktaidx/SE": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SE",
+  "title" : "Swift.Encodable",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/SQ": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/SY": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SY",
+  "title" : "Swift.RawRepresentable",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/Se": {
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/Se",
+  "title" : "Swift.Decodable",
+  "type" : "unresolvable"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "AuthFoundation",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/ClaimConvertable": {
+  "abstract" : [
+    {
+      "text" : "Indicates a type can be consumed from a ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " object and converted to the indicated type.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClaimConvertable"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ClaimConvertable"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ClaimConvertable",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/claimconvertable"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/HasClaims": {
+  "abstract" : [
+    {
+      "text" : "Used by classes that contains OAuth2 claims.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HasClaims"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HasClaims"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HasClaims",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/hasclaims"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/HasClaims/ClaimType": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "associatedtype"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClaimType"
+    },
+    {
+      "kind" : "text",
+      "text" : " : "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14AuthFoundation7IsClaimP",
+      "text" : "IsClaim"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/ClaimType",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "ClaimType",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/hasclaims\/claimtype"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/IsClaim": {
+  "abstract" : [
+    {
+      "text" : "Indicates a type that can be used as an enum value for the ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims\/ClaimType",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " associated type.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IsClaim"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/IsClaim",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IsClaim"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IsClaim",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/isclaim"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim": {
+  "abstract" : [
+    {
+      "text" : "List of registered and public claims.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JWTClaim"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JWTClaim"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JWTClaim",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/ClaimConvertable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/ClaimConvertable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "ClaimConvertable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/claimconvertable-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/Equatable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/Equatable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Equatable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/equatable-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/RawRepresentable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/RawRepresentable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "RawRepresentable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/rawrepresentable-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/accessTokenHash": {
+  "abstract" : [
+    {
+      "text" : "Access Token hash value",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "accessTokenHash"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/accessTokenHash",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.accessTokenHash",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/accesstokenhash"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/aceProfile": {
+  "abstract" : [
+    {
+      "text" : "“The ACE profile a token is supposed to be used with.”",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "aceProfile"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/aceProfile",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.aceProfile",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/aceprofile"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/actor": {
+  "abstract" : [
+    {
+      "text" : "Actor",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "actor"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/actor",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.actor",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/actor"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/address": {
+  "abstract" : [
+    {
+      "text" : "Preferred postal address",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "address"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/address",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.address",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/address"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/attestationLevel": {
+  "abstract" : [
+    {
+      "text" : "Attestation level as defined in SHAKEN framework",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "attestationLevel"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/attestationLevel",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.attestationLevel",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/attestationlevel"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/audience": {
+  "abstract" : [
+    {
+      "text" : "Audience",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "audience"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/audience",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.audience",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/audience"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/authContextClassReference": {
+  "abstract" : [
+    {
+      "text" : "Authentication Context Class Reference",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authContextClassReference"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authContextClassReference",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.authContextClassReference",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/authcontextclassreference"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/authMethodsReference": {
+  "abstract" : [
+    {
+      "text" : "Authentication Methods References",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authMethodsReference"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authMethodsReference",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.authMethodsReference",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/authmethodsreference"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/authTime": {
+  "abstract" : [
+    {
+      "text" : "Time when the authentication occurred",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authTime"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authTime",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.authTime",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/authtime"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/authorizedActor": {
+  "abstract" : [
+    {
+      "text" : "“Authorized Actor - the party that is authorized to become the actor”",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authorizedActor"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authorizedActor",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.authorizedActor",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/authorizedactor"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/authorizedParty": {
+  "abstract" : [
+    {
+      "text" : "Authorized party - the party to which the ID Token was issued",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authorizedParty"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/authorizedParty",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.authorizedParty",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/authorizedparty"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/birthdate": {
+  "abstract" : [
+    {
+      "text" : "Birthday",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "birthdate"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/birthdate",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.birthdate",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/birthdate"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/clientId": {
+  "abstract" : [
+    {
+      "text" : "Client Identifier",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "clientId"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/clientId",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.clientId",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/clientid"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/clientNonce": {
+  "abstract" : [
+    {
+      "text" : "A nonce previously provided to the AS by the RS via the client.  Used to verify token freshness when the RS cannot synchronize its clock with the AS.”",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "clientNonce"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/clientNonce",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.clientNonce",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/clientnonce"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/codeHash": {
+  "abstract" : [
+    {
+      "text" : "Code hash value",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "codeHash"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/codeHash",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.codeHash",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/codehash"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/confirmation": {
+  "abstract" : [
+    {
+      "text" : "Confirmation",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "confirmation"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/confirmation",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.confirmation",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/confirmation"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/custom(_:)": {
+  "abstract" : [
+    {
+      "text" : "Custom claim with the given name",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "custom"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/custom(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.custom(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/custom(_:)"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/destinationIdentity": {
+  "abstract" : [
+    {
+      "text" : "Destination Identity String",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "destinationIdentity"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/destinationIdentity",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.destinationIdentity",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/destinationidentity"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/divertedTarget": {
+  "abstract" : [
+    {
+      "text" : "Diverted Target of a Call",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "divertedTarget"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/divertedTarget",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.divertedTarget",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/divertedtarget"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/email": {
+  "abstract" : [
+    {
+      "text" : "Preferred e-mail address",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "email"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/email",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.email",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/email"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/emailVerified": {
+  "abstract" : [
+    {
+      "text" : "True if the e-mail address has been verified; otherwise false",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "emailVerified"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/emailVerified",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.emailVerified",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/emailverified"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/entitlements": {
+  "abstract" : [
+    {
+      "text" : "Entitlements",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "entitlements"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/entitlements",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.entitlements",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/entitlements"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/events": {
+  "abstract" : [
+    {
+      "text" : "Security Events",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "events"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/events",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.events",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/events"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/expirationTime": {
+  "abstract" : [
+    {
+      "text" : "Expiration Time",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "expirationTime"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/expirationTime",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.expirationTime",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/expirationtime"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/expiresIn": {
+  "abstract" : [
+    {
+      "text" : "“Expires in.  Lifetime of the token in seconds from the time the RS first sees it.  Used to implement a weaker from of token expiration for devices that cannot synchronize their internal clocks.”",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "expiresIn"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/expiresIn",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.expiresIn",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/expiresin"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/familyName": {
+  "abstract" : [
+    {
+      "text" : "Surname(s) or last name(s)",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "familyName"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/familyName",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.familyName",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/familyname"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/gender": {
+  "abstract" : [
+    {
+      "text" : "Gender",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "gender"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/gender",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.gender",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/gender"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/givenName": {
+  "abstract" : [
+    {
+      "text" : "Given name(s) or first name(s)",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "givenName"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/givenName",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.givenName",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/givenname"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/groups": {
+  "abstract" : [
+    {
+      "text" : "Groups",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "groups"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/groups",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.groups",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/groups"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/identityProvider": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "identityProvider"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/identityProvider",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.identityProvider",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/identityprovider"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/isPrivateEmail": {
+  "abstract" : [
+    {
+      "text" : "Indicates if the email address provided is a proxied address. Used predominantly by Sign In With Apple.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "isPrivateEmail"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/isPrivateEmail",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.isPrivateEmail",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/isprivateemail"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/issuedAt": {
+  "abstract" : [
+    {
+      "text" : "Issued At",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "issuedAt"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/issuedAt",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.issuedAt",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/issuedat"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/issuer": {
+  "abstract" : [
+    {
+      "text" : "Issuer",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "issuer"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/issuer",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.issuer",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/issuer"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/jcardData": {
+  "abstract" : [
+    {
+      "text" : "jCard data",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "jcardData"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/jcardData",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.jcardData",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/jcarddata"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/jwtId": {
+  "abstract" : [
+    {
+      "text" : "JWT ID",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "jwtId"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/jwtId",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.jwtId",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/jwtid"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/locale": {
+  "abstract" : [
+    {
+      "text" : "Locale",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "locale"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/locale",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.locale",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/locale"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/maxAPIRequestCount": {
+  "abstract" : [
+    {
+      "text" : "Number of API requests for which the access token can be used",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "maxAPIRequestCount"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/maxAPIRequestCount",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.maxAPIRequestCount",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/maxapirequestcount"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/mediaKeyFingerprint": {
+  "abstract" : [
+    {
+      "text" : "Media Key Fingerprint String",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "mediaKeyFingerprint"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/mediaKeyFingerprint",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.mediaKeyFingerprint",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/mediakeyfingerprint"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/middleName": {
+  "abstract" : [
+    {
+      "text" : "Middle name(s)",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "middleName"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/middleName",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.middleName",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/middlename"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/name": {
+  "abstract" : [
+    {
+      "text" : "Full name",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "name"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/name",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.name",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/name"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/nickname": {
+  "abstract" : [
+    {
+      "text" : "Casual name",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "nickname"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/nickname",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.nickname",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/nickname"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/nonce": {
+  "abstract" : [
+    {
+      "text" : "Value used to associate a Client session with an ID Token",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "nonce"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/nonce",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.nonce",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/nonce"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/nonceSupported": {
+  "abstract" : [
+    {
+      "text" : "Indicates whether the transaction is on a nonce-supported platform. If you sent a nonce in the authorization request but do not see the nonce claim in the ID token, check this claim to determine how to proceed. Used predominantly by Sign In With Apple.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "nonceSupported"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/nonceSupported",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.nonceSupported",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/noncesupported"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/notBefore": {
+  "abstract" : [
+    {
+      "text" : "Not Before",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "notBefore"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/notBefore",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.notBefore",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/notbefore"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/originalPassport": {
+  "abstract" : [
+    {
+      "text" : "Original PASSporT (in Full Form)",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "originalPassport"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/originalPassport",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.originalPassport",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/originalpassport"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/originatingId": {
+  "abstract" : [
+    {
+      "text" : "Originating Identifier as defined in SHAKEN framework",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "originatingId"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/originatingId",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.originatingId",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/originatingid"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/originatingIdentity": {
+  "abstract" : [
+    {
+      "text" : "Originating Identity String",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "originatingIdentity"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/originatingIdentity",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.originatingIdentity",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/originatingidentity"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/phoneNumber": {
+  "abstract" : [
+    {
+      "text" : "Preferred telephone number",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "phoneNumber"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/phoneNumber",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.phoneNumber",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/phonenumber"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/phoneNumberVerified": {
+  "abstract" : [
+    {
+      "text" : "True if the phone number has been verified; otherwise false",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "phoneNumberVerified"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/phoneNumberVerified",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.phoneNumberVerified",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/phonenumberverified"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/picture": {
+  "abstract" : [
+    {
+      "text" : "Profile picture URL",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "picture"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/picture",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.picture",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/picture"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/preferredUsername": {
+  "abstract" : [
+    {
+      "text" : "Shorthand name by which the End-User wishes to be referred to",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "preferredUsername"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/preferredUsername",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.preferredUsername",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/preferredusername"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/profile": {
+  "abstract" : [
+    {
+      "text" : "Profile page URL",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "profile"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/profile",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.profile",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/profile"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/realUserStatus": {
+  "abstract" : [
+    {
+      "text" : "Indicates the liklihood of whether or not this appears to be a real user. Used predominantly by Sign In With Apple.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "realUserStatus"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/realUserStatus",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.realUserStatus",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/realuserstatus"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/resourcePriorityHeader": {
+  "abstract" : [
+    {
+      "text" : "Resource Priority Header Authorization",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "resourcePriorityHeader"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/resourcePriorityHeader",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.resourcePriorityHeader",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/resourcepriorityheader"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/roles": {
+  "abstract" : [
+    {
+      "text" : "Roles",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "roles"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/roles",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.roles",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/roles"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/scope": {
+  "abstract" : [
+    {
+      "text" : "Scope Values",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "scope"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/scope",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.scope",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/scope"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/sessionId": {
+  "abstract" : [
+    {
+      "text" : "Session ID",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sessionId"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sessionId",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.sessionId",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/sessionid"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/sipCSeqNum": {
+  "abstract" : [
+    {
+      "text" : "SIP CSeq numeric header field parameter value",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sipCSeqNum"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipCSeqNum",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.sipCSeqNum",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/sipcseqnum"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/sipCallId": {
+  "abstract" : [
+    {
+      "text" : "SIP Call-Id header field value",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sipCallId"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipCallId",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.sipCallId",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/sipcallid"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/sipDate": {
+  "abstract" : [
+    {
+      "text" : "SIP Date header field value",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sipDate"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipDate",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.sipDate",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/sipdate"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/sipFromTag": {
+  "abstract" : [
+    {
+      "text" : "SIP From tag header field parameter value",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sipFromTag"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipFromTag",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.sipFromTag",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/sipfromtag"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/sipPriorityHeader": {
+  "abstract" : [
+    {
+      "text" : "SIP Priority header field",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sipPriorityHeader"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipPriorityHeader",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.sipPriorityHeader",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/sippriorityheader"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/sipViaBranch": {
+  "abstract" : [
+    {
+      "text" : "SIP Via branch header field parameter value",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sipViaBranch"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/sipViaBranch",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.sipViaBranch",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/sipviabranch"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/subject": {
+  "abstract" : [
+    {
+      "text" : "Subject",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "subject"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/subject",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.subject",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/subject"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/subjectPublicKey": {
+  "abstract" : [
+    {
+      "text" : "Public key used to check the signature of an ID Token",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "subjectPublicKey"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/subjectPublicKey",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.subjectPublicKey",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/subjectpublickey"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/timeOfEvent": {
+  "abstract" : [
+    {
+      "text" : "Time of Event",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "timeOfEvent"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/timeOfEvent",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.timeOfEvent",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/timeofevent"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/tokenIntrospection": {
+  "abstract" : [
+    {
+      "text" : "Token introspection response",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "tokenIntrospection"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/tokenIntrospection",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.tokenIntrospection",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/tokenintrospection"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/transactionId": {
+  "abstract" : [
+    {
+      "text" : "Transaction Identifier",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "transactionId"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/transactionId",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.transactionId",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/transactionid"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/transferSubject": {
+  "abstract" : [
+    {
+      "text" : "Identifier used when transfering subjects. Used predominantly by Sign In With Apple.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "transferSubject"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/transferSubject",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.transferSubject",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/transfersubject"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/updatedAt": {
+  "abstract" : [
+    {
+      "text" : "Time the information was last updated",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "updatedAt"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/updatedAt",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.updatedAt",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/updatedat"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/userId": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "userId"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/userId",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.userId",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/userid"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/vectorOfTrust": {
+  "abstract" : [
+    {
+      "text" : "Vector of Trust value",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "vectorOfTrust"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/vectorOfTrust",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.vectorOfTrust",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/vectoroftrust"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/vectorOfTrustMark": {
+  "abstract" : [
+    {
+      "text" : "Vector of Trust trustmark URL",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "vectorOfTrustMark"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/vectorOfTrustMark",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.vectorOfTrustMark",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/vectoroftrustmark"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/verifiableCredential": {
+  "abstract" : [
+    {
+      "text" : "Verifiable Credential as specified in the W3C Recommendation",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "verifiableCredential"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/verifiableCredential",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.verifiableCredential",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/verifiablecredential"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/verifiablePresentation": {
+  "abstract" : [
+    {
+      "text" : "Verifiable Presentation as specified in the W3C Recommendation",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "verifiablePresentation"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/verifiablePresentation",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.verifiablePresentation",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/verifiablepresentation"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/version": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "version"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/version",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.version",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/version"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/website": {
+  "abstract" : [
+    {
+      "text" : "Web page or blog URL",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "website"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/website",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.website",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/website"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWTClaim/zoneinfo": {
+  "abstract" : [
+    {
+      "text" : "Time zone",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "zoneinfo"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWTClaim\/zoneinfo",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JWTClaim.zoneinfo",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwtclaim\/zoneinfo"
+}
+}
+}

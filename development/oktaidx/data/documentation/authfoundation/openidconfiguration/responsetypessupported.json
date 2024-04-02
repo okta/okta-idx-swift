@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The list of supported response types for this OpenID Provider.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -162,7 +168,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OpenIdConfiguration/responseTypesSupported": {
   "abstract" : [
-
+    {
+      "text" : "The list of supported response types for this OpenID Provider.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

@@ -4,7 +4,7 @@
       [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/TokenInfo",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/TokenInfo\/ClaimContainer-Implementations"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/TokenInfo\/JSONClaimContainer-Implementations"
       ]
     ]
   },
@@ -15,7 +15,7 @@
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "AuthFoundation",
-    "externalID" : "s:14AuthFoundation14ClaimContainerPAAE6encode2toys7Encoder_p_tKF::SYNTHESIZED::s:14AuthFoundation9TokenInfoV",
+    "externalID" : "s:14AuthFoundation18JSONClaimContainerPAAE6encode2toys7Encoder_p_tKF::SYNTHESIZED::s:14AuthFoundation9TokenInfoV",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -194,16 +194,16 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/tokeninfo"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/TokenInfo/ClaimContainer-Implementations": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/TokenInfo/JSONClaimContainer-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/TokenInfo\/ClaimContainer-Implementations",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/TokenInfo\/JSONClaimContainer-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
-  "title" : "ClaimContainer Implementations",
+  "title" : "JSONClaimContainer Implementations",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/tokeninfo\/claimcontainer-implementations"
+  "url" : "\/documentation\/authfoundation\/tokeninfo\/jsonclaimcontainer-implementations"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/TokenInfo/encode(to:)": {
   "abstract" : [

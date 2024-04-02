@@ -75,7 +75,7 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimContainer"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONClaimContainer"
       ],
       "kind" : "relationships",
       "title" : "Inherited By",
@@ -134,7 +134,7 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/ClaimContainer": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONClaimContainer": {
   "abstract" : [
     {
       "text" : "Protocol used to define shared behavior when an object can contain claims.",
@@ -152,21 +152,21 @@
     },
     {
       "kind" : "identifier",
-      "text" : "ClaimContainer"
+      "text" : "JSONClaimContainer"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimContainer",
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONClaimContainer",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "ClaimContainer"
+      "text" : "JSONClaimContainer"
     }
   ],
   "role" : "symbol",
-  "title" : "ClaimContainer",
+  "title" : "JSONClaimContainer",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/claimcontainer"
+  "url" : "\/documentation\/authfoundation\/jsonclaimcontainer"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONDecodable": {
   "abstract" : [

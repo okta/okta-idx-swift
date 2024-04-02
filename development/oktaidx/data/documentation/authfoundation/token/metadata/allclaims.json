@@ -302,16 +302,7 @@
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Token/Metadata/claims": {
   "abstract" : [
     {
-      "text" : "Returns the list of all claims contained within this ",
-      "type" : "text"
-    },
-    {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo",
-      "isActive" : true,
-      "type" : "reference"
-    },
-    {
-      "text" : ".",
+      "text" : "The list of standard claims contained within this JWT token.",
       "type" : "text"
     }
   ],
@@ -334,8 +325,15 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation5ClaimO",
-      "text" : "Claim"
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "ClaimType"
     },
     {
       "kind" : "text",
@@ -352,7 +350,7 @@
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Token/Metadata/customClaims": {
   "abstract" : [
     {
-      "text" : "Returns the list of custom claims this instance might contain.",
+      "text" : "The list of custom claims contained within this JWT token.",
       "type" : "text"
     }
   ],
@@ -389,40 +387,6 @@
   "title" : "customClaims",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/token\/metadata\/customclaims"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/UserInfo": {
-  "abstract" : [
-    {
-      "text" : "User profile information.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "UserInfo"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "UserInfo"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "UserInfo",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/userinfo"
 }
 }
 }

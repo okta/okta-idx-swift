@@ -112,8 +112,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimContainer",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONClaimContainer",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONDecodable",
         "doc:\/\/com.okta.mobile.oktaidx\/Se",
         "doc:\/\/com.okta.mobile.oktaidx\/SE"
@@ -141,9 +141,14 @@
       "title" : "Instance Properties"
     },
     {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token\/Metadata\/ClaimType"
+      ],
+      "title" : "Type Aliases"
+    },
+    {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token\/Metadata\/ClaimContainer-Implementations",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token\/Metadata\/Decodable-Implementations",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token\/Metadata\/Encodable-Implementations",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token\/Metadata\/HasClaims-Implementations",
@@ -186,40 +191,6 @@
   "title" : "AuthFoundation",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/ClaimContainer": {
-  "abstract" : [
-    {
-      "text" : "Protocol used to define shared behavior when an object can contain claims.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "protocol"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "ClaimContainer"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimContainer",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "ClaimContainer"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "ClaimContainer",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/claimcontainer"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Credential": {
   "abstract" : [
@@ -424,6 +395,40 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/hasclaims"
 },
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONClaimContainer": {
+  "abstract" : [
+    {
+      "text" : "Protocol used to define shared behavior when an object can contain claims.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JSONClaimContainer"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONClaimContainer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JSONClaimContainer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JSONClaimContainer",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jsonclaimcontainer"
+},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONDecodable": {
   "abstract" : [
 
@@ -523,16 +528,36 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/token\/metadata"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Token/Metadata/ClaimContainer-Implementations": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Token/Metadata/ClaimType": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token\/Metadata\/ClaimContainer-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "ClaimContainer Implementations",
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClaimType"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token\/Metadata\/ClaimType",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ClaimType"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Token.Metadata.ClaimType",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/token\/metadata\/claimcontainer-implementations"
+  "url" : "\/documentation\/authfoundation\/token\/metadata\/claimtype"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Token/Metadata/Decodable-Implementations": {
   "abstract" : [

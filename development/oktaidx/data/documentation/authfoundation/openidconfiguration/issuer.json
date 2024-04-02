@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The issuer URL for this OpenID provider.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -154,7 +160,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OpenIdConfiguration/issuer": {
   "abstract" : [
-
+    {
+      "text" : "The issuer URL for this OpenID provider.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

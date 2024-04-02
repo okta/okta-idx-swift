@@ -119,9 +119,8 @@
               "type" : "text"
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimContainer",
-              "isActive" : true,
-              "type" : "reference"
+              "code" : "ClaimContainer",
+              "type" : "codeVoice"
             },
             {
               "text" : ".",
@@ -137,8 +136,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimContainer",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/HasClaims",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONClaimContainer",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONDecodable",
         "doc:\/\/com.okta.mobile.oktaidx\/Se",
         "doc:\/\/com.okta.mobile.oktaidx\/SE"
@@ -171,10 +170,16 @@
       "title" : "Instance Properties"
     },
     {
+      "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo\/ClaimType"
+      ],
+      "title" : "Type Aliases"
+    },
+    {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo\/ClaimContainer-Implementations",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo\/HasClaims-Implementations",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo\/JSONClaimContainer-Implementations",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo\/JSONDecodable-Implementations"
       ],
       "title" : "Default Implementations"
@@ -215,40 +220,6 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/ClaimContainer": {
-  "abstract" : [
-    {
-      "text" : "Protocol used to define shared behavior when an object can contain claims.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "protocol"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "ClaimContainer"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimContainer",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "ClaimContainer"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "ClaimContainer",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/claimcontainer"
-},
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/HasClaims": {
   "abstract" : [
     {
@@ -282,6 +253,40 @@
   "title" : "HasClaims",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/hasclaims"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONClaimContainer": {
+  "abstract" : [
+    {
+      "text" : "Protocol used to define shared behavior when an object can contain claims.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JSONClaimContainer"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JSONClaimContainer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JSONClaimContainer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JSONClaimContainer",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jsonclaimcontainer"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JSONDecodable": {
   "abstract" : [
@@ -382,16 +387,36 @@
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/userinfo"
 },
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/UserInfo/ClaimContainer-Implementations": {
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/UserInfo/ClaimType": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo\/ClaimContainer-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "ClaimContainer Implementations",
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClaimType"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo\/ClaimType",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ClaimType"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "UserInfo.ClaimType",
   "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/userinfo\/claimcontainer-implementations"
+  "url" : "\/documentation\/authfoundation\/userinfo\/claimtype"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/UserInfo/HasClaims-Implementations": {
   "abstract" : [
@@ -403,6 +428,17 @@
   "title" : "HasClaims Implementations",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/userinfo\/hasclaims-implementations"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/UserInfo/JSONClaimContainer-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo\/JSONClaimContainer-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "JSONClaimContainer Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/userinfo\/jsonclaimcontainer-implementations"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/UserInfo/JSONDecodable-Implementations": {
   "abstract" : [

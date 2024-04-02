@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The URL for this OpenID Provider’s token endpoint.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -154,7 +160,10 @@
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OpenIdConfiguration/tokenEndpoint": {
   "abstract" : [
-
+    {
+      "text" : "The URL for this OpenID Provider’s token endpoint.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

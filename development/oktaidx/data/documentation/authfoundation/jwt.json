@@ -118,9 +118,6 @@
       "identifiers" : [
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/audience",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationContext",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationMethods-8d0og",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/claims",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/customClaims",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/expirationTime",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/expiresIn",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/header-swift.property",
@@ -135,13 +132,13 @@
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/validate(using:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/value(_:for:)"
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/validate(using:)"
       ],
       "title" : "Instance Methods"
     },
     {
       "identifiers" : [
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/ClaimType",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/RawValue-swift.typealias"
       ],
       "title" : "Type Aliases"
@@ -331,6 +328,37 @@
   "title" : "JWT",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwt"
+},
+"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/ClaimType": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClaimType"
+    }
+  ],
+  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/ClaimType",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ClaimType"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JWT.ClaimType",
+  "type" : "topic",
+  "url" : "\/documentation\/authfoundation\/jwt\/claimtype"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/Expires-Implementations": {
   "abstract" : [
@@ -522,129 +550,6 @@
   "title" : "authenticationContext",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwt\/authenticationcontext"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/authenticationMethods-8d0og": {
-  "abstract" : [
-    {
-      "text" : "The array of authentication methods.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "authenticationMethods"
-    },
-    {
-      "kind" : "text",
-      "text" : ": ["
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
-    },
-    {
-      "kind" : "text",
-      "text" : "]?"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/authenticationMethods-8d0og",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "authenticationMethods",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/jwt\/authenticationmethods-8d0og"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/claims": {
-  "abstract" : [
-    {
-      "text" : "The list of standard claims contained within this JWT token.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "claims"
-    },
-    {
-      "kind" : "text",
-      "text" : ": ["
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation5ClaimO",
-      "text" : "Claim"
-    },
-    {
-      "kind" : "text",
-      "text" : "]"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/claims",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "claims",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/jwt\/claims"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/customClaims": {
-  "abstract" : [
-    {
-      "text" : "The list of custom claims contained within this JWT token.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "customClaims"
-    },
-    {
-      "kind" : "text",
-      "text" : ": ["
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
-    },
-    {
-      "kind" : "text",
-      "text" : "]"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/customClaims",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "customClaims",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/jwt\/customclaims"
 },
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/expirationTime": {
   "abstract" : [
@@ -1174,79 +1079,6 @@
   "title" : "validate(using:)",
   "type" : "topic",
   "url" : "\/documentation\/authfoundation\/jwt\/validate(using:)"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/JWT/value(_:for:)": {
-  "abstract" : [
-    {
-      "text" : "Returns a claim value from this JWT token, with the given key and expected return type.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "value"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "genericParameter",
-      "text" : "T"
-    },
-    {
-      "kind" : "text",
-      "text" : ">("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "T"
-    },
-    {
-      "kind" : "text",
-      "text" : ".Type, "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "for"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "T"
-    },
-    {
-      "kind" : "text",
-      "text" : "?"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/JWT\/value(_:for:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "value(_:for:)",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/jwt\/value(_:for:)"
 }
 }
 }

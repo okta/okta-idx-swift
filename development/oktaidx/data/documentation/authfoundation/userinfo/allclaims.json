@@ -267,16 +267,7 @@
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/UserInfo/claims": {
   "abstract" : [
     {
-      "text" : "Returns the list of all claims contained within this ",
-      "type" : "text"
-    },
-    {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/UserInfo",
-      "isActive" : true,
-      "type" : "reference"
-    },
-    {
-      "text" : ".",
+      "text" : "The list of standard claims contained within this JWT token.",
       "type" : "text"
     }
   ],
@@ -299,8 +290,15 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation5ClaimO",
-      "text" : "Claim"
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "ClaimType"
     },
     {
       "kind" : "text",
@@ -317,7 +315,7 @@
 "doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/UserInfo/customClaims": {
   "abstract" : [
     {
-      "text" : "Returns the list of custom claims this instance might contain.",
+      "text" : "The list of custom claims contained within this JWT token.",
       "type" : "text"
     }
   ],
