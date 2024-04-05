@@ -2,13 +2,13 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-7z25",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-5xez",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-7z25",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-6kydw",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-5xez",
+        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-7z25",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-8nglg",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-6kydw",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-7z25",
         "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/ClaimConvertable\/claim(_:in:from:)-8nglg"
       ],
       "title" : "ClaimConvertable Implementations"
