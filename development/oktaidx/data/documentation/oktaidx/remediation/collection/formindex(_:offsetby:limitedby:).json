@@ -1,31 +1,31 @@
 {
   "abstract" : [
     {
-      "text" : "Offsets the given index by the specified distance, or so that it equals",
+      "text" : "Inherited from ",
       "type" : "text"
     },
     {
-      "text" : " ",
-      "type" : "text"
+      "code" : "Collection.formIndex(_:offsetBy:limitedBy:)",
+      "type" : "codeVoice"
     },
     {
-      "text" : "the given limiting index.",
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/formIndex(_:offsetBy:limitedBy:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/formIndex(_:offsetBy:limitedBy:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -66,6 +66,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sl5IndexQa",
         "text" : "Index"
       },
       {
@@ -107,6 +108,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sl5IndexQa",
         "text" : "Index"
       },
       {
@@ -121,7 +123,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "role" : "symbol",
@@ -190,6 +195,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sl5IndexQa",
               "text" : "Index"
             },
             {
@@ -247,6 +253,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sl5IndexQa",
               "text" : "Index"
             },
             {
@@ -262,371 +269,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "",
-              "type" : "text"
-            },
-            {
-              "code" : "true",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " if ",
-              "type" : "text"
-            },
-            {
-              "code" : "i",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " has been offset by exactly ",
-              "type" : "text"
-            },
-            {
-              "code" : "distance",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " steps",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "without going beyond ",
-              "type" : "text"
-            },
-            {
-              "code" : "limit",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : "; otherwise, ",
-              "type" : "text"
-            },
-            {
-              "code" : "false",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ". When the return",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "value is ",
-              "type" : "text"
-            },
-            {
-              "code" : "false",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ", the value of ",
-              "type" : "text"
-            },
-            {
-              "code" : "i",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " is equal to ",
-              "type" : "text"
-            },
-            {
-              "code" : "limit",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ".",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "A valid index of the collection.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "i"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "The distance to offset ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "i",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : ". ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "distance",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : " must not be negative",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "unless the collection conforms to the ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "BidirectionalCollection",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "protocol.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "distance"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "A valid index of the collection to use as a limit. If",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "distance > 0",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : ", a limit that is less than ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "i",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : " has no effect.",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "Likewise, if ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "distance < 0",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : ", a limit that is greater than ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "i",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : " has no",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "effect.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "limit"
-        }
-      ]
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "discussion",
-          "level" : 2,
-          "text" : "Discussion",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The value passed as ",
-              "type" : "text"
-            },
-            {
-              "code" : "distance",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " must not offset ",
-              "type" : "text"
-            },
-            {
-              "code" : "i",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " beyond the bounds of",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "the collection, unless the index passed as ",
-              "type" : "text"
-            },
-            {
-              "code" : "limit",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " prevents offsetting",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "beyond those bounds.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "O(1) if the collection conforms to",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "RandomAccessCollection",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : "; otherwise, O(",
-                  "type" : "text"
-                },
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "k",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "emphasis"
-                },
-                {
-                  "text" : "), where ",
-                  "type" : "text"
-                },
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "k",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "emphasis"
-                },
-                {
-                  "text" : " is the absolute",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "value of ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "distance",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : ".",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "Complexity",
-          "style" : "note",
-          "type" : "aside"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -651,21 +293,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -686,7 +328,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -699,7 +341,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of remediation options.",
@@ -720,7 +362,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -733,31 +375,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/Collection-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/Collection-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Collection Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection\/collection-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/formIndex(_:offsetBy:limitedBy:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/formIndex(_:offsetBy:limitedBy:)": {
   "abstract" : [
-    {
-      "text" : "Offsets the given index by the specified distance, or so that it equals",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the given limiting index.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -794,6 +425,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -835,6 +467,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -847,7 +480,7 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/formIndex(_:offsetBy:limitedBy:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/formIndex(_:offsetBy:limitedBy:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "formIndex(_:offsetBy:limitedBy:)",

@@ -1,22 +1,30 @@
 {
   "abstract" : [
     {
-      "text" : "Sent before a token will begin to refresh.",
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "OAuth2ClientDelegate.oauth(client:willRefresh:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/OAuth2ClientDelegate-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/OAuth2ClientDelegate-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/oauth(client:willRefresh:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/oauth(client:willRefresh:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -76,7 +84,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "AuthFoundation"
+        ]
       }
     ],
     "role" : "symbol",
@@ -120,7 +131,6 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation12OAuth2ClientC",
               "text" : "OAuth2Client"
@@ -146,7 +156,6 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation5TokenC",
               "text" : "Token"
@@ -183,89 +192,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/OAuth2Client": {
-  "abstract" : [
-    {
-      "text" : "An OAuth2 client, used to interact with a given authorization server.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "class"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "OAuth2Client"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/OAuth2Client",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "OAuth2Client"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "OAuth2Client",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/oauth2client"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Token": {
-  "abstract" : [
-    {
-      "text" : "Token information representing a user’s access to a resource server, including access token, refresh token, and other related information.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "class"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "Token"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "Token"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "Token",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/token"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -286,7 +227,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -299,23 +240,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/OAuth2ClientDelegate-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/OAuth2ClientDelegate-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/OAuth2ClientDelegate-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/OAuth2ClientDelegate-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "OAuth2ClientDelegate Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/oauth2clientdelegate-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/oauth(client:willRefresh:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/oauth(client:willRefresh:)": {
   "abstract" : [
-    {
-      "text" : "Sent before a token will begin to refresh.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -369,7 +307,7 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/oauth(client:willRefresh:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/oauth(client:willRefresh:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "oauth(client:willRefresh:)",

@@ -2,14 +2,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Method"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Method"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Method\/email"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Method\/email"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -89,21 +89,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Method": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Method": {
   "abstract" : [
     {
       "text" : "The method, or sub-type, of an authenticator.",
@@ -124,7 +124,7 @@
       "text" : "Method"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Method",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Method",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -137,7 +137,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/method"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Method/email": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Method/email": {
   "abstract" : [
 
   ],
@@ -155,7 +155,7 @@
       "text" : "email"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Method\/email",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Method\/email",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Method.email",

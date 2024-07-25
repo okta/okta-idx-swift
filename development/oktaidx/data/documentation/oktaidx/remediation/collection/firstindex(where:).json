@@ -1,31 +1,31 @@
 {
   "abstract" : [
     {
-      "text" : "Returns the first index in which an element of the collection satisfies",
+      "text" : "Inherited from ",
       "type" : "text"
     },
     {
-      "text" : " ",
-      "type" : "text"
+      "code" : "Collection.firstIndex(where:)",
+      "type" : "codeVoice"
     },
     {
-      "text" : "the given predicate.",
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/firstIndex(where:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/firstIndex(where:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -66,6 +66,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:ST7ElementQa",
         "text" : "Element"
       },
       {
@@ -107,6 +108,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sl5IndexQa",
         "text" : "Index"
       },
       {
@@ -116,7 +118,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "role" : "symbol",
@@ -177,6 +182,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             },
             {
@@ -218,6 +224,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sl5IndexQa",
               "text" : "Index"
             },
             {
@@ -228,202 +235,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The index of the first element for which ",
-              "type" : "text"
-            },
-            {
-              "code" : "predicate",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " returns",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "code" : "true",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ". If no elements in the collection satisfy the given predicate,",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "returns ",
-              "type" : "text"
-            },
-            {
-              "code" : "nil",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ".",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "A closure that takes an element as its argument",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "and returns a Boolean value that indicates whether the passed element",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "represents a match.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "predicate"
-        }
-      ]
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "discussion",
-          "level" : 2,
-          "text" : "Discussion",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "You can use the predicate to find an element of a type that doesn’t",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "conform to the ",
-              "type" : "text"
-            },
-            {
-              "code" : "Equatable",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " protocol or to find an element that matches",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "particular criteria. Here’s an example that finds a student name that",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "begins with the letter “A”:",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "code" : [
-            "let students = [\"Kofi\", \"Abena\", \"Peter\", \"Kweku\", \"Akosua\"]",
-            "if let i = students.firstIndex(where: { $0.hasPrefix(\"A\") }) {",
-            "    print(\"\\(students[i]) starts with 'A'!\")",
-            "}",
-            "\/\/ Prints \"Abena starts with 'A'!\""
-          ],
-          "syntax" : null,
-          "type" : "codeListing"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "O(",
-                  "type" : "text"
-                },
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "n",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "emphasis"
-                },
-                {
-                  "text" : "), where ",
-                  "type" : "text"
-                },
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "n",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "emphasis"
-                },
-                {
-                  "text" : " is the length of the collection.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "Complexity",
-          "style" : "note",
-          "type" : "aside"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -448,21 +259,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -483,7 +294,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -496,7 +307,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of remediation options.",
@@ -517,7 +328,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -530,31 +341,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/Collection-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/Collection-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Collection-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Collection Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection\/collection-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/firstIndex(where:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/firstIndex(where:)": {
   "abstract" : [
-    {
-      "text" : "Returns the first index in which an element of the collection satisfies",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -591,6 +391,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -632,6 +433,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -639,7 +441,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/firstIndex(where:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/firstIndex(where:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "firstIndex(where:)",

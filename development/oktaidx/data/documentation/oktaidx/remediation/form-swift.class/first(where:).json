@@ -1,30 +1,30 @@
 {
   "abstract" : [
     {
-      "text" : "Returns the first element of the sequence that satisfies the given",
+      "text" : "Inherited from ",
       "type" : "text"
     },
     {
-      "text" : " ",
-      "type" : "text"
+      "code" : "Sequence.first(where:)",
+      "type" : "codeVoice"
     },
     {
-      "text" : "predicate.",
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/first(where:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/first(where:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -65,6 +65,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:ST7ElementQa",
         "text" : "Element"
       },
       {
@@ -106,6 +107,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:ST7ElementQa",
         "text" : "Element"
       },
       {
@@ -115,7 +117,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "role" : "symbol",
@@ -176,6 +181,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             },
             {
@@ -217,6 +223,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             },
             {
@@ -227,182 +234,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The first element of the sequence that satisfies ",
-              "type" : "text"
-            },
-            {
-              "code" : "predicate",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ",",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "or ",
-              "type" : "text"
-            },
-            {
-              "code" : "nil",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " if there is no element that satisfies ",
-              "type" : "text"
-            },
-            {
-              "code" : "predicate",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ".",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "A closure that takes an element of the sequence as",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "its argument and returns a Boolean value indicating whether the",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "element is a match.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "predicate"
-        }
-      ]
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "discussion",
-          "level" : 2,
-          "text" : "Discussion",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The following example uses the ",
-              "type" : "text"
-            },
-            {
-              "code" : "first(where:)",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " method to find the first",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "negative number in an array of integers:",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "code" : [
-            "let numbers = [3, 7, 4, -2, 9, -6, 10, 1]",
-            "if let firstNegative = numbers.first(where: { $0 < 0 }) {",
-            "    print(\"The first negative number is \\(firstNegative).\")",
-            "}",
-            "\/\/ Prints \"The first negative number is -2.\""
-          ],
-          "syntax" : null,
-          "type" : "codeListing"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "O(",
-                  "type" : "text"
-                },
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "n",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "emphasis"
-                },
-                {
-                  "text" : "), where ",
-                  "type" : "text"
-                },
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "n",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "emphasis"
-                },
-                {
-                  "text" : " is the length of the sequence.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "Complexity",
-          "style" : "note",
-          "type" : "aside"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -427,21 +258,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class": {
   "abstract" : [
     {
       "text" : "Object that represents a form of fields associated with a remediation.",
@@ -462,7 +293,7 @@
       "text" : "Form"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -475,31 +306,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Sequence-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Sequence-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Sequence Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/sequence-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/first(where:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/first(where:)": {
   "abstract" : [
-    {
-      "text" : "Returns the first element of the sequence that satisfies the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -536,6 +356,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -577,6 +398,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -584,7 +406,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/first(where:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/first(where:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "first(where:)",

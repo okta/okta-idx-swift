@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/socialIdp"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/socialIdp"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -95,7 +95,7 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
               "text" : "Capability"
@@ -105,7 +105,7 @@
               "text" : "."
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx10CapabilityV9SocialIDPV",
               "text" : "SocialIDP"
@@ -178,21 +178,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability": {
+"doc://OktaIdx/documentation/OktaIdx/Capability": {
   "abstract" : [
     {
       "text" : "Abstractly describes the types of operations, metadata, or additional information that can be associated with IDX remediations or authenticators.",
@@ -213,7 +213,7 @@
       "text" : "Capability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -226,7 +226,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP": {
   "abstract" : [
 
   ],
@@ -244,7 +244,7 @@
       "text" : "SocialIDP"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -257,7 +257,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -278,7 +278,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -291,7 +291,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/socialIdp": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/socialIdp": {
   "abstract" : [
     {
       "text" : "For Social IDP remediation options, this value will describe information related to the social provider, and the resources needed to proceed through this remediation step.",
@@ -334,7 +334,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/socialIdp",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/socialIdp",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "socialIdp",

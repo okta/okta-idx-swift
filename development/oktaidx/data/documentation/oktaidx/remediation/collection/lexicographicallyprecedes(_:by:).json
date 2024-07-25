@@ -1,39 +1,31 @@
 {
   "abstract" : [
     {
-      "text" : "Returns a Boolean value indicating whether the sequence precedes another",
+      "text" : "Inherited from ",
       "type" : "text"
     },
     {
-      "text" : " ",
-      "type" : "text"
+      "code" : "Sequence.lexicographicallyPrecedes(_:by:)",
+      "type" : "codeVoice"
     },
     {
-      "text" : "sequence in a lexicographical (dictionary) ordering, using the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "predicate to compare elements.",
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/lexicographicallyPrecedes(_:by:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/lexicographicallyPrecedes(_:by:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -90,6 +82,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:ST7ElementQa",
         "text" : "Element"
       },
       {
@@ -106,6 +99,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:ST7ElementQa",
         "text" : "Element"
       },
       {
@@ -145,7 +139,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "role" : "symbol",
@@ -238,6 +235,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             },
             {
@@ -254,6 +252,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             },
             {
@@ -329,6 +328,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             },
             {
@@ -345,501 +345,13 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             }
           ]
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "",
-              "type" : "text"
-            },
-            {
-              "code" : "true",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " if this sequence precedes ",
-              "type" : "text"
-            },
-            {
-              "code" : "other",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " in a dictionary",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "ordering as ordered by ",
-              "type" : "text"
-            },
-            {
-              "code" : "areInIncreasingOrder",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : "; otherwise, ",
-              "type" : "text"
-            },
-            {
-              "code" : "false",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ".",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "A sequence to compare to this sequence.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "other"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "A predicate that returns ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "true",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : " if its first",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "argument should be ordered before its second argument; otherwise,",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "false",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : ".",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "areInIncreasingOrder"
-        }
-      ]
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "discussion",
-          "level" : 2,
-          "text" : "Discussion",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The predicate must be a ",
-              "type" : "text"
-            },
-            {
-              "inlineContent" : [
-                {
-                  "text" : "strict weak ordering",
-                  "type" : "text"
-                }
-              ],
-              "type" : "emphasis"
-            },
-            {
-              "text" : " over the elements. That",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "is, for any elements ",
-              "type" : "text"
-            },
-            {
-              "code" : "a",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ", ",
-              "type" : "text"
-            },
-            {
-              "code" : "b",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ", and ",
-              "type" : "text"
-            },
-            {
-              "code" : "c",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ", the following conditions must",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "hold:",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "items" : [
-            {
-              "content" : [
-                {
-                  "inlineContent" : [
-                    {
-                      "code" : "areInIncreasingOrder(a, a)",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " is always ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "false",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : ". (Irreflexivity)",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "paragraph"
-                }
-              ]
-            },
-            {
-              "content" : [
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "If ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "areInIncreasingOrder(a, b)",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " and ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "areInIncreasingOrder(b, c)",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " are",
-                      "type" : "text"
-                    },
-                    {
-                      "text" : " ",
-                      "type" : "text"
-                    },
-                    {
-                      "text" : "both ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "true",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : ", then ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "areInIncreasingOrder(a, c)",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " is also",
-                      "type" : "text"
-                    },
-                    {
-                      "text" : " ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "true",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : ". (Transitive comparability)",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "paragraph"
-                }
-              ]
-            },
-            {
-              "content" : [
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "Two elements are ",
-                      "type" : "text"
-                    },
-                    {
-                      "inlineContent" : [
-                        {
-                          "text" : "incomparable",
-                          "type" : "text"
-                        }
-                      ],
-                      "type" : "emphasis"
-                    },
-                    {
-                      "text" : " if neither is ordered before the other",
-                      "type" : "text"
-                    },
-                    {
-                      "text" : " ",
-                      "type" : "text"
-                    },
-                    {
-                      "text" : "according to the predicate. If ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "a",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " and ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "b",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " are incomparable, and ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "b",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " ",
-                      "type" : "text"
-                    },
-                    {
-                      "text" : "and ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "c",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " are incomparable, then ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "a",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " and ",
-                      "type" : "text"
-                    },
-                    {
-                      "code" : "c",
-                      "type" : "codeVoice"
-                    },
-                    {
-                      "text" : " are also incomparable.",
-                      "type" : "text"
-                    },
-                    {
-                      "text" : " ",
-                      "type" : "text"
-                    },
-                    {
-                      "text" : "(Transitive incomparability)",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "paragraph"
-                }
-              ]
-            }
-          ],
-          "type" : "unorderedList"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "This method implements the mathematical notion of lexicographical",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "ordering, which has no connection to Unicode.  If you are sorting",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "strings to present to the end user, use ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "String",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : " APIs that perform",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "localized comparison instead.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "Note",
-          "style" : "note",
-          "type" : "aside"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "O(",
-                  "type" : "text"
-                },
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "m",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "emphasis"
-                },
-                {
-                  "text" : "), where ",
-                  "type" : "text"
-                },
-                {
-                  "inlineContent" : [
-                    {
-                      "text" : "m",
-                      "type" : "text"
-                    }
-                  ],
-                  "type" : "emphasis"
-                },
-                {
-                  "text" : " is the lesser of the length of the",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "sequence and the length of ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "other",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : ".",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "Complexity",
-          "style" : "note",
-          "type" : "aside"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -864,21 +376,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -899,7 +411,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -912,7 +424,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of remediation options.",
@@ -933,7 +445,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -946,39 +458,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/Sequence-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/Sequence-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Sequence Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection\/sequence-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/lexicographicallyPrecedes(_:by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/lexicographicallyPrecedes(_:by:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the sequence precedes another",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence in a lexicographical (dictionary) ordering, using the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "predicate to compare elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1031,6 +524,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1047,6 +541,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1084,7 +579,7 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/lexicographicallyPrecedes(_:by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/lexicographicallyPrecedes(_:by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "lexicographicallyPrecedes(_:by:)",

@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/expiresAt"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/expiresAt"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -121,21 +121,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -156,7 +156,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -169,7 +169,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/expiresAt": {
+"doc://OktaIdx/documentation/OktaIdx/Response/expiresAt": {
   "abstract" : [
     {
       "text" : "The date at which this stage of the workflow expires, after which the authentication process should be restarted.",
@@ -203,7 +203,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/expiresAt",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/expiresAt",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "expiresAt",

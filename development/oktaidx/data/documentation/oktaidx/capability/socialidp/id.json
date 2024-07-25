@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/id"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/id"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -113,21 +113,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP": {
   "abstract" : [
 
   ],
@@ -145,7 +145,7 @@
       "text" : "SocialIDP"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -158,7 +158,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/id": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/id": {
   "abstract" : [
     {
       "text" : "The unique identifier for this social IDP.",
@@ -188,7 +188,7 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/id",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/id",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "id",

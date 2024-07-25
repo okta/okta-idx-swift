@@ -1,31 +1,31 @@
 {
   "abstract" : [
     {
-      "text" : "Returns the elements of the sequence, sorted using the given comparator",
+      "text" : "Inherited from ",
       "type" : "text"
     },
     {
-      "text" : " ",
-      "type" : "text"
+      "code" : "Sequence.sorted(using:)",
+      "type" : "codeVoice"
     },
     {
-      "text" : "to compare elements.",
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/sorted(using:)-3sggy"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/sorted(using:)-3sggy"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -82,6 +82,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:ST7ElementQa",
         "text" : "Element"
       },
       {
@@ -91,7 +92,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "platforms" : [
@@ -198,6 +202,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             },
             {
@@ -239,6 +244,7 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
               "text" : "Element"
             },
             {
@@ -255,59 +261,13 @@
             },
             {
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:10Foundation14SortComparatorP8ComparedQa",
               "text" : "Compared"
             }
           ]
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "an array of the elements sorted using ",
-              "type" : "text"
-            },
-            {
-              "code" : "comparator",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ".",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "the comparator to use in ordering elements",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "comparator"
-        }
-      ]
     }
   ],
   "schemaVersion" : {
@@ -332,21 +292,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -367,7 +327,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -380,7 +340,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of remediation options.",
@@ -401,7 +361,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -414,31 +374,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/Sequence-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/Sequence-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/Sequence-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Sequence Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection\/sequence-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection/sorted(using:)-3sggy": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection/sorted(using:)-3sggy": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, sorted using the given comparator",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "to compare elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -491,6 +440,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -498,7 +448,7 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection\/sorted(using:)-3sggy",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection\/sorted(using:)-3sggy",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "sorted(using:)",

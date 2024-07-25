@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/recoverable"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/recoverable"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -95,7 +95,7 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
               "text" : "Capability"
@@ -105,7 +105,7 @@
               "text" : "."
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Recoverable",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Recoverable",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx10CapabilityV11RecoverableV",
               "text" : "Recoverable"
@@ -178,21 +178,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator": {
   "abstract" : [
     {
       "text" : "Represents information describing the available authenticators and enrolled authenticators.",
@@ -213,7 +213,7 @@
       "text" : "Authenticator"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -226,7 +226,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/recoverable": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/recoverable": {
   "abstract" : [
     {
       "text" : "Exposes the authenticator’s capability to recover this authenticator.",
@@ -269,14 +269,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/recoverable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/recoverable",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "recoverable",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/recoverable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability": {
+"doc://OktaIdx/documentation/OktaIdx/Capability": {
   "abstract" : [
     {
       "text" : "Abstractly describes the types of operations, metadata, or additional information that can be associated with IDX remediations or authenticators.",
@@ -297,7 +297,7 @@
       "text" : "Capability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -310,7 +310,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Recoverable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Recoverable": {
   "abstract" : [
     {
       "text" : "Capability to recover an account.",
@@ -331,7 +331,7 @@
       "text" : "Recoverable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Recoverable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Recoverable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

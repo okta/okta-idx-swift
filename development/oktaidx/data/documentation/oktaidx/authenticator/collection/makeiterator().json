@@ -1,22 +1,30 @@
 {
   "abstract" : [
     {
-      "text" : "Returns an iterator over the elements of the collection.",
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "Collection.makeIterator()",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Collection-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Collection-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/makeIterator()"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/makeIterator()"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -91,7 +99,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "role" : "symbol",
@@ -171,21 +182,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection": {
   "abstract" : [
     {
       "text" : "Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.",
@@ -206,7 +217,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -219,23 +230,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/Collection-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/Collection-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Collection-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Collection-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Collection Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/collection-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/makeIterator()": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/makeIterator()": {
   "abstract" : [
-    {
-      "text" : "Returns an iterator over the elements of the collection.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -304,7 +312,7 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/makeIterator()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/makeIterator()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "makeIterator()",

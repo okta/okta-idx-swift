@@ -1,16 +1,30 @@
 {
+  "abstract" : [
+    {
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "APIClientDelegate.api(client:didSend:received:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/APIClientDelegate-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/APIClientDelegate-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/api(client:didSend:received:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/api(client:didSend:received:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -39,7 +53,7 @@
       },
       {
         "kind" : "text",
-        "text" : ": "
+        "text" : ": any "
       },
       {
         "kind" : "typeIdentifier",
@@ -87,7 +101,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "AuthFoundation"
+        ]
       }
     ],
     "role" : "symbol",
@@ -128,10 +145,9 @@
             },
             {
               "kind" : "text",
-              "text" : ": "
+              "text" : ": any "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation9APIClientP",
               "text" : "APIClient"
@@ -218,55 +234,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClient": {
-  "abstract" : [
-    {
-      "text" : "Protocol defining the interfaces and capabilities that API clients can conform to.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "protocol"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "APIClient"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "APIClient"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "APIClient",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiclient"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -287,7 +269,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -300,18 +282,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/APIClientDelegate-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/APIClientDelegate-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/APIClientDelegate-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/APIClientDelegate-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "APIClientDelegate Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/apiclientdelegate-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/api(client:didSend:received:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/api(client:didSend:received:)": {
   "abstract" : [
 
   ],
@@ -338,7 +320,7 @@
     },
     {
       "kind" : "text",
-      "text" : ": "
+      "text" : ": any "
     },
     {
       "kind" : "typeIdentifier",
@@ -384,7 +366,7 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/api(client:didSend:received:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/api(client:didSend:received:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "api(client:didSend:received:)",

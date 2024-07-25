@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -103,21 +103,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable": {
   "abstract" : [
     {
       "text" : "Capability for authentiators or remedations to be polled to determine out-of-band actions taken by the user.",
@@ -138,7 +138,7 @@
       "text" : "Pollable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -151,7 +151,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/stopPolling()": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/stopPolling()": {
   "abstract" : [
     {
       "text" : "Stops the polling process from continuing.",
@@ -176,7 +176,7 @@
       "text" : "()"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "stopPolling()",

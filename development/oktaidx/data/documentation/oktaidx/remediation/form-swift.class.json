@@ -8,13 +8,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -82,7 +82,7 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/objc(cs)NSObject"
+        "doc:\/\/OktaIdx\/objc(cs)NSObject"
       ],
       "kind" : "relationships",
       "title" : "Inherits From",
@@ -90,14 +90,14 @@
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/objc(pl)NSObject",
-        "doc:\/\/com.okta.mobile.oktaidx\/s7CVarArgP",
-        "doc:\/\/com.okta.mobile.oktaidx\/Sl",
-        "doc:\/\/com.okta.mobile.oktaidx\/s28CustomDebugStringConvertibleP",
-        "doc:\/\/com.okta.mobile.oktaidx\/s23CustomStringConvertibleP",
-        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
-        "doc:\/\/com.okta.mobile.oktaidx\/SH",
-        "doc:\/\/com.okta.mobile.oktaidx\/ST"
+        "doc:\/\/OktaIdx\/objc(pl)NSObject",
+        "doc:\/\/OktaIdx\/s7CVarArgP",
+        "doc:\/\/OktaIdx\/Sl",
+        "doc:\/\/OktaIdx\/s28CustomDebugStringConvertibleP",
+        "doc:\/\/OktaIdx\/s23CustomStringConvertibleP",
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/SH",
+        "doc:\/\/OktaIdx\/ST"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -116,7 +116,7 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field"
       ],
       "title" : "Forms and Fields"
     }
@@ -124,22 +124,22 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/fields"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/fields"
       ],
       "title" : "Instance Properties"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/subscript(_:)-6l1ji",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/subscript(_:)-8cdmz"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/subscript(_:)-6l1ji",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/subscript(_:)-8cdmz"
       ],
       "title" : "Subscripts"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Collection-Implementations",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Collection-Implementations",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -158,41 +158,41 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/SH": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+"doc://OktaIdx/SH": {
+  "identifier" : "doc:\/\/OktaIdx\/SH",
   "title" : "Swift.Hashable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/SQ": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
   "title" : "Swift.Equatable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/ST": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/ST",
+"doc://OktaIdx/ST": {
+  "identifier" : "doc:\/\/OktaIdx\/ST",
   "title" : "Swift.Sequence",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/Sl": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/Sl",
+"doc://OktaIdx/Sl": {
+  "identifier" : "doc:\/\/OktaIdx\/Sl",
   "title" : "Swift.Collection",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class": {
   "abstract" : [
     {
       "text" : "Object that represents a form of fields associated with a remediation.",
@@ -213,7 +213,7 @@
       "text" : "Form"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -226,18 +226,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Collection-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Collection-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Collection-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Collection-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Collection Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/collection-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Field": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Field": {
   "abstract" : [
     {
       "text" : "Describes an individual field within a form, used to collect and submit information from the user to proceed through the authentication workflow.",
@@ -258,7 +258,7 @@
       "text" : "Field"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -271,18 +271,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/field"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Sequence-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Sequence-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Sequence Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/sequence-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/fields": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/fields": {
   "abstract" : [
     {
       "text" : "The array of ordered user-visible fields within this form. Each field may also contain nested forms for collections of related fields.",
@@ -308,6 +308,24 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC",
+      "text" : "Form"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5FieldC",
       "text" : "Field"
     },
@@ -316,14 +334,14 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/fields",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/fields",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "fields",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/fields"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/subscript(_:)-6l1ji": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/subscript(_:)-6l1ji": {
   "abstract" : [
 
   ],
@@ -347,6 +365,24 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC",
+      "text" : "Form"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5FieldC",
       "text" : "Field"
     },
@@ -355,14 +391,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/subscript(_:)-6l1ji",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/subscript(_:)-6l1ji",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "subscript(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/subscript(_:)-6l1ji"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/subscript(_:)-8cdmz": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/subscript(_:)-8cdmz": {
   "abstract" : [
 
   ],
@@ -386,6 +422,24 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC",
+      "text" : "Form"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC5FieldC",
       "text" : "Field"
     },
@@ -394,35 +448,35 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/subscript(_:)-8cdmz",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/subscript(_:)-8cdmz",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "subscript(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/subscript(_:)-8cdmz"
 },
-"doc://com.okta.mobile.oktaidx/objc(cs)NSObject": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/objc(cs)NSObject",
+"doc://OktaIdx/objc(cs)NSObject": {
+  "identifier" : "doc:\/\/OktaIdx\/objc(cs)NSObject",
   "title" : "ObjectiveC.NSObject",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/objc(pl)NSObject": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/objc(pl)NSObject",
+"doc://OktaIdx/objc(pl)NSObject": {
+  "identifier" : "doc:\/\/OktaIdx\/objc(pl)NSObject",
   "title" : "ObjectiveC.NSObjectProtocol",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/s23CustomStringConvertibleP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s23CustomStringConvertibleP",
+"doc://OktaIdx/s23CustomStringConvertibleP": {
+  "identifier" : "doc:\/\/OktaIdx\/s23CustomStringConvertibleP",
   "title" : "Swift.CustomStringConvertible",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/s28CustomDebugStringConvertibleP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s28CustomDebugStringConvertibleP",
+"doc://OktaIdx/s28CustomDebugStringConvertibleP": {
+  "identifier" : "doc:\/\/OktaIdx\/s28CustomDebugStringConvertibleP",
   "title" : "Swift.CustomDebugStringConvertible",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/s7CVarArgP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s7CVarArgP",
+"doc://OktaIdx/s7CVarArgP": {
+  "identifier" : "doc:\/\/OktaIdx\/s7CVarArgP",
   "title" : "Swift.CVarArg",
   "type" : "unresolvable"
 }

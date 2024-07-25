@@ -1,29 +1,29 @@
 {
   "abstract" : [
     {
-      "text" : "Hashes the essential components of this value by feeding them into the",
+      "text" : "Inherited from ",
       "type" : "text"
     },
     {
-      "text" : " ",
-      "type" : "text"
+      "code" : "Hashable.hash(into:)",
+      "type" : "codeVoice"
     },
     {
-      "text" : "given hasher.",
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/hash(into:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/hash(into:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -145,137 +145,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "The hasher to use when combining the components",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "of this instance.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "hasher"
-        }
-      ]
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "discussion",
-          "level" : 2,
-          "text" : "Discussion",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "Implement this method to conform to the ",
-              "type" : "text"
-            },
-            {
-              "code" : "Hashable",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " protocol. The",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "components used for hashing must be the same as the components compared",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "in your type’s ",
-              "type" : "text"
-            },
-            {
-              "code" : "==",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " operator implementation. Call ",
-              "type" : "text"
-            },
-            {
-              "code" : "hasher.combine(_:)",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "with each of these components.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "Never call ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "finalize()",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : " on ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "hasher",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : ". Doing so may become a",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "text" : "compile-time error in the future.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "Important",
-          "style" : "important",
-          "type" : "aside"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -300,21 +169,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of messages.",
@@ -335,7 +204,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -348,20 +217,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/hash(into:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/hash(into:)": {
   "abstract" : [
-    {
-      "text" : "Hashes the essential components of this value by feeding them into the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given hasher.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -406,7 +264,7 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/hash(into:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/hash(into:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "hash(into:)",

@@ -8,13 +8,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -91,10 +91,10 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application"
       ],
       "title" : "Working with Responses"
     }
@@ -102,15 +102,15 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/Profile-swift.struct"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct\/Profile-swift.struct"
       ],
       "title" : "Structures"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/id",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/profile-swift.property",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/username"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct\/id",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct\/profile-swift.property",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct\/username"
       ],
       "title" : "Instance Properties"
     }
@@ -129,21 +129,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -164,7 +164,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -177,7 +177,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Application": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Application": {
   "abstract" : [
     {
       "text" : "Provides information about the client application being authenticated against.",
@@ -198,7 +198,7 @@
       "text" : "Application"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -211,7 +211,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/application"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message": {
   "abstract" : [
     {
       "text" : "Represents messages sent from the server to indicate error or warning conditions related to responses or form values.",
@@ -232,7 +232,7 @@
       "text" : "Message"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -245,7 +245,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of messages.",
@@ -266,7 +266,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -279,7 +279,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct": {
+"doc://OktaIdx/documentation/OktaIdx/Response/User-swift.struct": {
   "abstract" : [
     {
       "text" : "Provides information about the user being authenticated.",
@@ -300,7 +300,7 @@
       "text" : "User"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -313,7 +313,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/user-swift.struct"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct/Profile-swift.struct": {
+"doc://OktaIdx/documentation/OktaIdx/Response/User-swift.struct/Profile-swift.struct": {
   "abstract" : [
     {
       "text" : "Optional profile information that describes the user.",
@@ -334,7 +334,7 @@
       "text" : "Profile"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/Profile-swift.struct",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct\/Profile-swift.struct",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -347,7 +347,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/user-swift.struct\/profile-swift.struct"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct/id": {
+"doc://OktaIdx/documentation/OktaIdx/Response/User-swift.struct/id": {
   "abstract" : [
     {
       "text" : "Unique identifier for this user.",
@@ -377,14 +377,14 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/id",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct\/id",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "id",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/user-swift.struct\/id"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct/profile-swift.property": {
+"doc://OktaIdx/documentation/OktaIdx/Response/User-swift.struct/profile-swift.property": {
   "abstract" : [
     {
       "text" : "Profile information for this user.",
@@ -410,6 +410,24 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC4UserV",
+      "text" : "User"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx8ResponseC4UserV7ProfileV",
       "text" : "Profile"
     },
@@ -418,14 +436,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/profile-swift.property",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct\/profile-swift.property",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "profile",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/user-swift.struct\/profile-swift.property"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct/username": {
+"doc://OktaIdx/documentation/OktaIdx/Response/User-swift.struct/username": {
   "abstract" : [
     {
       "text" : "Username for this user.",
@@ -459,7 +477,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct\/username",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct\/username",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "username",

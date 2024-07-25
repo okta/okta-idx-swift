@@ -16,19 +16,27 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init()"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/init()"
   },
   "kind" : "symbol",
   "metadata" : {
     "externalID" : "s:7OktaIdx19InteractionCodeFlowCACyKcfc",
     "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "convenience"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
       {
         "kind" : "identifier",
         "text" : "init"
@@ -111,21 +119,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -146,7 +154,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -159,7 +167,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/init()": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/init()": {
   "abstract" : [
     {
       "text" : "Initializer that uses the configuration defined within the application’s ",
@@ -176,6 +184,14 @@
   ],
   "fragments" : [
     {
+      "kind" : "keyword",
+      "text" : "convenience"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
       "kind" : "identifier",
       "text" : "init"
     },
@@ -188,7 +204,7 @@
       "text" : "throws"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/init()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/init()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "init()",

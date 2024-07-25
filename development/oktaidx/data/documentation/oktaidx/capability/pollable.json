@@ -8,13 +8,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -82,9 +82,9 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/RemediationCapability"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/AuthenticatorCapability",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/RemediationCapability"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -103,19 +103,19 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/RemediationCapability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/NumberChallenge",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/PasswordSettings",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Profile",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Recoverable",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Sendable",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/OTP"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/AuthenticatorCapability",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/RemediationCapability",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/NumberChallenge",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/PasswordSettings",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Profile",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Recoverable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Sendable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Resendable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/OTP"
       ],
       "title" : "Using Capabilities"
     }
@@ -123,22 +123,22 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/isPolling"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/isPolling"
       ],
       "title" : "Instance Properties"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/startPolling()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/startPolling(completion:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/startPolling()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/startPolling(completion:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()"
       ],
       "title" : "Instance Methods"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -157,21 +157,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator": {
   "abstract" : [
     {
       "text" : "Represents information describing the available authenticators and enrolled authenticators.",
@@ -192,7 +192,7 @@
       "text" : "Authenticator"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -205,7 +205,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/AuthenticatorCapability": {
+"doc://OktaIdx/documentation/OktaIdx/AuthenticatorCapability": {
   "abstract" : [
     {
       "text" : "Defines type conformance for capabilities that can be used with Authenticators.",
@@ -226,7 +226,7 @@
       "text" : "AuthenticatorCapability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/AuthenticatorCapability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -239,7 +239,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticatorcapability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability": {
+"doc://OktaIdx/documentation/OktaIdx/Capability": {
   "abstract" : [
     {
       "text" : "Abstractly describes the types of operations, metadata, or additional information that can be associated with IDX remediations or authenticators.",
@@ -260,7 +260,7 @@
       "text" : "Capability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -273,7 +273,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/NumberChallenge": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/NumberChallenge": {
   "abstract" : [
     {
       "text" : "Capability to recover an account.",
@@ -294,7 +294,7 @@
       "text" : "NumberChallenge"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/NumberChallenge",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/NumberChallenge",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -307,7 +307,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/numberchallenge"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/OTP": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/OTP": {
   "abstract" : [
     {
       "text" : "Capability to recover an account.",
@@ -328,7 +328,7 @@
       "text" : "OTP"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/OTP",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/OTP",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -341,7 +341,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/otp"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/PasswordSettings": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/PasswordSettings": {
   "abstract" : [
     {
       "text" : "Describes the password complexity settings.",
@@ -362,7 +362,7 @@
       "text" : "PasswordSettings"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/PasswordSettings",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/PasswordSettings",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -375,7 +375,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/passwordsettings"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable": {
   "abstract" : [
     {
       "text" : "Capability for authentiators or remedations to be polled to determine out-of-band actions taken by the user.",
@@ -396,7 +396,7 @@
       "text" : "Pollable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -409,18 +409,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/IDXCapability-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/IDXCapability-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "IDXCapability Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable\/idxcapability-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/isPolling": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/isPolling": {
   "abstract" : [
     {
       "text" : "Indicates whether or not this authenticator is actively polling.",
@@ -450,14 +450,14 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/isPolling",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/isPolling",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "isPolling",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable\/ispolling"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/startPolling()": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/startPolling()": {
   "abstract" : [
     {
       "text" : "Starts the polling process asynchronously.",
@@ -503,14 +503,14 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/startPolling()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/startPolling()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "startPolling()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable\/startpolling()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/startPolling(completion:)": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/startPolling(completion:)": {
   "abstract" : [
     {
       "text" : "Starts the polling process.",
@@ -561,14 +561,14 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/startPolling(completion:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/startPolling(completion:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "startPolling(completion:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable\/startpolling(completion:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/stopPolling()": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/stopPolling()": {
   "abstract" : [
     {
       "text" : "Stops the polling process from continuing.",
@@ -593,14 +593,14 @@
       "text" : "()"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/stopPolling()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "stopPolling()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable\/stoppolling()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Profile": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Profile": {
   "abstract" : [
     {
       "text" : "Capability when an authenticator or rememediation contains related profile information.",
@@ -621,7 +621,7 @@
       "text" : "Profile"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Profile",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Profile",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -634,7 +634,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/profile"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Recoverable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Recoverable": {
   "abstract" : [
     {
       "text" : "Capability to recover an account.",
@@ -655,7 +655,7 @@
       "text" : "Recoverable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Recoverable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Recoverable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -668,7 +668,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/recoverable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Resendable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Resendable": {
   "abstract" : [
     {
       "text" : "Capability used for being able to “resend” a verification code.",
@@ -689,7 +689,7 @@
       "text" : "Resendable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Resendable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -702,7 +702,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/resendable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Sendable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Sendable": {
   "abstract" : [
     {
       "text" : "Capability used for being able to “send” a verification code.",
@@ -723,7 +723,7 @@
       "text" : "Sendable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Sendable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Sendable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -736,7 +736,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/sendable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP": {
   "abstract" : [
 
   ],
@@ -754,7 +754,7 @@
       "text" : "SocialIDP"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -767,14 +767,14 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/CapabilityCollection": {
+"doc://OktaIdx/documentation/OktaIdx/CapabilityCollection": {
   "abstract" : [
     {
       "text" : "A collection of capabilities that can be associated with some parent object, such as an ",
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
       "isActive" : true,
       "type" : "reference"
     },
@@ -783,7 +783,7 @@
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
       "isActive" : true,
       "type" : "reference"
     },
@@ -806,7 +806,7 @@
       "text" : "CapabilityCollection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -819,7 +819,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capabilitycollection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXCapability": {
+"doc://OktaIdx/documentation/OktaIdx/IDXCapability": {
   "abstract" : [
     {
       "text" : "A generic protocol used to identify objects that describe a capability.",
@@ -840,7 +840,7 @@
       "text" : "IDXCapability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -853,7 +853,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxcapability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -874,7 +874,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -887,7 +887,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/RemediationCapability": {
+"doc://OktaIdx/documentation/OktaIdx/RemediationCapability": {
   "abstract" : [
     {
       "text" : "Defines type conformance for capabilities that can be used with Remediations.",
@@ -908,7 +908,7 @@
       "text" : "RemediationCapability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/RemediationCapability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/RemediationCapability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

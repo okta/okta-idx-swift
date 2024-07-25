@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -82,8 +82,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
-        "doc:\/\/com.okta.mobile.oktaidx\/SH"
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/SH"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -101,32 +101,32 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/agentlessIwa",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/apple",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/facebook",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/google",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/iwa",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/linkedin",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/microsoft",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/oidc",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/oinSocial",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/okta",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/other",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/saml",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/x509"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/agentlessIwa",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/apple",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/facebook",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/google",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/iwa",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/linkedin",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/microsoft",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/oidc",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/oinSocial",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/okta",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/other",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/saml",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/x509"
       ],
       "title" : "Enumeration Cases"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/init(string:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/init(string:)"
       ],
       "title" : "Initializers"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/Equatable-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/Equatable-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -145,31 +145,31 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/SH": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+"doc://OktaIdx/SH": {
+  "identifier" : "doc:\/\/OktaIdx\/SH",
   "title" : "Swift.Hashable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/SQ": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
   "title" : "Swift.Equatable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP": {
   "abstract" : [
 
   ],
@@ -187,7 +187,7 @@
       "text" : "SocialIDP"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -200,7 +200,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum": {
   "abstract" : [
     {
       "text" : "The list of services that are possible within a social authentication workflow.",
@@ -221,7 +221,7 @@
       "text" : "Service"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -234,18 +234,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/Equatable-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/Equatable-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/Equatable-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/Equatable-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Equatable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/equatable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/agentlessIwa": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/agentlessIwa": {
   "abstract" : [
     {
       "text" : "AgentlessDSSO",
@@ -266,14 +266,14 @@
       "text" : "agentlessIwa"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/agentlessIwa",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/agentlessIwa",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.agentlessIwa",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/agentlessiwa"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/apple": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/apple": {
   "abstract" : [
     {
       "text" : "Apple",
@@ -294,14 +294,14 @@
       "text" : "apple"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/apple",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/apple",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.apple",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/apple"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/facebook": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/facebook": {
   "abstract" : [
     {
       "text" : "Facebook",
@@ -322,14 +322,14 @@
       "text" : "facebook"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/facebook",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/facebook",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.facebook",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/facebook"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/google": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/google": {
   "abstract" : [
     {
       "text" : "Google",
@@ -350,14 +350,14 @@
       "text" : "google"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/google",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/google",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.google",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/google"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/init(string:)": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/init(string:)": {
   "abstract" : [
 
   ],
@@ -388,14 +388,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/init(string:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/init(string:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "init(string:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/init(string:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/iwa": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/iwa": {
   "abstract" : [
     {
       "text" : "IWA",
@@ -416,14 +416,14 @@
       "text" : "iwa"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/iwa",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/iwa",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.iwa",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/iwa"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/linkedin": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/linkedin": {
   "abstract" : [
     {
       "text" : "LinkedIn",
@@ -444,14 +444,14 @@
       "text" : "linkedin"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/linkedin",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/linkedin",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.linkedin",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/linkedin"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/microsoft": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/microsoft": {
   "abstract" : [
     {
       "text" : "Microsoft",
@@ -472,14 +472,14 @@
       "text" : "microsoft"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/microsoft",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/microsoft",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.microsoft",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/microsoft"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/oidc": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/oidc": {
   "abstract" : [
     {
       "text" : "OIDC",
@@ -500,14 +500,14 @@
       "text" : "oidc"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/oidc",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/oidc",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.oidc",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/oidc"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/oinSocial": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/oinSocial": {
   "abstract" : [
     {
       "text" : "OIN Social IdP Placeholder",
@@ -528,14 +528,14 @@
       "text" : "oinSocial"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/oinSocial",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/oinSocial",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.oinSocial",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/oinsocial"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/okta": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/okta": {
   "abstract" : [
     {
       "text" : "Okta",
@@ -556,14 +556,14 @@
       "text" : "okta"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/okta",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/okta",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.okta",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/okta"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/other": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/other": {
   "abstract" : [
     {
       "text" : "Other, unknown IDP service",
@@ -584,14 +584,14 @@
       "text" : "other"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/other",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/other",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.other",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/other"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/saml": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/saml": {
   "abstract" : [
     {
       "text" : "SAML 2.0",
@@ -612,14 +612,14 @@
       "text" : "saml"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/saml",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/saml",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.saml",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp\/service-swift.enum\/saml"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/x509": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/Service-swift.enum/x509": {
   "abstract" : [
     {
       "text" : "Certificate based authentication",
@@ -640,7 +640,7 @@
       "text" : "x509"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/x509",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/Service-swift.enum\/x509",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Capability.SocialIDP.Service.x509",

@@ -2,14 +2,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Sequence-Implementations"
   },
   "kind" : "article",
   "metadata" : {
@@ -19,6 +19,7 @@
       }
     ],
     "role" : "collectionGroup",
+    "roleHeading" : "API Collection",
     "title" : "Sequence Implementations"
   },
   "schemaVersion" : {
@@ -33,72 +34,84 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/lazy",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/publisher",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/underestimatedCount-6a1kz"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/lazy",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/publisher"
       ],
       "title" : "Instance Properties"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/allSatisfy(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/compactMap(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/compare(_:_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/contains(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/contains(where:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/elementsEqual(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/elementsEqual(_:by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/enumerated()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/filter(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/first(where:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/flatMap(_:)-3rm4x",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/flatMap(_:)-4sikf",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/forEach(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/formatted(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/lexicographicallyPrecedes(_:by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/map(_:)-5jj6s",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/max(by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/min(by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reduce(_:_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reduce(into:_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reversed()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/shuffled()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/shuffled(using:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(using:)-68jsj",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(using:)-697y4",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/starts(with:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/starts(with:by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/withContiguousStorageIfAvailable(_:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/allSatisfy(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/compactMap(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/compare(_:_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/contains(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/contains(where:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/elementsEqual(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/elementsEqual(_:by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/enumerated()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/filter(_:)-2xn85",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/filter(_:)-6wpzm",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/first(where:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/flatMap(_:)-3rm4x",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/flatMap(_:)-4sikf",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/forEach(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/formatted(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/lexicographicallyPrecedes(_:by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/map(_:)-5jj6s",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/max(by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/min(by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reduce(_:_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reduce(into:_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reversed()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/shuffled()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/shuffled(using:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(using:)-68jsj",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(using:)-697y4",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/starts(with:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/starts(with:by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/withContiguousStorageIfAvailable(_:)"
       ],
       "title" : "Instance Methods"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Element"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Element"
       ],
       "title" : "Type Aliases"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/remediation\/form-swift.class\/sequence-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
     }
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class": {
   "abstract" : [
     {
       "text" : "Object that represents a form of fields associated with a remediation.",
@@ -119,7 +132,7 @@
       "text" : "Form"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -132,12 +145,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Element": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Element": {
   "abstract" : [
-    {
-      "text" : "A type representing the sequence’s elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -153,7 +163,7 @@
       "text" : "Element"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Element",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Element",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -166,20 +176,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/element"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/allSatisfy(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/allSatisfy(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether every element of a sequence",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "satisfies a given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -208,6 +207,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -245,35 +245,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/allSatisfy(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/allSatisfy(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "allSatisfy(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/allsatisfy(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/compactMap(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/compactMap(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the non-",
-      "type" : "text"
-    },
-    {
-      "code" : "nil",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " results of calling the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "transformation with each element of this sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -310,6 +291,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -349,51 +331,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/compactMap(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/compactMap(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "compactMap(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/compactmap(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/compare(_:_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/compare(_:_:)": {
   "abstract" : [
-    {
-      "text" : "If ",
-      "type" : "text"
-    },
-    {
-      "code" : "lhs",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " is ordered before ",
-      "type" : "text"
-    },
-    {
-      "code" : "rhs",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " in the ordering described by the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence of ",
-      "type" : "text"
-    },
-    {
-      "code" : "SortComparator",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : "s",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -430,6 +377,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation14SortComparatorP8ComparedQa",
       "text" : "Compared"
     },
     {
@@ -446,6 +394,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation14SortComparatorP8ComparedQa",
       "text" : "Compared"
     },
     {
@@ -458,27 +407,16 @@
       "text" : "ComparisonResult"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/compare(_:_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/compare(_:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "compare(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/compare(_:_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/contains(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/contains(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the sequence contains the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given element.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -539,6 +477,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -551,27 +490,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/contains(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/contains(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "contains(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/contains(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/contains(where:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/contains(where:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the sequence contains an",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "element that satisfies the given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -608,6 +536,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -645,27 +574,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/contains(where:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/contains(where:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "contains(where:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/contains(where:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/elementsEqual(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/elementsEqual(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether this sequence and another",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence contain the same elements in the same order.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -738,35 +656,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/elementsEqual(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/elementsEqual(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "elementsEqual(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/elementsequal(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/elementsEqual(_:by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/elementsEqual(_:by:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether this sequence and another",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence contain equivalent elements in the same order, using the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "predicate as the equivalence test.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -819,6 +718,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -835,6 +735,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -872,87 +773,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/elementsEqual(_:by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/elementsEqual(_:by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "elementsEqual(_:by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/elementsequal(_:by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/enumerated()": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/enumerated()": {
   "abstract" : [
-    {
-      "text" : "Returns a sequence of pairs (",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "n",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : ", ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "x",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : "), where ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "n",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : " represents a",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "consecutive integer starting at zero and ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "x",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : " represents an element of",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -989,27 +819,16 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/enumerated()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/enumerated()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "enumerated()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/enumerated()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/filter(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/filter(_:)-2xn85": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing, in order, the elements of the sequence",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "that satisfy the given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1038,6 +857,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1079,6 +899,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1086,27 +907,96 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/filter(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/filter(_:)-2xn85",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "filter(_:)",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/filter(_:)"
+  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/filter(_:)-2xn85"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/first(where:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/filter(_:)-6wpzm": {
   "abstract" : [
+
+  ],
+  "fragments" : [
     {
-      "text" : "Returns the first element of the sequence that satisfies the given",
-      "type" : "text"
+      "kind" : "keyword",
+      "text" : "func"
     },
     {
-      "text" : " ",
-      "type" : "text"
+      "kind" : "text",
+      "text" : " "
     },
     {
-      "text" : "predicate.",
-      "type" : "text"
+      "kind" : "identifier",
+      "text" : "filter"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation9PredicateV",
+      "text" : "Predicate"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
+      "text" : "Element"
+    },
+    {
+      "kind" : "text",
+      "text" : ">) "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    },
+    {
+      "kind" : "text",
+      "text" : " -> ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
+      "text" : "Element"
+    },
+    {
+      "kind" : "text",
+      "text" : "]"
     }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/filter(_:)-6wpzm",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "filter(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/filter(_:)-6wpzm"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/first(where:)": {
+  "abstract" : [
+
   ],
   "fragments" : [
     {
@@ -1143,6 +1033,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1184,6 +1075,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1191,27 +1083,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/first(where:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/first(where:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "first(where:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/first(where:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/flatMap(_:)-3rm4x": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/flatMap(_:)-3rm4x": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the concatenated results of calling the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given transformation with each element of this sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1248,6 +1129,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1288,6 +1170,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1295,14 +1178,14 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/flatMap(_:)-3rm4x",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/flatMap(_:)-3rm4x",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "flatMap(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/flatmap(_:)-3rm4x"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/flatMap(_:)-4sikf": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/flatMap(_:)-4sikf": {
   "abstract" : [
 
   ],
@@ -1342,6 +1225,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1381,43 +1265,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/flatMap(_:)-4sikf",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/flatMap(_:)-4sikf",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "flatMap(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/flatmap(_:)-4sikf"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/forEach(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/forEach(_:)": {
   "abstract" : [
-    {
-      "text" : "Calls the given closure on each element in the sequence in the same order",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "as a ",
-      "type" : "text"
-    },
-    {
-      "code" : "for",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : "-",
-      "type" : "text"
-    },
-    {
-      "code" : "in",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " loop.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1446,6 +1303,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1474,14 +1332,14 @@
       "text" : "rethrows"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/forEach(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/forEach(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "forEach(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/foreach(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/formatted(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/formatted(_:)": {
   "abstract" : [
 
   ],
@@ -1528,54 +1386,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation11FormatStyleP0B6OutputQa",
       "text" : "FormatOutput"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/formatted(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/formatted(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "formatted(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/formatted(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/lazy": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/lazy": {
   "abstract" : [
-    {
-      "text" : "A sequence containing the same elements as this sequence,",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "but on which some operations, such as ",
-      "type" : "text"
-    },
-    {
-      "code" : "map",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " and ",
-      "type" : "text"
-    },
-    {
-      "code" : "filter",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ", are",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "implemented lazily.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1612,35 +1436,16 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/lazy",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/lazy",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "lazy",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/lazy"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/lexicographicallyPrecedes(_:by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/lexicographicallyPrecedes(_:by:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the sequence precedes another",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence in a lexicographical (dictionary) ordering, using the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "predicate to compare elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1693,6 +1498,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1709,6 +1515,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1746,27 +1553,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/lexicographicallyPrecedes(_:by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/lexicographicallyPrecedes(_:by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "lexicographicallyPrecedes(_:by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/lexicographicallyprecedes(_:by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/map(_:)-5jj6s": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/map(_:)-5jj6s": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the results of mapping the given closure",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "over the sequence’s elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1803,6 +1599,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1842,27 +1639,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/map(_:)-5jj6s",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/map(_:)-5jj6s",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "map(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/map(_:)-5jj6s"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/max(by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/max(by:)": {
   "abstract" : [
-    {
-      "text" : "Returns the maximum element in the sequence, using the given predicate",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "as the comparison between elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1899,6 +1685,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1915,6 +1702,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1956,6 +1744,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1963,27 +1752,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/max(by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/max(by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "max(by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/max(by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/min(by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/min(by:)": {
   "abstract" : [
-    {
-      "text" : "Returns the minimum element in the sequence, using the given predicate as",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the comparison between elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2020,6 +1798,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2036,6 +1815,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2077,6 +1857,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2084,14 +1865,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/min(by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/min(by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "min(by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/min(by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/publisher": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/publisher": {
   "abstract" : [
 
   ],
@@ -2148,27 +1929,16 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/publisher",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/publisher",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "publisher",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/publisher"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/reduce(_:_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/reduce(_:_:)": {
   "abstract" : [
-    {
-      "text" : "Returns the result of combining the elements of the sequence using the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given closure.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2221,6 +1991,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2256,27 +2027,16 @@
       "text" : "Result"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reduce(_:_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reduce(_:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "reduce(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/reduce(_:_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/reduce(into:_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/reduce(into:_:)": {
   "abstract" : [
-    {
-      "text" : "Returns the result of combining the elements of the sequence using the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given closure.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2345,6 +2105,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2372,27 +2133,16 @@
       "text" : "Result"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reduce(into:_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reduce(into:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "reduce(into:_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/reduce(into:_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/reversed()": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/reversed()": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the elements of this sequence in reverse",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "order.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2421,6 +2171,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2428,19 +2179,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reversed()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/reversed()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "reversed()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/reversed()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/shuffled()": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/shuffled()": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, shuffled.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2469,6 +2217,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2476,27 +2225,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/shuffled()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/shuffled()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "shuffled()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/shuffled()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/shuffled(using:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/shuffled(using:)": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, shuffled using the given generator",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "as a source for randomness.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2557,6 +2295,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2564,27 +2303,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/shuffled(using:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/shuffled(using:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "shuffled(using:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/shuffled(using:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/sorted(by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/sorted(by:)": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, sorted using the given predicate as",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the comparison between elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2621,6 +2349,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2637,6 +2366,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2678,6 +2408,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2685,31 +2416,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "sorted(by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/sorted(by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/sorted(using:)-68jsj": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/sorted(using:)-68jsj": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, sorted using the given array of",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "code" : "SortComparator",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : "s to compare elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2770,6 +2486,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2777,27 +2494,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(using:)-68jsj",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(using:)-68jsj",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "sorted(using:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/sorted(using:)-68jsj"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/sorted(using:)-697y4": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/sorted(using:)-697y4": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, sorted using the given comparator",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "to compare elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2850,6 +2556,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2857,27 +2564,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(using:)-697y4",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/sorted(using:)-697y4",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "sorted(using:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/sorted(using:)-697y4"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/starts(with:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/starts(with:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the initial elements of the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence are the same as the elements in another sequence.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2958,35 +2654,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/starts(with:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/starts(with:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "starts(with:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/starts(with:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/starts(with:by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/starts(with:by:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the initial elements of the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence are equivalent to the elements in another sequence, using",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the given predicate as the equivalence test.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -3047,6 +2724,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -3063,6 +2741,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -3100,64 +2779,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/starts(with:by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/starts(with:by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "starts(with:by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/starts(with:by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/underestimatedCount-6a1kz": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/withContiguousStorageIfAvailable(_:)": {
   "abstract" : [
-    {
-      "text" : "A value less than or equal to the number of elements in the sequence,",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "calculated nondestructively.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "underestimatedCount"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/underestimatedCount-6a1kz",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "underestimatedCount",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/underestimatedcount-6a1kz"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/withContiguousStorageIfAvailable(_:)": {
-  "abstract" : [
-    {
-      "text" : "Executes a closure on the sequence’s contiguous storage.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -3203,6 +2834,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -3242,7 +2874,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/withContiguousStorageIfAvailable(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/withContiguousStorageIfAvailable(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "withContiguousStorageIfAvailable(_:)",

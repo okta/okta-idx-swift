@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -36,6 +36,15 @@
       {
         "kind" : "text",
         "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+        "text" : "InteractionCodeFlow"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
       },
       {
         "kind" : "typeIdentifier",
@@ -85,7 +94,17 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+              "text" : "InteractionCodeFlow"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC7ContextV",
               "text" : "Context"
@@ -142,21 +161,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -177,7 +196,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -190,7 +209,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Context-swift.struct": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/Context-swift.struct": {
   "abstract" : [
     {
       "text" : "Object that defines the context for the current authentication session, which is required when a session needs to be resumed.",
@@ -211,7 +230,7 @@
       "text" : "Context"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/Context-swift.struct",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -224,7 +243,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/context-swift.struct"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/context-swift.property": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/context-swift.property": {
   "abstract" : [
     {
       "text" : "The current context for the authentication session.",
@@ -250,6 +269,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC7ContextV",
       "text" : "Context"
     },
@@ -258,7 +286,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "context",

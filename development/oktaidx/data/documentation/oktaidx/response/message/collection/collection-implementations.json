@@ -2,14 +2,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations"
   },
   "kind" : "article",
   "metadata" : {
@@ -19,6 +19,7 @@
       }
     ],
     "role" : "collectionGroup",
+    "roleHeading" : "API Collection",
     "title" : "Collection Implementations"
   },
   "schemaVersion" : {
@@ -33,86 +34,95 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/count",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/endIndex",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/first",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/indices",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/isEmpty",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/startIndex",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/underestimatedCount-3glvi"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/count",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/endIndex",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/first",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/indices",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/isEmpty",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/startIndex",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/underestimatedCount"
       ],
       "title" : "Instance Properties"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/distance(from:to:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/drop(while:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/dropFirst(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/dropLast(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstIndex(of:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstIndex(where:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstRange(of:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(_:offsetBy:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(_:offsetBy:limitedBy:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(after:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(_:offsetBy:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(_:offsetBy:limitedBy:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(after:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(of:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/makeIterator()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/map(_:)-7m0du",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(through:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(upTo:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(while:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/randomElement()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/randomElement(using:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/ranges(of:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/split(maxSplits:omittingEmptySubsequences:whereSeparator:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/split(separator:maxSplits:omittingEmptySubsequences:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/suffix(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/suffix(from:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/trimmingPrefix(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/trimmingPrefix(while:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/distance(from:to:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/drop(while:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/dropFirst(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/dropLast(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstIndex(of:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstIndex(where:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstRange(of:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(_:offsetBy:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(_:offsetBy:limitedBy:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(after:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(_:offsetBy:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(_:offsetBy:limitedBy:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(after:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(of:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/makeIterator()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/map(_:)-7m0du",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(through:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(upTo:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(while:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/randomElement()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/randomElement(using:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/ranges(of:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/split(maxSplits:omittingEmptySubsequences:whereSeparator:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/split(separator:maxSplits:omittingEmptySubsequences:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/suffix(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/suffix(from:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/trimmingPrefix(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/trimmingPrefix(while:)"
       ],
       "title" : "Instance Methods"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-5u38j",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-77thl",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-7lpim",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-b7uq"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)"
       ],
       "title" : "Subscripts"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Index"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Index"
       ],
       "title" : "Type Aliases"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/response\/message\/collection\/collection-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
     }
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of messages.",
@@ -133,7 +143,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -146,12 +156,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Index": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Index": {
   "abstract" : [
-    {
-      "text" : "A type that represents a position in the collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -167,7 +174,7 @@
       "text" : "Index"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Index",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Index",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -180,12 +187,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/index"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/count": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/count": {
   "abstract" : [
-    {
-      "text" : "The number of elements in the collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -210,19 +214,16 @@
       "text" : "Int"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/count",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/count",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "count",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/count"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/distance(from:to:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/distance(from:to:)": {
   "abstract" : [
-    {
-      "text" : "Returns the distance between two indices.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -259,6 +260,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -283,6 +285,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -295,39 +298,16 @@
       "text" : "Int"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/distance(from:to:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/distance(from:to:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "distance(from:to:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/distance(from:to:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/drop(while:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/drop(while:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence by skipping elements while ",
-      "type" : "text"
-    },
-    {
-      "code" : "predicate",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " returns",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "code" : "true",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " and returning the remaining elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -364,6 +344,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -405,30 +386,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/drop(while:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/drop(while:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "drop(while:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/drop(while:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/dropFirst(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/dropFirst(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence containing all but the given number of initial",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -466,30 +437,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/dropFirst(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/dropFirst(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "dropFirst(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/dropfirst(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/dropLast(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/dropLast(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence containing all but the specified number of final",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -527,30 +488,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/dropLast(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/dropLast(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "dropLast(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/droplast(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/endIndex": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/endIndex": {
   "abstract" : [
-    {
-      "text" : "The collection’s “past the end” position—that is, the position one",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "greater than the last valid subscript argument.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -571,23 +522,47 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC",
+      "text" : "Collection"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
       "text" : "Index"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/endIndex",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/endIndex",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "endIndex",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/endindex"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/first": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/first": {
   "abstract" : [
-    {
-      "text" : "The first element of the collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -616,6 +591,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -623,27 +599,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/first",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/first",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "first",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/first"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/firstIndex(of:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/firstIndex(of:)": {
   "abstract" : [
-    {
-      "text" : "Returns the first index where the specified value appears in the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "collection.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -712,6 +677,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -728,6 +694,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -735,27 +702,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstIndex(of:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstIndex(of:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "firstIndex(of:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/firstindex(of:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/firstIndex(where:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/firstIndex(where:)": {
   "abstract" : [
-    {
-      "text" : "Returns the first index in which an element of the collection satisfies",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -792,6 +748,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -833,6 +790,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -840,27 +798,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstIndex(where:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstIndex(where:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "firstIndex(where:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/firstindex(where:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/firstRange(of:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/firstRange(of:)": {
   "abstract" : [
-    {
-      "text" : "Finds and returns the range of the first occurrence of a given collection",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "within this collection.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -954,6 +901,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -961,19 +909,16 @@
       "text" : ">?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstRange(of:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/firstRange(of:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "firstRange(of:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/firstrange(of:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/formIndex(_:offsetBy:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/formIndex(_:offsetBy:)": {
   "abstract" : [
-    {
-      "text" : "Offsets the given index by the specified distance.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1010,6 +955,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1034,27 +980,16 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(_:offsetBy:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(_:offsetBy:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "formIndex(_:offsetBy:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/formindex(_:offsetby:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/formIndex(_:offsetBy:limitedBy:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/formIndex(_:offsetBy:limitedBy:)": {
   "abstract" : [
-    {
-      "text" : "Offsets the given index by the specified distance, or so that it equals",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the given limiting index.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1091,6 +1026,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1132,6 +1068,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1144,19 +1081,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(_:offsetBy:limitedBy:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(_:offsetBy:limitedBy:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "formIndex(_:offsetBy:limitedBy:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/formindex(_:offsetby:limitedby:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/formIndex(after:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/formIndex(after:)": {
   "abstract" : [
-    {
-      "text" : "Replaces the given index with its successor.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1201,6 +1135,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1208,19 +1143,16 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(after:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/formIndex(after:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "formIndex(after:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/formindex(after:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/index(_:offsetBy:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/index(_:offsetBy:)": {
   "abstract" : [
-    {
-      "text" : "Returns an index that is the specified distance from the given index.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1249,6 +1181,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1282,30 +1215,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(_:offsetBy:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(_:offsetBy:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "index(_:offsetBy:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/index(_:offsetby:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/index(_:offsetBy:limitedBy:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/index(_:offsetBy:limitedBy:)": {
   "abstract" : [
-    {
-      "text" : "Returns an index that is the specified distance from the given index,",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "unless that distance is beyond a given limiting index.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1334,6 +1257,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1375,6 +1299,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1391,6 +1316,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1398,19 +1324,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(_:offsetBy:limitedBy:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(_:offsetBy:limitedBy:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "index(_:offsetBy:limitedBy:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/index(_:offsetby:limitedby:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/index(after:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/index(after:)": {
   "abstract" : [
-    {
-      "text" : "Returns the position immediately after the given index.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1439,6 +1362,33 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC",
+      "text" : "Collection"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
       "text" : "Index"
     },
@@ -1448,31 +1398,47 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC",
+      "text" : "Collection"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
       "text" : "Index"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(after:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(after:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "index(after:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/index(after:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/index(of:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/index(of:)": {
   "abstract" : [
-    {
-      "text" : "Returns the first index where the specified value appears in the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "collection.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1542,6 +1508,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1558,6 +1525,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -1565,27 +1533,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(of:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/index(of:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "index(of:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/index(of:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/indices": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/indices": {
   "abstract" : [
-    {
-      "text" : "The indices that are valid for subscripting the collection, in ascending",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "order.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1654,19 +1611,16 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/indices",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/indices",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "indices",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/indices"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/isEmpty": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/isEmpty": {
   "abstract" : [
-    {
-      "text" : "A Boolean value indicating whether the collection is empty.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1691,19 +1645,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/isEmpty",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/isEmpty",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "isEmpty",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/isempty"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/makeIterator()": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/makeIterator()": {
   "abstract" : [
-    {
-      "text" : "Returns an iterator over the elements of the collection.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1772,27 +1723,16 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/makeIterator()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/makeIterator()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "makeIterator()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/makeiterator()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/map(_:)-7m0du": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/map(_:)-7m0du": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the results of mapping the given closure",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "over the sequence’s elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1829,6 +1769,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1868,27 +1809,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/map(_:)-7m0du",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/map(_:)-7m0du",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "map(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/map(_:)-7m0du"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/prefix(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/prefix(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence, up to the specified maximum length, containing",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the initial elements of the collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1926,30 +1856,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "prefix(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/prefix(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/prefix(through:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/prefix(through:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence from the start of the collection through the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "specified position.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1986,6 +1906,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -2002,30 +1923,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(through:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(through:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "prefix(through:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/prefix(through:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/prefix(upTo:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/prefix(upTo:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence from the start of the collection up to, but not",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "including, the specified position.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2062,6 +1973,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -2078,42 +1990,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(upTo:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(upTo:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "prefix(upTo:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/prefix(upto:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/prefix(while:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/prefix(while:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence containing the initial elements until ",
-      "type" : "text"
-    },
-    {
-      "code" : "predicate",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "returns ",
-      "type" : "text"
-    },
-    {
-      "code" : "false",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " and skipping the remaining elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2150,6 +2040,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2191,22 +2082,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(while:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/prefix(while:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "prefix(while:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/prefix(while:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/randomElement()": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/randomElement()": {
   "abstract" : [
-    {
-      "text" : "Returns a random element of the collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2235,6 +2124,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2242,27 +2132,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/randomElement()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/randomElement()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "randomElement()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/randomelement()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/randomElement(using:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/randomElement(using:)": {
   "abstract" : [
-    {
-      "text" : "Returns a random element of the collection, using the given generator as",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "a source for randomness.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2323,6 +2202,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2330,27 +2210,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/randomElement(using:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/randomElement(using:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "randomElement(using:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/randomelement(using:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/ranges(of:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/ranges(of:)": {
   "abstract" : [
-    {
-      "text" : "Finds and returns the ranges of the all occurrences of a given sequence",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "within the collection.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2444,6 +2313,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -2451,27 +2321,16 @@
       "text" : ">]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/ranges(of:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/ranges(of:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "ranges(of:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/ranges(of:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/split(maxSplits:omittingEmptySubsequences:whereSeparator:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/split(maxSplits:omittingEmptySubsequences:whereSeparator:)": {
   "abstract" : [
-    {
-      "text" : "Returns the longest possible subsequences of the collection, in order,",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "that don’t contain elements satisfying the given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2542,6 +2401,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2583,6 +2443,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     },
     {
@@ -2590,27 +2451,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/split(maxSplits:omittingEmptySubsequences:whereSeparator:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/split(maxSplits:omittingEmptySubsequences:whereSeparator:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "split(maxSplits:omittingEmptySubsequences:whereSeparator:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/split(maxsplits:omittingemptysubsequences:whereseparator:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/split(separator:maxSplits:omittingEmptySubsequences:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/split(separator:maxSplits:omittingEmptySubsequences:)": {
   "abstract" : [
-    {
-      "text" : "Returns the longest possible subsequences of the collection, in order,",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "around elements equal to the given element.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2679,6 +2529,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2729,6 +2580,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     },
     {
@@ -2736,19 +2588,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/split(separator:maxSplits:omittingEmptySubsequences:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/split(separator:maxSplits:omittingEmptySubsequences:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "split(separator:maxSplits:omittingEmptySubsequences:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/split(separator:maxsplits:omittingemptysubsequences:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/startIndex": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/startIndex": {
   "abstract" : [
-    {
-      "text" : "The position of the first element in a nonempty collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2769,214 +2618,45 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC",
+      "text" : "Collection"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
       "text" : "Index"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/startIndex",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/startIndex",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "startIndex",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/startindex"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/subscript(_:)-5u38j": {
-  "abstract" : [
-    {
-      "text" : "Accesses the element at the specified position.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "subscript"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
-      "text" : "Index"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC7Elementa",
-      "text" : "Element"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-5u38j",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "subscript(_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)-5u38j"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/subscript(_:)-77thl": {
-  "abstract" : [
-    {
-      "text" : "Accesses the contiguous subrange of the collection’s elements specified",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "by a range expression.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "subscript"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "genericParameter",
-      "text" : "R"
-    },
-    {
-      "kind" : "text",
-      "text" : ">("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "R"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "Self"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "SubSequence"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-77thl",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "subscript(_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)-77thl"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/subscript(_:)-7lpim": {
-  "abstract" : [
-    {
-      "text" : "Accesses a contiguous subrange of the collection’s elements.",
-      "type" : "text"
-    }
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "SubSequence",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "Slice<Self>",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "subscript"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Sn",
-      "text" : "Range"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "Self"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "Index"
-    },
-    {
-      "kind" : "text",
-      "text" : ">) -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:s5SliceV",
-      "text" : "Slice"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "Self"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-7lpim",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "subscript(_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)-7lpim"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/subscript(_:)-b7uq": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/subscript(_:)": {
   "abstract" : [
 
   ],
@@ -2987,20 +2667,12 @@
     },
     {
       "kind" : "text",
-      "text" : "(("
+      "text" : "("
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:s15UnboundedRange_O",
-      "text" : "UnboundedRange_"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> ()) -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "Self"
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
     },
     {
       "kind" : "text",
@@ -3008,30 +2680,74 @@
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "SubSequence"
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC",
+      "text" : "Collection"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC5Indexa",
+      "text" : "Index"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC",
+      "text" : "Collection"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC7Elementa",
+      "text" : "Element"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)-b7uq",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/subscript(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "subscript(_:)",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)-b7uq"
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/subscript(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/suffix(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/suffix(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence, up to the given maximum length, containing the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "final elements of the collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -3069,30 +2785,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/suffix(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/suffix(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "suffix(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/suffix(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/suffix(from:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/suffix(from:)": {
   "abstract" : [
-    {
-      "text" : "Returns a subsequence from the specified position to the end of the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -3129,6 +2835,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl5IndexQa",
       "text" : "Index"
     },
     {
@@ -3145,30 +2852,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/suffix(from:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/suffix(from:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "suffix(from:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/suffix(from:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/trimmingPrefix(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/trimmingPrefix(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a new collection of the same type by removing initial elements",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "that satisfy the given predicate from the start.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -3245,17 +2942,18 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/trimmingPrefix(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/trimmingPrefix(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "trimmingPrefix(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/trimmingprefix(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/trimmingPrefix(while:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/trimmingPrefix(while:)": {
   "abstract" : [
 
   ],
@@ -3294,6 +2992,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -3335,22 +3034,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sl11SubSequenceQa",
       "text" : "SubSequence"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/trimmingPrefix(while:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/trimmingPrefix(while:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "trimmingPrefix(while:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/trimmingprefix(while:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/underestimatedCount-3glvi": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/underestimatedCount": {
   "abstract" : [
-    {
-      "text" : "A value less than or equal to the number of elements in the collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -3375,12 +3072,12 @@
       "text" : "Int"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/underestimatedCount-3glvi",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/underestimatedCount",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "underestimatedCount",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/underestimatedcount-3glvi"
+  "url" : "\/documentation\/oktaidx\/response\/message\/collection\/underestimatedcount"
 }
 }
 }

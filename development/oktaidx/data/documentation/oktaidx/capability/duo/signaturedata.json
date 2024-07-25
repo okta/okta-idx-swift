@@ -2,15 +2,15 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/signatureData"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/signatureData"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -116,21 +116,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability": {
+"doc://OktaIdx/documentation/OktaIdx/Capability": {
   "abstract" : [
     {
       "text" : "Abstractly describes the types of operations, metadata, or additional information that can be associated with IDX remediations or authenticators.",
@@ -151,7 +151,7 @@
       "text" : "Capability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -164,7 +164,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Duo": {
   "abstract" : [
     {
       "text" : "Capability to access data related to Duo",
@@ -185,7 +185,7 @@
       "text" : "Duo"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -198,7 +198,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/duo"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo/signatureData": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Duo/signatureData": {
   "abstract" : [
 
   ],
@@ -229,7 +229,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/signatureData",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/signatureData",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "signatureData",

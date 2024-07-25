@@ -8,13 +8,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -82,10 +82,10 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/Sl",
-        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
-        "doc:\/\/com.okta.mobile.oktaidx\/SH",
-        "doc:\/\/com.okta.mobile.oktaidx\/ST"
+        "doc:\/\/OktaIdx\/Sl",
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/SH",
+        "doc:\/\/OktaIdx\/ST"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -104,10 +104,10 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct"
       ],
       "title" : "Working with Responses"
     }
@@ -115,30 +115,30 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/==(_:_:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/==(_:_:)"
       ],
       "title" : "Operators"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/allMessages"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/allMessages"
       ],
       "title" : "Instance Properties"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/hash(into:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/message(for:)-5p58e",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/message(for:)-9kg5a"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/hash(into:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/message(for:)-5p58e",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/message(for:)-9kg5a"
       ],
       "title" : "Instance Methods"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Equatable-Implementations",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Equatable-Implementations",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -157,41 +157,41 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/SH": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+"doc://OktaIdx/SH": {
+  "identifier" : "doc:\/\/OktaIdx\/SH",
   "title" : "Swift.Hashable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/SQ": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
   "title" : "Swift.Equatable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/ST": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/ST",
+"doc://OktaIdx/ST": {
+  "identifier" : "doc:\/\/OktaIdx\/ST",
   "title" : "Swift.Sequence",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/Sl": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/Sl",
+"doc://OktaIdx/Sl": {
+  "identifier" : "doc:\/\/OktaIdx\/Sl",
   "title" : "Swift.Collection",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -212,7 +212,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -225,7 +225,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Application": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Application": {
   "abstract" : [
     {
       "text" : "Provides information about the client application being authenticated against.",
@@ -246,7 +246,7 @@
       "text" : "Application"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -259,7 +259,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/application"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message": {
   "abstract" : [
     {
       "text" : "Represents messages sent from the server to indicate error or warning conditions related to responses or form values.",
@@ -280,7 +280,7 @@
       "text" : "Message"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -293,7 +293,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of messages.",
@@ -314,7 +314,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -327,12 +327,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/==(_:_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/==(_:_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether two values are equal.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -365,12 +362,48 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC10CollectionC",
       "text" : "Collection"
     },
     {
       "kind" : "text",
       "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
+      "text" : "Response"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx8ResponseC7MessageC",
+      "text" : "Message"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
@@ -387,47 +420,47 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/==(_:_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/==(_:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "==(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/==(_:_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Collection-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Collection-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Collection-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Collection Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/collection-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Equatable-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Equatable-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Equatable-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Equatable-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Equatable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/equatable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Sequence-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Sequence-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Sequence Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/sequence-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/allMessages": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/allMessages": {
   "abstract" : [
     {
       "text" : "All messages within this collection, and all nested messages.",
@@ -470,27 +503,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/allMessages",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/allMessages",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "allMessages",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/allmessages"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/hash(into:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/hash(into:)": {
   "abstract" : [
-    {
-      "text" : "Hashes the essential components of this value by feeding them into the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given hasher.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -535,14 +557,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/hash(into:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/hash(into:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "hash(into:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/hash(into:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/message(for:)-5p58e": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/message(for:)-5p58e": {
   "abstract" : [
     {
       "text" : "Convenience method to return the message for a field with the given name.",
@@ -602,14 +624,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/message(for:)-5p58e",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/message(for:)-5p58e",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "message(for:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/message(for:)-5p58e"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/message(for:)-9kg5a": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/message(for:)-9kg5a": {
   "abstract" : [
     {
       "text" : "Convenience to return the message associated with the given field.",
@@ -687,14 +709,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/message(for:)-9kg5a",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/message(for:)-9kg5a",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "message(for:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/message(for:)-9kg5a"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct": {
+"doc://OktaIdx/documentation/OktaIdx/Response/User-swift.struct": {
   "abstract" : [
     {
       "text" : "Provides information about the user being authenticated.",
@@ -715,7 +737,7 @@
       "text" : "User"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

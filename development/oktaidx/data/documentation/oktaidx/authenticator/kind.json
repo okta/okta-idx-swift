@@ -8,13 +8,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -82,8 +82,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
-        "doc:\/\/com.okta.mobile.oktaidx\/SH"
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/SH"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -102,10 +102,10 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Method",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Method",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum"
       ],
       "title" : "Working with Authenticators"
     }
@@ -113,22 +113,22 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/app",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/device",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/email",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/federated",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/password",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/phone",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/securityKey",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/securityQuestion",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/unknown"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/app",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/device",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/email",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/federated",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/password",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/phone",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/securityKey",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/securityQuestion",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/unknown"
       ],
       "title" : "Enumeration Cases"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/Equatable-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/Equatable-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -147,31 +147,31 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/SH": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+"doc://OktaIdx/SH": {
+  "identifier" : "doc:\/\/OktaIdx\/SH",
   "title" : "Swift.Hashable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/SQ": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
   "title" : "Swift.Equatable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator": {
   "abstract" : [
     {
       "text" : "Represents information describing the available authenticators and enrolled authenticators.",
@@ -192,7 +192,7 @@
       "text" : "Authenticator"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -205,7 +205,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection": {
   "abstract" : [
     {
       "text" : "Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.",
@@ -226,7 +226,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -239,7 +239,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind": {
   "abstract" : [
     {
       "text" : "The type of authenticator.",
@@ -260,7 +260,7 @@
       "text" : "Kind"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -273,18 +273,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/Equatable-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/Equatable-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/Equatable-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/Equatable-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Equatable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/equatable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/app": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/app": {
   "abstract" : [
 
   ],
@@ -302,14 +302,14 @@
       "text" : "app"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/app",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/app",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.app",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/app"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/device": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/device": {
   "abstract" : [
 
   ],
@@ -327,14 +327,14 @@
       "text" : "device"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/device",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/device",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.device",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/device"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/email": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/email": {
   "abstract" : [
 
   ],
@@ -352,14 +352,14 @@
       "text" : "email"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/email",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/email",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.email",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/email"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/federated": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/federated": {
   "abstract" : [
 
   ],
@@ -377,14 +377,14 @@
       "text" : "federated"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/federated",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/federated",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.federated",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/federated"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/password": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/password": {
   "abstract" : [
 
   ],
@@ -402,14 +402,14 @@
       "text" : "password"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/password",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/password",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.password",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/password"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/phone": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/phone": {
   "abstract" : [
 
   ],
@@ -427,14 +427,14 @@
       "text" : "phone"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/phone",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/phone",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.phone",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/phone"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/securityKey": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/securityKey": {
   "abstract" : [
 
   ],
@@ -452,14 +452,14 @@
       "text" : "securityKey"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/securityKey",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/securityKey",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.securityKey",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/securitykey"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/securityQuestion": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/securityQuestion": {
   "abstract" : [
 
   ],
@@ -477,14 +477,14 @@
       "text" : "securityQuestion"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/securityQuestion",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/securityQuestion",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.securityQuestion",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/securityquestion"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Kind/unknown": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/unknown": {
   "abstract" : [
 
   ],
@@ -502,14 +502,14 @@
       "text" : "unknown"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Kind\/unknown",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/unknown",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Authenticator.Kind.unknown",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/kind\/unknown"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Method": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Method": {
   "abstract" : [
     {
       "text" : "The method, or sub-type, of an authenticator.",
@@ -530,7 +530,7 @@
       "text" : "Method"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Method",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Method",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -543,7 +543,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/method"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/State-swift.enum": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/State-swift.enum": {
   "abstract" : [
     {
       "text" : "The state this authenticator is currently in.",
@@ -564,7 +564,7 @@
       "text" : "State"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

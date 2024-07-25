@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -83,8 +83,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/AuthenticatorCapability",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -102,16 +102,16 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/host",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/script",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/signatureData",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/signedToken"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/host",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/script",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/signatureData",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/signedToken"
       ],
       "title" : "Instance Properties"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/willProceed(to:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/willProceed(to:)"
       ],
       "title" : "Instance Methods"
     }
@@ -130,21 +130,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/AuthenticatorCapability": {
+"doc://OktaIdx/documentation/OktaIdx/AuthenticatorCapability": {
   "abstract" : [
     {
       "text" : "Defines type conformance for capabilities that can be used with Authenticators.",
@@ -165,7 +165,7 @@
       "text" : "AuthenticatorCapability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/AuthenticatorCapability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -178,7 +178,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticatorcapability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability": {
+"doc://OktaIdx/documentation/OktaIdx/Capability": {
   "abstract" : [
     {
       "text" : "Abstractly describes the types of operations, metadata, or additional information that can be associated with IDX remediations or authenticators.",
@@ -199,7 +199,7 @@
       "text" : "Capability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -212,7 +212,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Duo": {
   "abstract" : [
     {
       "text" : "Capability to access data related to Duo",
@@ -233,7 +233,7 @@
       "text" : "Duo"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -246,7 +246,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/duo"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo/host": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Duo/host": {
   "abstract" : [
 
   ],
@@ -273,14 +273,14 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/host",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/host",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "host",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/duo\/host"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo/script": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Duo/script": {
   "abstract" : [
 
   ],
@@ -307,14 +307,14 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/script",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/script",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "script",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/duo\/script"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo/signatureData": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Duo/signatureData": {
   "abstract" : [
 
   ],
@@ -345,14 +345,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/signatureData",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/signatureData",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "signatureData",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/duo\/signaturedata"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo/signedToken": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Duo/signedToken": {
   "abstract" : [
 
   ],
@@ -379,19 +379,16 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/signedToken",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/signedToken",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "signedToken",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/duo\/signedtoken"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Duo/willProceed(to:)": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Duo/willProceed(to:)": {
   "abstract" : [
-    {
-      "text" : "Message sent to capabilities when the response it’s contained within will proceed through a remediation.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -428,14 +425,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Duo\/willProceed(to:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Duo\/willProceed(to:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "willProceed(to:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/duo\/willproceed(to:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXCapability": {
+"doc://OktaIdx/documentation/OktaIdx/IDXCapability": {
   "abstract" : [
     {
       "text" : "A generic protocol used to identify objects that describe a capability.",
@@ -456,7 +453,7 @@
       "text" : "IDXCapability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

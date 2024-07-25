@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/state-swift.property"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/state-swift.property"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -36,6 +36,15 @@
       {
         "kind" : "text",
         "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+        "text" : "Authenticator"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
       },
       {
         "kind" : "typeIdentifier",
@@ -81,7 +90,17 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+              "text" : "Authenticator"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC5StateO",
               "text" : "State"
@@ -114,21 +133,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator": {
   "abstract" : [
     {
       "text" : "Represents information describing the available authenticators and enrolled authenticators.",
@@ -149,7 +168,7 @@
       "text" : "Authenticator"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -162,7 +181,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/State-swift.enum": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/State-swift.enum": {
   "abstract" : [
     {
       "text" : "The state this authenticator is currently in.",
@@ -183,7 +202,7 @@
       "text" : "State"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -196,7 +215,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/state-swift.enum"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/state-swift.property": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/state-swift.property": {
   "abstract" : [
     {
       "text" : "Indicates the state of this authenticator, either being an available authenticator, an enrolled authenticator, authenticating, or enrolling.",
@@ -222,11 +241,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC5StateO",
       "text" : "State"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/state-swift.property",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/state-swift.property",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "state",

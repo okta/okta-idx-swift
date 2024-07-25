@@ -1,22 +1,30 @@
 {
   "abstract" : [
     {
-      "text" : "Returns the position immediately after the given index.",
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "Collection.index(after:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Collection-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Collection-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/index(after:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/index(after:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -49,12 +57,48 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+        "text" : "Authenticator"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC",
+        "text" : "Collection"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC5Indexa",
         "text" : "Index"
       },
       {
         "kind" : "text",
         "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+        "text" : "Authenticator"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC",
+        "text" : "Collection"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
       },
       {
         "kind" : "typeIdentifier",
@@ -116,7 +160,27 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Index",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+              "text" : "Authenticator"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC",
+              "text" : "Collection"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Index",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC5Indexa",
               "text" : "Index"
@@ -126,7 +190,27 @@
               "text" : ") -> "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Index",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+              "text" : "Authenticator"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC",
+              "text" : "Collection"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Index",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC5Indexa",
               "text" : "Index"
@@ -135,133 +219,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The index value immediately after ",
-              "type" : "text"
-            },
-            {
-              "code" : "i",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ".",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "A valid index of the collection. ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "i",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : " must be less than",
-                  "type" : "text"
-                },
-                {
-                  "text" : " ",
-                  "type" : "text"
-                },
-                {
-                  "code" : "endIndex",
-                  "type" : "codeVoice"
-                },
-                {
-                  "text" : ".",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "i"
-        }
-      ]
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "discussion",
-          "level" : 2,
-          "text" : "Discussion",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The successor of an index must be well defined. For an index ",
-              "type" : "text"
-            },
-            {
-              "code" : "i",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " into a",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "collection ",
-              "type" : "text"
-            },
-            {
-              "code" : "c",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ", calling ",
-              "type" : "text"
-            },
-            {
-              "code" : "c.index(after: i)",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " returns the same index every",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "time.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -286,21 +243,55 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator": {
+  "abstract" : [
+    {
+      "text" : "Represents information describing the available authenticators and enrolled authenticators.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Authenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Authenticator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection": {
   "abstract" : [
     {
       "text" : "Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.",
@@ -321,7 +312,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -334,23 +325,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/Collection-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/Collection-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Collection-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Collection-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Collection Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/collection-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/Index": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/Index": {
   "abstract" : [
-    {
-      "text" : "A type that represents a position in the collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -366,7 +354,7 @@
       "text" : "Index"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Index",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Index",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -379,12 +367,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/index"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/index(after:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/index(after:)": {
   "abstract" : [
-    {
-      "text" : "Returns the position immediately after the given index.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -413,6 +398,24 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC",
+      "text" : "Collection"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC5Indexa",
       "text" : "Index"
     },
@@ -422,11 +425,29 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC",
+      "text" : "Collection"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC10CollectionC5Indexa",
       "text" : "Index"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/index(after:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/index(after:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "index(after:)",

@@ -5,7 +5,7 @@
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
       "isActive" : true,
       "type" : "reference"
     },
@@ -14,7 +14,7 @@
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
       "isActive" : true,
       "type" : "reference"
     },
@@ -26,14 +26,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:completion:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:completion:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -65,6 +65,15 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+        "text" : "InteractionCodeFlow"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC6OptionO",
         "text" : "Option"
       },
@@ -87,6 +96,15 @@
       {
         "kind" : "text",
         "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+        "text" : "InteractionCodeFlow"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
       },
       {
         "kind" : "typeIdentifier",
@@ -144,7 +162,17 @@
               "text" : ": ["
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+              "text" : "InteractionCodeFlow"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC6OptionO",
               "text" : "Option"
@@ -170,7 +198,7 @@
               "text" : ": "
             },
             {
-              "kind" : "attribute",
+              "kind" : "keyword",
               "text" : "@escaping"
             },
             {
@@ -178,7 +206,17 @@
               "text" : " "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/ResponseResult",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+              "text" : "InteractionCodeFlow"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/ResponseResult",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC14ResponseResulta",
               "text" : "ResponseResult"
@@ -238,8 +276,8 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume(completion:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/exchangeCode(redirect:completion:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume(completion:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/exchangeCode(redirect:completion:)"
       ],
       "title" : "Completion Block Functions"
     }
@@ -258,21 +296,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -293,7 +331,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -306,14 +344,14 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/Option": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/Option": {
   "abstract" : [
     {
       "text" : "Options to use when initiating a ",
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
       "isActive" : true,
       "type" : "reference"
     },
@@ -336,7 +374,7 @@
       "text" : "Option"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/Option",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -349,14 +387,14 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/option"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/ResponseResult": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/ResponseResult": {
   "abstract" : [
     {
       "text" : "The type used for the completion  handler result from any method that returns an ",
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
       "isActive" : true,
       "type" : "reference"
     },
@@ -379,7 +417,7 @@
       "text" : "ResponseResult"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/ResponseResult",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/ResponseResult",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -392,7 +430,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/responseresult"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/context-swift.property": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/context-swift.property": {
   "abstract" : [
     {
       "text" : "The current context for the authentication session.",
@@ -418,6 +456,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC7ContextV",
       "text" : "Context"
     },
@@ -426,14 +473,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "context",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/context-swift.property"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/exchangeCode(redirect:completion:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/exchangeCode(redirect:completion:)": {
   "abstract" : [
     {
       "text" : "Exchanges the redirect URL with a token.",
@@ -484,6 +531,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC11TokenResulta",
       "text" : "TokenResult"
     },
@@ -492,14 +548,14 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/exchangeCode(redirect:completion:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/exchangeCode(redirect:completion:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "exchangeCode(redirect:completion:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/exchangecode(redirect:completion:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/resume(completion:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/resume(completion:)": {
   "abstract" : [
     {
       "text" : "Resumes the authentication state to identify the available remediation steps.",
@@ -533,6 +589,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC14ResponseResulta",
       "text" : "ResponseResult"
     },
@@ -541,21 +606,21 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume(completion:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/resume(completion:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "resume(completion:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/resume(completion:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/start(options:completion:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/start(options:completion:)": {
   "abstract" : [
     {
       "text" : "Starts a new authentication session. If the client is able to successfully interact with Okta Identity Engine, a ",
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/context-swift.property",
       "isActive" : true,
       "type" : "reference"
     },
@@ -564,7 +629,7 @@
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
       "isActive" : true,
       "type" : "reference"
     },
@@ -600,6 +665,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC6OptionO",
       "text" : "Option"
     },
@@ -625,6 +699,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC",
+      "text" : "InteractionCodeFlow"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx19InteractionCodeFlowC14ResponseResulta",
       "text" : "ResponseResult"
     },
@@ -633,14 +716,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:completion:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/start(options:completion:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "start(options:completion:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/start(options:completion:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -661,7 +744,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field\/value"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field\/value"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -35,7 +35,7 @@
       },
       {
         "kind" : "text",
-        "text" : ": "
+        "text" : ": (any "
       },
       {
         "kind" : "typeIdentifier",
@@ -44,7 +44,7 @@
       },
       {
         "kind" : "text",
-        "text" : "?"
+        "text" : ")?"
       }
     ],
     "modules" : [
@@ -82,17 +82,16 @@
             },
             {
               "kind" : "text",
-              "text" : ": "
+              "text" : ": (any "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequestArgument",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation18APIRequestArgumentP",
               "text" : "APIRequestArgument"
             },
             {
               "kind" : "text",
-              "text" : "? { "
+              "text" : ")? { "
             },
             {
               "kind" : "keyword",
@@ -138,218 +137,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRequest": {
-  "abstract" : [
-    {
-      "text" : "Abstract protocol defining the structure of an API request.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "protocol"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "APIRequest"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "APIRequest"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "APIRequest",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apirequest"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRequest/headers-8ieky": {
-  "abstract" : [
-    {
-      "text" : "Optional HTTP headers to supply.",
-      "type" : "text"
-    }
-  ],
-  "defaultImplementations" : 2,
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "headers"
-    },
-    {
-      "kind" : "text",
-      "text" : ": ["
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
-    },
-    {
-      "kind" : "text",
-      "text" : " : "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation18APIRequestArgumentP",
-      "text" : "APIRequestArgument"
-    },
-    {
-      "kind" : "text",
-      "text" : "?]?"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/headers-8ieky",
-  "kind" : "symbol",
-  "required" : true,
-  "role" : "symbol",
-  "title" : "headers",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apirequest\/headers-8ieky"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRequest/query-730ld": {
-  "abstract" : [
-    {
-      "text" : "Optional query string arguments.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "query"
-    },
-    {
-      "kind" : "text",
-      "text" : ": ["
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
-    },
-    {
-      "kind" : "text",
-      "text" : " : "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14AuthFoundation18APIRequestArgumentP",
-      "text" : "APIRequestArgument"
-    },
-    {
-      "kind" : "text",
-      "text" : "?]?"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/query-730ld",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "query",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apirequest\/query-730ld"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRequestArgument": {
-  "abstract" : [
-    {
-      "text" : "Defines an argument to an ",
-      "type" : "text"
-    },
-    {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest",
-      "isActive" : true,
-      "type" : "reference"
-    },
-    {
-      "text" : ". Used within ",
-      "type" : "text"
-    },
-    {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/headers-8ieky",
-      "isActive" : true,
-      "type" : "reference"
-    },
-    {
-      "text" : " and ",
-      "type" : "text"
-    },
-    {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequest\/query-730ld",
-      "isActive" : true,
-      "type" : "reference"
-    },
-    {
-      "text" : ".",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "protocol"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "APIRequestArgument"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRequestArgument",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "APIRequestArgument"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "APIRequestArgument",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apirequestargument"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Field": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Field": {
   "abstract" : [
     {
       "text" : "Describes an individual field within a form, used to collect and submit information from the user to proceed through the authentication workflow.",
@@ -370,7 +172,7 @@
       "text" : "Field"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -383,7 +185,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.class\/field"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Form-swift.class/Field/value": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Form-swift.class/Field/value": {
   "abstract" : [
     {
       "text" : "The value to send, if a default is provided from the Identity Engine.",
@@ -405,7 +207,7 @@
     },
     {
       "kind" : "text",
-      "text" : ": "
+      "text" : ": (any "
     },
     {
       "kind" : "typeIdentifier",
@@ -414,10 +216,10 @@
     },
     {
       "kind" : "text",
-      "text" : "?"
+      "text" : ")?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field\/value",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Form-swift.class\/Field\/value",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "value",

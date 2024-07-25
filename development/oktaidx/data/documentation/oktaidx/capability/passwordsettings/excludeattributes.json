@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/PasswordSettings"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/PasswordSettings"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/PasswordSettings\/excludeAttributes"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/PasswordSettings\/excludeAttributes"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -121,21 +121,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/PasswordSettings": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/PasswordSettings": {
   "abstract" : [
     {
       "text" : "Describes the password complexity settings.",
@@ -156,7 +156,7 @@
       "text" : "PasswordSettings"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/PasswordSettings",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/PasswordSettings",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -169,7 +169,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/passwordsettings"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/PasswordSettings/excludeAttributes": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/PasswordSettings/excludeAttributes": {
   "abstract" : [
     {
       "text" : "Indicates the user’s attributes that cannot be used within the password.",
@@ -203,7 +203,7 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/PasswordSettings\/excludeAttributes",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/PasswordSettings\/excludeAttributes",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "excludeAttributes",

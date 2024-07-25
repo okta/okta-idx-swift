@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -83,8 +83,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
-        "doc:\/\/com.okta.mobile.oktaidx\/SH"
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/SH"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -102,17 +102,17 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/authenticated",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/invalidContext",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/invalidRedirectUrl",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/remediationRequired"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/authenticated",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/invalidContext",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/invalidRedirectUrl",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/remediationRequired"
       ],
       "title" : "Enumeration Cases"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/Equatable-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/Equatable-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -131,31 +131,31 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/SH": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+"doc://OktaIdx/SH": {
+  "identifier" : "doc:\/\/OktaIdx\/SH",
   "title" : "Swift.Hashable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/SQ": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
   "title" : "Swift.Equatable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -176,7 +176,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -189,7 +189,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult": {
   "abstract" : [
     {
       "text" : "Result of parsing a redirect URL.",
@@ -210,7 +210,7 @@
       "text" : "RedirectResult"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -223,18 +223,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/redirectresult"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/Equatable-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/Equatable-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/Equatable-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/Equatable-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Equatable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/redirectresult\/equatable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/authenticated": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/authenticated": {
   "abstract" : [
     {
       "text" : "Redirect URL contains Authorization Code.",
@@ -255,14 +255,14 @@
       "text" : "authenticated"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/authenticated",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/authenticated",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlow.RedirectResult.authenticated",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/redirectresult\/authenticated"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/invalidContext": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/invalidContext": {
   "abstract" : [
     {
       "text" : "State mismatch or missing context.",
@@ -283,14 +283,14 @@
       "text" : "invalidContext"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/invalidContext",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/invalidContext",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlow.RedirectResult.invalidContext",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/redirectresult\/invalidcontext"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/invalidRedirectUrl": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/invalidRedirectUrl": {
   "abstract" : [
     {
       "text" : "Invalid path or scheme, or URL.",
@@ -311,14 +311,14 @@
       "text" : "invalidRedirectUrl"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/invalidRedirectUrl",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/invalidRedirectUrl",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlow.RedirectResult.invalidRedirectUrl",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/redirectresult\/invalidredirecturl"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/remediationRequired": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/RedirectResult/remediationRequired": {
   "abstract" : [
     {
       "text" : "Remediation required to proceed authorization.",
@@ -339,7 +339,7 @@
       "text" : "remediationRequired"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/remediationRequired",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/RedirectResult\/remediationRequired",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlow.RedirectResult.remediationRequired",

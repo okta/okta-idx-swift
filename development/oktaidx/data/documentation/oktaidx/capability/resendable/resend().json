@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Resendable"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable\/resend()"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Resendable\/resend()"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -137,7 +137,7 @@
               "text" : " -> "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "c:@M@OktaIdx@objc(cs)Response",
               "text" : "Response"
@@ -170,21 +170,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Resendable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Resendable": {
   "abstract" : [
     {
       "text" : "Capability used for being able to “resend” a verification code.",
@@ -205,7 +205,7 @@
       "text" : "Resendable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Resendable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -218,7 +218,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/resendable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Resendable/resend()": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Resendable/resend()": {
   "abstract" : [
     {
       "text" : "Resends a new authentication code.",
@@ -264,14 +264,14 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Resendable\/resend()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Resendable\/resend()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "resend()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/resendable\/resend()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -292,7 +292,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

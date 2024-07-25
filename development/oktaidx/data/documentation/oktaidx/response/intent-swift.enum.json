@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -83,8 +83,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
-        "doc:\/\/com.okta.mobile.oktaidx\/SH"
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/SH"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -102,26 +102,26 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialEnrollment",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialModify",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialRecovery",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialUnenrollment",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/enrollNewUser",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/login",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/unknown"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialEnrollment",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialModify",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialRecovery",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialUnenrollment",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/enrollNewUser",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/login",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/unknown"
       ],
       "title" : "Enumeration Cases"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/init(string:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/init(string:)"
       ],
       "title" : "Initializers"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/Equatable-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/Equatable-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -140,31 +140,31 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/SH": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+"doc://OktaIdx/SH": {
+  "identifier" : "doc:\/\/OktaIdx\/SH",
   "title" : "Swift.Hashable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/SQ": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
   "title" : "Swift.Equatable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -185,7 +185,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -198,7 +198,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum": {
   "abstract" : [
     {
       "text" : "The intent of the authentication workflow, as returned from the server.",
@@ -219,7 +219,7 @@
       "text" : "Intent"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -232,18 +232,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/Equatable-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/Equatable-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/Equatable-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/Equatable-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Equatable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum\/equatable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/credentialEnrollment": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/credentialEnrollment": {
   "abstract" : [
 
   ],
@@ -261,14 +261,14 @@
       "text" : "credentialEnrollment"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialEnrollment",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialEnrollment",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Response.Intent.credentialEnrollment",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum\/credentialenrollment"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/credentialModify": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/credentialModify": {
   "abstract" : [
 
   ],
@@ -286,14 +286,14 @@
       "text" : "credentialModify"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialModify",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialModify",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Response.Intent.credentialModify",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum\/credentialmodify"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/credentialRecovery": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/credentialRecovery": {
   "abstract" : [
 
   ],
@@ -311,14 +311,14 @@
       "text" : "credentialRecovery"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialRecovery",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialRecovery",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Response.Intent.credentialRecovery",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum\/credentialrecovery"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/credentialUnenrollment": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/credentialUnenrollment": {
   "abstract" : [
 
   ],
@@ -336,14 +336,14 @@
       "text" : "credentialUnenrollment"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialUnenrollment",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/credentialUnenrollment",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Response.Intent.credentialUnenrollment",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum\/credentialunenrollment"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/enrollNewUser": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/enrollNewUser": {
   "abstract" : [
 
   ],
@@ -361,14 +361,14 @@
       "text" : "enrollNewUser"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/enrollNewUser",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/enrollNewUser",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Response.Intent.enrollNewUser",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum\/enrollnewuser"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/init(string:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/init(string:)": {
   "abstract" : [
 
   ],
@@ -399,14 +399,14 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/init(string:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/init(string:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "init(string:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum\/init(string:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/login": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/login": {
   "abstract" : [
 
   ],
@@ -424,14 +424,14 @@
       "text" : "login"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/login",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/login",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Response.Intent.login",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/intent-swift.enum\/login"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Intent-swift.enum/unknown": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Intent-swift.enum/unknown": {
   "abstract" : [
 
   ],
@@ -449,7 +449,7 @@
       "text" : "unknown"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/unknown",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Intent-swift.enum\/unknown",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "Response.Intent.unknown",

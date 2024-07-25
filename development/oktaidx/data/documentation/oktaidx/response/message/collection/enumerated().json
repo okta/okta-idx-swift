@@ -1,90 +1,30 @@
 {
   "abstract" : [
     {
-      "text" : "Returns a sequence of pairs (",
+      "text" : "Inherited from ",
       "type" : "text"
     },
     {
-      "inlineContent" : [
-        {
-          "text" : "n",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
+      "code" : "Sequence.enumerated()",
+      "type" : "codeVoice"
     },
     {
-      "text" : ", ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "x",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : "), where ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "n",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : " represents a",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "consecutive integer starting at zero and ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "x",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : " represents an element of",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the sequence.",
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/enumerated()"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/enumerated()"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -127,7 +67,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "role" : "symbol",
@@ -183,247 +126,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "A sequence of pairs enumerating the sequence.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "discussion",
-          "level" : 2,
-          "text" : "Discussion",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "This example enumerates the characters of the string “Swift” and prints",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "each character along with its place in the string.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "code" : [
-            "for (n, c) in \"Swift\".enumerated() {",
-            "    print(\"\\(n): '\\(c)'\")",
-            "}",
-            "\/\/ Prints \"0: 'S'\"",
-            "\/\/ Prints \"1: 'w'\"",
-            "\/\/ Prints \"2: 'i'\"",
-            "\/\/ Prints \"3: 'f'\"",
-            "\/\/ Prints \"4: 't'\""
-          ],
-          "syntax" : null,
-          "type" : "codeListing"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "When you enumerate a collection, the integer part of each pair is a counter",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "for the enumeration, but is not necessarily the index of the paired value.",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "These counters can be used as indices only in instances of zero-based,",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "integer-indexed collections, such as ",
-              "type" : "text"
-            },
-            {
-              "code" : "Array",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " and ",
-              "type" : "text"
-            },
-            {
-              "code" : "ContiguousArray",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ". For",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "other collections the counters may be out of range or of the wrong type",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "to use as an index. To iterate over the elements of a collection with its",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "indices, use the ",
-              "type" : "text"
-            },
-            {
-              "code" : "zip(_:_:)",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " function.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "This example iterates over the indices and elements of a set, building a",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "list consisting of indices of names with five or fewer letters.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "code" : [
-            "let names: Set = [\"Sofia\", \"Camilla\", \"Martina\", \"Mateo\", \"Nicolás\"]",
-            "var shorterIndices: [Set<String>.Index] = []",
-            "for (i, name) in zip(names.indices, names) {",
-            "    if name.count <= 5 {",
-            "        shorterIndices.append(i)",
-            "    }",
-            "}"
-          ],
-          "syntax" : null,
-          "type" : "codeListing"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "Now that the ",
-              "type" : "text"
-            },
-            {
-              "code" : "shorterIndices",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " array holds the indices of the shorter",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "names in the ",
-              "type" : "text"
-            },
-            {
-              "code" : "names",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " set, you can use those indices to access elements in",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "the set.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "code" : [
-            "for i in shorterIndices {",
-            "    print(names[i])",
-            "}",
-            "\/\/ Prints \"Sofia\"",
-            "\/\/ Prints \"Mateo\""
-          ],
-          "syntax" : null,
-          "type" : "codeListing"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "O(1)",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "Complexity",
-          "style" : "note",
-          "type" : "aside"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -448,21 +150,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of messages.",
@@ -483,7 +185,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -496,91 +198,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/Sequence-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/Sequence-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/Sequence-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Sequence Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection\/sequence-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection/enumerated()": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection/enumerated()": {
   "abstract" : [
-    {
-      "text" : "Returns a sequence of pairs (",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "n",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : ", ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "x",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : "), where ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "n",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : " represents a",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "consecutive integer starting at zero and ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "x",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : " represents an element of",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -617,7 +248,7 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection\/enumerated()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection\/enumerated()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "enumerated()",

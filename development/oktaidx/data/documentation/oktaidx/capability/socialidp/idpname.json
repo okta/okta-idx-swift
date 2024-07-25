@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/idpName"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/idpName"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -113,21 +113,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP": {
   "abstract" : [
 
   ],
@@ -145,7 +145,7 @@
       "text" : "SocialIDP"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -158,7 +158,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/socialidp"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/SocialIDP/idpName": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/SocialIDP/idpName": {
   "abstract" : [
     {
       "text" : "The developer-assigned IDP name within the Okta admin dashboard.",
@@ -188,7 +188,7 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/SocialIDP\/idpName",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/SocialIDP\/idpName",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "idpName",

@@ -8,13 +8,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -91,10 +91,10 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct"
       ],
       "title" : "Working with Responses"
     }
@@ -102,9 +102,9 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application\/id",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application\/label",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application\/name"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application\/id",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application\/label",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application\/name"
       ],
       "title" : "Instance Properties"
     }
@@ -123,21 +123,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -158,7 +158,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -171,7 +171,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Application": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Application": {
   "abstract" : [
     {
       "text" : "Provides information about the client application being authenticated against.",
@@ -192,7 +192,7 @@
       "text" : "Application"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -205,7 +205,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/application"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Application/id": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Application/id": {
   "abstract" : [
     {
       "text" : "Unique identifier for this application.",
@@ -235,14 +235,14 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application\/id",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application\/id",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "id",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/application\/id"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Application/label": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Application/label": {
   "abstract" : [
     {
       "text" : "Label for this application.",
@@ -272,14 +272,14 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application\/label",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application\/label",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "label",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/application\/label"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Application/name": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Application/name": {
   "abstract" : [
     {
       "text" : "Name for this application.",
@@ -309,14 +309,14 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Application\/name",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Application\/name",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "name",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/application\/name"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message": {
   "abstract" : [
     {
       "text" : "Represents messages sent from the server to indicate error or warning conditions related to responses or form values.",
@@ -337,7 +337,7 @@
       "text" : "Message"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -350,7 +350,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/Message/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Response/Message/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of messages.",
@@ -371,7 +371,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/Message\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/Message\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -384,7 +384,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/message\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/User-swift.struct": {
+"doc://OktaIdx/documentation/OktaIdx/Response/User-swift.struct": {
   "abstract" : [
     {
       "text" : "Provides information about the user being authenticated.",
@@ -405,7 +405,7 @@
       "text" : "User"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/User-swift.struct",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/User-swift.struct",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

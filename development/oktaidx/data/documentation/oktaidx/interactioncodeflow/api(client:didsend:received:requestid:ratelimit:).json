@@ -1,22 +1,30 @@
 {
   "abstract" : [
     {
-      "text" : "Invoked when a request fails.",
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "APIClientDelegate.api(client:didSend:received:requestId:rateLimit:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/APIClientDelegate-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/APIClientDelegate-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/api(client:didSend:received:requestId:rateLimit:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/api(client:didSend:received:requestId:rateLimit:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -45,7 +53,7 @@
       },
       {
         "kind" : "text",
-        "text" : ": "
+        "text" : ": any "
       },
       {
         "kind" : "typeIdentifier",
@@ -127,7 +135,10 @@
     ],
     "modules" : [
       {
-        "name" : "OktaIdx"
+        "name" : "OktaIdx",
+        "relatedModules" : [
+          "AuthFoundation"
+        ]
       }
     ],
     "role" : "symbol",
@@ -168,10 +179,9 @@
             },
             {
               "kind" : "text",
-              "text" : ": "
+              "text" : ": any "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation9APIClientP",
               "text" : "APIClient"
@@ -222,7 +232,6 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientError",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation14APIClientErrorO",
               "text" : "APIClientError"
@@ -257,7 +266,6 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRateLimit",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation12APIRateLimitV",
               "text" : "APIRateLimit"
@@ -294,123 +302,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClient": {
-  "abstract" : [
-    {
-      "text" : "Protocol defining the interfaces and capabilities that API clients can conform to.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "protocol"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "APIClient"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClient",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "APIClient"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "APIClient",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiclient"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIClientError": {
-  "abstract" : [
-    {
-      "text" : "Errors that may occur at the API or network level.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "enum"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "APIClientError"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIClientError",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "APIClientError"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "APIClientError",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiclienterror"
-},
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/APIRateLimit": {
-  "abstract" : [
-    {
-      "text" : "Describes information related to the organization’s current rate limit.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "APIRateLimit"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/APIRateLimit",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "APIRateLimit"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "APIRateLimit",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/apiratelimit"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -431,7 +337,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -444,23 +350,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/APIClientDelegate-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/APIClientDelegate-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/APIClientDelegate-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/APIClientDelegate-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "APIClientDelegate Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow\/apiclientdelegate-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow/api(client:didSend:received:requestId:rateLimit:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow/api(client:didSend:received:requestId:rateLimit:)": {
   "abstract" : [
-    {
-      "text" : "Invoked when a request fails.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -485,7 +388,7 @@
     },
     {
       "kind" : "text",
-      "text" : ": "
+      "text" : ": any "
     },
     {
       "kind" : "typeIdentifier",
@@ -565,7 +468,7 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow\/api(client:didSend:received:requestId:rateLimit:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow\/api(client:didSend:received:requestId:rateLimit:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "api(client:didSend:received:requestId:rateLimit:)",

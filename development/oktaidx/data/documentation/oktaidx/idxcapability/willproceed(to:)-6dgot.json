@@ -8,7 +8,7 @@
   "defaultImplementationsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6y67z"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6y67z"
       ],
       "title" : "IDXCapability Implementations"
     }
@@ -16,14 +16,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6dgot"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6dgot"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -118,7 +118,7 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx11RemediationC",
               "text" : "Remediation"
@@ -174,21 +174,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXCapability": {
+"doc://OktaIdx/documentation/OktaIdx/IDXCapability": {
   "abstract" : [
     {
       "text" : "A generic protocol used to identify objects that describe a capability.",
@@ -209,7 +209,7 @@
       "text" : "IDXCapability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -222,7 +222,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxcapability"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXCapability/willProceed(to:)-6dgot": {
+"doc://OktaIdx/documentation/OktaIdx/IDXCapability/willProceed(to:)-6dgot": {
   "abstract" : [
     {
       "text" : "Message sent to capabilities when the response it’s contained within will proceed through a remediation.",
@@ -265,7 +265,7 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6dgot",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6dgot",
   "kind" : "symbol",
   "required" : true,
   "role" : "symbol",
@@ -273,12 +273,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxcapability\/willproceed(to:)-6dgot"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXCapability/willProceed(to:)-6y67z": {
+"doc://OktaIdx/documentation/OktaIdx/IDXCapability/willProceed(to:)-6y67z": {
   "abstract" : [
-    {
-      "text" : "Message sent to capabilities when the response it’s contained within will proceed through a remediation.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -315,14 +312,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6y67z",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXCapability\/willProceed(to:)-6y67z",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "willProceed(to:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxcapability\/willproceed(to:)-6y67z"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -343,7 +340,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

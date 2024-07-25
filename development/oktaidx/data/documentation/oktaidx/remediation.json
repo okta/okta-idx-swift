@@ -8,13 +8,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -183,7 +183,7 @@
               "type" : "text"
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/capabilities",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/capabilities",
               "isActive" : true,
               "type" : "reference"
             },
@@ -201,9 +201,9 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection",
-        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
-        "doc:\/\/com.okta.mobile.oktaidx\/SH"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection",
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/SH"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -222,9 +222,9 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response"
       ],
       "title" : "Essentials"
     }
@@ -232,54 +232,54 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection"
       ],
       "title" : "Classes"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/==(_:_:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/==(_:_:)"
       ],
       "title" : "Operators"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/authenticators",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/capabilities",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/form-swift.property",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/messages",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/name",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/pollable",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/socialIdp",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/type"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/authenticators",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/capabilities",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/form-swift.property",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/messages",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/name",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/pollable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/socialIdp",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/type"
       ],
       "title" : "Instance Properties"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/hash(into:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/proceed()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/hash(into:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/proceed()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)"
       ],
       "title" : "Instance Methods"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/subscript(_:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/subscript(_:)"
       ],
       "title" : "Subscripts"
     },
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/RemediationType"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType"
       ],
       "title" : "Enumerations"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/CapabilityCollection-Implementations",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Equatable-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/CapabilityCollection-Implementations",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Equatable-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -298,31 +298,31 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/SH": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SH",
+"doc://OktaIdx/SH": {
+  "identifier" : "doc:\/\/OktaIdx\/SH",
   "title" : "Swift.Hashable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/SQ": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
   "title" : "Swift.Equatable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator": {
   "abstract" : [
     {
       "text" : "Represents information describing the available authenticators and enrolled authenticators.",
@@ -343,7 +343,7 @@
       "text" : "Authenticator"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -356,14 +356,14 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/CapabilityCollection": {
+"doc://OktaIdx/documentation/OktaIdx/CapabilityCollection": {
   "abstract" : [
     {
       "text" : "A collection of capabilities that can be associated with some parent object, such as an ",
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
       "isActive" : true,
       "type" : "reference"
     },
@@ -372,7 +372,7 @@
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
       "isActive" : true,
       "type" : "reference"
     },
@@ -395,7 +395,7 @@
       "text" : "CapabilityCollection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/CapabilityCollection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -408,7 +408,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capabilitycollection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -429,7 +429,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -442,14 +442,14 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowDelegate": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowDelegate": {
   "abstract" : [
     {
       "text" : "Delegate protocol that can be used to receive updates from the ",
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
       "isActive" : true,
       "type" : "reference"
     },
@@ -472,7 +472,7 @@
       "text" : "InteractionCodeFlowDelegate"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowDelegate",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -485,7 +485,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowdelegate"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -506,7 +506,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -519,12 +519,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/==(_:_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/==(_:_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether two values are equal.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -579,25 +576,25 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/==(_:_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/==(_:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "==(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/==(_:_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/CapabilityCollection-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/CapabilityCollection-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/CapabilityCollection-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/CapabilityCollection-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "CapabilityCollection Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/capabilitycollection-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Collection": {
   "abstract" : [
     {
       "text" : "Represents a collection of remediation options.",
@@ -618,7 +615,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -631,18 +628,18 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/Equatable-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/Equatable-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/Equatable-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/Equatable-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Equatable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/equatable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/RemediationType": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType": {
   "abstract" : [
     {
       "text" : "Enumeration describing the possible remedation types. This is expanded from the possible option values that may be present in the ",
@@ -671,7 +668,7 @@
       "text" : "RemediationType"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/RemediationType",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -684,7 +681,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/remediationtype"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/authenticators": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/authenticators": {
   "abstract" : [
     {
       "text" : "The set of authenticators associated with this remediation.",
@@ -723,19 +720,16 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/authenticators",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/authenticators",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "authenticators",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/authenticators"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/capabilities": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/capabilities": {
   "abstract" : [
-    {
-      "text" : "The collection of capabilities associated with the parent object.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -752,7 +746,7 @@
     },
     {
       "kind" : "text",
-      "text" : ": ["
+      "text" : ": [any "
     },
     {
       "kind" : "typeIdentifier",
@@ -764,14 +758,14 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/capabilities",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/capabilities",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "capabilities",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/capabilities"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/form-swift.property": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/form-swift.property": {
   "abstract" : [
     {
       "text" : "A description of the form values that this remediation option supports and expects.",
@@ -797,31 +791,29 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC",
       "text" : "Form"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/form-swift.property",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/form-swift.property",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "form",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/form-swift.property"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/hash(into:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/hash(into:)": {
   "abstract" : [
-    {
-      "text" : "Hashes the essential components of this value by feeding them into the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given hasher.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -866,14 +858,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/hash(into:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/hash(into:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "hash(into:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/hash(into:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/messages": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/messages": {
   "abstract" : [
     {
       "text" : "Collection of messages for all fields within this remedation.",
@@ -921,14 +913,14 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/messages",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/messages",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "messages",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/messages"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/name": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/name": {
   "abstract" : [
     {
       "text" : "The string name for this type.",
@@ -958,14 +950,14 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/name",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/name",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "name",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/name"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/pollable": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/pollable": {
   "abstract" : [
     {
       "text" : "Exposes the remediation’s ability to poll for an out-of-band result.",
@@ -1008,14 +1000,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/pollable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/pollable",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "pollable",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/pollable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/proceed()": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/proceed()": {
   "abstract" : [
     {
       "text" : "Executes the remediation option and proceeds through the workflow using the supplied form parameters.",
@@ -1061,14 +1053,14 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/proceed()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/proceed()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "proceed()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/proceed()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/proceed(completion:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/proceed(completion:)": {
   "abstract" : [
     {
       "text" : "Executes the remediation option and proceeds through the workflow using the supplied form parameters.",
@@ -1119,14 +1111,14 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/proceed(completion:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "proceed(completion:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/proceed(completion:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/socialIdp": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/socialIdp": {
   "abstract" : [
     {
       "text" : "For Social IDP remediation options, this value will describe information related to the social provider, and the resources needed to proceed through this remediation step.",
@@ -1169,14 +1161,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/socialIdp",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/socialIdp",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "socialIdp",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/socialidp"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/subscript(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/subscript(_:)": {
   "abstract" : [
     {
       "text" : "Returns the field within this remedation with the given name or key-path.",
@@ -1203,6 +1195,15 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx11RemediationC4FormC",
       "text" : "Form"
     },
@@ -1220,14 +1221,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/subscript(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/subscript(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "subscript(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/subscript(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/type": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/type": {
   "abstract" : [
     {
       "text" : "The type of this remediation, which is used for keyed subscripting from a ",
@@ -1261,18 +1262,27 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx11RemediationC",
+      "text" : "Remediation"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:7OktaIdx11RemediationC0C4TypeO",
       "text" : "RemediationType"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/type",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/type",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "type",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/type"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -1293,7 +1303,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

@@ -2,14 +2,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Sequence-Implementations"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Sequence-Implementations"
   },
   "kind" : "article",
   "metadata" : {
@@ -19,6 +19,7 @@
       }
     ],
     "role" : "collectionGroup",
+    "roleHeading" : "API Collection",
     "title" : "Sequence Implementations"
   },
   "schemaVersion" : {
@@ -33,72 +34,84 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/lazy",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/publisher",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/underestimatedCount-2mk29"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/lazy",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/publisher"
       ],
       "title" : "Instance Properties"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/allSatisfy(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/compactMap(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/compare(_:_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/contains(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/contains(where:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/elementsEqual(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/elementsEqual(_:by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/enumerated()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/filter(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/first(where:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/flatMap(_:)-1p7bl",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/flatMap(_:)-8xhjv",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/forEach(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/formatted(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/lexicographicallyPrecedes(_:by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/map(_:)-1bhli",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/max(by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/min(by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/reduce(_:_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/reduce(into:_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/reversed()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/shuffled()",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/shuffled(using:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(using:)-48ucc",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(using:)-60ee6",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/starts(with:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/starts(with:by:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/withContiguousStorageIfAvailable(_:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/allSatisfy(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/compactMap(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/compare(_:_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/contains(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/contains(where:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/elementsEqual(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/elementsEqual(_:by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/enumerated()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/filter(_:)-1uzwo",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/filter(_:)-3sa5x",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/first(where:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/flatMap(_:)-1p7bl",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/flatMap(_:)-8xhjv",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/forEach(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/formatted(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/lexicographicallyPrecedes(_:by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/map(_:)-1bhli",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/max(by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/min(by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/reduce(_:_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/reduce(into:_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/reversed()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/shuffled()",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/shuffled(using:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(using:)-48ucc",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(using:)-60ee6",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/starts(with:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/starts(with:by:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/withContiguousStorageIfAvailable(_:)"
       ],
       "title" : "Instance Methods"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Element"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Element"
       ],
       "title" : "Type Aliases"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/authenticator\/collection\/sequence-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
     }
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection": {
   "abstract" : [
     {
       "text" : "Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.",
@@ -119,7 +132,7 @@
       "text" : "Collection"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -132,12 +145,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/Element": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/Element": {
   "abstract" : [
-    {
-      "text" : "A type representing the sequence’s elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -153,7 +163,7 @@
       "text" : "Element"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/Element",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/Element",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -166,20 +176,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/element"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/allSatisfy(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/allSatisfy(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether every element of a sequence",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "satisfies a given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -208,6 +207,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -245,35 +245,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/allSatisfy(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/allSatisfy(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "allSatisfy(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/allsatisfy(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/compactMap(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/compactMap(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the non-",
-      "type" : "text"
-    },
-    {
-      "code" : "nil",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " results of calling the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "transformation with each element of this sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -310,6 +291,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -349,51 +331,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/compactMap(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/compactMap(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "compactMap(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/compactmap(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/compare(_:_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/compare(_:_:)": {
   "abstract" : [
-    {
-      "text" : "If ",
-      "type" : "text"
-    },
-    {
-      "code" : "lhs",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " is ordered before ",
-      "type" : "text"
-    },
-    {
-      "code" : "rhs",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " in the ordering described by the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence of ",
-      "type" : "text"
-    },
-    {
-      "code" : "SortComparator",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : "s",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -430,6 +377,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation14SortComparatorP8ComparedQa",
       "text" : "Compared"
     },
     {
@@ -446,6 +394,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation14SortComparatorP8ComparedQa",
       "text" : "Compared"
     },
     {
@@ -458,27 +407,16 @@
       "text" : "ComparisonResult"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/compare(_:_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/compare(_:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "compare(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/compare(_:_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/contains(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/contains(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the sequence contains the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given element.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -539,6 +477,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -551,27 +490,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/contains(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/contains(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "contains(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/contains(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/contains(where:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/contains(where:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the sequence contains an",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "element that satisfies the given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -608,6 +536,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -645,27 +574,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/contains(where:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/contains(where:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "contains(where:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/contains(where:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/elementsEqual(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/elementsEqual(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether this sequence and another",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence contain the same elements in the same order.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -738,35 +656,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/elementsEqual(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/elementsEqual(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "elementsEqual(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/elementsequal(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/elementsEqual(_:by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/elementsEqual(_:by:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether this sequence and another",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence contain equivalent elements in the same order, using the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "predicate as the equivalence test.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -819,6 +718,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -835,6 +735,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -872,87 +773,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/elementsEqual(_:by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/elementsEqual(_:by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "elementsEqual(_:by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/elementsequal(_:by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/enumerated()": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/enumerated()": {
   "abstract" : [
-    {
-      "text" : "Returns a sequence of pairs (",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "n",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : ", ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "x",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : "), where ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "n",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : " represents a",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "consecutive integer starting at zero and ",
-      "type" : "text"
-    },
-    {
-      "inlineContent" : [
-        {
-          "text" : "x",
-          "type" : "text"
-        }
-      ],
-      "type" : "emphasis"
-    },
-    {
-      "text" : " represents an element of",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -989,27 +819,16 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/enumerated()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/enumerated()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "enumerated()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/enumerated()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/filter(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/filter(_:)-1uzwo": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing, in order, the elements of the sequence",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "that satisfy the given predicate.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1038,6 +857,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1079,6 +899,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1086,27 +907,96 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/filter(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/filter(_:)-1uzwo",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "filter(_:)",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/authenticator\/collection\/filter(_:)"
+  "url" : "\/documentation\/oktaidx\/authenticator\/collection\/filter(_:)-1uzwo"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/first(where:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/filter(_:)-3sa5x": {
   "abstract" : [
+
+  ],
+  "fragments" : [
     {
-      "text" : "Returns the first element of the sequence that satisfies the given",
-      "type" : "text"
+      "kind" : "keyword",
+      "text" : "func"
     },
     {
-      "text" : " ",
-      "type" : "text"
+      "kind" : "text",
+      "text" : " "
     },
     {
-      "text" : "predicate.",
-      "type" : "text"
+      "kind" : "identifier",
+      "text" : "filter"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation9PredicateV",
+      "text" : "Predicate"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
+      "text" : "Element"
+    },
+    {
+      "kind" : "text",
+      "text" : ">) "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    },
+    {
+      "kind" : "text",
+      "text" : " -> ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
+      "text" : "Element"
+    },
+    {
+      "kind" : "text",
+      "text" : "]"
     }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/filter(_:)-3sa5x",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "filter(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/collection\/filter(_:)-3sa5x"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/first(where:)": {
+  "abstract" : [
+
   ],
   "fragments" : [
     {
@@ -1143,6 +1033,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1184,6 +1075,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1191,27 +1083,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/first(where:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/first(where:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "first(where:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/first(where:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/flatMap(_:)-1p7bl": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/flatMap(_:)-1p7bl": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the concatenated results of calling the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given transformation with each element of this sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1248,6 +1129,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1288,6 +1170,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1295,14 +1178,14 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/flatMap(_:)-1p7bl",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/flatMap(_:)-1p7bl",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "flatMap(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/flatmap(_:)-1p7bl"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/flatMap(_:)-8xhjv": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/flatMap(_:)-8xhjv": {
   "abstract" : [
 
   ],
@@ -1342,6 +1225,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1381,43 +1265,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/flatMap(_:)-8xhjv",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/flatMap(_:)-8xhjv",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "flatMap(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/flatmap(_:)-8xhjv"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/forEach(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/forEach(_:)": {
   "abstract" : [
-    {
-      "text" : "Calls the given closure on each element in the sequence in the same order",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "as a ",
-      "type" : "text"
-    },
-    {
-      "code" : "for",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : "-",
-      "type" : "text"
-    },
-    {
-      "code" : "in",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " loop.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1446,6 +1303,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1474,14 +1332,14 @@
       "text" : "rethrows"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/forEach(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/forEach(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "forEach(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/foreach(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/formatted(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/formatted(_:)": {
   "abstract" : [
 
   ],
@@ -1528,54 +1386,20 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation11FormatStyleP0B6OutputQa",
       "text" : "FormatOutput"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/formatted(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/formatted(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "formatted(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/formatted(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/lazy": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/lazy": {
   "abstract" : [
-    {
-      "text" : "A sequence containing the same elements as this sequence,",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "but on which some operations, such as ",
-      "type" : "text"
-    },
-    {
-      "code" : "map",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " and ",
-      "type" : "text"
-    },
-    {
-      "code" : "filter",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ", are",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "implemented lazily.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1612,35 +1436,16 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/lazy",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/lazy",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "lazy",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/lazy"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/lexicographicallyPrecedes(_:by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/lexicographicallyPrecedes(_:by:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the sequence precedes another",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence in a lexicographical (dictionary) ordering, using the given",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "predicate to compare elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1693,6 +1498,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1709,6 +1515,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1746,27 +1553,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/lexicographicallyPrecedes(_:by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/lexicographicallyPrecedes(_:by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "lexicographicallyPrecedes(_:by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/lexicographicallyprecedes(_:by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/map(_:)-1bhli": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/map(_:)-1bhli": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the results of mapping the given closure",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "over the sequence’s elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1803,6 +1599,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1842,27 +1639,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/map(_:)-1bhli",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/map(_:)-1bhli",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "map(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/map(_:)-1bhli"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/max(by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/max(by:)": {
   "abstract" : [
-    {
-      "text" : "Returns the maximum element in the sequence, using the given predicate",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "as the comparison between elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1899,6 +1685,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1915,6 +1702,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1956,6 +1744,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -1963,27 +1752,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/max(by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/max(by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "max(by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/max(by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/min(by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/min(by:)": {
   "abstract" : [
-    {
-      "text" : "Returns the minimum element in the sequence, using the given predicate as",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the comparison between elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2020,6 +1798,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2036,6 +1815,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2077,6 +1857,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2084,14 +1865,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/min(by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/min(by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "min(by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/min(by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/publisher": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/publisher": {
   "abstract" : [
 
   ],
@@ -2148,27 +1929,16 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/publisher",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/publisher",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "publisher",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/publisher"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/reduce(_:_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/reduce(_:_:)": {
   "abstract" : [
-    {
-      "text" : "Returns the result of combining the elements of the sequence using the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given closure.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2221,6 +1991,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2256,27 +2027,16 @@
       "text" : "Result"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/reduce(_:_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/reduce(_:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "reduce(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/reduce(_:_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/reduce(into:_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/reduce(into:_:)": {
   "abstract" : [
-    {
-      "text" : "Returns the result of combining the elements of the sequence using the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "given closure.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2345,6 +2105,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2372,27 +2133,16 @@
       "text" : "Result"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/reduce(into:_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/reduce(into:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "reduce(into:_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/reduce(into:_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/reversed()": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/reversed()": {
   "abstract" : [
-    {
-      "text" : "Returns an array containing the elements of this sequence in reverse",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "order.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2421,6 +2171,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2428,19 +2179,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/reversed()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/reversed()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "reversed()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/reversed()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/shuffled()": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/shuffled()": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, shuffled.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2469,6 +2217,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2476,27 +2225,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/shuffled()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/shuffled()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "shuffled()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/shuffled()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/shuffled(using:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/shuffled(using:)": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, shuffled using the given generator",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "as a source for randomness.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2557,6 +2295,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2564,27 +2303,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/shuffled(using:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/shuffled(using:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "shuffled(using:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/shuffled(using:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/sorted(by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/sorted(by:)": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, sorted using the given predicate as",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the comparison between elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2621,6 +2349,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2637,6 +2366,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2678,6 +2408,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2685,27 +2416,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "sorted(by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/sorted(by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/sorted(using:)-48ucc": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/sorted(using:)-48ucc": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, sorted using the given comparator",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "to compare elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2758,6 +2478,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2765,31 +2486,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(using:)-48ucc",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(using:)-48ucc",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "sorted(using:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/sorted(using:)-48ucc"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/sorted(using:)-60ee6": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/sorted(using:)-60ee6": {
   "abstract" : [
-    {
-      "text" : "Returns the elements of the sequence, sorted using the given array of",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "code" : "SortComparator",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : "s to compare elements.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -2850,6 +2556,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -2857,27 +2564,16 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(using:)-60ee6",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/sorted(using:)-60ee6",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "sorted(using:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/sorted(using:)-60ee6"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/starts(with:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/starts(with:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the initial elements of the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence are the same as the elements in another sequence.",
-      "type" : "text"
-    }
+
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2958,35 +2654,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/starts(with:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/starts(with:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "starts(with:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/starts(with:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/starts(with:by:)": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/starts(with:by:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the initial elements of the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence are equivalent to the elements in another sequence, using",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "the given predicate as the equivalence test.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -3047,6 +2724,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -3063,6 +2741,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -3100,64 +2779,16 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/starts(with:by:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/starts(with:by:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "starts(with:by:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/collection\/starts(with:by:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/underestimatedCount-2mk29": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection/withContiguousStorageIfAvailable(_:)": {
   "abstract" : [
-    {
-      "text" : "A value less than or equal to the number of elements in the sequence,",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "calculated nondestructively.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "underestimatedCount"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/underestimatedCount-2mk29",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "underestimatedCount",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/authenticator\/collection\/underestimatedcount-2mk29"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/Collection/withContiguousStorageIfAvailable(_:)": {
-  "abstract" : [
-    {
-      "text" : "Executes a closure on the sequence’s contiguous storage.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -3203,6 +2834,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
       "text" : "Element"
     },
     {
@@ -3242,7 +2874,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/Collection\/withContiguousStorageIfAvailable(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection\/withContiguousStorageIfAvailable(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "withContiguousStorageIfAvailable(_:)",

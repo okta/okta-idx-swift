@@ -1,22 +1,30 @@
 {
   "abstract" : [
     {
-      "text" : "Message sent to capabilities when the response it’s contained within will proceed through a remediation.",
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "IDXCapability.willProceed(to:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/willProceed(to:)"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/willProceed(to:)"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -111,7 +119,7 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx11RemediationC",
               "text" : "Remediation"
@@ -124,25 +132,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "Remediation being invoked.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "remediation"
-        }
-      ]
     }
   ],
   "schemaVersion" : {
@@ -167,21 +156,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable": {
   "abstract" : [
     {
       "text" : "Capability for authentiators or remedations to be polled to determine out-of-band actions taken by the user.",
@@ -202,7 +191,7 @@
       "text" : "Pollable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -215,23 +204,20 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/IDXCapability-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/IDXCapability-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "IDXCapability Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable\/idxcapability-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/willProceed(to:)": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/willProceed(to:)": {
   "abstract" : [
-    {
-      "text" : "Message sent to capabilities when the response it’s contained within will proceed through a remediation.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -268,14 +254,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/willProceed(to:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/willProceed(to:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "willProceed(to:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable\/willproceed(to:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -296,7 +282,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

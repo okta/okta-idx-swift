@@ -2,14 +2,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/IDXCapability-Implementations"
   },
   "kind" : "article",
   "metadata" : {
@@ -19,6 +19,7 @@
       }
     ],
     "role" : "collectionGroup",
+    "roleHeading" : "API Collection",
     "title" : "IDXCapability Implementations"
   },
   "schemaVersion" : {
@@ -33,28 +34,40 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/willProceed(to:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/willProceed(to:)"
       ],
       "title" : "Instance Methods"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/capability\/pollable\/idxcapability-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
     }
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable": {
   "abstract" : [
     {
       "text" : "Capability for authentiators or remedations to be polled to determine out-of-band actions taken by the user.",
@@ -75,7 +88,7 @@
       "text" : "Pollable"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -88,12 +101,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/capability\/pollable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Capability/Pollable/willProceed(to:)": {
+"doc://OktaIdx/documentation/OktaIdx/Capability/Pollable/willProceed(to:)": {
   "abstract" : [
-    {
-      "text" : "Message sent to capabilities when the response it’s contained within will proceed through a remediation.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -130,7 +140,7 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Capability\/Pollable\/willProceed(to:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Capability\/Pollable\/willProceed(to:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "willProceed(to:)",

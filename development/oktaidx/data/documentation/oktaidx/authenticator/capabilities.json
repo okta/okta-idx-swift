@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/capabilities"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/capabilities"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -35,7 +35,7 @@
       },
       {
         "kind" : "text",
-        "text" : ": ["
+        "text" : ": [any "
       },
       {
         "kind" : "typeIdentifier",
@@ -82,10 +82,10 @@
             },
             {
               "kind" : "text",
-              "text" : ": ["
+              "text" : ": [any "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/AuthenticatorCapability",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx23AuthenticatorCapabilityP",
               "text" : "AuthenticatorCapability"
@@ -122,21 +122,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator": {
   "abstract" : [
     {
       "text" : "Represents information describing the available authenticators and enrolled authenticators.",
@@ -157,7 +157,7 @@
       "text" : "Authenticator"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -170,7 +170,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Authenticator/capabilities": {
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/capabilities": {
   "abstract" : [
     {
       "text" : "Set of objects that describe the capabilities this authenticator may have.",
@@ -192,7 +192,7 @@
     },
     {
       "kind" : "text",
-      "text" : ": ["
+      "text" : ": [any "
     },
     {
       "kind" : "typeIdentifier",
@@ -204,14 +204,14 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Authenticator\/capabilities",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/capabilities",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "capabilities",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/authenticator\/capabilities"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/AuthenticatorCapability": {
+"doc://OktaIdx/documentation/OktaIdx/AuthenticatorCapability": {
   "abstract" : [
     {
       "text" : "Defines type conformance for capabilities that can be used with Authenticators.",
@@ -232,7 +232,7 @@
       "text" : "AuthenticatorCapability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/AuthenticatorCapability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/AuthenticatorCapability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

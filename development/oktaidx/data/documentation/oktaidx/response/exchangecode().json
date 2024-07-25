@@ -8,14 +8,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode()"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode()"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -137,7 +137,6 @@
               "text" : " -> "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14AuthFoundation5TokenC",
               "text" : "Token"
@@ -162,7 +161,7 @@
               "type" : "text"
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/isLoginSuccessful",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/isLoginSuccessful",
               "isActive" : true,
               "type" : "reference"
             },
@@ -207,55 +206,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/AuthFoundation/Token": {
-  "abstract" : [
-    {
-      "text" : "Token information representing a user’s access to a resource server, including access token, refresh token, and other related information.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "class"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "Token"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/AuthFoundation\/Token",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "Token"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "Token",
-  "type" : "topic",
-  "url" : "\/documentation\/authfoundation\/token"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response": {
+"doc://OktaIdx/documentation/OktaIdx/Response": {
   "abstract" : [
     {
       "text" : "Describes the response from an Okta Identity Engine workflow stage.",
@@ -276,7 +241,7 @@
       "text" : "Response"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -289,7 +254,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/exchangeCode()": {
+"doc://OktaIdx/documentation/OktaIdx/Response/exchangeCode()": {
   "abstract" : [
     {
       "text" : "Exchanges the successful response with a token.",
@@ -335,14 +300,14 @@
       "text" : "Token"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode()",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "exchangeCode()",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/exchangecode()"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/exchangeCode(completion:)": {
+"doc://OktaIdx/documentation/OktaIdx/Response/exchangeCode(completion:)": {
   "abstract" : [
     {
       "text" : "Exchanges the successful response with a token.",
@@ -393,14 +358,14 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "exchangeCode(completion:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/response\/exchangecode(completion:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Response/isLoginSuccessful": {
+"doc://OktaIdx/documentation/OktaIdx/Response/isLoginSuccessful": {
   "abstract" : [
     {
       "text" : "Indicates whether or not the user has logged in successfully. If this is ",
@@ -415,7 +380,7 @@
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/exchangeCode(completion:)",
       "isActive" : true,
       "type" : "reference"
     },
@@ -447,7 +412,7 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Response\/isLoginSuccessful",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response\/isLoginSuccessful",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "isLoginSuccessful",

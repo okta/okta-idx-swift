@@ -8,13 +8,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -81,9 +81,9 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/10Foundation14LocalizedErrorP",
-        "doc:\/\/com.okta.mobile.oktaidx\/s5ErrorP",
-        "doc:\/\/com.okta.mobile.oktaidx\/s8SendableP"
+        "doc:\/\/OktaIdx\/10Foundation14LocalizedErrorP",
+        "doc:\/\/OktaIdx\/s5ErrorP",
+        "doc:\/\/OktaIdx\/s8SendableP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -102,7 +102,7 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError"
       ],
       "title" : "Errors"
     }
@@ -110,18 +110,18 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/errorDescription-1oxw4",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/localizationKey",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/message",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/severity"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/errorDescription",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/localizationKey",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/message",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/severity"
       ],
       "title" : "Instance Properties"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/Error-Implementations",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/LocalizedError-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/Error-Implementations",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/LocalizedError-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -140,26 +140,26 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/10Foundation14LocalizedErrorP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/10Foundation14LocalizedErrorP",
+"doc://OktaIdx/10Foundation14LocalizedErrorP": {
+  "identifier" : "doc:\/\/OktaIdx\/10Foundation14LocalizedErrorP",
   "title" : "Foundation.LocalizedError",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError": {
   "abstract" : [
     {
       "text" : "Describes an error reported from the server.",
@@ -180,7 +180,7 @@
       "text" : "IDXServerError"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -193,34 +193,31 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/Error-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/Error-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/Error-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/Error-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Error Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror\/error-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/LocalizedError-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/LocalizedError-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/LocalizedError-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/LocalizedError-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "LocalizedError Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror\/localizederror-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/errorDescription-1oxw4": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/errorDescription": {
   "abstract" : [
-    {
-      "text" : "A localized message describing what error occurred.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -249,14 +246,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/errorDescription-1oxw4",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/errorDescription",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "errorDescription",
   "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/idxservererror\/errordescription-1oxw4"
+  "url" : "\/documentation\/oktaidx\/idxservererror\/errordescription"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/localizationKey": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/localizationKey": {
   "abstract" : [
     {
       "text" : "The localization key to uniquely identify this message.",
@@ -290,14 +287,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/localizationKey",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/localizationKey",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "localizationKey",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror\/localizationkey"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/message": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/message": {
   "abstract" : [
     {
       "text" : "The description of the error message.",
@@ -327,14 +324,14 @@
       "text" : "String"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/message",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/message",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "message",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror\/message"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/severity": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/severity": {
   "abstract" : [
     {
       "text" : "The severity of the error.",
@@ -382,14 +379,14 @@
       "text" : "Severity"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/severity",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/severity",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "severity",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror\/severity"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -410,7 +407,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -423,14 +420,14 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError": {
   "abstract" : [
     {
       "text" : "Errors reported from ",
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
       "isActive" : true,
       "type" : "reference"
     },
@@ -453,7 +450,7 @@
       "text" : "InteractionCodeFlowError"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -466,13 +463,13 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror"
 },
-"doc://com.okta.mobile.oktaidx/s5ErrorP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s5ErrorP",
+"doc://OktaIdx/s5ErrorP": {
+  "identifier" : "doc:\/\/OktaIdx\/s5ErrorP",
   "title" : "Swift.Error",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/s8SendableP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s8SendableP",
+"doc://OktaIdx/s8SendableP": {
+  "identifier" : "doc:\/\/OktaIdx\/s8SendableP",
   "title" : "Swift.Sendable",
   "type" : "unresolvable"
 }

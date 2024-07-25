@@ -1,21 +1,29 @@
 {
   "abstract" : [
     {
-      "text" : "The collection of capabilities associated with the parent object.",
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "CapabilityCollection.capabilities",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/capabilities"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/capabilities"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -35,7 +43,7 @@
       },
       {
         "kind" : "text",
-        "text" : ": ["
+        "text" : ": [any "
       },
       {
         "kind" : "typeIdentifier",
@@ -82,10 +90,10 @@
             },
             {
               "kind" : "text",
-              "text" : ": ["
+              "text" : ": [any "
             },
             {
-              "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/RemediationCapability",
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/RemediationCapability",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:7OktaIdx21RemediationCapabilityP",
               "text" : "RemediationCapability"
@@ -122,21 +130,21 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -157,7 +165,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -170,12 +178,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/capabilities": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/capabilities": {
   "abstract" : [
-    {
-      "text" : "The collection of capabilities associated with the parent object.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -192,7 +197,7 @@
     },
     {
       "kind" : "text",
-      "text" : ": ["
+      "text" : ": [any "
     },
     {
       "kind" : "typeIdentifier",
@@ -204,14 +209,14 @@
       "text" : "]"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/capabilities",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/capabilities",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "capabilities",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/capabilities"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/RemediationCapability": {
+"doc://OktaIdx/documentation/OktaIdx/RemediationCapability": {
   "abstract" : [
     {
       "text" : "Defines type conformance for capabilities that can be used with Remediations.",
@@ -232,7 +237,7 @@
       "text" : "RemediationCapability"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/RemediationCapability",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/RemediationCapability",
   "kind" : "symbol",
   "navigatorTitle" : [
     {

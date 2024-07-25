@@ -5,7 +5,7 @@
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
       "isActive" : true,
       "type" : "reference"
     },
@@ -17,13 +17,13 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError"
   },
   "kind" : "symbol",
   "metadata" : {
@@ -90,10 +90,10 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/10Foundation14LocalizedErrorP",
-        "doc:\/\/com.okta.mobile.oktaidx\/SQ",
-        "doc:\/\/com.okta.mobile.oktaidx\/s5ErrorP",
-        "doc:\/\/com.okta.mobile.oktaidx\/s8SendableP"
+        "doc:\/\/OktaIdx\/10Foundation14LocalizedErrorP",
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/s5ErrorP",
+        "doc:\/\/OktaIdx\/s8SendableP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -112,7 +112,7 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError"
       ],
       "title" : "Errors"
     }
@@ -120,37 +120,37 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/apiError(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/cannotCreateRequest",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalError(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalMessage(_:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidContext",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidFlow",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidHTTPResponse",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidParameter(name:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidParameterValue(name:type:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidRequestData",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidResponseData",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidUrl",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRefreshToken",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRelatedObject",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRemediationOption(name:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRequiredParameter(name:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/oauthError(summary:code:errorId:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/parameterImmutable(name:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/platformUnsupported",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/serverError(message:localizationKey:type:)",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/successResponseMissing",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/unknownRemediationOption(name:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/apiError(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/cannotCreateRequest",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalError(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalMessage(_:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidContext",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidFlow",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidHTTPResponse",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidParameter(name:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidParameterValue(name:type:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidRequestData",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidResponseData",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidUrl",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRefreshToken",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRelatedObject",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRemediationOption(name:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRequiredParameter(name:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/oauthError(summary:code:errorId:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/parameterImmutable(name:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/platformUnsupported",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/serverError(message:localizationKey:type:)",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/successResponseMissing",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/unknownRemediationOption(name:)"
       ],
       "title" : "Enumeration Cases"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/Equatable-Implementations",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/Error-Implementations",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/LocalizedError-Implementations"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/Equatable-Implementations",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/Error-Implementations",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/LocalizedError-Implementations"
       ],
       "title" : "Default Implementations"
     }
@@ -169,31 +169,31 @@
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/10Foundation14LocalizedErrorP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/10Foundation14LocalizedErrorP",
+"doc://OktaIdx/10Foundation14LocalizedErrorP": {
+  "identifier" : "doc:\/\/OktaIdx\/10Foundation14LocalizedErrorP",
   "title" : "Foundation.LocalizedError",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/SQ": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/SQ",
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
   "title" : "Swift.Equatable",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError": {
   "abstract" : [
     {
       "text" : "Describes an error reported from the server.",
@@ -214,7 +214,7 @@
       "text" : "IDXServerError"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -227,7 +227,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlow": {
   "abstract" : [
     {
       "text" : "An authentication flow used to authenticate users using the Okta Identity Engine.",
@@ -248,7 +248,7 @@
       "text" : "InteractionCodeFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -261,14 +261,14 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError": {
   "abstract" : [
     {
       "text" : "Errors reported from ",
       "type" : "text"
     },
     {
-      "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlow",
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlow",
       "isActive" : true,
       "type" : "reference"
     },
@@ -291,7 +291,7 @@
       "text" : "InteractionCodeFlowError"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -304,40 +304,40 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/Equatable-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/Equatable-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/Equatable-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/Equatable-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Equatable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/equatable-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/Error-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/Error-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/Error-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/Error-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Error Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/error-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/LocalizedError-Implementations": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/LocalizedError-Implementations": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/LocalizedError-Implementations",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/LocalizedError-Implementations",
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "LocalizedError Implementations",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/localizederror-implementations"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/apiError(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/apiError(_:)": {
   "abstract" : [
 
   ],
@@ -368,14 +368,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/apiError(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/apiError(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.apiError(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/apierror(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/cannotCreateRequest": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/cannotCreateRequest": {
   "abstract" : [
 
   ],
@@ -393,14 +393,14 @@
       "text" : "cannotCreateRequest"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/cannotCreateRequest",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/cannotCreateRequest",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.cannotCreateRequest",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/cannotcreaterequest"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/internalError(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/internalError(_:)": {
   "abstract" : [
 
   ],
@@ -419,7 +419,7 @@
     },
     {
       "kind" : "text",
-      "text" : "("
+      "text" : "(any "
     },
     {
       "kind" : "typeIdentifier",
@@ -431,14 +431,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalError(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalError(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.internalError(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/internalerror(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/internalMessage(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/internalMessage(_:)": {
   "abstract" : [
 
   ],
@@ -469,14 +469,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalMessage(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/internalMessage(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.internalMessage(_:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/internalmessage(_:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/invalidContext": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/invalidContext": {
   "abstract" : [
 
   ],
@@ -494,14 +494,14 @@
       "text" : "invalidContext"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidContext",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidContext",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.invalidContext",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/invalidcontext"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/invalidFlow": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/invalidFlow": {
   "abstract" : [
 
   ],
@@ -519,14 +519,14 @@
       "text" : "invalidFlow"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidFlow",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidFlow",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.invalidFlow",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/invalidflow"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/invalidHTTPResponse": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/invalidHTTPResponse": {
   "abstract" : [
 
   ],
@@ -544,14 +544,14 @@
       "text" : "invalidHTTPResponse"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidHTTPResponse",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidHTTPResponse",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.invalidHTTPResponse",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/invalidhttpresponse"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/invalidParameter(name:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/invalidParameter(name:)": {
   "abstract" : [
 
   ],
@@ -590,14 +590,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidParameter(name:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidParameter(name:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.invalidParameter(name:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/invalidparameter(name:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/invalidParameterValue(name:type:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/invalidParameterValue(name:type:)": {
   "abstract" : [
 
   ],
@@ -653,14 +653,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidParameterValue(name:type:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidParameterValue(name:type:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.invalidParameterValue(name:type:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/invalidparametervalue(name:type:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/invalidRequestData": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/invalidRequestData": {
   "abstract" : [
 
   ],
@@ -678,14 +678,14 @@
       "text" : "invalidRequestData"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidRequestData",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidRequestData",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.invalidRequestData",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/invalidrequestdata"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/invalidResponseData": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/invalidResponseData": {
   "abstract" : [
 
   ],
@@ -703,14 +703,14 @@
       "text" : "invalidResponseData"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidResponseData",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidResponseData",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.invalidResponseData",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/invalidresponsedata"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/invalidUrl": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/invalidUrl": {
   "abstract" : [
 
   ],
@@ -728,14 +728,14 @@
       "text" : "invalidUrl"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidUrl",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/invalidUrl",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.invalidUrl",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/invalidurl"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/missingRefreshToken": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/missingRefreshToken": {
   "abstract" : [
 
   ],
@@ -753,14 +753,14 @@
       "text" : "missingRefreshToken"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRefreshToken",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRefreshToken",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.missingRefreshToken",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/missingrefreshtoken"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/missingRelatedObject": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/missingRelatedObject": {
   "abstract" : [
 
   ],
@@ -778,14 +778,14 @@
       "text" : "missingRelatedObject"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRelatedObject",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRelatedObject",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.missingRelatedObject",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/missingrelatedobject"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/missingRemediationOption(name:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/missingRemediationOption(name:)": {
   "abstract" : [
 
   ],
@@ -824,14 +824,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRemediationOption(name:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRemediationOption(name:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.missingRemediationOption(name:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/missingremediationoption(name:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/missingRequiredParameter(name:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/missingRequiredParameter(name:)": {
   "abstract" : [
 
   ],
@@ -870,14 +870,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRequiredParameter(name:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/missingRequiredParameter(name:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.missingRequiredParameter(name:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/missingrequiredparameter(name:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/oauthError(summary:code:errorId:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/oauthError(summary:code:errorId:)": {
   "abstract" : [
 
   ],
@@ -950,14 +950,14 @@
       "text" : "?)"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/oauthError(summary:code:errorId:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/oauthError(summary:code:errorId:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.oauthError(summary:code:errorId:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/oautherror(summary:code:errorid:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/parameterImmutable(name:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/parameterImmutable(name:)": {
   "abstract" : [
 
   ],
@@ -996,14 +996,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/parameterImmutable(name:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/parameterImmutable(name:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.parameterImmutable(name:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/parameterimmutable(name:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/platformUnsupported": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/platformUnsupported": {
   "abstract" : [
 
   ],
@@ -1021,14 +1021,14 @@
       "text" : "platformUnsupported"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/platformUnsupported",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/platformUnsupported",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.platformUnsupported",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/platformunsupported"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/serverError(message:localizationKey:type:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/serverError(message:localizationKey:type:)": {
   "abstract" : [
 
   ],
@@ -1101,14 +1101,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/serverError(message:localizationKey:type:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/serverError(message:localizationKey:type:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.serverError(message:localizationKey:type:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/servererror(message:localizationkey:type:)"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/successResponseMissing": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/successResponseMissing": {
   "abstract" : [
 
   ],
@@ -1126,14 +1126,14 @@
       "text" : "successResponseMissing"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/successResponseMissing",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/successResponseMissing",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.successResponseMissing",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/successresponsemissing"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/InteractionCodeFlowError/unknownRemediationOption(name:)": {
+"doc://OktaIdx/documentation/OktaIdx/InteractionCodeFlowError/unknownRemediationOption(name:)": {
   "abstract" : [
 
   ],
@@ -1172,20 +1172,20 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/InteractionCodeFlowError\/unknownRemediationOption(name:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/InteractionCodeFlowError\/unknownRemediationOption(name:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "InteractionCodeFlowError.unknownRemediationOption(name:)",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/interactioncodeflowerror\/unknownremediationoption(name:)"
 },
-"doc://com.okta.mobile.oktaidx/s5ErrorP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s5ErrorP",
+"doc://OktaIdx/s5ErrorP": {
+  "identifier" : "doc:\/\/OktaIdx\/s5ErrorP",
   "title" : "Swift.Error",
   "type" : "unresolvable"
 },
-"doc://com.okta.mobile.oktaidx/s8SendableP": {
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/s8SendableP",
+"doc://OktaIdx/s8SendableP": {
+  "identifier" : "doc:\/\/OktaIdx\/s8SendableP",
   "title" : "Swift.Sendable",
   "type" : "unresolvable"
 }

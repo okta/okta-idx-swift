@@ -2,14 +2,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/CapabilityCollection-Implementations"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/CapabilityCollection-Implementations"
   },
   "kind" : "article",
   "metadata" : {
@@ -19,6 +19,7 @@
       }
     ],
     "role" : "collectionGroup",
+    "roleHeading" : "API Collection",
     "title" : "CapabilityCollection Implementations"
   },
   "schemaVersion" : {
@@ -33,35 +34,47 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/capability(_:)"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/capability(_:)"
       ],
       "title" : "Instance Methods"
     },
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/CapabilityType"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/CapabilityType"
       ],
       "title" : "Type Aliases"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/remediation\/capabilitycollection-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
     }
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
   "abstract" : [
     {
       "text" : "Describes choices the user can make to proceed through the authentication workflow.",
@@ -82,7 +95,7 @@
       "text" : "Remediation"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -95,7 +108,7 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/CapabilityType": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/CapabilityType": {
   "abstract" : [
 
   ],
@@ -113,7 +126,7 @@
       "text" : "CapabilityType"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/CapabilityType",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/CapabilityType",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -126,12 +139,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/remediation\/capabilitytype"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/Remediation/capability(_:)": {
+"doc://OktaIdx/documentation/OktaIdx/Remediation/capability(_:)": {
   "abstract" : [
-    {
-      "text" : "Returns the capability defined by the given type, if available in this collection.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -160,7 +170,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionPAAE10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -169,7 +178,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7OktaIdx20CapabilityCollectionPAAE10capabilityyqd__Sgqd__mAA13IDXCapabilityRd__lF1TL_qd__mfp",
       "text" : "T"
     },
     {
@@ -177,7 +185,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/Remediation\/capability(_:)",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/capability(_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "capability(_:)",

@@ -2,14 +2,14 @@
   "hierarchy" : {
     "paths" : [
       [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/LocalizedError-Implementations"
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/LocalizedError-Implementations"
   },
   "kind" : "article",
   "metadata" : {
@@ -19,6 +19,7 @@
       }
     ],
     "role" : "collectionGroup",
+    "roleHeading" : "API Collection",
     "title" : "LocalizedError Implementations"
   },
   "schemaVersion" : {
@@ -33,31 +34,42 @@
     {
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/errorDescription-82dux",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/failureReason",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/helpAnchor",
-        "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/recoverySuggestion"
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/failureReason",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/helpAnchor",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/recoverySuggestion"
       ],
       "title" : "Instance Properties"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/idxservererror\/localizederror-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
     }
   ]
 , 
 "references": {
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx": {
+"doc://OktaIdx/documentation/OktaIdx": {
   "abstract" : [
     {
       "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
       "type" : "text"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
   "kind" : "symbol",
   "role" : "collection",
   "title" : "OktaIdx",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError": {
   "abstract" : [
     {
       "text" : "Describes an error reported from the server.",
@@ -78,7 +90,7 @@
       "text" : "IDXServerError"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
@@ -91,53 +103,9 @@
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/errorDescription-82dux": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/failureReason": {
   "abstract" : [
-    {
-      "text" : "A localized message describing what error occurred.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "var"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "errorDescription"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:SS",
-      "text" : "String"
-    },
-    {
-      "kind" : "text",
-      "text" : "?"
-    }
-  ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/errorDescription-82dux",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "errorDescription",
-  "type" : "topic",
-  "url" : "\/documentation\/oktaidx\/idxservererror\/errordescription-82dux"
-},
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/failureReason": {
-  "abstract" : [
-    {
-      "text" : "A localized message describing the reason for the failure.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -166,19 +134,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/failureReason",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/failureReason",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "failureReason",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror\/failurereason"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/helpAnchor": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/helpAnchor": {
   "abstract" : [
-    {
-      "text" : "A localized message providing “help” text if the user requests help.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -207,19 +172,16 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/helpAnchor",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/helpAnchor",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "helpAnchor",
   "type" : "topic",
   "url" : "\/documentation\/oktaidx\/idxservererror\/helpanchor"
 },
-"doc://com.okta.mobile.oktaidx/documentation/OktaIdx/IDXServerError/recoverySuggestion": {
+"doc://OktaIdx/documentation/OktaIdx/IDXServerError/recoverySuggestion": {
   "abstract" : [
-    {
-      "text" : "A localized message describing how one might recover from the failure.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -248,7 +210,7 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/com.okta.mobile.oktaidx\/documentation\/OktaIdx\/IDXServerError\/recoverySuggestion",
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/IDXServerError\/recoverySuggestion",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "recoverySuggestion",
