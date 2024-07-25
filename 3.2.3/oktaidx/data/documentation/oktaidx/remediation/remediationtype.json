@@ -1,0 +1,1373 @@
+{
+  "abstract" : [
+    {
+      "text" : "Enumeration describing the possible remedation types. This is expanded from the possible option values that may be present in the ",
+      "type" : "text"
+    },
+    {
+      "code" : "name",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " property.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "OktaIdx",
+    "externalID" : "s:7OktaIdx11RemediationC0C4TypeO",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "enum"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "RemediationType"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "RemediationType"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Enumeration",
+    "symbolKind" : "enum",
+    "title" : "Remediation.RemediationType"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "enum"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "RemediationType"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/OktaIdx\/SQ",
+        "doc:\/\/OktaIdx\/SH"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/adminConsent",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/authenticatorEnrollmentData",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/authenticatorVerificationData",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/cancel",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/cancelPolling",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/cancelTransaction",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/challengeAuthenticator",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/challengePoll",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/consent",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/deviceAppleSsoExtension",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/deviceChallengePoll",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/emailChallengeConsent",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/enrollAuthenticator",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/enrollPoll",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/enrollProfile",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/enrollmentChannelData",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/identify",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/identifyRecovery",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/launchAuthenticator",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/poll",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/recover",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/redirectIdp",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/reenrollAuthenticator",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/reenrollAuthenticatorWarning",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/requestActivationEmail",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/resend",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/resendChallenge",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/resetAuthenticator",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorAuthenticate",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorEnroll",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorUnlockAccount",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectEnrollProfile",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectEnrollmentChannel",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectIdentify",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/send",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/sendChallenge",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/skip",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/unknown",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/unlockAccount",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/userCode"
+      ],
+      "title" : "Enumeration Cases"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/Equatable-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/remediation\/remediationtype"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://OktaIdx/SH": {
+  "identifier" : "doc:\/\/OktaIdx\/SH",
+  "title" : "Swift.Hashable",
+  "type" : "unresolvable"
+},
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://OktaIdx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
+  "abstract" : [
+    {
+      "text" : "Describes choices the user can make to proceed through the authentication workflow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType": {
+  "abstract" : [
+    {
+      "text" : "Enumeration describing the possible remedation types. This is expanded from the possible option values that may be present in the ",
+      "type" : "text"
+    },
+    {
+      "code" : "name",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " property.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RemediationType"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RemediationType"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/Equatable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/Equatable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Equatable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/equatable-implementations"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/adminConsent": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "adminConsent"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/adminConsent",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.adminConsent",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/adminconsent"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/authenticatorEnrollmentData": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authenticatorEnrollmentData"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/authenticatorEnrollmentData",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.authenticatorEnrollmentData",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/authenticatorenrollmentdata"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/authenticatorVerificationData": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "authenticatorVerificationData"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/authenticatorVerificationData",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.authenticatorVerificationData",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/authenticatorverificationdata"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/cancel": {
+  "abstract" : [
+    {
+      "text" : "Allows the user to cancel and restart the authentication flow from the beginning.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "cancel"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/cancel",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.cancel",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/cancel"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/cancelPolling": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "cancelPolling"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/cancelPolling",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.cancelPolling",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/cancelpolling"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/cancelTransaction": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "cancelTransaction"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/cancelTransaction",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.cancelTransaction",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/canceltransaction"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/challengeAuthenticator": {
+  "abstract" : [
+    {
+      "text" : "Used to supply a challenge to an authenticator, such as prompting a user for their password, or supplying a factor’s verification code such as a SMS or Email one-time-password.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "challengeAuthenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/challengeAuthenticator",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.challengeAuthenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/challengeauthenticator"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/challengePoll": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "challengePoll"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/challengePoll",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.challengePoll",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/challengepoll"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/consent": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "consent"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/consent",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.consent",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/consent"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/deviceAppleSsoExtension": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "deviceAppleSsoExtension"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/deviceAppleSsoExtension",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.deviceAppleSsoExtension",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/deviceapplessoextension"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/deviceChallengePoll": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "deviceChallengePoll"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/deviceChallengePoll",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.deviceChallengePoll",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/devicechallengepoll"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/emailChallengeConsent": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "emailChallengeConsent"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/emailChallengeConsent",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.emailChallengeConsent",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/emailchallengeconsent"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/enrollAuthenticator": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "enrollAuthenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/enrollAuthenticator",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.enrollAuthenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/enrollauthenticator"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/enrollPoll": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "enrollPoll"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/enrollPoll",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.enrollPoll",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/enrollpoll"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/enrollProfile": {
+  "abstract" : [
+    {
+      "text" : "Used to enroll the user in a new profile, also",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "enrollProfile"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/enrollProfile",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.enrollProfile",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/enrollprofile"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/enrollmentChannelData": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "enrollmentChannelData"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/enrollmentChannelData",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.enrollmentChannelData",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/enrollmentchanneldata"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/identify": {
+  "abstract" : [
+    {
+      "text" : "Used to identify a user’s username.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "identify"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/identify",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.identify",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/identify"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/identifyRecovery": {
+  "abstract" : [
+    {
+      "text" : "Used to identify a user’s username as part of the account recovery process.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "identifyRecovery"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/identifyRecovery",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.identifyRecovery",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/identifyrecovery"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/launchAuthenticator": {
+  "abstract" : [
+    {
+      "text" : "Used to launch a separate authenticator application, such as Okta Verify.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "launchAuthenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/launchAuthenticator",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.launchAuthenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/launchauthenticator"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/poll": {
+  "abstract" : [
+    {
+      "text" : "Underlying authenticator action used by the ",
+      "type" : "text"
+    },
+    {
+      "code" : "Capability.Pollable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " capability.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "poll"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/poll",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.poll",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/poll"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/recover": {
+  "abstract" : [
+    {
+      "text" : "Underlying authenticator action used by the ",
+      "type" : "text"
+    },
+    {
+      "code" : "Capability.Recoverable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " capability.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "recover"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/recover",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.recover",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/recover"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/redirectIdp": {
+  "abstract" : [
+    {
+      "text" : "Used to redirect the user to another IDP, such as Facebook or Twitter authentication.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "redirectIdp"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/redirectIdp",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.redirectIdp",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/redirectidp"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/reenrollAuthenticator": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "reenrollAuthenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/reenrollAuthenticator",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.reenrollAuthenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/reenrollauthenticator"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/reenrollAuthenticatorWarning": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "reenrollAuthenticatorWarning"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/reenrollAuthenticatorWarning",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.reenrollAuthenticatorWarning",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/reenrollauthenticatorwarning"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/requestActivationEmail": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "requestActivationEmail"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/requestActivationEmail",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.requestActivationEmail",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/requestactivationemail"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/resend": {
+  "abstract" : [
+    {
+      "text" : "Underlying authenticator action used by the ",
+      "type" : "text"
+    },
+    {
+      "code" : "Capability.Resendable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " capability.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "resend"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/resend",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.resend",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/resend"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/resendChallenge": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "resendChallenge"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/resendChallenge",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.resendChallenge",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/resendchallenge"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/resetAuthenticator": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "resetAuthenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/resetAuthenticator",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.resetAuthenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/resetauthenticator"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/selectAuthenticatorAuthenticate": {
+  "abstract" : [
+    {
+      "text" : "Used to prompt a user for a list of authenticators, from which they can select which they would like to verify their account.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "selectAuthenticatorAuthenticate"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorAuthenticate",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.selectAuthenticatorAuthenticate",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/selectauthenticatorauthenticate"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/selectAuthenticatorEnroll": {
+  "abstract" : [
+    {
+      "text" : "Used to prompt a user for a list of authenticators, giving them a choice as to which authenticator they would like to enroll in.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "selectAuthenticatorEnroll"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorEnroll",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.selectAuthenticatorEnroll",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/selectauthenticatorenroll"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/selectAuthenticatorUnlockAccount": {
+  "abstract" : [
+    {
+      "text" : "Used to select an authenticator type to use to unlock a user’s account.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "selectAuthenticatorUnlockAccount"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectAuthenticatorUnlockAccount",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.selectAuthenticatorUnlockAccount",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/selectauthenticatorunlockaccount"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/selectEnrollProfile": {
+  "abstract" : [
+    {
+      "text" : "Used to allow the user to enroll in a new profile, also known as “self service registration”.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "selectEnrollProfile"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectEnrollProfile",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.selectEnrollProfile",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/selectenrollprofile"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/selectEnrollmentChannel": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "selectEnrollmentChannel"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectEnrollmentChannel",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.selectEnrollmentChannel",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/selectenrollmentchannel"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/selectIdentify": {
+  "abstract" : [
+    {
+      "text" : "Used to allow a user to select that they would like to sign in with their username.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "selectIdentify"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/selectIdentify",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.selectIdentify",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/selectidentify"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/send": {
+  "abstract" : [
+    {
+      "text" : "Underlying authenticator action used by the ",
+      "type" : "text"
+    },
+    {
+      "code" : "Capability.Sendable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " capability.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "send"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/send",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.send",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/send"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/sendChallenge": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sendChallenge"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/sendChallenge",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.sendChallenge",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/sendchallenge"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/skip": {
+  "abstract" : [
+    {
+      "text" : "Enables a user to skip the current step, for example, skipping enrolment in optional authenticators.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "skip"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/skip",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.skip",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/skip"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/unknown": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "unknown"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/unknown",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.unknown",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/unknown"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/unlockAccount": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "unlockAccount"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/unlockAccount",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.unlockAccount",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/unlockaccount"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation/RemediationType/userCode": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "userCode"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation\/RemediationType\/userCode",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Remediation.RemediationType.userCode",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation\/remediationtype\/usercode"
+}
+}
+}
