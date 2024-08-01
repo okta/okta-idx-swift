@@ -1,0 +1,1387 @@
+{
+  "abstract" : [
+    {
+      "text" : "Represents information describing the available authenticators and enrolled authenticators.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:7OktaIdx13AuthenticatorC",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "class"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Authenticator"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "OktaIdx"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Authenticator"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Class",
+    "symbolKind" : "class",
+    "title" : "Authenticator"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "class"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Authenticator"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Instances of this class are used to identify the type of authenticator, or factor, that is associated with a user. These may be associated with form fields (for example, when selecting an authenticator to verify or to enrol in), with a ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " (when challenging an authenticator for a verification code), or with an overall ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " to indicate which authenticators have been enrolled, are being enrolled.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection",
+        "doc:\/\/OktaIdx\/SQ"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Method",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum"
+      ],
+      "title" : "Working with Authenticators"
+    }
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/==(_:_:)"
+      ],
+      "title" : "Operators"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/capabilities",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/displayName",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/duo",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/id",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/key",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/methods",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/numberChallenge",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/otp",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/passwordSettings",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/pollable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/profile",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/recoverable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/resendable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/sendable",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/state-swift.property",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/type"
+      ],
+      "title" : "Instance Properties"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/CapabilityCollection-Implementations",
+        "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Equatable-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/oktaidx\/authenticator"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://OktaIdx/SQ": {
+  "identifier" : "doc:\/\/OktaIdx\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://OktaIdx/documentation/OktaIdx": {
+  "abstract" : [
+    {
+      "text" : "Authenticate users using policy-driven native authentication with the Okta Identity Engine.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "OktaIdx",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator": {
+  "abstract" : [
+    {
+      "text" : "Represents information describing the available authenticators and enrolled authenticators.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Authenticator"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Authenticator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/==(_:_:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "=="
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/==(_:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "==(_:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/==(_:_:)"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/CapabilityCollection-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/CapabilityCollection-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "CapabilityCollection Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/capabilitycollection-implementations"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Collection": {
+  "abstract" : [
+    {
+      "text" : "Container that represents a collection of authenticators, providing conveniences for quickly accessing relevant objects.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Collection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator.Collection",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/collection"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Equatable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Equatable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Equatable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/equatable-implementations"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind": {
+  "abstract" : [
+    {
+      "text" : "The type of authenticator.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Kind"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Kind"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator.Kind",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/kind"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Kind/unknown": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "unknown"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/unknown",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "Authenticator.Kind.unknown",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/kind\/unknown"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/Method": {
+  "abstract" : [
+    {
+      "text" : "The method, or sub-type, of an authenticator.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Method"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Method",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Method"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator.Method",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/method"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/State-swift.enum": {
+  "abstract" : [
+    {
+      "text" : "The state this authenticator is currently in.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "State"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/State-swift.enum",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "State"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Authenticator.State",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/state-swift.enum"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/capabilities": {
+  "abstract" : [
+    {
+      "text" : "Set of objects that describe the capabilities this authenticator may have.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "capabilities"
+    },
+    {
+      "kind" : "text",
+      "text" : ": [any "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx23AuthenticatorCapabilityP",
+      "text" : "AuthenticatorCapability"
+    },
+    {
+      "kind" : "text",
+      "text" : "]"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/capabilities",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "capabilities",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/capabilities"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/displayName": {
+  "abstract" : [
+    {
+      "text" : "The user-visible name to use for this authenticator enrollment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "displayName"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/displayName",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "displayName",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/displayname"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/duo": {
+  "abstract" : [
+    {
+      "text" : "Exposes data assocated with duo authenticator challenge.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "duo"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV3DuoC",
+      "text" : "Duo"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/duo",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "duo",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/duo"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/id": {
+  "abstract" : [
+    {
+      "text" : "Unique identifier for this enrollment",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "id"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/id",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "id",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/id"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/key": {
+  "abstract" : [
+    {
+      "text" : "The key name for the authenticator",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "key"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/key",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "key",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/key"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/methods": {
+  "abstract" : [
+    {
+      "text" : "Describes the various methods this authenticator can perform.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "methods"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC6MethodO",
+      "text" : "Method"
+    },
+    {
+      "kind" : "text",
+      "text" : "]?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/methods",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "methods",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/methods"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/numberChallenge": {
+  "abstract" : [
+    {
+      "text" : "Exposes information related to multiple-choice number challenges.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "numberChallenge"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV15NumberChallengeV",
+      "text" : "NumberChallenge"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/numberChallenge",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "numberChallenge",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/numberchallenge"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/otp": {
+  "abstract" : [
+    {
+      "text" : "Exposes data assocated with one-time-password authenticator enrollment handling.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "otp"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV3OTPV",
+      "text" : "OTP"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/otp",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "otp",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/otp"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/passwordSettings": {
+  "abstract" : [
+    {
+      "text" : "Exposes this authenticator’s password settings, if available.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "passwordSettings"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV16PasswordSettingsV",
+      "text" : "PasswordSettings"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/passwordSettings",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "passwordSettings",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/passwordsettings"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/pollable": {
+  "abstract" : [
+    {
+      "text" : "Exposes the authenticator’s ability to poll for an out-of-band result.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "pollable"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV8PollableC",
+      "text" : "Pollable"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/pollable",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "pollable",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/pollable"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/profile": {
+  "abstract" : [
+    {
+      "text" : "Exposes profile information that may be associated with the user account, or this authenticator.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "profile"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV7ProfileV",
+      "text" : "Profile"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/profile",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "profile",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/profile"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/recoverable": {
+  "abstract" : [
+    {
+      "text" : "Exposes the authenticator’s capability to recover this authenticator.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "recoverable"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV11RecoverableV",
+      "text" : "Recoverable"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/recoverable",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "recoverable",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/recoverable"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/resendable": {
+  "abstract" : [
+    {
+      "text" : "Exposes the authenticator’s capability to resend a code.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "resendable"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV10ResendableV",
+      "text" : "Resendable"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/resendable",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "resendable",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/resendable"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/sendable": {
+  "abstract" : [
+    {
+      "text" : "Exposes the authenticator’s capability to send a code.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sendable"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV",
+      "text" : "Capability"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx10CapabilityV8SendableV",
+      "text" : "Sendable"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/sendable",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "sendable",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/sendable"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/state-swift.property": {
+  "abstract" : [
+    {
+      "text" : "Indicates the state of this authenticator, either being an available authenticator, an enrolled authenticator, authenticating, or enrolling.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "state"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC5StateO",
+      "text" : "State"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/state-swift.property",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "state",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/state-swift.property"
+},
+"doc://OktaIdx/documentation/OktaIdx/Authenticator/type": {
+  "abstract" : [
+    {
+      "text" : "The type of this authenticator, or ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/Kind\/unknown",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " if the type isn’t represented by this enumeration.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "type"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC",
+      "text" : "Authenticator"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7OktaIdx13AuthenticatorC4KindO",
+      "text" : "Kind"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator\/type",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "type",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/authenticator\/type"
+},
+"doc://OktaIdx/documentation/OktaIdx/CapabilityCollection": {
+  "abstract" : [
+    {
+      "text" : "A collection of capabilities that can be associated with some parent object, such as an ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Authenticator",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " or ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "CapabilityCollection"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/CapabilityCollection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CapabilityCollection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CapabilityCollection",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/capabilitycollection"
+},
+"doc://OktaIdx/documentation/OktaIdx/Remediation": {
+  "abstract" : [
+    {
+      "text" : "Describes choices the user can make to proceed through the authentication workflow.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Remediation",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Remediation"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Remediation",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/remediation"
+},
+"doc://OktaIdx/documentation/OktaIdx/Response": {
+  "abstract" : [
+    {
+      "text" : "Describes the response from an Okta Identity Engine workflow stage.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "identifier" : "doc:\/\/OktaIdx\/documentation\/OktaIdx\/Response",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Response"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Response",
+  "type" : "topic",
+  "url" : "\/documentation\/oktaidx\/response"
+}
+}
+}
