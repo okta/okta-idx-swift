@@ -1,4 +1,4 @@
-name: Lint code
+name: Canary Tests
 
 on:
   pull_request:
@@ -6,8 +6,6 @@ on:
       - '.github/workflows/lint.yml'
       - '.swiftlint.yml'
       - 'Sources/**/*.swift'
-    branches: 
-      - master
   push:
     paths:
       - '.github/workflows/lint.yml'
@@ -18,7 +16,8 @@ on:
 
 jobs:
   SwiftLint:
-    runs-on: macos-latest-large
+	name: Lint Sources
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
       - name: Lint code using SwiftLint
