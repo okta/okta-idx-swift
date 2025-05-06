@@ -64,23 +64,6 @@ jobs:
       run: pod lib lint --allow-warnings OktaIdx.podspec
 
   XcodeBuild:
-    name: Xcode Unit Tests
-    runs-on: macos-12
-    timeout-minutes: 10
-    steps:
-    - uses: actions/checkout@master
-    - name: Test OktaIdx
-      run: |
-        set -o pipefail
-        env NSUnbufferedIO=YES xcodebuild test \
-          -derivedDataPath ../Build/DerivedData \
-          -clonedSourcePackagesDirPath ../Build/ClonedSources \
-          -workspace OktaIdx.xcworkspace \
-          -scheme OktaIdx \
-          -sdk iphonesimulator \
-          -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
-
-  XcodeBuild:
     name: Xcode ${{ matrix.xcode_version }} on ${{ matrix.destination }}
     if: ${{ !(github.event.pull_request.draft || false) }}
     strategy:
