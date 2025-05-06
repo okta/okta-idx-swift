@@ -1,0 +1,132 @@
+name: Unit Tests
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tests.yml'
+      - 'Package.swift'
+      - 'Sources/**/*.swift'
+      - 'Samples/**/*.swift'
+      - 'Tests/**/*.swift'
+    branches:
+      - master
+  pull_request:
+    paths:
+      - '.github/workflows/tests.yml'
+      - 'Package.swift'
+      - 'Sources/**/*.swift'
+      - 'Samples/**/*.swift'
+      - 'Tests/**/*.swift'
+
+env:
+  NSUnbufferedIO: YES
+
+jobs:
+  SwiftBuild:
+    name: Swift ${{ matrix.swift_version }} Unit Tests on ${{ matrix.os }}
+    if: ${{ !(github.event.pull_request.draft || false) }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: 
+          - macos-latest
+        swift_version: ["5.10"]
+    timeout-minutes: 10
+    steps:
+    - uses: SwiftyLab/setup-swift@latest
+      with:
+        swift-version: ${{ matrix.swift_version }}
+    - name: Get swift version
+      run: swift --version
+    - name: Get Xcode toolchain version
+      if: runner.os == 'macOS'
+      run: xcrun --toolchain ${{ env.TOOLCHAINS }} swift --version
+    - uses: actions/checkout@master
+    - name: Build
+      run: set -o pipefail && swift build --build-tests
+    - name: Test
+      run: set -o pipefail && swift test --parallel
+
+  Cocoapods:
+    name: CocoaPods Build
+    if: ${{ !(github.event.pull_request.draft || false) }}
+    runs-on: macos-latest
+    timeout-minutes: 10
+    needs:
+      - SwiftBuild
+    steps:
+    - uses: actions/checkout@master
+    - name: Lint CocoaPods
+      run: pod lib lint --allow-warnings OktaIdx.podspec
+
+  XcodeBuild:
+    name: Xcode Unit Tests
+    runs-on: macos-12
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@master
+    - name: Test OktaIdx
+      run: |
+        set -o pipefail
+        env NSUnbufferedIO=YES xcodebuild test \
+          -derivedDataPath ../Build/DerivedData \
+          -clonedSourcePackagesDirPath ../Build/ClonedSources \
+          -workspace OktaIdx.xcworkspace \
+          -scheme OktaIdx \
+          -sdk iphonesimulator \
+          -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
+
+  XcodeBuild:
+    name: Xcode ${{ matrix.xcode_version }} on ${{ matrix.destination }}
+    if: ${{ !(github.event.pull_request.draft || false) }}
+    strategy:
+      matrix:
+        include:
+        - destination: "platform=iOS Simulator,OS=16.4,name=iPhone 14 Pro Max"
+          xcode_version: "15.4"
+          os: macos-14
+        - destination: "platform=iOS Simulator,OS=18.2,name=iPhone 16 Pro Max"
+          xcode_version: "16.2"
+          os: macos-15
+        - destination: "platform=macOS,name=My Mac"
+          xcode_version: "16.2"
+          os: macos-15
+    runs-on: ${{ matrix.os }}
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app/Contents/Developer
+      DESTINATION: "${{ matrix.destination }}"
+      LOG_NAME: "${{github.job}}-${{ matrix.xcode_version }}-${{ matrix.destination }}"
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup test environment
+      run: xcrun simctl shutdown all
+    - name: Setup log environment
+      run: mkdir -p .build/ci-logs
+    - name: Build OktaIdx
+      run: |
+        set -o pipefail && xcrun xcodebuild build-for-testing \
+          -derivedDataPath .build/DerivedData \
+          -clonedSourcePackagesDirPath .build/ClonedSources \
+          -scheme OktaIdx \
+          -destination "$DESTINATION" 2>&1 | tee -a ".build/ci-logs/${LOG_NAME}.log" | xcbeautify --renderer github-actions
+    - name: Test OktaIdx
+      run: |
+        set -o pipefail && xcrun xcodebuild test-without-building \
+          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO \
+          -derivedDataPath .build/DerivedData \
+          -clonedSourcePackagesDirPath .build/ClonedSources \
+          -scheme OktaIdx \
+          -destination "$DESTINATION" 2>&1 | tee -a ".build/ci-logs/${LOG_NAME}.log" | xcbeautify --renderer github-actions
+    - name: Upload Logs
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: Logs
+        path: |
+          .build/ci-logs/**
+          .build/DerivedData/Logs/
