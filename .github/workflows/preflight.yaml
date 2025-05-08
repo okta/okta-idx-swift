@@ -69,9 +69,15 @@ jobs:
   SwiftLint:
     name: Lint Sources
     needs: DetectChanges
-    if: ${{ needs.DetectChanges.outputs.has_source_changes == 'true' }}
+    #if: ${{ needs.DetectChanges.outputs.has_source_changes == 'true' }}
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Debug inputs
+        run: |
+          echo "has_source_changes=${{ needs.DetectChanges.outputs.has_source_changes }}"
+          echo "outputs=${{ needs.DetectChanges.outputs }}"
+
       - name: Lint code using SwiftLint
         run: swiftlint lint --reporter github-actions-logging Sources
