@@ -22,7 +22,7 @@ runs:
             echo "developer_dir=${developer_dir}" >> $GITHUB_OUTPUT
             exit 0
           fi
-		done
+        done
         echo "developer_dir=" >> $GITHUB_OUTPUT
 
     - uses: SwiftyLab/setup-swift@latest
