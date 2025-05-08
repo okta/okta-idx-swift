@@ -16,15 +16,17 @@ jobs:
     if: ${{ !(github.event.pull_request.draft || false) }}
     runs-on: ubuntu-latest
     outputs:
-      has_source_changes: ${{ steps.check.outputs.has_source_changes }}
-      has_documentation_changes: ${{ steps.check.outputs.has_documentation_changes }}
-      is_master_or_tagged: ${{ steps.check_master_or_tagged.outputs.is_master_or_tagged }}
+      is_master_or_tagged: ${{ steps.check_master.outputs.is_master_or_tagged }}
+      changed_files: ${{ steps.list_changed_files.outputs.changed_files }}
+      has_source_changes: ${{ steps.check_source_changes.outputs.has_source_changes }}
+      has_documentation_changes: ${{ steps.check_documentation_changes.outputs.has_documentation_changes }}
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
       - name: Check for Merge into Master or Release Tag
+        id: check_master
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/master" || "${{ github.ref }}" == refs/tags/* ]]; then
             echo "Merging into master or a tag"
@@ -34,6 +36,7 @@ jobs:
           fi
 
       - name: List Changed Files
+        id: list_changed_files
         run: |
           if [[ -z "${{ github.event.before }}" ]] || ! git cat-file -e ${{ github.event.before }} 2>/dev/null; then
             echo "No valid 'before' commit found. Listing all changes."
@@ -41,10 +44,15 @@ jobs:
           else
             git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changes
           fi
-          echo "Changed files:"
-          cat changes
+
+          {
+            echo 'changed_files<<EOF'
+            cat changes
+            echo EOF
+          } >> $GITHUB_OUTPUT
 
       - name: Check for Unit Test Changes
+        id: check_source_changes
         run: |
           if grep -qE '^(Sources/|Tests/|Package|.github/workflows/(preflight|tests).yaml)' changes; then
             echo "Has source changes"
@@ -54,6 +62,7 @@ jobs:
           fi
 
       - name: Check for Documentation Changes
+        id: check_documentation_changes
         run: |
           if grep -qE '^(Sources/.*\.(md|swift)|.github/workflows/documentation.yaml)' changes; then
             echo "Has documentation changes"
