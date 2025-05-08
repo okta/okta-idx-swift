@@ -1,0 +1,61 @@
+name: Preflight
+
+on:
+  - pull_request
+  - push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  DetectChanges:
+    name: Detect Relevant Changes
+    if: ${{ !(github.event.pull_request.draft || false) }}
+    runs-on: ubuntu-latest
+    outputs:
+      has_source_changes: ${{ steps.check.outputs.has_source_changes }}
+      has_documentation_changes: ${{ steps.check.outputs.has_documentation_changes }}
+      is_master_or_tagged: ${{ steps.check_master_or_tagged.outputs.is_master_or_tagged }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check for Merge into Master or Release Tag
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/master" || "${{ github.ref }}" == refs/tags/* ]]; then
+            echo "::set-output name=is_master_or_tagged::true"
+          else
+            echo "::set-output name=is_master_or_tagged::false"
+          fi
+
+      - name: List Changed Files
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changes
+
+      - name: Check for Unit Test Changes
+        run: |
+          if grep -qE '^(Sources/|Tests/|Package)' changes; then
+            echo "::set-output name=has_source_changes::true"
+          else
+            echo "::set-output name=has_source_changes::false"
+          fi
+
+      - name: Check for Documentation Changes
+        run: |
+          if grep -qE '^Sources/.*\.(md|swift)' changes; then
+            echo "::set-output name=has_documentation_changes::true"
+          else
+            echo "::set-output name=has_documentation_changes::false"
+          fi
+        shell: bash
+
+  SwiftLint:
+    name: Lint Sources
+    needs: DetectChanges
+    if: ${{ needs.DetectChanges.outputs.has_source_changes == 'true' }}
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Lint code using SwiftLint
+        run: swiftlint lint --reporter github-actions-logging Sources

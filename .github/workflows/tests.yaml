@@ -1,26 +1,13 @@
 name: Unit Tests
 
+on:
+  workflow_run:
+    workflows: [Preflight]
+    types: [completed]
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
-on:
-  push:
-    paths:
-      - '.github/workflows/tests.yml'
-      - 'Package.swift'
-      - 'Sources/**/*.swift'
-      - 'Samples/**/*.swift'
-      - 'Tests/**/*.swift'
-    branches:
-      - master
-  pull_request:
-    paths:
-      - '.github/workflows/tests.yml'
-      - 'Package.swift'
-      - 'Sources/**/*.swift'
-      - 'Samples/**/*.swift'
-      - 'Tests/**/*.swift'
 
 env:
   NSUnbufferedIO: YES
@@ -28,7 +15,7 @@ env:
 jobs:
   SwiftBuild:
     name: Swift ${{ matrix.swift_version }} Unit Tests on ${{ matrix.os }}
-    if: ${{ !(github.event.pull_request.draft || false) }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.outputs.has_source_changes == 'true' }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -37,10 +24,10 @@ jobs:
         swift_version: ["5.10"]
     timeout-minutes: 10
     steps:
+    - uses: actions/checkout@master
     - uses: ./.github/actions/setup-swift
       with:
         swift-version: "${{ matrix.swift_version }}"
-    - uses: actions/checkout@master
     - name: Build
       run: set -o pipefail && swift build --build-tests
     - name: Test
@@ -48,7 +35,7 @@ jobs:
 
   Cocoapods:
     name: CocoaPods Build
-    if: ${{ !(github.event.pull_request.draft || false) }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.outputs.has_source_changes == 'true' }}
     runs-on: macos-latest
     timeout-minutes: 10
     needs:
@@ -60,7 +47,7 @@ jobs:
 
   XcodeBuild:
     name: Xcode ${{ matrix.xcode_version }} on ${{ matrix.destination }}
-    if: ${{ !(github.event.pull_request.draft || false) }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.outputs.has_source_changes == 'true' }}
     strategy:
       matrix:
         include:
