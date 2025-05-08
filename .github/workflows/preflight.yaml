@@ -21,6 +21,9 @@ jobs:
       is_master_or_tagged: ${{ steps.check_master_or_tagged.outputs.is_master_or_tagged }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: Check for Merge into Master or Release Tag
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/master" || "${{ github.ref }}" == refs/tags/* ]]; then
@@ -31,7 +34,12 @@ jobs:
 
       - name: List Changed Files
         run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changes
+          if [[ -z "${{ github.event.before }}" ]] || ! git cat-file -e ${{ github.event.before }} 2>/dev/null; then
+            echo "No valid 'before' commit found. Listing all changes."
+            git diff --name-only HEAD > changes
+          else
+            git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changes
+          fi
 
       - name: Check for Unit Test Changes
         run: |
