@@ -27,6 +27,7 @@ jobs:
       - name: Check for Merge into Master or Release Tag
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/master" || "${{ github.ref }}" == refs/tags/* ]]; then
+            echo "Merging into master or a tag"
             echo "is_master_or_tagged=true" >> $GITHUB_OUTPUT
           else
             echo "is_master_or_tagged=false" >> $GITHUB_OUTPUT
@@ -40,10 +41,13 @@ jobs:
           else
             git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changes
           fi
+          echo "Changed files:"
+          cat changes
 
       - name: Check for Unit Test Changes
         run: |
           if grep -qE '^(Sources/|Tests/|Package|.github/workflows/(preflight|tests).yaml)' changes; then
+            echo "Has source changes"
             echo "has_source_changes=true" >> $GITHUB_OUTPUT
           else
             echo "has_source_changes=false" >> $GITHUB_OUTPUT
@@ -52,11 +56,15 @@ jobs:
       - name: Check for Documentation Changes
         run: |
           if grep -qE '^(Sources/.*\.(md|swift)|.github/workflows/documentation.yaml)' changes; then
+            echo "Has documentation changes"
             echo "has_documentation_changes=true" >> $GITHUB_OUTPUT
           else
             echo "has_documentation_changes=false" >> $GITHUB_OUTPUT
           fi
-        shell: bash
+
+      - name: Debug outputs
+        run: |
+          cat $GITHUB_OUTPUT
 
   SwiftLint:
     name: Lint Sources
