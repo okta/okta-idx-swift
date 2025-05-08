@@ -13,6 +13,12 @@ env:
   NSUnbufferedIO: YES
 
 jobs:
+  VerifyUpstream:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Debug github event
+      run: echo "${{ toJson(github.event) }}"
+
   SwiftBuild:
     name: Swift ${{ matrix.swift_version }} Unit Tests on ${{ matrix.os }}
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.outputs.has_source_changes == 'true' }}

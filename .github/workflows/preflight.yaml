@@ -82,7 +82,11 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install SwiftLint
-        run: brew install swiftlint
       - name: Lint code using SwiftLint
-        run: swiftlint lint --reporter github-actions-logging Sources
+        run: |
+          if ! which -s swiftlint; then
+            echo "Installing SwiftLint..."
+            brew install swiftlint
+          fi
+
+          swiftlint lint --reporter github-actions-logging Sources
