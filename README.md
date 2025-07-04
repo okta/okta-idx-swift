@@ -1,7 +1,33 @@
-[<img src="https://www.okta.com/sites/default/files/Dev_Logo-01_Large-thumbnail.png" align="right" width="256px"/>](https://devforum.okta.com/)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Support](https://img.shields.io/badge/support-Developer%20Forum-blue.svg)][devforum]
-[![API Reference](https://img.shields.io/badge/docs-reference-lightgrey.svg)][swiftdocs]
+> [!WARNING]
+> # :stop_sign: This Repository is Deprecated :stop_sign:
+> 
+> **This repository (`okta-idx-swift`) is no longer actively maintained.**
+> 
+> The source code and functionality from this project have been merged into the `okta-mobile-swift` repository, which is designed as a monorepo to represent the unified Okta Client SDK for Swift.
+> 
+> ---
+> 
+> ## New Location
+> 
+> All future development, issues, and pull requests should be directed to the new monorepo. The code formerly in this repository can now be found here:
+> 
+> :arrow_right: **[https://github.com/okta/okta-mobile-swift](https://github.com/okta/okta-mobile-swift)**
+> 
+> The `OktaIdx` library target is now named `OktaIdxAuth` to better align with the naming conventions used within the other authentication libraries present in the Okta Client SDK for Swift.
+> 
+> ---
+> 
+> ## Instructions for Developers
+> 
+> ### For New Users
+> 
+> Please refer to the **[okta-mobile-swift](https://github.com/okta/okta-mobile-swift)** repository to get the latest SDK. The functionality is available through the main `OktaClient` Swift Package.
+> 
+> ### For Existing Users
+> 
+> If your project currently depends on this standalone `okta-idx-swift` repository, we strongly recommend migrating to the main `OktaClient` package from the [new repository](https://github.com/okta/okta-mobile-swift). This will ensure you receive all future updates, security patches, and features. Please consult the README and migration guides in the new repository for integration details.
+
+---
 
 # Okta IDX Swift SDK
 
