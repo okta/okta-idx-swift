@@ -4,8 +4,6 @@
 
 The source code and functionality from this project have been merged into the `okta-mobile-swift` repository, which is designed as a monorepo to represent the unified Okta Client SDK for Swift.
 
----
-
 ## New Location
 
 All future development, issues, and pull requests should be directed to the new monorepo. The code formerly in this repository can now be found here:
@@ -13,8 +11,6 @@ All future development, issues, and pull requests should be directed to the new 
 :arrow_right: **[https://github.com/okta/okta-mobile-swift](https://github.com/okta/okta-mobile-swift)**
 
 The [`OktaIdx` library target is now named `OktaIdxAuth`](https://github.com/okta/okta-mobile-swift/blob/master/MIGRATION.md#oktaidx-renamed-oktaidxauth-and-moved-to-the-monorepo) to better align with the naming conventions used within the other authentication libraries present in the Okta Client SDK for Swift.
-
----
 
 ## Instructions for Developers
 
