@@ -1,10 +1,11 @@
 Pod::Spec.new do |spec|
   spec.name             = 'OktaIdx'
-  spec.version          = '3.2.4'
-  spec.summary          = 'SDK to easily integrate the Okta Identity Engine'
-  spec.description      = <<-DESC
-Integrate your native app with Okta using the Okta Identity Engine library.
-                       DESC
+  spec.version          = '3.2.5'
+  spec.summary          = '[DEPRECATED] Please use the OktaIdxAuth pod instead.'
+  spec.description      = 'This pod has been replaced by OktaIdxAuth.'
+  spec.deprecated = true
+  spec.deprecated_in_favor_of = 'OktaIdxAuth'
+
   spec.platforms = {
     :ios     => "10.0",
     :tvos    => "10.0",
