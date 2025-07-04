@@ -28,7 +28,7 @@ If your project currently depends on this standalone `okta-idx-swift` repository
 
 > :grey_exclamation: The use of this SDK requires usage of the Okta Identity Engine. This functionality is in general availability but is being gradually rolled out to customers. If you want to request to gain access to the Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to oie@okta.com for more information.
 
-> This library is currently GA. See [release status](#release-status) for more information.
+> This library is currently deprecated, and has been migrated to [`okta-mobile-swift`](https://github.com/okta/okta-mobile-swift). See [release status](#release-status) for more information.
 
 This library is built for projects written in Swift to communicate with Okta as an OAuth 2.0 + OpenID Connect provider. It works with [Okta's Identity Engine](https://developer.okta.com/docs/guides/oie-intro/) to authenticate and register users.
 
@@ -50,9 +50,9 @@ This library uses semantic versioning and follows Okta's [Library Version Policy
 
 | Version | Status                             |
 | ------- | ---------------------------------- |
-| 1.0.0   |                                    |
-| 2.0.1   |                                    |
-| 3.2.4   | ✔️ Stable                           |
+| 1.0.0   | :x: Retired                        |
+| 2.0.1   | :x: Retired                        |
+| 3.2.4   | :x: Retired                        |
 
 The latest release can always be found on the [releases page][github-releases].
 
