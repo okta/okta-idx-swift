@@ -46,7 +46,8 @@ To see this library working in a sample, check out our [iOS Sample Application](
 
 This library uses semantic versioning and follows Okta's [Library Version Policy][okta-library-versioning].
 
-✔️ The current stable major version series is: 3.x
+> [!CAUTION]
+> This library is currently deprecated, and has been migrated to [`okta-mobile-swift`](https://github.com/okta/okta-mobile-swift).
 
 | Version | Status                             |
 | ------- | ---------------------------------- |
