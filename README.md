@@ -53,7 +53,7 @@ This library uses semantic versioning and follows Okta's [Library Version Policy
 | ------- | ---------------------------------- |
 | 1.0.0   | :x: Retired                        |
 | 2.0.1   | :x: Retired                        |
-| 3.2.4   | :x: Retired                        |
+| 3.2.5   | :x: Retired                        |
 
 The latest release can always be found on the [releases page][github-releases].
 
